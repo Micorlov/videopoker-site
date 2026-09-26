@@ -11,9 +11,25 @@ site/               everything that gets published
   terms.html
   style.css
   CNAME             the custom domain
+  robots.txt        points crawlers at the sitemap
+  sitemap.xml       all seven URLs
   img/              icon, OG card, screenshots
+  blog/
+    index.html      post listing
+    *.html          one file per post
 .github/workflows/deploy.yml
 ```
+
+## SEO
+
+Each page carries a canonical URL, a unique title and description, and
+Open Graph and Twitter card tags. The home page has `MobileApplication` and
+`FAQPage` JSON-LD; each post has `BlogPosting` plus a `BreadcrumbList`; the
+blog index has `Blog`. The legal pages are `noindex, follow`.
+
+Adding a post means: copy an existing post file, edit the content and its
+JSON-LD block, then add it to `blog/index.html`, the "How these games work"
+section on the home page, and `sitemap.xml`.
 
 Every push to `main` that touches `site/**` redeploys. You can also run the
 workflow by hand from the Actions tab.
