@@ -2,7 +2,7 @@
 
 The marketing site for **Video Poker: Jacks or Better** (`com.micorlov.videopoker`),
 published to GitHub Pages by GitHub Actions and served at
-<https://videopoker.michaelorlov.com>.
+<https://michaelorlov.com>.
 
 ```
 site/               everything that gets published
@@ -18,23 +18,20 @@ site/               everything that gets published
 Every push to `main` that touches `site/**` redeploys. You can also run the
 workflow by hand from the Actions tab.
 
-## One-time setup
+## How it is wired up
 
-1. **Create the repository** on GitHub as `videopoker-site` (public — Pages needs
-   a paid plan for private repos), then push this folder to `main`.
-2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
-3. **Settings → Pages → Custom domain:** `videopoker.michaelorlov.com`, then tick
-   *Enforce HTTPS* once the certificate is issued (a few minutes).
-4. **DNS at GoDaddy** — add one record to `michaelorlov.com`:
+Already done, recorded here so it can be rebuilt:
 
-   | Type  | Name       | Value                  | TTL  |
-   |-------|------------|------------------------|------|
-   | CNAME | videopoker | `micorlov.github.io.`  | 600  |
+- **Settings → Pages → Source:** GitHub Actions.
+- **Settings → Pages → Custom domain:** `michaelorlov.com`.
+- **DNS at GoDaddy:** four A records on `@` pointing at GitHub Pages
+  (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`), and `www` as a
+  CNAME to `micorlov.github.io.`. The Microsoft 365 mail records (MX,
+  autodiscover, SPF) and the `chat` subdomain are untouched.
 
-   To use the apex `michaelorlov.com` instead, change `site/CNAME` to
-   `michaelorlov.com` and add four A records to `185.199.108.153`,
-   `185.199.109.153`, `185.199.110.153` and `185.199.111.153` instead of the
-   CNAME above.
+`site/CNAME` keeps the domain set on redeploys. Note that with an
+Actions-based deploy the CNAME file alone does not configure Pages — the
+custom domain also has to be set in Settings, which it is.
 
 ## Editing
 
