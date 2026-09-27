@@ -25,27 +25,27 @@ and let him refill it.
 
 ## Queued
 
-1. Bonus Poker and Double Bonus — what the bigger quads cost you elsewhere
-2. What variance actually means at a video poker machine
-3. Why the royal flush is worth two percentage points of the return
-4. Five Play: what multi-hand does to your bankroll, and what it doesn't
-5. Inside versus outside straight draws, and why one is worth half the other
-6. Why a kicker never helps
-7. Machines that pay on kings instead of jacks
-8. How video poker differs from poker at a table
-9. Bankroll and session length: how far a fixed stack actually goes
-10. Full-pay machines and why they became hard to find
-11. Reading a Deuces Wild paytable
-12. Common video poker myths, and what the maths says instead
-13. How shuffling works in a digital card game
-14. Progressive jackpots and the point where a machine turns positive
-15. What the hold percentage on a machine does and does not tell you
-16. Why practising offline beats practising for money
-17. Three of a kind: the hand that behaves differently in every variant
-18. The order to learn video poker variants in
+1. What variance actually means at a video poker machine
+2. Why the royal flush is worth two percentage points of the return
+3. Five Play: what multi-hand does to your bankroll, and what it doesn't
+4. Inside versus outside straight draws, and why one is worth half the other
+5. Why a kicker never helps
+6. Machines that pay on kings instead of jacks
+7. How video poker differs from poker at a table
+8. Bankroll and session length: how far a fixed stack actually goes
+9. Full-pay machines and why they became hard to find
+10. Reading a Deuces Wild paytable
+11. Common video poker myths, and what the maths says instead
+12. How shuffling works in a digital card game
+13. Progressive jackpots and the point where a machine turns positive
+14. What the hold percentage on a machine does and does not tell you
+15. Why practising offline beats practising for money
+16. Three of a kind: the hand that behaves differently in every variant
+17. The order to learn video poker variants in
 
 ## Published
 
+- 2026-09-27 — Bonus Poker and Double Bonus: what the bigger quads cost you — `bonus-poker-and-double-bonus`
 - 2026-09-26 — How to read a video poker paytable — `reading-a-video-poker-paytable`
 - 2026-09-26 — Jacks or Better strategy, ranked — `jacks-or-better-strategy`
 - 2026-09-26 — Why Deuces Wild breaks your Jacks or Better instincts — `deuces-wild-strategy`
