@@ -25,26 +25,26 @@ and let him refill it.
 
 ## Queued
 
-1. What variance actually means at a video poker machine
-2. Why the royal flush is worth two percentage points of the return
-3. Five Play: what multi-hand does to your bankroll, and what it doesn't
-4. Inside versus outside straight draws, and why one is worth half the other
-5. Why a kicker never helps
-6. Machines that pay on kings instead of jacks
-7. How video poker differs from poker at a table
-8. Bankroll and session length: how far a fixed stack actually goes
-9. Full-pay machines and why they became hard to find
-10. Reading a Deuces Wild paytable
-11. Common video poker myths, and what the maths says instead
-12. How shuffling works in a digital card game
-13. Progressive jackpots and the point where a machine turns positive
-14. What the hold percentage on a machine does and does not tell you
-15. Why practising offline beats practising for money
-16. Three of a kind: the hand that behaves differently in every variant
-17. The order to learn video poker variants in
+1. Why the royal flush is worth two percentage points of the return
+2. Five Play: what multi-hand does to your bankroll, and what it doesn't
+3. Inside versus outside straight draws, and why one is worth half the other
+4. Why a kicker never helps
+5. Machines that pay on kings instead of jacks
+6. How video poker differs from poker at a table
+7. Bankroll and session length: how far a fixed stack actually goes
+8. Full-pay machines and why they became hard to find
+9. Reading a Deuces Wild paytable
+10. Common video poker myths, and what the maths says instead
+11. How shuffling works in a digital card game
+12. Progressive jackpots and the point where a machine turns positive
+13. What the hold percentage on a machine does and does not tell you
+14. Why practising offline beats practising for money
+15. Three of a kind: the hand that behaves differently in every variant
+16. The order to learn video poker variants in
 
 ## Published
 
+- 2026-09-28 — What variance actually means at a video poker machine — `video-poker-variance`
 - 2026-09-27 — Bonus Poker and Double Bonus: what the bigger quads cost you — `bonus-poker-and-double-bonus`
 - 2026-09-26 — How to read a video poker paytable — `reading-a-video-poker-paytable`
 - 2026-09-26 — Jacks or Better strategy, ranked — `jacks-or-better-strategy`
