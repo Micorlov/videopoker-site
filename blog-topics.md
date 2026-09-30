@@ -25,24 +25,24 @@ and let him refill it.
 
 ## Queued
 
-1. Five Play: what multi-hand does to your bankroll, and what it doesn't
-2. Inside versus outside straight draws, and why one is worth half the other
-3. Why a kicker never helps
-4. Machines that pay on kings instead of jacks
-5. How video poker differs from poker at a table
-6. Bankroll and session length: how far a fixed stack actually goes
-7. Full-pay machines and why they became hard to find
-8. Reading a Deuces Wild paytable
-9. Common video poker myths, and what the maths says instead
-10. How shuffling works in a digital card game
-11. Progressive jackpots and the point where a machine turns positive
-12. What the hold percentage on a machine does and does not tell you
-13. Why practising offline beats practising for money
-14. Three of a kind: the hand that behaves differently in every variant
-15. The order to learn video poker variants in
+1. Inside versus outside straight draws, and why one is worth half the other
+2. Why a kicker never helps
+3. Machines that pay on kings instead of jacks
+4. How video poker differs from poker at a table
+5. Bankroll and session length: how far a fixed stack actually goes
+6. Full-pay machines and why they became hard to find
+7. Reading a Deuces Wild paytable
+8. Common video poker myths, and what the maths says instead
+9. How shuffling works in a digital card game
+10. Progressive jackpots and the point where a machine turns positive
+11. What the hold percentage on a machine does and does not tell you
+12. Why practising offline beats practising for money
+13. Three of a kind: the hand that behaves differently in every variant
+14. The order to learn video poker variants in
 
 ## Published
 
+- 2026-09-30 — Five Play: what multi-hand does to your bankroll, and what it doesn't — `five-play-multi-hand-bankroll`
 - 2026-09-29 — Why the royal flush is worth two percentage points of the return — `royal-flush-share-of-the-return`
 - 2026-09-28 — What variance actually means at a video poker machine — `video-poker-variance`
 - 2026-09-27 — Bonus Poker and Double Bonus: what the bigger quads cost you — `bonus-poker-and-double-bonus`
