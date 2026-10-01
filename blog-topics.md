@@ -25,23 +25,23 @@ and let him refill it.
 
 ## Queued
 
-1. Inside versus outside straight draws, and why one is worth half the other
-2. Why a kicker never helps
-3. Machines that pay on kings instead of jacks
-4. How video poker differs from poker at a table
-5. Bankroll and session length: how far a fixed stack actually goes
-6. Full-pay machines and why they became hard to find
-7. Reading a Deuces Wild paytable
-8. Common video poker myths, and what the maths says instead
-9. How shuffling works in a digital card game
-10. Progressive jackpots and the point where a machine turns positive
-11. What the hold percentage on a machine does and does not tell you
-12. Why practising offline beats practising for money
-13. Three of a kind: the hand that behaves differently in every variant
-14. The order to learn video poker variants in
+1. Why a kicker never helps
+2. Machines that pay on kings instead of jacks
+3. How video poker differs from poker at a table
+4. Bankroll and session length: how far a fixed stack actually goes
+5. Full-pay machines and why they became hard to find
+6. Reading a Deuces Wild paytable
+7. Common video poker myths, and what the maths says instead
+8. How shuffling works in a digital card game
+9. Progressive jackpots and the point where a machine turns positive
+10. What the hold percentage on a machine does and does not tell you
+11. Why practising offline beats practising for money
+12. Three of a kind: the hand that behaves differently in every variant
+13. The order to learn video poker variants in
 
 ## Published
 
+- 2026-10-01 — Why an inside straight draw is worth exactly half an outside one — `inside-vs-outside-straight-draws`
 - 2026-09-30 — Five Play: what multi-hand does to your bankroll, and what it doesn't — `five-play-multi-hand-bankroll`
 - 2026-09-29 — Why the royal flush is worth two percentage points of the return — `royal-flush-share-of-the-return`
 - 2026-09-28 — What variance actually means at a video poker machine — `video-poker-variance`
