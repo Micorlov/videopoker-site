@@ -25,20 +25,20 @@ and let him refill it.
 
 ## Queued
 
-1. How video poker differs from poker at a table
-2. Bankroll and session length: how far a fixed stack actually goes
-3. Full-pay machines and why they became hard to find
-4. Reading a Deuces Wild paytable
-5. Common video poker myths, and what the maths says instead
-6. How shuffling works in a digital card game
-7. Progressive jackpots and the point where a machine turns positive
-8. What the hold percentage on a machine does and does not tell you
-9. Why practising offline beats practising for money
-10. Three of a kind: the hand that behaves differently in every variant
-11. The order to learn video poker variants in
+1. Bankroll and session length: how far a fixed stack actually goes
+2. Full-pay machines and why they became hard to find
+3. Reading a Deuces Wild paytable
+4. Common video poker myths, and what the maths says instead
+5. How shuffling works in a digital card game
+6. Progressive jackpots and the point where a machine turns positive
+7. What the hold percentage on a machine does and does not tell you
+8. Why practising offline beats practising for money
+9. Three of a kind: the hand that behaves differently in every variant
+10. The order to learn video poker variants in
 
 ## Published
 
+- 2026-10-04 — How video poker differs from poker at a table — `video-poker-vs-table-poker`
 - 2026-10-03 — Machines that pay on kings instead of jacks — `kings-instead-of-jacks`
 - 2026-10-02 — Why a kicker never helps — `why-a-kicker-never-helps`
 - 2026-10-01 — Why an inside straight draw is worth exactly half an outside one — `inside-vs-outside-straight-draws`
