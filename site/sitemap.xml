@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://michaelorlov.com/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://michaelorlov.com/blog/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -87,6 +87,12 @@
   <url>
     <loc>https://michaelorlov.com/blog/video-poker-vs-table-poker.html</loc>
     <lastmod>2026-10-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://michaelorlov.com/blog/bankroll-and-session-length.html</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

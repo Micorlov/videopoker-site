@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KCX8M6VCW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3KCX8M6VCW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bankroll and session length: how far a fixed stack actually goes — Orlov Games</title>
+<meta name="description" content="The house edge says a 1,000-coin stack covers 43,800 hands. Half of real sessions at that stack are over inside 6,540. Session length is set by the ratio of stack to bet, and by nothing else.">
+<link rel="canonical" href="https://michaelorlov.com/blog/bankroll-and-session-length.html">
+<meta property="og:title" content="Bankroll and session length: how far a fixed stack actually goes">
+<meta property="og:description" content="The house edge says a 1,000-coin stack covers 43,800 hands. Half of real sessions at that stack are over inside 6,540. Session length is set by the ratio of stack to bet, and by nothing else.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://michaelorlov.com/blog/bankroll-and-session-length.html">
+<meta property="og:image" content="https://michaelorlov.com/img/og-card.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bankroll and session length: how far a fixed stack actually goes">
+<meta name="twitter:description" content="The house edge says a 1,000-coin stack covers 43,800 hands. Half of real sessions at that stack are over inside 6,540. Session length is set by the ratio of stack to bet, and by nothing else.">
+<meta name="twitter:image" content="https://michaelorlov.com/img/og-card.png">
+<meta name="theme-color" content="#07170F">
+<link rel="icon" href="../img/icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bankroll and session length: how far a fixed stack actually goes",
+  "description": "The house edge says a 1,000-coin stack covers 43,800 hands. Half of real sessions at that stack are over inside 6,540. Session length is set by the ratio of stack to bet, and by nothing else.",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {"@type": "Person", "name": "Michael Orlov"},
+  "publisher": {"@type": "Organization", "name": "Orlov Games", "logo": {"@type": "ImageObject", "url": "https://michaelorlov.com/img/icon.png"}},
+  "image": "https://michaelorlov.com/img/og-card.png",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://michaelorlov.com/blog/bankroll-and-session-length.html"},
+  "isPartOf": {"@type": "Blog", "@id": "https://michaelorlov.com/blog/", "name": "Orlov Games blog"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://michaelorlov.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://michaelorlov.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Bankroll and session length: how far a fixed stack actually goes"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../"><img src="../img/icon.png" alt="" width="28" height="28">VIDEO POKER <span>/ JACKS OR BETTER</span></a>
+    <a class="play small" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><span class="long">Get it on</span> Google Play</a>
+  </div>
+</header>
+
+<main class="post wrap">
+  <div class="post-head">
+    <p class="kicker"><a href="../blog/">Blog</a> · <time datetime="2026-10-05">5 October 2026</time></p>
+    <h1>Bankroll and session length: how far a fixed stack actually goes</h1>
+    <p class="standfirst">The house edge gives an answer to this question, and the answer is wrong by a factor of about seven. How long a stack lasts is decided by the ratio between the stack and the bet, and almost nothing else.</p>
+  </div>
+
+  <article class="post-body">
+    <p>The obvious calculation is a division. On 9/6 Jacks or Better the return is 99.54%, so each coin staked costs 0.0046 coins. Five coins a hand makes that 0.023 coins per hand. A 1,000-coin stack divided by 0.023 is 43,832 hands — something like 110 hours at a brisk pace. On that arithmetic a modest stack is effectively bottomless.</p>
+    <p>Nobody's stack behaves like that. Deal out the same 1,000 coins hand by hand, five at a time, with correct play throughout, and half the time it is gone inside 6,540 hands. The division is not wrong about the average; it is answering a different question. The house edge describes where the money ends up after a million hands. Session length is decided by <a href="video-poker-variance.html">variance</a>, which is roughly nine hundred and fifty times larger per hand.</p>
+
+    <h2>Stacks are measured in bets, not in coins</h2>
+    <p>The useful unit is the bet. A 1,000-coin stack at five coins a hand and a 10,000-coin stack at fifty are the same stack: 200 bets. Both last the same number of hands, which is why the only bankroll question worth asking is how many bets deep you are.</p>
+
+    <table class="paytable-compare">
+      <caption>9/6 Jacks or Better, correct play, flat bet. Simulated 60,000 sessions per row, each capped at 10,000 hands. Ruin is the first hand at which the stack cannot cover the next stake.</caption>
+      <thead>
+        <tr><th>Stack in bets</th><th>Lasts 1,000 hands</th><th>Lasts 10,000 hands</th><th>Median hands</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">20</th><td>17.0%</td><td>2.7%</td><td>194</td></tr>
+        <tr><th scope="row">50</th><td>45.6%</td><td>7.0%</td><td>873</td></tr>
+        <tr><th scope="row">100</th><td>83.8%</td><td>15.0%</td><td>2,477</td></tr>
+        <tr><th scope="row">200</th><td>99.9%</td><td>34.2%</td><td>6,540</td></tr>
+        <tr><th scope="row">250</th><td>&gt;99.9%</td><td>45.5%</td><td>8,987</td></tr>
+        <tr><th scope="row">500</th><td>&gt;99.9%</td><td>89.6%</td><td>over 10,000</td></tr>
+        <tr><th scope="row">1,000</th><td>&gt;99.9%</td><td>&gt;99.9%</td><td>over 10,000</td></tr>
+      </tbody>
+    </table>
+
+    <p>Read the first row and the last together. Twenty bets is not a short session, it is a coin flip you lose five times out of six: the median is 194 hands, around half an hour. Fifty bets gets you to roughly a thousand hands half the time. Two hundred bets will almost certainly see out an evening and still has a one-in-three chance of surviving ten thousand hands. The curve is steep at the bottom and flattens fast, which means the first hundred bets of depth buy far more time than the second hundred.</p>
+
+    <h2>The machine you play is not the machine on the paytable</h2>
+    <p>Here is why the division fails so badly. That 99.54% includes the royal flush, which pays 800 per coin and arrives about once in 40,400 hands. Strike that one row out and the return falls to 97.56% — a figure covered at more length in <a href="royal-flush-share-of-the-return.html">the royal's share of the return</a>.</p>
+    <p>For any session you will actually sit through, striking it out is the honest assumption. So the drain rate to plan against is not 0.023 coins a hand but 0.122 — at five coins a hand and 400 hands an hour, 49 coins an hour rather than 9. That is five times the nominal cost, and it is still only the average; it says nothing about the spread around it.</p>
+
+    <div class="callout">
+      <p>This is the arithmetic behind the old rule of thumb that a Jacks or Better bankroll should be around 250 bets, or three royals' worth at five coins. It is not superstition about the big hand. It is the recognition that the royal is the only thing holding the return above 99%, that you will almost certainly not be dealt one, and that the stack therefore has to survive a 97.6% machine for as long as you intend to play.</p>
+    </div>
+
+    <h2>What the drain feels like</h2>
+    <p>Something pays on 45.5% of hands, but 21.5 points of that is a high pair, which hands the stake straight back. You finish a hand genuinely ahead 24% of the time. Three hands in four take coins off the stack or leave it level, and that is what the slow decline is made of.</p>
+    <p>Runs of nothing are ordinary rather than remarkable. A hand pays nothing 54.5% of the time, so five blanks in a row turn up about once every 21 hands, ten in a row about once every 429. Widen it to hands that do not leave you ahead and ten of those in succession arrive about once every 16 hands. A stretch of twenty dead hands — about once in 184,000 — is the kind of thing that feels like a broken machine and is simply the deck doing what it does. None of it is information about the next deal.</p>
+
+    <h2>The bet is the only dial</h2>
+    <p>Return, strategy and hand frequencies are all fixed once you have chosen the paytable. Depth in bets is the one thing left under your control, and it moves inversely with the stake: halve the bet and you double the hands. <a href="five-play-multi-hand-bankroll.html">Multi-hand</a> works the other way, multiplying the stake per deal and dividing your depth by the number of lines.</p>
+    <p>At a casino machine there is a catch, which is why the dial is not free. The royal only pays 800 per coin at the full five-coin bet; short-coin it pays 250. Losing 550 per coin on a hand that lands once in 40,400 costs about 1.4 points of return before any strategy adjustment, which is three times the entire house edge. Dropping to one coin buys five times the hands and turns a 99.5% machine into something close to 98.2%. <a href="reading-a-video-poker-paytable.html">Betting max is not optional</a> on those machines, so the only honest way to get more hands out of a fixed stack is a lower-denomination machine, not a smaller bet on the same one.</p>
+    <p>Two things follow for anyone planning a session. Convert the stack into bets before anything else, and check it against the table above rather than against the house edge. And set the stopping point in hands or in minutes, not in coins — a stack that is still there is not evidence of a hot machine, and one that has gone early is not evidence of a cold one.</p>
+
+    <div class="post-foot">
+      <p><a href="../">Video Poker: Jacks or Better</a> starts you with 1,000 chips, bets 5, 10, 20 or 50 of them a hand, and tops you up by 200 once a day; the default 10-chip bet makes that opening stack exactly 100 bets deep, which is the middle row of the table above. Running dry is a rebuy back to 1,000 rather than the end of anything. The in-game Jacks or Better chart pays 250 for a royal, 20 for four of a kind, 7 for a full house and 5 for a flush, so the figures above come from full-pay casino rows rather than the app's — and because the app multiplies a flat chart by whatever you stake, there is no max-bet royal bonus to lose, so dropping to the 5-chip bet genuinely doubles your hands at no cost in return. It has four variants: Jacks or Better from the start, <a href="deuces-wild-strategy.html">Deuces Wild</a> at level 3, Bonus Poker at level 8 and Double Bonus at level 15. One thing it does that no casino machine allows: the bet is chosen after the five cards are already on screen. Strategy hints will glow the suggested hold if you want the list rather than the reasoning. It plays offline, and the chips have no cash value.</p>
+      <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="copyright">Orlov Games — Michael Orlov, Israel</p>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../blog/">Blog</a>
+      <a href="../privacy-policy.html">Privacy policy</a>
+      <a href="../terms.html">Terms of use</a>
+      <a href="mailto:micorlov@gmail.com">micorlov@gmail.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
