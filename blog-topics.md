@@ -25,18 +25,18 @@ and let him refill it.
 
 ## Queued
 
-1. Full-pay machines and why they became hard to find
-2. Reading a Deuces Wild paytable
-3. Common video poker myths, and what the maths says instead
-4. How shuffling works in a digital card game
-5. Progressive jackpots and the point where a machine turns positive
-6. What the hold percentage on a machine does and does not tell you
-7. Why practising offline beats practising for money
-8. Three of a kind: the hand that behaves differently in every variant
-9. The order to learn video poker variants in
+1. Reading a Deuces Wild paytable
+2. Common video poker myths, and what the maths says instead
+3. How shuffling works in a digital card game
+4. Progressive jackpots and the point where a machine turns positive
+5. What the hold percentage on a machine does and does not tell you
+6. Why practising offline beats practising for money
+7. Three of a kind: the hand that behaves differently in every variant
+8. The order to learn video poker variants in
 
 ## Published
 
+- 2026-10-06 — Full-pay machines and why they became hard to find — `full-pay-machines`
 - 2026-10-05 — Bankroll and session length: how far a fixed stack actually goes — `bankroll-and-session-length`
 - 2026-10-04 — How video poker differs from poker at a table — `video-poker-vs-table-poker`
 - 2026-10-03 — Machines that pay on kings instead of jacks — `kings-instead-of-jacks`
