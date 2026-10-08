@@ -25,16 +25,16 @@ and let him refill it.
 
 ## Queued
 
-1. Common video poker myths, and what the maths says instead
-2. How shuffling works in a digital card game
-3. Progressive jackpots and the point where a machine turns positive
-4. What the hold percentage on a machine does and does not tell you
-5. Why practising offline beats practising for money
-6. Three of a kind: the hand that behaves differently in every variant
-7. The order to learn video poker variants in
+1. How shuffling works in a digital card game
+2. Progressive jackpots and the point where a machine turns positive
+3. What the hold percentage on a machine does and does not tell you
+4. Why practising offline beats practising for money
+5. Three of a kind: the hand that behaves differently in every variant
+6. The order to learn video poker variants in
 
 ## Published
 
+- 2026-10-08 — Common video poker myths, and what the maths says instead — `common-video-poker-myths`
 - 2026-10-07 — Reading a Deuces Wild paytable — `reading-a-deuces-wild-paytable`
 - 2026-10-06 — Full-pay machines and why they became hard to find — `full-pay-machines`
 - 2026-10-05 — Bankroll and session length: how far a fixed stack actually goes — `bankroll-and-session-length`
