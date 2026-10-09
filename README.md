@@ -48,6 +48,9 @@ python3 tools/check.py
 
 **Add a blog post:** see `blog-topics.md`. It's one new file in
 `content/posts/` with an `app` field. Everything else updates on its own.
+A scheduled agent publishes one post for every game each morning. Its
+instructions and the topic queue for each game are in `blog-topics.md`, so
+steer it by editing that file.
 
 **Add an app, or move one from testing to live:** edit `content/apps.json`.
 For a live app, run `python3 tools/fetch_play.py <Slug>` to pull its listing,

@@ -1,28 +1,88 @@
 # Blog topic backlog
 
-One post per run, taken from the top of **Queued**. When a post ships, move its
-line to **Published** with the date and the slug.
+A scheduled agent publishes **one new post for every game, every day**. This
+file is its instructions and its memory: the topic queue for each game and the
+log of everything already published. Edit, reorder or delete queued topics
+freely; the agent always takes the first one under each game.
 
-## How to publish a post
+## Games covered
+
+The 12 game slugs from `content/apps.json`. StorySplit and AiPicDetect are
+tools, not games, and get no daily post.
+
+`VideoPoker`, `OmahaPoker`, `Blackjack21`, `BrasslightSlots`, `PokerVsDealer`,
+`FivesAndThrees`, `BlackjackCoach`, `HoldemCoach`, `EightBallsPool`,
+`BigBenBlocks`, `PinkSlipKings`, `ValleyRail`
+
+When an app is added to `content/apps.json`, add it to this list and give it a
+`### <Slug>` heading under Queued if it should get daily posts.
+
+## The daily run
+
+1. `git pull` on `main`. Note today's date (Asia/Jerusalem); every post written
+   today carries it as `date` and `modified`.
+2. **Refill any empty queue.** For each game whose `### <Slug>` list under
+   Queued is empty, add 5 new topics to it (see *Choosing topics*). Never skip a
+   game because its queue was empty.
+3. **Write one post per game.** Take the first topic under each game. Write the
+   12 posts in parallel with one subagent per game; each subagent writes only
+   its own `content/posts/<slug>.html` and must not touch any other file. Give
+   each one the topic, the app's entry from `content/apps.json`, the path to
+   `content/play/<Slug>.json`, two existing posts to copy markup from, and the
+   rules in this file.
+4. **Review every post** against *Rules for every post* before keeping it. A
+   post that fails and can't be fixed in one pass is deleted, and its topic
+   stays at the top of the queue for tomorrow. Shipping 11 good posts beats
+   shipping 12 with one bad one.
+5. **Update this file.** Remove each published topic from Queued and add a line
+   to the top of Published: `- <date> — <title> — <App> — \`<slug>\``.
+6. Run `python3 build.py && python3 tools/check.py`. Fix anything it reports.
+7. Commit everything in one commit (`feat: daily blog posts for <date>`), push
+   to `main`, and wait for the *Deploy site to GitHub Pages* action to finish.
+   Then fetch two or three of the new URLs on `https://michaelorlov.com/blog/`
+   and confirm they return 200.
+8. Report: each game with the title and URL of its new post, any game that got
+   no post and why, and any queue that was refilled.
+
+## How a post is built
 
 The blog covers every Orlov Games app. A post is one file and nothing else:
 
 1. Create `content/posts/<slug>.html`. The slug becomes the URL
-   (`https://michaelorlov.com/blog/<slug>.html`), so never rename a published one.
+   (`https://michaelorlov.com/blog/<slug>.html`), so never rename a published
+   one, and never reuse an existing file name.
 2. Start it with the JSON front matter block used by every existing post:
    `title`, `date`, `modified`, `app`, `description`, `summary`, `standfirst`.
-   `app` is a slug from `content/apps.json` (`VideoPoker`, `OmahaPoker`,
-   `Blackjack21`, …). It files the post under `/blog/<App>/` and lists it on
-   that app's page.
+   `app` is the game's slug. It files the post under `/blog/<App>/` and lists
+   it on that app's page.
 3. Below the front matter, write the article body. Copy an existing post for
-   the markup, including the `post-foot` paragraph with the Play button.
-4. Run `python3 build.py && python3 tools/check.py`, then commit and push.
-   The blog index, the per-app pages, the home page, the sitemap and the
-   JSON-LD all update on their own. Don't edit any of them by hand.
+   the markup, and end with a `post-foot` block that links to the app page
+   (`/<Slug>/`).
+   - **Live app:** add the Play button, copied from an existing post, with
+     `href="https://play.google.com/store/apps/details?id=<package>"`.
+   - **App in testing** (`"status": "testing"`: PinkSlipKings, ValleyRail):
+     no Play button. Its listing is not public, so link only to `/<Slug>/`
+     and say it is in closed testing.
+4. The blog index, the per-app pages, the home page, the sitemap and the
+   JSON-LD all update on their own when the site builds. Don't edit any of
+   them by hand.
 
-When Queued is empty, **stop and do not invent topics**. Publishing filler is
-worse for the site than publishing nothing — tell Michael the backlog is empty
-and let him refill it.
+## Choosing topics
+
+When a game's queue runs out, the agent writes 5 new topics for it. A good
+topic:
+
+- Answers a question a player of that game would really search for: a rule,
+  a scoring detail, a strategy decision, the maths behind a choice, a common
+  mistake, how the real-world game or sport works.
+- Can be backed by established rules, maths or physics, or by something the
+  app's Play listing (`content/play/<Slug>.json`) states. Nothing that depends
+  on guessing what the app does.
+- Is not a near-duplicate of any title in Published, **across every app**.
+  Blackjack21 and BlackjackCoach, and HoldemCoach, OmahaPoker, PokerVsDealer
+  and VideoPoker, overlap heavily. Give each its own angle rather than writing
+  the same post twice.
+- Is one line, phrased as the post's working title.
 
 ## Rules for every post
 
@@ -32,18 +92,21 @@ and let him refill it.
   distinction. If the post could be written without knowing anything about
   the game it covers, it is not worth publishing.
 - No invented statistics. Established game maths (paytable returns, hand
-  frequencies, odds, strategy orderings) is fine from knowledge. Anything about
-  the app itself must be true of the real app — check the Play listing or the
-  game repo rather than guessing at features.
-- Never imply the chips have cash value or that the game is gambling.
-- British-ish plain English, same voice as the existing three posts: direct,
+  frequencies, odds, strategy orderings, scoring rules, physics) is fine from
+  knowledge. Anything about the app itself (features, modes, levels, chip
+  amounts, rules variants) must be stated in `content/play/<Slug>.json` or on
+  the app page. If it isn't there, don't claim it.
+- Never imply that chips or coins have cash value, or that any game is
+  gambling. Casino-style apps are free practice games with no real money.
+- British-ish plain English, in the same voice as the existing posts: direct,
   no hype, no "in today's fast-paced world", no rhetorical questions as
   openers.
+- Link to other posts for the same app where they genuinely help.
 
 ## Queued
 
-Topics are grouped by app. Take the first one under any app; each post's `app`
-field is the heading it came from.
+Take the first topic under each game. Each post's `app` field is the heading
+it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
@@ -53,10 +116,27 @@ field is the heading it came from.
 4. Three of a kind: the hand that behaves differently in every variant
 5. The order to learn video poker variants in
 
-### Other apps
+### OmahaPoker
 
-Empty. When Michael adds topics for other apps, give each app its own
-`### <AppSlug>` heading above this one.
+### Blackjack21
+
+### BrasslightSlots
+
+### PokerVsDealer
+
+### FivesAndThrees
+
+### BlackjackCoach
+
+### HoldemCoach
+
+### EightBallsPool
+
+### BigBenBlocks
+
+### PinkSlipKings
+
+### ValleyRail
 
 ## Published
 
