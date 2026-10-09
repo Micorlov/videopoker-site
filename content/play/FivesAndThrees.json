@@ -1,0 +1,10 @@
+{
+  "name": "Fives and Threes Dominoes",
+  "description": "Play Fives and Threes, the pub dominoes game where you score by making the two open ends add up to a multiple of three or five. Play solo against the computer, read the rules, and follow the scoring on the table.\n\nLEARN THE SCORING\nMatch a tile to an open end of the line. If the ends total divides by three, score the total divided by three. If it divides by five, score the total divided by five. When both apply, add both scores: a total of 15 scores 5 + 3 = 8 points. A double at an open end counts both its spots.\n\nFOLLOW EACH MOVE\nThe table shows the open-end totals and points scored. Select a tile, then choose an end; ends that cannot accept the tile are marked. If you cannot play, draw from the boneyard until you can, or pass when it is empty. Open How to play for the rules and a worked scoring example.\n\nCHOOSE YOUR MATCH\n- Play against a computer opponent on Casual or Competitive difficulty.\n- Choose a target of 61, 121, 181 or 241 points.\n- Start with 6, 7, 8 or 9 tiles per player.\n- Choose whether you or a randomly selected player starts.\n- Switch the going-out bonus on or off.\n- Return to an unfinished match from the home screen.\n\nTRACK YOUR PLAY\nSee matches won, average score per hand, best placement and points per placement in Statistics. Choose from available domino designs and adjust sound, haptics and reduced motion in Settings.\n\nFor players discovering Fives and Threes or returning to this classic dominoes game.\n\nNo adverts or in-app purchases. No sign-up is needed for solo play. Solo matches run on your device; syncing player records uses an internet connection. Optional match points are in-game only and have no cash value.",
+  "screenshots": [
+    "shot1.jpg",
+    "shot2.jpg",
+    "shot3.jpg",
+    "shot4.jpg"
+  ]
+}

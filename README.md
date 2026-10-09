@@ -1,38 +1,71 @@
-# videopoker-site
+# michaelorlov.com
 
-The marketing site for **Video Poker: Jacks or Better** (`com.micorlov.videopoker`),
-published to GitHub Pages by GitHub Actions and served at
-<https://michaelorlov.com>.
+The site for **Orlov Games**: a home page listing every app in the Play
+Console, a page per app, and a blog that covers all of them. A small
+standard-library Python build turns `content/` into `_site/`, and GitHub Actions
+publishes that to GitHub Pages at <https://michaelorlov.com>.
 
 ```
-site/               everything that gets published
-  index.html        the page
-  privacy-policy.html
-  terms.html
-  style.css
-  CNAME             the custom domain
-  robots.txt        points crawlers at the sitemap
-  sitemap.xml       all seven URLs
-  img/              icon, OG card, screenshots
-  blog/
-    index.html      post listing
-    *.html          one file per post
-.github/workflows/deploy.yml
+content/
+  apps.json            every app: slug, name, package, status (live|testing),
+                       category, tagline (= Play short description), privacy_url
+  play/<Slug>.json     full Play description + screenshot list (from tools/fetch_play.py)
+  apps/VideoPoker.html hand-written page body; any app with a file here gets it
+                       instead of the generated page
+  posts/*.html         blog posts: JSON front matter + article body
+  legal/*.html         privacy policy / terms pages
+templates/base.html    <head>, Google Analytics tag, header, footer — on every page
+static/                copied as-is: style.css, img/, CNAME, robots.txt
+build.py               → _site/ (pages, sitemap.xml, 404.html)
+tools/check.py         links, GA tag, JSON-LD, titles, sitemap — CI fails if any break
+tools/fetch_play.py    refresh listing text, icons and screenshots from Google Play
 ```
 
-## SEO
+## URLs
 
-Each page carries a canonical URL, a unique title and description, and
-Open Graph and Twitter card tags. The home page has `MobileApplication` and
-`FAQPage` JSON-LD; each post has `BlogPosting` plus a `BreadcrumbList`; the
-blog index has `Blog`. The legal pages are `noindex, follow`.
+| URL | What |
+|---|---|
+| `/` | Studio home: every app, latest posts |
+| `/<Slug>/` | One page per app, e.g. `/VideoPoker/`, `/OmahaPoker/`, `/ValleyRail/` |
+| `/blog/` | All posts, with a filter for each app |
+| `/blog/<Slug>/` | Posts for one app (only built for apps that have posts) |
+| `/blog/<post>.html` | A post |
+| `/privacy-policy.html` | Website policy (Google Analytics) + links to each app's policy |
+| `/VideoPoker/privacy-policy.html`, `/VideoPoker/terms.html` | Video Poker's own legal pages |
 
-Adding a post means: copy an existing post file, edit the content and its
-JSON-LD block, then add it to `blog/index.html`, the "How these games work"
-section on the home page, and `sitemap.xml`.
+URLs are case-sensitive on GitHub Pages. `404.html` sends a wrong-case app URL
+(`/videopoker`, `/OMAHAPOKER/`) to the right page. `/terms.html` redirects to
+the Video Poker terms, which is what it used to show.
 
-Every push to `main` that touches `site/**` redeploys. You can also run the
-workflow by hand from the Actions tab.
+## Everyday jobs
+
+**Build and preview**
+
+```sh
+python3 build.py --serve      # http://localhost:8000
+python3 tools/check.py
+```
+
+**Add a blog post:** see `blog-topics.md`. It's one new file in
+`content/posts/` with an `app` field. Everything else updates on its own.
+
+**Add an app, or move one from testing to live:** edit `content/apps.json`.
+For a live app, run `python3 tools/fetch_play.py <Slug>` to pull its listing,
+icon and screenshots. For an app still in testing there is no public listing,
+so write `content/play/<Slug>.json` by hand from Play Console → Store listing,
+and put `icon.jpg` and `shot1.jpg`… in `static/img/apps/<Slug>/`.
+
+## Analytics
+
+Every page loads GA4 `G-S6E36TV2PC`: property *android-34c9a* in the
+micorlov@gmail.com Analytics account, web stream "michaelorlov.com". Each page
+also sends a `content_group`: the app slug on app pages and posts, or `Home`,
+`Blog`, `Legal`, `404`. That splits reports by app under Engagement → Pages and
+screens → Content group. Clicks on a Google Play button send a
+`play_store_click` event with an `app` parameter.
+
+The tag lives in `templates/base.html`, and `tools/check.py` fails the deploy if
+any page has it missing, duplicated, or carries another GA ID.
 
 ## How it is wired up
 
@@ -45,19 +78,6 @@ Already done, recorded here so it can be rebuilt:
   CNAME to `micorlov.github.io.`. The Microsoft 365 mail records (MX,
   autodiscover, SPF) and the `chat` subdomain are untouched.
 
-`site/CNAME` keeps the domain set on redeploys. Note that with an
-Actions-based deploy the CNAME file alone does not configure Pages — the
-custom domain also has to be set in Settings, which it is.
-
-## Editing
-
-Plain HTML and one stylesheet, no build step. Open `site/index.html` in a
-browser, or serve the folder:
-
-```sh
-python3 -m http.server -d site 8000
-```
-
-The screenshots in `site/img/` are cropped from `play-store-assets/phone/` in the
-game repository. To refresh them after a UI change, re-export the store
-screenshots and crop to the phone frame.
+`static/CNAME` keeps the domain set on redeploys. Every push to `main` that
+touches the site sources rebuilds and redeploys. You can also run the workflow
+by hand from the Actions tab.

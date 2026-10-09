@@ -1,0 +1,69 @@
+<!--
+{
+  "title": "Bonus Poker and Double Bonus: what the bigger quads cost you",
+  "date": "2026-09-27",
+  "modified": "2026-09-27",
+  "app": "VideoPoker",
+  "description": "Both variants pay far more for four of a kind than Jacks or Better. Bonus Poker charges for it at the full house; Double Bonus halves two pair, which changes how you play.",
+  "summary": "Both variants pay far more for four of a kind. Bonus Poker charges for it at the full house; Double Bonus halves two pair.",
+  "standfirst": "Both variants pay far more for four of a kind than Jacks or Better does. Neither gives that away free, and the two of them charge for it in completely different places."
+}
+-->
+<p>Jacks or Better has one row for four of a kind, and every quad pays the same. Bonus Poker splits that row into three. Double Bonus stretches the same idea further, to the point where four aces pays more than six times what the equivalent hand is worth on a Jacks or Better machine. None of that is added for nothing. Every extra coin at the top of the table comes out of a row further down, and knowing which row is the whole of what separates these games.</p>
+
+<h2>The three tables side by side</h2>
+
+<table class="paytable-compare">
+  <caption>Per coin bet, full-pay versions of each table. Returns assume perfect play over a very large number of hands, with five coins bet.</caption>
+  <thead>
+    <tr><th>Hand</th><th>9/6 Jacks or Better</th><th>Bonus Poker</th><th>Double Bonus</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>250</td><td>250</td><td>250</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>50</td><td>50</td></tr>
+    <tr><th scope="row">Four aces</th><td>25</td><td>80</td><td class="good">160</td></tr>
+    <tr><th scope="row">Four 2s–4s</th><td>25</td><td>40</td><td class="good">80</td></tr>
+    <tr><th scope="row">Four 5s–Ks</th><td>25</td><td>25</td><td class="good">50</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>8</td><td class="good">10</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td>5</td><td class="good">7</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>4</td><td class="good">5</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>3</td><td>3</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>2</td><td>1</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>1</td><td>1</td></tr>
+    <tr><th scope="row">Long-run return</th><td>99.5%</td><td>99.2%</td><td class="good">100.2%</td></tr>
+  </tbody>
+</table>
+
+<h2>Bonus Poker charges the bill at the full house</h2>
+<p>Bonus Poker keeps the shape of Jacks or Better and pays for its quad split by dropping the full house from 9 to 8 and the flush from 6 to 5. Underneath the bonus rows it is an 8/5 machine, which is the cheaper of the two paytables in <a href="reading-a-video-poker-paytable.html">the paytable post</a>. Full pay Bonus Poker returns 99.17% against 99.54% for 9/6 Jacks or Better, so the split costs you about a third of a percentage point.</p>
+<p>That is a fair price, and it is worth seeing why. Under correct play, four of a kind arrives roughly once in 420 hands. A full house arrives roughly once in 87, a flush roughly once in 91. You are giving up one coin each on two rows you hit every ninety-odd hands, and collecting up to 55 extra coins on a row you hit every four hundred. The bill is small because it is spread across hands you see constantly.</p>
+<p>The practical appeal is that the strategy barely moves. The hold priorities that work on Jacks or Better work on Bonus Poker; one chart covers both machines. If you want a change of scenery without relearning anything, this is the variant to take.</p>
+
+<h2>Double Bonus charges it at two pair</h2>
+<p>Double Bonus looks impossible at first. The full house goes <em>up</em> to 10, the flush up to 7, the straight up to 5, and all three quad rows double. Almost every row improves. One row pays for the lot: two pair, cut from 2 to 1.</p>
+<p>Two pair is the second most frequent paying hand on the table, after a high pair — roughly once in every eight hands. Halving a row you land on nearly thirteen per cent of the time funds every rise above it and still leaves a full-pay return of 100.17%.</p>
+<p>It is worth spelling out what that does to a hand you have already been dealt. Hold both pairs and draw one card, and 4 of the 47 unseen cards fill the full house. On 9/6 Jacks or Better that draw is worth (4 × 9 + 43 × 2) / 47 ≈ 2.60 coins per coin bet. The identical hand and the identical draw on Double Bonus is worth (4 × 10 + 43 × 1) / 47 ≈ 1.77. Same cards, roughly two thirds of the value.</p>
+
+<h2>Where the strategy actually changes</h2>
+<p>The clearest example is three aces alongside a pair — a made full house.</p>
+<p>On Jacks or Better you keep it. Nine coins are guaranteed and nothing you can draw to improves on that often enough to matter. On Double Bonus you break it up, hold the three aces, and draw two cards. There are 1,081 two-card draws from the remaining 47. Of those, 46 contain the last ace and pay 160. Another 67 arrive as a pair and rebuild the full house for 10. The other 968 leave you with three of a kind for 3:</p>
+<p><strong>(46 × 160 + 67 × 10 + 968 × 3) / 1081 ≈ 10.12 coins</strong>, against the flat 10 the full house already pays.</p>
+<p>The margin is thin, but it is real, and it repeats every time the hand appears. That single row — four aces at 160 — is enough to make breaking a made full house correct.</p>
+
+<div class="callout">
+  <p>Note that the draw is two cards, not one. Holding the three aces plus a kicker drops the expected value to about 6.8 coins, because a fourth ace now has one chance to appear instead of two. The kicker is not insurance; it is a discarded draw.</p>
+</div>
+
+<p>The general drift follows from the same arithmetic. Double Bonus wants you pointed at quads and full houses and cares much less than Jacks or Better about hands that finish as two pair. Play it on Jacks or Better instincts and you will hand back the theoretical edge and a good deal more besides.</p>
+
+<h2>Which one to play</h2>
+<ol class="ranked">
+  <li>Bonus Poker, if you want bigger quads without a new chart. Roughly a third of a percentage point cheaper than 9/6 Jacks or Better, and your <a href="jacks-or-better-strategy.html">existing hold order</a> still applies.</li>
+  <li>Double Bonus, if you want the best full-pay return of the three — but only with a Double Bonus chart in front of you. The two-pair cut and the aces row both change what you hold.</li>
+  <li>Jacks or Better, if you want the steadiest ride. The more of a game's return sits in rows you rarely reach, the longer the flat stretches in between. Bonus Poker sits close to Jacks or Better on that count; Double Bonus does not.</li>
+</ol>
+
+<div class="post-foot">
+  <p>Bonus Poker unlocks at level 8 in <a href="/VideoPoker/">Video Poker: Jacks or Better</a> and Double Bonus at level 15, both on the full-pay paytables above. Each machine shows its own table on screen, and strategy hints will point at the correct hold while the differences bed in. It plays offline, with chips that have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

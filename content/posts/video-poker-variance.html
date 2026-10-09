@@ -1,0 +1,99 @@
+<!--
+{
+  "title": "What variance actually means at a video poker machine",
+  "date": "2026-09-28",
+  "modified": "2026-09-28",
+  "app": "VideoPoker",
+  "description": "Return says where a machine ends up; variance says how far it wanders on the way. Over 1,000 hands of 9/6 Jacks or Better the likely swing is thirty times the expected loss.",
+  "summary": "Return says where a machine ends up; variance says how far it wanders. Over 1,000 hands the expected loss is 23 coins and the ordinary swing is 699.",
+  "standfirst": "Return describes where a machine finishes after a few hundred thousand hands. Variance describes everything that happens in between, and it is a much larger number than most players expect."
+}
+-->
+<p>Every paytable discussion ends on a single figure. <a href="reading-a-video-poker-paytable.html">9/6 Jacks or Better</a> returns 99.54%, so each coin bet comes back as 0.9954 coins and the house keeps 0.46%. That number is correct and it is also nearly useless for describing an evening's play, because no hand pays 0.9954 coins. Hands pay nothing, or one coin, or two, or — very occasionally — eight hundred.</p>
+<p>Variance is the number that describes the spread. Take every possible result, measure how far each one sits from the average, square those distances and average them. For 9/6 Jacks or Better under correct play the answer is 19.5 per coin wagered, and its square root — the standard deviation — is 4.42. In plain terms: a typical hand finishes about 4.4 coins per coin bet away from the average. Betting five coins, that is roughly 22 coins of movement on a hand whose expected cost is 0.023 coins.</p>
+<p>Roughly nine hundred and fifty units of noise for every unit of signal. That ratio is the whole of this subject.</p>
+
+<h2>The distribution is lumpier than the hit rate suggests</h2>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better under correct play, five coins bet. Frequencies are the standard optimal-play figures; the variance below is computed from them.</caption>
+  <thead>
+    <tr><th>Hand</th><th>Pays per coin</th><th>Roughly once in</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td class="good">800</td><td>40,400 hands</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>9,150</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>423</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>87</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td>91</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>89</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>13</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>8</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>5</td></tr>
+    <tr><th scope="row">Nothing</th><td>0</td><td>2</td></tr>
+  </tbody>
+</table>
+
+<p>Something pays on 45.5% of hands, which sounds generous until you look at what is doing the work. A high pair alone accounts for 21.5% of hands, and a high pair returns exactly the bet. That is not a win; it is the hand handing your stake back. The honest split of a hundred hands is: you lose the bet on 54.5 of them, get it back unchanged on 21.5, and finish ahead on 24.</p>
+
+<h2>Nearly all of the variance is one row</h2>
+<p>The royal flush pays 800 per coin at the full five-coin bet and arrives once in about 40,400 hands under correct play. It lands on 0.0025% of hands, and it supplies 77% of the squared-payout total that variance is built from. Strike the royal row out of the table entirely and variance falls from 19.5 to 3.7 — the standard deviation drops from 4.42 to 1.93.</p>
+<p>That is worth sitting with. Four fifths of the variance at a Jacks or Better machine is produced by a hand you will most likely never be dealt. Everything else on the paytable, taken together, is comparatively gentle.</p>
+
+<h2>What it does to a session</h2>
+<p>Two formulas cover it. Expected loss is the house edge multiplied by hands and bet. The spread grows with the <em>square root</em> of hands, not with hands, so one standard deviation of the final result is 4.42 × √hands × bet.</p>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better at five coins a hand. One standard deviation covers about two results in three; two standard deviations about nineteen in twenty.</caption>
+  <thead>
+    <tr><th>Hands</th><th>Expected result</th><th>One standard deviation</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">100</th><td>−2 coins</td><td>± 221 coins</td></tr>
+    <tr><th scope="row">1,000</th><td>−23</td><td>± 699</td></tr>
+    <tr><th scope="row">10,000</th><td>−227</td><td>± 2,209</td></tr>
+    <tr><th scope="row">100,000</th><td>−2,273</td><td>± 6,985</td></tr>
+    <tr><th scope="row">1,000,000</th><td>−22,733</td><td>± 22,089</td></tr>
+  </tbody>
+</table>
+
+<p>A thousand hands is a long evening. The machine expects to take 23 coins off you across it, and the ordinary swing around that is 699 coins in either direction — thirty times larger than the thing it is meant to be measuring. One session in twenty finishes more than 1,400 coins away from level. Whatever you noticed about the machine that night, it was not the house edge.</p>
+
+<h2>How long before the edge shows up</h2>
+<p>Set the expected loss equal to one standard deviation and solve: 0.00455 × n = 4.42 × √n gives n ≈ 944,000 hands. At a brisk 400 hands an hour that is around 2,400 hours of play before the house edge is merely <em>as large</em> as the routine swing. For the edge to be twice the swing, multiply by four.</p>
+<p>Two things follow. Nobody has ever proved a strategy right or wrong over a session, a week, or a holiday — the sample is orders of magnitude too small, and the difference between correct play and sloppy play is a fraction of a percent hiding inside a 4.42. And the house edge is not what empties a stack in half an hour. Variance is. Those are separate mechanisms and confusing them leads to a lot of bad conclusions about machines being hot, cold, or due.</p>
+
+<div class="callout">
+  <p>Independence is the part that trips people up. The spread grows with the square root of hands played, which means results drift further from level in absolute terms the longer you play, while getting closer to level as a percentage. Neither of those facts gives a losing run any influence over the next deal. A shuffled deck holds no memory of the last one.</p>
+</div>
+
+<h2>Variance is a dial you can choose</h2>
+
+<table class="paytable-compare">
+  <caption>Full-pay tables, correct play, five coins bet. The Jacks or Better figure is computed above; the others are the standard published values, rounded.</caption>
+  <thead>
+    <tr><th>Machine</th><th>Return</th><th>Standard deviation</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">9/6 Jacks or Better</th><td>99.5%</td><td>4.42</td></tr>
+    <tr><th scope="row">Bonus Poker</th><td>99.2%</td><td>about 4.6</td></tr>
+    <tr><th scope="row">Deuces Wild</th><td>100.8%</td><td>about 5.1</td></tr>
+    <tr><th scope="row">10/7 Double Bonus</th><td>100.2%</td><td>about 5.3</td></tr>
+    <tr><th scope="row">9/6 Double Double Bonus</th><td>99.0%</td><td>about 6.5</td></tr>
+  </tbody>
+</table>
+
+<p>The returns in that table sit within two percentage points of each other. The standard deviations differ by nearly 50%. <a href="bonus-poker-and-double-bonus.html">Double Bonus</a> returns more than Jacks or Better and swings about 20% harder for it, which is the trade the bigger quad rows quietly make: more of the return is parked in hands you reach rarely, so the stretches in between are flatter and longer. Double Double Bonus takes that further still. Picking a variant is as much a choice about how bumpy you want the ride as about the number at the bottom of the paytable.</p>
+
+<h2>What to actually do with this</h2>
+<ol class="ranked">
+  <li>Size the bet against the swing, not the edge. The edge costs you 0.023 coins a hand at five coins bet. The swing is 22. Only one of those decides whether a stack survives the evening.</li>
+  <li>Judge your play over ten thousand hands and up, and judge it by whether the holds were correct, not by the balance. The balance is mostly noise at any length you will actually play.</li>
+  <li>Choose the variance deliberately. Flatter machines give you more hands per stack; jumpier ones give you a smaller chance of a much better night. Both are legitimate; drifting into one by accident is not.</li>
+  <li>Never treat a run as information about the next hand. It contains none.</li>
+</ol>
+
+<div class="post-foot">
+  <p>The Stats screen in <a href="/VideoPoker/">Video Poker: Jacks or Better</a> keeps Hands Played, Won, Lost, Net and Best Streak, with a Today and an All-Time view — which is the only honest way to watch variance do its work, since the interesting comparisons need thousands of hands rather than one session. Two notes on the figures above: the app pays its royal at a flat 250× the bet rather than as a five-coin jackpot, which on these same frequencies would take the standard deviation from 4.42 down to about 2.3, so its swings are gentler than a casino machine's. Its Deuces Wild, Bonus Poker and Double Bonus tables are the full-pay ones in the table above. The chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

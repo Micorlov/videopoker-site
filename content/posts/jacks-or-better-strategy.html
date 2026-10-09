@@ -1,0 +1,63 @@
+<!--
+{
+  "title": "Jacks or Better strategy, ranked",
+  "date": "2026-09-26",
+  "modified": "2026-09-26",
+  "app": "VideoPoker",
+  "description": "A simplified hold-priority list for 9/6 Jacks or Better, plus the four mistakes that cost the most.",
+  "summary": "A simplified hold-priority list for 9/6 Jacks or Better, plus the four mistakes that cost the most.",
+  "standfirst": "Video poker has one correct play for every hand. This is the short version of the chart, in the order you should check it."
+}
+-->
+<p>Unlike most casino games, video poker has no hidden information after the deal. You can see all five cards, the deck composition is known, and every possible hold has a calculable expected value. That means there is exactly one correct play for each of the 2,598,960 possible deals — and that the correct play can be compressed into a list short enough to memorise.</p>
+
+<p>The list below is the widely used simplified strategy for <strong>9/6 Jacks or Better</strong>. Read your hand against it from the top and play the first line that matches. It gives up a small fraction of a percent against a perfect computer-generated chart, which is a fair trade for being usable at the table.</p>
+
+<h2>The hold list</h2>
+<ol class="ranked">
+  <li>Pat royal flush, straight flush, or four of a kind — keep it.</li>
+  <li>Four cards to a royal flush. Break a made flush or straight for this.</li>
+  <li>Pat full house, flush, straight, or three of a kind.</li>
+  <li>Four cards to a straight flush.</li>
+  <li>Two pair.</li>
+  <li>High pair — jacks, queens, kings or aces.</li>
+  <li>Three cards to a royal flush.</li>
+  <li>Four cards to a flush.</li>
+  <li>Low pair — tens or below.</li>
+  <li>Four cards to an outside straight (open at both ends).</li>
+  <li>Two suited high cards.</li>
+  <li>Three cards to a straight flush.</li>
+  <li>Two unsuited high cards — keep the lowest two.</li>
+  <li>Suited ten with a jack, queen or king.</li>
+  <li>One high card.</li>
+  <li>Nothing — discard all five.</li>
+</ol>
+
+<h2>The four mistakes that cost the most</h2>
+
+<h3>Holding a kicker with a pair</h3>
+<p>Dealt a pair of kings and an ace, many players keep all three. Never do this. The ace cannot improve the hand and the fourth card you discard is a live draw. Hold the pair, draw three.</p>
+
+<h3>Breaking a made hand for the wrong draw</h3>
+<p>A pat flush is worth 6 coins. Four to a royal is worth more than that in expectation, so you break the flush. Three to a royal is <em>not</em>, so you keep the flush. This is the single place where the ordering above is doing real work — line 2 sits above the made hands, line 7 sits below them.</p>
+
+<h3>Preferring the straight draw to the low pair</h3>
+<p>A low pair already pays nothing, which makes it feel worthless next to four cards to a straight. But the pair can become three of a kind, a full house or quads, and those outcomes carry it comfortably past an open-ended straight draw. Low pair is line 9; the outside straight draw is line 10.</p>
+
+<h3>Keeping a lone ace over a lone jack</h3>
+<p>When you are holding a single high card, all four rank equally for pairing purposes — but a jack, queen or king is more useful because it can also participate in a straight running below it. With two unsuited high cards, keep the two lowest for the same reason. The exception is that an ace still beats holding nothing at all.</p>
+
+<h2>Inside versus outside straights</h2>
+<p>An outside straight is open at both ends — 6-7-8-9 completes with a 5 or a 10, eight cards in the deck. An inside straight has a gap — 6-7-9-10 needs an 8, four cards. That halving is why the outside draw makes the list at line 10 and the bare inside draw does not appear at all. Do not chase it.</p>
+
+<div class="callout">
+  <p>These rankings are specific to 9/6 Jacks or Better. Bonus Poker and Double Bonus shift the value of four-of-a-kind hands enough to reorder some lines, and Deuces Wild needs a different list entirely.</p>
+</div>
+
+<h2>What perfect play actually gets you</h2>
+<p>Playing this list on a full-pay 9/6 machine returns about 99.5% over a very large number of hands. That is a long-run figure and says nothing about any given session: the royal flush contributes roughly two percentage points of that return on its own, and it arrives about once every 40,000 hands. Sessions will swing far from the average in both directions, and most of them will end below it.</p>
+
+<div class="post-foot">
+  <p>All four machines in <a href="/VideoPoker/">Video Poker: Jacks or Better</a> show their full paytable on screen, and strategy hints will point at the correct hold while you learn. It plays offline, with chips that have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

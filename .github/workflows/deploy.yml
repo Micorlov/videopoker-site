@@ -4,7 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'site/**'
+      - 'content/**'
+      - 'templates/**'
+      - 'static/**'
+      - 'build.py'
+      - 'tools/check.py'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -27,13 +31,24 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build the site
+        run: python3 build.py
+
+      - name: Check links, analytics tag and sitemap
+        run: python3 tools/check.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload the site folder
+      - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "Five Play: what multi-hand does to your bankroll, and what it doesn't",
+  "date": "2026-09-30",
+  "modified": "2026-09-30",
+  "app": "VideoPoker",
+  "description": "Multi-hand changes neither the return nor the correct holds. It splits one stake across independent draws, which cuts the swing per coin by 55% on a drawing hand and by nothing at all on a pat one.",
+  "summary": "It changes neither the return nor a single hold. The same stake split across five lines halves the swing on a drawing hand and does nothing at all on a pat one.",
+  "standfirst": "Three Play and Five Play do not change the return and do not change a single hold. What they change is the shape of the swing — and only on the hands where you draw."
+}
+-->
+<p>Multi-hand works the same way everywhere it appears. You are dealt one five-card hand and choose your holds once. Those holds are copied onto three or five lines, and each line draws its own replacement cards from its own deck — the same 47 unseen cards, shuffled separately. Five lines, five independent draws, one decision. That description contains everything that follows.</p>
+
+<h2>The return does not move</h2>
+<p>Each line draws from the same 47 cards with the same probabilities as a single-line hand would. So the expected value of a line is exactly the expected value of that hold played on its own, and the expected value of five lines is exactly five times it. On a <a href="reading-a-video-poker-paytable.html">9/6 Jacks or Better</a> paytable returning 99.5439%, a Five Play deal at five coins a line stakes 25 coins and expects to lose 0.114 of them. Five separate single-line hands at five coins stake the same 25 and expect to lose the same 0.114.</p>
+<p>The same argument kills the idea of a multi-hand strategy chart. Multiplying every candidate hold's value by five cannot change which one is largest, so the correct play in Five Play is the correct play in one hand, hold for hold. There is nothing extra to learn and nothing to adjust. The <a href="jacks-or-better-strategy.html">ranked hold list</a> carries over untouched.</p>
+
+<h2>What it actually changes</h2>
+<p>Split the outcome of a deal in two. Your hold decides one part — a made full house is a made full house on every line — and the draw decides the rest, independently on each line. Multi-hand averages the second part across five lines and leaves the first part exactly as it was.</p>
+<p>So the volatility per coin staked falls, but only in proportion to how much of the hand is still undecided when you press draw. Five independent draws cut the standard deviation of that component by a factor of √5, or about 55%.</p>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better. Figures are exact, computed over every possible draw from the 47 unseen cards for the hold shown. The last column is the standard deviation per coin staked when the same hold is played across five independent lines.</caption>
+  <thead>
+    <tr><th>Hold</th><th>Cards drawn</th><th>Value per coin</th><th>SD, one line</th><th>SD per coin, five lines</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Pat full house</th><td>0</td><td>9.00</td><td>0.00</td><td class="good">0.00</td></tr>
+    <tr><th scope="row">Four to a royal</th><td>1</td><td>18.55</td><td>115.24</td><td>51.54</td></tr>
+    <tr><th scope="row">Three to a royal</th><td>2</td><td>1.53</td><td>24.38</td><td>10.90</td></tr>
+    <tr><th scope="row">Four to a flush</th><td>1</td><td>1.21</td><td>2.34</td><td>1.05</td></tr>
+    <tr><th scope="row">Low pair</th><td>3</td><td>0.82</td><td>1.88</td><td>0.84</td></tr>
+    <tr><th scope="row">High pair</th><td>3</td><td>1.54</td><td>1.61</td><td>0.72</td></tr>
+    <tr><th scope="row">Discard all five</th><td>5</td><td>0.36</td><td>1.57</td><td>0.70</td></tr>
+  </tbody>
+</table>
+
+<p>Read the extremes. A pat hand gains nothing from extra lines: you are buying the same certain payout five times over. Four to a royal still has a standard deviation above 50 per coin across five lines, because one card carries an 800-coin outcome and five tries at it is a tiny sample.</p>
+<p>The middle of the table holds the useful comparison. Hold a low pair and draw three. Five coins on one line: expected 4.12 coins back, standard deviation 9.42 coins. Five lines of one coin each: expected 4.12 coins back, standard deviation 4.21 coins. Identical stake, identical expectation, less than half the swing.</p>
+<div class="callout">
+  <p>That is the honest case for multi-hand, and it is narrower than it sounds: for a <em>fixed amount of money at risk</em>, spreading it across lines is a mild diversification of the draw. It does nothing for the part of the hand your holds already settled, and nothing whatsoever for return.</p>
+</div>
+
+<h2>Where the bankroll actually goes</h2>
+<p>Almost nobody keeps the stake fixed. The button says Five Play, the bet per line stays where it was, and the amount on the table quintuples. Now the arithmetic runs the other way: on that same low pair, one coin on one line has a standard deviation of 1.88 coins and five lines of one coin have 4.21 — the swing grows by 2.24 while the money at risk grows by 5.</p>
+<p>Three consequences follow, and all of them are about time rather than edge.</p>
+<ol class="ranked">
+  <li>The bankroll drains five times faster in expectation. A thousand Five Play deals at five coins a line wager 25,000 coins and expect to give back 114 of them; the same thousand deals single-line wager 5,000 and expect to lose 23.</li>
+  <li>A fixed stack covers a fifth as many decisions. Five hundred coins is twenty Five Play deals at maximum coin, against a hundred single-line hands.</li>
+  <li>You reach the long run five times sooner in wall-clock terms, at five times the cost. The <a href="royal-flush-share-of-the-return.html">royal flush</a> still arrives once in about 40,400 hands, so per coin wagered nothing has improved at all.</li>
+</ol>
+<p>On a casino machine there is a fourth, and it is the expensive one. The royal pays 800 per coin only at five coins a line, so Five Play at full coin is 25 coins a deal. Dropping to one coin a line to afford the extra lines reverts the royal to 250 per coin and costs about 1.36 points of return — a leak far larger than any smoothing the extra lines provide.</p>
+
+<h2>The one thing extra lines genuinely buy</h2>
+<p>Hold four to a royal and each line finds the fifth card with probability 1 in 47, or 2.13%. Across five lines the chance that at least one of them lands is 1 − (46/47)<sup>5</sup> = 10.2%, with a 0.43% chance of two or more from the same deal. That is a real and satisfying multiplication of a rare event, and it is worth stating plainly that you paid five times the stake for it. The expected number of royals from that deal is 5/47 = 0.106, which is exactly five times 0.0213, as it has to be.</p>
+<p>Multi-hand is a pacing control, not an edge. Use it when you want more hands per minute and can fund them; leave it alone when what you actually want is more decisions from the same stack.</p>
+
+<div class="post-foot">
+  <p>In <a href="/VideoPoker/">Video Poker: Jacks or Better</a>, Hands per Deal sits in Settings as 1 Hand, 3× Hands or 5× Hands and unlocks at level 10, which is 45 hands of play. The total bet is taken up front, and if the balance cannot cover it the hand count drops rather than forcing a rebuy. Every line shares the deal and the holds and draws from its own shuffled deck, exactly as described above. Two app-specific details: a deal counts as one hand towards your level however many lines it runs, and the loss escalator — which raises every non-zero payout by one after a deal that pays nothing and resets on any win — climbs more slowly in multi-hand, since a deal where all five lines miss is rarer. The royal pays a flat 250× the bet in all four variants, so there is no maximum-coin rule to break. It plays offline, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

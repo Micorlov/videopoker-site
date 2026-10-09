@@ -1,0 +1,55 @@
+<!--
+{
+  "title": "Full-pay machines and why they became hard to find",
+  "date": "2026-10-06",
+  "modified": "2026-10-06",
+  "app": "VideoPoker",
+  "description": "Full pay is the top of a known ladder, not a compliment: 9/6 Jacks or Better returns 99.54%. A coin off the full house costs 1.15 points and a coin off the flush 1.10 — exactly how often those hands land.",
+  "summary": "Full pay is a coordinate, not a compliment — the top of a six-rung ladder. A coin off the full house costs 1.15 points of return, a coin off the flush 1.10, and a 6/5 machine costs 4.54.",
+  "standfirst": "\"Full pay\" is not a compliment. It is a coordinate: the top of a known ladder for each game. On Jacks or Better that is the 9/6 machine at 99.54%, and every machine below it was made by taking coins off two rows."
+}
+-->
+<p>A full-pay machine is not generous, and on most games it is not even a winner. The phrase means something narrower than it sounds: for each family of paytable, somebody wrote down the best version that casinos actually put on a floor, and every other version is measured against it. For Jacks or Better the reference is the 9/6 machine — nine coins per coin staked for a full house, six for a flush, 99.54% back with correct play.</p>
+<p>Those two rows do all the work, because the rest of the table does not move. Royal flush 800 per coin at the maximum bet, straight flush 50, four of a kind 25, straight 4, three of a kind 3, two pair 2, a pair of jacks or better 1 — identical on every Jacks or Better machine you will sit at. The names are built from the only two numbers that vary, which is why <a href="reading-a-video-poker-paytable.html">9/6 and 8/5 are machine names</a> rather than scores out of ten.</p>
+
+<h2>What a trimmed row costs</h2>
+<p>You can price the cuts with arithmetic rather than a simulator. Played correctly on 9/6, a full house lands on 1.1512% of deals and a flush on 1.1015%. Removing one coin per coin staked from a row removes exactly that fraction of a coin per hand, so the cost of a cut is simply the frequency of the hand being cut.</p>
+
+<table class="paytable-compare">
+  <caption>Jacks or Better, five coins bet, correct play for each table. The name is the full-house and flush payouts per coin; every other row is the same across all six machines.</caption>
+  <thead>
+    <tr><th>Machine</th><th>Full house</th><th>Flush</th><th>Return</th><th>Cost vs 9/6</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">9/6</th><td>9</td><td>6</td><td>99.54%</td><td>—</td></tr>
+    <tr><th scope="row">9/5</th><td>9</td><td>5</td><td>98.45%</td><td>1.09</td></tr>
+    <tr><th scope="row">8/6</th><td>8</td><td>6</td><td>98.39%</td><td>1.15</td></tr>
+    <tr><th scope="row">8/5</th><td>8</td><td>5</td><td>97.30%</td><td>2.24</td></tr>
+    <tr><th scope="row">7/5</th><td>7</td><td>5</td><td>96.15%</td><td>3.39</td></tr>
+    <tr><th scope="row">6/5</th><td>6</td><td>5</td><td>95.00%</td><td>4.54</td></tr>
+  </tbody>
+</table>
+
+<p>Every step down the ladder is 1.15 for a full-house coin and 1.10 for a flush coin, which is the two frequencies above rounded to two places. Subtract them from 99.54 in any order and you land on the published returns to within a hundredth of a point; the hundredth is the strategy being re-optimised for the cheaper table. The ordering of 9/5 and 8/6 falls out of the same arithmetic — the full house is the slightly commoner hand, so the machine that keeps it is the better one, by six hundredths of a point.</p>
+
+<h2>Why the cut is invisible from the stool</h2>
+<p>Nothing about a trimmed machine feels different. The deck is a deck, the hand frequencies are unchanged, and the hold list barely moves: both cuts come out of hands you have already made rather than out of the draws you choose between. A cheaper flush does devalue a four-card flush draw slightly, so a handful of marginal comparisons flip, but the <a href="jacks-or-better-strategy.html">9/6 priority list</a> plays an 8/5 machine at a cost measured in hundredths. Two numbers on the glass are the entire difference, and 2.24 points of return go with them.</p>
+<p>That invisibility is the commercial point. A trimmed paytable needs no new cabinet, no new maths and no explanation to the player, and once paytables became downloadable it did not even need a new glass.</p>
+
+<h2>Why they thinned out</h2>
+<p>Full pay made sense when video poker was being established. A machine whose arithmetic was published and nearly break-even drew players who would never sit down at a blackjack table, and the house still kept 0.46% of everything staked — thin in theory, and considerably fatter in practice, because almost nobody played the chart correctly.</p>
+<p>Two things closed that gap. Correct strategy became free: first books and printed cards, then trainers, then a phone in every pocket, so the money actually held drifted down towards the theoretical 0.46%. And the floor around the machines changed, as multi-line slots arrived keeping several times as much per square foot of the same carpet. A game that returns 99.54% to a competent player has to be justified against that comparison every year.</p>
+<p>The marketing moved to the top of the table instead. <a href="bonus-poker-and-double-bonus.html">Bonus quad rows</a>, progressive meters and <a href="five-play-multi-hand-bankroll.html">multi-hand</a> all advertise a jackpot rather than a return, and all of them are easier to put on a sign than a full house paying nine. Full pay survived longest at low denominations and on floors with regulars who compare paytables and will walk; it went first where nobody was going to leave over one row.</p>
+
+<div class="callout">
+  <p>Full pay is not the same as positive. 9/6 Jacks or Better is a losing machine played perfectly. The genuinely over-100% full-pay tables are <a href="deuces-wild-strategy.html">Deuces Wild</a> at 25-15-9-5-3-2-2-1, returning 100.76%, and 10/7 Double Bonus at 100.17% — and those are precisely the tables that were trimmed hardest and soonest, which is the whole history in one sentence. Meanwhile full-pay 8/5 Bonus Poker returns 99.17%, below full-pay Jacks or Better despite paying four times as much for four aces. "Full pay" ranks a machine within its own family and says nothing across families.</p>
+</div>
+
+<h2>Reading a floor</h2>
+<p>Three habits follow. Check the two rows against the ladder rather than the claim on the sign — an advertised payback percentage is usually a floor-wide average across every game in the building, and a machine's hold percentage is a historical number about other people's play rather than a property of the paytable. Check the denomination, because the same game one step up is often the better table. And check which family you are in first, since a full-pay version of a worse game is still a worse game.</p>
+<p>The underlying habit is to treat the paytable as the machine. Return, variance, correct strategy and <a href="bankroll-and-session-length.html">how long a stack lasts</a> are all downstream of those printed rows, and the rows are the only part of a machine you can read before you put money in. A 6/5 machine and a 9/6 machine are the same game in every respect but one, and that one is worth four and a half points.</p>
+
+<div class="post-foot">
+  <p>There is no trimmed table to walk away from in <a href="/VideoPoker/">Video Poker: Jacks or Better</a>: each of its four machines shows its own chart on screen and the chart never changes. Its Jacks or Better table pays 250 for a royal, 50 for a straight flush, 20 for four of a kind, 7 for a full house and 5 for a flush — a 7/5 shape in casino terms, but with the royal paid at a flat 250× the bet rather than as a five-coin jackpot, so the <a href="royal-flush-share-of-the-return.html">royal's share of the return</a> and the ladder above do not transfer to it. The other three are the full-pay tables discussed here: Deuces Wild on 25-15-9-5-3-2-2-1, Bonus Poker with 80, 40 and 25 for the quad rows over an 8/5 base, and Double Bonus with 160, 80 and 50 over a 10/7 base. Jacks or Better is there from the start, Deuces Wild at level 3, Bonus Poker at level 8 and Double Bonus at level 15. You start with 1,000 chips, bet 5, 10, 20 or 50 of them a hand, and collect 200 more once a day; strategy hints will glow the suggested hold if you want the list rather than the reasoning. It plays offline, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

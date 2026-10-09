@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ ga_id }}', {content_group: '{{ content_group }}'});
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-app]');
+    if (a) gtag('event', 'play_store_click', {app: a.dataset.app, link_url: a.href});
+  });
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+{{ head }}
+<meta name="theme-color" content="#07170F">
+<link rel="icon" href="/img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="/img/mark-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/img/mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/"><img src="/img/mark.svg" alt="" width="28" height="28">ORLOV <span>GAMES</span></a>
+    <nav class="topnav">
+      <a href="/#apps">Apps</a>
+      <a href="/blog/">Blog</a>
+      {{ header_cta }}
+    </nav>
+  </div>
+</header>
+
+{{ body }}
+
+<footer>
+  <div class="wrap">
+    <p class="copyright">Orlov Games — Michael Orlov, Israel</p>
+    <nav>
+      <a href="/">Apps</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy.html">Privacy policy</a>
+      <a href="mailto:{{ email }}">{{ email }}</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

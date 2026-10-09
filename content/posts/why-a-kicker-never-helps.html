@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "Why a kicker never helps",
+  "date": "2026-10-02",
+  "modified": "2026-10-02",
+  "app": "VideoPoker",
+  "description": "Keeping an ace alongside your trips or your pair costs between 0.11 and 0.60 coins a hand, and the loss is the same whichever high card you keep. Holding one every time it is available gives up 5.59 points of return.",
+  "summary": "A kicker settles who wins at a table. At a machine it just costs you a card off the draw — 0.12 coins on a high pair, 0.60 on two pair, and never once a gain.",
+  "standfirst": "At a table, the fifth card settles who wins. At a machine there is nobody to beat, so the ace you keep next to your trips is not a tie-breaker — it is a draw you have thrown away."
+}
+-->
+<p>Dealt 7-7-7-K-3, a lot of players hold the three sevens and the king. The reasoning is borrowed from table poker, where a kicker decides which of two players with the same trips takes the pot. A video poker machine pays on a fixed chart and compares your hand to nothing at all. There is no opponent for the king to out-rank, so keeping it does only one thing: it costs you a card off the draw.</p>
+
+<h2>What the card is worth</h2>
+<p>Hold the three sevens alone and you draw two cards. Those two can pair each other for a full house, or bring a fourth seven, or neither. Hold the sevens plus the king and you draw one card, which can only pair the king, bring a seven, or do nothing — and a king pairing a king next to trip sevens is still just three of a kind on the paytable.</p>
+<p>These are exact values on <a href="reading-a-video-poker-paytable.html">9/6 Jacks or Better</a>, averaged over every dealt hand of each shape that has a spare jack, queen, king or ace in it, with the best spare high card used as the kicker.</p>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better, exact expected value per coin staked. Each row averages over every dealt hand of that shape containing at least one unmatched high card. The loss is identical on every such hand.</caption>
+  <thead>
+    <tr><th>Hold</th><th>Matched cards only</th><th>Plus a high kicker</th><th>Given up</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Three of a kind</th><td class="good">4.3025</td><td>3.8511</td><td>0.4514</td></tr>
+    <tr><th scope="row">Two pair</th><td class="good">2.5957</td><td>2.0000</td><td>0.5957</td></tr>
+    <tr><th scope="row">High pair</th><td class="good">1.5365</td><td>1.4163</td><td>0.1203</td></tr>
+    <tr><th scope="row">Low pair</th><td class="good">0.8237</td><td>0.6753</td><td>0.1484</td></tr>
+    <tr><th scope="row">Four of a kind</th><td class="good">25.0000</td><td>25.0000</td><td>0.0000</td></tr>
+  </tbody>
+</table>
+
+<p>Three details in that table are worth more than the headline.</p>
+<p>The first is that the numbers do not move. Keep an ace rather than a king next to your trips and the value is 3.8511 either way; shift the trips from sevens to queens and it is 3.8511 again. A kicker removes one card from the draw and adds a payout you already had, and neither effect depends on rank. There is no such thing as a kicker good enough to be worth it, which is why the rule can be stated absolutely rather than as a judgement call.</p>
+<p>The second is that two pair is the most expensive case, at 0.5957 a hand. Holding all five cards there is not a kicker in the loose sense — it is standing pat on two pair and declining the draw entirely. One card is all that separates two pair from a full house, and four cards in the deck make it. Keeping the fifth card turns a 2.5957 hold into a flat 2.</p>
+<p>The third is the exception, and it is a hollow one. On four of a kind the fifth card changes nothing either way: 25 coins with the kicker, 25 without. Drawing is the convention because the hand cannot get worse and the paytable cannot tell the difference.</p>
+
+<div class="callout">
+  <p>So the rule is not "a kicker is usually wrong". It is that on a Jacks or Better paytable the fifth card is either a cost or a no-op, and never once a gain.</p>
+</div>
+
+<h2>What it adds up to</h2>
+<p>Those four shapes are not edge cases. Trips come up on 2.11% of deals, two pair on 4.75%, a high pair on 13.00% and a low pair on 29.25% — nearly half of all hands, and most of them arrive with an unmatched high card sitting in them.</p>
+<p>Weight each loss by how often the shape turns up with a spare high card and the total is 0.0559 coins a hand. Someone playing an otherwise correct game who adds one high kicker every time one is available gives up <strong>5.59 percentage points of return</strong>, taking a 99.54% machine down to roughly 94%. Sitting down at a 97.3% short-pay machine and playing it correctly costs about 2.2 points by comparison, so the habit is worth more than twice the paytable. The low pair alone accounts for 3.24 of the 5.59, purely because it happens so often.</p>
+
+<h2>Where the habit comes from</h2>
+<p>The kicker is a sound instinct in the wrong game. Three things change when the table becomes a machine:</p>
+<ol class="ranked">
+  <li>There is no second player, so a hand is only ever compared to the chart. Trips with an ace and trips with a deuce occupy the same row.</li>
+  <li>You cannot fold, bluff or read anyone. The only decision in the game is which cards to keep, which means every discarded draw is the whole of what you gave up.</li>
+  <li>Nothing pays below a pair of jacks. At a table a king-high hand wins pots; here it pays zero, so a lone high card has no standalone value worth protecting.</li>
+</ol>
+<p>The same instinct explains the related habit of keeping a third card with two pair, or an ace with a <a href="inside-vs-outside-straight-draws.html">four-card straight</a> that the ace cannot extend. In each case the extra card is defending against an opponent who does not exist.</p>
+
+<h2>The one paytable where it is real</h2>
+<p>Kickers are not a myth everywhere. Double Double Bonus pays a premium for four aces accompanied by a two, three or four — typically 2,000 for five coins against 800 for four aces with any other card — and on that machine the fifth card genuinely is part of the hand, which changes a handful of holds. That premium is a property of one specific paytable, not of video poker. Unless the chart in front of you has a row that names a kicker, the fifth card is not in the hand.</p>
+<p>The test is the same one the rest of the chart asks for: read the rows. If no row distinguishes four aces with a three from four aces with a nine, nothing you keep alongside a made hand can ever be paid for.</p>
+
+<div class="post-foot">
+  <p>None of the four paytables in <a href="/VideoPoker/">Video Poker: Jacks or Better</a> pays anything for a kicker. Bonus Poker and Double Bonus split four of a kind by rank — aces, 2s–4s, 5s–Ks — but never by the fifth card, and there is no Double Double Bonus in the app. The in-game Jacks or Better table pays 7 for a full house and 5 for a flush rather than 9 and 6, which shrinks the losses above slightly without changing a single decision: trips fall from 3.9676 to 3.6170 with a kicker, a high pair from 1.5023 to 1.3950, a low pair from 0.7895 to 0.6540. Turning on Strategy Hints with the 💡 button on the Play screen highlights the suggested holds in blue, and on a made hand it highlights the matched cards only — three cards for trips, four for two pair, two for a pair, four for quads — so it never suggests a kicker. Deuces Wild pays nothing below three of a kind and has four wild cards, so none of these figures apply there. It plays offline, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

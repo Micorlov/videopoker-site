@@ -3,6 +3,23 @@
 One post per run, taken from the top of **Queued**. When a post ships, move its
 line to **Published** with the date and the slug.
 
+## How to publish a post
+
+The blog covers every Orlov Games app. A post is one file and nothing else:
+
+1. Create `content/posts/<slug>.html`. The slug becomes the URL
+   (`https://michaelorlov.com/blog/<slug>.html`), so never rename a published one.
+2. Start it with the JSON front matter block used by every existing post:
+   `title`, `date`, `modified`, `app`, `description`, `summary`, `standfirst`.
+   `app` is a slug from `content/apps.json` (`VideoPoker`, `OmahaPoker`,
+   `Blackjack21`, …). It files the post under `/blog/<App>/` and lists it on
+   that app's page.
+3. Below the front matter, write the article body. Copy an existing post for
+   the markup, including the `post-foot` paragraph with the Play button.
+4. Run `python3 build.py && python3 tools/check.py`, then commit and push.
+   The blog index, the per-app pages, the home page, the sitemap and the
+   JSON-LD all update on their own. Don't edit any of them by hand.
+
 When Queued is empty, **stop and do not invent topics**. Publishing filler is
 worse for the site than publishing nothing — tell Michael the backlog is empty
 and let him refill it.
@@ -13,9 +30,9 @@ and let him refill it.
   that every paragraph earns its place.
 - It must teach something checkable: a number, a rule, an ordering, a
   distinction. If the post could be written without knowing anything about
-  video poker, it is not worth publishing.
-- No invented statistics. Established video poker maths (paytable returns,
-  hand frequencies, strategy orderings) is fine from knowledge. Anything about
+  the game it covers, it is not worth publishing.
+- No invented statistics. Established game maths (paytable returns, hand
+  frequencies, odds, strategy orderings) is fine from knowledge. Anything about
   the app itself must be true of the real app — check the Play listing or the
   game repo rather than guessing at features.
 - Never imply the chips have cash value or that the game is gambling.
@@ -25,11 +42,21 @@ and let him refill it.
 
 ## Queued
 
+Topics are grouped by app. Take the first one under any app; each post's `app`
+field is the heading it came from.
+
+### VideoPoker
+
 1. Progressive jackpots and the point where a machine turns positive
 2. What the hold percentage on a machine does and does not tell you
 3. Why practising offline beats practising for money
 4. Three of a kind: the hand that behaves differently in every variant
 5. The order to learn video poker variants in
+
+### Other apps
+
+Empty. When Michael adds topics for other apps, give each app its own
+`### <AppSlug>` heading above this one.
 
 ## Published
 

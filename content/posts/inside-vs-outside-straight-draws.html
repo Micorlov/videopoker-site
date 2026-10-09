@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "Why an inside straight draw is worth exactly half an outside one",
+  "date": "2026-10-01",
+  "modified": "2026-10-01",
+  "app": "VideoPoker",
+  "description": "Eight cards complete an open-ended four-card straight and four complete a gutshot, so one is worth 0.68 coins and the other 0.34. A gutshot with no high cards in it is worth less than throwing all five cards away.",
+  "summary": "Eight cards finish an open-ended four-card straight and four finish a gutshot, so one is worth 0.68 coins and the other 0.34 — less than throwing all five away.",
+  "standfirst": "Four cards to a straight is not one hold but two. One of them completes on eight cards, the other on four, and the weaker one is worth less than throwing the whole hand away."
+}
+-->
+<p>Hold 6-7-8-9 and the straight finishes at either end: any five, any ten. Hold 6-7-9-10 and there is a hole in the middle, so only an eight will do. The first is an outside draw, also called open-ended; the second is an inside draw, or a gutshot. On screen both look like four to a straight, and they are not the same hold at all.</p>
+
+<h2>Counting the outs</h2>
+<p>Five cards are dealt, so 47 are unseen. The outside draw has eight live cards among them — four fives and four tens. The inside draw has four, the eights. Nothing else separates the two examples: neither can reach a flush, and in Jacks or Better a low pair pays nothing, so the straight is the only outcome either draw can pay off with.</p>
+<p>That makes the arithmetic short. A straight pays 4 per coin, so the outside draw is worth 8 ÷ 47 × 4 = 32/47 = 0.681 coins per coin staked, and the inside draw 4 ÷ 47 × 4 = 16/47 = 0.340.</p>
+<p>The ratio is exactly two, and the payout cancels out of it. Whatever a particular machine pays for a straight, a plain gutshot is worth half a plain open-ender on that machine — doubling the straight row doubles both. On a <a href="bonus-poker-and-double-bonus.html">Double Bonus</a> paytable, where the straight pays 5, the two draws come to 40/47 and 20/47 instead.</p>
+
+<h2>Where the two sit in the order</h2>
+<p>Half of something small is the part that matters. These are exact values on <a href="reading-a-video-poker-paytable.html">9/6 Jacks or Better</a>, computed over every possible draw from the 47 unseen cards, for holds with no flush or high-card extras attached.</p>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better, exact expected value per coin staked. The straight draws here contain no high cards and no two cards of the same suit, so a straight is the only hand they can make.</caption>
+  <thead>
+    <tr><th>Hold</th><th>Cards that complete it</th><th>Value per coin</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Four to a flush</th><td>9 of 47</td><td class="good">1.149</td></tr>
+    <tr><th scope="row">Low pair</th><td>—</td><td class="good">0.824</td></tr>
+    <tr><th scope="row">Four to an outside straight</th><td>8 of 47</td><td>0.681</td></tr>
+    <tr><th scope="row">Two suited high cards</th><td>—</td><td>0.621</td></tr>
+    <tr><th scope="row">One high card alone</th><td>—</td><td>0.483</td></tr>
+    <tr><th scope="row">Discard all five</th><td>—</td><td>0.358</td></tr>
+    <tr><th scope="row">Four to an inside straight</th><td>4 of 47</td><td>0.340</td></tr>
+  </tbody>
+</table>
+
+<p>Two things fall out of that ordering, and both are worth committing to memory.</p>
+<p>First, a low pair beats either draw, so the choice never goes the other way. Dealt 5-6-7-8-8, the eights are worth 0.824 and the open-ended draw 0.681; keep the pair. Dealt 5-6-8-9-9, the nines are worth 0.824 against 0.340 for the gutshot — nearly two and a half times as much, for a hold that looks far less exciting.</p>
+<p>Second, and this is the one that surprises people: a bare inside draw is worth less than scrapping the hand. Dealt 3-6-7-9-10, holding 6-7-9-10 returns 0.340 and discarding all five returns 0.358. Four cards you have already been given are worth keeping less than five you have not seen.</p>
+<div class="callout">
+  <p>So the two shapes land on opposite sides of the line. An outside straight draw is a real hold, sitting low in the <a href="jacks-or-better-strategy.html">hold-priority list</a> but comfortably above the lone high cards. An inside straight draw with nothing else going for it is not a hold at all.</p>
+</div>
+
+<h2>Four in a row that is still a gutshot</h2>
+<p>Consecutive cards do not guarantee eight outs. A straight runs from A-2-3-4-5 up to 10-J-Q-K-A and no further, so the ace does not bridge the two ends. That leaves two shapes that read as open-ended and behave as gutshots:</p>
+<ol class="ranked">
+  <li>A-2-3-4 needs a five and nothing else. Four outs. With the ace able to pair for a payout it comes to 0.404 — still beaten by discarding the 2-3-4 and keeping the ace on its own, which is worth 0.475.</li>
+  <li>J-Q-K-A needs a ten and nothing else. Also four outs, but three more cards that pay when they pair, which lifts it to 0.596 and makes it a perfectly reasonable hold.</li>
+</ol>
+<p>The mirror case is 10-J-Q-K, which looks like it should be short an end and is not: a nine makes 9-10-J-Q-K and an ace makes 10-J-Q-K-A. Eight outs plus three high cards to pair gives 0.872, the most valuable four-card straight in the game.</p>
+
+<h2>When a gutshot earns its place</h2>
+<p>High cards are what rescue an inside draw, because each jack, queen, king or ace in the hold can pair for a return of its own. The progression is steady: 9-10-J-K is worth 0.468, 10-J-Q-A is worth 0.532, J-Q-K-A 0.596. A gutshot needs roughly three high cards in it before it outranks the alternatives. An open-ender needs none.</p>
+<p>The other rescue is suit. If the four cards share a suit, it is not a straight draw being valued at all — it is four to a straight flush, which outranks two pair and is a different decision entirely.</p>
+<p>Everything else is the same discipline the rest of the chart asks for: count the cards that actually finish the hand before deciding it is worth keeping. Eight is a hold, four usually is not, and the gap between them is one card's worth of imagination.</p>
+
+<div class="post-foot">
+  <p>In <a href="/VideoPoker/">Video Poker: Jacks or Better</a>, the in-game Jacks or Better paytable pays 4× the bet for a straight, so the 0.681 and 0.340 figures above carry over to it unchanged, as does the ordering in the table. Turning on Strategy Hints with the 💡 button on the Play screen highlights the suggested holds in blue, and it will point at a four-card straight only when the four ranks run consecutively, ranking it below a low pair and above two suited high cards, which is where the maths puts it. So it never suggests a hand with a hole in the middle — though, as above, it does count A-2-3-4 and J-Q-K-A as straight draws even though each of those completes on only one rank. Double Bonus pays 5× for a straight, lifting the two draws to 0.851 and 0.426; Deuces Wild pays 2× and has four wild cards, so none of these numbers apply there. It plays offline, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
