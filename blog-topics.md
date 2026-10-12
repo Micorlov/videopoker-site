@@ -54,7 +54,8 @@ The blog covers every Orlov Games app. A post is one file and nothing else:
 2. Start it with the JSON front matter block used by every existing post:
    `title`, `date`, `modified`, `app`, `description`, `summary`, `standfirst`.
    `app` is the game's slug. It files the post under `/blog/<App>/` and lists
-   it on that app's page.
+   it on that app's page. Add `seo_title` or `seo_description` only when the
+   title or description breaks the length rule below.
 3. Below the front matter, write the article body. Copy an existing post for
    the markup, and end with a `post-foot` block that links to the app page
    (`/<Slug>/`).
@@ -102,6 +103,14 @@ topic:
   no hype, no "in today's fast-paced world", no rhetorical questions as
   openers.
 - Link to other posts for the same app where they genuinely help.
+- **Lengths that search results allow.** Keep `title` at 60 characters or
+  fewer and `description` between 70 and 160. If the natural title or
+  description is longer, keep it and add a shorter `seo_title` or
+  `seo_description` beside it — that one is what the `<title>` and the meta
+  description use, while the long version still appears on listing pages and
+  in the JSON-LD. `python3 tools/check.py` fails the build otherwise.
+- One `<h1>` per post (the build writes it from `title`, so don't add another),
+  and every `<img>` in the body needs `alt`, `width` and `height`.
 
 ## Queued
 

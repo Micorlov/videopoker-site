@@ -22,10 +22,25 @@ STATIC = ROOT / "static"
 OUT = ROOT / "_site"
 
 SITE = "https://michaelorlov.com"
-GA_ID = "G-S6E36TV2PC"  # GA4 property android-34c9a → web stream "michaelorlov.com"
+GA_ID = "G-NS1LGN6P3Y"  # GA4 account WEB → property michaelorlov.com → web stream "michaelorlov.com"
 STUDIO = "Orlov Games"
+AUTHOR = "Michael Orlov"
 EMAIL = "admin@michaelorlov.com"
 DEFAULT_OG = "/img/og-studio.png"
+FEED = "/feed.xml"
+
+# A search result cuts a title near 60 characters and a description near 160, so
+# the studio suffix is only appended while it still fits, and tools/check.py
+# enforces both limits. A page whose own title or description is longer than the
+# limit carries "seo_title" / "seo_description" in its front matter.
+BRAND = f" — {STUDIO}"
+TITLE_MAX = 60
+DESC_MAX = 160
+
+# Stable @id values, so the studio and the author stay one entity across pages.
+ORG_ID = SITE + "/#organization"
+PERSON_ID = SITE + "/#michael"
+SITE_ID = SITE + "/#website"
 
 PLAY_ICON = (
     '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 '
@@ -70,6 +85,9 @@ def load_posts(apps_by_slug):
         meta.update(slug=path.stem, body=body, url=f"/blog/{path.stem}.html")
         meta.setdefault("modified", meta["date"])
         meta.setdefault("summary", meta["description"])
+        meta.setdefault("seo_title", re.sub("<[^>]+>", "", meta["title"]))
+        meta.setdefault("seo_description", meta["description"])
+        meta["words"] = len(re.sub("<[^>]+>", " ", body).split())
         posts.append(meta)
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     return posts
@@ -96,6 +114,17 @@ def image_size(path):
 def nice_date(iso):
     d = dt.date.fromisoformat(iso)
     return f"{d.day} {d:%B %Y}"
+
+
+def rfc822(iso):
+    """ISO date → the date format RSS 2.0 requires for pubDate."""
+    d = dt.date.fromisoformat(iso)
+    return f"{d:%a, %d %b %Y} 00:00:00 +0000"
+
+
+def fit_title(core):
+    """Add the studio name to a title only while the result still fits a search result."""
+    return core + BRAND if len(core) + len(BRAND) <= TITLE_MAX else core
 
 
 def play_button(app, small=False, label="Get it on Google Play"):
@@ -202,7 +231,8 @@ BASE = (ROOT / "templates" / "base.html").read_text()
 
 
 def page(path, *, title, description, body, group, og_title=None, og_description=None, og_image=None,
-         og_type="website", schema=(), header_app=None, robots=None, canonical=True, extra_head=""):
+         og_type="website", schema=(), header_app=None, robots=None, canonical=True, extra_head="",
+         pre_head="", published=None, modified=None):
     head = []
     if canonical:
         head.append(f'<link rel="canonical" href="{SITE}{path}">')
@@ -222,11 +252,21 @@ def page(path, *, title, description, body, group, og_title=None, og_description
         f'<meta name="twitter:description" content="{og_description}">',
         f'<meta name="twitter:image" content="{og_image}">',
     ]
+    if published:
+        head += [
+            f'<meta property="article:published_time" content="{published}">',
+            f'<meta property="article:modified_time" content="{modified or published}">',
+            f'<meta property="article:author" content="{esc(AUTHOR, quote=True)}">',
+        ]
     head += [jsonld(s) for s in schema]
     if extra_head:
         head.append(extra_head)
     cta = play_button(header_app, small=True) if header_app and header_app["status"] == "live" else ""
+    body = body.replace("<main", '<main id="main"', 1)
     out = BASE
+    # The slot sits above the GA tag, so whatever goes in it decides the page's
+    # fate before Analytics counts the page.
+    out = out.replace("{{ pre_head }}", pre_head + "\n" if pre_head else "", 1)
     for key, value in {
         "ga_id": GA_ID,
         "content_group": group,
@@ -234,6 +274,7 @@ def page(path, *, title, description, body, group, og_title=None, og_description
         "description": esc(description, quote=True),
         "head": "\n".join(head),
         "header_cta": cta,
+        "blog_current": ' aria-current="page"' if path.startswith("/blog/") else "",
         "body": body.strip(),
         "email": EMAIL,
         "year": str(dt.date.today().year),
@@ -253,13 +294,22 @@ def redirect(path, target):
 <link rel="canonical" href="{SITE}{target}">
 <meta name="robots" content="noindex">
 <meta http-equiv="refresh" content="0; url={target}">
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}',{{content_group:'Redirect'}});location.replace('{target}'+location.hash);</script>
+<script>location.replace('{target}'+location.search+location.hash);</script>
 </head>
 <body><p>This page has moved to <a href="{target}">{SITE}{target}</a>.</p></body>
 </html>
 """,
     )
+
+
+def exists_exact(path):
+    """Case-sensitive existence check: macOS is case-insensitive, Pages is not."""
+    cur = OUT
+    for part in path.relative_to(OUT).parts:
+        if not cur.is_dir() or part not in {c.name for c in cur.iterdir()}:
+            return False
+        cur = cur / part
+    return cur.exists()
 
 
 def write(path, text):
@@ -288,7 +338,7 @@ def build_home(apps, posts, abs_):
       </div>
     </div>
     <a class="feature" href="{featured['url']}">
-      <img src="{featured['icon']}" alt="" width="120" height="120">
+      <img src="{featured['icon']}" alt="" width="120" height="120" fetchpriority="high" decoding="async">
       <span class="feature-label">Most played</span>
       <strong>{esc(featured['name'])}</strong>
       <span>{esc(featured['tagline'])}</span>
@@ -324,8 +374,18 @@ def build_home(apps, posts, abs_):
             "url": SITE + "/",
             "logo": SITE + "/img/mark-512.png",
             "email": EMAIL,
-            "founder": {"@type": "Person", "name": "Michael Orlov"},
+            "@id": ORG_ID,
+            "founder": {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR},
             "sameAs": ["https://play.google.com/store/apps/dev?id=6720418432540497347"],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": SITE_ID,
+            "name": STUDIO,
+            "url": SITE + "/",
+            "inLanguage": "en",
+            "publisher": {"@id": ORG_ID},
         },
         {
             "@context": "https://schema.org",
@@ -340,7 +400,7 @@ def build_home(apps, posts, abs_):
     page(
         "/",
         title=f"{STUDIO}: Android games and apps by Michael Orlov",
-        description=f"{len(apps)} Android apps from {STUDIO}: video poker, blackjack, Omaha, slots, dominoes, pool, block puzzles and more. Most play offline, and the casino games never use real money.",
+        description=f"{len(apps)} Android games and apps by Michael Orlov: video poker, blackjack, Omaha, slots, dominoes, pool and block puzzles. Most play offline, none for real money.",
         og_title=STUDIO,
         body=body,
         group="Home",
@@ -359,11 +419,13 @@ def app_schema(app, screenshots):
         "url": SITE + app["url"],
         "image": SITE + app["icon"],
         "screenshot": [SITE + s for s in screenshots],
-        "author": {"@type": "Person", "name": "Michael Orlov"},
-        "publisher": {"@type": "Organization", "name": STUDIO, "email": EMAIL},
+        "inLanguage": "en",
+        "author": {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR},
+        "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO, "email": EMAIL},
     }
     if app["status"] == "live":
         s["installUrl"] = app["play_url"]
+        s["isAccessibleForFree"] = True
         s["offers"] = {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
     return s
 
@@ -412,7 +474,7 @@ def build_app(app, apps, posts, abs_):
     body = f"""
 <main>
 <div class="hero wrap app-hero">
-  <img class="app-icon" src="{app['icon']}" alt="" width="112" height="112">
+  <img class="app-icon" src="{app['icon']}" alt="" width="112" height="112" fetchpriority="high" decoding="async">
   <h1>{esc(app['short_name'])}{sub}</h1>
   <p class="lede">{esc(app['tagline'])}</p>
   <div class="cta-row">
@@ -449,7 +511,7 @@ def build_app(app, apps, posts, abs_):
     shot_urls = [f"/img/apps/{app['slug']}/{n}" for n in app["screenshots"]]
     page(
         app["url"],
-        title=f"{app['name']} for Android — {STUDIO}",
+        title=fit_title(f"{app['name']} for Android"),
         description=f"{app['tagline']} {'Free on Google Play' if app['status'] == 'live' else 'Coming soon to Google Play'}, from {STUDIO}.",
         og_title=app["name"],
         og_image=shot_urls[0] if wide else None,
@@ -508,7 +570,7 @@ def blog_filters(apps, posts, current=None):
 def build_blog(apps, posts, abs_):
     page(
         "/blog/",
-        title=f"Blog — how our games work — {STUDIO}",
+        title=fit_title("Blog — how our games work"),
         description="Notes from Orlov Games on how the games work underneath: video poker paytables and strategy, odds, variance, shuffling and the maths behind the machines.",
         og_title=f"{STUDIO} blog",
         body=f"""
@@ -531,7 +593,7 @@ def build_blog(apps, posts, abs_):
         url = f"/blog/{app['slug']}/"
         page(
             url,
-            title=f"{app['short_name']} blog — {STUDIO}",
+            title=fit_title(f"{app['short_name']} blog"),
             description=f"Every {STUDIO} post about {app['short_name']}: {len(mine)} notes on strategy, odds and how the game works.",
             body=f"""
 <main class="post wrap">
@@ -553,26 +615,51 @@ def build_blog(apps, posts, abs_):
         build_post(p, posts, abs_)
 
 
+def post_sequence(older, newer):
+    """Previous/next links between posts about the same game, so every post is reachable."""
+    links = []
+    if older:
+        links.append(f'<a class="seq older" href="{older["url"]}"><span>Previous post</span>{older["title"]}</a>')
+    if newer:
+        links.append(f'<a class="seq newer" href="{newer["url"]}"><span>Next post</span>{newer["title"]}</a>')
+    if not links:
+        return ""
+    return ('<nav class="post-seq wrap-inner" aria-label="More posts about this game">'
+            + "".join(links) + "</nav>")
+
+
 def build_post(p, posts, abs_):
     app = abs_[p["app"]]
     plain = re.sub("<[^>]+>", "", p["title"])
-    related = [q for q in posts if q["app"] == p["app"] and q["slug"] != p["slug"]][:3]
+    mine = [q for q in posts if q["app"] == p["app"]]
+    i = mine.index(p)
+    older = mine[i + 1] if i + 1 < len(mine) else None
+    newer = mine[i - 1] if i else None
+    related = [q for q in mine if q["slug"] != p["slug"]][:3]
+    if len(related) < 3:
+        # A game's first posts have nothing of their own to point at, so top the
+        # list up with the newest posts about anything else.
+        seen = {q["slug"] for q in related} | {p["slug"]}
+        related += [q for q in posts if q["slug"] not in seen][: 3 - len(related)]
+    same_app = all(q["app"] == p["app"] for q in related)
     more = (
         f"""
   <aside class="related wrap-inner">
-    <h2>More on {esc(app['short_name'])}</h2>
-    {post_items(related, abs_, show_app=False, summary=True)}
+    <h2>{'More on ' + esc(app['short_name']) if same_app else 'More from the blog'}</h2>
+    {post_items(related, abs_, show_app=not same_app, summary=True)}
   </aside>"""
         if related
         else ""
     )
     page(
         p["url"],
-        title=f"{plain} — {STUDIO}",
-        description=p["description"],
+        title=fit_title(p["seo_title"]),
+        description=p["seo_description"],
         og_title=plain,
         og_type="article",
         og_image="/img/og-card.png" if p["app"] == "VideoPoker" else None,
+        published=p["date"],
+        modified=p["modified"],
         body=f"""
 <main class="post wrap">
   <div class="post-head">
@@ -584,6 +671,7 @@ def build_post(p, posts, abs_):
   <article class="post-body">
 {p['body'].strip()}
   </article>
+{post_sequence(older, newer)}
 {more}
 </main>
 """,
@@ -597,8 +685,11 @@ def build_post(p, posts, abs_):
                 "description": p["description"],
                 "datePublished": p["date"],
                 "dateModified": p["modified"],
-                "author": {"@type": "Person", "name": "Michael Orlov"},
-                "publisher": {"@type": "Organization", "name": STUDIO,
+                "inLanguage": "en",
+                "wordCount": p["words"],
+                "articleSection": app["short_name"],
+                "author": {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR},
+                "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO,
                               "logo": {"@type": "ImageObject", "url": SITE + "/img/mark-512.png"}},
                 "image": SITE + ("/img/og-card.png" if p["app"] == "VideoPoker" else DEFAULT_OG),
                 "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + p["url"]},
@@ -636,14 +727,18 @@ def build_404(apps):
     for a in apps:
         known[a["url"].lower()] = a["url"]
         known[f"/blog/{a['slug']}/".lower()] = f"/blog/{a['slug']}/"
+    # This runs before the GA tag. A hit that is really a redirect sets the flag
+    # and leaves, so it is never counted as a visit to "Page not found"; only a
+    # genuine miss reaches gtag.
     script = (
         "<script>(function(){var m=" + json.dumps(known) + ";"
         "var p=location.pathname.toLowerCase();if(!p.endsWith('/'))p+='/';"
-        "if(m[p]&&m[p]!==location.pathname)location.replace(m[p]+location.search+location.hash);})();</script>"
+        "var t=m[p];if(t&&t!==location.pathname){window.__redirecting=true;"
+        "location.replace(t+location.search+location.hash);}})();</script>"
     )
     page(
         "/404.html",
-        title=f"Page not found — {STUDIO}",
+        title=fit_title("Page not found"),
         description="This page does not exist.",
         body="""
 <main class="doc wrap">
@@ -654,13 +749,18 @@ def build_404(apps):
         group="404",
         robots="noindex",
         canonical=False,
-        extra_head=script,
+        pre_head=script,
     )
 
 
 def build_sitemap(apps, posts):
     latest = posts[0]["modified"] if posts else None
-    urls = [("/", latest)] + [(a["url"], None) for a in apps] + [("/blog/", latest)]
+    def app_mod(a):
+        # An app page lists its own posts, so it genuinely changes when one lands.
+        mine = [p["modified"] for p in posts if p["app"] == a["slug"]]
+        return max(mine) if mine else None
+
+    urls = [("/", latest)] + [(a["url"], app_mod(a)) for a in apps] + [("/blog/", latest)]
     for a in apps:
         mine = [p for p in posts if p["app"] == a["slug"]]
         if mine:
@@ -671,6 +771,37 @@ def build_sitemap(apps, posts):
     )
     (OUT / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{rows}\n</urlset>\n'
+    )
+
+
+def build_feed(posts, abs_):
+    items = []
+    for p in posts[:20]:
+        app = abs_[p["app"]]
+        items.append(
+            f"""  <item>
+    <title>{esc(re.sub("<[^>]+>", "", p["title"]))}</title>
+    <link>{SITE}{p['url']}</link>
+    <guid isPermaLink="true">{SITE}{p['url']}</guid>
+    <pubDate>{rfc822(p['date'])}</pubDate>
+    <category>{esc(app['short_name'])}</category>
+    <description>{esc(p['description'])}</description>
+  </item>"""
+        )
+    (OUT / FEED.lstrip("/")).write_text(
+        f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{STUDIO} blog</title>
+  <link>{SITE}/blog/</link>
+  <atom:link href="{SITE}{FEED}" rel="self" type="application/rss+xml"/>
+  <description>Notes from {STUDIO} on how the games work underneath: paytables, odds, strategy and the maths.</description>
+  <language>en</language>
+  <lastBuildDate>{rfc822(posts[0]["modified"])}</lastBuildDate>
+{chr(10).join(items)}
+</channel>
+</rss>
+"""
     )
 
 
@@ -689,11 +820,34 @@ def main():
     build_404(apps)
     redirect("/terms.html", "/VideoPoker/terms.html")
     build_sitemap(apps, posts)
+    build_feed(posts, abs_)
     print(f"built {sum(1 for _ in OUT.rglob('*.html'))} pages into {OUT.relative_to(ROOT)}/")
 
     if "--serve" in sys.argv:
-        import functools, http.server
-        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(OUT))
+        import functools, http.server, io, urllib.parse
+
+        class Pages(http.server.SimpleHTTPRequestHandler):
+            """Serve _site the way GitHub Pages does, so what works here works live.
+
+            Paths are case-sensitive and a miss returns 404.html with a real 404.
+            On macOS alone, /videopoker/ would quietly resolve to /VideoPoker/ and
+            hide both the broken link and the redirect that handles it.
+            """
+
+            def send_head(self):
+                rel = urllib.parse.unquote(urllib.parse.urlparse(self.path).path).lstrip("/")
+                if rel.endswith("/") or not rel:
+                    rel += "index.html"
+                if exists_exact(OUT / rel):
+                    return super().send_head()
+                body = (OUT / "404.html").read_bytes()
+                self.send_response(404)
+                self.send_header("Content-Type", "text/html")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                return io.BytesIO(body)
+
+        handler = functools.partial(Pages, directory=str(OUT))
         print("serving http://localhost:8000")
         http.server.ThreadingHTTPServer(("", 8000), handler).serve_forever()
 

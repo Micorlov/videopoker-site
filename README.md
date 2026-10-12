@@ -13,11 +13,14 @@ content/
   apps/VideoPoker.html hand-written page body; any app with a file here gets it
                        instead of the generated page
   posts/*.html         blog posts: JSON front matter + article body
+                       (seo_title / seo_description override an over-long one)
   legal/*.html         privacy policy / terms pages
 templates/base.html    <head>, Google Analytics tag, header, footer — on every page
-static/                copied as-is: style.css, img/, CNAME, robots.txt
-build.py               → _site/ (pages, sitemap.xml, 404.html)
-tools/check.py         links, GA tag, JSON-LD, titles, sitemap — CI fails if any break
+static/                copied as-is: style.css, fonts.css, fonts/, img/, CNAME,
+                       robots.txt
+build.py               → _site/ (pages, sitemap.xml, feed.xml, 404.html)
+tools/check.py         links, GA tag, JSON-LD, titles, descriptions, images,
+                       sitemap, feed — CI fails if any break
 tools/fetch_play.py    refresh listing text, icons and screenshots from Google Play
 ```
 
@@ -58,10 +61,51 @@ icon and screenshots. For an app still in testing there is no public listing,
 so write `content/play/<Slug>.json` by hand from Play Console → Store listing,
 and put `icon.jpg` and `shot1.jpg`… in `static/img/apps/<Slug>/`.
 
+## Search
+
+Every indexable page carries a canonical URL, Open Graph and Twitter cards,
+and JSON-LD: `Organization` + `WebSite` + `ItemList` on the home page,
+`MobileApplication` on an app page, `BlogPosting` on a post, and a
+`BreadcrumbList` everywhere below the home page. The studio and the author
+use fixed `@id`s (`/#organization`, `/#michael`) so they stay one entity
+across pages.
+
+A search result cuts a title near 60 characters and a description near 160, so
+`build.py` appends `— Orlov Games` to a title only while it still fits, and
+`tools/check.py` fails the build on a title over 60 or a description outside
+70–160. When a post's own `title` or `description` is longer than that, add
+`seo_title` or `seo_description` to its front matter; the full text stays in
+use on listing pages and in the JSON-LD.
+
+`/feed.xml` is an RSS 2.0 feed of the 20 newest posts, linked from every page's
+`<head>`. `/sitemap.xml` lists every indexable page, and `static/robots.txt`
+points at it.
+
+### Fonts
+
+Antonio and Archivo are self-hosted in `static/fonts/`, so the first paint waits
+on no cross-origin DNS, TLS and round trip to `fonts.googleapis.com` and
+`fonts.gstatic.com`. `static/fonts.css` is the Google Fonts stylesheet with the
+URLs pointed at local copies and nothing else changed, and the two latin files
+the header and body text need are preloaded in `templates/base.html`.
+
+To refresh them, fetch the stylesheet with a current browser's user agent (an old
+one is served ttf instead of woff2), download every `.woff2` it names, and replace
+`static/fonts.css` and `static/fonts/*.woff2` together:
+
+```sh
+curl -A "$(python3 -c 'print("Mozilla/5.0 Chrome/126.0.0.0 Safari/537.36")')" \
+  'https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap'
+```
+
+Both faces are SIL Open Font License 1.1; see `static/fonts/NOTICE`.
+
 ## Analytics
 
-Every page loads GA4 `G-S6E36TV2PC`: property *android-34c9a* in the
-micorlov@gmail.com Analytics account, web stream "michaelorlov.com". Each page
+Every page loads GA4 `G-NS1LGN6P3Y`: Analytics account *WEB* →
+property *michaelorlov.com* (Israel time zone) → web stream "michaelorlov.com", under
+micorlov@gmail.com. Until October 2026 the site used `G-S6E36TV2PC` in the
+Firebase property *android-34c9a*; older history stays there. Each page
 also sends a `content_group`: the app slug on app pages and posts, or `Home`,
 `Blog`, `Legal`, `404`. That splits reports by app under Engagement → Pages and
 screens → Content group. Clicks on a Google Play button send a
