@@ -1,11 +1,21 @@
 import { test as base, expect } from '@playwright/test'
 
 // Block third parties so test traffic never reaches Google Analytics or Fonts.
-const test = base.extend<{ errors: string[] }>({
+// This is auto: a fixture is built only for the tests that name it, so as part of
+// `errors` it left every other test reporting itself to the live property as a
+// visitor. These tests run against production, where that data is the real record.
+const test = base.extend<{ hermetic: void; errors: string[] }>({
+  hermetic: [
+    async ({ page, baseURL }, use) => {
+      const origin = new URL(baseURL!).origin
+      await page.route((url) => url.origin !== origin, (route) => route.abort())
+      await use()
+    },
+    { auto: true },
+  ],
   errors: async ({ page, baseURL }, use) => {
     const errors: string[] = []
     const origin = new URL(baseURL!).origin
-    await page.route((url) => url.origin !== origin, (route) => route.abort())
     page.on('pageerror', (e) => errors.push(e.message))
     page.on('response', (r) => { if (r.url().startsWith(origin) && r.status() >= 400) errors.push(`${r.status()} ${r.url()}`) })
     await use(errors)

@@ -18,10 +18,20 @@ export interface PageHealth { errors: string[]; badResponses: string[] }
 
 // Every test gets: no network beyond localhost (GA and Google Fonts are blocked so runs are
 // hermetic), plus a record of JS errors and same-origin responses that came back >= 400.
-export const test = base.extend<{ health: PageHealth }>({
+export const test = base.extend<{ hermetic: void; health: PageHealth }>({
+  // auto, so it also covers a test that takes only `page`. Playwright builds a
+  // fixture only for the tests that name it, so while this lived inside `health`
+  // every other test loaded the real gtag.js and reported itself to Analytics —
+  // the 404 tests included, which is how a redirect became a "Page not found" view.
+  hermetic: [
+    async ({ page }, use) => {
+      await page.route(/^https?:\/\/(?!localhost)/, (route) => route.abort())
+      await use()
+    },
+    { auto: true },
+  ],
   health: async ({ page }, use) => {
     const health: PageHealth = { errors: [], badResponses: [] }
-    await page.route(/^https?:\/\/(?!localhost)/, (route) => route.abort())
     page.on('pageerror', (e) => health.errors.push(`pageerror: ${e.message}`))
     page.on('console', (m) => {
       // Aborted third-party requests log "Failed to load resource"; those are expected here.
