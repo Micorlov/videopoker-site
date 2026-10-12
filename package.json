@@ -1,0 +1,15 @@
+{
+  "name": "michaelorlovcom-e2e",
+  "private": true,
+  "description": "Browser regression tests for the built site in _site/",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "test:live": "playwright test -c playwright.live.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "@types/node": "20.17.10"
+  }
+}
