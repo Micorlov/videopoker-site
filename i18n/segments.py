@@ -47,7 +47,7 @@ ATTR = re.compile(r'([a-zA-Z_:][-\w:.]*)="([^"]*)"')
 def _glossary():
     """Names that stay in English in every language: the studio, the author, the stores."""
     terms = {"Orlov Games", "Michael Orlov", "Google Play", "Google", "Android",
-             "Michael Orlov, Israel", "RSS", "Play Store", "Play Console"}
+             "Michael Orlov, Russia", "RSS", "Play Store", "Play Console"}
     if GLOSSARY.exists():
         terms |= set(json.loads(GLOSSARY.read_text()))
     return frozenset(terms)
