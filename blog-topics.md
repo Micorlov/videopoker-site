@@ -25,7 +25,7 @@ When an app is added to `content/apps.json`, add it to this list and give it a
    Queued is empty, add 5 new topics to it (see *Choosing topics*). Never skip a
    game because its queue was empty.
 3. **Write one post per game.** Take the first topic under each game. Write the
-   12 posts in parallel with one subagent per game; each subagent writes only
+   12 posts in parallel with one subagent per game, each run on Sonnet 5.5 (`model: "sonnet"`); each subagent writes only
    its own `content/posts/<slug>.html` and must not touch any other file. Give
    each one the topic, the app's entry from `content/apps.json`, the path to
    `content/play/<Slug>.json`, two existing posts to copy markup from, and the

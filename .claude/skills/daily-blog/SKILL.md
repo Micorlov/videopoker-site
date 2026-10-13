@@ -11,6 +11,14 @@ first and follow its "The daily run" section exactly. This skill only adds what
 that file leaves out, and never overrides it. If `blog-topics.md` has no
 "## The daily run" section, stop and report that.
 
+## Subagents
+
+The one-subagent-per-game writers run on Sonnet 5.5: pass `model: "sonnet"` to the
+Agent tool for each. Tell each writer to include 1–2 mid-text links to its
+app page (`/<Slug>/`) in the body, in the paragraph before a section heading,
+as well as the closing `post-foot`. Every claim beside such a link must be in
+`content/play/<Slug>.json`; testing apps say they are in closed testing.
+
 ## Every post carries one figure
 
 Each post gets one `<figure class="chart">` placed before the paragraph or
