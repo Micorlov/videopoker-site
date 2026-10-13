@@ -1,0 +1,70 @@
+<!--
+{
+  "title": "Why every cell on a 9x9 block grid belongs to three lines",
+  "date": "2026-10-13",
+  "modified": "2026-10-13",
+  "app": "BigBenBlocks",
+  "description": "A 9x9 block grid has 27 clearable groups: 9 rows, 9 columns and 9 boxes. Every cell sits in exactly one of each, so every block you place feeds three.",
+  "summary": "Nine rows, nine columns and nine 3x3 boxes make 27 groups over 81 cells, and each cell belongs to exactly three of them. That one fact explains why a single block can clear 21 cells and why box clears are tidier than line clears.",
+  "standfirst": "A block on a 9x9 board is never just part of a row. It is part of a row, a column and a box at once, and nearly everything worth knowing about where to put the next piece follows from that."
+}
+-->
+<p>A 9x9 block puzzle that clears rows, columns and 3x3 boxes has 27 groups you can complete: nine of each. Each group is nine cells, so the groups hold 243 cell-places between them, spread over a board of only 81 cells. Divide one by the other and every cell is counted exactly three times. Not on average: every cell, corner or centre, sits in exactly one row, one column and one box.</p>
+<p>A box is not strictly a line, but it behaves like one: fill its nine cells and it clears. These are the same 27 groups a Sudoku grid uses.</p>
+
+<h2>How the groups overlap</h2>
+<p>Any two of the 27 groups either share no cells at all or share a fixed number of them. There are 351 ways to pick two groups, and only 135 of those pairs overlap:</p>
+
+<table class="paytable-compare">
+  <caption>Every pair of groups on a 9x9 grid with rows, columns and 3x3 boxes, and how many cells each pair shares.</caption>
+  <thead>
+    <tr><th>Pair</th><th>Pairs that overlap</th><th>Cells shared</th><th>Pairs that don't</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Row and column</th><td>81</td><td>1</td><td>0</td></tr>
+    <tr><th scope="row">Row and box</th><td>27</td><td>3</td><td>54</td></tr>
+    <tr><th scope="row">Column and box</th><td>27</td><td>3</td><td>54</td></tr>
+    <tr><th scope="row">Two rows, two columns or two boxes</th><td>0</td><td>&ndash;</td><td>108</td></tr>
+  </tbody>
+</table>
+
+<p>Every row crosses every column, at exactly one cell. Every row passes through exactly three boxes, taking three cells from each. Groups of the same kind never touch. Seen from one cell, its row, column and box contain 20 other cells: eight in the row, eight in the column and the four in its box that are in neither. Only those 20 decide whether its groups complete.</p>
+
+<h2>What one block can clear</h2>
+<p>Because a cell belongs to three groups, the last block dropped into a cell can finish up to three of them at once. If its row, its column and its box each have eight cells filled and this is the ninth for all three, one placement completes three groups. The space that comes back is the union of the three, not their sum, because they overlap:</p>
+<ol class="ranked">
+  <li><strong>Row, column and box together: 21 cells.</strong> 9 + 9 + 9, less the shared cells: 1 between row and column, 3 between row and box, 3 between column and box, plus the 1 cell all three share added back. That is just over a quarter of the board.</li>
+  <li><strong>Two rows or two columns: 18 cells.</strong> Parallel lines never overlap, so nothing is lost.</li>
+  <li><strong>A row and a column: 17 cells.</strong> They cross at one cell.</li>
+  <li><strong>A line and a box it passes through: 15 cells.</strong> They share three.</li>
+</ol>
+<p>So when two finishing moves each complete two groups, a crossing pair of lines frees more room than a line plus a box, and two parallel lines free the most.</p>
+
+<div class="callout">
+  <p>One cell can finish at most three groups. Larger pieces can finish more, because they reach into more rows, columns and boxes.</p>
+</div>
+
+<h2>Counting what a piece touches</h2>
+<p>A placement can only complete groups it puts at least one block into. So for any shape, count the distinct rows, columns and boxes it occupies: that total is the ceiling on what the placement can clear. It is a ceiling, since every other cell in those groups must already be filled.</p>
+<p>The same shape reaches a different number of groups depending on where it sits against the box borders. Some examples, whatever shapes a game deals:</p>
+<ul>
+  <li>Two cells side by side inside one box touch 1 row, 2 columns and 1 box: 4 groups. Slide them so they straddle a box border and they touch 5.</li>
+  <li>Three in a row inside one box touch 5 groups. Shift them one cell so they cross a border and they touch 6.</li>
+  <li>A 2x2 square inside one box touches 5 groups. Centred on the corner where four boxes meet, it touches 2 rows, 2 columns and 4 boxes: 8.</li>
+  <li>A 3x3 square exactly filling a box touches 7. Offset by one cell in each direction, it spreads over four boxes and touches 10.</li>
+</ul>
+<p>Straddling a border is not automatically better. It raises the ceiling, but every box it touches and does not finish is left holding more part-built work.</p>
+
+<h2>Line clears and box clears are not the same size of event</h2>
+<p>Any single clear frees nine cells, a ninth of the board. What differs is how far the effect spreads.</p>
+<p>A row's nine cells are in nine different columns and three different boxes. Clearing it sets back twelve other groups at once: one cell in each column, three in each of three boxes. A box's nine cells are in three rows and three columns, so clearing a box sets back only six other groups, by three cells each. A line clear is spread thinly across the whole board, and a box clear makes a compact 3x3 hole.</p>
+<p>Two consequences follow. A box clear leaves a hole a compact piece can drop into, while a cleared row leaves a 1x9 strip that only flat shapes fit. And a row clear can set back a column that was one short, by emptying its cell in that row, so it is worth checking the nine crossing columns before taking a line.</p>
+
+<h2>Reading the board in threes</h2>
+<p>The habit the geometry suggests is simple: when you look at an empty cell, check all three of its groups, not just the line you were building. A cell whose row, column and box are all nearly full is the most valuable on the board. A cell whose three groups are nearly empty helps none of them soon, and filling it mostly uses up space.</p>
+<p>The same count works in reverse when the board is crowded. A block only leaves the board when one of its three groups clears, so a block whose row, column and box each have an awkward gap elsewhere stays put until one of those gaps is filled.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> uses exactly this board: pieces go on a 9x9 grid, and completing a row, a column or a 3x3 box clears space. Play it untimed in Classic or in a three-minute Time Attack; the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence, so every attempt at a level starts from the same position with the same pieces to come. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

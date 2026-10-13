@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Hi-Lo counting: running count and true count explained",
+  "date": "2026-10-13",
+  "modified": "2026-10-13",
+  "app": "BlackjackCoach",
+  "description": "Hi-Lo gives every card +1, 0 or −1. The running count tracks what has gone; dividing by decks left turns it into a true count you can compare.",
+  "summary": "Hi-Lo scores small cards +1, middle cards 0 and big cards −1. The running count records what has left the shoe; the true count says how much that matters for what is still in it.",
+  "standfirst": "Card counting is not memory. It is one running number, added to card by card, and a single division that turns it into something you can read. Both steps are simple arithmetic, and both follow from how a blackjack shoe is built."
+}
+-->
+<p>A blackjack shoe does not reshuffle after every hand. Cards that have been played stay out until the cut card comes up, so what is left behind changes as the round goes on. Hi-Lo is the most widely taught way of keeping track of that change. It asks you to keep one number, not to remember which cards have gone.</p>
+
+<h2>Three values for thirteen ranks</h2>
+<p>Every card is worth one of three values:</p>
+<table class="paytable-compare">
+  <caption>The Hi-Lo values, with the number of each group in one 52-card deck.</caption>
+  <thead>
+    <tr><th>Cards</th><th>Value</th><th>Cards per deck</th><th>Total per deck</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2, 3, 4, 5, 6</th><td>+1</td><td>20</td><td>+20</td></tr>
+    <tr><th scope="row">7, 8, 9</th><td>0</td><td>12</td><td>0</td></tr>
+    <tr><th scope="row">10, J, Q, K, A</th><td>−1</td><td>20</td><td>−20</td></tr>
+  </tbody>
+</table>
+<p>The signs look backwards at first. A small card counts plus because its leaving is good news for the player: the cards still to come are now slightly richer in tens and aces. A ten or an ace counts minus because one fewer of them remains.</p>
+<p>The last column is the important one. Twenty cards at +1 and twenty at −1 cancel exactly, so a full deck sums to zero, and so does a six-deck shoe of 312 cards. That makes Hi-Lo a <strong>balanced</strong> count. Some other systems are not: the KO count also scores the 7 as +1, so each deck sums to +4 and the count drifts upward over a shoe by design. Balance is what lets Hi-Lo use the simple division below.</p>
+
+<h2>The running count</h2>
+<p>The running count starts at zero after the shuffle and takes in every card you see, yours, the dealer's and everyone else's at the table. Take this run of twelve cards off the top of a fresh shoe:</p>
+<p>K, 5, 3, 9, 2, A, 6, 4, Q, 7, 3, 5</p>
+<p>The count goes −1, 0, +1, +1, +2, +1, +2, +3, +2, +2, +3, +4. Nine and seven change nothing; the king, ace and queen each take one off. After twelve cards the running count is <strong>+4</strong>: four more small cards than big ones have left the shoe.</p>
+<p>Two habits make this faster and more accurate.</p>
+<ol class="ranked">
+  <li>Cancel in pairs. A 5 and a king on the same hand are +1 and −1, which is nothing, so a hand of K-5 can be skipped entirely.</li>
+  <li>Use the balance as a check. Count down a whole deck one card at a time and you must finish on exactly zero. Anything else means a card was missed or miscounted, which makes a single deck the standard drill for checking speed and accuracy.</li>
+</ol>
+
+<h2>Why the running count is not enough</h2>
+<p>A running count of +6 says that, net, six more small cards than big ones have gone. What it cannot say is how much difference six cards make, and that depends entirely on how many cards are left for them to make a difference to.</p>
+<p>Put numbers on it. A full six-deck shoe has 120 high cards in 312, or 38.5%. Suppose the running count is +6, and that the sevens, eights and nines have come out in their normal proportion. With three decks dealt, the 156 cards remaining hold 63 high cards and 57 low ones, so the high-card share has risen to 40.4%. With five decks dealt and the same +6, the last 52 cards hold 23 high and 17 low, and the share is 44.2%. The running count is identical in both cases. The shoe is not.</p>
+
+<div class="callout">
+  <p>Six extra high cards spread over three decks is a mild tilt. The same six packed into the last deck is a strong one. The true count exists to tell those two situations apart.</p>
+</div>
+
+<h2>The true count</h2>
+<p>The fix is to express the surplus per deck rather than in total:</p>
+<p><strong>true count = running count ÷ decks remaining</strong></p>
+<p>With a running count of +6, that gives:</p>
+<table class="paytable-compare">
+  <caption>The same running count of +6 converted at different points in a six-deck shoe.</caption>
+  <thead>
+    <tr><th>Decks remaining</th><th>Calculation</th><th>True count</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">5</th><td>6 ÷ 5</td><td>+1.2</td></tr>
+    <tr><th scope="row">3</th><td>6 ÷ 3</td><td>+2</td></tr>
+    <tr><th scope="row">1.5</th><td>6 ÷ 1.5</td><td>+4</td></tr>
+    <tr><th scope="row">1</th><td>6 ÷ 1</td><td class="good">+6</td></tr>
+  </tbody>
+</table>
+<p>A true count of +2 reads the same way whenever it turns up: on average, each remaining deck holds two more high cards than low ones, compared with a freshly shuffled deck. That is why strategy changes for counters are written as true counts.</p>
+<p>Negative counts divide the same way. A running count of −4 with two decks left is a true count of −2, a shoe that has become richer in small cards.</p>
+<p>Decks remaining are estimated, not counted. In a casino the usual method is to look at the discard tray, judge how many decks are in it, and subtract from the total, generally to the nearest half deck.</p>
+
+<h2>What the count is used for</h2>
+<p>Insurance is the clearest example. It pays 2 to 1 on the dealer having a ten underneath an ace, so it only breaks even when at least one card in three of those remaining is a ten. A full six-deck shoe has 96 tens in 312 cards, which is 30.8% and short of the 33.3% required. That is why basic strategy never takes insurance. As the true count rises, the share of tens rises with it, and the standard Hi-Lo threshold for taking insurance in a shoe game is a true count of +3. The decision is the same; only the shoe has changed.</p>
+<p>Other basic strategy plays shift at particular true counts in the same way: basic strategy assumes a neutral shoe, and the true count says how far the one in front of you has drifted.</p>
+<p>None of this turns blackjack into a different game. The cards stay random, the count only describes averages over many hands, and a high count can be followed by a run of small cards like any other. Counting is best understood as a way of seeing how a shoe changes as it is dealt.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> includes Hi-Lo card counting practice alongside hand values, basic strategy and insurance. You choose a play, read the explanation and review your mistakes, either on the strategy chart or in practice rounds against the dealer at your own pace. The chart teaches fixed six-deck rules: the dealer stands on soft 17, with double after split and late surrender. Local training works offline. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

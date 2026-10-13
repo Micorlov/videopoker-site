@@ -119,36 +119,102 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-1. Progressive jackpots and the point where a machine turns positive
-2. What the hold percentage on a machine does and does not tell you
-3. Why practising offline beats practising for money
-4. Three of a kind: the hand that behaves differently in every variant
-5. The order to learn video poker variants in
+1. What the hold percentage on a machine does and does not tell you
+2. Why practising offline beats practising for money
+3. Three of a kind: the hand that behaves differently in every variant
+4. The order to learn video poker variants in
 
 ### OmahaPoker
 
+1. How to work out a pot-sized bet in Pot-Limit Omaha
+2. How a low hand is made in Omaha Hi-Lo, and what 8 or better means
+3. Wraps: how an Omaha straight draw can have 20 outs
+4. Why the second-best flush is a trap in Omaha
+
 ### Blackjack21
+
+1. How the dealer plays, and how often each up-card busts
+2. Splitting pairs: why you always split aces and eights
+3. What a six-deck shoe changes compared with a single deck
+4. Twenty-one, pontoon and blackjack: how the games differ
 
 ### BrasslightSlots
 
+1. How a wild changes the count on a ways-to-win slot
+2. Why a slot is never due: independent spins explained
+3. Return to player and volatility: what each number measures
+4. How a pick bonus works, and why the picks are already decided
+
 ### PokerVsDealer
+
+1. Why a flush beats a straight: the rankings follow the odds
+2. The odds of improving a pair when you exchange cards
+3. Breaking ties in five-card poker: high cards and split pots
+4. Is the ace high or low? The ace in five-card poker
 
 ### FivesAndThrees
 
+1. Why 15 is the best total in Fives and Threes
+2. Choosing your opening tile in Fives and Threes
+3. Doubles at an open end: why they count twice
+4. Counting tiles: working out what your opponent cannot hold
+
 ### BlackjackCoach
+
+1. Soft 18: how to play ace-seven against every dealer card
+2. Insurance: why it loses unless you are counting
+3. Late surrender: the hands worth giving up on
+4. Hard 12 against a 2 or 3: why basic strategy says hit
 
 ### HoldemCoach
 
+1. The rule of 2 and 4, and where it goes wrong
+2. Why position matters: one hand from an early and a late seat
+3. Reading the board: finding the best five cards from seven
+4. Pocket pair against two overcards: the coin flip that isn't
+
 ### EightBallsPool
+
+1. 9-ball rules: lowest ball first, and what counts as a foul
+2. Cue-ball spin explained: topspin, backspin and sidespin
+3. Aiming with the ghost ball
+4. The 90-degree rule: where the cue ball goes after a stun shot
 
 ### BigBenBlocks
 
+1. Setting up double clears: one piece, two lines
+2. Holes and islands: why a fragmented board ends a block puzzle
+3. From Tetris to Sudoku: where the 9x9 block puzzle comes from
+4. Shapes as well as colours: block puzzles for colour-blind players
+
 ### PinkSlipKings
+
+1. Gear ratios and final drive: what gearing does to a quarter mile
+2. Launch RPM: between wheelspin and bogging down
+3. Horsepower and torque: how to read a dyno chart
+4. When to shift: why the best shift point is past peak torque
 
 ### ValleyRail
 
+1. How railway signals keep trains apart
+2. From coal mine to power station: how freight chains work
+3. Beam, arch, truss or suspension: how each bridge carries a load
+4. Railway towns: how a station made a village grow
+
 ## Published
 
+- 2026-10-13 — Progressive jackpots and the point where a machine turns positive — VideoPoker — `progressive-jackpots-and-positive-machines`
+- 2026-10-13 — Exactly two from your hand: the Omaha rule that fools new players — OmahaPoker — `omaha-exactly-two-hole-cards`
+- 2026-10-13 — Why blackjack paying 3:2 matters more than any other rule — Blackjack21 — `blackjack-3-to-2-payout`
+- 2026-10-13 — What 243 ways to win means, and how it differs from paylines — BrasslightSlots — `what-243-ways-to-win-means`
+- 2026-10-13 — How rare each five-card poker hand is — PokerVsDealer — `five-card-poker-hand-frequencies`
+- 2026-10-13 — How Fives and Threes scoring works, with worked examples — FivesAndThrees — `fives-and-threes-scoring-explained`
+- 2026-10-13 — Hi-Lo counting: running count and true count explained — BlackjackCoach — `hi-lo-running-and-true-count`
+- 2026-10-13 — Pot odds in Texas Hold'em: working out whether a call pays — HoldemCoach — `holdem-pot-odds`
+- 2026-10-13 — 8-ball rules: the open table, groups and the 8 ball — EightBallsPool — `eight-ball-rules-explained`
+- 2026-10-13 — Why every cell on a 9x9 block grid belongs to three lines — BigBenBlocks — `nine-by-nine-grid-three-lines`
+- 2026-10-13 — Reading a drag racing time slip: reaction time, ET and trap speed — PinkSlipKings — `reading-a-drag-racing-time-slip`
+- 2026-10-13 — Why railways follow rivers: gradients and the ruling grade — ValleyRail — `why-railways-follow-rivers`
 - 2026-10-09 — How shuffling works in a digital card game — `how-shuffling-works`
 - 2026-10-08 — Common video poker myths, and what the maths says instead — `common-video-poker-myths`
 - 2026-10-07 — Reading a Deuces Wild paytable — `reading-a-deuces-wild-paytable`

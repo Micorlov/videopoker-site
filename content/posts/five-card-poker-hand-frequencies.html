@@ -1,0 +1,90 @@
+<!--
+{
+  "title": "How rare each five-card poker hand is",
+  "date": "2026-10-13",
+  "modified": "2026-10-13",
+  "app": "PokerVsDealer",
+  "description": "There are 2,598,960 five-card hands. Half of them are high card, 42% hold one pair, and a royal flush is 4 of them: one deal in 649,740.",
+  "summary": "Every five-card hand counted: 1,302,540 high-card hands, 1,098,240 single pairs, and only 4 royal flushes among 2,598,960 deals.",
+  "standfirst": "A standard deck deals exactly 2,598,960 different five-card hands. Sort them into the ten usual categories and the whole ranking falls out of the counting, along with a few numbers that surprise most players."
+}
+-->
+<p>Fifty-two cards, five at a time, order ignored: that is 52 × 51 × 50 × 49 × 48 divided by 5 × 4 × 3 × 2 × 1, which comes to <strong>2,598,960</strong> possible hands. Every one is equally likely on a fair shuffle, so the chance of any category is just the number of hands in it divided by that total. No simulation is needed. Each count below is exact, and each one can be checked with a pencil.</p>
+
+<h2>The full table</h2>
+<p>These are the standard figures for five cards dealt from a single 52-card deck with no draw and no wild cards. The royal flush is shown separately from the other straight flushes, as it usually is.</p>
+
+<table class="paytable-compare">
+  <caption>Five cards from a standard 52-card deck, no draw, no wild cards. Counts are exact; percentages and "one in" figures are rounded.</caption>
+  <thead>
+    <tr><th>Hand</th><th>Hands</th><th>Share</th><th>About one deal in</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>4</td><td>0.0002%</td><td>649,740</td></tr>
+    <tr><th scope="row">Other straight flush</th><td>36</td><td>0.0014%</td><td>72,193</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>624</td><td>0.024%</td><td>4,165</td></tr>
+    <tr><th scope="row">Full house</th><td>3,744</td><td>0.144%</td><td>694</td></tr>
+    <tr><th scope="row">Flush</th><td>5,108</td><td>0.197%</td><td>509</td></tr>
+    <tr><th scope="row">Straight</th><td>10,200</td><td>0.392%</td><td>255</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>54,912</td><td>2.11%</td><td>47</td></tr>
+    <tr><th scope="row">Two pair</th><td>123,552</td><td>4.75%</td><td>21</td></tr>
+    <tr><th scope="row">One pair</th><td>1,098,240</td><td>42.26%</td><td>2.4</td></tr>
+    <tr><th scope="row">High card</th><td>1,302,540</td><td>50.12%</td><td>2.0</td></tr>
+  </tbody>
+</table>
+
+<p>The ten rows add up to 2,598,960 exactly, and each category is scarcer than the one below it. The ranking is the order of rarity.</p>
+
+<h2>Where each count comes from</h2>
+<p>Every row is a short piece of counting. Choose the ranks, then choose the suits.</p>
+<ol class="ranked">
+  <li><strong>Straight flush (40, including the 4 royals).</strong> A straight can start on any of ten ranks, ace-low (A-2-3-4-5) up to ace-high (10-J-Q-K-A), in any of four suits: 10 × 4 = 40.</li>
+  <li><strong>Four of a kind (624).</strong> Thirteen ranks for the four, and 48 cards left for the fifth: 13 × 48.</li>
+  <li><strong>Full house (3,744).</strong> Thirteen ranks for the trips with 4 ways to pick three suits, then 12 ranks for the pair with 6 ways to pick two suits: 13 × 4 × 12 × 6.</li>
+  <li><strong>Flush (5,108).</strong> There are 1,287 ways to pick five different ranks from thirteen. Ten of those are straights, leaving 1,277, in each of four suits: 1,277 × 4.</li>
+  <li><strong>Straight (10,200).</strong> Ten rank patterns, and each of the five cards can be any of four suits, giving 1,024 suit patterns. Take out the 4 where all five suits match, because those are straight flushes: 10 × 1,020.</li>
+  <li><strong>Three of a kind (54,912).</strong> Thirteen ranks for the trips, 4 suit choices, then two different other ranks from the remaining twelve (66 ways), each in any suit (16 ways): 13 × 4 × 66 × 16.</li>
+  <li><strong>Two pair (123,552).</strong> Two ranks for the pairs (78 ways), 6 suit choices for each pair, and 44 cards for the fifth that match neither: 78 × 36 × 44.</li>
+  <li><strong>One pair (1,098,240).</strong> Thirteen ranks, 6 suit choices, then three different ranks from twelve (220 ways), each in any of 4 suits: 13 × 6 × 220 × 64.</li>
+  <li><strong>High card (1,302,540).</strong> The same 1,277 non-straight rank patterns as the flush, each with the 1,020 suit patterns that are not all one suit: 1,277 × 1,020.</li>
+</ol>
+
+<div class="callout">
+  <p>Five different ranks is the shape behind four rows: straight flush, flush, straight and high card. Only sequence and matching suits separate them.</p>
+</div>
+
+<h2>Three things the table says</h2>
+<p><strong>A flush is about half as common as a straight.</strong> There are 5,108 flushes and 10,200 straights, a ratio of very nearly two to one. A straight only needs its ranks to line up, and any of 1,020 suit patterns will do. A flush needs all five suits to match, which is only 4 of the 1,024 possible suit patterns.</p>
+<p><strong>Two pair is more than twice as common as three of a kind.</strong> The ratio is 2.25 to one. Three matching cards are harder to collect than two separate pairs, so trips rank higher.</p>
+<p><strong>Half of all hands are no pair at all.</strong> High card is 50.12% of deals, and one pair is another 42.26%. Together they make up 92.4% of everything you will ever be dealt. Two pair or better arrives on about 7.6% of hands, and anything from a straight upwards on about 0.76%: roughly one deal in 132.</p>
+
+<h2>Inside the high-card row</h2>
+<p>High card is the most common result, so here it is sorted by top card.</p>
+
+<table class="paytable-compare">
+  <caption>The 1,302,540 high-card hands, by highest card. Shares are of all 2,598,960 hands.</caption>
+  <thead>
+    <tr><th>Highest card</th><th>Hands</th><th>Share of all hands</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Ace</th><td>502,860</td><td>19.35%</td></tr>
+    <tr><th scope="row">King</th><td>335,580</td><td>12.91%</td></tr>
+    <tr><th scope="row">Queen</th><td>213,180</td><td>8.20%</td></tr>
+    <tr><th scope="row">Jack</th><td>127,500</td><td>4.91%</td></tr>
+    <tr><th scope="row">Ten</th><td>70,380</td><td>2.71%</td></tr>
+    <tr><th scope="row">Nine</th><td>34,680</td><td>1.33%</td></tr>
+    <tr><th scope="row">Eight</th><td>14,280</td><td>0.55%</td></tr>
+    <tr><th scope="row">Seven</th><td>4,080</td><td>0.16%</td></tr>
+  </tbody>
+</table>
+
+<p>Ace-high alone is nearly one deal in five, more common than every hand from two pair upwards put together. At the other end, seven-high is the worst hand there is, and it comes in only four rank patterns: 7-6-5-4-2, 7-6-5-3-2, 7-6-4-3-2 and 7-5-4-3-2. Nothing lower is possible. The only five different ranks no higher than six are 2-3-4-5-6, which is a straight, and adding an ace makes the ace the high card.</p>
+
+<h2>Categories versus hand values</h2>
+<p>Once ranks inside each category count (a pair of eights against a pair of nines, or which kickers sit beside them), the 2,598,960 hands collapse into <strong>7,462</strong> distinct values. Suits never break a tie in standard rules, which is why that number is so much smaller. Each value belongs to exactly one row of the first table, so a hand from a higher row beats any hand from a lower one.</p>
+<p>All of this is the maths of five cards dealt once from a full deck. Exchanging cards or building a hand one card at a time changes the chances of finishing with each hand, but not these base counts.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is five-card poker against the dealer and two computer opponents, played under its own Showdown rules, so its in-game rules and payouts screen is the authority on how hands are ranked and paid there; the counts above are the standard five-card frequencies, not the app's paytable. Your five cards compete against the house and for the table pot, you can hold, forge a card by exchanging it, or bail, and the dealer builds a hand one face-up card at a time. Your record tracks hand categories alongside hands played and win rate. It plays offline with no account, there are no ads or in-app purchases, and the play-money chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

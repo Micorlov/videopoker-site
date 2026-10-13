@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "What 243 ways to win means, and how it differs from paylines",
+  "date": "2026-10-13",
+  "modified": "2026-10-13",
+  "app": "BrasslightSlots",
+  "description": "243 is 3 to the power of 5, every left-to-right path through a 5×3 grid. Wins are counted by multiplying symbol counts on adjacent reels.",
+  "summary": "A 5×3 grid has exactly 243 left-to-right paths, and a ways game checks all of them. Wins are counted by multiplying symbol counts reel by reel, starting from the left.",
+  "standfirst": "A payline game checks a handful of fixed routes across the reels. A 243-ways game checks every route there is, and the number 243 is simply how many routes a five-by-three grid contains."
+}
+-->
+<p>On a slot with paylines, a win has to sit on a route drawn in advance: the middle row, a V shape, a zig-zag. Matching symbols that land off those routes pay nothing. A 243-ways game throws the routes away. It asks one question per symbol: does it appear somewhere on the first reel, somewhere on the second, somewhere on the third, and so on, reading from the left without a gap? Where it sits on each reel no longer matters.</p>
+
+<h2>Where 243 comes from</h2>
+<p>Picture the grid as five columns of three cells. A path across it picks one cell from each column. There are three choices on the first reel, three on the second, and so on, so the number of distinct paths is 3 × 3 × 3 × 3 × 3, which is 3<sup>5</sup> = 243.</p>
+<p>That is the whole meaning of the number. A 243-ways game is equivalent to a payline game with every possible line switched on, each line running left to right with one cell per reel. The same rule gives the other figures you see on ways slots: four rows over five reels is 4<sup>5</sup> = 1,024 ways, and five rows over five reels is 5<sup>5</sup> = 3,125.</p>
+<p>Line games cover only a slice of those routes. On the same five-by-three grid:</p>
+
+<table class="paytable-compare">
+  <caption>Share of the 243 possible left-to-right paths on a 5×3 grid that a fixed-line game checks.</caption>
+  <thead>
+    <tr><th>Layout</th><th>Paths checked</th><th>Share of all 243</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">9 paylines</th><td>9</td><td>3.7%</td></tr>
+    <tr><th scope="row">20 paylines</th><td>20</td><td>8.2%</td></tr>
+    <tr><th scope="row">25 paylines</th><td>25</td><td>10.3%</td></tr>
+    <tr><th scope="row">50 paylines</th><td>50</td><td>20.6%</td></tr>
+    <tr><th scope="row">243 ways</th><td class="good">243</td><td class="good">100%</td></tr>
+  </tbody>
+</table>
+
+<p>Every cell is equally involved, too. Fix any one cell, on any reel, and the other four reels still offer 3<sup>4</sup> = 81 paths through it. On a line game the middle row usually carries more lines than the corners; on a ways game no position is better placed than another.</p>
+
+<h2>How a win is counted</h2>
+<p>The count comes from a multiplication, not from checking 243 paths one by one. For a given symbol, note how many times it shows on reel 1, on reel 2, on reel 3, and keep going until you reach a reel where it does not appear. Multiply those counts together. The result is the number of ways that symbol has paid, and the length of the run, three, four or five reels, decides which row of the pay table applies.</p>
+<p>Take a toy screen where fish land like this:</p>
+
+<table class="paytable-compare">
+  <caption>An illustrative screen, not taken from any game. Count of fish visible on each reel.</caption>
+  <thead>
+    <tr><th>Reel</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Fish showing</th><td>1</td><td>2</td><td>1</td><td>2</td><td>0</td></tr>
+  </tbody>
+</table>
+
+<p>The run reaches reel 4 and stops at reel 5, so it is a four-of-a-kind. The number of ways is 1 × 2 × 1 × 2 = 4: four different paths through the grid each carry four fish. The game pays the four-fish amount four times.</p>
+<p>Three details follow from that rule, and they explain most of the surprises people meet on ways slots.</p>
+<ol class="ranked">
+  <li><strong>Reel 1 is the gate.</strong> If a symbol is missing from the first reel, its count is zero and the product is zero, however many copies fill reels 2 to 5.</li>
+  <li><strong>A gap ends the run.</strong> Fish on reels 1, 2, 4 and 5 but not 3 is a two-reel run, not a four. Reels 4 and 5 are never reached. For most symbols a two-reel run pays nothing.</li>
+  <li><strong>Each way is paid once, for its longest run.</strong> The four ways above are paid as four-of-a-kind. They are not also paid again as three-of-a-kind for reels 1 to 3.</li>
+</ol>
+<p>Wilds slot into the same arithmetic. In most ways games a wild counts as a copy of whichever symbol it helps, so a wild on reel 3 of the toy screen would raise its count there from 1 to 2, and the total from 4 ways to 1 × 2 × 2 × 2 = 8. A single wild on a middle reel doubles or triples every win passing through that reel, which is why a well-placed wild can move a result so much more on a ways game than on a line game.</p>
+<p>The ceiling is a screen where one symbol, or that symbol plus wilds, fills all fifteen cells. Then every reel counts 3, and the product is 3<sup>5</sup> = 243. Every possible path pays at once.</p>
+
+<div class="callout">
+  <p>The short version: count the symbol on each reel from the left, stop at the first reel without it, and multiply. The product is the number of ways; the number of reels reached picks the pay.</p>
+</div>
+
+<h2>What changes compared with paylines</h2>
+<p>The obvious change is that wins come more often. A cat on the top row of reel 1, the bottom row of reel 2 and the middle of reel 3 pays on a ways game. On a 20-line game it pays only if one of those twenty lines happens to follow that exact shape.</p>
+<p>What does not change is the overall balance. A ways game checks more routes, so the individual pay amounts are set lower to match. Counting 243 paths instead of 20 says how many places a win can be found, not how generous the game is. The return is fixed by the pay table and the reel strips together, and the number of ways is only one input to that sum.</p>
+<p>The betting also works differently. On a line game the bet is usually a line bet multiplied by the number of active lines, and some games let you switch lines off; a match on a line you have turned off pays nothing. On a 243-ways game all paths are always live, so there is a single total bet per spin and no way to leave a route uncovered.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> uses exactly this layout: 5 reels, 3 rows and 243 ways to win on every spin, so every route counted above is checked each time. The symbols include crowns, fish, paws and balls of yarn, with a heart-eyes cat as the wild, and three balls of yarn open the Yarn Pick bonus, where three hidden prizes are worth up to 25 times your bet. Turbo and Auto spin are there for faster play. It is a free game for adults, with no ads and nothing to buy: there is no real-money play, and the coins and gems have no cash value and cannot be bought, sold or cashed out.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

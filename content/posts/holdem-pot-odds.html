@@ -1,0 +1,79 @@
+<!--
+{
+  "title": "Pot odds in Texas Hold'em: working out whether a call pays",
+  "date": "2026-10-13",
+  "modified": "2026-10-13",
+  "app": "HoldemCoach",
+  "description": "A call pays when your chance of winning beats the call divided by the final pot. A half-pot bet needs 25%; a flush draw on the turn is 19.6%.",
+  "summary": "Divide the call by the pot it would create and you have the share of the time you need to win. A half-pot bet asks for 25%, a pot-sized bet 33.3%, and a flush draw with one card to come is 19.6%.",
+  "standfirst": "Every call in Hold'em comes with a price, and the price can be turned into a percentage before you look at your cards. Compare it with your chance of winning and the decision is mostly made."
+}
+-->
+<p>An opponent bets and the action is on you. Folding costs nothing more; calling costs the bet and wins the whole pot when your hand holds up. Pot odds turn that trade into a single number: the share of the time you have to win for the call to break even. If your hand wins more often than that, calling makes money over many repetitions of the same spot. If it wins less often, it loses.</p>
+
+<h2>The one division</h2>
+<p>Take the amount you have to call and divide it by the pot as it will stand once you have called. That figure is your break-even percentage.</p>
+<p>Say there is 100 in the pot on the turn and your opponent bets 50. The pot is now 150, and calling adds your 50 to make 200. You are risking 50 to win 150, so you need to win 50 ÷ 200 = 25% of the time. The same price as a ratio is 150 to 50, or 3 to 1: one win in every four tries.</p>
+<p>The common mistake is dividing the call by the pot before the bet, or before your own call. Using 50 ÷ 100 here would give 50%, twice the real price, and you would fold hands that are perfectly good calls.</p>
+
+<h2>What each bet size asks of you</h2>
+<p>Because the arithmetic only depends on the size of the bet relative to the pot, the break-even figures are the same at every stake. If the bet is <em>b</em> times the pot, you need b ÷ (1 + 2b).</p>
+
+<table class="paytable-compare">
+  <caption>Equity needed to call a single bet, by bet size as a fraction of the pot before the bet.</caption>
+  <thead>
+    <tr><th>Bet size</th><th>Pot is laying you</th><th>You need to win</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Quarter pot</th><td>5 to 1</td><td>16.7%</td></tr>
+    <tr><th scope="row">Third pot</th><td>4 to 1</td><td>20.0%</td></tr>
+    <tr><th scope="row">Half pot</th><td>3 to 1</td><td>25.0%</td></tr>
+    <tr><th scope="row">Two-thirds pot</th><td>2.5 to 1</td><td>28.6%</td></tr>
+    <tr><th scope="row">Three-quarters pot</th><td>2.33 to 1</td><td>30.0%</td></tr>
+    <tr><th scope="row">Pot</th><td>2 to 1</td><td>33.3%</td></tr>
+    <tr><th scope="row">Twice the pot</th><td>1.5 to 1</td><td>40.0%</td></tr>
+  </tbody>
+</table>
+
+<p>The price rises much more slowly than the bet: doubling a half-pot bet to a full pot only moves the requirement from 25% to 33.3%. No single bet, however large, asks you to win half the time. Even an all-in four times the pot needs 4 ÷ 9, or 44.4%.</p>
+
+<h2>Your side of the comparison: counting outs</h2>
+<p>Pot odds are half the calculation. The other half is how often you win, and with a drawing hand that comes down to outs — the unseen cards that complete your hand.</p>
+<p>On the turn you can see your two cards and four on the board, so 46 cards are unseen. With a flush draw, nine cards of your suit are left among them, and your chance of hitting on the river is 9 ÷ 46 = 19.6%. The other common draws work the same way.</p>
+
+<table class="paytable-compare">
+  <caption>Chance of completing a draw. One card to come counts from 46 unseen cards on the turn (or 47 on the flop); two cards to come is from the flop to the river.</caption>
+  <thead>
+    <tr><th>Draw</th><th>Outs</th><th>Turn to river</th><th>Flop, next card only</th><th>Flop to river</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Gutshot straight</th><td>4</td><td>8.7%</td><td>8.5%</td><td>16.5%</td></tr>
+    <tr><th scope="row">Open-ended straight</th><td>8</td><td>17.4%</td><td>17.0%</td><td>31.5%</td></tr>
+    <tr><th scope="row">Flush</th><td>9</td><td>19.6%</td><td>19.1%</td><td>35.0%</td></tr>
+    <tr><th scope="row">Flush plus gutshot</th><td>12</td><td>26.1%</td><td>25.5%</td><td>45.0%</td></tr>
+    <tr><th scope="row">Flush plus open-ended</th><td>15</td><td>32.6%</td><td>31.9%</td><td>54.1%</td></tr>
+  </tbody>
+</table>
+
+<p>The two-card column is not the outs doubled. It is one minus the chance of missing twice: for the flush draw, 1 − (38 ÷ 47 × 37 ÷ 46), which comes to 35.0%.</p>
+
+<h2>Putting the two together</h2>
+<p>Back to the turn with 100 in the pot and a 50 bet. You need 25%. A flush draw is 19.6%, so on pot odds alone this is a fold. Over many repeats the call loses about 10.9 each time.</p>
+<p>Shrink the bet to 20 into a pot of 60 and the price becomes 20 ÷ 100 = 20%. The flush draw is still short, at 19.6%, but only just — the call loses less than half a unit each time. Make it a third-pot bet of 20 into 60 with an open-ended straight and flush draw together, 32.6%, and the call is clearly profitable.</p>
+
+<div class="callout">
+  <p>The rule in one line: call when your chance of winning is above the call divided by the final pot, and fold when it is below. Bet size sets the first number; your outs set the second.</p>
+</div>
+
+<h2>Where the simple version goes wrong</h2>
+<ol class="ranked">
+  <li><strong>Using the two-card figure for a one-card price.</strong> On the flop, 35.0% for a flush draw assumes you see both the turn and the river for this one bet. If your opponent is likely to bet again on the turn, you are only buying the next card, and the honest figure is 19.1%. The two-card number applies when your opponent is all in and there are no more bets to face.</li>
+  <li><strong>Counting outs that do not win.</strong> If the board is paired, a flush card can still lose to a full house. If your straight card also puts a third suited card on the board, it may give someone else a flush. Outs that might not win should be discounted, and the percentages above fall quickly when they are.</li>
+  <li><strong>Forgetting money still to come.</strong> When you hit, you may win more than what is in the pot now; when you miss, you can usually fold to further bets. This is called implied odds, and it is why the short-by-a-little flush draw above can still be worth a call. In the 100-pot, 50-bet example, though, you would need to win roughly another 56 on average when the flush arrives just to break even, which is a lot to count on.</li>
+</ol>
+<p>None of this changes the arithmetic, only the inputs. Get the price right first and every refinement starts from a sound number.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> has a lesson built around exactly this decision: "Is it worth calling?" asks you to work out the price you are being offered and whether your hand is worth it. Nothing is timed, so there is room to do the division above before you answer, and a separate "Reading the cards" lesson drills naming the best hand from your cards and the shared cards. There is a "Practise your mistakes" mode, and the app can read the cards, the question and the answer aloud using your phone's voice. Practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
