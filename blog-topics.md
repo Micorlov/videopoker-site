@@ -64,7 +64,16 @@ The blog covers every Orlov Games app. A post is one file and nothing else:
    - **App in testing** (`"status": "testing"`: PinkSlipKings, ValleyRail):
      no Play button. Its listing is not public, so link only to `/<Slug>/`
      and say it is in closed testing.
-4. The blog index, the per-app pages, the home page, the sitemap and the
+4. **Add one chart or diagram** where a number has a shape: a curve, a
+   ranking, a layout. Wrap it in `<figure class="chart">` with a
+   `<figcaption>` that says what it shows. For a ranked list of values use the
+   `.bars` HTML markup (see `blackjack-3-to-2-payout.html`); for a curve or a
+   diagram use inline SVG with `viewBox="0 0 400 …"`, `role="img"` and an
+   `aria-label` (see `holdem-pot-odds.html`, `eight-ball-rules-explained.html`).
+   Colours come from `--chart-accent` (the one value the post is about) and
+   `--chart-base`; label every value directly so colour is never the only cue.
+   Every figure must be built from numbers already checked in the post.
+5. The blog index, the per-app pages, the home page, the sitemap and the
    JSON-LD all update on their own when the site builds. Don't edit any of
    them by hand.
 
