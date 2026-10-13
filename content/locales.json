@@ -1,0 +1,799 @@
+{
+  "_comment": [
+    "Every language the site is published in, one URL tree each (/<code>/...).",
+    "Hebrew is deliberately absent and is listed in \"excluded\": the site ships",
+    "no Hebrew pages, no he/iw hreflang and no Hebrew language-picker entry.",
+    "\"hreflang\" lists the Google Play regional locales that map onto this tree,",
+    "so Play's market coverage is kept without publishing duplicate pages."
+  ],
+  "excluded": [
+    "he",
+    "iw",
+    "he-IL",
+    "iw-IL"
+  ],
+  "default": {
+    "code": "en",
+    "name": "English",
+    "english_name": "English",
+    "dir": "ltr",
+    "og_locale": "en_GB",
+    "hreflang": [
+      "en",
+      "en-GB",
+      "en-US",
+      "en-AU",
+      "en-CA",
+      "en-IN",
+      "en-SG"
+    ]
+  },
+  "languages": [
+    {
+      "code": "af",
+      "name": "Afrikaans",
+      "english_name": "Afrikaans",
+      "dir": "ltr",
+      "og_locale": "af_ZA",
+      "hreflang": [
+        "af"
+      ]
+    },
+    {
+      "code": "am",
+      "name": "አማርኛ",
+      "english_name": "Amharic",
+      "dir": "ltr",
+      "og_locale": "am_ET",
+      "hreflang": [
+        "am"
+      ]
+    },
+    {
+      "code": "ar",
+      "name": "العربية",
+      "english_name": "Arabic",
+      "dir": "rtl",
+      "og_locale": "ar_AR",
+      "hreflang": [
+        "ar",
+        "ar-SA",
+        "ar-AE",
+        "ar-EG"
+      ]
+    },
+    {
+      "code": "hy",
+      "name": "Հայերեն",
+      "english_name": "Armenian",
+      "dir": "ltr",
+      "og_locale": "hy_AM",
+      "hreflang": [
+        "hy",
+        "hy-AM"
+      ]
+    },
+    {
+      "code": "az",
+      "name": "Azərbaycan",
+      "english_name": "Azerbaijani",
+      "dir": "ltr",
+      "og_locale": "az_AZ",
+      "hreflang": [
+        "az",
+        "az-AZ"
+      ]
+    },
+    {
+      "code": "eu",
+      "name": "Euskara",
+      "english_name": "Basque",
+      "dir": "ltr",
+      "og_locale": "eu_ES",
+      "hreflang": [
+        "eu",
+        "eu-ES"
+      ]
+    },
+    {
+      "code": "be",
+      "name": "Беларуская",
+      "english_name": "Belarusian",
+      "dir": "ltr",
+      "og_locale": "be_BY",
+      "hreflang": [
+        "be"
+      ]
+    },
+    {
+      "code": "bn",
+      "name": "বাংলা",
+      "english_name": "Bengali",
+      "dir": "ltr",
+      "og_locale": "bn_IN",
+      "hreflang": [
+        "bn",
+        "bn-BD",
+        "bn-IN"
+      ]
+    },
+    {
+      "code": "bg",
+      "name": "Български",
+      "english_name": "Bulgarian",
+      "dir": "ltr",
+      "og_locale": "bg_BG",
+      "hreflang": [
+        "bg"
+      ]
+    },
+    {
+      "code": "my",
+      "name": "မြန်မာ",
+      "english_name": "Burmese",
+      "dir": "ltr",
+      "og_locale": "my_MM",
+      "hreflang": [
+        "my",
+        "my-MM"
+      ]
+    },
+    {
+      "code": "ca",
+      "name": "Català",
+      "english_name": "Catalan",
+      "dir": "ltr",
+      "og_locale": "ca_ES",
+      "hreflang": [
+        "ca"
+      ]
+    },
+    {
+      "code": "zh-Hans",
+      "name": "简体中文",
+      "english_name": "Chinese (Simplified)",
+      "dir": "ltr",
+      "og_locale": "zh_CN",
+      "hreflang": [
+        "zh-Hans",
+        "zh",
+        "zh-CN",
+        "zh-SG"
+      ]
+    },
+    {
+      "code": "zh-Hant",
+      "name": "繁體中文",
+      "english_name": "Chinese (Traditional)",
+      "dir": "ltr",
+      "og_locale": "zh_TW",
+      "hreflang": [
+        "zh-Hant",
+        "zh-TW",
+        "zh-HK"
+      ]
+    },
+    {
+      "code": "hr",
+      "name": "Hrvatski",
+      "english_name": "Croatian",
+      "dir": "ltr",
+      "og_locale": "hr_HR",
+      "hreflang": [
+        "hr"
+      ]
+    },
+    {
+      "code": "cs",
+      "name": "Čeština",
+      "english_name": "Czech",
+      "dir": "ltr",
+      "og_locale": "cs_CZ",
+      "hreflang": [
+        "cs",
+        "cs-CZ"
+      ]
+    },
+    {
+      "code": "da",
+      "name": "Dansk",
+      "english_name": "Danish",
+      "dir": "ltr",
+      "og_locale": "da_DK",
+      "hreflang": [
+        "da",
+        "da-DK"
+      ]
+    },
+    {
+      "code": "nl",
+      "name": "Nederlands",
+      "english_name": "Dutch",
+      "dir": "ltr",
+      "og_locale": "nl_NL",
+      "hreflang": [
+        "nl",
+        "nl-NL",
+        "nl-BE"
+      ]
+    },
+    {
+      "code": "et",
+      "name": "Eesti",
+      "english_name": "Estonian",
+      "dir": "ltr",
+      "og_locale": "et_EE",
+      "hreflang": [
+        "et"
+      ]
+    },
+    {
+      "code": "fil",
+      "name": "Filipino",
+      "english_name": "Filipino",
+      "dir": "ltr",
+      "og_locale": "fil_PH",
+      "hreflang": [
+        "fil",
+        "tl"
+      ]
+    },
+    {
+      "code": "fi",
+      "name": "Suomi",
+      "english_name": "Finnish",
+      "dir": "ltr",
+      "og_locale": "fi_FI",
+      "hreflang": [
+        "fi",
+        "fi-FI"
+      ]
+    },
+    {
+      "code": "fr",
+      "name": "Français",
+      "english_name": "French",
+      "dir": "ltr",
+      "og_locale": "fr_FR",
+      "hreflang": [
+        "fr",
+        "fr-FR",
+        "fr-CA",
+        "fr-BE",
+        "fr-CH"
+      ]
+    },
+    {
+      "code": "gl",
+      "name": "Galego",
+      "english_name": "Galician",
+      "dir": "ltr",
+      "og_locale": "gl_ES",
+      "hreflang": [
+        "gl",
+        "gl-ES"
+      ]
+    },
+    {
+      "code": "ka",
+      "name": "ქართული",
+      "english_name": "Georgian",
+      "dir": "ltr",
+      "og_locale": "ka_GE",
+      "hreflang": [
+        "ka",
+        "ka-GE"
+      ]
+    },
+    {
+      "code": "de",
+      "name": "Deutsch",
+      "english_name": "German",
+      "dir": "ltr",
+      "og_locale": "de_DE",
+      "hreflang": [
+        "de",
+        "de-DE",
+        "de-AT",
+        "de-CH"
+      ]
+    },
+    {
+      "code": "el",
+      "name": "Ελληνικά",
+      "english_name": "Greek",
+      "dir": "ltr",
+      "og_locale": "el_GR",
+      "hreflang": [
+        "el",
+        "el-GR"
+      ]
+    },
+    {
+      "code": "gu",
+      "name": "ગુજરાતી",
+      "english_name": "Gujarati",
+      "dir": "ltr",
+      "og_locale": "gu_IN",
+      "hreflang": [
+        "gu"
+      ]
+    },
+    {
+      "code": "hi",
+      "name": "हिन्दी",
+      "english_name": "Hindi",
+      "dir": "ltr",
+      "og_locale": "hi_IN",
+      "hreflang": [
+        "hi",
+        "hi-IN"
+      ]
+    },
+    {
+      "code": "hu",
+      "name": "Magyar",
+      "english_name": "Hungarian",
+      "dir": "ltr",
+      "og_locale": "hu_HU",
+      "hreflang": [
+        "hu",
+        "hu-HU"
+      ]
+    },
+    {
+      "code": "is",
+      "name": "Íslenska",
+      "english_name": "Icelandic",
+      "dir": "ltr",
+      "og_locale": "is_IS",
+      "hreflang": [
+        "is",
+        "is-IS"
+      ]
+    },
+    {
+      "code": "id",
+      "name": "Indonesia",
+      "english_name": "Indonesian",
+      "dir": "ltr",
+      "og_locale": "id_ID",
+      "hreflang": [
+        "id",
+        "in"
+      ]
+    },
+    {
+      "code": "it",
+      "name": "Italiano",
+      "english_name": "Italian",
+      "dir": "ltr",
+      "og_locale": "it_IT",
+      "hreflang": [
+        "it",
+        "it-IT"
+      ]
+    },
+    {
+      "code": "ja",
+      "name": "日本語",
+      "english_name": "Japanese",
+      "dir": "ltr",
+      "og_locale": "ja_JP",
+      "hreflang": [
+        "ja",
+        "ja-JP"
+      ]
+    },
+    {
+      "code": "kn",
+      "name": "ಕನ್ನಡ",
+      "english_name": "Kannada",
+      "dir": "ltr",
+      "og_locale": "kn_IN",
+      "hreflang": [
+        "kn",
+        "kn-IN"
+      ]
+    },
+    {
+      "code": "kk",
+      "name": "Қазақ",
+      "english_name": "Kazakh",
+      "dir": "ltr",
+      "og_locale": "kk_KZ",
+      "hreflang": [
+        "kk"
+      ]
+    },
+    {
+      "code": "km",
+      "name": "ខ្មែរ",
+      "english_name": "Khmer",
+      "dir": "ltr",
+      "og_locale": "km_KH",
+      "hreflang": [
+        "km",
+        "km-KH"
+      ]
+    },
+    {
+      "code": "ko",
+      "name": "한국어",
+      "english_name": "Korean",
+      "dir": "ltr",
+      "og_locale": "ko_KR",
+      "hreflang": [
+        "ko",
+        "ko-KR"
+      ]
+    },
+    {
+      "code": "ky",
+      "name": "Кыргызча",
+      "english_name": "Kyrgyz",
+      "dir": "ltr",
+      "og_locale": "ky_KG",
+      "hreflang": [
+        "ky",
+        "ky-KG"
+      ]
+    },
+    {
+      "code": "lo",
+      "name": "ລາວ",
+      "english_name": "Lao",
+      "dir": "ltr",
+      "og_locale": "lo_LA",
+      "hreflang": [
+        "lo",
+        "lo-LA"
+      ]
+    },
+    {
+      "code": "lv",
+      "name": "Latviešu",
+      "english_name": "Latvian",
+      "dir": "ltr",
+      "og_locale": "lv_LV",
+      "hreflang": [
+        "lv"
+      ]
+    },
+    {
+      "code": "lt",
+      "name": "Lietuvių",
+      "english_name": "Lithuanian",
+      "dir": "ltr",
+      "og_locale": "lt_LT",
+      "hreflang": [
+        "lt"
+      ]
+    },
+    {
+      "code": "mk",
+      "name": "Македонски",
+      "english_name": "Macedonian",
+      "dir": "ltr",
+      "og_locale": "mk_MK",
+      "hreflang": [
+        "mk",
+        "mk-MK"
+      ]
+    },
+    {
+      "code": "ms",
+      "name": "Bahasa Melayu",
+      "english_name": "Malay",
+      "dir": "ltr",
+      "og_locale": "ms_MY",
+      "hreflang": [
+        "ms",
+        "ms-MY"
+      ]
+    },
+    {
+      "code": "ml",
+      "name": "മലയാളം",
+      "english_name": "Malayalam",
+      "dir": "ltr",
+      "og_locale": "ml_IN",
+      "hreflang": [
+        "ml",
+        "ml-IN"
+      ]
+    },
+    {
+      "code": "mr",
+      "name": "मराठी",
+      "english_name": "Marathi",
+      "dir": "ltr",
+      "og_locale": "mr_IN",
+      "hreflang": [
+        "mr",
+        "mr-IN"
+      ]
+    },
+    {
+      "code": "mn",
+      "name": "Монгол",
+      "english_name": "Mongolian",
+      "dir": "ltr",
+      "og_locale": "mn_MN",
+      "hreflang": [
+        "mn",
+        "mn-MN"
+      ]
+    },
+    {
+      "code": "ne",
+      "name": "नेपाली",
+      "english_name": "Nepali",
+      "dir": "ltr",
+      "og_locale": "ne_NP",
+      "hreflang": [
+        "ne",
+        "ne-NP"
+      ]
+    },
+    {
+      "code": "no",
+      "name": "Norsk",
+      "english_name": "Norwegian",
+      "dir": "ltr",
+      "og_locale": "nb_NO",
+      "hreflang": [
+        "no",
+        "nb",
+        "nn",
+        "no-NO"
+      ]
+    },
+    {
+      "code": "fa",
+      "name": "فارسی",
+      "english_name": "Persian",
+      "dir": "rtl",
+      "og_locale": "fa_IR",
+      "hreflang": [
+        "fa",
+        "fa-IR",
+        "fa-AF",
+        "fa-AE"
+      ]
+    },
+    {
+      "code": "pl",
+      "name": "Polski",
+      "english_name": "Polish",
+      "dir": "ltr",
+      "og_locale": "pl_PL",
+      "hreflang": [
+        "pl",
+        "pl-PL"
+      ]
+    },
+    {
+      "code": "pt-BR",
+      "name": "Português (Brasil)",
+      "english_name": "Portuguese (Brazil)",
+      "dir": "ltr",
+      "og_locale": "pt_BR",
+      "hreflang": [
+        "pt-BR",
+        "pt"
+      ]
+    },
+    {
+      "code": "pt-PT",
+      "name": "Português (Portugal)",
+      "english_name": "Portuguese (Portugal)",
+      "dir": "ltr",
+      "og_locale": "pt_PT",
+      "hreflang": [
+        "pt-PT"
+      ]
+    },
+    {
+      "code": "pa",
+      "name": "ਪੰਜਾਬੀ",
+      "english_name": "Punjabi",
+      "dir": "ltr",
+      "og_locale": "pa_IN",
+      "hreflang": [
+        "pa"
+      ]
+    },
+    {
+      "code": "ro",
+      "name": "Română",
+      "english_name": "Romanian",
+      "dir": "ltr",
+      "og_locale": "ro_RO",
+      "hreflang": [
+        "ro"
+      ]
+    },
+    {
+      "code": "rm",
+      "name": "Rumantsch",
+      "english_name": "Romansh",
+      "dir": "ltr",
+      "og_locale": "rm_CH",
+      "hreflang": [
+        "rm"
+      ]
+    },
+    {
+      "code": "ru",
+      "name": "Русский",
+      "english_name": "Russian",
+      "dir": "ltr",
+      "og_locale": "ru_RU",
+      "hreflang": [
+        "ru",
+        "ru-RU"
+      ]
+    },
+    {
+      "code": "sr",
+      "name": "Српски",
+      "english_name": "Serbian",
+      "dir": "ltr",
+      "og_locale": "sr_RS",
+      "hreflang": [
+        "sr"
+      ]
+    },
+    {
+      "code": "si",
+      "name": "සිංහල",
+      "english_name": "Sinhala",
+      "dir": "ltr",
+      "og_locale": "si_LK",
+      "hreflang": [
+        "si",
+        "si-LK"
+      ]
+    },
+    {
+      "code": "sk",
+      "name": "Slovenčina",
+      "english_name": "Slovak",
+      "dir": "ltr",
+      "og_locale": "sk_SK",
+      "hreflang": [
+        "sk"
+      ]
+    },
+    {
+      "code": "sl",
+      "name": "Slovenščina",
+      "english_name": "Slovenian",
+      "dir": "ltr",
+      "og_locale": "sl_SI",
+      "hreflang": [
+        "sl"
+      ]
+    },
+    {
+      "code": "es",
+      "name": "Español",
+      "english_name": "Spanish",
+      "dir": "ltr",
+      "og_locale": "es_ES",
+      "hreflang": [
+        "es",
+        "es-ES",
+        "es-US",
+        "es-419",
+        "es-MX",
+        "es-AR"
+      ]
+    },
+    {
+      "code": "sw",
+      "name": "Kiswahili",
+      "english_name": "Swahili",
+      "dir": "ltr",
+      "og_locale": "sw_KE",
+      "hreflang": [
+        "sw"
+      ]
+    },
+    {
+      "code": "sv",
+      "name": "Svenska",
+      "english_name": "Swedish",
+      "dir": "ltr",
+      "og_locale": "sv_SE",
+      "hreflang": [
+        "sv",
+        "sv-SE"
+      ]
+    },
+    {
+      "code": "ta",
+      "name": "தமிழ்",
+      "english_name": "Tamil",
+      "dir": "ltr",
+      "og_locale": "ta_IN",
+      "hreflang": [
+        "ta",
+        "ta-IN"
+      ]
+    },
+    {
+      "code": "te",
+      "name": "తెలుగు",
+      "english_name": "Telugu",
+      "dir": "ltr",
+      "og_locale": "te_IN",
+      "hreflang": [
+        "te",
+        "te-IN"
+      ]
+    },
+    {
+      "code": "th",
+      "name": "ไทย",
+      "english_name": "Thai",
+      "dir": "ltr",
+      "og_locale": "th_TH",
+      "hreflang": [
+        "th"
+      ]
+    },
+    {
+      "code": "tr",
+      "name": "Türkçe",
+      "english_name": "Turkish",
+      "dir": "ltr",
+      "og_locale": "tr_TR",
+      "hreflang": [
+        "tr",
+        "tr-TR"
+      ]
+    },
+    {
+      "code": "uk",
+      "name": "Українська",
+      "english_name": "Ukrainian",
+      "dir": "ltr",
+      "og_locale": "uk_UA",
+      "hreflang": [
+        "uk"
+      ]
+    },
+    {
+      "code": "ur",
+      "name": "اردو",
+      "english_name": "Urdu",
+      "dir": "rtl",
+      "og_locale": "ur_PK",
+      "hreflang": [
+        "ur"
+      ]
+    },
+    {
+      "code": "vi",
+      "name": "Tiếng Việt",
+      "english_name": "Vietnamese",
+      "dir": "ltr",
+      "og_locale": "vi_VN",
+      "hreflang": [
+        "vi"
+      ]
+    },
+    {
+      "code": "zu",
+      "name": "isiZulu",
+      "english_name": "Zulu",
+      "dir": "ltr",
+      "og_locale": "zu_ZA",
+      "hreflang": [
+        "zu"
+      ]
+    }
+  ]
+}

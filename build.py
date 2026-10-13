@@ -4,8 +4,16 @@ No dependencies beyond the standard library. Content lives in content/,
 static files in static/, and every page is wrapped by templates/base.html,
 which carries the Google Analytics tag.
 
-    python3 build.py           # writes _site/
-    python3 build.py --serve   # builds, then serves _site on :8000
+    python3 build.py              # writes _site/
+    python3 build.py --serve      # builds, then serves _site on :8000
+    python3 build.py --locales=es,fr   # only those two languages this time
+
+Every page is built once, in English. Each language in content/locales.json is
+then a pass over that finished page (see i18n/), published under /<code>/ as
+soon as content/i18n/<code>.json covers its text. The build never calls a
+translation API: tools/translate.py does that and commits the result, so this
+stays offline and deterministic. Hebrew is excluded by request, and i18n/
+refuses to build it.
 """
 import datetime as dt
 import html
@@ -15,6 +23,9 @@ import re
 import shutil
 import struct
 import sys
+
+from i18n import locales, memory, segments
+from i18n import pages as l10n
 
 ROOT = pathlib.Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
@@ -38,6 +49,21 @@ TITLE_MAX = 60
 DESC_MAX = 160
 
 # Stable @id values, so the studio and the author stay one entity across pages.
+# English is built first and lives at the root; every other language is a
+# prefix under it. A language appears only once its translations are committed.
+DEFAULT_LOCALE, LANGUAGES = locales.load()
+PAGES = {}  # site path -> the finished English page, in build order
+LOCALES_MARKER = "@@LOCALES@@"
+
+# The strings the site shows that are on no page, so the walk over the built
+# HTML cannot find them. tools/translate.py reads this list, which is why it
+# lives here beside the code that prints them.
+FEED_TITLE = f"{STUDIO} blog"
+FEED_DESCRIPTION = ("Notes from " + STUDIO + " on how the games work underneath: "
+                    "paytables, odds, strategy and the maths.")
+PICKER_LABEL = "Language"
+CHROME = (FEED_TITLE, FEED_DESCRIPTION, PICKER_LABEL)
+
 ORG_ID = SITE + "/#organization"
 PERSON_ID = SITE + "/#michael"
 SITE_ID = SITE + "/#website"
@@ -313,9 +339,63 @@ def exists_exact(path):
 
 
 def write(path, text):
+    """Hold a finished English page. emit() writes it, and its translations."""
+    PAGES[path] = text
+
+
+def write_file(path, text):
     dest = OUT / (path.lstrip("/") + ("index.html" if path.endswith("/") else ""))
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(text)
+
+
+# ---------------------------------------------------------------- languages
+
+
+def translatable(path, text):
+    """Redirect hops and the 404 shell stay English-only.
+
+    A hop is never read, and GitHub Pages serves one 404 for the whole domain,
+    so neither is worth seventy copies.
+    """
+    return 'http-equiv="refresh"' not in text and path != "/404.html"
+
+
+def localize_site(requested=None):
+    """{path: {code: page}} — every page in every language that can carry it.
+
+    A language publishes a page only when its memory covers every segment on
+    it. Anything less would be a page of English served from a Spanish URL,
+    which is both a worse page and a duplicate competing with the real one.
+    """
+    wanted = locales.select(requested, memory.translated_languages(LANGUAGES))
+    memories = {loc.code: memory.Memory(loc.code) for loc in wanted}
+    built = {}
+    for path, text in PAGES.items():
+        if not translatable(path, text):
+            continue
+        texts = segments.extract(text)
+        for loc in wanted:
+            mem = memories[loc.code]
+            if mem.covers(texts):
+                built.setdefault(path, {})[loc.code] = l10n.localize(text, path, loc, mem, SITE, texts)
+    return built, memories, wanted
+
+
+def emit(built, memories, wanted):
+    """Write every page to disk: English, then each language that has it."""
+    by_code = {loc.code: loc for loc in wanted}
+    active = json.dumps(sorted({code for page in built.values() for code in page}))
+    for path, text in PAGES.items():
+        available = [by_code[c] for c in by_code if c in built.get(path, {})]
+        available.sort(key=lambda loc: [l.code for l in wanted].index(loc.code))
+        english = l10n.finish(text, path, DEFAULT_LOCALE, available, DEFAULT_LOCALE, SITE)
+        write_file(path, english.replace(LOCALES_MARKER, active))
+        for loc in available:
+            label = memories[loc.code].get(PICKER_LABEL) or PICKER_LABEL
+            page_html = l10n.finish(built[path][loc.code], path, loc, available,
+                                    DEFAULT_LOCALE, SITE, label)
+            write_file(loc.path(path), page_html.replace(LOCALES_MARKER, active))
 
 
 # ---------------------------------------------------------------- pages
@@ -730,11 +810,17 @@ def build_404(apps):
     # This runs before the GA tag. A hit that is really a redirect sets the flag
     # and leaves, so it is never counted as a visit to "Page not found"; only a
     # genuine miss reaches gtag.
+    # A miss inside a language keeps its language: /es/videopoker goes to
+    # /es/VideoPoker/, not to the English page. The locale list is filled in at
+    # emit(), once it is known which languages were actually published.
     script = (
-        "<script>(function(){var m=" + json.dumps(known) + ";"
-        "var p=location.pathname.toLowerCase();if(!p.endsWith('/'))p+='/';"
-        "var t=m[p];if(t&&t!==location.pathname){window.__redirecting=true;"
-        "location.replace(t+location.search+location.hash);}})();</script>"
+        "<script>(function(){var m=" + json.dumps(known) + ",L=" + LOCALES_MARKER + ";"
+        "var p=location.pathname.toLowerCase(),pre='';"
+        "for(var i=0;i<L.length;i++){var c='/'+L[i].toLowerCase();"
+        "if(p===c||p.indexOf(c+'/')===0){pre='/'+L[i];p=p.slice(c.length)||'/';break;}}"
+        "if(!p.endsWith('/'))p+='/';"
+        "var t=m[p];if(t&&pre+t!==location.pathname){window.__redirecting=true;"
+        "location.replace(pre+t+location.search+location.hash);}})();</script>"
     )
     page(
         "/404.html",
@@ -753,7 +839,7 @@ def build_404(apps):
     )
 
 
-def build_sitemap(apps, posts):
+def build_sitemap(apps, posts, built):
     latest = posts[0]["modified"] if posts else None
     def app_mod(a):
         # An app page lists its own posts, so it genuinely changes when one lands.
@@ -766,38 +852,58 @@ def build_sitemap(apps, posts):
         if mine:
             urls.append((f"/blog/{a['slug']}/", max(p["modified"] for p in mine)))
     urls += [(p["url"], p["modified"]) for p in posts]
+    # Every language that carries a page is listed under its own URL. The
+    # hreflang set that ties them together is on the pages themselves.
     rows = "\n".join(
-        f"  <url><loc>{SITE}{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>" for u, m in urls
+        f"  <url><loc>{SITE}{prefix + u}</loc>"
+        + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>"
+        for u, m in urls
+        for prefix in [""] + [f"/{code}" for code in sorted(built.get(u, {}))]
     )
     (OUT / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{rows}\n</urlset>\n'
     )
 
 
-def build_feed(posts, abs_):
+def build_feed(posts, abs_, locale, mem=None, built=None):
+    """The RSS feed for one language, at /feed.xml or /<code>/feed.xml.
+
+    A language's feed carries only the posts that language actually publishes,
+    so a reader is never handed an English article through a Spanish feed. A
+    language with no posts yet still gets an empty feed, because every page in
+    it links to one.
+    """
+    def say(text):
+        return (mem.get(text) if mem else None) or text
+
+    mine = [p for p in posts
+            if locale.is_default or locale.code in (built or {}).get(p["url"], {})]
     items = []
-    for p in posts[:20]:
+    for p in mine[:20]:
         app = abs_[p["app"]]
         items.append(
             f"""  <item>
-    <title>{esc(re.sub("<[^>]+>", "", p["title"]))}</title>
-    <link>{SITE}{p['url']}</link>
-    <guid isPermaLink="true">{SITE}{p['url']}</guid>
+    <title>{esc(say(re.sub("<[^>]+>", "", p["title"])))}</title>
+    <link>{SITE}{locale.path(p['url'])}</link>
+    <guid isPermaLink="true">{SITE}{locale.path(p['url'])}</guid>
     <pubDate>{rfc822(p['date'])}</pubDate>
     <category>{esc(app['short_name'])}</category>
-    <description>{esc(p['description'])}</description>
+    <description>{esc(say(p['description']))}</description>
   </item>"""
         )
-    (OUT / FEED.lstrip("/")).write_text(
+    feed_url = locale.path(FEED)
+    newest = mine[0]["modified"] if mine else posts[0]["modified"]
+    (OUT / feed_url.lstrip("/")).parent.mkdir(parents=True, exist_ok=True)
+    (OUT / feed_url.lstrip("/")).write_text(
         f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>{STUDIO} blog</title>
-  <link>{SITE}/blog/</link>
-  <atom:link href="{SITE}{FEED}" rel="self" type="application/rss+xml"/>
-  <description>Notes from {STUDIO} on how the games work underneath: paytables, odds, strategy and the maths.</description>
-  <language>en</language>
-  <lastBuildDate>{rfc822(posts[0]["modified"])}</lastBuildDate>
+  <title>{esc(say(FEED_TITLE))}</title>
+  <link>{SITE}{locale.path('/blog/')}</link>
+  <atom:link href="{SITE}{feed_url}" rel="self" type="application/rss+xml"/>
+  <description>{esc(say(FEED_DESCRIPTION))}</description>
+  <language>{locale.code}</language>
+  <lastBuildDate>{rfc822(newest)}</lastBuildDate>
 {chr(10).join(items)}
 </channel>
 </rss>
@@ -805,10 +911,13 @@ def build_feed(posts, abs_):
     )
 
 
-def main():
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    shutil.copytree(STATIC, OUT)
+def collect():
+    """Build every English page into PAGES, touching no disk. (apps, posts, abs_)
+
+    tools/translate.py calls this to learn what text the site contains without
+    producing a site.
+    """
+    PAGES.clear()
     apps = load_apps()
     abs_ = {a["slug"]: a for a in apps}
     posts = load_posts(abs_)
@@ -819,9 +928,28 @@ def main():
     build_legal(apps, abs_)
     build_404(apps)
     redirect("/terms.html", "/VideoPoker/terms.html")
-    build_sitemap(apps, posts)
-    build_feed(posts, abs_)
-    print(f"built {sum(1 for _ in OUT.rglob('*.html'))} pages into {OUT.relative_to(ROOT)}/")
+    return apps, posts, abs_
+
+
+def main():
+    requested = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--locales=")), None)
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    shutil.copytree(STATIC, OUT)
+    apps, posts, abs_ = collect()
+
+    built, memories, wanted = localize_site(requested)
+    emit(built, memories, wanted)
+    published = sorted({code for page in built.values() for code in page})
+    build_sitemap(apps, posts, built)
+    build_feed(posts, abs_, DEFAULT_LOCALE)
+    for loc in wanted:
+        if loc.code in published:
+            build_feed(posts, abs_, loc, memories[loc.code], built)
+
+    languages = f"{len(published) + 1} languages" if published else "English only"
+    print(f"built {sum(1 for _ in OUT.rglob('*.html'))} pages into "
+          f"{OUT.relative_to(ROOT)}/ ({languages})")
 
     if "--serve" in sys.argv:
         import functools, http.server, io, urllib.parse

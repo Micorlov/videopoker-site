@@ -6,6 +6,8 @@
 - every JSON-LD block parses
 - indexable pages have a unique <title>, a description and a canonical
 - titles and descriptions fit a search result, and each page has one <h1>
+- a translated page declares its language, links its alternates, and stays in
+  its own tree; no page anywhere is in Hebrew
 - every <img> carries alt text and width/height, so nothing shifts as it loads
 - the sitemap lists exactly the indexable pages, and the feed lists the newest posts
 """
@@ -15,10 +17,26 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "_site"
 sys.path.insert(0, str(ROOT))
 from build import DESC_MAX, FEED, GA_ID, SITE, TITLE_MAX, exists_exact  # noqa: E402
+from i18n import locales  # noqa: E402
 
 DESC_MIN = 70  # shorter than this and a search result has room it is not using
 
-problems, titles, indexable = [], {}, set()
+# A translation's length belongs to the translator: no seo_title in the front
+# matter can shorten it, and a character count means something different in
+# German and in Japanese. So a translated page is only held to a ceiling that
+# catches a runaway translation, and told off in a warning before that.
+L10N_TITLE_MAX, L10N_DESC_MAX = 70, 200
+
+DEFAULT_LOCALE, LANGUAGES = locales.load()
+BY_CODE = {loc.code: loc for loc in LANGUAGES}
+
+problems, warnings, titles, indexable = [], [], {}, set()
+
+
+def locale_of(rel):
+    """The language a built path belongs to, from its first segment."""
+    head = rel.strip("/").split("/")[0]
+    return BY_CODE.get(head, DEFAULT_LOCALE)
 
 
 def resolve(page, ref):
@@ -60,24 +78,45 @@ for page in sorted(OUT.rglob("*.html")):
     if 'name="robots" content="noindex' in h or 'http-equiv="refresh"' in h:
         continue
     indexable.add(rel)
+    loc = locale_of(rel)
+    native = loc.is_default
     title = re.search(r"<title>(.*?)</title>", h).group(1)
-    if title in titles:
-        problems.append(f"{rel}: title duplicates {titles[title]}")
-    titles[title] = rel
-    if len(html.unescape(title)) > TITLE_MAX:
-        problems.append(f"{rel}: title is {len(html.unescape(title))} chars, over {TITLE_MAX} "
-                        f"(set seo_title in the front matter)")
+    if (loc.code, title) in titles:
+        problems.append(f"{rel}: title duplicates {titles[(loc.code, title)]}")
+    titles[(loc.code, title)] = rel
+    length = len(html.unescape(title))
+    ceiling = TITLE_MAX if native else L10N_TITLE_MAX
+    if length > ceiling:
+        problems.append(f"{rel}: title is {length} chars, over {ceiling}"
+                        + (" (set seo_title in the front matter)" if native
+                           else " — the translation runs long"))
+    elif not native and length > TITLE_MAX:
+        warnings.append(f"{rel}: title is {length} chars; a search result cuts near {TITLE_MAX}")
     if h.count("<h1") != 1:
         problems.append(f"{rel}: {h.count('<h1')} <h1> headings, expected 1")
     desc = re.search(r'<meta name="description" content="([^"]*)"', h)
-    length = len(html.unescape(desc.group(1))) if desc else 0
-    if not DESC_MIN <= length <= DESC_MAX:
-        problems.append(f"{rel}: description is {length} chars, want {DESC_MIN}-{DESC_MAX} "
+    size = len(html.unescape(desc.group(1))) if desc else 0
+    if native and not DESC_MIN <= size <= DESC_MAX:
+        problems.append(f"{rel}: description is {size} chars, want {DESC_MIN}-{DESC_MAX} "
                         f"(set seo_description in the front matter)")
+    elif not native and not 1 <= size <= L10N_DESC_MAX:
+        problems.append(f"{rel}: description is {size} chars, want 1-{L10N_DESC_MAX}")
+    elif not native and size > DESC_MAX:
+        warnings.append(f"{rel}: description is {size} chars; a search result cuts near {DESC_MAX}")
     if '<meta property="og:site_name"' not in h:
         problems.append(f"{rel}: og:site_name missing")
     if f'<link rel="canonical" href="{SITE}{rel}">' not in h:
         problems.append(f"{rel}: canonical missing or wrong")
+    if f'<html lang="{loc.code}"' not in h:
+        problems.append(f"{rel}: does not declare lang=\"{loc.code}\"")
+    if not native:
+        if f'dir="{loc.dir}"' not in h:
+            problems.append(f"{rel}: missing dir=\"{loc.dir}\"")
+        bare = rel[len(loc.prefix):] or "/"
+        if f'hreflang="x-default" href="{SITE}{bare}"' not in h:
+            problems.append(f"{rel}: x-default does not point at the English page")
+    if 'hreflang="en"' not in h:
+        problems.append(f"{rel}: no hreflang set")
 
 # The 404 page redirects stale lower-case URLs. The decision has to happen above
 # the GA tag, or every redirect is also counted as a view of "Page not found".
@@ -108,7 +147,33 @@ else:
         elif loc.group(1)[len(SITE):] not in listed:
             problems.append(f"feed: links {loc.group(1)}, which is not an indexable page")
 
+# Hebrew is excluded by request. It would come back as a tree, as an hreflang
+# tag pointing at one, or as a lang attribute, so all three are checked against
+# what was actually built rather than against the registry that built it.
+hebrew = re.compile(r'(?:lang|hreflang)="(?:he|iw)\b|^/(?:he|iw)(?:-|/)', re.I)
+for page in sorted(OUT.rglob("*.html")):
+    rel = "/" + str(page.relative_to(OUT)).replace("index.html", "")
+    if hebrew.search(rel):
+        problems.append(f"{rel}: a Hebrew page was built")
+    for hit in set(hebrew.findall(page.read_text())):
+        problems.append(f"{rel}: Hebrew language tag {hit!r}")
+for loc in re.findall(r"<loc>(.*?)</loc>", (OUT / "sitemap.xml").read_text()):
+    if hebrew.search(loc[len(SITE):]):
+        problems.append(f"sitemap: lists a Hebrew URL {loc}")
+
+# Each language's feed stays inside its own tree, so a reader never gets an
+# English article through a translated feed.
+for feed_file in sorted(OUT.rglob("feed.xml")):
+    where = "/" + str(feed_file.relative_to(OUT))
+    prefix = where[: -len("/feed.xml")]
+    for link in re.findall(r"<link>(.*?)</link>", feed_file.read_text()):
+        path = link[len(SITE):]
+        if not path.startswith(prefix + "/"):
+            problems.append(f"{where}: links {path}, outside {prefix or '/'}")
+
 print(f"{len(titles)} indexable pages, {len(listed)} in sitemap, {len(items)} in feed")
+for w in warnings:
+    print("  !", w)
 for p in problems:
     print("  ✗", p)
 sys.exit(1 if problems else 0)

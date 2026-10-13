@@ -8,6 +8,7 @@ on:
       - 'templates/**'
       - 'static/**'
       - 'build.py'
+      - 'i18n/**'
       - 'tools/check.py'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
@@ -39,7 +40,10 @@ jobs:
       - name: Build the site
         run: python3 build.py
 
-      - name: Check links, analytics tag and sitemap
+      - name: Unit-test the translation machinery
+        run: python3 -m unittest discover -s tests/python -t tests/python -v
+
+      - name: Check links, analytics tag, languages and sitemap
         run: python3 tools/check.py
 
       - name: Configure Pages

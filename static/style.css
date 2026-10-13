@@ -46,7 +46,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 ::selection { background: var(--gold); color: var(--night); }
 
 .skip {
-  position: absolute; left: 12px; top: -60px; z-index: 20;
+  position: absolute; inset-inline-start: 12px; top: -60px; z-index: 20;
   padding: 10px 16px; background: var(--gold); color: var(--night); font-weight: 700; text-decoration: none;
 }
 .skip:focus { top: 12px; }
@@ -117,12 +117,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 }
 .paytable table { width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.5vw, 14px); letter-spacing: 0.03em; }
 .paytable caption {
-  caption-side: top; text-align: left; font-size: 12px; letter-spacing: 0.13em;
+  caption-side: top; text-align: start; font-size: 12px; letter-spacing: 0.13em;
   color: var(--muted); padding-bottom: 11px; border-bottom: 1px solid var(--felt); margin-bottom: 8px;
 }
 .paytable th, .paytable td { padding: 4.5px 0; }
-.paytable th { text-align: left; font-weight: 500; color: var(--cream); text-transform: uppercase; white-space: nowrap; }
-.paytable td { text-align: right; width: 15%; color: var(--gold); font-variant-numeric: tabular-nums; }
+.paytable th { text-align: start; font-weight: 500; color: var(--cream); text-transform: uppercase; white-space: nowrap; }
+.paytable td { text-align: end; width: 15%; color: var(--gold); font-variant-numeric: tabular-nums; }
 .paytable tbody tr:first-child th, .paytable tbody tr:first-child td { color: var(--orange); }
 .paytable td:last-child { font-weight: 700; }
 .paytable tbody tr + tr { border-top: 1px solid rgba(34, 113, 64, 0.5); }
@@ -191,7 +191,7 @@ h2 { font-size: clamp(30px, 5vw, 50px); text-transform: uppercase; margin-bottom
 
 /* age notice */
 
-.notice { border: 1px solid var(--rule); border-left: 3px solid var(--orange); padding: clamp(20px, 3vw, 30px); background: var(--felt-deep); }
+.notice { border: 1px solid var(--rule); border-inline-start: 3px solid var(--orange); padding: clamp(20px, 3vw, 30px); background: var(--felt-deep); }
 .notice h2 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 14px; }
 .notice p { color: #C6D6C8; font-size: 15.5px; }
 
@@ -205,7 +205,7 @@ h2 { font-size: clamp(30px, 5vw, 50px); text-transform: uppercase; margin-bottom
 .doc h2 { font-size: clamp(22px, 3vw, 28px); margin: 42px 0 12px; padding-top: 22px; border-top: 1px solid var(--rule); }
 .doc p, .doc li { color: var(--muted); }
 .doc strong { color: var(--cream); font-weight: 600; }
-.doc ul { max-width: var(--measure); padding-left: 20px; }
+.doc ul { max-width: var(--measure); padding-inline-start: 20px; }
 .doc li { margin-bottom: 7px; }
 
 /* ---------- footer ---------- */
@@ -216,6 +216,30 @@ footer nav { display: flex; flex-wrap: wrap; gap: 14px 22px; }
 footer a { color: var(--muted); }
 footer a:hover { color: var(--gold); }
 .copyright { margin: 0; }
+
+/* ---------- language picker ---------- */
+
+/* Seventy languages is too many for a row of links, so the footer carries a
+   disclosure: closed it is one word, open it is the whole list. Plain links
+   inside a <details>, so it works with JavaScript off and a crawler can follow
+   every language from every page. */
+.langpicker { width: 100%; }
+.langpicker summary {
+  cursor: pointer; color: var(--muted); font-size: 14.5px;
+  list-style: none; display: inline-flex; align-items: center; gap: 7px;
+}
+.langpicker summary::-webkit-details-marker { display: none; }
+.langpicker summary::after { content: "\25BE"; font-size: 11px; }
+.langpicker[open] summary::after { content: "\25B4"; }
+.langpicker summary:hover { color: var(--gold); }
+.langpicker ul {
+  list-style: none; margin: 16px 0 0; padding: 0;
+  display: grid; gap: 7px 22px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.langpicker a { color: var(--muted); }
+.langpicker a:hover { color: var(--gold); }
+.langpicker a[aria-current] { color: var(--cream); }
 
 /* ---------- responsive ---------- */
 
@@ -273,9 +297,9 @@ footer a:hover { color: var(--gold); }
 .post-body h3 { font-family: Archivo, sans-serif; font-size: 17px; font-weight: 600; margin: 26px 0 6px; color: var(--cream); }
 .post-body p, .post-body li { color: var(--muted); }
 .post-body strong { color: var(--cream); font-weight: 600; }
-.post-body ul, .post-body ol { padding-left: 20px; }
+.post-body ul, .post-body ol { padding-inline-start: 20px; }
 .post-body li { margin-bottom: 7px; }
-.post-body ol.ranked { padding-left: 0; list-style: none; counter-reset: r; }
+.post-body ol.ranked { padding-inline-start: 0; list-style: none; counter-reset: r; }
 .post-body ol.ranked li {
   counter-increment: r;
   display: grid;
@@ -289,13 +313,13 @@ footer a:hover { color: var(--gold); }
 .post-body ol.ranked li:first-child { border-top: 1px solid var(--rule); }
 
 .paytable-compare { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 15px; }
-.paytable-compare caption { caption-side: bottom; text-align: left; color: var(--muted); font-size: 13.5px; padding-top: 10px; }
-.paytable-compare th, .paytable-compare td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--rule); text-align: left; }
+.paytable-compare caption { caption-side: bottom; text-align: start; color: var(--muted); font-size: 13.5px; padding-top: 10px; }
+.paytable-compare th, .paytable-compare td { padding-block: 9px; padding-inline: 0 10px; border-bottom: 1px solid var(--rule); text-align: start; }
 .paytable-compare thead th { color: var(--cream); font-weight: 600; border-bottom-color: var(--felt); }
 .paytable-compare td { color: var(--muted); font-variant-numeric: tabular-nums; }
 .paytable-compare td.good { color: var(--gold); }
 
-.callout { border-left: 3px solid var(--felt-lit); background: var(--felt-deep); padding: 18px 20px; margin: 28px 0; }
+.callout { border-inline-start: 3px solid var(--felt-lit); background: var(--felt-deep); padding: 18px 20px; margin: 28px 0; }
 .callout p { color: #C6D6C8; font-size: 15.5px; }
 
 .post-foot { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 26px; max-width: var(--measure); }
@@ -373,7 +397,7 @@ footer a:hover { color: var(--gold); }
   font-size: clamp(19px, 2.4vw, 24px); text-transform: uppercase; color: var(--gold);
   margin: 34px 0 10px; line-height: 1.1;
 }
-.listing ul, .listing ol { padding-left: 20px; max-width: var(--measure); }
+.listing ul, .listing ol { padding-inline-start: 20px; max-width: var(--measure); }
 .listing li { margin-bottom: 6px; }
 code { font-size: 0.92em; color: var(--cream); }
 
@@ -384,7 +408,7 @@ code { font-size: 0.92em; color: var(--cream); }
   border: 1px solid var(--rule); padding: 6px 13px; border-radius: 999px; font-size: 14px;
   color: var(--cream); text-decoration: none;
 }
-.chip span { color: var(--muted); margin-left: 4px; }
+.chip span { color: var(--muted); margin-inline-start: 4px; }
 .chip { transition: border-color .15s, background-color .15s; }
 .chip:hover { border-color: var(--felt-lit); }
 .chip.on { background: var(--felt); border-color: var(--felt-lit); }
@@ -408,7 +432,7 @@ code { font-size: 0.92em; color: var(--cream); }
 .post-seq .seq span {
   font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--gold);
 }
-.post-seq .newer { text-align: right; }
+.post-seq .newer { text-align: end; }
 .post-seq .newer:only-child { grid-column: 2; }
 
 @media (max-width: 860px) {
@@ -417,7 +441,7 @@ code { font-size: 0.92em; color: var(--cream); }
 
 @media (max-width: 620px) {
   .post-seq { grid-template-columns: minmax(0, 1fr); }
-  .post-seq .newer { text-align: left; }
+  .post-seq .newer { text-align: start; }
   .post-seq .newer:only-child { grid-column: auto; }
   .topnav { gap: 14px; }
   .topnav > a:not(.play) { font-size: 14px; }

@@ -19,8 +19,12 @@ templates/base.html    <head>, Google Analytics tag, header, footer — on every
 static/                copied as-is: style.css, fonts.css, fonts/, img/, CNAME,
                        robots.txt
 build.py               → _site/ (pages, sitemap.xml, feed.xml, 404.html)
+i18n/                  turns the finished English pages into every other language
+content/locales.json   the 70 languages, plus the Hebrew exclusion
+content/i18n/<code>.json  the translations the build reads (committed)
+tools/translate.py     fills content/i18n/ through the Claude API (never run in CI)
 tools/check.py         links, GA tag, JSON-LD, titles, descriptions, images,
-                       sitemap, feed — CI fails if any break
+                       sitemap, feed, languages — CI fails if any break
 tools/fetch_play.py    refresh listing text, icons and screenshots from Google Play
 ```
 
@@ -60,6 +64,45 @@ For a live app, run `python3 tools/fetch_play.py <Slug>` to pull its listing,
 icon and screenshots. For an app still in testing there is no public listing,
 so write `content/play/<Slug>.json` by hand from Play Console → Store listing,
 and put `icon.jpg` and `shot1.jpg`… in `static/img/apps/<Slug>/`.
+
+## Languages
+
+The site is published in 70 languages besides English, **and never in Hebrew**.
+English stays at the URLs it always had; every other language is a prefix:
+`/es/`, `/pt-BR/`, `/zh-Hans/`, `/ar/` and so on, with `/es/VideoPoker/`,
+`/es/blog/<post>.html` beneath. Play's ~80 listing locales are covered by
+`hreflang` rather than by duplicate pages: `es-MX`, `es-419` and `es-US` all
+point at `/es/`, the six English variants at the English root.
+
+A language appears on the site once `content/i18n/<code>.json` covers every
+string on a page, and not before. The build **never calls a translation API**,
+so CI stays offline and deterministic; a language without translations simply
+isn't built, and a page with a gap in one language isn't published in it.
+
+```sh
+pip install anthropic && export ANTHROPIC_API_KEY=...
+python3 tools/translate.py --estimate            # price the job first
+python3 tools/translate.py --locales es,fr,ja    # a few languages
+python3 tools/translate.py --locales all --budget 25   # stops at $25
+python3 tools/translate.py --audit               # what each language has
+python3 build.py && python3 tools/check.py       # publish what's ready
+```
+
+It writes after every batch, so an interrupted run resumes without paying twice,
+and a day's new posts cost only their own strings. Commit `content/i18n/`.
+`--prune` drops text no page uses any more.
+
+**Hebrew** is refused in three places: `i18n/locales.py` rejects it from the
+registry and from `--locales`, `tools/check.py` fails the build if a Hebrew
+tree, `lang`, `hreflang` or sitemap URL appears in the output, and the browser
+suite requests `/he/` and `/iw/` and expects a 404.
+
+Right-to-left (Arabic, Persian, Urdu) works through `dir="rtl"` and logical CSS
+properties; don't add `left`/`right` rules to `style.css`.
+
+**New posts** need nothing extra. The daily agent publishes English; run
+`tools/translate.py --locales all` afterwards to fill the new strings in.
+Until you do, the new post exists in English only.
 
 ## Search
 

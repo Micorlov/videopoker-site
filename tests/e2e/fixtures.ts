@@ -14,6 +14,23 @@ export function sitemapPaths(): string[] {
   return [...xml.matchAll(/<loc>https?:\/\/[^/]+(\/[^<]*)<\/loc>/g)].map((m) => m[1])
 }
 
+export interface Language { code: string; name: string; dir: 'ltr' | 'rtl'; hreflang: string[] }
+
+const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/locales.json'), 'utf8'))
+
+export const languages: Language[] = registry.languages
+export const excluded: string[] = registry.excluded
+
+// The languages this build actually published — a language appears only once its
+// translations are committed, so the suite runs on an English-only build too.
+// Read from the sitemap at call time, not at import time: the webServer rebuilds
+// _site after the test files are collected, so anything read at import is stale
+// (and on a clean checkout, absent — which would quietly skip every test below).
+export function builtLanguages(): Language[] {
+  const prefixes = new Set(sitemapPaths().map((p) => p.split('/')[1]))
+  return languages.filter((l) => prefixes.has(l.code))
+}
+
 export interface PageHealth { errors: string[]; badResponses: string[] }
 
 // Every test gets: no network beyond localhost (GA and Google Fonts are blocked so runs are
