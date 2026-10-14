@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Soft 18: how to play ace-seven against every dealer card",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "BlackjackCoach",
+  "description": "Ace-seven is the one hand that stands, doubles and hits depending on the dealer's card. Here is the full six-deck chart and the numbers behind each choice.",
+  "summary": "Soft 18 stands against 2, 7 and 8, doubles against 3 to 6, and hits against 9, 10 and ace. The dealer's chances of finishing on 19 or more explain where the line falls.",
+  "standfirst": "Ace-seven looks like a decent hand and plays like three different ones. The right move changes with the dealer's card, and the reasons are all in how often that card ends up above 18."
+}
+-->
+<p>An ace and a seven make a soft 18: a hand that totals 18 with the ace counted as 11, and that cannot bust on the next card because the ace can drop to 1. Most players stand on 18 without thinking. For ace-seven that is right against some dealer cards, wrong against others, and a missed chance against a third group. It is the hand where basic strategy looks least like common sense.</p>
+
+<h2>The chart</h2>
+<p>This is the standard answer for the rules the chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches: six decks, the dealer stands on soft 17, doubling after a split allowed, late surrender. "Double, otherwise stand" means double if the table lets you, and stand if it does not.</p>
+<table class="paytable-compare">
+  <caption>Ace-seven (soft 18), six decks, dealer stands on soft 17.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Play</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td>Stand</td></tr>
+    <tr><th scope="row">3, 4, 5, 6</th><td class="good">Double, otherwise stand</td></tr>
+    <tr><th scope="row">7, 8</th><td>Stand</td></tr>
+    <tr><th scope="row">9, 10, ace</th><td>Hit</td></tr>
+  </tbody>
+</table>
+<p>Three groups, one hand. The rest of the post is why.</p>
+
+<h2>What hitting does to the hand</h2>
+<p>Because the ace is flexible, one extra card cannot lose you the hand outright. From a fresh deck of 52, what you draw does this to ace-seven:</p>
+<ul>
+  <li>Ace, 2 or 3 (12 cards) improves it to soft 19, 20 or 21.</li>
+  <li>Any ten-value card (16 cards) turns it into a hard 18. Same total, no ace left.</li>
+  <li>A 4, 5, 6, 7, 8 or 9 (24 cards) leaves a hard 12 to 17. That is a worse hand than the 18 you started with.</li>
+</ul>
+<p>So 12 draws in 52 improve the hand (23.1%), 16 leave it level (30.8%) and 24 make it worse (46.2%). Hitting is not free, and it only pays when 18 is already losing too often.</p>
+
+<h2>Where 18 loses</h2>
+<p>An 18 loses to a dealer 19, 20 or 21, ties with a dealer 18, and beats everything else. The question for each upcard is how often the dealer finishes on 19 or more. These figures are exact for a six-deck shoe, with your ace and seven and the dealer's upcard already removed, and before the dealer checks for blackjack:</p>
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance the dealer finishes on 19, 20 or 21, by dealer upcard">
+    <div class="bar-row hl" title="Dealer ace: 62.6%"><span class="bar-label">Ace</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">62.6%</span></span></div>
+    <div class="bar-row hl" title="Dealer 10: 56.4%"><span class="bar-label">10</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9010)"></span><span class="bar-val">56.4%</span></span></div>
+    <div class="bar-row hl" title="Dealer 9: 53.2%"><span class="bar-label">9</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8499)"></span><span class="bar-val">53.2%</span></span></div>
+    <div class="bar-row" title="Dealer 2: 37.1%"><span class="bar-label">2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5927)"></span><span class="bar-val">37.1%</span></span></div>
+    <div class="bar-row" title="Dealer 3: 35.9%"><span class="bar-label">3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5735)"></span><span class="bar-val">35.9%</span></span></div>
+    <div class="bar-row" title="Dealer 4: 34.8%"><span class="bar-label">4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5559)"></span><span class="bar-val">34.8%</span></span></div>
+    <div class="bar-row" title="Dealer 5: 33.7%"><span class="bar-label">5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5384)"></span><span class="bar-val">33.7%</span></span></div>
+    <div class="bar-row" title="Dealer 6: 30.6%"><span class="bar-label">6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4888)"></span><span class="bar-val">30.6%</span></span></div>
+    <div class="bar-row" title="Dealer 8: 26.5%"><span class="bar-label">8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4233)"></span><span class="bar-val">26.5%</span></span></div>
+    <div class="bar-row" title="Dealer 7: 23.1%"><span class="bar-label">7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3690)"></span><span class="bar-val">23.1%</span></span></div>
+  </div>
+  <figcaption>The chance the dealer finishes on 19, 20 or 21, by upcard, in a six-deck shoe with the dealer standing on soft 17. The three highlighted cards are the ones where ace-seven hits.</figcaption>
+</figure>
+<p>The highlighted three are the only upcards where the dealer finishes above your 18 more than half the time. Against a 9 it is 53.2%, against a 10 it is 56.4% and against an ace it is 62.6%. Standing on 18 there loses more often than it wins, so you take the 46.2% risk of a worse hand and the 23.1% chance of a better one, because the alternative is worse still. Computed over the full play of the hand, with the dealer's blackjack check allowed for, hitting loses less than standing against all three: roughly 9.9, 14.3 and 9.5 cents per unit bet against 18.3, 18.0 and 10.0 for standing. The ace is the narrow one, about half a cent apart, which is why charts for other rule sets sometimes disagree on it.</p>
+
+<h2>Why 7 and 8 are stands</h2>
+<p>A dealer 7 or 8 looks threatening and is not. With a 7 showing, the dealer lands on exactly 17 in 37.1% of hands, and 17 loses to your 18. Only 23.1% of the time does the dealer pass you. Against an 8, the problem is the opposite: the dealer finishes on exactly 18 in 36.2% of hands, so the most common result is a push. Standing is the best move for both. Hitting an 8 would risk turning a likely tie into a loss for a small chance to win.</p>
+
+<h2>Why 3 to 6 are doubles</h2>
+<p>Against a 3, 4, 5 or 6 the dealer is weak: it busts 37.6%, 39.8%, 41.9% and 42.5% of the time respectively. Standing is already profitable, but doubling is better, because a single extra card to a soft 18 usually leaves you with a hand that still wins against a dealer who is likely to break. The averages bear this out. Per unit of the original bet, standing on ace-seven against a 6 returns about 0.28 and doubling returns about 0.38, since the doubled stake is at risk but wins more often. Against a 3, it is 0.15 standing and 0.18 doubling.</p>
+<p>A 2 is the borderline: the dealer busts 35.5% of the time, and doubling (about 0.121) comes out marginally behind standing (about 0.124). That is why the chart says stand, and why ace-seven against a 2 is the usual exception to the "double against weak cards" idea. If the dealer hits soft 17 instead, the commonly published chart changes this one cell to double.</p>
+
+<div class="callout">
+  <p>Soft 18 is the hand where the "obvious" play loses most often: standing against 9, 10 and ace. The strongest instinct, to double against a 7 or 8 because you have a good hand, is also wrong. The chart says stand.</p>
+</div>
+
+<h2>Remembering it</h2>
+<p>The pattern is easier to hold than the table. Stand by default, because 18 is a good total. Double where the dealer is most likely to bust, 3 to 6. Hit only where 18 is a clear underdog: 9, 10 and ace. For counting players, the thresholds that move these plays are true counts, which <a href="/blog/hi-lo-running-and-true-count.html">the Hi-Lo post</a> explains. Without a count, the chart above is the answer.</p>
+<p>Blackjack Coach lets you choose a play, read the explanation and review your mistakes, so ace-seven against a 9 or a 2 is a good pair to see repeated until the reasons stick.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> lets you choose a play, read the explanation and review your mistakes, either on the strategy chart or in practice rounds against the dealer at your own pace. The chart teaches fixed six-deck rules: the dealer stands on soft 17, with double after split and late surrender. Local training works offline. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

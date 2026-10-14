@@ -1,0 +1,65 @@
+<!--
+{
+  "title": "How railway signals keep trains apart",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "ValleyRail",
+  "description": "Signals split the track into blocks so only one train occupies each. Braking distance grows with the square of speed, and that sets how far apart they sit.",
+  "summary": "A train cannot stop within the distance a driver can see, so railways keep trains apart with blocks and signals. Double the speed and the stopping distance quadruples, which is why fast lines need longer blocks and more warning aspects.",
+  "standfirst": "A driver at the front of a fast train cannot see far enough ahead to stop for whatever is there. Railways solved that by never letting two trains share a section of track, and by warning the driver before the stop signal arrives."
+}
+-->
+<p>A train cannot steer round an obstacle and cannot stop quickly. The same smooth steel contact that lets a locomotive move a huge load with little effort, covered in <a href="/blog/why-railways-follow-rivers.html">why railways follow rivers</a>, also limits how hard the brakes can grip. On a straight line a driver may see a kilometre or two ahead, and a fast train needs about that much just to stop. Sight alone is therefore not a safe way to run a railway, and signalling takes its place.</p>
+
+<h2>From time to space</h2>
+<p>The earliest method was the <strong>time interval</strong>: send trains out a few minutes apart and trust that the one in front keeps moving. It works until a train breaks down or stops for a fault, and then the next one arrives at full speed with no warning.</p>
+<p>The fix was the <strong>block system</strong>, which replaces a gap in time with a gap in space. The line is divided into sections called blocks. A signal guards the entrance to each one, and the rule of absolute block working is simple: a train may enter a block only when it is empty. If the block ahead is occupied, the signal shows red and the following train waits.</p>
+<p>At first, signalmen at each end of a block told each other by telegraph when a train had entered and left. Later, <strong>track circuits</strong> did the checking automatically. A low voltage runs along one rail and back along the other, through a relay. A train's wheels and axles connect the two rails, which diverts the current and releases the relay, and the signal goes red. A broken rail or a failed supply releases the relay in the same way, so most faults turn the signal red rather than green. Engineers call this fail-safe design.</p>
+
+<h2>Why blocks have to be long</h2>
+<p>A block cannot be any length you like. The driver needs warning early enough to stop before the red signal, and braking distance is not proportional to speed. With constant braking, the distance is <em>v</em>² ÷ 2<em>a</em>, where <em>v</em> is speed and <em>a</em> is deceleration. Double the speed and the stopping distance quadruples.</p>
+<p>The example below assumes a deceleration of 0.5 m/s², a figure chosen to keep the arithmetic clean. Real trains vary with their brakes, load and the state of the rail, so read the results as a pattern rather than a timetable. One mile per hour is 0.447 metres per second, so 100 mph is 44.7 m/s.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of braking distance at 25, 50, 75 and 100 miles per hour with a deceleration of 0.5 metres per second squared">
+    <div class="bar-row" title="25 mph: 125 m"><span class="bar-label">25 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0626)"></span><span class="bar-val">125 m</span></span></div>
+    <div class="bar-row" title="50 mph: 500 m"><span class="bar-label">50 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2503)"></span><span class="bar-val">500 m</span></span></div>
+    <div class="bar-row" title="75 mph: 1,124 m"><span class="bar-label">75 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5626)"></span><span class="bar-val">1,124 m</span></span></div>
+    <div class="bar-row hl" title="100 mph: 1,998 m"><span class="bar-label">100 mph</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1,998 m</span></span></div>
+  </div>
+  <figcaption>Braking distance at a constant 0.5 m/s² deceleration. Each doubling of speed multiplies the distance by four: 125 m at 25 mph becomes 500 m at 50 mph and about 2,000 m at 100 mph.</figcaption>
+</figure>
+
+<p>A train at 100 mph needs about two kilometres, which is longer than most drivers can see on a bend or in rain. A train at 25 mph needs 125 metres. Slow lines can have short blocks, and fast lines need long ones or extra warning.</p>
+
+<h2>Aspects: the warning before the stop</h2>
+<p>A signal does more than say stop or go. Its <strong>aspect</strong>, the pattern of lights it shows, also tells the driver about the signal after it. On a standard three-aspect system:</p>
+<ol class="ranked">
+  <li><strong>Red:</strong> stop. The block ahead is occupied or not safe to enter.</li>
+  <li><strong>Yellow:</strong> caution. The next signal is red, so be ready to stop there.</li>
+  <li><strong>Green:</strong> proceed. The next signal is yellow or green, so the line is clear at least as far as the next signal.</li>
+</ol>
+<p>Place the signals so that a train which passes a yellow at full speed can still stop at the red, and the system is safe. For the 100 mph example, that means a block of about two kilometres, with the yellow at its start and the red at its end.</p>
+<p>That is not always practical, and many fast British lines use <strong>four aspects</strong> instead. A double yellow means the next signal is a single yellow, so the warning is spread across two blocks, and each block can be shorter than a full stopping distance. The driver gets two steps of warning rather than one, and a train brakes in two stages instead of one hard stop.</p>
+
+<div class="callout">
+  <p>A red signal protects the train in front, not the one at the signal. The block system never tries to prevent a collision by reaction. It prevents two trains from ever being in the same section at once.</p>
+</div>
+
+<h2>The price of safety is capacity</h2>
+<p>Because a following train sees green only when the next signal is yellow or green, a three-aspect line needs at least two clear blocks between trains. Take blocks of two kilometres and a speed of 100 mph. Two blocks are four kilometres, and 4,000 m ÷ 44.7 m/s is about 90 seconds. That is the closest two trains can follow each other, before adding the length of the train itself.</p>
+<p>Shorter blocks would let trains follow more closely, but only on routes where stopping distance is short. The limit is not the number of signals; it is how far a train needs to stop. Doubling the speed of a line quadruples the stopping distance, so faster running needs longer blocks or more aspects, and that limits how closely trains can follow.</p>
+
+<p>In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you choose where a train goes and it runs the route on its own, and rail crossings have automatic signals.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>Railways run on space, not time: one train per block.</li>
+  <li>Stopping distance rises with the square of speed, so 100 mph needs 16 times the distance of 25 mph.</li>
+  <li>An aspect warns about the next signal, which is how a driver can brake in time without seeing the obstacle.</li>
+  <li>Safe spacing and line capacity pull against each other, and braking distance decides where the line is drawn.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has six train models for passengers and freight, from a one-coach commuter to a streamlined express, plus rail crossings with automatic signals. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

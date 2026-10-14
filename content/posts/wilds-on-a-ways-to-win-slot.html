@@ -1,0 +1,68 @@
+<!--
+{
+  "title": "How a wild changes the count on a ways-to-win slot",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "BrasslightSlots",
+  "description": "A wild adds one to a symbol's count on its reel, so the ways total jumps as a product. It can also bridge an empty reel and lengthen the run.",
+  "summary": "A wild adds one to a symbol's count on its reel, which multiplies the ways by (n+1)/n. Where the symbol is scarce it doubles them, and on an empty reel it keeps the run alive.",
+  "standfirst": "On a ways game a wild does two separate jobs: it raises the count on the reel it lands on, and it can fill a reel that would otherwise end the run. The first is a multiplication you can do in your head, and the second is worth more."
+}
+-->
+<p>A ways game counts a symbol by multiplying how many times it shows on each reel, working from the left until a reel has none. A wild enters that sum in the simplest possible way: on the reel where it lands, it counts as one more copy of the symbol being counted. Everything below follows from that rule, which is the general case rather than any one game's pay table. The basics of the count are in <a href="/blog/what-243-ways-to-win-means.html">what 243 ways to win means</a>.</p>
+
+<h2>One wild, one extra copy</h2>
+<p>Take a symbol, say a fish, with these counts on reels 1 to 5: 2, 1, 2, 1, 1. The ways are 2 × 1 × 2 × 1 × 1 = 4, all of them five-of-a-kind. Now put a wild on one reel, in a cell that was not already a fish. That reel's count goes up by one, and every other reel stays the same. The total changes by the factor (n + 1) ÷ n, where n is the old count on that reel.</p>
+<ul>
+<li>On a reel with one fish, the count goes from 1 to 2, so the ways double.</li>
+<li>On a reel with two fish, it goes from 2 to 3, so the ways rise by half.</li>
+</ul>
+<p>Working it through for each reel in turn:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the number of ways for the fish after adding one wild to each reel in turn. No wild: 4. Wild on reel 1: 6. Reel 2: 8. Reel 3: 6. Reel 4: 8. Reel 5: 8.">
+    <div class="bar-row" title="No wild: 4"><span class="bar-label">No wild</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="Wild on reel 1: 6"><span class="bar-label">Wild on reel 1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row hl" title="Wild on reel 2: 8"><span class="bar-label">Wild on reel 2</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row" title="Wild on reel 3: 6"><span class="bar-label">Wild on reel 3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row hl" title="Wild on reel 4: 8"><span class="bar-label">Wild on reel 4</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row hl" title="Wild on reel 5: 8"><span class="bar-label">Wild on reel 5</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8</span></span></div>
+  </div>
+  <figcaption>Ways for a fish with counts 2, 1, 2, 1, 1 on reels 1 to 5, after adding one wild to a single reel. The wild is worth most on the reels where the fish is scarcest.</figcaption>
+</figure>
+
+<p>The sums: reel 1 is 3 × 1 × 2 × 1 × 1 = 6, reel 2 is 2 × 2 × 2 × 1 × 1 = 8, reel 3 is 2 × 1 × 3 × 1 × 1 = 6, reel 4 is 2 × 1 × 2 × 2 × 1 = 8 and reel 5 is 2 × 1 × 2 × 1 × 2 = 8. The scarcer the symbol is on a reel, the more a wild adds there. A wild beside two fish adds 50%, a wild on a reel with only one fish adds 100%.</p>
+<p>The count on any reel is capped at 3, because a reel has only three cells. Three on every reel gives 3<sup>5</sup> = 243 ways.</p>
+
+<h2>The wild that fills a gap</h2>
+<p>The multiplier is the smaller of the wild's two jobs. The larger one shows up when a reel has none of the symbol at all, because a count of zero ends the run.</p>
+<p>Suppose the fish counts are 1, 1, 2, 0, 1. The run stops at reel 3, since reel 4 is empty, so the result is a three-of-a-kind with 1 × 1 × 2 = 2 ways. The fish on reel 5 counts for nothing.</p>
+<p>Now let a wild land on reel 4. That reel's count is 1 instead of 0, the run carries on, and it reaches reel 5. The ways are 1 × 1 × 2 × 1 × 1 = 2, still two, but they are now five-of-a-kind rather than three. The number of ways did not move at all, and the result got better, because the pay table steps up with the length of the run. A wild on reel 5 instead would have changed nothing here, since the run would still have ended at reel 3.</p>
+
+<table class="paytable-compare">
+  <caption>The same fish, with one wild on reel 4 or reel 5. Counts are shown for reels 1 to 5.</caption>
+  <thead>
+    <tr><th>Screen</th><th>Counts</th><th>Run</th><th>Ways</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">No wild</th><td>1, 1, 2, 0, 1</td><td>3 reels</td><td>2</td></tr>
+    <tr><th scope="row">Wild on reel 4</th><td>1, 1, 2, 1, 1</td><td class="good">5 reels</td><td class="good">2</td></tr>
+    <tr><th scope="row">Wild on reel 5</th><td>1, 1, 2, 0, 2</td><td>3 reels</td><td>2</td></tr>
+  </tbody>
+</table>
+
+<p>This is why a wild in the middle of the grid feels so much more powerful than one at the edge, even though the multiplier is the same size on every reel. A middle reel is where a gap does the most damage, and the wild repairs it.</p>
+
+<div class="callout">
+  <p>A wild has two effects. It multiplies the ways by (n + 1) ÷ n on its reel, and when n is 0 it keeps the run going. The second effect is the one that changes the pay.</p>
+</div>
+
+<h2>Reel 1 and full-wild reels</h2>
+<p>The first reel works as a gate: a symbol missing from it scores zero, whatever the other reels show. A wild on reel 1 counts for every symbol at once, so each symbol that was absent from that reel now has a count of 1 and can start a run. Each symbol is still worked out on its own, one wild at a time.</p>
+<p>The extreme case is a reel that is wild in all three cells. Its count is 3 for every symbol. A symbol with counts of 2 on the other four reels then has 2 × 2 × 3 × 2 × 2 = 48 ways, and five wild reels give 243 for everything.</p>
+<p>Real games add rules on top: which reels can carry wilds, whether a wild pays by itself, whether it stands in for every symbol. The Play listing for <a href="/BrasslightSlots/">Brasslight Slots</a> mentions its heart-eyes cat wilds but does not spell those rules out, so none are assumed here. The maths above is the part that holds anyway: once a wild counts as a symbol, the ways are a product, and one extra copy in a product can double the answer or rescue it.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> has 5 reels, 3 rows and 243 ways to win on every spin, with heart-eyes cat wilds among the symbols. It is a free game for adults, with no ads and nothing to buy: there is no real-money play, and the coins and gems have no cash value and cannot be bought, sold or cashed out.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

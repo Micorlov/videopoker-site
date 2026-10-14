@@ -141,90 +141,90 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-1. What the hold percentage on a machine does and does not tell you
-2. Why practising offline beats practising for money
-3. Three of a kind: the hand that behaves differently in every variant
-4. The order to learn video poker variants in
+1. Why practising offline beats practising for money
+2. Three of a kind: the hand that behaves differently in every variant
+3. The order to learn video poker variants in
 
 ### OmahaPoker
 
-1. How to work out a pot-sized bet in Pot-Limit Omaha
-2. How a low hand is made in Omaha Hi-Lo, and what 8 or better means
-3. Wraps: how an Omaha straight draw can have 20 outs
-4. Why the second-best flush is a trap in Omaha
+1. How a low hand is made in Omaha Hi-Lo, and what 8 or better means
+2. Wraps: how an Omaha straight draw can have 20 outs
+3. Why the second-best flush is a trap in Omaha
 
 ### Blackjack21
 
-1. How the dealer plays, and how often each up-card busts
-2. Splitting pairs: why you always split aces and eights
-3. What a six-deck shoe changes compared with a single deck
-4. Twenty-one, pontoon and blackjack: how the games differ
+1. Splitting pairs: why you always split aces and eights
+2. What a six-deck shoe changes compared with a single deck
+3. Twenty-one, pontoon and blackjack: how the games differ
 
 ### BrasslightSlots
 
-1. How a wild changes the count on a ways-to-win slot
-2. Why a slot is never due: independent spins explained
-3. Return to player and volatility: what each number measures
-4. How a pick bonus works, and why the picks are already decided
+1. Why a slot is never due: independent spins explained
+2. Return to player and volatility: what each number measures
+3. How a pick bonus works, and why the picks are already decided
 
 ### PokerVsDealer
 
-1. Why a flush beats a straight: the rankings follow the odds
-2. The odds of improving a pair when you exchange cards
-3. Breaking ties in five-card poker: high cards and split pots
-4. Is the ace high or low? The ace in five-card poker
+1. The odds of improving a pair when you exchange cards
+2. Breaking ties in five-card poker: high cards and split pots
+3. Is the ace high or low? The ace in five-card poker
 
 ### FivesAndThrees
 
-1. Why 15 is the best total in Fives and Threes
-2. Choosing your opening tile in Fives and Threes
-3. Doubles at an open end: why they count twice
-4. Counting tiles: working out what your opponent cannot hold
+1. Choosing your opening tile in Fives and Threes
+2. Doubles at an open end: why they count twice
+3. Counting tiles: working out what your opponent cannot hold
 
 ### BlackjackCoach
 
-1. Soft 18: how to play ace-seven against every dealer card
-2. Insurance: why it loses unless you are counting
-3. Late surrender: the hands worth giving up on
-4. Hard 12 against a 2 or 3: why basic strategy says hit
+1. Insurance: why it loses unless you are counting
+2. Late surrender: the hands worth giving up on
+3. Hard 12 against a 2 or 3: why basic strategy says hit
 
 ### HoldemCoach
 
-1. The rule of 2 and 4, and where it goes wrong
-2. Why position matters: one hand from an early and a late seat
-3. Reading the board: finding the best five cards from seven
-4. Pocket pair against two overcards: the coin flip that isn't
+1. Why position matters: one hand from an early and a late seat
+2. Reading the board: finding the best five cards from seven
+3. Pocket pair against two overcards: the coin flip that isn't
 
 ### EightBallsPool
 
-1. 9-ball rules: lowest ball first, and what counts as a foul
-2. Cue-ball spin explained: topspin, backspin and sidespin
-3. Aiming with the ghost ball
-4. The 90-degree rule: where the cue ball goes after a stun shot
+1. Cue-ball spin explained: topspin, backspin and sidespin
+2. Aiming with the ghost ball
+3. The 90-degree rule: where the cue ball goes after a stun shot
 
 ### BigBenBlocks
 
-1. Setting up double clears: one piece, two lines
-2. Holes and islands: why a fragmented board ends a block puzzle
-3. From Tetris to Sudoku: where the 9x9 block puzzle comes from
-4. Shapes as well as colours: block puzzles for colour-blind players
+1. Holes and islands: why a fragmented board ends a block puzzle
+2. From Tetris to Sudoku: where the 9x9 block puzzle comes from
+3. Shapes as well as colours: block puzzles for colour-blind players
 
 ### PinkSlipKings
 
-1. Gear ratios and final drive: what gearing does to a quarter mile
-2. Launch RPM: between wheelspin and bogging down
-3. Horsepower and torque: how to read a dyno chart
-4. When to shift: why the best shift point is past peak torque
+1. Launch RPM: between wheelspin and bogging down
+2. Horsepower and torque: how to read a dyno chart
+3. When to shift: why the best shift point is past peak torque
 
 ### ValleyRail
 
-1. How railway signals keep trains apart
-2. From coal mine to power station: how freight chains work
-3. Beam, arch, truss or suspension: how each bridge carries a load
-4. Railway towns: how a station made a village grow
+1. From coal mine to power station: how freight chains work
+2. Beam, arch, truss or suspension: how each bridge carries a load
+3. Railway towns: how a station made a village grow
 
 ## Published
 
+- 2026-10-14 — What a machine's hold percentage does and does not tell you — VideoPoker — `video-poker-hold-percentage`
+- 2026-10-14 — How to work out a pot-sized bet in Pot-Limit Omaha — OmahaPoker — `pot-limit-omaha-pot-sized-bet`
+- 2026-10-14 — How the dealer plays, and how often each up-card busts — Blackjack21 — `blackjack-dealer-bust-rates`
+- 2026-10-14 — How a wild changes the count on a ways-to-win slot — BrasslightSlots — `wilds-on-a-ways-to-win-slot`
+- 2026-10-14 — Why a flush beats a straight: the rankings follow the odds — PokerVsDealer — `why-a-flush-beats-a-straight`
+- 2026-10-14 — Why 15 is the best total in Fives and Threes — FivesAndThrees — `fives-and-threes-why-15-scores-best`
+- 2026-10-14 — Soft 18: how to play ace-seven against every dealer card — BlackjackCoach — `soft-18-ace-seven-strategy`
+- 2026-10-14 — The rule of 2 and 4 in Hold'em, and where it goes wrong — HoldemCoach — `holdem-rule-of-2-and-4`
+- 2026-10-14 — 9-ball rules: lowest ball first, and what counts as a foul — EightBallsPool — `nine-ball-rules-explained`
+- 2026-10-14 — Setting up double clears on a 9x9 block grid — BigBenBlocks — `block-puzzle-double-clears`
+- 2026-10-14 — Gear ratios and final drive: what gearing does to a quarter mile — PinkSlipKings — `gear-ratios-and-final-drive`
+- 2026-10-14 — How railway signals keep trains apart — ValleyRail — `how-railway-signals-keep-trains-apart`
 - 2026-10-13 — Progressive jackpots and the point where a machine turns positive — VideoPoker — `progressive-jackpots-and-positive-machines`
 - 2026-10-13 — Exactly two from your hand: the Omaha rule that fools new players — OmahaPoker — `omaha-exactly-two-hole-cards`
 - 2026-10-13 — Why blackjack paying 3:2 matters more than any other rule — Blackjack21 — `blackjack-3-to-2-payout`

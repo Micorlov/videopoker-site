@@ -1,0 +1,82 @@
+<!--
+{
+  "title": "9-ball rules: lowest ball first, and what counts as a foul",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "EightBallsPool",
+  "description": "How 9-ball works: the diamond rack, the lowest-ball-first rule, the fouls that give ball in hand, the push out, and why the 9 wins from any legal shot.",
+  "summary": "Every shot in 9-ball must hit the lowest-numbered ball on the table first. Break that rule, or fail to reach a cushion, and your opponent gets ball in hand. Pot the 9 legally at any point and the game is yours.",
+  "standfirst": "9-ball has one rule that does most of the work: the cue ball must touch the lowest number on the table first. Almost every foul, and every plan to win, comes from that."
+}
+-->
+<p>9-ball uses nine numbered object balls and the cue ball. Players take turns in the order the balls are numbered, but the balls do not have to be pocketed in that order. The game is won by legally pocketing the 9, whenever that happens. This post follows the World Pool-Billiard Association (WPA) rules, the standard for tournament play. Pub and league rules vary, and the main differences are noted as they come up.</p>
+
+<h2>The rack and the break</h2>
+<p>The nine balls are racked in a diamond: rows of 1, 2, 3, 2 and 1 balls. The 1 ball sits at the front on the foot spot and the 9 goes in the centre. The other seven can go in any order, which is 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5,040 possible racks.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 180" role="img" aria-label="Diagram of a 9-ball rack: nine balls in a diamond of five rows, the 1 ball at the apex on the foot spot, the 9 ball in the centre, and balls 2 to 8 in any order around them.">
+    <polygon points="150,2 205,84.9 150,168 95,84.9" class="fill-soft"/>
+    <g class="hit"><title>1 ball</title><circle cx="150" cy="26" r="16" fill="#F2C230" stroke="#07170F" stroke-width="1.5"/><circle cx="150" cy="26" r="7" fill="#F4F1E6"/><text x="150" y="29.5" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">1</text></g>
+    <g class="hit"><title>3 ball</title><circle cx="133" cy="55.4" r="16" fill="#D2342B" stroke="#07170F" stroke-width="1.5"/><circle cx="133" cy="55.4" r="7" fill="#F4F1E6"/><text x="133" y="58.9" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">3</text></g>
+    <g class="hit"><title>2 ball</title><circle cx="167" cy="55.4" r="16" fill="#2C63D1" stroke="#07170F" stroke-width="1.5"/><circle cx="167" cy="55.4" r="7" fill="#F4F1E6"/><text x="167" y="58.9" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">2</text></g>
+    <g class="hit"><title>5 ball</title><circle cx="116" cy="84.9" r="16" fill="#E57A1F" stroke="#07170F" stroke-width="1.5"/><circle cx="116" cy="84.9" r="7" fill="#F4F1E6"/><text x="116" y="88.4" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">5</text></g>
+    <g class="hit"><title>9 ball (centre of the diamond)</title><circle cx="150" cy="84.9" r="16" fill="#F4F1E6" stroke="#07170F" stroke-width="1.5"/><path d="M136.1,76.9 A16,16 0 0 0 136.1,92.9 L163.9,92.9 A16,16 0 0 0 163.9,76.9 Z" fill="#F2C230"/><circle cx="150" cy="84.9" r="7" fill="#F4F1E6"/><text x="150" y="88.4" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">9</text></g>
+    <g class="hit"><title>4 ball</title><circle cx="184" cy="84.9" r="16" fill="#7A4BB5" stroke="#07170F" stroke-width="1.5"/><circle cx="184" cy="84.9" r="7" fill="#F4F1E6"/><text x="184" y="88.4" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">4</text></g>
+    <g class="hit"><title>6 ball</title><circle cx="133" cy="114.3" r="16" fill="#1F9A52" stroke="#07170F" stroke-width="1.5"/><circle cx="133" cy="114.3" r="7" fill="#F4F1E6"/><text x="133" y="117.8" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">6</text></g>
+    <g class="hit"><title>7 ball</title><circle cx="167" cy="114.3" r="16" fill="#9A2E2E" stroke="#07170F" stroke-width="1.5"/><circle cx="167" cy="114.3" r="7" fill="#F4F1E6"/><text x="167" y="117.8" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">7</text></g>
+    <g class="hit"><title>8 ball</title><circle cx="150" cy="143.8" r="16" fill="#0B0B0B" stroke="#07170F" stroke-width="1.5"/><circle cx="150" cy="143.8" r="7" fill="#F4F1E6"/><text x="150" y="147.3" text-anchor="middle" style="fill:#07170F;font-size:9.5px;font-weight:700">8</text></g>
+    <line x1="167" y1="26" x2="258" y2="26" class="ref"/>
+    <text x="262" y="30">1 on the foot spot (fixed)</text>
+    <line x1="166" y1="84.9" x2="258" y2="84.9" class="ref"/>
+    <text x="262" y="89">9 in the centre (fixed)</text>
+    <line x1="184" y1="143.8" x2="258" y2="143.8" class="ref"/>
+    <text x="262" y="141">2 to 8 in any order</text>
+    <text x="262" y="156">(7 balls, 5,040 orders)</text>
+  </svg>
+  <figcaption>A 9-ball rack, five rows of 1, 2, 3, 2 and 1 balls. Only the 1 and the 9 have set places; the other seven go in at random, and the order shown is just one example.</figcaption>
+</figure>
+
+<p>The breaker shoots with the cue ball in hand behind the head string. A break must pocket a ball or drive at least four numbered balls to a cushion; if it does neither, it is a foul. As on every other shot, the cue ball has to hit the 1 first. If the 9 drops on a legal break, the breaker wins on the spot. If the cue ball is pocketed on the break, that is a foul and any 9 that went down is spotted back on the foot spot.</p>
+
+<p>The same table is played in <a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a>, which offers 8-ball and 9-ball. If you know the 15-ball game, the <a href="/blog/eight-ball-rules-explained.html">8-ball rules post</a> covers it, and the two games share very little beyond the table.</p>
+
+<h2>Lowest ball first</h2>
+<p>On every shot, the first ball the cue ball touches must be the lowest-numbered ball still on the table. At the start that is the 1. Once the 1 is pocketed, it is the 2, and so on up the numbers. Nothing else is called: you do not name a ball or a pocket.</p>
+<p>The rule does not say the lowest ball has to go in. It only has to be hit first. That is how the 9 gets pocketed early, through a combination: the cue ball strikes the 1, the 1 drives into the 9, and the 9 drops. Hitting the lowest ball first and pocketing a higher one off it is legal, and so is a bank or a carom, provided the first contact is right.</p>
+<p>A legal shot has two parts:</p>
+<ol class="ranked">
+  <li>The cue ball makes its first contact with the lowest-numbered ball on the table.</li>
+  <li>After that contact, either a ball is pocketed, or any ball, the cue ball included, reaches a cushion.</li>
+</ol>
+<p>Pot a ball legally and you carry on shooting. Pot nothing legally and the turn passes. Balls pocketed on a legal shot stay down, whatever their number.</p>
+
+<h2>What counts as a foul</h2>
+<p>A foul ends your turn and gives the incoming player the cue ball in hand, to place anywhere on the table. The commonest fouls are:</p>
+<ul>
+  <li><strong>Wrong first contact.</strong> The cue ball touches any ball other than the lowest-numbered one first. Hitting the 3 while the 2 is still on the table is a foul, even if the 3 then goes in.</li>
+  <li><strong>No ball to a cushion.</strong> The cue ball hits the right ball, but afterwards nothing is pocketed and nothing, cue ball included, reaches a cushion. Balls that stop in the middle of the table are the classic sign of this.</li>
+  <li><strong>Pocketing the cue ball.</strong> A scratch, whatever else happens on the shot.</li>
+  <li><strong>Driving a ball off the table.</strong> The cue ball or any object ball that leaves the table is a foul, and it stays off the table unless it is the 9.</li>
+</ul>
+<p>The WPA rulebook lists more, including a double hit and playing with neither foot on the floor, but these four decide most games.</p>
+
+<h2>The 9 ball and fouls</h2>
+<p>The 9 wins the game only when it is pocketed on a legal shot. If it drops on a foul, it does not count: it is spotted on the foot spot and the incoming player takes ball in hand. This is the usual way to lose a game you were winning, such as playing a combination to the 9 and scratching on the same shot.</p>
+<p>Any other ball pocketed on a foul stays down, so the incoming player is not forced to deal with it.</p>
+
+<div class="callout">
+  <p>The 9 wins on any legal shot: on the break, off a combination, or as the last ball in order. A 9 pocketed on a foul is spotted instead and wins nothing.</p>
+</div>
+
+<h2>The push out</h2>
+<p>There is one exception to hitting the lowest ball first. On the shot immediately after the break, the player may announce a push out and play the cue ball anywhere, with no need to touch a ball or reach a cushion. The opponent then chooses: shoot from where the cue ball finished, or hand the shot back.</p>
+<p>The point of the rule is to soften a bad leave. A player facing a hard shot after the break can push to a position that is awkward for both, and the opponent decides which side of it they want. It must be announced beforehand, otherwise the shot is judged as a normal one.</p>
+
+<h2>What the rule does to your planning</h2>
+<p>Because the order is fixed, you always know the next target. A run of shots in 9-ball is about leaving the cue ball with a clear view of the next number, not just potting the current one. When there is no shot, a safety is legal as long as the first contact is right and something reaches a cushion: tuck the cue ball behind a higher ball and your opponent has to find a way to the lowest one. And because the 9 wins from any legal shot, a combination to it costs only a turn if it misses.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> brings 8-ball and 9-ball to Android with a clear 3D table. You can practise at your own pace, play computer opponents at three difficulty levels, or share one device for a local two-player match. Practice and local matches work offline without an account, and every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

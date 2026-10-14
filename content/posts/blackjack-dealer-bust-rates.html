@@ -1,0 +1,79 @@
+<!--
+{
+  "title": "How the dealer plays, and how often each up-card busts",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "Blackjack21",
+  "description": "The dealer has no choices: draw to 16, stand on 17. That fixed rule makes a 6 bust 42.3% of the time and a 10 only 21.2%, in a six-deck game.",
+  "summary": "The dealer draws on 16 or less and stands on 17 or more. Over a six-deck shoe that makes a 6 bust 42.3% of the time, a 10 bust 21.2% and an ace bust 11.5%.",
+  "standfirst": "The dealer never decides anything, which makes the dealer the most predictable hand at the table. One number, how often the up-card busts, explains most of basic strategy."
+}
+-->
+<p>A dealer in blackjack follows a script. Draw while the total is 16 or less, stand once it reaches 17 or more, and never double, split or surrender. There is no judgement involved. Because the script is fixed, the chance that the dealer busts can be worked out for each up-card, and those chances are the reason correct play looks the way it does.</p>
+
+<h2>The dealer's rule, step by step</h2>
+<p>The dealer shows one card and holds one face down. If the two cards total 17 or more, that is the final hand. Otherwise cards are drawn one at a time until the total reaches 17 or goes over 21. An ace counts as 11 whenever that does not push the total over 21, and otherwise as 1. In this post the dealer stands on every 17, soft ones included, which is the setup the maths below assumes.</p>
+<p>The dealer in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> stands on 17 and plays a six-deck shoe, and it calls out its total as it plays, so you can follow the script hand by hand.</p>
+<p>Two features of the rule do all the work:</p>
+<ol class="ranked">
+  <li><strong>Hard totals from 12 to 16 are dangerous.</strong> The dealer must draw on them, and many cards will bust. Take a hard 16 and treat every rank as equally likely: 6, 7, 8, 9 or any of the four ten-value ranks takes it over, which is 8 ranks in 13, or 61.5%. A hard 12 is the opposite. Only a ten-value card busts it, 4 in 13, or 30.8%.</li>
+  <li><strong>A total of 17 to 21 is safe.</strong> The dealer stops, however weak that total looks next to your hand.</li>
+</ol>
+
+<h2>Why a 6 is the worst card to face</h2>
+<p>A dealer showing a 6 has 16 with a ten in the hole, and ten-value cards are the most common, 96 of the 312 cards in a six-deck shoe. That hand has to draw, and it is the most likely to go over. When the hole card is smaller, the dealer is left on a low total that still has to be drawn to, with several chances to go over. A 5 and a 4 are close behind, for the same reason.</p>
+<p>A 7 is the turning point. With a ten underneath it makes 17 immediately and stands, and with an ace it makes a soft 18 and stands. Those two cases are common enough to pull the bust rate down sharply.</p>
+<p>The exact figures are below.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how often the dealer busts, by up-card, in a six-deck game: 6 busts 42.3 percent, down to an ace at 11.5 percent">
+    <div class="bar-row hl" title="Up-card 6: 42.3%"><span class="bar-label">Showing a 6</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">42.3%</span></span></div>
+    <div class="bar-row" title="Up-card 5: 41.8%"><span class="bar-label">Showing a 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9882)"></span><span class="bar-val">41.8%</span></span></div>
+    <div class="bar-row" title="Up-card 4: 39.6%"><span class="bar-label">Showing a 4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9362)"></span><span class="bar-val">39.6%</span></span></div>
+    <div class="bar-row" title="Up-card 3: 37.4%"><span class="bar-label">Showing a 3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8842)"></span><span class="bar-val">37.4%</span></span></div>
+    <div class="bar-row" title="Up-card 2: 35.4%"><span class="bar-label">Showing a 2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8369)"></span><span class="bar-val">35.4%</span></span></div>
+    <div class="bar-row" title="Up-card 7: 26.2%"><span class="bar-label">Showing a 7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6194)"></span><span class="bar-val">26.2%</span></span></div>
+    <div class="bar-row" title="Up-card 8: 24.4%"><span class="bar-label">Showing an 8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5768)"></span><span class="bar-val">24.4%</span></span></div>
+    <div class="bar-row" title="Up-card 9: 22.9%"><span class="bar-label">Showing a 9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5414)"></span><span class="bar-val">22.9%</span></span></div>
+    <div class="bar-row" title="Up-card 10-value: 21.2%"><span class="bar-label">Showing a ten</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5012)"></span><span class="bar-val">21.2%</span></span></div>
+    <div class="bar-row" title="Up-card ace: 11.5%"><span class="bar-label">Showing an ace</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2719)"></span><span class="bar-val">11.5%</span></span></div>
+  </div>
+  <figcaption>How often the dealer busts, by up-card, in a six-deck game with the dealer standing on every 17. A ten means any of 10, J, Q or K. Ranked from worst for the dealer to best.</figcaption>
+</figure>
+
+<h2>Reading the ranking</h2>
+<p>The five low cards, 2 to 6, all bust between 35% and 42% of the time. Every up-card from 7 to a ten sits between 21% and 26%, and the ace is far lower at 11.5%. The step from a 2 (35.4%) down to a 7 (26.2%) is exactly where the strategy chart changes from passive to active.</p>
+<p>The ace is the safest card for the dealer because it can never bust on the first draw: an ace counts as 11 until that would be a problem, so the dealer's soft totals just keep getting drawn to. It only busts after a draw leaves a hard total, which takes at least two draws, and that happens roughly one hand in nine.</p>
+<p>Averaged over every up-card, weighted by how often each appears, the dealer busts 28.2% of hands. The remaining 71.8% finish on a total from 17 to 21:</p>
+<table class="paytable-compare">
+  <caption>Dealer's final result over all hands, six decks, standing on every 17. The 21 row includes natural blackjacks.</caption>
+  <thead>
+    <tr><th>Dealer finishes with</th><th>Share of hands</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Bust</th><td class="good">28.2%</td></tr>
+    <tr><th scope="row">17</th><td>14.5%</td></tr>
+    <tr><th scope="row">18</th><td>13.9%</td></tr>
+    <tr><th scope="row">19</th><td>13.4%</td></tr>
+    <tr><th scope="row">20</th><td>18.0%</td></tr>
+    <tr><th scope="row">21</th><td>12.0%</td></tr>
+  </tbody>
+</table>
+<p>The 20 is common because tens are so plentiful. It is the most frequent finishing total after a bust, ahead of 17.</p>
+
+<h2>What the bust rates tell you to do</h2>
+<p>Basic strategy, the best known play for each hand against each up-card, follows the table closely. Against a 2 to 6, the dealer is the likeliest to bust, so the aim is to let the dealer do it. That means standing on 13 to 16 and, from a 4, 5 or 6, standing on 12 as well. Against a 7 to an ace, the dealer will usually make a hand, so a hard 16 that stands is a hand likely to lose, and basic strategy hits it.</p>
+<div class="callout">
+  <p>Against a 2 to 6, you stand on a stiff total because the dealer is busting about two hands in five. Against a 7 or higher, the dealer is not, so you have to improve your hand rather than wait.</p>
+</div>
+<p>The same table explains why doubling is best against weak up-cards: it puts more on the hands where the dealer is most likely to fail.</p>
+<p>A common instinct is to stand on 12 against a 2 or a 3, because the dealer looks weak. The bust rates there, 35.4% and 37.4%, are the lowest of the weak group, and a hard 12 is only spoiled by a ten-value card: 4 ranks in 13, or 30.8%. Basic strategy hits it against a 2 and a 3, and stands against 4, 5 and 6.</p>
+
+<h2>Where the figures come from</h2>
+<p>These are exact calculations over a full six-deck shoe: each up-card is followed through every sequence of draws, removing each card as it is dealt. They cover the dealer's hand alone. At a table you also see your own cards and the other players' hands, which shifts each figure slightly, but the ranking stays put.</p>
+<p>For the payout side of the game, see <a href="/blog/blackjack-3-to-2-payout.html">why blackjack paying 3:2 matters more than any other rule</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> coaches your first three hands one lesson at a time, including how to read the dealer's up-card, and has a full How to play guide covering card values, every move, dealer rules and payouts. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

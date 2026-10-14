@@ -1,0 +1,92 @@
+<!--
+{
+  "title": "Gear ratios and final drive: what gearing does to a quarter mile",
+  "seo_title": "Gear ratios and final drive in a quarter mile",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "PinkSlipKings",
+  "description": "Final drive multiplies every gear. A 4.10 instead of 3.42 gives 20% more force at the wheels but cuts road speed at any revs by 17%, and can run out of revs.",
+  "summary": "Overall ratio is gear times final drive. Worked through an example four-speed: how 3.42 and 4.10 change road speed per gear, the rpm drop on each shift, and why the shorter option can run out of revs before the finish.",
+  "standfirst": "Gearing decides how many engine revolutions it takes to turn the wheels once. Change it and you trade force at the tyres against speed per rev, which is exactly what a quarter mile asks you to balance."
+}
+-->
+<p>A drag car has one job: put the engine's power onto the road for about eleven seconds, then reach the finish with the engine still inside its useful rev range. The gearbox and the final drive are how you arrange that. They do not add power. They decide how that power is split between pulling hard and going fast, and the choice shows up directly in the elapsed time.</p>
+
+<h2>Overall ratio is the number that matters</h2>
+<p>Each gear has a ratio, such as 2.80 for first, which means the engine turns 2.80 times for each turn of the shaft leaving the gearbox. The final drive (the differential) then applies a second ratio before the wheels. Multiply the two and you have the overall ratio: engine turns per wheel turn.</p>
+<p>That one figure sets two things. Torque at the wheels is the engine torque multiplied by the overall ratio (less some drivetrain loss), so a bigger overall ratio means more pulling force at the tyres. Road speed goes the other way:</p>
+<p><strong>mph = rpm × tyre diameter in inches ÷ (overall ratio × 336)</strong></p>
+<p>The 336 is a unit conversion: a wheel turn covers π times the diameter, and π × 60 minutes ÷ 63,360 inches in a mile gives roughly 1 ÷ 336. Everything below uses an example car with 26-inch tyres, a redline of 6,000 rpm and a four-speed box with ratios of 2.80, 1.80, 1.30 and 1.00. These are illustrative figures, not those of any car in a game.</p>
+
+<h2>Two final drives, side by side</h2>
+<p>Numerically higher means shorter, which is the confusing part. A 4.10 final drive is shorter than a 3.42: the engine turns more times per wheel turn. Here is each gear's overall ratio and the speed at 6,000 rpm.</p>
+
+<table class="paytable-compare">
+  <caption>Example four-speed, 26-inch tyres. Speed at 6,000 rpm, rounded to 0.1 mph.</caption>
+  <thead>
+    <tr><th>Gear</th><th>Overall, 3.42</th><th>mph, 3.42</th><th>Overall, 4.10</th><th>mph, 4.10</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1st</th><td>9.58</td><td>48.5</td><td>11.48</td><td>40.4</td></tr>
+    <tr><th scope="row">2nd</th><td>6.16</td><td>75.4</td><td>7.38</td><td>62.9</td></tr>
+    <tr><th scope="row">3rd</th><td>4.45</td><td>104.4</td><td>5.33</td><td>87.1</td></tr>
+    <tr><th scope="row">4th</th><td>3.42</td><td>135.8</td><td>4.10</td><td>113.2</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 230" role="img" aria-label="Bar chart of road speed at 6,000 rpm in each gear of an example four-speed car with 26-inch tyres. With a 3.42 final drive: 48.5, 75.4, 104.4 and 135.8 mph. With a 4.10 final drive: 40.4, 62.9, 87.1 and 113.2 mph.">
+    <line class="axis" x1="46" x2="46" y1="10" y2="202"/>
+    <text class="strong" x="38" y="40" text-anchor="end">1st</text>
+    <g class="hit"><title>1st, 3.42 final drive: 48.5 mph</title><rect class="fill-base" x="46" y="18" width="97.0" height="14"/></g>
+    <text x="149.0" y="29">48.5 · 3.42</text>
+    <g class="hit"><title>1st, 4.10 final drive: 40.4 mph</title><rect class="fill-accent" x="46" y="35" width="80.8" height="14"/></g>
+    <text class="strong" x="132.8" y="46">40.4 · 4.10</text>
+    <text class="strong" x="38" y="86" text-anchor="end">2nd</text>
+    <g class="hit"><title>2nd, 3.42 final drive: 75.4 mph</title><rect class="fill-base" x="46" y="64" width="150.8" height="14"/></g>
+    <text x="202.8" y="75">75.4 · 3.42</text>
+    <g class="hit"><title>2nd, 4.10 final drive: 62.9 mph</title><rect class="fill-accent" x="46" y="81" width="125.8" height="14"/></g>
+    <text class="strong" x="177.8" y="92">62.9 · 4.10</text>
+    <text class="strong" x="38" y="132" text-anchor="end">3rd</text>
+    <g class="hit"><title>3rd, 3.42 final drive: 104.4 mph</title><rect class="fill-base" x="46" y="110" width="208.8" height="14"/></g>
+    <text x="260.8" y="121">104.4 · 3.42</text>
+    <g class="hit"><title>3rd, 4.10 final drive: 87.1 mph</title><rect class="fill-accent" x="46" y="127" width="174.2" height="14"/></g>
+    <text class="strong" x="226.2" y="138">87.1 · 4.10</text>
+    <text class="strong" x="38" y="178" text-anchor="end">4th</text>
+    <g class="hit"><title>4th, 3.42 final drive: 135.8 mph</title><rect class="fill-base" x="46" y="156" width="271.6" height="14"/></g>
+    <text x="323.6" y="167">135.8 · 3.42</text>
+    <g class="hit"><title>4th, 4.10 final drive: 113.2 mph</title><rect class="fill-accent" x="46" y="173" width="226.4" height="14"/></g>
+    <text class="strong" x="278.4" y="184">113.2 · 4.10</text>
+    <text x="223" y="224" text-anchor="middle">Road speed at 6,000 rpm, mph (green 3.42, gold 4.10)</text>
+  </svg>
+  <figcaption>The same car and the same redline, with only the final drive changed. Every gear tops out at about 83% of the speed it reaches with the taller 3.42.</figcaption>
+</figure>
+
+<p>The ratio between the two final drives is 4.10 ÷ 3.42 = 1.20, so the shorter one multiplies force at the wheels by about 20% in every gear and cuts the speed available by the same factor (3.42 ÷ 4.10 = 0.83, a 17% drop). It is a trade, never a gain. The extra force helps most at the start, where a drag car is working hardest to get the mass moving, and it costs most at the far end of the track.</p>
+
+<h2>The risk: running out of revs</h2>
+<p>Suppose this car crosses the quarter-mile line at 120 mph, as in the example on <a href="/blog/reading-a-drag-racing-time-slip.html">the time slip post</a>. With the 3.42 final drive, 120 mph in fourth is 120 ÷ 135.8 × 6,000 = about 5,300 rpm, comfortably short of the redline. With the 4.10 it would need 120 ÷ 113.2 × 6,000 = about 6,360 rpm. That is past the limit, so the car cannot reach 120 in fourth gear at all: it hits the redline at 113 mph and stays there.</p>
+<p>Gearing that is too short therefore does not just feel busy. It sets a ceiling on trap speed, and the last part of the track is spent at the limiter instead of accelerating. Gearing that is too tall has the opposite problem: the car reaches the finish with revs to spare, which means it gave up force early for speed it never used. The aim is to arrive at the line at or just under the redline in top gear, with nothing left on the table.</p>
+
+<h2>What each shift does to the revs</h2>
+<p>Between two adjacent gears, the revs fall by the ratio of the gears. Because the final drive multiplies both gears equally, it cancels out here: 3.42 and 4.10 give the same drop. Shifting at 6,000 rpm in this car:</p>
+<ul>
+  <li>1st to 2nd: 6,000 × 1.80 ÷ 2.80 = about 3,860 rpm.</li>
+  <li>2nd to 3rd: 6,000 × 1.30 ÷ 1.80 = about 4,330 rpm.</li>
+  <li>3rd to 4th: 6,000 × 1.00 ÷ 1.30 = about 4,620 rpm.</li>
+</ul>
+<p>The gaps narrow as the gears climb. What changes with the final drive is the speed at which each shift happens: the first-to-second shift comes at 48.5 mph with the 3.42 and 40.4 mph with the 4.10. A shorter final drive brings every shift earlier, so the car reaches fourth sooner and spends more of the run there.</p>
+
+<div class="callout">
+  <p>Gear ratios set the spacing between shifts. The final drive scales the whole set up or down. Change the final drive and you move everything together; change a single gear and you change only that step.</p>
+</div>
+
+<h2>Reading it on the slip</h2>
+<p>Gearing leaves clear marks on a time slip. A shorter final drive tends to help the 60-foot and 330-foot lines, then show up as a lower or flat trap speed if the car hits its limit early. A taller one does the reverse. Because both live on the same slip, changing one thing at a time and comparing lines tells you more than looking at the elapsed time alone.</p>
+<p>One limit is the tyres. More force at the wheels only helps if the tyres can hold it; past that point the extra ratio becomes wheelspin, not speed.</p>
+
+<p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> lets you adjust gear ratios, final drive, boost and launch RPM, with a dyno and race time slips to show what changed. The arithmetic above is how you can predict the result before you run it.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls, detailed tuning, a dyno, telemetry and race time slips, and Test &amp; Tune and tuner sandbox modes. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>

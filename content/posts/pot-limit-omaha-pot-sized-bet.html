@@ -1,0 +1,66 @@
+<!--
+{
+  "title": "How to work out a pot-sized bet in Pot-Limit Omaha",
+  "date": "2026-10-14",
+  "modified": "2026-10-14",
+  "app": "OmahaPoker",
+  "description": "A pot-sized raise in PLO is your call plus the pot after that call. Worked example: a bet of 100 into 100 can be raised to 400.",
+  "summary": "In Pot-Limit Omaha the biggest bet is the pot. Facing a bet, call first, count the pot, then raise by that amount. A pot bet of 100 into 100 can be raised to 400, and any pot-sized bet or raise asks the caller to win 33.3% of the time.",
+  "standfirst": "The pot limit is the rule that makes PLO bets awkward to size at the table. It is only one sum, and once you can do it in your head the betting stops being a guess."
+}
+-->
+<p>In Pot-Limit Omaha you can bet or raise any amount up to the size of the pot, and no more. The rule is simple to say and easy to get wrong when there is already a bet in front of you, because the pot you are allowed to raise is not the pot you can see. It is the pot after you have called.</p>
+
+<h2>Opening the betting</h2>
+<p>When nobody has bet, the maximum is the pot as it stands. Pot of 100, check to you, and the biggest bet you can make is 100. The common fractions follow directly: half pot is 50, three-quarters pot is 75, a full pot bet is 100. The bet-size shortcuts in <a href="/OmahaPoker/">Omaha Poker</a> are exactly these: 1/2 pot, 3/4 pot, pot and all-in.</p>
+
+<h2>Raising: call first, then count</h2>
+<p>When someone has bet, the maximum raise has four steps:</p>
+<ol class="ranked">
+  <li><strong>Add up the pot</strong>, including the bet you are facing.</li>
+  <li><strong>Add your call</strong> to it. That is the pot as it will stand once you have matched the bet.</li>
+  <li><strong>The pot you just counted is the most you can raise by.</strong></li>
+  <li><strong>Your total is your call plus that raise.</strong> This is the "raise to" figure.</li>
+</ol>
+<p>Take a pot of 100 on the flop, and an opponent bets 100. The pot is now 200. You call 100 and it would be 300. You may raise by 300, so your total is 100 + 300 = <strong>400</strong>. As a shortcut, with a pot of P before the bet and a bet of B, the largest raise-to is P + 3B. Check it: 100 + 3 × 100 = 400.</p>
+<p>A smaller bet gives a smaller ceiling. If the opponent had bet 50 into the 100, the pot would be 150, your call makes it 200, and the largest raise-to is 50 + 200 = 250. The formula agrees: 100 + 3 × 50 = 250.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the largest pot-sized raise-to total into a pot of 100, by the bet faced">
+    <div class="bar-row" title="Nobody has bet: 100"><span class="bar-label">No bet to face (open)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1429)"></span><span class="bar-val">100</span></span></div>
+    <div class="bar-row" title="Facing a bet of 25: raise to 175"><span class="bar-label">Facing a bet of 25</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">175</span></span></div>
+    <div class="bar-row" title="Facing a bet of 50: raise to 250"><span class="bar-label">Facing a bet of 50</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3571)"></span><span class="bar-val">250</span></span></div>
+    <div class="bar-row hl" title="Facing a bet of 100: raise to 400"><span class="bar-label">Facing a bet of 100</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5714)"></span><span class="bar-val">400</span></span></div>
+    <div class="bar-row" title="Facing a bet of 200: raise to 700"><span class="bar-label">Facing a bet of 200</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">700</span></span></div>
+  </div>
+  <figcaption>The largest total you can raise to when the pot was 100 before the bet, by the size of the bet you face. Each extra unit of bet adds three units to the ceiling, because it enters the pot twice (once as the bet, once as your call) and then again as the raise.</figcaption>
+</figure>
+
+<h2>The same sum before the flop</h2>
+<p>The blinds count as bets. In a 5/10 game the pot before anyone acts is 15. To make the largest first raise you call 10, which makes the pot 25, and then raise by 25. Your total is <strong>35</strong>, which is three times the big blind plus the small blind (3 × 10 + 5).</p>
+
+<h2>What a pot raise costs the other player</h2>
+<p>Pot-sized bets are expensive to call, but the price has a ceiling, as with any bet. A player who calls a pot-sized bet risks 100 to win 200, so they need to win 100 ÷ 300 = 33.3% of the time.</p>
+<p>Now take the 400 raise above. Before the raise the pot holds 200 (the original 100 plus the 100 bet), and your 400 takes it to 600. The original bettor has 100 in already, so they must add 300, which makes the final pot 900. They pay 300 into a final pot of 900, so they need 300 ÷ 900 = <strong>33.3%</strong>, exactly the same as against a pot bet. That is no coincidence: a pot-sized bet or raise always offers the caller 2 to 1, whatever the amounts. The raise does not make the price worse; it makes the amount at risk bigger.</p>
+<p>The live hand insight in the app shows your win chance and the pot odds on a call, so you can see how that division changes with the bet size on the table.</p>
+
+<div class="callout">
+  <p>The rule in one line: call, add up the pot, and raise by that amount. Raise-to = P + 3B when a bet of B comes into a pot of P.</p>
+</div>
+
+<h2>Why pot-sized bets grow so quickly</h2>
+<p>A pot-sized bet that is called doubles the money on top of what was already there, so the pot triples: bet 100 into 100 and, with the call, it is 300. Do the same on the next street and it is 900, then 2,700 after that. Three streets of pot bets turn a pot of 100 into 2,700, which is why PLO stacks go in quickly and why the size of your first bet matters so much. Betting half pot instead multiplies the pot by 2 each street (100, 200, 400, 800), a much slower climb.</p>
+<p>Stacks cap everything. You can never bet more than you have, so the sums above give the ceiling and your remaining chips can set a lower one. That is where the all-in option comes in.</p>
+
+<h2>Common slips</h2>
+<ul>
+  <li><strong>Raising by the visible pot.</strong> With 200 on the table you cannot raise by 200 over a 100 bet; you can raise by 300. Count your own call.</li>
+  <li><strong>Mixing up "raise by" and "raise to".</strong> A raise by 300 over a 100 bet is a raise to 400. Tables quote the total.</li>
+  <li><strong>Forgetting the blinds are bets.</strong> In the 5/10 example, 35 is the ceiling, not 25.</li>
+</ul>
+<p>The sizing is only half of the skill. The other half is knowing which hands deserve it, and in Omaha that means counting only combinations of exactly two hole cards; the post on <a href="/blog/omaha-exactly-two-hole-cards.html">the exactly-two rule</a> covers that part.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo and 5-Card Omaha against bots set to Easy, Medium or Hard, with pot-size bet shortcuts at 1/2 pot, 3/4 pot, pot and all-in. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
