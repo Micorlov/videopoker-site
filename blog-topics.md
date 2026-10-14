@@ -21,6 +21,13 @@ When an app is added to `content/apps.json`, add it to this list and give it a
 
 1. `git pull` on `main`. Note today's date (Asia/Jerusalem); every post written
    today carries it as `date` and `modified`.
+   **Catch up first.** If `origin/blog-pending` exists, an earlier run wrote
+   posts it could not publish. Merge it into `main` before writing anything
+   new, set those posts' `date` and `modified` (and their lines in Published)
+   to today, and take them through steps 4–7 together with today's posts. Their
+   topics are already out of Queued; don't take them again. Once they are live,
+   delete the branch (`git push origin --delete blog-pending`) and list them
+   in the report as caught up.
 2. **Refill any empty queue.** For each game whose `### <Slug>` list under
    Queued is empty, add 5 new topics to it (see *Choosing topics*). Never skip a
    game because its queue was empty.
@@ -43,6 +50,12 @@ When an app is added to `content/apps.json`, add it to this list and give it a
    and confirm they return 200.
 8. Report: each game with the title and URL of its new post, any game that got
    no post and why, and any queue that was refilled.
+
+**If the run can't publish** (offline, push rejected twice, or a build/check
+failure it can't fix), don't throw the work away and don't push to `main`.
+Commit it as in step 7 and push that commit to the `blog-pending` branch
+instead (`git push -u origin HEAD:blog-pending`; only `main` deploys). Report
+what blocked it. The next run publishes it first, under *Catch up first*.
 
 ## How a post is built
 
