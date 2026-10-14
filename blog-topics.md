@@ -43,12 +43,22 @@ When an app is added to `content/apps.json`, add it to this list and give it a
    shipping 12 with one bad one.
 5. **Update this file.** Remove each published topic from Queued and add a line
    to the top of Published: `- <date> — <title> — <App> — \`<slug>\``.
-6. Run `python3 build.py && python3 tools/check.py`. Fix anything it reports.
-7. Commit everything in one commit (`feat: daily blog posts for <date>`), push
+6. **Translate what is new.** Every new post's text must be in every language
+   the site publishes, or the build drops those pages. Run
+   `python3 tools/translate.py --audit` to see what each language is missing.
+   For each language that has a memory file, give one **Haiku 5.5** subagent
+   (`model: "haiku"`) the missing English strings and the target language; it
+   writes its output to a scratch file only, never into the repo. Merge those
+   files into `content/i18n/<code>.json` yourself, check every key is present
+   and non-empty, and run `python3 tools/translate.py --prune` only when stale
+   text needs dropping. Languages with no memory file yet are not started by
+   the daily run; see *Languages* below.
+7. Run `python3 build.py && python3 tools/check.py`. Fix anything it reports.
+8. Commit everything in one commit (`feat: daily blog posts for <date>`), push
    to `main`, and wait for the *Deploy site to GitHub Pages* action to finish.
    Then fetch two or three of the new URLs on `https://michaelorlov.com/blog/`
    and confirm they return 200.
-8. Report: each game with the title and URL of its new post, any game that got
+9. Report: each game with the title and URL of its new post, any game that got
    no post and why, and any queue that was refilled.
 
 **If the run can't publish** (offline, push rejected twice, or a build/check
@@ -89,6 +99,18 @@ The blog covers every Orlov Games app. A post is one file and nothing else:
 5. The blog index, the per-app pages, the home page, the sitemap and the
    JSON-LD all update on their own when the site builds. Don't edit any of
    them by hand.
+
+## Languages
+
+The site is in English plus the languages whose memory file exists in
+`content/i18n/` (today: es, fr, de, pt-BR, ja, ru). Each page is published in a
+language only when that language covers all of its text, so a language that
+has only part of the site translated gets none of the new posts.
+
+Starting a new language is a separate job, not a daily-run step: the whole
+site (about 2,600 strings) has to be translated first. Do it only when asked,
+one language at a time, by Haiku 5.5 subagents writing scratch files that are
+merged into the memory, and report the cost of the run before starting.
 
 ## Choosing topics
 
