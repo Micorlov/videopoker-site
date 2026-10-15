@@ -163,78 +163,78 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-1. Why practising offline beats practising for money
-2. Three of a kind: the hand that behaves differently in every variant
-3. The order to learn video poker variants in
+1. Three of a kind: the hand that behaves differently in every variant
+2. The order to learn video poker variants in
 
 ### OmahaPoker
 
-1. How a low hand is made in Omaha Hi-Lo, and what 8 or better means
-2. Wraps: how an Omaha straight draw can have 20 outs
-3. Why the second-best flush is a trap in Omaha
+1. Wraps: how an Omaha straight draw can have 20 outs
+2. Why the second-best flush is a trap in Omaha
 
 ### Blackjack21
 
-1. Splitting pairs: why you always split aces and eights
-2. What a six-deck shoe changes compared with a single deck
-3. Twenty-one, pontoon and blackjack: how the games differ
+1. What a six-deck shoe changes compared with a single deck
+2. Twenty-one, pontoon and blackjack: how the games differ
 
 ### BrasslightSlots
 
-1. Why a slot is never due: independent spins explained
-2. Return to player and volatility: what each number measures
-3. How a pick bonus works, and why the picks are already decided
+1. Return to player and volatility: what each number measures
+2. How a pick bonus works, and why the picks are already decided
 
 ### PokerVsDealer
 
-1. The odds of improving a pair when you exchange cards
-2. Breaking ties in five-card poker: high cards and split pots
-3. Is the ace high or low? The ace in five-card poker
+1. Breaking ties in five-card poker: high cards and split pots
+2. Is the ace high or low? The ace in five-card poker
 
 ### FivesAndThrees
 
-1. Choosing your opening tile in Fives and Threes
-2. Doubles at an open end: why they count twice
-3. Counting tiles: working out what your opponent cannot hold
+1. Doubles at an open end: why they count twice
+2. Counting tiles: working out what your opponent cannot hold
 
 ### BlackjackCoach
 
-1. Insurance: why it loses unless you are counting
-2. Late surrender: the hands worth giving up on
-3. Hard 12 against a 2 or 3: why basic strategy says hit
+1. Late surrender: the hands worth giving up on
+2. Hard 12 against a 2 or 3: why basic strategy says hit
 
 ### HoldemCoach
 
-1. Why position matters: one hand from an early and a late seat
-2. Reading the board: finding the best five cards from seven
-3. Pocket pair against two overcards: the coin flip that isn't
+1. Reading the board: finding the best five cards from seven
+2. Pocket pair against two overcards: the coin flip that isn't
 
 ### EightBallsPool
 
-1. Cue-ball spin explained: topspin, backspin and sidespin
-2. Aiming with the ghost ball
-3. The 90-degree rule: where the cue ball goes after a stun shot
+1. Aiming with the ghost ball
+2. The 90-degree rule: where the cue ball goes after a stun shot
 
 ### BigBenBlocks
 
-1. Holes and islands: why a fragmented board ends a block puzzle
-2. From Tetris to Sudoku: where the 9x9 block puzzle comes from
-3. Shapes as well as colours: block puzzles for colour-blind players
+1. From Tetris to Sudoku: where the 9x9 block puzzle comes from
+2. Shapes as well as colours: block puzzles for colour-blind players
 
 ### PinkSlipKings
 
-1. Launch RPM: between wheelspin and bogging down
-2. Horsepower and torque: how to read a dyno chart
-3. When to shift: why the best shift point is past peak torque
+1. Horsepower and torque: how to read a dyno chart
+2. When to shift: why the best shift point is past peak torque
 
 ### ValleyRail
 
-1. From coal mine to power station: how freight chains work
-2. Beam, arch, truss or suspension: how each bridge carries a load
-3. Railway towns: how a station made a village grow
+1. Beam, arch, truss or suspension: how each bridge carries a load
+2. Railway towns: how a station made a village grow
 
 ## Published
 
+- 2026-10-15 — Why practising video poker offline teaches more — VideoPoker — `why-practise-video-poker-offline`
+- 2026-10-15 — How a low hand is made in Omaha Hi-Lo, and what 8 or better means — OmahaPoker — `omaha-hi-lo-eight-or-better`
+- 2026-10-15 — Splitting pairs: why you always split aces and eights — Blackjack21 — `blackjack-always-split-aces-and-eights`
+- 2026-10-15 — Why a slot is never due: independent spins explained — BrasslightSlots — `why-a-slot-is-never-due`
+- 2026-10-15 — The odds of improving a pair when you exchange cards — PokerVsDealer — `odds-of-improving-a-pair-on-the-draw`
+- 2026-10-15 — Choosing your opening tile in Fives and Threes — FivesAndThrees — `fives-and-threes-opening-tile`
+- 2026-10-15 — Insurance: why it loses unless you are counting — BlackjackCoach — `blackjack-insurance-explained`
+- 2026-10-15 — Why position matters: one hand from an early and a late seat — HoldemCoach — `holdem-why-position-matters`
+- 2026-10-15 — Cue-ball spin explained: topspin, backspin and sidespin — EightBallsPool — `cue-ball-spin-explained`
+- 2026-10-15 — Holes and islands: why a fragmented board ends a block puzzle — BigBenBlocks — `block-puzzle-holes-and-islands`
+- 2026-10-15 — Launch RPM: between wheelspin and bogging down — PinkSlipKings — `drag-racing-launch-rpm`
+- 2026-10-15 — From coal mine to power station: how freight chains work — ValleyRail — `how-freight-chains-work`
 - 2026-10-14 — What a machine's hold percentage does and does not tell you — VideoPoker — `video-poker-hold-percentage`
 - 2026-10-14 — How to work out a pot-sized bet in Pot-Limit Omaha — OmahaPoker — `pot-limit-omaha-pot-sized-bet`
 - 2026-10-14 — How the dealer plays, and how often each up-card busts — Blackjack21 — `blackjack-dealer-bust-rates`

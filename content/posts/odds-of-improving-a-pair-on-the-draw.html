@@ -1,0 +1,88 @@
+<!--
+{
+  "title": "The odds of improving a pair when you exchange cards",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "PokerVsDealer",
+  "description": "Hold a pair and exchange the other three cards, and you improve 28.7% of the time: two pair 16.0%, trips 11.4%, a full house 1.0%, four of a kind 0.28%.",
+  "summary": "Draw three cards to a pair from the 47 unseen and 16,215 draws are possible. 4,656 of them improve the hand, 28.7%; the other 71.3% leave you with the same pair.",
+  "standfirst": "A pair is the most common made hand in five-card poker, and exchanging cards to improve it is the most common decision. The chance of success is a fixed number you can count, and it is lower than most players expect."
+}
+-->
+<p>You are dealt 10-10-A-K-Q and decide to keep the tens and exchange the other three cards. How often does that turn the pair into something better? About 29% of the time. Roughly seven exchanges in ten leave you holding exactly the pair you started with, only now with three different cards beside it.</p>
+<p>That figure is not a rule of thumb. It comes from counting every possible draw, and the count is short enough to check by hand.</p>
+
+<h2>The 16,215 possible draws</h2>
+<p>You can see five cards, so 47 are unseen: the deck minus your hand. With a pair of tens held, two tens remain among them, and the other 45 cards are everything else. Three cards come from those 47, order ignored, so there are 47 × 46 × 45 ÷ 6 = <strong>16,215</strong> equally likely draws. Each outcome below is a count of those draws divided by 16,215.</p>
+<p>The rank of your pair makes no difference: two cards of it are always left, and the other ranks keep three or four each.</p>
+
+<table class="paytable-compare">
+  <caption>Keeping a pair and exchanging three cards. Counted over all 16,215 draws from the 47 unseen cards.</caption>
+  <thead>
+    <tr><th>Result</th><th>Draws</th><th>Chance</th><th>About 1 in</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Two pair</th><td>2,592</td><td>15.99%</td><td>6.3</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>1,854</td><td>11.43%</td><td>8.7</td></tr>
+    <tr><th scope="row">Full house</th><td>165</td><td>1.02%</td><td>98</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>45</td><td>0.28%</td><td>360</td></tr>
+    <tr><th scope="row">Any improvement</th><td>4,656</td><td>28.71%</td><td>3.5</td></tr>
+    <tr><th scope="row">Still one pair</th><td>11,559</td><td>71.29%</td><td>1.4</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of each result when three cards are exchanged to a pair">
+    <div class="bar-row hl" title="Two pair: 15.99%"><span class="bar-label">Two pair</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">15.99%</span></span></div>
+    <div class="bar-row" title="Three of a kind: 11.43%"><span class="bar-label">Three of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7148)"></span><span class="bar-val">11.43%</span></span></div>
+    <div class="bar-row" title="Full house: 1.02%"><span class="bar-label">Full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0638)"></span><span class="bar-val">1.02%</span></span></div>
+    <div class="bar-row" title="Four of a kind: 0.28%"><span class="bar-label">Four of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0175)"></span><span class="bar-val">0.28%</span></span></div>
+  </div>
+  <figcaption>The four ways to improve a held pair when three cards are exchanged. Two pair is the most likely result and the only one above 12%; together the four add up to 28.71%.</figcaption>
+</figure>
+
+<h2>Checking two of the rows yourself</h2>
+<p>Four of a kind is the easiest. You need both remaining tens, and then any third card from the other 45. There is one way to take both tens and 45 ways to pick the third, so 45 draws, and 45 ÷ 16,215 = 0.28%.</p>
+<p>A full house comes two ways. Either you draw a pair of one new rank plus one ten, or you draw three of a kind of a new rank. For the first, there are 63 possible pairs of a rank other than tens (nine ranks with four cards left give six pairs each, and three ranks with three cards left, the ranks of the cards you threw away, give three pairs each). Multiply by the two tens you could pair with, and you get 126. For the second, nine ranks give four triples each and the three discarded ranks give one each: 39. In total 126 + 39 = 165 draws, or 1.02%.</p>
+<p>The four improvements add up: 2,592 + 1,854 + 165 + 45 = 4,656, and 4,656 ÷ 16,215 = 28.71%.</p>
+
+<h2>Why a kicker costs you</h2>
+<p>Some players keep a high card beside the pair, holding A-10-10 and exchanging two cards, on the idea that an ace helps when hands are compared. The count shows what that choice costs in improvement chance. With two cards to come from the same 47 there are 47 × 46 ÷ 2 = 1,081 draws, and these improve the hand:</p>
+
+<table class="paytable-compare">
+  <caption>Keeping a pair and one kicker, exchanging two cards. Counted over all 1,081 draws.</caption>
+  <thead>
+    <tr><th>Result</th><th>Draws</th><th>Chance</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Two pair</th><td>186</td><td>17.21%</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>84</td><td>7.77%</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>0.83%</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>1</td><td>0.09%</td></tr>
+    <tr><th scope="row">Any improvement</th><td>280</td><td>25.90%</td></tr>
+  </tbody>
+</table>
+
+<p>That is 25.90% against 28.71%, a loss of 2.81 points. The kicker does raise the chance of two pair (17.21% against 15.99%), because your ace now has three partners left to pair with. But you give up a third card, and trips fall from 11.43% to 7.77%. The mistake is the same one the video poker post <a href="/blog/why-a-kicker-never-helps.html">Why a kicker never helps</a> works through, where the machine pays on a fixed chart. Against an opponent a kicker can break a tie between equal pairs, so it is not worthless, but it is not free.</p>
+
+<div class="callout">
+  <p>Drawing three to a pair improves it 28.71% of the time. Keep a kicker and draw two, and the figure drops to 25.90%.</p>
+</div>
+
+<h2>What an improvement is worth</h2>
+<p>Of the 4,656 improving draws, 2,592 end in two pair and 1,854 in three of a kind. Those two results are 95.5% of the improvements, so in practice "improving" means one of those two. A full house or four of a kind is rare: 210 draws out of 16,215, or 1.30% together.</p>
+<p>It helps to know where those results sit in the ranking. In <a href="/blog/five-card-poker-hand-frequencies.html">How rare each five-card poker hand is</a>, the full count of dealt hands shows how common a pair is (the most common made hand) and how much rarer two pair and trips are than one pair.</p>
+
+<h2>Using the numbers at the table</h2>
+<ol class="ranked">
+  <li><strong>Expect to miss.</strong> A missed draw is the usual outcome, not bad luck.</li>
+  <li><strong>Count unseen cards, not the full deck.</strong> With a pair held there are always 47 unseen cards at the start of the draw, and exactly two of them match your pair.</li>
+  <li><strong>Price the extra card.</strong> Keeping a fifth card costs about 2.8 points of improvement chance. Keep one only if you have a reason.</li>
+</ol>
+
+<p>The numbers above are general five-card poker maths, so they hold for any game that lets you exchange three cards. How many cards you may exchange in a given hand of <a href="/PokerVsDealer/">Poker vs Dealer</a> is set by that game's own rules. The store description says you can pay an ante to forge a card by exchanging it for a fresh one, and the in-game rules and payouts screen is the place to check the details before you rely on any figure here.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

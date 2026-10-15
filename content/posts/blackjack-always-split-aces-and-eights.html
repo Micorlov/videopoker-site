@@ -1,0 +1,70 @@
+<!--
+{
+  "title": "Splitting pairs: why you always split aces and eights",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "Blackjack21",
+  "description": "Sixteen is the worst total in blackjack, and a pair of eights is exactly that. Split them and the aces: each new hand starts from a total that cannot bust.",
+  "summary": "Two eights make 16, the worst total in the game. Split them and each hand starts on 8, which cannot bust. Two aces make a weak 12, but split they start on 11, and 4 cards in 13 turn either into 21.",
+  "standfirst": "Basic strategy has one rule for pairs that never changes, whatever the dealer shows: aces and eights are split. The reason is arithmetic you can check at the table."
+}
+-->
+<p>Most of basic strategy depends on the dealer's up-card. Aces and eights are the exception. Against a 2, against a 10, against an ace, the advice is the same: put a second bet beside the first and play two hands. It feels wrong with eights in particular, because a pair of eights looks like a decent hand. The numbers show why it is not.</p>
+
+<h2>Sixteen is the worst total</h2>
+<p>Two eights add up to 16, and 16 is the hand every blackjack player dreads. The reason is that both ways of playing it go badly.</p>
+<p>Standing on 16 relies on the dealer busting. Against a ten-value up-card the dealer busts 21.2% of the time (see <a href="/blog/blackjack-dealer-bust-rates.html">how the dealer plays and how often each up-card busts</a>). A dealer who does not bust finishes on 17 or more, and 16 beats none of those. So you win 21.2% of hands and lose the other 78.8%, a net loss of 0.788 &minus; 0.212 = 0.576 of your bet on every hand.</p>
+<p>Hitting 16 has a different problem. Treating every rank as equally likely, a 6, 7, 8, 9 or any of the four ten-value ranks takes you over 21. That is 8 ranks in 13, or <strong>61.5%</strong>. More than half the time you bust before the dealer has to do anything.</p>
+<p>Splitting is the way out. You are not asked to play 16. You are asked to play two hands that each start with a single 8.</p>
+
+<h2>Why one 8 is so much better than two</h2>
+<p>An 8 on its own cannot bust with the next card, because no card takes it past 19. Of the 13 ranks, a 9 makes 17, any ten-value card makes 18 and an ace makes a soft 19. That is 1 + 4 + 1 = 6 ranks in 13, or 46.2%, giving you a decent hand straight away with no risk of going over.</p>
+<p>The cost is a second bet of the same size, and against a strong up-card the two hands still lose more often than they win. Even then, basic strategy shows the split loses less than standing or hitting the combined 16.</p>
+
+<h2>Aces work for the opposite reason</h2>
+<p>A pair of aces is awkward to count. Played as one hand it is 12, because only one ace can count as 11 (two would make 22). Twelve is a poor total with a mild bust risk: only a ten-value card spoils it, 4 ranks in 13, or 30.8%.</p>
+<p>Split them and each ace is a hand of 11, or in effect the strongest starting card in the pack. The next card can only improve it. A ten-value card makes 21, which happens <strong>4 times in 13, or 30.8%</strong>, per hand. Any 2 to 9 gives a soft total from 13 to 20 that you can often keep improving, and a second ace gives another pair, which some tables let you split again.</p>
+<p>Both rules are one idea: the pair is worth less together than apart.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance one more card busts each pair played as a single hand: aces and sixes 30.8 percent, sevens 46.2, eights 61.5, nines 76.9, tens 92.3">
+    <div class="bar-row" title="Pair of aces, played as 12: 30.8%"><span class="bar-label">A-A (12)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">30.8%</span></span></div>
+    <div class="bar-row" title="Pair of sixes, 12: 30.8%"><span class="bar-label">6-6 (12)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">30.8%</span></span></div>
+    <div class="bar-row" title="Pair of sevens, 14: 46.2%"><span class="bar-label">7-7 (14)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">46.2%</span></span></div>
+    <div class="bar-row hl" title="Pair of eights, 16: 61.5%"><span class="bar-label">8-8 (16)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">61.5%</span></span></div>
+    <div class="bar-row" title="Pair of nines, 18: 76.9%"><span class="bar-label">9-9 (18)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8333)"></span><span class="bar-val">76.9%</span></span></div>
+    <div class="bar-row" title="Pair of tens, 20: 92.3%"><span class="bar-label">10-10 (20)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">92.3%</span></span></div>
+  </div>
+  <figcaption>Chance that one more card takes a pair over 21 if you hit it as a single hand: ranks that bust out of 13, with every rank equally likely. 18 and 20 bust more often but are strong enough to stand on; 16 is both likely to bust and too weak to stand.</figcaption>
+</figure>
+
+<h2>Where the other pairs fit</h2>
+<p>The chart makes the logic of the whole pairs table visible. Tens are a strong total, so you stand on them: a pair of tens is 20, the second-best hand you can have, and splitting it swaps a near-certain winner for two hands that start on 10. Nines are 18, which basic strategy splits against most dealer cards but stands on against a 7, a 10 or an ace; a dealer 7 often finishes on 17, and 18 already beats that.</p>
+<p>Two fives are a 10, a hand to double or hit, not to break up. Fours, threes and twos, and sevens and sixes, are the cases where the dealer's card decides. Split them when it is weak, roughly a 2 to 6 or 7 (fours only against a 5 or 6, and only where doubling after a split is allowed), because the dealer is then the one likely to bust. The exact ranges vary a little with the table's rules. Only aces and eights skip that question.</p>
+
+<table class="paytable-compare">
+  <caption>Pairs in a six-deck game where the dealer stands on 17. Whether the small pairs split also depends on the table's rules, so only the fixed cases are shown.</caption>
+  <thead>
+    <tr><th>Pair</th><th>Total as one hand</th><th>Play</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Aces</th><td>12</td><td class="good">Always split</td></tr>
+    <tr><th scope="row">Eights</th><td>16</td><td class="good">Always split</td></tr>
+    <tr><th scope="row">Tens</th><td>20</td><td>Never split</td></tr>
+    <tr><th scope="row">Fives</th><td>10</td><td>Never split</td></tr>
+  </tbody>
+</table>
+
+<h2>Things to check on your own table</h2>
+<p>Splitting is a move you choose after the first two cards, and <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers it alongside hit, stand, double down, surrender and insurance. The fine print of splitting is not something to guess. Some tables give split aces only one card each, and in most casinos a ten on a split ace makes 21 but not a blackjack, so it pays even money rather than 3:2. The payout side is covered in <a href="/blog/blackjack-3-to-2-payout.html">why a 3:2 natural matters so much</a>. The app's description does not spell out these details, so use the How to play guide in the app instead of assuming them.</p>
+<div class="callout">
+  <p>Eights split because 16 is the worst total and an 8 cannot bust. Aces split because a lone ace is the best starting card and a pair of them is only a 12.</p>
+</div>
+
+<h2>Checking the claims yourself</h2>
+<p>Every figure here comes from counting ranks out of 13, which makes it a good habit to keep. For a hard total, count the ranks that would take it past 21: 16 loses to 6 through 10-value (8 ranks), 12 only to the tens (4 ranks). For a single starting 8, nothing busts. For an ace, only the four ten-value ranks reach 21 in one card. Cards already on the table shift these slightly, but not the ordering or the advice.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer, and the best hand sweeps every chip the losers left behind; the figures in this post cover standard blackjack maths only, not the sweep pot. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,105 @@
+<!--
+{
+  "title": "Insurance: why it loses unless you are counting",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "BlackjackCoach",
+  "description": "Insurance pays 2:1, so it breaks even only when tens make up one third of the unseen cards. A fresh shoe sits near 31%; a Hi-Lo true count of about +3 reaches it.",
+  "seo_description": "Insurance pays 2:1, so it breaks even only when tens are one third of the unseen cards. A fresh shoe sits near 31%; a Hi-Lo true count of about +3 reaches it.",
+  "summary": "Insurance needs one third of the unseen cards to be tens. A fresh shoe has about 31%, so the bet loses 5.9% in one deck and 7.4% in six, until a Hi-Lo true count of roughly +3 closes the gap.",
+  "standfirst": "The insurance line is a bet on one thing: whether the dealer's hole card is a ten. That makes it the one blackjack decision that depends on the cards left in the shoe and on nothing in your own hand."
+}
+-->
+<p>When the dealer shows an ace, you are offered insurance. The bet costs up to half your stake and pays 2:1 if the dealer's face-down card is a ten, jack, queen or king. Everything about it comes down to one fraction: how many of the unseen cards are tens. This post is about that fraction, and how a Hi-Lo count estimates it. The basic arithmetic for a fresh six-deck shoe is also in <a href="/blog/blackjack-3-to-2-payout.html">why blackjack paying 3:2 matters</a>; here the question is when, if ever, the answer changes.</p>
+
+<h2>The break-even point is one third</h2>
+<p>Insurance is a bet on a single card, so its value is easy to write down. Stake 1 unit. If the hole card is a ten you win 2; if not you lose 1. With a chance <em>p</em> of a ten, the average result per unit is</p>
+<p>2p − (1 − p) = 3p − 1</p>
+<p>That is zero when p = 1/3. If one third of the unseen cards are tens, insurance is exactly fair. Below a third it loses, above a third it wins. The result slopes steeply, because every extra point of tens is worth three points of edge.</p>
+
+<h2>What a fresh shoe actually holds</h2>
+<p>A deck has 16 ten-value cards in 52. Once the dealer's ace is on the table, 51 cards are unseen from your side, as far as the hole card is concerned. This ignores your own two cards; they shift the figure slightly, as the other post explains.</p>
+<table class="paytable-compare">
+  <caption>Chance that the hole card is a ten after the dealer's ace, with no other cards seen, and what that does to a 2:1 insurance bet.</caption>
+  <thead>
+    <tr><th>Decks</th><th>Tens in unseen cards</th><th>Chance of a ten</th><th>Insurance result</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>16 of 51</td><td>31.37%</td><td>−5.88%</td></tr>
+    <tr><th scope="row">2</th><td>32 of 103</td><td>31.07%</td><td>−6.80%</td></tr>
+    <tr><th scope="row">6</th><td>96 of 311</td><td>30.87%</td><td>−7.40%</td></tr>
+    <tr><th scope="row">8</th><td>128 of 415</td><td>30.84%</td><td>−7.47%</td></tr>
+  </tbody>
+</table>
+<p>More decks make insurance slightly worse. With 52 cards per deck the tens share starts at 16 in 52 (30.77%), and the dealer's ace, which is not a ten, being removed lifts it a little; in a single deck that removal matters most. Even so, nothing here gets close to 33.3%. Played from a fresh shoe, insurance is a losing bet in every standard game.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: insurance result rises from −25% when tens are 25% of unseen cards to +20% when they are 40%, crossing zero at 33.3%. Six decks at 30.87% gives −7.4%; one deck at 31.37% gives −5.88%.">
+    <line class="grid" x1="46" x2="386" y1="30" y2="30"/>
+    <text x="40" y="34" text-anchor="end">+20%</text>
+    <line class="grid" x1="46" x2="386" y1="70" y2="70"/>
+    <text x="40" y="74" text-anchor="end">+10%</text>
+    <line class="grid" x1="46" x2="386" y1="150" y2="150"/>
+    <text x="40" y="154" text-anchor="end">−10%</text>
+    <line class="grid" x1="46" x2="386" y1="190" y2="190"/>
+    <text x="40" y="194" text-anchor="end">−20%</text>
+    <line class="axis" x1="46" x2="386" y1="110" y2="110"/>
+    <text x="40" y="114" text-anchor="end">0</text>
+    <text x="46" y="226" text-anchor="middle">25%</text>
+    <text x="159.3" y="226" text-anchor="middle">30%</text>
+    <text x="272.7" y="226" text-anchor="middle">35%</text>
+    <text x="386" y="226" text-anchor="middle">40%</text>
+    <text x="216" y="244" text-anchor="middle">Tens as a share of unseen cards</text>
+    <text x="12" y="112" text-anchor="middle" transform="rotate(-90 12 112)">Insurance result</text>
+    <path class="line" d="M46,210 L386,30"/>
+    <text class="strong" x="241" y="100" text-anchor="start">Break-even: 33.3%</text>
+    <text x="172" y="156" text-anchor="end">Six decks: −7.4%</text>
+    <text x="196" y="128" text-anchor="start">One deck: −5.88%</text>
+    <text x="300" y="72" text-anchor="start">36%: +8%</text>
+    <g class="hit"><title>Six decks, 30.87% tens: −7.4%</title><circle cx="179.1" cy="139.6" r="10" fill="transparent"/><circle class="dot" cx="179.1" cy="139.6" r="4.5"/></g>
+    <g class="hit"><title>One deck, 31.37% tens: −5.88%</title><circle cx="190.4" cy="133.5" r="10" fill="transparent"/><circle class="dot" cx="190.4" cy="133.5" r="4.5"/></g>
+    <g class="hit"><title>Break-even, 33.3% tens: 0%</title><circle cx="234.9" cy="110" r="10" fill="transparent"/><circle class="dot hl" cx="234.9" cy="110" r="4.5"/></g>
+    <g class="hit"><title>36% tens: +8%</title><circle cx="295.3" cy="78" r="10" fill="transparent"/><circle class="dot" cx="295.3" cy="78" r="4.5"/></g>
+  </svg>
+  <figcaption>Insurance result per unit staked is 3p − 1, where p is the share of unseen cards that are tens. The line crosses zero at one third; fresh single-deck and six-deck shoes sit about 2 to 2.5 points of tens short of it.</figcaption>
+</figure>
+
+<h2>How a Hi-Lo count finds the gap</h2>
+<p>A fresh shoe is short of the target by roughly two to three percentage points of tens. Hi-Lo is built to notice exactly that kind of drift. As the <a href="/blog/hi-lo-running-and-true-count.html">running and true count</a> post explains, small cards score +1 and tens and aces score −1, so a positive count means the unseen cards are richer in tens and aces than they started.</p>
+<p>A rough model shows the size of the effect. Take a shoe with N decks left and a true count of t. The unseen small cards (2 to 6) number t × N fewer than the tens and aces (the count is balanced, so the surplus must sit in the unseen cards). The 7s, 8s and 9s are untouched, at 12 per deck. Assume the high cards keep their usual mix, four ten-value cards for every ace, so 80% of them are tens. The share of tens is then</p>
+<p>(0.8 × (40 + t) ÷ 2) ÷ 52 per deck remaining, which reduces to (16 + 0.4t) ÷ 52</p>
+<table class="paytable-compare">
+  <caption>Simple model: share of tens among unseen cards at each Hi-Lo true count, ignoring the dealer's ace and your own cards.</caption>
+  <thead>
+    <tr><th>True count</th><th>Tens in unseen cards</th><th>Insurance result</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">0</th><td>30.77%</td><td>−7.69%</td></tr>
+    <tr><th scope="row">+1</th><td>31.54%</td><td>−5.38%</td></tr>
+    <tr><th scope="row">+2</th><td>32.31%</td><td>−3.08%</td></tr>
+    <tr><th scope="row">+3</th><td>33.08%</td><td>−0.77%</td></tr>
+    <tr><th scope="row">+4</th><td>33.85%</td><td>+1.54%</td></tr>
+  </tbody>
+</table>
+<p>The result does not depend on N, which is the point of dividing by the decks left: a true count of +3 means the same thing with one deck remaining as with four. In this model each point of true count moves insurance by about 2.3 points, and the bet crosses zero between +3 and +4. The index normally quoted for Hi-Lo is to take insurance at a true count of +3 or higher in multi-deck games. The model lands in the same neighbourhood; the exact published index comes from full simulations that treat the real composition of the shoe.</p>
+
+<div class="callout">
+  <p>Insurance is the clearest case of a count changing a decision: the bet depends on nothing but the share of tens, and that is exactly what the count tracks. Even money on a natural is the same bet, so it follows the same rule.</p>
+</div>
+
+<h2>Why single deck and six decks differ</h2>
+<p>In a single deck a count can swing a long way, because every card taken out moves the proportions by a larger step: one missing small card changes the tens share by about 0.6 of a point. In six decks the same removal moves it by about a tenth of that, so a shoe stays close to its fresh composition for much longer. The true count corrects for that by scaling to decks remaining, but it does not change how rarely a six-deck shoe reaches +3 early on. Most of the time the right answer is still to decline.</p>
+
+<h2>What to take from the numbers</h2>
+<ol class="ranked">
+  <li>Insurance needs one third of the unseen cards to be tens. Fresh shoes have 30.8% to 31.4%.</li>
+  <li>It is not a hedge on your hand. It is a separate bet, and your hand does not change whether it is fair.</li>
+  <li>A count can lift the share above a third. In the simple model above, that takes a true count a little over +3; the usual index is +3.</li>
+  <li>Without a count you have no information to separate the good moments from the rest, so the average, a loss of 5.9% to 7.5%, is what you face.</li>
+</ol>
+<p>This is a point about arithmetic, not a recommendation to chase an edge anywhere. Counting is a useful way of seeing why the odds move, and the insurance line is where that movement is easiest to measure.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> has insurance and Hi-Lo card counting among its practice topics, with explained hands and a strategy chart. Local training works offline, and it is a practice app with no real-money gambling or prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

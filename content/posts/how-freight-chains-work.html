@@ -1,0 +1,63 @@
+<!--
+{
+  "title": "From coal mine to power station: how freight chains work",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "ValleyRail",
+  "description": "A 1 GW coal power station burns roughly 9,000 to 10,000 tonnes a day, about one unit train. The arithmetic, and why bulk freight suits rail.",
+  "summary": "A one-gigawatt coal power station needs about a trainload of coal every day. Working out why shows how freight chains link mines, mills and power stations, and why steel wheels on steel rails suit the job.",
+  "standfirst": "A power station does not buy coal once. It buys it every hour, for decades, and the whole supply line is shaped by one sum: how many tonnes a day."
+}
+-->
+<p>Passengers can choose their own way to a station. Coal cannot. It sits where a seam happened to form, and it has to reach a furnace that may be a hundred miles off. Between the two there is a <strong>freight chain</strong>: a series of links in which each one's output is the next one's input, and in which the railway is the part that keeps the flow steady.</p>
+
+<h2>Start with the power station</h2>
+<p>The size of a chain is set at the far end, by what the last customer consumes. Take a coal-fired power station with an electrical output of 1 gigawatt (1 GW). Three figures are enough to work out its coal:</p>
+<ul>
+  <li><strong>Energy delivered per day:</strong> 1 GW is 10<sup>9</sup> joules a second. A day has 86,400 seconds, so the station delivers 86.4 × 10<sup>12</sup> J, or 86.4 terajoules.</li>
+  <li><strong>Efficiency:</strong> a steam power station turns roughly 35% to 40% of the fuel's heat into electricity. The rest leaves as warm water and flue gas.</li>
+  <li><strong>Energy in a kilogram of coal:</strong> about 24 megajoules (24 × 10<sup>6</sup> J) for a typical steam coal. Brown coal is far lower, so this is an illustrative value rather than a universal one.</li>
+</ul>
+<p>At 40% efficiency the fuel must supply 86.4 ÷ 0.40 = 216 TJ a day. Divide by 24 MJ per kilogram and you get 9.0 million kilograms: <strong>9,000 tonnes a day</strong>. At 35% the heat needed is 246.9 TJ, which is about <strong>10,290 tonnes a day</strong>. Midway, at 37.5%, it is 9,600 tonnes.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of coal burned per day by a 1 GW power station at three efficiencies">
+    <div class="bar-row" title="40% efficient: 9,000 t a day"><span class="bar-label">40% efficient</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8750)"></span><span class="bar-val">9,000 t</span></span></div>
+    <div class="bar-row" title="37.5% efficient: 9,600 t a day"><span class="bar-label">37.5% efficient</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9333)"></span><span class="bar-val">9,600 t</span></span></div>
+    <div class="bar-row hl" title="35% efficient: 10,290 t a day"><span class="bar-label">35% efficient</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">10,290 t</span></span></div>
+  </div>
+  <figcaption>Coal burned per day by a 1 GW power station at three efficiencies, taking 24 MJ per kilogram of coal (illustrative). The less efficient the station, the more coal it needs for the same electricity.</figcaption>
+</figure>
+
+<p>Now compare that with a train. A <strong>unit train</strong> is a rake of identical wagons that runs as one block between a single loading point and a single unloading point, never split or shunted on the way. Take 100 wagons, each carrying about 100 tonnes of coal (illustrative round figures; real wagon sizes vary by country). That is 100 × 100 = <strong>10,000 tonnes</strong>, which sits inside the 9,000 to 10,290 tonne range above. One unit train a day roughly feeds a 1 GW station.</p>
+<p>That is the useful check on the whole idea. If the station took its coal by lorry at, say, 25 to 30 tonnes a load, it would need around 330 to 400 deliveries every day, which is one lorry every four minutes, day and night.</p>
+
+<h2>Why rail wins at this scale</h2>
+<p>The reason is rolling resistance. A steel wheel on a steel rail touches the track over a patch about the size of a coin, and neither surface squashes much, so little energy is lost in flexing. A rubber tyre on a road deforms constantly. Typical coefficients of rolling resistance (illustrative, and they vary with load, speed and condition) are:</p>
+<ul>
+  <li>steel wheel on rail: about 0.0015, meaning a pull of 0.15% of the weight;</li>
+  <li>heavy-lorry tyre on a good road: about 0.007, or 0.7% of the weight.</li>
+</ul>
+<p>A tonne weighs about 9,810 newtons. Pulling it needs roughly 15 N on rail and 69 N on the road, and since a newton-metre is a joule, a tonne carried one kilometre costs about 15 kJ against 69 kJ in rolling losses alone. That ratio of between four and five to one is why rail is cheap for heavy loads that move in a steady stream.</p>
+<p>The advantage depends on the load. A railway has to be built, signalled and kept in repair whatever it carries, so it pays for itself only when a lot of tonnes use it. Lorries win for small, scattered loads. Rail wins when one mine, one line and one customer move thousands of tonnes a day. For the reasoning behind where those lines run, see <a href="/blog/why-railways-follow-rivers.html">why railways follow rivers</a>.</p>
+
+<h2>Chains have more than one link</h2>
+<p>Coal to power is the simplest chain: two ends and one railway. Most industry is more tangled, because many products need several raw materials that start in different places.</p>
+<ol class="ranked">
+  <li><strong>Coal to power.</strong> Mine, railway, power station. The railway is a single flow, and it runs in one direction with empty wagons coming back.</li>
+  <li><strong>Iron ore and coal to steel.</strong> A blast furnace takes iron ore and a carbon fuel made from coal, and the inputs by weight add up to more than a tonne for each tonne of steel (roughly two tonnes or more, depending on the process). Two mines may feed one mill, so the mill is a meeting point and the route to it has to carry both.</li>
+  <li><strong>Steel to goods.</strong> Steel then travels on to factories that turn it into finished products, and those go on to towns. The tonnage falls at every step, while the value of each tonne rises.</li>
+</ol>
+<p>Two things follow. First, the weight of a chain is largest at the start, so the heavy flows sit near the mines and the lighter ones near the towns. Second, a stoppage anywhere is felt along the whole chain: if the ore train fails to arrive, the furnace cools, and no steel reaches the factory. A coal stockpile at the power station softens this, but only for days.</p>
+<p>Heavy unit trains also need long gaps to stop, so <a href="/blog/how-railway-signals-keep-trains-apart.html">how railway signals keep trains apart</a> sets how many a single line can carry.</p>
+
+<div class="callout">
+  <p>Work out the last link first. Daily demand at the end of the chain gives the tonnage, the tonnage gives the train, and the train gives the track it needs.</p>
+</div>
+
+<h2>The checkable part</h2>
+<p>You can repeat the sum for any power station. Multiply its output in gigawatts by 86.4 TJ to get daily electrical energy, divide by its efficiency, then divide by the fuel's energy per kilogram. For a 2 GW station at 40% and 24 MJ per kilogram the answer is 18,000 tonnes a day, two unit trains.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lists coal, wood, oil, iron ore, steel and goods that its trains carry between mines, forests, oil wells, mills and power stations, with six train models for passengers and freight. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

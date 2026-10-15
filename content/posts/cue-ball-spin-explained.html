@@ -1,0 +1,73 @@
+<!--
+{
+  "title": "Cue-ball spin explained: topspin, backspin and sidespin",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "EightBallsPool",
+  "description": "How tip height sets topspin and backspin, why 2/5 of the ball's radius gives natural roll, and what sidespin does through squirt and throw.",
+  "summary": "Where the cue tip meets the ball decides what the ball does after it hits. Two-fifths of a radius above centre gives natural roll; above that is follow, below is draw.",
+  "standfirst": "A cue ball hit at its centre does not roll. It slides first, and the way it stops sliding explains follow, draw, stun and most of what sidespin does."
+}
+-->
+<p>Cue-ball spin looks like a matter of feel, but most of it follows from a few lines of mechanics. The same numbers hold on any pool table: where the tip meets the ball sets the spin, the spin sets how the ball behaves on the cloth, and the cloth sets what happens at the next contact. This post covers the vertical axis (topspin and backspin) first, then sidespin.</p>
+
+<h2>A ball hit at its centre slides</h2>
+<p>Strike the cue ball level with its centre, in line with its middle, and it leaves the tip moving forward with no spin at all. The cloth grips the underside of a sliding ball and drags it. That friction slows the ball's forward motion and, at the same time, starts it spinning forwards. Once the surface speed at the bottom of the ball matches the speed of the ball over the cloth, sliding ends and the ball rolls.</p>
+<p>For a solid ball this happens at a fixed point: the ball is rolling when it has slowed to <strong>5/7 of its starting speed</strong>, about 71%. The result does not depend on how hard the cloth grips, only the distance does. Until that point the ball is a sliding ball, and a sliding ball behaves differently from a rolling one when it hits something.</p>
+
+<h2>The height that rolls from the start</h2>
+<p>Hit above centre and the cue ball starts with some topspin as well as forward speed. There is one height at which the two already match, so the ball rolls without sliding from the first instant. Call the tip's height above the ball's centre <em>h</em> and the ball's radius <em>R</em>. For a solid sphere the moment of inertia is 2/5 of mass times R squared, and setting the spin speed equal to the forward speed gives:</p>
+<div class="callout">
+  <p><strong>h = 2R/5.</strong> Measured from the table, that is 1.4R out of a ball height of 2R, or <strong>7/10 of the way up the ball</strong>. This is the "centre of percussion" for a ball struck by a level cue.</p>
+</div>
+<p>The figure below puts that on the face of the ball. Below the 7/10 mark the ball starts with less spin than a roll needs, so it slides and then settles into roll after a while. Above it, the ball starts with more spin than a roll needs, and the cloth pulls it forward faster.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 240" role="img" aria-label="Cue-ball face with tip positions: 2/5 of a radius above centre gives natural roll, 7/10 of the ball height; centre gives stun; above gives follow; below gives draw; left or right of the vertical line gives sidespin.">
+    <circle cx="110" cy="120" r="90" class="fill-soft" stroke="#2F8A50" stroke-width="2"/>
+    <line x1="110" y1="30" x2="110" y2="210" class="grid"/>
+    <line x1="20" y1="84" x2="200" y2="84" class="grid"/>
+    <circle cx="110" cy="52" r="6" class="fill-base"/>
+    <circle cx="110" cy="84" r="7" class="fill-accent"/>
+    <circle cx="110" cy="120" r="6" class="fill-base"/>
+    <circle cx="110" cy="170" r="6" class="fill-base"/>
+    <line x1="118" y1="52" x2="222" y2="52" class="ref"/>
+    <text x="228" y="56">Higher: follow</text>
+    <line x1="119" y1="84" x2="222" y2="84" class="ref"/>
+    <text x="228" y="80" class="strong">2R/5 above centre:</text>
+    <text x="228" y="96" class="strong">natural roll (7/10 height)</text>
+    <line x1="118" y1="120" x2="222" y2="120" class="ref"/>
+    <text x="228" y="124">Centre: stun</text>
+    <line x1="118" y1="170" x2="222" y2="170" class="ref"/>
+    <text x="228" y="174">Below centre: draw</text>
+    <text x="20" y="232">Left or right of the vertical line: sidespin</text>
+  </svg>
+  <figcaption>Tip positions on the cue-ball face, seen from behind the cue. The highlighted point, 2/5 of a radius above centre, is the height that rolls from the first instant. The dots above and below it show the direction of each shot, not measured distances.</figcaption>
+</figure>
+
+<h2>Stun, follow and draw</h2>
+<p>These three names describe what the cue ball does after it hits an object ball. Take the simplest case: a straight, full-face hit on a ball of the same mass.</p>
+<ul>
+  <li><strong>Stun.</strong> The cue ball arrives sliding, with little or no spin. Equal masses swap velocity, so the cue ball stops almost dead on the spot. Struck at centre, a stun hit works best when the object ball is not far away, before the cue ball has settled into a roll.</li>
+  <li><strong>Follow.</strong> The cue ball arrives with topspin. The contact stops its forward travel, but the spin is still there, and the cloth pushes the ball on after the object ball has gone.</li>
+  <li><strong>Draw.</strong> The cue ball arrives with backspin. The spin drags it backwards across the cloth once the forward motion has been handed over. Tip contact needs to be well below centre, and most players treat about half a radius off centre as the practical limit before the tip slips off and miscues.</li>
+</ul>
+<p>A ball rolling naturally into a straight hit is already a follow shot: it keeps its topspin through the contact and, once it grips again, runs on at 2/7 of its arrival speed. That is why a centre or slightly low hit, arriving with the ball still sliding, is the usual way to stop the cue ball in place.</p>
+<p>The same ideas reshape the cue ball's path on cut shots. With a sliding, stun-type hit, the cue ball leaves along the tangent line, at about 90 degrees to the line the object ball takes. That is a useful reference, but it is a short topic of its own. A rolling cue ball ends up closer to the object ball's direction, and a well-known approximation, the 30-degree rule, puts its path at roughly 30 degrees off its original line for medium cuts. Treat it as a rule of thumb for a natural roll at moderate speed. It is not exact, and it drifts at very thin or very full contacts.</p>
+
+<h2>Sidespin: squirt, throw and the cushion</h2>
+<p>Hit left or right of centre and the cue ball spins about its vertical axis. Three things change.</p>
+<ol class="ranked">
+  <li><strong>Squirt.</strong> The ball leaves the tip slightly off the line the cue was pointing, away from the side you hit. Hit the left of the ball and it squirts a little to the right. Players aim a touch to the side to allow for it.</li>
+  <li><strong>Throw.</strong> At the object ball, the spinning surface of the cue ball drags across the contact point and pushes the object ball a little off the line of centres. The effect is bigger on slower shots, where the surfaces have longer to rub.</li>
+  <li><strong>Cushion rebound.</strong> Sidespin grips the rail and changes the angle at which the ball comes back, so the rebound is no longer equal to the incoming angle.</li>
+</ol>
+<p>None of these is large on a firm centre-ball hit, which is the reason most position play uses the vertical axis only.</p>
+
+<h2>Using it in play</h2>
+<p>A pot is rarely the hard part of a rack. The hard part is the cue ball's next position. In 8-ball, with the table open, <a href="/blog/eight-ball-rules-explained.html">the open-table rules</a> reward choosing a group and leaving yourself a way through it. In 9-ball, <a href="/blog/nine-ball-rules-explained.html">lowest ball first</a> makes every cue-ball position a plan for the next numbered ball. In both, vertical spin is the cheapest tool: a stun, follow or draw changes where the ball ends up without changing the line of the pot.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust aim, shot power and cue-ball spin, with a guided tutorial for the controls and practice on your own. Every match is free, with no ads or in-app purchases, and it plays offline without an account.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,87 @@
+<!--
+{
+  "title": "How a low hand is made in Omaha Hi-Lo, and what 8 or better means",
+  "seo_title": "How a low is made in Omaha Hi-Lo: 8 or better",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "OmahaPoker",
+  "description": "A low in Omaha Hi-Lo is five different cards of 8 or lower, exactly two from your hand and three from the board. Ace is low, and A-2-3-4-5 is the best.",
+  "summary": "Half the pot goes to the best low, but only if it has five different ranks from ace to eight. Two cards from your hand, three from the board, and a duplicated rank can wipe the low out.",
+  "standfirst": "In Omaha Hi-Lo the pot is split between the best high hand and the best low, and the low has its own rules: which cards count, which way it ranks, and why a pair on the board can ruin it."
+}
+-->
+<p>Omaha Hi-Lo, also called Omaha eight or better, plays like ordinary Omaha with one change: the pot is split in two. One half goes to the best high hand, ranked as usual. The other half goes to the best low hand, if anyone has one. The low follows a separate set of rules, and most of the confusion at the table comes from carrying high-hand habits into it.</p>
+
+<h2>What counts as a low</h2>
+<p>A qualifying low is five cards of five different ranks, all of them 8 or lower. That is where "8 or better" comes from: the ranks that can appear in a low are</p>
+<p>A, 2, 3, 4, 5, 6, 7, 8</p>
+<p>and nothing higher.</p>
+<ol class="ranked">
+  <li><strong>The ace is low.</strong> In a low it counts as the smallest card, below the 2. It is also still an ace in the high hand, so one card can serve both halves.</li>
+  <li><strong>Pairs do not qualify.</strong> Five cards must be five different ranks. 7-5-3-3-A is not a low.</li>
+  <li><strong>Straights and flushes are ignored.</strong> They do not count against a low. A-2-3-4-5 is a straight, and it is also the best low there is, known as the wheel.</li>
+</ol>
+<p>If nobody can make a qualifying low, there is no split and the best high hand takes the whole pot.</p>
+
+<h2>Exactly two from your hand, again</h2>
+<p>The rule from ordinary Omaha applies to the low as well: your hand is exactly two of your four hole cards and exactly three of the five board cards. The <a href="/blog/omaha-exactly-two-hole-cards.html">exactly-two rule</a> covers this in detail for the high. For the low it has two direct consequences:</p>
+<ul>
+  <li>You need <strong>two</strong> different cards of 8 or lower in your hand. A single ace and three high cards give you no low, however good the ace is.</li>
+  <li>The board needs <strong>three</strong> different ranks of 8 or lower. With only two such ranks on the board, no one can make a low at all.</li>
+</ul>
+<p>Your high and low are chosen separately and can use different cards.</p>
+
+<h2>How lows are ranked</h2>
+<p>A low is read from its highest card downward, and the lower the better. A hand is named by its top card, so 7-5-4-3-2 is a "seven-high" low, or just "a seven low". Compare two lows like this:</p>
+<ol class="ranked">
+  <li>Look at the highest card of each. The lower one wins. Any 7-high low beats any 8-high low.</li>
+  <li>If those match, move to the second-highest, then the third, and so on.</li>
+</ol>
+<p>So 7-5-3-2-A beats 7-6-4-3-2, because the second-highest cards are 5 and 6. And 8-6-4-3-A beats 8-6-4-3-2, because they match all the way down to the last card, where the ace is lower than the 2.</p>
+<p>The best low is A-2-3-4-5, a five-high. The worst that still qualifies is 8-7-6-5-4. Because the five ranks must come from eight, the number of different qualifying lows is the number of ways to choose 5 from 8, which is 56. Count them by top card and the weight sits at the high end:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the number of different qualifying lows by top card: five-high 1, six-high 5, seven-high 15, eight-high 35">
+    <div class="bar-row" title="Five-high lows: 1"><span class="bar-label">Five-high</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0286)"></span><span class="bar-val">1</span></span></div>
+    <div class="bar-row" title="Six-high lows: 5"><span class="bar-label">Six-high</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1429)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="Seven-high lows: 15"><span class="bar-label">Seven-high</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4286)"></span><span class="bar-val">15</span></span></div>
+    <div class="bar-row hl" title="Eight-high lows: 35"><span class="bar-label">Eight-high</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">35</span></span></div>
+  </div>
+  <figcaption>Different qualifying lows by top card: 1 + 5 + 15 + 35 = 56. An eight-high low is 35 of the 56, or 62.5%.</figcaption>
+</figure>
+
+<p>The counts follow the same sum. A seven-high low has its 7 fixed and four more cards chosen from A to 6: 6 choose 4 = 15. An eight-high has four chosen from A to 7: 7 choose 4 = 35.</p>
+
+<h2>Worked examples</h2>
+<p><strong>A qualifying low.</strong> You hold A♠ 2♦ K♣ K♥. The board is 3♣ 5♥ 8♦ K♠ Q♦. The board has three ranks of 8 or lower: 3, 5 and 8. Play the A and 2 from your hand with those three and you have 8-5-3-2-A, an eight-high low. The same hand also makes three kings for the high, so it has a claim on both halves.</p>
+<p><strong>No low possible.</strong> The board is 4♣ 6♥ 9♦ K♠ Q♦. Only two board cards, the 4 and the 6, are 8 or lower. Nobody can make a three-card low from the board, so holding A-2-3-4 is worth nothing for the low. The best high hand takes the whole pot.</p>
+
+<h2>Counterfeiting</h2>
+<p>A low can be spoiled by the board. If the board pairs one of your low cards, that card is counterfeited: using it would put a pair in your hand, so you have to find another. Take this board: 2♣ 5♥ 7♦ J♠ K♦. It has three low ranks, 2, 5 and 7. Now compare three players.</p>
+<table class="paytable-compare">
+  <caption>Board 2♣ 5♥ 7♦ J♠ K♦. Each player's best low, using two hole cards and the three low board cards.</caption>
+  <thead>
+    <tr><th>Hole cards</th><th>Low cards in hand</th><th>Best low</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A♠ 2♥ K♣ Q♣</th><td>A, 2</td><td>None: the 2 repeats the board</td></tr>
+    <tr><th scope="row">A♦ 4♥ K♥ Q♦</th><td>A, 4</td><td class="good">7-5-4-2-A</td></tr>
+    <tr><th scope="row">A♣ 3♠ J♥ J♣</th><td>A, 3</td><td class="good">7-5-3-2-A</td></tr>
+  </tbody>
+</table>
+<p>The first player had the two best low cards in the deck and ended up with nothing, because the board took the 2. The third player wins the low: 7-5-3-2-A beats 7-5-4-2-A because the fourth cards are 3 and 4.</p>
+
+<div class="callout">
+  <p>A-2 is the strongest start for a low, but a board that pairs either card counterfeits it. A third low card in your hand, such as A-2-3, gives you a spare.</p>
+</div>
+
+<h2>The nut low</h2>
+<p>The nut low is the best low possible on a given board. Take a board of 3♦ 6♣ 8♠ J♥ K♣. The three low cards on it are 3, 6 and 8. The best two cards to add are the ace and the 2, giving 8-6-3-2-A. Anyone holding A-2 has the nut low; A-4 gives 8-6-4-3-A, which is worse. Players with exactly the same low split the low half.</p>
+
+<h2>Where the app fits</h2>
+<p>The listing for <a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> says it covers Pot-Limit Omaha, Omaha Hi-Lo (Omaha 8 or better) and 5-Card Omaha tables, with in-app Help &amp; Rules for Omaha hand rankings and the two-cards-from-your-hand rule. The listing does not describe how the app scores a low hand, so treat this post as a general guide to the variant. For the betting side, see <a href="/blog/pot-limit-omaha-pot-sized-bet.html">how to work out a pot-sized bet</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> is played against computer opponents, offline, with free play-money points. There is no real money in it, the points have no cash value, and the listing says there are no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

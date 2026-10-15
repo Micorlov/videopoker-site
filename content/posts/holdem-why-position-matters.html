@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "Why position matters: one hand from an early and a late seat",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "HoldemCoach",
+  "description": "Position decides how many players act after you: 8 from under the gun, 2 from the button. At a nine-handed table that changes which hands are safe to play.",
+  "summary": "From under the gun, eight players act after you and one of them holds JJ+, AK or AQ about 29% of the time. From the button, two do, and the figure is about 8%.",
+  "standfirst": "The same two cards are a different hand in a different seat. Count the players still to act behind you and the early-seat advice stops looking arbitrary."
+}
+-->
+<p>Two players are dealt the same hand, say king-jack of different suits. One is first to speak before the flop, the other is on the button, the last seat to act after the flop. The cards are identical. The situations are not, and the difference is mostly arithmetic: how many opponents are still to act, and how much each of them knows about you before you decide.</p>
+
+<h2>The seats at a nine-handed table</h2>
+<p>A full table has nine seats. Counting clockwise from the left of the big blind, the usual names are:</p>
+<ol class="ranked">
+  <li><strong>Under the gun (UTG):</strong> the first player to act before the flop.</li>
+  <li><strong>UTG+1</strong> and <strong>UTG+2:</strong> the next two seats.</li>
+  <li><strong>Lojack</strong> and <strong>hijack:</strong> the two seats before the cutoff.</li>
+  <li><strong>Cutoff:</strong> the seat directly before the button.</li>
+  <li><strong>Button:</strong> the dealer seat.</li>
+  <li><strong>Small blind</strong> and <strong>big blind:</strong> the two seats that post forced bets, directly after the button.</li>
+</ol>
+<p>Names for the middle seats vary a little from room to room, but UTG, cutoff, button and the blinds are the same everywhere. Early position means the first three seats, middle position the lojack and hijack, and late position the cutoff and button.</p>
+
+<h2>The order changes after the flop</h2>
+<p>Before the flop the action starts with UTG and moves round the table, so the blinds act last and the big blind speaks after everyone else. After the flop the order restarts from the small blind, and the button goes last. This is the part people trip over. The button acts third from last before the flop, ahead of the two blinds, but last on every later street, which is what makes it the best seat. The blinds are the opposite: they put chips in already, then act first after the flop for the rest of the hand.</p>
+<p>So whenever you are on the button and still in the hand, every opponent has to act before you on the flop, the turn and the river. You see what they do, then decide.</p>
+
+<h2>How many players are left to act behind you</h2>
+<p>Before the flop, count the players who have yet to speak once you have. From UTG it is eight. From UTG+1 it is seven, and the number drops by one each seat until the button, which has only the two blinds behind it. The small blind has one player behind and the big blind none.</p>
+<p>Each of those players might wake up with a strong hand. To put a figure on it, take one group of starting hands: pocket jacks, queens, kings and aces, plus ace-king and ace-queen. There are 6 ways to make each pair, so 4 × 6 = 24 combinations, and 16 ways to make each unpaired ace hand (4 aces × 4 kings or queens), so 2 × 16 = 32. That is 56 of the 1,326 possible starting hands, or 4.22% of deals.</p>
+<p>The chance that at least one of <em>N</em> players behind you holds one of them is 1 − (1 − 0.0422)<sup><em>N</em></sup>. This is an approximation: it treats each player's cards as independent, when really they are dealt from the same deck. A simulation that removes the dealt cards moves the answers by about a point at most, so read the figures below as rounded, not exact.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that at least one player behind holds JJ or better, or AK or AQ, by seat at a nine-handed table">
+    <div class="bar-row hl" title="Under the gun (UTG): ≈29.2%"><span class="bar-label">Under the gun (UTG)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">≈29.2%</span></span></div>
+    <div class="bar-row" title="UTG+1: ≈26.1%"><span class="bar-label">UTG+1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8938)"></span><span class="bar-val">≈26.1%</span></span></div>
+    <div class="bar-row" title="UTG+2: ≈22.8%"><span class="bar-label">UTG+2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7808)"></span><span class="bar-val">≈22.8%</span></span></div>
+    <div class="bar-row" title="Lojack: ≈19.4%"><span class="bar-label">Lojack</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6644)"></span><span class="bar-val">≈19.4%</span></span></div>
+    <div class="bar-row" title="Hijack: ≈15.9%"><span class="bar-label">Hijack</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5445)"></span><span class="bar-val">≈15.9%</span></span></div>
+    <div class="bar-row" title="Cutoff: ≈12.1%"><span class="bar-label">Cutoff</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4144)"></span><span class="bar-val">≈12.1%</span></span></div>
+    <div class="bar-row" title="Button: ≈8.3%"><span class="bar-label">Button</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2842)"></span><span class="bar-val">≈8.3%</span></span></div>
+    <div class="bar-row" title="Small blind: ≈4.2%"><span class="bar-label">Small blind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1438)"></span><span class="bar-val">≈4.2%</span></span></div>
+  </div>
+  <figcaption>Approximate chance that at least one player still to act behind you holds JJ or better, AK or AQ, before the flop at a nine-handed table. The big blind has nobody behind and is not shown (0%).</figcaption>
+</figure>
+
+<p>From UTG the chance is about 29%, roughly one deal in three or four that somebody behind you already has a premium hand. From the button it is about 8%, a little under one deal in twelve. The same king-jack that often runs into a premium hand from UTG rarely does from the button.</p>
+
+<h2>What this means for the hands you play</h2>
+<p>These numbers explain a familiar rule: play fewer hands from early seats and more from late ones. A hand such as king-jack offsuit is a reasonable open from the cutoff or button but a poor one from UTG, because when someone behind has a king they usually have the better kicker. You make a pair of kings or jacks, then pay to find out you are second best.</p>
+<p>The advantage is not only about avoiding premiums behind you. Acting last means you can:</p>
+<ol class="ranked">
+  <li><strong>Check behind</strong> with a marginal hand and see the next card for free.</li>
+  <li><strong>Know the price.</strong> You see the bet before you decide, so the calculation in <a href="/blog/holdem-pot-odds.html">the pot odds post</a> uses a known figure. Acting first, you have to guess what is coming.</li>
+  <li><strong>Chase draws more cheaply.</strong> The draws in <a href="/blog/holdem-rule-of-2-and-4.html">the rule of 2 and 4 post</a> are easier to price when nobody behind you can raise after you have called.</li>
+</ol>
+<p>None of this makes position a trick for winning any particular hand. It is a lasting structural gap, and it is why hand charts are laid out by seat rather than as a single list.</p>
+
+<div class="callout">
+  <p>The rule in one line: the more players left to act behind you, the stronger the hand you need before you put chips in. Count the players behind you before you look at how pretty the cards are.</p>
+</div>
+
+<h2>A quick check you can do yourself</h2>
+<p>The 4.22% figure is easy to verify. Add up the combinations (6 per pair, 16 per unpaired ace-king or ace-queen), divide by 1,326, then raise the chance of <em>not</em> holding one to the power of the number of opponents. Do it for six players and you should get about 22.8%, matching the third bar in the chart. If you change the group of hands, say by adding pocket tens, the whole chart moves up, but the shape stays the same: it climbs steadily with each extra seat behind you.</p>
+<p>The Hand charts section of <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> shows at a glance which two-card hands to play from each seat, and its "Which hands to play" lesson asks you to decide whether your two cards are worth raising with when nobody has bet yet. Why the early-seat range is tight is easier to see once you have counted the players behind.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> is free to use with ads, nothing in its lessons is timed, and practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

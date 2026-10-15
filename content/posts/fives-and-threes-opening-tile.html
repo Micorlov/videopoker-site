@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Choosing your opening tile in Fives and Threes",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "FivesAndThrees",
+  "description": "Fourteen of the 28 tiles score as an opener, for 1 to 4 points. The 6-3 scores 3 and hands back 8. Which openers are worth leading, and which are not.",
+  "summary": "Fourteen opening tiles score, none for more than 4. The 6-3 and the double-six both leave the opponent an 8-point reply, while the 5-4 scores 3 and gives back at most 2.",
+  "standfirst": "The opening tile has no line to match, so its score is just its own spots. What matters more is what it leaves for the person who plays next."
+}
+-->
+<p>The first tile in Fives and Threes has no line to build on, so there is no end to choose and nothing to match. The only decision is which tile to lead, and it can be settled with a little arithmetic before the first move. If you start the hand, the opening tile both scores and sets up your opponent's reply.</p>
+
+<h2>How an opening tile scores</h2>
+<p>A single tile has two open ends: its two numbers. Add them and apply the usual test from <a href="/blog/fives-and-threes-scoring-explained.html">how Fives and Threes scoring works</a>: a total divisible by three scores a third of it, a total divisible by five scores a fifth, and 15 scores both. A double at an open end counts both its halves, so for a lone double the total is simply the spots on the tile: the double-six shows 12.</p>
+<p>That is the convention used throughout this post, and it is the common one. It also assumes the opening tile is scored like any other placement. <a href="/FivesAndThrees/">Fives and Threes Dominoes</a> shows the open-end totals and the points scored on the table, so you can confirm how your own first tile is treated there.</p>
+
+<h2>Every opener that scores</h2>
+<p>A double-six set has 28 tiles. Run all 28 through the rule and 14 score on the opening lay; the other 14 score nothing. The scoring tiles are worth 27 points between them, an average of just under 2 each.</p>
+<ul>
+  <li><strong>4 points:</strong> the double-six, total 12, which scores 12 &divide; 3.</li>
+  <li><strong>3 points:</strong> the 6-3 and the 5-4, both total 9.</li>
+  <li><strong>2 points:</strong> the 6-0, 5-1, 4-2 and double-three (total 6), and the 6-4 and double-five (total 10). Six tiles.</li>
+  <li><strong>1 point:</strong> the 3-0 and 2-1 (total 3), and the 5-0, 4-1 and 3-2 (total 5). Five tiles.</li>
+</ul>
+<p>The check: 4 + (2 &times; 3) + (6 &times; 2) + (5 &times; 1) = 27. No opener reaches 15 or 18. A 15 needs a double at one end and a plain number at the other, and one tile cannot supply both. The best opener is the double-six at 4, with the 6-3 and 5-4 a point behind.</p>
+
+<h2>What the reply can score</h2>
+<p>Scoring first is only half of it. Your opponent then lays a tile against one of your ends, and the new total is the new end plus the end you left. To find the worst case, try each of the other 27 tiles on each end of each opener and keep the best result. This is a ceiling, not a forecast: it assumes your opponent holds that tile, and with 6 to 9 tiles each that is far from certain.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of points scored by each scoring opening tile, with the best possible reply: 6-6 scores 4, reply 8; 6-3 scores 3, reply 8; 5-4 scores 3, reply 2; 6-0, 3-3 and 5-5 score 2, reply 4; 6-4, 5-1 and 4-2 score 2, reply 3; 4-1, 5-0, 3-0 and 3-2 score 1, reply 3; 2-1 scores 1, reply 2.">
+    <div class="bar-row" title="Tile 6-6: 4 points, best reply 8"><span class="bar-label">6-6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">4 (reply 8)</span></span></div>
+    <div class="bar-row hl" title="Tile 6-3: 3 points, best reply 8"><span class="bar-label">6-3</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">3 (reply 8)</span></span></div>
+    <div class="bar-row" title="Tile 5-4: 3 points, best reply 2"><span class="bar-label">5-4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">3 (reply 2)</span></span></div>
+    <div class="bar-row" title="Tile 6-0: 2 points, best reply 4"><span class="bar-label">6-0</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 4)</span></span></div>
+    <div class="bar-row" title="Tile 3-3: 2 points, best reply 4"><span class="bar-label">3-3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 4)</span></span></div>
+    <div class="bar-row" title="Tile 5-5: 2 points, best reply 4"><span class="bar-label">5-5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 4)</span></span></div>
+    <div class="bar-row" title="Tile 6-4: 2 points, best reply 3"><span class="bar-label">6-4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 5-1: 2 points, best reply 3"><span class="bar-label">5-1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 4-2: 2 points, best reply 3"><span class="bar-label">4-2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">2 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 4-1: 1 point, best reply 3"><span class="bar-label">4-1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">1 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 5-0: 1 point, best reply 3"><span class="bar-label">5-0</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">1 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 3-0: 1 point, best reply 3"><span class="bar-label">3-0</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">1 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 3-2: 1 point, best reply 3"><span class="bar-label">3-2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">1 (reply 3)</span></span></div>
+    <div class="bar-row" title="Tile 2-1: 1 point, best reply 2"><span class="bar-label">2-1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">1 (reply 2)</span></span></div>
+  </div>
+  <figcaption>Points scored by each of the 14 scoring openers, with the best reply the other 27 tiles could make in brackets. The 6-3 looks like a bargain at 3 and gives the opponent 8.</figcaption>
+</figure>
+
+<p>Two openers stand out for the wrong reason.</p>
+<ol class="ranked">
+  <li><strong>The 6-3.</strong> It scores 3, but the double-six laid on the 6 shows 12 against the 3. That is 15 and <strong>8 points</strong>, the pair described in <a href="/blog/fives-and-threes-why-15-scores-best.html">why 15 is the best total</a>.</li>
+  <li><strong>The double-six.</strong> It scores 4, and the 6-3 laid against it leaves a plain 3 beside the double, which is 15 again: 8 points.</li>
+</ol>
+<p>The two tiles are each other's reply. If you hold both, leading either is fine, though your opponent can still cover the open end first. If you hold one and the other is in your opponent's hand, you have set up their 15 and been paid 3 or 4 for it. Lead one of them only when you hold the other.</p>
+
+<h2>The quiet opener</h2>
+<p>The 5-4 is the tidy one. It scores 3, and the best reply anywhere in the set is 2 points: the 1-4 on the 4, or the 2-5 or 5-6 on the 5. It is the only scoring opener that beats the best reply against it. Five of the other tiles can score at all against it, and none scores more than 2.</p>
+<p>Next come the openers that give back 3 or 4. The 6-0, double-three and double-five each score 2 and can be answered for 4: the double-six on the 6 (12 + 0), the 3-6 on the double-three (6 + 6), and the 2-5 on the double-five (2 + 10). The 6-4, 5-1 and 4-2 score 2 with a best reply of 3, and so do the four 1-point openers other than the 2-1, which can be answered for at most 2.</p>
+<p>Four non-scoring tiles are also quiet. The double-blank, 0-1, 0-2 and double-one score nothing, but the best reply to any of them is 2 points. They leave less on the table than most scoring openers, though you give up the opening points to get there.</p>
+
+<h2>A short ranking</h2>
+<ol class="ranked">
+  <li>5-4: scores 3, best reply 2.</li>
+  <li>6-4, 5-1, 4-2: score 2, best reply 3.</li>
+  <li>6-0, double-three, double-five: score 2, best reply 4.</li>
+  <li>6-3, double-six: score 3 and 4, best reply 8. Lead them only holding the matching tile.</li>
+</ol>
+<p>Hand size matters here. In <a href="/FivesAndThrees/">Fives and Threes Dominoes</a> you choose 6, 7, 8 or 9 tiles each, and a larger hand makes it more likely that the reply you fear is actually held. The ceilings above are the same whatever the hand size; the chance of meeting one is not.</p>
+
+<div class="post-foot">
+  <p><a href="/FivesAndThrees/">Fives and Threes Dominoes</a> lets you play solo against a computer opponent on Casual or Competitive, to a target of 61, 121, 181 or 241 points, with 6 to 9 tiles each, and you can choose whether you or a randomly selected player starts. The table shows the open-end totals and points scored after each move. There are no adverts or in-app purchases, and optional match points are in-game only with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.fivesandthrees"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

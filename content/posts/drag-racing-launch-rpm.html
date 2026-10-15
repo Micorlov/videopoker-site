@@ -1,0 +1,97 @@
+<!--
+{
+  "title": "Launch RPM: between wheelspin and bogging down",
+  "date": "2026-10-15",
+  "modified": "2026-10-15",
+  "app": "PinkSlipKings",
+  "description": "A launch is limited by grip, not power. Worked example: 3,000 lb, 50% on the rear tyres, grip of 1.0 gives 0.625 g and a 2.44 s 60-foot time; spin costs 0.36 s.",
+  "summary": "Tyres can only push the car as hard as friction allows. Worked through an example rear-drive car: weight transfer, a 212 lb-ft traction limit, why spinning tyres lose force, and why too few revs bogs the engine.",
+  "standfirst": "Launch RPM is a compromise between two failures. Too many revs and the tyres spin; too few and the engine stumbles. The right number sits between them, and the 60-foot time on the slip tells you whether you found it."
+}
+-->
+<p>The first sixty feet of a quarter mile are where most of the run is won or lost, and they are mostly a question of grip. An engine can make more force than the tyres can pass to the road, so extra revs at the start do not always help. This post works through one example car; the figures are illustrative, not those of any car in a game.</p>
+
+<h2>The tyres set the ceiling</h2>
+<p>The most force a tyre can put into the road is the friction coefficient multiplied by the load pressing it down: <strong>F = μ × N</strong>. Newton's second law says F = m × a, and N for a car with all its weight on the driven wheels is m × g, so the mass cancels:</p>
+<p><strong>maximum acceleration ≈ μ × g</strong></p>
+<p>A grippy slick has a coefficient of around 1, so the ceiling is roughly one g, or 32.2 ft/s². At constant acceleration the distance covered is ½ × a × t², which gives t = √(2d ÷ a). For 60 feet at 1 g that is √(120 ÷ 32.17) = 1.93 s. A rear-drive car cannot reach it, for the reason in the next section.</p>
+
+<h2>Weight moves to the back</h2>
+<p>A rear-drive car does not have all its weight on the driven wheels. Our example weighs 3,000 lb with 50% on the rear axle, so 1,500 lb presses on the driven tyres at rest. Acceleration shifts load backwards, by an amount equal to the weight times the acceleration (in g) times the centre-of-gravity height divided by the wheelbase. With a centre of gravity 20 inches up and a wheelbase of 100 inches, each 1 g of acceleration moves 3,000 × 1 × 20 ÷ 100 = 600 lb.</p>
+<p>With μ = 1.0, the rear tyres can push with a force of 1.0 × (1,500 + 600 × a), where a is the acceleration in g. Setting that equal to 3,000 × a gives a = 1,500 ÷ 2,400 = 0.625 g. The rear tyres then carry 1,500 + 600 × 0.625 = 1,875 lb, and the traction limit is 1,875 lb of force. The 60-foot time at 0.625 g is √(120 ÷ (0.625 × 32.17)) = 2.44 s.</p>
+
+<h2>Why spinning loses time</h2>
+<p>Friction has two values. Static friction, where the contact patch grips and does not slide, is higher than kinetic friction, where it slips. A spinning tyre is sliding against the road, so it falls back to the lower figure. Suppose the kinetic coefficient here is 0.8 instead of 1.0, which is an assumption for the example. The same working gives a = (0.5 × 0.8) ÷ (1 − 0.8 × 0.2) = 0.476 g. The force at the road falls from 1,875 lb to about 1,430 lb, and the 60-foot time rises to 2.80 s.</p>
+<p>That is 0.36 s lost at the very start, from the same car and the same engine. Power past the traction limit goes into heat and smoke, so the aim is to stay just under it.</p>
+
+<h2>Turning engine torque into force at the tyres</h2>
+<p>The force the engine asks of the tyres in first gear is torque × overall ratio ÷ tyre radius (ignoring drivetrain loss). Use the example four-speed from <a href="/blog/gear-ratios-and-final-drive.html">the gear ratio post</a>: first gear 2.80 with a 3.42 final drive makes an overall ratio of 9.58. With 26-inch tyres the radius is 13 inches, or 1.083 ft. The engine reaches the 1,875 lb limit at 1,875 × 1.083 ÷ 9.58 = 212 lb-ft.</p>
+<p>Now give the engine a torque curve. These five points are made up for the example:</p>
+
+<table class="paytable-compare">
+  <caption>Illustrative engine torque, with the force it would ask of the tyres in first gear (torque × 9.58 ÷ 1.083), rounded to the nearest pound.</caption>
+  <thead>
+    <tr><th>Engine speed</th><th>Torque</th><th>Force at tyres</th><th>Against 1,875 lb limit</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2,000 rpm</th><td>150 lb-ft</td><td>1,327 lb</td><td>Under</td></tr>
+    <tr><th scope="row">3,000 rpm</th><td>200 lb-ft</td><td>1,769 lb</td><td>Under</td></tr>
+    <tr><th scope="row">4,000 rpm</th><td>250 lb-ft</td><td>2,211 lb</td><td>Over</td></tr>
+    <tr><th scope="row">5,000 rpm</th><td>260 lb-ft</td><td>2,300 lb</td><td>Over</td></tr>
+    <tr><th scope="row">6,000 rpm</th><td>240 lb-ft</td><td>2,123 lb</td><td>Over</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 270" role="img" aria-label="Chart of an illustrative engine torque curve: 150, 200, 250, 260 and 240 lb-ft at 2,000 to 6,000 rpm. Below 2,500 rpm is the bog zone. From 2,500 to 3,240 rpm torque stays under the 212 lb-ft traction limit, the sweet spot. Above 3,240 rpm the tyres spin.">
+    <rect x="50.0" y="30" width="42.0" height="180" fill="var(--chart-base)" opacity="0.25"/>
+    <rect x="92.0" y="30" width="62.2" height="180" fill="var(--chart-accent)" opacity="0.25"/>
+    <rect x="154.2" y="30" width="231.8" height="180" fill="var(--chart-base)" opacity="0.12"/>
+    <line class="grid" x1="50" x2="386" y1="210.0" y2="210.0"/><text x="44" y="214.0" text-anchor="end">0</text>
+    <line class="grid" x1="50" x2="386" y1="150.0" y2="150.0"/><text x="44" y="154.0" text-anchor="end">100</text>
+    <line class="grid" x1="50" x2="386" y1="90.0" y2="90.0"/><text x="44" y="94.0" text-anchor="end">200</text>
+    <line class="grid" x1="50" x2="386" y1="30.0" y2="30.0"/><text x="44" y="34.0" text-anchor="end">300</text>
+    <line class="axis" x1="50" x2="386" y1="210" y2="210"/>
+    <text x="50.0" y="226" text-anchor="middle">2,000</text>
+    <text x="134.0" y="226" text-anchor="middle">3,000</text>
+    <text x="218.0" y="226" text-anchor="middle">4,000</text>
+    <text x="302.0" y="226" text-anchor="middle">5,000</text>
+    <text x="386.0" y="226" text-anchor="middle">6,000</text>
+    <text x="218" y="244" text-anchor="middle">Engine speed, rpm</text>
+    <text x="12" y="120" text-anchor="middle" transform="rotate(-90 12 120)">Torque, lb-ft</text>
+    <line class="ref" x1="50" x2="386" y1="82.8" y2="82.8"/>
+    <text x="384" y="77.8" text-anchor="end">Traction limit: 212 lb-ft</text>
+    <text class="strong" x="71.0" y="48" text-anchor="middle">Bog</text>
+    <text class="strong" x="123.1" y="48" text-anchor="middle">Sweet spot</text>
+    <text class="strong" x="270.1" y="48" text-anchor="middle">Wheelspin</text>
+    <path class="line" d="M50.0,120.0 L134.0,90.0 L218.0,60.0 L302.0,54.0 L386.0,66.0"/>
+    <g class="hit"><title>2,000 rpm: 150 lb-ft</title><circle cx="50.0" cy="120.0" r="10" fill="transparent"/><circle class="dot" cx="50.0" cy="120.0" r="4.5"/></g>
+    <text x="50.0" y="138.0" text-anchor="middle">150</text>
+    <g class="hit"><title>3,000 rpm: 200 lb-ft</title><circle cx="134.0" cy="90.0" r="10" fill="transparent"/><circle class="dot" cx="134.0" cy="90.0" r="4.5"/></g>
+    <text x="134.0" y="108.0" text-anchor="middle">200</text>
+    <g class="hit"><title>4,000 rpm: 250 lb-ft</title><circle cx="218.0" cy="60.0" r="10" fill="transparent"/><circle class="dot" cx="218.0" cy="60.0" r="4.5"/></g>
+    <text x="218.0" y="51.0" text-anchor="middle">250</text>
+    <g class="hit"><title>5,000 rpm: 260 lb-ft</title><circle cx="302.0" cy="54.0" r="10" fill="transparent"/><circle class="dot" cx="302.0" cy="54.0" r="4.5"/></g>
+    <text x="302.0" y="45.0" text-anchor="middle">260</text>
+    <g class="hit"><title>6,000 rpm: 240 lb-ft</title><circle cx="386.0" cy="66.0" r="10" fill="transparent"/><circle class="dot" cx="386.0" cy="66.0" r="4.5"/></g>
+    <text x="386.0" y="57.0" text-anchor="middle">240</text>
+    </svg>
+  <figcaption>An illustrative torque curve against the 212 lb-ft traction limit worked out above. Torque crosses the limit at about 3,240 rpm. The bog boundary of 2,500 rpm is an assumption for this example, not a measured figure.</figcaption>
+</figure>
+
+<h2>Between the two failures</h2>
+<p>The curve gives three regions. Above about 3,240 rpm the engine asks for more than the tyres can give, so a launch from there spins them. That is the wheelspin zone, and it covers most of the rev range.</p>
+<p>Below it, the problem changes. When a car launches, the clutch or converter loads the engine suddenly and the revs sag. If the launch starts too low, the engine drops into a part of its curve with little torque and takes time to recover. That is bogging. In this example we will say the engine stumbles below about 2,500 rpm, where torque is 175 lb-ft, interpolating between 150 at 2,000 and 200 at 3,000.</p>
+<p>The sweet spot is the window between, from 2,500 to 3,240 rpm here. It is nowhere near the 5,000 rpm torque peak: grip sets the launch RPM, not where the engine is strongest.</p>
+
+<div class="callout">
+  <p>Launch RPM is about matching engine force to tyre grip, not about the biggest number. More grip moves the window up; less moves it down.</p>
+</div>
+
+<h2>Reading it on the slip</h2>
+<p>The 60-foot time on a slip is the cleanest measure of a launch, because the first sixty feet are almost entirely a traction problem. <a href="/blog/reading-a-drag-racing-time-slip.html">The time slip post</a> explains the lines. A spinning launch shows up as a slow 60-foot time even when the trap speed looks fine, as the 2.80 s against 2.44 s above shows.</p>
+<p>Change one thing at a time, and repeat. Raise the launch RPM a little, run again, and watch the 60-foot line. If it falls, you were in the bog side. If it rises, you have crossed into wheelspin. The best value is the one just before the time turns the wrong way.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> lets you choose your launch RPM, balance power against tyre grip, and adjust gear ratios, final drive and boost, with a dyno and race time slips to show the result. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>
