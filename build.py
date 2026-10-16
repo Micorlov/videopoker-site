@@ -119,6 +119,33 @@ def load_posts(apps_by_slug):
     return posts
 
 
+def load_skills():
+    """Skill notes: the same front matter as a blog post, without an app.
+
+    Drop a file in content/skills/ and the index, sitemap and previous/next
+    links pick it up. New prose stays English until tools/translate.py has it.
+    """
+    skills = []
+    folder = CONTENT / "skills"
+    if not folder.is_dir():
+        return skills
+    required = ("title", "date", "description", "standfirst")
+    for path in sorted(folder.glob("*.html")):
+        meta, body = read_front(path)
+        missing = [field for field in required if not meta.get(field)]
+        if missing:
+            raise SystemExit(f"{path}: missing {', '.join(missing)}")
+        meta.update(slug=path.stem, body=body, url=f"/skills/{path.stem}.html")
+        meta.setdefault("modified", meta["date"])
+        meta.setdefault("summary", meta["description"])
+        meta.setdefault("seo_title", re.sub("<[^>]+>", "", meta["title"]))
+        meta.setdefault("seo_description", meta["description"])
+        meta["words"] = len(re.sub("<[^>]+>", " ", body).split())
+        skills.append(meta)
+    skills.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
+    return skills
+
+
 def image_size(path):
     """(width, height) of a JPEG or PNG, read from its header."""
     data = path.read_bytes()
@@ -190,17 +217,8 @@ def post_items(posts, apps_by_slug, show_app=True, summary=False):
     return '<div class="post-list">\n' + "\n".join(rows) + "\n  </div>"
 
 
-def shot_src(app):
-    """First screenshot. Video Poker's shots live in /img/; every other app keeps its own folder."""
-    name = app["screenshots"][0]
-    if (STATIC / "img" / "apps" / app["slug"] / name).exists():
-        return f"/img/apps/{app['slug']}/{name}"
-    return f"/img/{name}"
-
-
 def app_cards(apps, current=None):
     cards = []
-    i = 0
     for a in apps:
         if a["slug"] == current:
             continue
@@ -210,7 +228,7 @@ def app_cards(apps, current=None):
             else f'<span class="state">{esc(a["category"])}</span>'
         )
         cards.append(
-            f"""    <a class="card" href="{a['url']}" data-shot="{shot_src(a)}" data-reveal style="--i:{i}">
+            f"""    <a class="card" href="{a['url']}">
       <img src="{a['icon']}" alt="" width="64" height="64" loading="lazy">
       <span class="card-text">
         <strong>{esc(a['short_name'])}</strong>
@@ -219,7 +237,6 @@ def app_cards(apps, current=None):
       </span>
     </a>"""
         )
-        i += 1
     return '<div class="cards">\n' + "\n".join(cards) + "\n  </div>"
 
 
@@ -311,6 +328,7 @@ def page(path, *, title, description, body, group, og_title=None, og_description
         "head": "\n".join(head),
         "header_cta": cta,
         "blog_current": ' aria-current="page"' if path.startswith("/blog/") else "",
+        "skills_current": ' aria-current="page"' if path.startswith("/skills/") else "",
         "body": body.strip(),
         "email": EMAIL,
         "year": str(dt.date.today().year),
@@ -405,6 +423,13 @@ def emit(built, memories, wanted):
             label = memories[loc.code].get(PICKER_LABEL) or PICKER_LABEL
             page_html = l10n.finish(built[path][loc.code], path, loc, available,
                                     DEFAULT_LOCALE, SITE, label)
+            # Skill notes stay English until they are translated. A language
+            # that does not have /skills/ yet still shows the nav link, pointed
+            # at the English page rather than a prefix that was never built.
+            if loc.code not in built.get("/skills/", {}):
+                page_html = page_html.replace(f'href="{loc.prefix}/skills/', 'href="/skills/')
+                page_html = page_html.replace(
+                    f'href="{SITE}{loc.prefix}/skills/', f'href="{SITE}/skills/')
             write_file(loc.path(path), page_html.replace(LOCALES_MARKER, active))
 
 
@@ -415,65 +440,42 @@ def build_home(apps, posts, abs_):
     live = [a for a in apps if a["status"] == "live"]
     testing = [a for a in apps if a["status"] == "testing"]
     featured = next(a for a in apps if a["featured"])
-    featured_shot = shot_src(featured)
-    fw, fh = image_size(STATIC / featured_shot.lstrip("/"))
-    frames = []
-    for i, a in enumerate(live[:6]):
-        src = shot_src(a)
-        w, h = image_size(STATIC / src.lstrip("/"))
-        frames.append(
-            f"""    <figure data-reveal class="pic" style="--i:{i}">
-      <img src="{src}" width="{w}" height="{h}" alt="" decoding="async">
-      <figcaption>{esc(a['short_name'])}</figcaption>
-    </figure>"""
-        )
     body = f"""
 <main>
-<div class="hero">
-  <div class="monument-mask">
-    <h1 class="monument">Orlov Games</h1>
-  </div>
-  <div class="hero-corner">
-    <p class="sub">Small games for Android</p>
-    <p class="lede">Card tables, casino classics, puzzles and a couple of useful tools, made by Michael Orlov in Israel. The casino games play for chips only: no real money, ever.</p>
-    <div class="cta-row">
-      <a class="play" href="#apps">See all {len(apps)} apps</a>
-      <a class="text-link" href="/blog/">Read the blog</a>
+<div class="hero wrap">
+  <h1>Orlov Games<span class="sub">Small games for Android</span></h1>
+  <div class="hero-grid">
+    <div>
+      <p class="lede">Card tables, casino classics, puzzles and a couple of useful tools, made by Michael Orlov in Israel. The casino games play for chips only: no real money, ever.</p>
+      <div class="cta-row">
+        <a class="play" href="#apps">See all {len(apps)} apps</a>
+        <a class="text-link" href="/blog/">Read the blog</a>
+      </div>
     </div>
+    <a class="feature" href="{featured['url']}">
+      <img src="{featured['icon']}" alt="" width="120" height="120" fetchpriority="high" decoding="async">
+      <span class="feature-label">Most played</span>
+      <strong>{esc(featured['name'])}</strong>
+      <span>{esc(featured['tagline'])}</span>
+    </a>
   </div>
 </div>
 
-<section class="wrap sheet" id="apps">
-  <h2 data-reveal>Out now</h2>
-  <p class="section-lede" data-reveal style="--i:1">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
-  <div class="catalog">
-    <div class="stage-col">
-      <div class="stage">
-        <img data-stage src="{featured_shot}" width="{fw}" height="{fh}" alt="" fetchpriority="high" decoding="async">
-      </div>
-      <a class="feature" href="{featured['url']}">
-        <strong>{esc(featured['name'])}</strong>
-        <span class="feature-label">Most played</span>
-        <span>{esc(featured['tagline'])}</span>
-      </a>
-    </div>
-    {app_cards(live)}
-  </div>
+<section class="wrap" id="apps">
+  <h2>Out now</h2>
+  <p class="section-lede">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
+  {app_cards(live)}
 </section>
 
-<section class="gallery wrap" id="screens">
-{chr(10).join(frames)}
-</section>
-
-<section class="wrap sheet" id="testing">
-  <h2 data-reveal>In testing</h2>
-  <p class="section-lede" data-reveal style="--i:1">In closed testing on Google Play, and public as soon as they are ready.</p>
+<section class="wrap" id="testing">
+  <h2>In testing</h2>
+  <p class="section-lede">In closed testing on Google Play, and public as soon as they are ready.</p>
   {app_cards(testing)}
 </section>
 
-<section class="wrap sheet" id="blog">
-  <h2 data-reveal>From the blog</h2>
-  <p class="section-lede" data-reveal style="--i:1">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
+<section class="wrap" id="blog">
+  <h2>From the blog</h2>
+  <p class="section-lede">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
   {post_items(posts[:5], abs_, summary=True)}
   <p class="more"><a href="/blog/">All {len(posts)} posts</a></p>
 </section>
@@ -548,7 +550,7 @@ def app_posts_section(app, posts, abs_, heading="From the blog"):
     if not mine:
         return ""
     more = f'\n  <p class="more"><a href="/blog/{app["slug"]}/">All {len(mine)} {esc(app["short_name"])} posts</a></p>' if len(mine) > 5 else ""
-    return f"""<section class="wrap sheet" id="blog">
+    return f"""<section class="wrap" id="blog">
   <h2>{heading}</h2>
   <p class="section-lede">Notes on how {esc(app['short_name'])} works underneath.</p>
   {post_items(mine[:5], abs_, show_app=False, summary=True)}{more}
@@ -595,7 +597,7 @@ def build_app(app, apps, posts, abs_):
   </div>
 </div>
 
-<section class="wrap sheet" id="screens">
+<section class="wrap" id="screens">
   <h2>What it looks like</h2>
   <div class="strip {wide}">
 {chr(10).join(shots)}
@@ -711,7 +713,7 @@ def build_blog(apps, posts, abs_):
             body=f"""
 <main class="post wrap">
   <div class="post-head">
-    <p class="trail"><a href="/blog/">Blog</a></p>
+    <p class="kicker"><a href="/blog/">Blog</a></p>
     <h1>{esc(app['short_name'])}</h1>
     <p class="standfirst">Posts about <a href="{app['url']}">{esc(app['name'])}</a>, newest first.</p>
   </div>
@@ -776,7 +778,7 @@ def build_post(p, posts, abs_):
         body=f"""
 <main class="post wrap">
   <div class="post-head">
-    <p class="trail"><a href="/blog/">Blog</a> · <a href="/blog/{app['slug']}/">{esc(app['short_name'])}</a> · <time datetime="{p['date']}">{nice_date(p['date'])}</time></p>
+    <p class="kicker"><a href="/blog/">Blog</a> · <a href="/blog/{app['slug']}/">{esc(app['short_name'])}</a> · <time datetime="{p['date']}">{nice_date(p['date'])}</time></p>
     <h1>{p['title']}</h1>
     <p class="standfirst">{p['standfirst']}</p>
   </div>
@@ -810,6 +812,129 @@ def build_post(p, posts, abs_):
                 "about": {"@type": "MobileApplication", "name": app["name"], "url": SITE + app["url"]},
             },
             breadcrumb(("Home", "/"), ("Blog", "/blog/"), (app["short_name"], f"/blog/{app['slug']}/"), (plain, None)),
+        ],
+    )
+
+
+def skill_items(skills, summary=False):
+    rows = []
+    for p in skills:
+        rows.append(
+            f"""    <article class="post-item">
+      <time datetime="{p['date']}">{nice_date(p['date'])}</time>
+      <div>
+        <h3><a href="{p['url']}">{esc(p['title'])}</a></h3>
+        <p>{esc(p['summary'] if summary else p['description'])}</p>
+      </div>
+    </article>"""
+        )
+    return '<div class="post-list">\n' + "\n".join(rows) + "\n  </div>"
+
+
+def skill_schema(skills, url, name):
+    return {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": SITE + url,
+        "name": name,
+        "url": SITE + url,
+        "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO},
+        "blogPost": [
+            {"@type": "BlogPosting", "headline": re.sub("<[^>]+>", "", p["title"]), "url": SITE + p["url"],
+             "datePublished": p["date"], "description": p["description"]}
+            for p in skills
+        ],
+    }
+
+
+def build_skills(skills):
+    latest = skills[0]["modified"] if skills else None
+    page(
+        "/skills/",
+        title=fit_title("Skills — notes on AI coding skills"),
+        description="Short notes on AI coding-agent skills: what each one is, what it does, and how to install it.",
+        og_title=f"{STUDIO} skills",
+        body=f"""
+<main class="post wrap">
+  <div class="post-head">
+    <h1>Skills</h1>
+    <p class="standfirst">Short notes on AI coding-agent skills: what each one is, what it does, and how to install it.</p>
+  </div>
+  {skill_items(skills)}
+</main>
+""",
+        group="Skills",
+        schema=[skill_schema(skills, "/skills/", f"{STUDIO} skills"), breadcrumb(("Home", "/"), ("Skills", None))],
+    )
+    for i, p in enumerate(skills):
+        older = skills[i + 1] if i + 1 < len(skills) else None
+        newer = skills[i - 1] if i else None
+        build_skill(p, older, newer, skills)
+
+
+def build_skill(p, older, newer, skills):
+    plain = re.sub("<[^>]+>", "", p["title"])
+    links = []
+    if older:
+        links.append(f'<a class="seq older" href="{older["url"]}"><span>Previous post</span>{esc(older["title"])}</a>')
+    if newer:
+        links.append(f'<a class="seq newer" href="{newer["url"]}"><span>Next post</span>{esc(newer["title"])}</a>')
+    sequence = (
+        '<nav class="post-seq wrap-inner" aria-label="More skill notes">' + "".join(links) + "</nav>"
+        if links else ""
+    )
+    others = [q for q in skills if q["slug"] != p["slug"]][:3]
+    more = (
+        f"""
+  <aside class="related wrap-inner">
+    <h2>More skills</h2>
+    {skill_items(others, summary=True)}
+  </aside>"""
+        if others else ""
+    )
+    page(
+        p["url"],
+        title=fit_title(p["seo_title"]),
+        description=p["seo_description"],
+        og_title=plain,
+        og_type="article",
+        published=p["date"],
+        modified=p["modified"],
+        body=f"""
+<main class="post wrap">
+  <div class="post-head">
+    <p class="kicker"><a href="/skills/">Skills</a> · <time datetime="{p['date']}">{nice_date(p['date'])}</time></p>
+    <h1>{esc(p['title'])}</h1>
+    <p class="standfirst">{esc(p['standfirst'])}</p>
+  </div>
+
+  <article class="post-body">
+{p['body'].strip()}
+  </article>
+{sequence}
+{more}
+</main>
+""",
+        group="Skills",
+        schema=[
+            {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": plain,
+                "description": p["description"],
+                "datePublished": p["date"],
+                "dateModified": p["modified"],
+                "inLanguage": "en",
+                "wordCount": p["words"],
+                "articleSection": "Skills",
+                "author": {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR},
+                "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO,
+                              "logo": {"@type": "ImageObject", "url": SITE + "/img/mark-512.png"}},
+                "image": SITE + DEFAULT_OG,
+                "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + p["url"]},
+                "isPartOf": {"@type": "Blog", "@id": SITE + "/skills/", "name": f"{STUDIO} skills"},
+            },
+            breadcrumb(("Home", "/"), ("Skills", "/skills/"), (plain, None)),
         ],
     )
 
@@ -862,7 +987,7 @@ def build_404(apps):
         body="""
 <main class="doc wrap">
   <h1>Page not found</h1>
-  <p>Nothing lives at this address. Try the <a href="/">list of apps</a> or the <a href="/blog/">blog</a>.</p>
+  <p>Nothing lives at this address. Try the <a href="/">list of apps</a>, the <a href="/blog/">blog</a>, or <a href="/skills/">skills</a>.</p>
 </main>
 """,
         group="404",
@@ -872,7 +997,7 @@ def build_404(apps):
     )
 
 
-def build_sitemap(apps, posts, built):
+def build_sitemap(apps, posts, skills, built):
     latest = posts[0]["modified"] if posts else None
     def app_mod(a):
         # An app page lists its own posts, so it genuinely changes when one lands.
@@ -885,6 +1010,9 @@ def build_sitemap(apps, posts, built):
         if mine:
             urls.append((f"/blog/{a['slug']}/", max(p["modified"] for p in mine)))
     urls += [(p["url"], p["modified"]) for p in posts]
+    if skills:
+        urls.append(("/skills/", max(s["modified"] for s in skills)))
+        urls += [(s["url"], s["modified"]) for s in skills]
     # Every language that carries a page is listed under its own URL. The
     # hreflang set that ties them together is on the pages themselves.
     rows = "\n".join(
@@ -954,14 +1082,16 @@ def collect():
     apps = load_apps()
     abs_ = {a["slug"]: a for a in apps}
     posts = load_posts(abs_)
+    skills = load_skills()
     build_home(apps, posts, abs_)
     for app in apps:
         build_app(app, apps, posts, abs_)
     build_blog(apps, posts, abs_)
+    build_skills(skills)
     build_legal(apps, abs_)
     build_404(apps)
     redirect("/terms.html", "/VideoPoker/terms.html")
-    return apps, posts, abs_
+    return apps, posts, skills, abs_
 
 
 def main():
@@ -969,12 +1099,12 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(STATIC, OUT)
-    apps, posts, abs_ = collect()
+    apps, posts, skills, abs_ = collect()
 
     built, memories, wanted = localize_site(requested)
     emit(built, memories, wanted)
     published = sorted({code for page in built.values() for code in page})
-    build_sitemap(apps, posts, built)
+    build_sitemap(apps, posts, skills, built)
     build_feed(posts, abs_, DEFAULT_LOCALE)
     for loc in wanted:
         if loc.code in published:

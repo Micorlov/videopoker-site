@@ -27,12 +27,12 @@
 {{ head }}
 <!-- @alternates -->
 <link rel="alternate" type="application/rss+xml" title="Orlov Games blog" href="/feed.xml">
-<meta name="theme-color" content="#0f1f10">
+<meta name="theme-color" content="#07170F">
 <link rel="icon" href="/img/mark.svg" type="image/svg+xml">
 <link rel="icon" href="/img/mark-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/img/mark-180.png">
-<link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-400-04.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/antonio-400-01.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -45,6 +45,7 @@
     <nav class="topnav">
       <a href="/#apps">Apps</a>
       <a href="/blog/"{{ blog_current }}>Blog</a>
+      <a href="/skills/"{{ skills_current }}>Skills</a>
       {{ header_cta }}
     </nav>
   </div>
@@ -54,17 +55,17 @@
 
 <footer>
   <div class="wrap">
-    <p class="footer-name">Orlov Games</p>
     <p class="copyright">Orlov Games — Michael Orlov, Russia</p>
     <nav>
       <a href="/">Apps</a>
       <a href="/blog/">Blog</a>
+      <a href="/skills/">Skills</a>
       <a href="/privacy-policy.html">Privacy policy</a>
       <a href="mailto:{{ email }}">{{ email }}</a>
     </nav>
     <!-- @langs -->
   </div>
 </footer>
-<script src="/motion.js" defer></script>
+
 </body>
 </html>

@@ -14,6 +14,7 @@ content/
                        instead of the generated page
   posts/*.html         blog posts: JSON front matter + article body
                        (seo_title / seo_description override an over-long one)
+  skills/*.html        skill notes, same front matter as a post, no app field
   legal/*.html         privacy policy / terms pages
 templates/base.html    <head>, Google Analytics tag, header, footer — on every page
 static/                copied as-is: style.css, fonts.css, fonts/, img/, CNAME,
@@ -37,6 +38,8 @@ tools/fetch_play.py    refresh listing text, icons and screenshots from Google P
 | `/blog/` | All posts, with a filter for each app |
 | `/blog/<Slug>/` | Posts for one app (only built for apps that have posts) |
 | `/blog/<post>.html` | A post |
+| `/skills/` | Notes on AI coding-agent skills |
+| `/skills/<post>.html` | One skill note |
 | `/privacy-policy.html` | Website policy (Google Analytics) + links to each app's policy |
 | `/VideoPoker/privacy-policy.html`, `/VideoPoker/terms.html` | Video Poker's own legal pages |
 
@@ -58,6 +61,17 @@ python3 tools/check.py
 A scheduled agent publishes one post for every game each morning. Its
 instructions and the topic queue for each game are in `blog-topics.md`, so
 steer it by editing that file.
+
+**Add a skills post:** one new file in `content/skills/`. Copy the front
+matter from an existing file there: `title`, `date`, `description`,
+`summary`, `standfirst`, then the HTML body. There is no `app` field.
+`title` stays within 60 characters and `description` within 70–160, or set
+`seo_title` / `seo_description` the same way a blog post does. The next
+`python3 build.py` adds the note to `/skills/`, the sitemap, and the
+previous/next links. A new note stays English on the other published
+languages until its strings are in `content/i18n/`. Until then those
+languages keep the Skills link and point it at the English page. The nav
+word "Skills" is already in `content/i18n/`.
 
 **Add an app, or move one from testing to live:** edit `content/apps.json`.
 For a live app, run `python3 tools/fetch_play.py <Slug>` to pull its listing,
@@ -126,10 +140,22 @@ points at it.
 
 ### Fonts
 
-General Sans is self-hosted in `static/fonts/`, so the first paint waits on no
-font CDN. `static/fonts.css` declares the three weights the pages use, and the
-regular and bold files are preloaded in `templates/base.html`. Scripts the file
-does not cover fall through to the system font. See `static/fonts/NOTICE`.
+Antonio and Archivo are self-hosted in `static/fonts/`, so the first paint waits
+on no cross-origin DNS, TLS and round trip to `fonts.googleapis.com` and
+`fonts.gstatic.com`. `static/fonts.css` is the Google Fonts stylesheet with the
+URLs pointed at local copies and nothing else changed, and the two latin files
+the header and body text need are preloaded in `templates/base.html`.
+
+To refresh them, fetch the stylesheet with a current browser's user agent (an old
+one is served ttf instead of woff2), download every `.woff2` it names, and replace
+`static/fonts.css` and `static/fonts/*.woff2` together:
+
+```sh
+curl -A "$(python3 -c 'print("Mozilla/5.0 Chrome/126.0.0.0 Safari/537.36")')" \
+  'https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap'
+```
+
+Both faces are SIL Open Font License 1.1; see `static/fonts/NOTICE`.
 
 ## Analytics
 
@@ -138,7 +164,7 @@ property *michaelorlov.com* (Israel time zone) → web stream "michaelorlov.com"
 micorlov@gmail.com. Until October 2026 the site used `G-S6E36TV2PC` in the
 Firebase property *android-34c9a*; older history stays there. Each page
 also sends a `content_group`: the app slug on app pages and posts, or `Home`,
-`Blog`, `Legal`, `404`. That splits reports by app under Engagement → Pages and
+`Blog`, `Skills`, `Legal`, `404`. That splits reports by app under Engagement → Pages and
 screens → Content group. Clicks on a Google Play button send a
 `play_store_click` event with an `app` parameter.
 
