@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Aiming with the ghost ball: cut angle and ball overlap",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "EightBallsPool",
+  "description": "How the ghost-ball method turns a pot into a single aiming point, and how cut angle maps to the fraction of the object ball your cue ball covers.",
+  "summary": "Aim the cue ball's centre at an imaginary ball touching the object ball on the far side from the pocket. The overlap you see is 1 - sin(cut angle): half a ball at 30 degrees.",
+  "standfirst": "Every pot reduces to one question: where must the cue ball's centre be at the moment of contact? The ghost-ball method answers it with a circle and a straight line."
+}
+-->
+<p>Aiming at the object ball itself is a common mistake. If you point the cue at the middle of the ball you want to pot, the ball can only travel straight ahead, along the line the cue ball was already on. The ball goes towards the pocket only when it is pushed along the line from the cue ball's centre through its own centre at the moment they touch. The ghost-ball method works backwards from that fact.</p>
+
+<h2>The idea in three steps</h2>
+<ol class="ranked">
+  <li><strong>Draw the pot line.</strong> Picture a line from the pocket through the centre of the object ball and keep going behind it.</li>
+  <li><strong>Place the ghost.</strong> Put an imaginary ball on that line, touching the object ball on the side away from the pocket. Its centre is one ball diameter (2R, where R is the radius) behind the object ball's centre.</li>
+  <li><strong>Send the cue ball's centre to the ghost.</strong> If the cue ball arrives exactly where the ghost sits, the two real balls touch along the pot line. The object ball is pushed straight at the pocket.</li>
+</ol>
+<p>This works because, for smooth balls, the push on the object ball acts along the line joining the two centres at contact. Friction between the balls can bend that slightly, which is why spin matters (see <a href="/blog/cue-ball-spin-explained.html">cue-ball spin explained</a>), but the line of centres is the starting point for every cut.</p>
+
+<h2>The geometry</h2>
+<p>The cut angle is the angle between the cue ball's path and the pot line. In the figure it is 30 degrees. The ghost ball's centre sits on the cue ball's path, so the path passes the object ball's centre at a sideways distance of <strong>2R sin(angle)</strong>. At 30 degrees, sin 30 is exactly 1/2, so that distance is R: the cue ball's centreline runs along the edge of the object ball.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 220" role="img" aria-label="Ghost-ball diagram: the cue ball travels along a horizontal path to a dashed ghost ball touching the object ball. The pot line runs from the ghost ball through the object ball to the pocket. The angle between path and pot line is 30 degrees, and the cue ball covers half of the object ball.">
+    <line x1="70" y1="140" x2="198" y2="140" class="ref"/>
+    <line x1="198" y1="140" x2="363" y2="45" class="ref" stroke-dasharray="4 4"/>
+    <circle cx="363" cy="45" r="13" class="fill-soft" stroke="var(--chart-base)" stroke-width="2"/>
+    <text x="345" y="30" class="strong">Pocket</text>
+    <circle cx="250" cy="110" r="30" class="fill-base"/>
+    <text x="250" y="114" text-anchor="middle" class="strong" style="fill:#fff">Object</text>
+    <circle cx="198" cy="140" r="30" fill="none" stroke="var(--chart-accent)" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <circle cx="70" cy="140" r="30" class="fill-accent"/>
+    <text x="70" y="190" text-anchor="middle" class="strong">Cue ball</text>
+    <text x="198" y="190" text-anchor="middle" class="strong">Ghost ball</text>
+    <path d="M 222 140 A 24 24 0 0 0 218.8 128" fill="none" stroke="var(--chart-accent)" stroke-width="2"/>
+    <text x="234" y="158" class="strong">30°</text>
+    <text x="270" y="190">Overlap: 1 − sin 30° = 1/2</text>
+    <text x="270" y="206">(cue ball covers half the object ball)</text>
+  </svg>
+  <figcaption>The ghost-ball method at a 30-degree cut. The dashed ghost circle touches the object ball on the pot line; the cue ball's centre must arrive at its centre. All three balls are drawn the same size.</figcaption>
+</figure>
+
+<h2>From cut angle to what you see</h2>
+<p>You cannot measure an angle at the table, but you can judge how much of the object ball the cue ball hides when you look along the aiming line. Both balls have the same diameter, so the cue ball's width is offset from the object ball's by 2R sin(angle). The part of the object ball's diameter that is covered is what remains:</p>
+<div class="callout">
+  <p><strong>Overlap = 1 − sin(cut angle)</strong>, as a fraction of the ball's width.</p>
+</div>
+<p>That gives a short list worth remembering:</p>
+<ul>
+  <li><strong>0 degrees:</strong> overlap 1. A full-ball hit, straight in.</li>
+  <li><strong>About 14.5 degrees:</strong> overlap 3/4, because sin 14.5 is about 1/4.</li>
+  <li><strong>30 degrees:</strong> overlap 1/2. The familiar half-ball hit.</li>
+  <li><strong>About 48.6 degrees:</strong> overlap 1/4, because sin 48.6 is about 3/4.</li>
+  <li><strong>About 61 degrees:</strong> overlap 1/8, because sin 61 is about 7/8. A thin cut.</li>
+  <li><strong>90 degrees:</strong> overlap 0. The balls would only graze, and the object ball would not move.</li>
+</ul>
+<p>The numbers are not evenly spaced. Overlap falls by a quarter over the first 14.5 degrees, but by another quarter only after a further 15.5 degrees, and the last quarter takes from 48.6 to 90 degrees. Most thin cuts compress into a narrow band of overlap, which is why the last few millimetres of aim matter so much on them.</p>
+
+<h2>Why thin cuts are less forgiving</h2>
+<p>Move the cue ball's path sideways by a small amount e and the angle to the pot line changes by about e / (2R cos(angle)), in radians. The cos term sits in the denominator, so the same sideways slip costs more direction the further round you cut. On a standard ball, 2R is 2¼ in, or 57.15 mm. A 1 mm slip then sends the object ball about:</p>
+<ul>
+  <li><strong>1.0 degree</strong> off line on a straight shot (cos 0 = 1).</li>
+  <li><strong>2.0 degrees</strong> off line at 60 degrees (cos 60 = 1/2).</li>
+</ul>
+<p>Over the roughly metre-long journey to a far pocket, a degree is a little under 2 cm, so the same small error that sinks a straight pot can miss a thin cut. Shorter shots, and shots with more overlap, are simply more tolerant.</p>
+
+<h2>Practical points</h2>
+<p>Find the ghost position by eye from behind the shot, then walk the line in: pocket, object ball, ghost, cue ball. Keep the cue pointed at the ghost's centre rather than its edge. Check the pot line before you commit to the cue ball path, because an error there carries straight through. And remember what the method assumes: smooth, clean contact with no sidespin. Fast shots and heavy sidespin can throw the object ball a little off the pot line, so use the aim as a baseline and adjust.</p>
+<p>The same geometry decides which pots are sensible when you choose a group in <a href="/blog/eight-ball-rules-explained.html">8-ball</a> or plan the lowest ball in <a href="/blog/nine-ball-rules-explained.html">9-ball</a>: a ball needing a 60-degree cut is a riskier choice than one needing 15.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

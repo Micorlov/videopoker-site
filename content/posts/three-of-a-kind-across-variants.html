@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "Three of a kind: how each video poker variant treats it",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "VideoPoker",
+  "description": "Three of a kind pays 3 in Jacks or Better, Bonus Poker and Double Bonus, but 1 in Deuces Wild. What each paytable makes of the hand, and why you keep the three.",
+  "summary": "Three of a kind pays 3 on three variants and 1 on Deuces Wild, and the same three-card hold is worth anything from 2.02 to 10.11 coins.",
+  "standfirst": "The same three cards pay 3, or 1, or are worth ten times as much once you draw. It depends entirely on which table you are looking at."
+}
+-->
+<p>Three of a kind is the hand most players treat as settled: a decent made hand, hold it, move on. In video poker that is only half right. The hand pays the same 3 coins on three of the four machines in the app and 1 on the fourth, and the value of holding it swings far more than the pay column suggests, because the real prize is the draw to four of a kind.</p>
+
+<h2>What it pays on each machine</h2>
+<p>On the full-pay tables, per coin bet:</p>
+<ul>
+  <li><strong>Jacks or Better (9/6):</strong> 3. Two pair pays 2, a straight 4.</li>
+  <li><strong>Bonus Poker:</strong> 3. Two pair pays 2, a straight 4.</li>
+  <li><strong>Double Bonus:</strong> 3. Two pair is cut to 1, so three of a kind pays <em>three times</em> two pair.</li>
+  <li><strong>Deuces Wild:</strong> 1. It is the lowest paying hand on the table. A straight and a flush both pay 2, a full house 3.</li>
+</ul>
+<p>The Deuces Wild line looks odd. In ordinary poker three of a kind outranks both a straight and a flush. Here the paytable pays a straight twice as much, because pay follows how often a hand turns up, not its poker rank. With four wild cards, three of a kind is by far the commonest finished hand: roughly 28% of hands end there, against about 7.4% on 9/6 Jacks or Better. That is why the table can only afford to pay 1. For the same reason it makes up about 28% of the full-pay Deuces Wild return, and about a fifth of the return on Jacks or Better. The detail of the other rows is in <a href="/blog/reading-a-deuces-wild-paytable.html">reading a Deuces Wild paytable</a>.</p>
+
+<h2>Being dealt it is rare</h2>
+<p>Three of a kind as a natural five-card deal happens 54,912 times in 2,598,960 hands: 13 ranks × 4 ways to choose three suits × 66 choices of two different ranks for the side cards (from the other 12) × 4 × 4 suits for those two cards. That is 2.11%, or about once in 47 hands. Most of the three of a kind you collect on Jacks or Better arrives on the draw, which is why <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">holding a pair</a> sits so near the top of the strategy list.</p>
+
+<h2>Hold the three, throw away the kickers</h2>
+<p>On every machine here, dealt three of a kind with two unrelated side cards, you keep the three and draw two. The sums are short. After you discard, 47 cards are left, and there are 1,081 ways to draw two of them. Of those:</p>
+<ul>
+  <li><strong>46</strong> contain the fourth card of your rank, so you make four of a kind;</li>
+  <li><strong>66</strong> are a pair that makes a full house (ten ranks untouched, plus the two kicker ranks with three cards left each: 10 × 6 + 2 × 3);</li>
+  <li><strong>969</strong> do neither, and you stay on three of a kind.</li>
+</ul>
+<p>On 9/6 Jacks or Better the value of that draw is (46 × 25 + 66 × 9 + 969 × 3) / 1,081, which is about <strong>4.30 coins</strong> per coin bet. Holding a kicker as well and drawing one card is worse: (1 × 25 + 3 × 9 + 43 × 3) / 47 is about 3.85.</p>
+
+<h2>The same hold, many different values</h2>
+<p>Swap in the other paytables and the identical hold changes value. In Bonus Poker and Double Bonus the four-of-a-kind row depends on rank, so which three you hold matters as well.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the value in coins per coin bet of holding three of a kind and drawing two cards, by variant and rank">
+    <div class="bar-row hl" title="Double Bonus, three aces: 10.11"><span class="bar-label">Double Bonus, three aces</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">10.11</span></span></div>
+    <div class="bar-row" title="Double Bonus, three 2s–4s: 6.70"><span class="bar-label">Double Bonus, three 2s–4s</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6627)"></span><span class="bar-val">6.70</span></span></div>
+    <div class="bar-row" title="Bonus Poker, three aces: 6.58"><span class="bar-label">Bonus Poker, three aces</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6508)"></span><span class="bar-val">6.58</span></span></div>
+    <div class="bar-row" title="Double Bonus, three 5s–Ks: 5.43"><span class="bar-label">Double Bonus, three 5s–Ks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5371)"></span><span class="bar-val">5.43</span></span></div>
+    <div class="bar-row" title="Bonus Poker, three 2s–4s: 4.88"><span class="bar-label">Bonus Poker, three 2s–4s</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4827)"></span><span class="bar-val">4.88</span></span></div>
+    <div class="bar-row" title="9/6 Jacks or Better, any rank: 4.30"><span class="bar-label">9/6 Jacks or Better, any rank</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4253)"></span><span class="bar-val">4.30</span></span></div>
+    <div class="bar-row" title="Bonus Poker, three 5s–Ks: 4.24"><span class="bar-label">Bonus Poker, three 5s–Ks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4194)"></span><span class="bar-val">4.24</span></span></div>
+    <div class="bar-row" title="Deuces Wild, any rank: 2.02"><span class="bar-label">Deuces Wild, any rank</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1998)"></span><span class="bar-val">2.02</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet when you hold three of a kind with two unrelated kickers and draw two cards, on full-pay tables. Deuces Wild assumes no deuce in the starting hand.</figcaption>
+</figure>
+
+<p>Three aces on Double Bonus is worth (46 × 160 + 66 × 10 + 969 × 3) / 1,081 ≈ 10.11, more than three times the 3 coins the made hand pays. Three 5s to kings on Bonus Poker is worth 4.24, slightly below Jacks or Better at 4.30, because Bonus Poker pays 8 for the full house instead of 9.</p>
+<p>The Deuces Wild figure comes out differently, at 2.02, but for the opposite reason: the four deuces are in the 47 cards. Of the 1,081 draws, 6 hold two deuces and 4 hold one deuce plus your fourth card, all making five of a kind for 15; another 168 + 42 make four of a kind for 5 by a deuce or the natural fourth card; 60 make a full house for 3; the remaining 801 stay at 1. Total: 2,181 / 1,081 ≈ 2.02. The made hand pays 1, so the draw is worth double it. If a deuce is already in your hand the situation is different, and that is covered in the <a href="/blog/deuces-wild-strategy.html">Deuces Wild strategy post</a>.</p>
+
+<div class="callout">
+  <p>These are full-pay values. A table that pays less for a full house or four of a kind lowers each figure, so check the paytable on screen before leaning on a number from this page.</p>
+</div>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Three of a kind is a 3-coin hand on Jacks or Better, Bonus Poker and Double Bonus, and a 1-coin hand on Deuces Wild.</li>
+  <li>Always keep the three and draw two. Keeping a kicker costs about 0.45 of a coin on Jacks or Better.</li>
+  <li>On Bonus Poker and Double Bonus, aces and low trips are worth much more to hold than middle ranks because their quads pay more. See <a href="/blog/bonus-poker-and-double-bonus.html">Bonus Poker and Double Bonus</a>.</li>
+  <li>On Deuces Wild expect it to be your most common result. It is the baseline, not a reward.</li>
+</ol>
+<p>The full hold order for the first machine is in <a href="/blog/jacks-or-better-strategy.html">the Jacks or Better strategy post</a>.</p>
+
+<div class="post-foot">
+  <p>All four machines in <a href="/VideoPoker/">Video Poker: Jacks or Better</a> show their paytable on screen, so you can check what three of a kind pays before you draw, and strategy hints will point at the correct hold while you learn. It plays offline, with chips that are free and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

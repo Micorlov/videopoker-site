@@ -163,66 +163,66 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-1. Three of a kind: the hand that behaves differently in every variant
-2. The order to learn video poker variants in
+1. The order to learn video poker variants in
 
 ### OmahaPoker
 
-1. Wraps: how an Omaha straight draw can have 20 outs
-2. Why the second-best flush is a trap in Omaha
+1. Why the second-best flush is a trap in Omaha
 
 ### Blackjack21
 
-1. What a six-deck shoe changes compared with a single deck
-2. Twenty-one, pontoon and blackjack: how the games differ
+1. Twenty-one, pontoon and blackjack: how the games differ
 
 ### BrasslightSlots
 
-1. Return to player and volatility: what each number measures
-2. How a pick bonus works, and why the picks are already decided
+1. How a pick bonus works, and why the picks are already decided
 
 ### PokerVsDealer
 
-1. Breaking ties in five-card poker: high cards and split pots
-2. Is the ace high or low? The ace in five-card poker
+1. Is the ace high or low? The ace in five-card poker
 
 ### FivesAndThrees
 
-1. Doubles at an open end: why they count twice
-2. Counting tiles: working out what your opponent cannot hold
+1. Counting tiles: working out what your opponent cannot hold
 
 ### BlackjackCoach
 
-1. Late surrender: the hands worth giving up on
-2. Hard 12 against a 2 or 3: why basic strategy says hit
+1. Hard 12 against a 2 or 3: why basic strategy says hit
 
 ### HoldemCoach
 
-1. Reading the board: finding the best five cards from seven
-2. Pocket pair against two overcards: the coin flip that isn't
+1. Pocket pair against two overcards: the coin flip that isn't
 
 ### EightBallsPool
 
-1. Aiming with the ghost ball
-2. The 90-degree rule: where the cue ball goes after a stun shot
+1. The 90-degree rule: where the cue ball goes after a stun shot
 
 ### BigBenBlocks
 
-1. From Tetris to Sudoku: where the 9x9 block puzzle comes from
-2. Shapes as well as colours: block puzzles for colour-blind players
+1. Shapes as well as colours: block puzzles for colour-blind players
 
 ### PinkSlipKings
 
-1. Horsepower and torque: how to read a dyno chart
-2. When to shift: why the best shift point is past peak torque
+1. When to shift: why the best shift point is past peak torque
 
 ### ValleyRail
 
-1. Beam, arch, truss or suspension: how each bridge carries a load
-2. Railway towns: how a station made a village grow
+1. Railway towns: how a station made a village grow
 
 ## Published
 
+- 2026-10-16 — Three of a kind: how each video poker variant treats it — VideoPoker — `three-of-a-kind-across-variants`
+- 2026-10-16 — Wraps: how an Omaha straight draw can have 20 outs — OmahaPoker — `omaha-wrap-straight-draws`
+- 2026-10-16 — What a six-deck shoe changes compared with a single deck — Blackjack21 — `six-deck-shoe-vs-single-deck`
+- 2026-10-16 — Slot RTP and volatility: what each number measures — BrasslightSlots — `slot-rtp-and-volatility`
+- 2026-10-16 — Breaking ties in five-card poker: high cards and split pots — PokerVsDealer — `five-card-poker-tie-breaks`
+- 2026-10-16 — Doubles at an open end in Fives and Threes — FivesAndThrees — `fives-and-threes-doubles-at-open-ends`
+- 2026-10-16 — Late surrender: the hands worth giving up on — BlackjackCoach — `blackjack-late-surrender`
+- 2026-10-16 — Reading the board: the best five cards from seven — HoldemCoach — `holdem-best-five-from-seven`
+- 2026-10-16 — Aiming with the ghost ball: cut angle and ball overlap — EightBallsPool — `ghost-ball-aiming`
+- 2026-10-16 — From Tetris to Sudoku: where the 9x9 block puzzle comes from — BigBenBlocks — `block-puzzle-from-tetris-to-sudoku`
+- 2026-10-16 — Horsepower and torque: how to read a dyno chart — PinkSlipKings — `reading-a-dyno-chart`
+- 2026-10-16 — How railway bridges carry a load: four designs — ValleyRail — `how-railway-bridges-carry-a-load`
 - 2026-10-15 — Why practising video poker offline teaches more — VideoPoker — `why-practise-video-poker-offline`
 - 2026-10-15 — How a low hand is made in Omaha Hi-Lo, and what 8 or better means — OmahaPoker — `omaha-hi-lo-eight-or-better`
 - 2026-10-15 — Splitting pairs: why you always split aces and eights — Blackjack21 — `blackjack-always-split-aces-and-eights`

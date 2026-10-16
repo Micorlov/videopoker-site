@@ -1,0 +1,116 @@
+<!--
+{
+  "title": "Horsepower and torque: how to read a dyno chart",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "PinkSlipKings",
+  "description": "Horsepower is torque times rpm divided by 5,252, so the two curves always cross at 5,252 rpm. An example engine shows what each line means for acceleration.",
+  "summary": "A dyno chart plots torque and horsepower against engine speed. Horsepower is calculated from torque, which is why the lines cross at 5,252 rpm and why the peaks sit at different revs. Worked through an invented example engine.",
+  "standfirst": "A dyno chart has two lines that look like separate measurements. They are not: one is calculated from the other, and once you know the formula the chart tells you more than the peak figures printed on it."
+}
+-->
+<p>A dyno chart plots two curves against engine speed: torque and horsepower. The two usually get argued about as if they were rival measures. They are the same measurement seen two ways, and a single formula links them. This post uses an invented engine so the numbers can be checked; it is an example, not data about any car in a game.</p>
+
+<h2>What each line measures</h2>
+<p>Torque is a twisting force. One pound-foot (lb-ft) is a one-pound push at the end of a one-foot lever. It says how hard the crankshaft is turning at that moment, and nothing about how fast.</p>
+<p>Horsepower is a rate of doing work. One horsepower is defined as 550 foot-pounds per second, or 33,000 foot-pounds per minute. One turn of the crank at a given torque does 2π × torque foot-pounds of work, so at a given engine speed:</p>
+<p><strong>hp = torque (lb-ft) × rpm × 2π ÷ 33,000 = torque × rpm ÷ 5,252</strong></p>
+<p>The 5,252 is 33,000 ÷ 2π, which is 5,252.1. Horsepower is torque multiplied by speed, so it can only be as large as both allow.</p>
+
+<h2>An example engine</h2>
+<p>Take six torque readings from an invented engine and turn each into horsepower with the formula:</p>
+
+<table class="paytable-compare">
+  <caption>Illustrative engine. Horsepower is torque × rpm ÷ 5,252, rounded to one decimal place.</caption>
+  <thead>
+    <tr><th>Engine speed</th><th>Torque</th><th>Horsepower</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2,000 rpm</th><td>220 lb-ft</td><td>83.8 hp</td></tr>
+    <tr><th scope="row">3,000 rpm</th><td>260 lb-ft</td><td>148.5 hp</td></tr>
+    <tr><th scope="row">4,000 rpm</th><td>290 lb-ft</td><td>220.9 hp</td></tr>
+    <tr><th scope="row">5,000 rpm</th><td>300 lb-ft</td><td>285.6 hp</td></tr>
+    <tr><th scope="row">6,000 rpm</th><td>280 lb-ft</td><td>319.9 hp</td></tr>
+    <tr><th scope="row">7,000 rpm</th><td>240 lb-ft</td><td>319.9 hp</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 290" role="img" aria-label="Chart of an illustrative engine. Torque in lb-ft is 220, 260, 290, 300, 280 and 240 at 2,000 to 7,000 rpm. Horsepower is 84, 149, 221, 286, 320 and 320. The two curves cross at 5,252 rpm.">
+    <line class="grid" x1="50" x2="386" y1="210.0" y2="210.0"/><text x="44" y="214.0" text-anchor="end">0</text>
+    <line class="grid" x1="50" x2="386" y1="158.6" y2="158.6"/><text x="44" y="162.6" text-anchor="end">100</text>
+    <line class="grid" x1="50" x2="386" y1="107.1" y2="107.1"/><text x="44" y="111.1" text-anchor="end">200</text>
+    <line class="grid" x1="50" x2="386" y1="55.7" y2="55.7"/><text x="44" y="59.7" text-anchor="end">300</text>
+    <text x="50.0" y="226" text-anchor="middle">2,000</text>
+    <text x="117.2" y="226" text-anchor="middle">3,000</text>
+    <text x="184.4" y="226" text-anchor="middle">4,000</text>
+    <text x="251.6" y="226" text-anchor="middle">5,000</text>
+    <text x="318.8" y="226" text-anchor="middle">6,000</text>
+    <text x="386.0" y="226" text-anchor="middle">7,000</text>
+    <line class="axis" x1="50" x2="386" y1="210" y2="210"/>
+    <text x="218" y="244" text-anchor="middle">Engine speed, rpm</text>
+    <text x="12" y="120" text-anchor="middle" transform="rotate(-90 12 120)">lb-ft or hp</text>
+    <line class="ref" x1="268.5" x2="268.5" y1="30" y2="210"/>
+    <text x="264.5" y="196" text-anchor="end">Cross at 5,252 rpm</text>
+    <path class="line" d="M50.0,96.9 L117.2,76.3 L184.4,60.9 L251.6,55.7 L318.8,66.0 L386.0,86.6"/>
+    <path d="M50.0,166.9 L117.2,133.6 L184.4,96.4 L251.6,63.1 L318.8,45.5 L386.0,45.5" fill="none" stroke="var(--chart-base)" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <g class="hit"><title>2,000 rpm: 220 lb-ft, 83.8 hp</title><circle cx="50.0" cy="96.9" r="10" fill="transparent"/><circle class="dot" cx="50.0" cy="96.9" r="4.5"/></g>
+    <text class="strong" x="50.0" y="87.9" text-anchor="middle">220</text>
+    <circle cx="50.0" cy="166.9" r="4" fill="var(--chart-base)"/>
+    <text x="50.0" y="182.9" text-anchor="middle">84</text>
+    <g class="hit"><title>3,000 rpm: 260 lb-ft, 148.5 hp</title><circle cx="117.2" cy="76.3" r="10" fill="transparent"/><circle class="dot" cx="117.2" cy="76.3" r="4.5"/></g>
+    <text class="strong" x="117.2" y="67.3" text-anchor="middle">260</text>
+    <circle cx="117.2" cy="133.6" r="4" fill="var(--chart-base)"/>
+    <text x="117.2" y="149.6" text-anchor="middle">149</text>
+    <g class="hit"><title>4,000 rpm: 290 lb-ft, 220.9 hp</title><circle cx="184.4" cy="60.9" r="10" fill="transparent"/><circle class="dot" cx="184.4" cy="60.9" r="4.5"/></g>
+    <text class="strong" x="184.4" y="51.9" text-anchor="middle">290</text>
+    <circle cx="184.4" cy="96.4" r="4" fill="var(--chart-base)"/>
+    <text x="184.4" y="112.4" text-anchor="middle">221</text>
+    <g class="hit"><title>5,000 rpm: 300 lb-ft, 285.6 hp</title><circle cx="251.6" cy="55.7" r="10" fill="transparent"/><circle class="dot" cx="251.6" cy="55.7" r="4.5"/></g>
+    <text class="strong" x="251.6" y="46.7" text-anchor="middle">300</text>
+    <circle cx="251.6" cy="63.1" r="4" fill="var(--chart-base)"/>
+    <text x="251.6" y="79.1" text-anchor="middle">286</text>
+    <g class="hit"><title>6,000 rpm: 280 lb-ft, 319.9 hp</title><circle cx="318.8" cy="66.0" r="10" fill="transparent"/><circle class="dot" cx="318.8" cy="66.0" r="4.5"/></g>
+    <text class="strong" x="318.8" y="82.0" text-anchor="middle">280</text>
+    <circle cx="318.8" cy="45.5" r="4" fill="var(--chart-base)"/>
+    <text x="318.8" y="36.5" text-anchor="middle">320</text>
+    <g class="hit"><title>7,000 rpm: 240 lb-ft, 319.9 hp</title><circle cx="386.0" cy="86.6" r="10" fill="transparent"/><circle class="dot" cx="386.0" cy="86.6" r="4.5"/></g>
+    <text class="strong" x="386.0" y="102.6" text-anchor="middle">240</text>
+    <circle cx="386.0" cy="45.5" r="4" fill="var(--chart-base)"/>
+    <text x="386.0" y="36.5" text-anchor="middle">320</text>
+    <line x1="60" x2="84" y1="268" y2="268" stroke="var(--chart-accent)" stroke-width="3"/><text x="90" y="272">Torque, lb-ft (dots, bold)</text>
+    <line x1="230" x2="254" y1="268" y2="268" stroke="var(--chart-base)" stroke-width="2.5" stroke-dasharray="6 4"/><text x="260" y="272">Horsepower</text>
+  </svg>
+  <figcaption>Figure 1. An example engine, invented for this post and not data about any car in a game. Horsepower is calculated from each torque value with hp = torque × rpm ÷ 5,252. Straight lines join the six points, so the true curves bend a little between them.</figcaption>
+</figure>
+
+<h2>Why the lines cross at 5,252 rpm</h2>
+<p>Set rpm to 5,252 in the formula and it becomes hp = torque × 5,252 ÷ 5,252, so horsepower equals torque. Below 5,252 rpm the horsepower number is smaller than the torque number. Above it, horsepower is larger. This does not depend on the engine: any dyno chart that plots both in lb-ft and hp on one axis has the lines meeting at 5,252 rpm. If a chart's lines cross anywhere else, the scales differ or the data is wrong.</p>
+<p>In the example, torque at 5,252 rpm is about 295 lb-ft, interpolating between 300 at 5,000 and 280 at 6,000, so horsepower there is about 295 as well. The point where the lines meet is a check, not a feature of the engine.</p>
+
+<h2>Why the peaks are at different revs</h2>
+<p>Torque peaks at 5,000 rpm at 300 lb-ft. After that torque falls, but the revs are still rising, and the product keeps growing until the fall in torque outweighs the rise in speed. From 5,000 to 6,000 rpm torque drops by 20 lb-ft (6.7%) while rpm rises by 20%, so horsepower climbs from 285.6 to 319.9. From 6,000 to 7,000 rpm torque falls 14.3% and rpm rises 16.7%, which nearly cancels, and the two horsepower figures are equal at 319.9. The peak lies between them. In general the horsepower peak is never below the torque peak, because at the torque peak torque has stopped rising but the revs have not, so the product is still climbing. Figure 1 shows both curves.</p>
+
+<h2>What matters for acceleration</h2>
+<p>Force at the wheels is engine torque multiplied by the overall gear ratio, divided by the tyre radius. The engine's torque at its own crankshaft is not the whole story, because gearing multiplies it. <a href="/blog/gear-ratios-and-final-drive.html">The gear ratio post</a> shows the arithmetic.</p>
+<p>Compare two ways to travel at the same road speed in the example engine. In the first, the engine turns at 3,000 rpm and makes 260 lb-ft. In the second, a gear twice as short makes the engine turn at 6,000 rpm and make 280 lb-ft. Wheel torque is engine torque times the ratio, so the second case gives 280 × 2 = 560 units against 260 × 1 = 260. That is 2.15 times as much, and 319.9 ÷ 148.5 is also 2.15. At a given road speed, the force available to accelerate the car is proportional to horsepower, because gearing lets you trade revs for torque.</p>
+
+<div class="callout">
+  <p>Torque tells you how hard the engine pushes at a given speed. Horsepower tells you how much push you can have once gearing is chosen to put the engine at that speed. For acceleration, horsepower across the whole rev range you use matters more than the single peak figure.</p>
+</div>
+
+<h2>Reading a chart without being misled</h2>
+<ul>
+  <li><strong>Check the scales.</strong> If torque and horsepower share one axis, they must cross at 5,252 rpm. Two separate axes can make the lines cross anywhere, so the crossing tells you nothing.</li>
+  <li><strong>Look at the shape, not only the peak.</strong> A flat horsepower curve from 6,000 to 7,000 rpm, like the example, gives a wide range where a shift loses little.</li>
+  <li><strong>Know where it was measured.</strong> Power at the wheels is lower than at the crankshaft because the gearbox and driveshaft take a share. Compare charts measured the same way.</li>
+  <li><strong>Remember the grip limit.</strong> Torque is only useful if the tyres can pass it on. <a href="/blog/drag-racing-launch-rpm.html">The launch RPM post</a> covers the start, where grip is the limit rather than the engine.</li>
+</ul>
+<p>Where to change gear on a curve like this one is a separate question, with its own answer, and it is not the same as the revs of the torque peak or the horsepower peak.</p>
+
+<h2>Using it in the game</h2>
+<p>Pink Slip Kings lets you compare horsepower and torque on the dyno after an upgrade, and adjust gear ratios, final drive, boost and launch RPM. Reading both curves tells you what the change did before you run the quarter mile; <a href="/blog/reading-a-drag-racing-time-slip.html">the time slip post</a> explains what to check afterwards.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> lets you upgrade your engine, drivetrain, tyres and suspension and compare horsepower and torque on the dyno, with telemetry and race time slips to show the result. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>

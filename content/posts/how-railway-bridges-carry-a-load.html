@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "How railway bridges carry a load: four designs",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "ValleyRail",
+  "description": "Beam, arch, truss and suspension bridges all carry weight to the ground in different ways. Here is how each works and why heavy railways avoid suspension spans.",
+  "summary": "Every bridge turns a load into compression and tension and passes it to its supports. The four classic designs do it differently, and a railway's heavy, concentrated, unforgiving load rules some of them out.",
+  "standfirst": "A bridge cannot make weight disappear. It can only decide which parts are squeezed, which are stretched, and where the push ends up. That choice explains why railways lean on girders, arches and trusses, and seldom on cables."
+}
+-->
+<p>A railway has to cross rivers, and rivers rarely wait for a convenient place. The same river may need a short span in one spot and a very long one in another, so engineers have a small set of designs to pick from. All of them do the same job: take the weight of a train and deliver it safely to the ground on both banks.</p>
+
+<h2>Two forces and nothing else</h2>
+<p>Strip any bridge down and there are only two kinds of internal force. <strong>Compression</strong> squeezes a material; <strong>tension</strong> pulls it. Stone, brick and concrete are strong in compression and weak in tension. Steel is strong in both, but a long, slender steel member under compression can buckle, while the same member in tension cannot. Each bridge type is a different way of arranging these two forces.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 330" role="img" aria-label="Four bridge types drawn side by side: a beam bent between two supports, an arch squeezed along its curve, a truss of triangles, and a suspension bridge hung from cables in tension. The suspension bridge is highlighted as the one rarely used for heavy rail.">
+    <g class="hit"><title>Beam</title>
+      <rect x="20" y="30" width="160" height="9" class="fill-base"/>
+      <polygon points="20,39 10,56 30,56" class="fill-base"/><polygon points="180,39 170,56 190,56" class="fill-base"/>
+      <line x1="20" y1="56" x2="180" y2="56" class="axis"/>
+    </g>
+    <text x="205" y="30" class="strong">Beam</text>
+    <text x="205" y="46">Top squeezed, bottom</text>
+    <text x="205" y="61">stretched, load on supports</text>
+    <g class="hit"><title>Arch</title>
+      <path d="M20,150 Q100,70 180,150" class="line"/>
+      <line x1="20" y1="150" x2="180" y2="150" class="axis"/>
+      <polygon points="20,150 8,160 32,160" class="fill-base"/><polygon points="180,150 168,160 192,160" class="fill-base"/>
+    </g>
+    <text x="205" y="110" class="strong">Arch</text>
+    <text x="205" y="126">Squeezed along its curve,</text>
+    <text x="205" y="141">pushes outwards at the feet</text>
+    <g class="hit"><title>Truss</title>
+      <line x1="20" y1="190" x2="180" y2="190" class="line"/>
+      <line x1="20" y1="226" x2="180" y2="226" class="line"/>
+      <polyline points="20,226 60,190 100,226 140,190 180,226" class="line"/>
+      <line x1="20" y1="190" x2="20" y2="226" class="line"/><line x1="180" y1="190" x2="180" y2="226" class="line"/>
+    </g>
+    <text x="205" y="190" class="strong">Truss</text>
+    <text x="205" y="206">Triangles: every member is</text>
+    <text x="205" y="221">pushed or pulled, none bent</text>
+    <g class="hit"><title>Suspension</title>
+      <line x1="50" y1="256" x2="50" y2="316" class="line hl"/><line x1="150" y1="256" x2="150" y2="316" class="line hl"/>
+      <path d="M10,271 L50,256 Q100,291 150,256 L190,271" class="line hl"/>
+      <line x1="75" y1="269" x2="75" y2="305" class="ref"/><line x1="100" y1="273" x2="100" y2="305" class="ref"/><line x1="125" y1="269" x2="125" y2="305" class="ref"/>
+      <line x1="10" y1="305" x2="190" y2="305" class="line hl"/>
+    </g>
+    <text x="205" y="270" class="strong">Suspension</text>
+    <text x="205" y="286">Cables in tension carry</text>
+    <text x="205" y="301">the deck; rare for heavy rail</text>
+  </svg>
+  <figcaption>The four classic bridge designs and how each carries weight. The suspension bridge, highlighted, is the one that heavy railways rarely use, for the reasons in the last section.</figcaption>
+</figure>
+
+<h2>Beam: the simplest answer</h2>
+<p>A beam, or girder, is a stiff deck resting on a support at each end. Under a load it bends slightly, which squeezes the top and stretches the bottom. Because the material near the middle of the depth does little work, real girders put their steel at the top and bottom, in an I shape or a hollow box. Beams are cheap to build and easy to inspect, and they dominate short crossings, typically a few tens of metres. Spanning more than that needs a deeper, heavier beam, and the beam's own weight soon becomes most of the load. Continuous box girders, which run over several supports, stretch the range to 100 metres or more.</p>
+
+<h2>Arch: let the shape do the work</h2>
+<p>An arch turns the downward load into a squeeze along its curve, and that squeeze pushes sideways at the feet as well as down. The ground or abutments must resist that sideways thrust. This is why arches suit rock gorges and why Roman and Victorian builders could use stone, which is weak in tension but excellent in compression. Steel arches reach much further: the Sydney Harbour Bridge, which carries trains as well as road traffic, has a main arch span of 503 metres.</p>
+
+<h2>Truss: triangles all the way</h2>
+<p>A triangle cannot change shape without one of its sides changing length, so a frame of triangles is rigid with very little steel. In a truss each member is either pulled or pushed along its length and nothing is asked to bend. That makes trusses light for their stiffness, which is why the iron and steel railway age produced so many of them, from short spans to the great cantilevers. The Forth Bridge in Scotland, opened in 1890, has two main cantilever spans of 521 metres each. It is a truss structure and still carries heavy trains today.</p>
+<p>Rivers decide which of these a line needs. Our post on <a href="/blog/why-railways-follow-rivers.html">why railways follow rivers</a> covers why lines go there in the first place; the crossing is the price. In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you drag track from town to town and cross the river on a bridge in one of five styles, which is the same choice engineers face in real life, only with less steel.</p>
+
+<h2>Suspension: the longest spans</h2>
+<p>A suspension bridge hangs its deck from vertical hangers attached to main cables, which drape over tall towers and are anchored firmly at each end. The cables carry the load in pure tension, and tension is the most efficient way to use steel, so no other type reaches as far. The Golden Gate Bridge has a main span of 1,280 metres and the Akashi Kaikyo Bridge in Japan 1,991 metres. Both are road bridges.</p>
+
+<div class="callout">
+  <p>A cable follows whatever shape the load gives it. A beam, arch or truss resists a change of shape by being stiff; a suspension bridge mostly resists it by being heavy.</p>
+</div>
+
+<h2>Why railways rarely use suspension</h2>
+<p>The same flexibility that makes a suspension bridge economical is a problem for trains, for three linked reasons.</p>
+<ol class="ranked">
+  <li><strong>The load is heavy and concentrated.</strong> A freight train weighs far more per metre than road traffic, and it sits on a few axles. On a long cable span a heavy train is a large share of the total load, so the cable reshapes itself around it.</li>
+  <li><strong>The track needs a smooth line.</strong> The deck sags under the train and rises ahead of it, so the wheels are always climbing a small local hill. Railways measure gradients in fractions of a percent, as in our post on <a href="/blog/why-railways-follow-rivers.html">the ruling gradient</a>, so even a modest dip costs real pulling power and rough running.</li>
+  <li><strong>Repetition wears things out.</strong> Every train flexes the deck, hangers and cables once more. Stiff trusses and girders deflect far less, and a stiffening truss under the deck is what lets the few rail-carrying suspension bridges work at all.</li>
+</ol>
+<p>That is why a long rail crossing is usually a truss, a box girder or an arch, or a cable-stayed design, which is stiffer than a true suspension bridge. The heavier the freight, the stronger the case. For the traffic itself, see <a href="/blog/how-freight-chains-work.html">how freight chains work</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you cross the river on a bridge in one of five styles, then buy a train and run the route. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

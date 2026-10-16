@@ -1,0 +1,94 @@
+<!--
+{
+  "title": "Wraps: how an Omaha straight draw can have 20 outs",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "OmahaPoker",
+  "description": "A wrap uses two hole cards to connect with the flop in several ways. Count the 20 outs in T-9-6-5 on 8-7-2, and see what the draw is really worth.",
+  "summary": "In Hold'em a straight draw has at most 8 outs. In Omaha, four hole cards can pair up in several ways, and a wrap such as T-9-6-5 on 8-7-2 has 20 cards that complete a straight.",
+  "standfirst": "Hold'em players learn that an open-ended straight draw has eight outs and nothing has more. Omaha breaks that ceiling, because the draw can be completed by different pairs of your four hole cards."
+}
+-->
+<p>In Hold'em a straight draw tops out at eight outs: an open-ended draw, or two gutshots at once. Omaha has no such ceiling. A hand with four connected hole cards can have up to 20 outs on the flop, more than a flush draw (9). The reason is the same <a href="/blog/omaha-exactly-two-hole-cards.html">exactly-two-hole-cards rule</a> that causes so many misreads: you choose which two of your four cards play, and you can choose differently for each card that arrives.</p>
+
+<h2>A wrap, counted card by card</h2>
+<p>Take the hole cards T-9-6-5 (T is the ten) and a flop of 8-7-2. You have no straight yet: the 8 and 7 on the board need a third board card from a straight, and you may only use two of your own. Now count every rank that would give you one.</p>
+
+<table class="paytable-compare">
+  <caption>Every card that completes a straight for T-9-6-5 on a flop of 8-7-2.</caption>
+  <thead>
+    <tr><th>Turn card</th><th>Hole cards used</th><th>Straight</th><th>Cards left</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">4</th><td>6-5</td><td>4-5-6-7-8</td><td>4</td></tr>
+    <tr><th scope="row">5</th><td>9-6</td><td>5-6-7-8-9</td><td>3</td></tr>
+    <tr><th scope="row">6</th><td>T-9</td><td>6-7-8-9-T</td><td>3</td></tr>
+    <tr><th scope="row">9</th><td>T-6</td><td>6-7-8-9-T</td><td>3</td></tr>
+    <tr><th scope="row">T</th><td>9-6</td><td>6-7-8-9-T</td><td>3</td></tr>
+    <tr><th scope="row">J</th><td>T-9</td><td>7-8-9-T-J</td><td>4</td></tr>
+  </tbody>
+</table>
+
+<p>Six ranks, and 4 + 3 + 3 + 3 + 3 + 4 = <strong>20 cards</strong>. The 4 and the jack have four copies each because you hold none of them. The 5, 6, 9 and ten have three each, because you hold one of each.</p>
+<p>Each row uses exactly two hole cards and three board cards, so the count obeys the rule. The only thing that changes from row to row is which two hole cards you pick. In Hold'em, T-9 on that same flop would have only the 6 and the jack, which is 8 outs. The extra 6-5 in your hand adds four more ranks.</p>
+
+<div class="callout">
+  <p>A quick test for a wrap: can you name two different pairs of your hole cards that would each make a straight with the card that arrives? Where the answer is yes for many ranks, the hand is a wrap, and the outs add up fast.</p>
+</div>
+
+<h2>How the outs scale</h2>
+<p>Go through every four-card hand with four different ranks against every flop of three further different ranks, count the cards that give a straight, and leave out hands that already have one. The possible out counts are 0, 4, 8, 9, 12, 13, 16, 17 and 20, and 20 is the maximum. One hand in each size is below.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of straight outs on the flop for six Omaha hands, from 4 to 20">
+    <div class="bar-row" title="Gutshot: A-K-5-2 on Q-J-3: 4 outs"><span class="bar-label">Gutshot (AK52 on QJ3)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2000)"></span><span class="bar-val">4 outs</span></span></div>
+    <div class="bar-row" title="Open-ended: K-9-8-3 on 7-6-2: 8 outs"><span class="bar-label">Open-ended (K983 on 762)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">8 outs</span></span></div>
+    <div class="bar-row" title="Wrap: 9-8-6-5 on 7-4-2: 13 outs"><span class="bar-label">Wrap (9865 on 742)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6500)"></span><span class="bar-val">13 outs</span></span></div>
+    <div class="bar-row" title="Wrap: K-Q-J-8 on T-9-6: 16 outs"><span class="bar-label">Wrap (KQJ8 on T96)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">16 outs</span></span></div>
+    <div class="bar-row" title="Wrap: K-Q-9-7 on J-T-6: 17 outs"><span class="bar-label">Wrap (KQ97 on JT6)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8500)"></span><span class="bar-val">17 outs</span></span></div>
+    <div class="bar-row hl" title="Wrap: T-9-6-5 on 8-7-2: 20 outs"><span class="bar-label">Wrap (T965 on 872)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">20 outs</span></span></div>
+  </div>
+  <figcaption>Straight outs on the flop for six Omaha hands, counting only cards that complete a straight using exactly two hole cards. The 20-out wrap is the largest a straight draw can be.</figcaption>
+</figure>
+
+<p>The 13-out hand, 9-8-6-5 on 7-4-2, looks much like the 20-out one but has only four ranks that work: the 3 (four cards) and the 5, 6 and 8 (three each).</p>
+
+<h2>What 20 outs is worth</h2>
+<p>You can see seven cards: four in your hand and three on the flop. That leaves 45 unseen cards, so on the turn the chance of hitting one of 20 outs is 20 ÷ 45 = <strong>44.4%</strong>. To catch one by the river, take the chance of missing both cards from one:</p>
+<p>1 − (25 ÷ 45 × 24 ÷ 44) = 1 − 600 ÷ 1,980 = <strong>69.7%</strong>.</p>
+<p>Dealing out every turn and river pair from the 45 cards confirms it: 690 of the 990 give a straight, the same 69.7%. Here is how the sizes compare on the turn alone:</p>
+
+<table class="paytable-compare">
+  <caption>Chance of hitting a straight on the next card, with 45 unseen cards.</caption>
+  <thead>
+    <tr><th>Outs</th><th>Calculation</th><th>Next card</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">4</th><td>4 ÷ 45</td><td>8.9%</td></tr>
+    <tr><th scope="row">8</th><td>8 ÷ 45</td><td>17.8%</td></tr>
+    <tr><th scope="row">13</th><td>13 ÷ 45</td><td>28.9%</td></tr>
+    <tr><th scope="row">16</th><td>16 ÷ 45</td><td>35.6%</td></tr>
+    <tr><th scope="row">17</th><td>17 ÷ 45</td><td>37.8%</td></tr>
+    <tr><th scope="row">20</th><td>20 ÷ 45</td><td class="good">44.4%</td></tr>
+  </tbody>
+</table>
+
+<p>Set that against a price. If someone bets the size of the pot on the turn and you call, you risk one unit to win two, so you need to win at least 1 ÷ 3 = 33.3% of the time. The 20-out hand clears that with room to spare, and the 13-out hand does not, at 28.9%. How a pot-sized bet is worked out is covered in <a href="/blog/pot-limit-omaha-pot-sized-bet.html">a separate post</a>; the point here is that two similar-looking draws can be priced very differently.</p>
+
+<h2>Where the count overstates the draw</h2>
+<p>Twenty outs is the number of cards that give you a straight. It is not the number that win. Three things take it down:</p>
+<ol class="ranked">
+  <li><strong>Someone has a better straight.</strong> If the turn is the ten, your hand is 6-7-8-9-T. An opponent holding J-9 has 7-8-9-T-J, the jack-high straight, and beats you.</li>
+  <li><strong>The board pairs or has three of a suit.</strong> A turn that pairs the board lets a player with a pair in hand make a full house, and three suited board cards let anyone with two of the suit make a flush. Both beat a straight.</li>
+  <li><strong>You are counting against hands you cannot see.</strong> The 45 unseen cards include your opponents' hole cards. If they hold some of your outs, there are fewer than 20 left in the deck. That is why the percentages are a guide and not a promise.</li>
+</ol>
+
+
+<h2>A habit worth building</h2>
+<p>Count wraps by rank, not by "this card or that card". List the ranks that complete a straight, note how many copies of each you hold, and add: four per rank you do not hold, three for each you hold once. Then check each against the exactly-two rule: a straight only counts if two of your cards and three board cards make it.</p>
+<p><a href="/OmahaPoker/">Omaha Poker</a> shows your outs grouped by what they make in its live hand insight, alongside your win chance and the pot odds on a call. Compare its count with your own on the next wrap you flop.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

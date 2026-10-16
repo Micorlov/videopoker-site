@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "Slot RTP and volatility: what each number measures",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "BrasslightSlots",
+  "description": "Three toy slots all return 96% yet behave very differently. RTP is the long-run average; volatility is the spread, and the maths shows how to tell them apart.",
+  "summary": "RTP is the average share of stakes a slot returns over a very long run. Volatility is how widely results scatter around it. Three toy slots with the same 96% RTP have per-100-spin spreads of 14.0, 28.8 and 95.5 units.",
+  "standfirst": "Return to player and volatility are often mentioned together and mixed up. One is an average and the other is a spread, and a slot can have any combination of the two. A small worked example, with sums you can check, shows what each number does and does not tell you."
+}
+-->
+<p>Slot descriptions often quote a return-to-player figure and a volatility rating side by side, as if they were two views of the same thing. They are not. RTP is a long-run average. Volatility describes how far single results stray from that average. This post builds three invented slots to show the difference. The Play listing for <a href="/BrasslightSlots/">Brasslight Slots</a> states neither number, so nothing below is a claim about that game. The toy slots exist only to make the arithmetic visible.</p>
+
+<h2>What RTP measures</h2>
+<p>Return to player is the total paid out divided by the total staked, over a very large number of spins. A 96% RTP means that for every 100 units staked, 96 come back on average, and the other 4 units are the house edge. It is a property of the pay table and the reel layout, and it can be worked out exactly from them.</p>
+<p>It is a statement about the long run, not about a session. It does not say you will get 96 back from 100 staked, or that any particular spin is close to 96%. A single spin returns 0 or a multiple of the stake, and a figure like 96% appears only as an average across enormous numbers of spins.</p>
+
+<h2>What volatility measures</h2>
+<p>Volatility, sometimes called variance, is the spread of results around the average. The usual measure is the standard deviation: take each possible payout, find how far it sits from the mean, square that gap, average the squares weighted by probability, then take the square root. A bigger number means results are more scattered.</p>
+<p>Two slots can share an RTP and differ completely in spread, as the next section shows.</p>
+
+<h2>Three toy slots, one RTP</h2>
+<p>Each slot below costs 1 unit per spin and returns exactly 96 units per 100 spins on average. They differ only in how that 96 is packaged.</p>
+
+<table class="paytable-compare">
+  <caption>Three invented slots, each with an RTP of 96%. Payouts are in units, for a stake of 1 unit.</caption>
+  <thead>
+    <tr><th>Slot</th><th>Pays</th><th>Hit rate</th><th>RTP</th><th>Spread per spin</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A</th><td>3 units</td><td>32 in 100</td><td>32 × 3 ÷ 100 = 96%</td><td>1.40</td></tr>
+    <tr><th scope="row">C</th><td>9.6 units</td><td>10 in 100</td><td>10 × 9.6 ÷ 100 = 96%</td><td>2.88</td></tr>
+    <tr><th scope="row">B</th><td>96 units</td><td>1 in 100</td><td>1 × 96 ÷ 100 = 96%</td><td class="good">9.55</td></tr>
+  </tbody>
+</table>
+
+<p>The hit rate is how often a spin pays anything. Slot A pays often and pays little, slot B pays rarely and pays a lot, and slot C sits between them. Their RTPs are identical, so RTP cannot tell you which one you are playing.</p>
+<p>The spreads come from the definition above. For slot B, the average payout is 0.96. A win sits 95.04 above that (1 time in 100) and a loss 0.96 below it (99 times in 100). The variance is 0.01 × 95.04<sup>2</sup> + 0.99 × 0.96<sup>2</sup> = 90.33 + 0.91 = 91.24, and its square root is 9.55. A shortcut gives the same answer: the average of the squared payouts minus the squared average, 0.01 × 96<sup>2</sup> − 0.96<sup>2</sup> = 92.16 − 0.92 = 91.24. For slot C the same shortcut gives 0.1 × 9.6<sup>2</sup> − 0.96<sup>2</sup> = 9.216 − 0.9216 = 8.29, so the spread is 2.88. For slot A it is 0.32 × 9 − 0.9216 = 1.96, a spread of 1.40.</p>
+
+<h2>What 100 spins looks like</h2>
+<p>Independent spins add their variances, so the spread over 100 spins is 10 times the single-spin spread, since the square root of 100 is 10. That gives 14.0 units for slot A, 28.8 for C and 95.5 for B. The expected result is the same for all three: 100 units staked and 96 returned, a net of &minus;4.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the spread of results over 100 spins for three toy slots that each return 96%: slot A 14.0 units, slot C 28.8 units, slot B 95.5 units">
+    <div class="bar-row" title="Slot A, hits 32 in 100: 14.0 units"><span class="bar-label">A: 32 in 100</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1465)"></span><span class="bar-val">14.0</span></span></div>
+    <div class="bar-row" title="Slot C, hits 10 in 100: 28.8 units"><span class="bar-label">C: 10 in 100</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3015)"></span><span class="bar-val">28.8</span></span></div>
+    <div class="bar-row hl" title="Slot B, hits 1 in 100: 95.5 units"><span class="bar-label">B: 1 in 100</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">95.5</span></span></div>
+  </div>
+  <figcaption>Spread (standard deviation) of the net result over 100 spins, in units, for three toy slots that all return 96%. The average is the same for each; only the scatter around it differs.</figcaption>
+</figure>
+
+<p>Read the numbers against the stake. With slot A, about 95% of 100-spin sessions land within two spreads of the average, which is roughly between &minus;32 and +24 units. Slot B comes in lumps. The chance of no hit in 100 spins is 0.99<sup>100</sup> = 36.6%, which leaves you down the full 100 units. The chance of exactly one hit is 100 × 0.01 × 0.99<sup>99</sup> = 37.0%, which leaves you down 4. The remaining 26.4% have two or more hits and finish at +92 or better. The mean is &minus;4, but only about 37% of sessions finish anywhere near it.</p>
+
+<div class="callout">
+  <p>RTP tells you the average. Volatility tells you how often a real session lands far from it. Over a short session the scatter is usually larger than the house edge.</p>
+</div>
+
+<h2>What follows from this</h2>
+<ul>
+<li><strong>A high RTP does not mean a gentle slot.</strong> Slot B has the same 96% as slot A and ten times the spread over 100 spins.</li>
+<li><strong>A high hit rate does not mean a high RTP.</strong> A slot that pays on 32 spins in 100 can still return less than one that pays on 1 in 100. Only hit rate multiplied by average win decides RTP.</li>
+<li><strong>More spins shrink the relative scatter, not the absolute one.</strong> The spread grows with the square root of the spin count while the expected loss grows with the count itself. After 10,000 spins the spread for slot B is 955 units against an expected net of &minus;400, so the average finally starts to dominate. For slot A it is 140 units, and the average dominates much sooner.</li>
+</ul>
+
+<h2>Reading a real slot</h2>
+<p>A real game has many symbols, a ways count such as the 243 described in <a href="/blog/what-243-ways-to-win-means.html">what 243 ways to win means</a>, wilds as in <a href="/blog/wilds-on-a-ways-to-win-slot.html">how a wild changes the count</a>, and bonus rounds on top. Its RTP is still one weighted average of all those outcomes, and its volatility is still the spread of the same set.</p>
+<p>The earlier post on <a href="/blog/why-a-slot-is-never-due.html">why a slot is never due</a> applies here too. Neither number gives a spin any memory. RTP is not a target the machine steers back towards, and volatility does not mean a quiet stretch is building towards a payout.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

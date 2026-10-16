@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Breaking ties in five-card poker: high cards and split pots",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "PokerVsDealer",
+  "description": "Hands in the same category are settled card by card, highest first, and suits never count. There are 7,462 distinct strengths; exact ties split the pot.",
+  "summary": "Same-category hands are compared by rank, from the category's defining cards down to the kickers. Suits never break a tie, so identical ranks split the pot. Across the nine categories there are 7,462 distinct strengths.",
+  "standfirst": "Knowing that a flush beats a straight settles hands in different categories. Most real disputes are between two hands of the same kind, and those are decided by a short, strict procedure that never looks at suits."
+}
+-->
+<p>Two players each show a pair of aces. Neither hand outranks the other by category, so something else has to decide it. In five-card poker that something is a fixed order of comparison: look at the cards that define the hand first, then the leftover cards, highest to lowest. If every rank matches, the hands are equal and the pot is split. Nothing else is consulted, and in particular suits are never used to separate two hands.</p>
+
+<h2>The procedure, in one rule</h2>
+<p>Sort each hand into groups by how many cards share a rank, biggest group first, and within a group by rank, highest first. Then compare the two lists from the left and stop at the first difference. A hand of K-K-4-4-A becomes the list <strong>K, 4, A</strong> (higher pair, lower pair, spare card). A hand of Q-Q-J-J-K becomes <strong>Q, J, K</strong>. The first entries are K and Q, so the first hand wins and the rest is never looked at.</p>
+<p>The spare cards that come last are called kickers. They matter only when everything before them is equal.</p>
+<ul>
+  <li><strong>High card and flush:</strong> compare all five cards from the top down. A-J-9-5-3 beats A-J-8-7-6, because the first two cards match and the third decides it (9 against 8). The 7 and 6 in the losing hand never come into it.</li>
+  <li><strong>One pair:</strong> the pair's rank first, then the three spare cards in order. A-A-K-7-2 beats A-A-Q-J-10 on the third card, even though the second hand has more middling cards.</li>
+  <li><strong>Two pair:</strong> higher pair, then lower pair, then the single spare card.</li>
+  <li><strong>Three of a kind:</strong> the rank of the three, then the two spares in order.</li>
+  <li><strong>Full house:</strong> the three of a kind decides it. 3-3-3-A-A beats 2-2-2-K-K, because the triplet of threes outranks the triplet of twos and the pair is never compared.</li>
+  <li><strong>Four of a kind:</strong> the rank of the four, then the fifth card.</li>
+  <li><strong>Straight and straight flush:</strong> only the top card matters, because the other four follow from it.</li>
+</ul>
+
+<h2>The straight with a low ace</h2>
+<p>One straight needs a note. The ace counts high in 10-J-Q-K-A and low in A-2-3-4-5, which is called the wheel. In the wheel the five is the top card, so it is the lowest straight there is and loses to 2-3-4-5-6. The ace does not wrap round, so Q-K-A-2-3 is not a straight at all. Those ten sequences, from five-high to ace-high, are the only ten straights, and each is a straight flush when all five cards share a suit.</p>
+
+<h2>Why suits do not count</h2>
+<p>In standard poker the four suits are equal. A flush of spades and a flush of hearts with the same five ranks are the same hand. That is what makes exact ties possible: the same ranks can appear in different suits, so two players can hold hands that look different and are worth precisely the same.</p>
+<p>Here is one that can happen at a real table. One player holds A♠ A♥ K♣ Q♦ J♠ and the other holds A♣ A♦ K♥ Q♠ J♦. The ranks are A, A, K, Q, J in both cases, so the hands tie and each player takes half of the pot.</p>
+
+<p>The <a href="/PokerVsDealer/">Poker vs Dealer</a> page describes a game in which your five cards compete against the dealer's, who builds a hand one card at a time, face up. The listing does not say how an exact tie is settled in the app, so the in-game rules screen is the place to check that. The ordering above is the standard one for five-card hands.</p>
+
+<h2>How many different hands are there</h2>
+<p>Counting distinct strengths gives a useful picture of how much room each category has for ties. Within a category, a hand is defined by its rank pattern alone, since suits do not matter. That gives these counts:</p>
+<ul>
+  <li><strong>High card:</strong> 1,287 ways to choose five different ranks, minus the 10 that form a straight, leaves <strong>1,277</strong>. A flush has the same 1,277 patterns.</li>
+  <li><strong>One pair:</strong> 13 ranks for the pair and C(12,3) = 220 ways to choose three different spare ranks: 13 × 220 = <strong>2,860</strong>.</li>
+  <li><strong>Two pair:</strong> C(13,2) = 78 choices of pairs and 11 remaining ranks for the spare card: 78 × 11 = <strong>858</strong>.</li>
+  <li><strong>Three of a kind:</strong> 13 ranks and C(12,2) = 66 spare pairs: 13 × 66 = <strong>858</strong>.</li>
+  <li><strong>Full house:</strong> 13 × 12 = <strong>156</strong>. Four of a kind is also 13 × 12 = <strong>156</strong>.</li>
+  <li><strong>Straight and straight flush:</strong> <strong>10</strong> each.</li>
+</ul>
+<p>Add them up: 1,277 + 2,860 + 858 + 858 + 10 + 1,277 + 156 + 156 + 10 = <strong>7,462</strong>. That is the number of distinct hand strengths in five-card poker, from 7-5-4-3-2 at the bottom to a royal flush at the top. Every possible five-card hand, all 2,598,960 of them, falls into exactly one of those 7,462 places, and hands in the same place tie.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of distinct hand strengths per category: one pair 2,860, high card and flush 1,277 each, two pair and three of a kind 858 each, full house and four of a kind 156 each, straight and straight flush 10 each">
+    <div class="bar-row hl" title="One pair: 2,860 distinct strengths"><span class="bar-label">One pair</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">2,860</span></span></div>
+    <div class="bar-row" title="High card: 1,277 distinct strengths"><span class="bar-label">High card</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4465)"></span><span class="bar-val">1,277</span></span></div>
+    <div class="bar-row" title="Flush: 1,277 distinct strengths"><span class="bar-label">Flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4465)"></span><span class="bar-val">1,277</span></span></div>
+    <div class="bar-row" title="Two pair: 858 distinct strengths"><span class="bar-label">Two pair</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3000)"></span><span class="bar-val">858</span></span></div>
+    <div class="bar-row" title="Three of a kind: 858 distinct strengths"><span class="bar-label">Three of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3000)"></span><span class="bar-val">858</span></span></div>
+    <div class="bar-row" title="Full house: 156 distinct strengths"><span class="bar-label">Full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0545)"></span><span class="bar-val">156</span></span></div>
+    <div class="bar-row" title="Four of a kind: 156 distinct strengths"><span class="bar-label">Four of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0545)"></span><span class="bar-val">156</span></span></div>
+    <div class="bar-row" title="Straight: 10 distinct strengths"><span class="bar-label">Straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0035)"></span><span class="bar-val">10</span></span></div>
+    <div class="bar-row" title="Straight flush: 10 distinct strengths"><span class="bar-label">Straight flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0035)"></span><span class="bar-val">10</span></span></div>
+  </div>
+  <figcaption>Distinct hand strengths in each category, which together make 7,462. One pair has the most, because three spare cards give it so many orderings. The straight flush has the fewest: the top card is the only thing that varies.</figcaption>
+</figure>
+
+<h2>What this means for a pair</h2>
+<p>One pair is the busiest category for tie-breaks. It has 2,860 strengths and 1,098,240 hands, an average of 384 hands for each strength. That is why a pair so often comes down to the third spare card, and why the pair rank alone rarely settles a showdown. Compare that with a straight: 10,200 hands share just 10 strengths, so two straights almost always come down to the top card, with the occasional exact tie when both players hold the same sequence.</p>
+<p>The full category counts are in <a href="/blog/five-card-poker-hand-frequencies.html">How rare each five-card poker hand is</a>, and <a href="/blog/why-a-flush-beats-a-straight.html">Why a flush beats a straight</a> explains why the categories are ordered as they are.</p>
+
+<div class="callout">
+  <p>Compare in this order: category, then the grouped cards from the biggest group down, then the kickers from highest to lowest. Stop at the first difference. If there is none, the hands are equal and suits do not break the tie.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is five-card poker against the dealer and two computer opponents. Your five cards compete against the house and for the table pot, and you can hold, forge a card by exchanging it, or bail. It plays offline with no account, there are no ads or in-app purchases, and the play-money chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

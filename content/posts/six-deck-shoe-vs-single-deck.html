@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "What a six-deck shoe changes compared with a single deck",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "Blackjack21",
+  "description": "A six-deck shoe adds roughly half a point to the house edge over one deck. Card removal, pairs and dealer naturals shift by far less than most players expect.",
+  "summary": "More decks dilute card removal: one ten leaves the ten share at 29.41% in a single deck but 30.55% in six. Pairs get likelier, 5.88% to 7.40%, and the house edge rises by about half a point.",
+  "standfirst": "The number of decks changes blackjack through one mechanism, card removal. Every card you see matters a lot in a single deck and very little in a six-deck shoe, and the sums show how much."
+}
+-->
+<p>A single deck has 52 cards. The shoe in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> holds six decks, 312 cards, and the dealer stands on 17. Rules written on the felt tend to get the attention, but the deck count sits underneath all of them. It changes nothing about what the cards are worth, only how much each card you see tells you about the rest.</p>
+
+<h2>Card removal in one example</h2>
+<p>Every card dealt is gone from the pack, so the cards left behind are slightly different from the ones you started with. How slightly depends on the size of the pack.</p>
+<p>Start with the share of cards worth ten. A single deck has 16 of them in 52, or 30.77%. Deal one ten and 15 remain in 51 cards: <strong>29.41%</strong>. One card has moved the share by 1.36 points. A six-deck shoe starts with 96 tens in 312, the same 30.77%. Deal one and 95 remain in 311: <strong>30.55%</strong>. The shift is 0.22 points, about a sixth of the size.</p>
+<p>That ratio is the whole story. The first card out of a single deck carries roughly six times the information of the first card out of a six-deck shoe. The more decks, the closer the game gets to drawing from a pack that never changes, where each card is independent of the last.</p>
+
+<h2>Your own cards count too</h2>
+<p>The cards in your hand are removed from the pack as well, and that is where the difference shows up in ordinary play. Take a hard 16, a ten and a six, against a dealer ten. Three cards are out, so the chance that your next card busts you is the count of cards that bring 16 to 22 or more (a 6, 7, 8, 9 or any ten) divided by the cards unseen.</p>
+<ul>
+<li>Single deck: 14 tens, three sixes and four each of 7, 8 and 9 remain, so 29 of 49 cards bust you, or <strong>59.2%</strong>.</li>
+<li>Six decks: 94 tens, 23 sixes and 24 each of 7, 8 and 9 remain, so 189 of 309 cards bust you, or <strong>61.2%</strong>.</li>
+</ul>
+<p>The hand is slightly worse in the shoe because the tens in your hand barely dent the supply. A few borderline strategy decisions flip between the two games for the same reason, but the chart is the same for nearly every hand, which is why one basic strategy works at any table.</p>
+
+<h2>Natural frequency barely moves</h2>
+<p>The chance of an ace and a ten-value card as your first two cards is 4.83% in a single deck and 4.75% in six, so you meet a natural about once in 21 hands either way. The <a href="/blog/blackjack-3-to-2-payout.html">post on the 3:2 payout</a> works through that arithmetic and what the bonus is worth.</p>
+<p>The dealer's chance of a natural, given an ace showing, moves by a similar sliver. Ignoring your own cards, 16 tens in 51 remaining cards is 31.37% in a single deck, and 96 in 311 is 30.87% in the shoe. With a ten showing, the ace comes up 4 times in 51 (7.84%) against 24 in 311 (7.72%). Fractions of a point, not a different game.</p>
+
+<h2>Pairs are where the shoe differs most</h2>
+<p>Pairs show the effect more clearly. After your first card, the second matches its rank when it comes from the three remaining cards of that rank in a single deck, 3 in 51, or 5.88%. In six decks, 23 cards of the rank remain among 311, or 7.40%. As the number of decks grows, the figure creeps towards 1 in 13, 7.69%, which is what you would get from an endless supply of cards.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that your first two cards are a pair, by number of decks: one deck 5.88 percent, six decks 7.40 percent, eight decks 7.47 percent">
+    <div class="bar-row" title="Eight decks: 7.47%"><span class="bar-label">Eight decks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">7.47%</span></span></div>
+    <div class="bar-row hl" title="Six decks: 7.40%"><span class="bar-label">Six decks</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9900)"></span><span class="bar-val">7.40%</span></span></div>
+    <div class="bar-row" title="Four decks: 7.25%"><span class="bar-label">Four decks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9701)"></span><span class="bar-val">7.25%</span></span></div>
+    <div class="bar-row" title="Two decks: 6.80%"><span class="bar-label">Two decks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9098)"></span><span class="bar-val">6.80%</span></span></div>
+    <div class="bar-row" title="One deck: 5.88%"><span class="bar-label">One deck</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7874)"></span><span class="bar-val">5.88%</span></span></div>
+  </div>
+  <figcaption>Chance that your first two cards are a pair, by number of decks. The gain from the first deck to the second is large; from six decks to eight it is under a tenth of a point.</figcaption>
+</figure>
+
+<p>Going from one deck to six makes a pair about 1.26 times as likely (7.40 divided by 5.88). Pairs are the hands where you have a decision to make, so a shoe game deals you the choice to split a little more often.</p>
+
+<h2>What it does to the house edge</h2>
+<p>With the same rules, more decks favour the house. A single-deck game gives the player the most, and the commonly quoted figure for going from one deck to six is an increase of roughly half a point. The gain is not spread evenly: most of it arrives by the time you reach four decks, and each additional deck adds less than the one before. That follows from the card-removal numbers above, where the first few decks do most of the diluting.</p>
+<div class="callout">
+  <p>Half a point is real but small. Where a single-deck game pays a natural at 6:5 rather than 3:2, that rule alone costs 1.36 points, more than twice the penalty for the six-deck shoe.</p>
+</div>
+<p>This is why the deck count is a poor guide on its own. A six-deck game paying 3:2 with a dealer who stands on 17 is a better game than a single deck paying 6:5. Compare the payout first and the number of decks second.</p>
+
+<h2>Why counting is easier in one deck</h2>
+<p>The same card-removal effect is the basis of card counting. In a single deck the ten share can swing by several points in a few cards, so a count has something to measure. In a shoe the swings are small and slow, which is why a counter divides the running count by the decks left, as described in <a href="/blog/hi-lo-running-and-true-count.html">running count and true count</a>. For learning basic strategy, none of this matters. The best play for a hand is the same in almost every case, and the shoe makes every table behave alike.</p>
+<p>For how a pack is mixed between rounds, see <a href="/blog/how-shuffling-works.html">how shuffling works</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> deals from a six-deck shoe with blackjack paying 3:2 and the dealer standing on 17, and its How to play guide covers card values, every move, dealer rules and payouts. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

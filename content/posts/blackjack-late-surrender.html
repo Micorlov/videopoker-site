@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Late surrender: the hands worth giving up on",
+  "date": "2026-10-16",
+  "modified": "2026-10-16",
+  "app": "BlackjackCoach",
+  "description": "Late surrender hands back half your bet. Basic strategy uses it on hard 16 against 9, 10 and ace, and on hard 15 against 10, because those lose more than half.",
+  "summary": "Surrender costs exactly half a bet, so it wins whenever playing on loses more than 50%. In six decks with the dealer standing on soft 17, that is hard 16 against 9, 10 or ace, and hard 15 against 10.",
+  "standfirst": "Giving up half your bet feels like losing. The arithmetic says it is the cheaper option on four specific hands, and only those four."
+}
+-->
+<p>Late surrender lets you walk away from a hand after the dealer has checked for blackjack, and lose half your bet instead of playing it out. Most players never use it, and for most hands that is correct. On a handful of awful hands it is the better move, and the reason is a single comparison: half a bet lost for certain against whatever playing on is likely to cost.</p>
+
+<h2>The rule set behind these numbers</h2>
+<p>Every figure here is for six decks, dealer stands on soft 17, dealer checks for blackjack, doubling after a split allowed, and late surrender available. That matches the fixed rules the chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches. "Late" means you can only surrender once the dealer has looked and has no blackjack. (Early surrender, before that check, is a different and far rarer rule.) Because the check has happened, you never surrender into a dealer blackjack; those hands are already gone.</p>
+
+<h2>The break-even rule</h2>
+<p>Surrender is worth exactly −0.5 per unit bet. So it beats playing on whenever the expected result of playing is worse than −0.5. A hand that never pushes needs a win chance of at least 25% to reach that line: at 25% you win a quarter of the time and lose three quarters, 0.25 − 0.75 = −0.5. Below 25% wins, surrender is better.</p>
+<p>The test is easy to state and hard to meet. Most bad hands still do better than −0.5, because the dealer busts often enough, and because hitting gives you draws. Only the worst totals against the strongest upcards fall under the line.</p>
+
+<h2>The four hands</h2>
+<table class="paytable-compare">
+  <caption>Late surrender in six decks, dealer stands on soft 17. Any hand not listed is played, not surrendered.</caption>
+  <thead>
+    <tr><th>Your hand</th><th>Dealer shows</th><th>Play</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Hard 16</th><td>9, 10 or ace</td><td class="good">Surrender</td></tr>
+    <tr><th scope="row">Hard 15</th><td>10</td><td class="good">Surrender</td></tr>
+  </tbody>
+</table>
+<p>If surrender is not allowed, hard 16 against a 9, 10 or ace is a hit against a 9 or an ace and a close call between hit and stand against a 10. Hard 15 against a 10 is a hit. Surrender only replaces those plays where it is better.</p>
+
+<h2>Why those four fall under −0.5</h2>
+<p>Take hard 16 against a 10. Standing wins only when the dealer busts. With a six-deck shoe and the dealer's blackjack already ruled out, that happens 22.95% of the time, so standing wins 22.95% and loses 77.05%, an average of −0.541. Hitting is almost the same at −0.548. Both are worse than −0.5, so surrender saves about four hundredths of a unit on every such hand.</p>
+<p>Against an ace the dealer busts less (17.65%), and standing loses far more, about −0.647. Hitting is better at −0.524, but still worse than surrender. Against a 9, hitting gives −0.516, and hard 15 against a 10 gives −0.515. These last two are the marginal cases: surrender gains only about 0.015 per hand.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected loss per unit bet for the best play without surrender, compared with surrender at 50%">
+    <div class="bar-row hl" title="Hard 16 v 10: 54.1%"><span class="bar-label">Hard 16 v 10</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">54.1%</span></span></div>
+    <div class="bar-row hl" title="Hard 16 v ace: 52.4%"><span class="bar-label">Hard 16 v ace</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9686)"></span><span class="bar-val">52.4%</span></span></div>
+    <div class="bar-row hl" title="Hard 16 v 9: 51.6%"><span class="bar-label">Hard 16 v 9</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9538)"></span><span class="bar-val">51.6%</span></span></div>
+    <div class="bar-row hl" title="Hard 15 v 10: 51.5%"><span class="bar-label">Hard 15 v 10</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9519)"></span><span class="bar-val">51.5%</span></span></div>
+    <div class="bar-row" title="Surrender: 50.0%"><span class="bar-label">Surrender</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9242)"></span><span class="bar-val">50.0%</span></span></div>
+    <div class="bar-row" title="Hard 15 v ace: 49.0%"><span class="bar-label">Hard 15 v ace</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9057)"></span><span class="bar-val">49.0%</span></span></div>
+    <div class="bar-row" title="Hard 14 v 10: 47.4%"><span class="bar-label">Hard 14 v 10</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8762)"></span><span class="bar-val">47.4%</span></span></div>
+  </div>
+  <figcaption>Expected loss per unit bet with the best non-surrender play, for hard totals in six decks, dealer standing on soft 17, dealer blackjack already excluded. Surrender always costs 50.0%. The four highlighted hands lose more than that.</figcaption>
+</figure>
+
+<p>The chart also shows how narrow the gap is. Hard 15 against an ace loses 49.0% if you hit, which is just inside the line, and hard 14 against a 10 loses 47.4%. Those stay as plays. A difference of one or two hundredths of a unit is small, and the strategy that separates them depends on the exact rules and on the cards in the hand, so published charts shift slightly at the edges.</p>
+
+<div class="callout">
+  <p>Surrender is not a way of cutting losses on any hand that looks bad. It is the right move only when the best alternative loses more than half the bet, and that happens on four hands in this rule set.</p>
+</div>
+
+<h2>What does not get surrendered</h2>
+<p>Pairs of eights are the usual mistake. Two eights make a hard 16, but they are split against every upcard in this rule set, including a 10; see <a href="/blog/blackjack-always-split-aces-and-eights.html">why you always split aces and eights</a>. Two hands that start at 8 each do far better than one hand worth 16. Surrender is for hard 16s that are not a pair of eights, such as 10 and 6 or 9 and 7.</p>
+<p>Likewise a soft hand is never surrendered, because the ace stops one card from busting it, and a total of 17 or more is a stand against these upcards. A hard 12 to 14 against a 10 is hit or stand as normal.</p>
+
+<h2>If the dealer hits soft 17</h2>
+<p>Change the dealer rule and the list grows. When the dealer hits soft 17, the usual charts add hard 15 against an ace, hard 17 against an ace, and pairs of eights against an ace to the surrender list. The dealer's extra draw on soft 17 helps the house more than it hurts it. Check the rule on the table before using a chart.</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Surrender is worth −0.5. Use it only when the best alternative is worse than that, or win chance is under about 25%.</li>
+  <li>Hard 16 against 9, 10 or ace, and hard 15 against 10, are the four hands, with the dealer standing on soft 17.</li>
+  <li>The savings are small, between 1.5 and 4 hundredths of a unit per hand, so none of this is dramatic. It is still the correct play.</li>
+  <li>Never surrender a pair of eights. Split them.</li>
+</ol>
+<p>The dealer's bust chances behind these numbers are covered in <a href="/blog/blackjack-dealer-bust-rates.html">how often the dealer busts</a>, and the dealer-ace case connects to <a href="/blog/blackjack-insurance-explained.html">why insurance loses unless you are counting</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
