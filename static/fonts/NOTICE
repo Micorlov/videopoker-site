@@ -1,13 +1,10 @@
-Antonio and Archivo are served from this site rather than from Google Fonts, so that
-no cross-origin round trip sits on the critical rendering path.
+General Sans is served from this site rather than from a font CDN, so no
+cross-origin round trip sits on the critical rendering path.
 
-Both are licensed under the SIL Open Font License, Version 1.1, which permits
-redistribution and self-hosting. The files here are the woff2 subsets that the
-Google Fonts css2 API serves to a current browser, copied unmodified.
+General Sans is designed by Indian Type Foundry and distributed on Fontshare
+for personal and commercial use.
 
-  Antonio  — https://fonts.google.com/specimen/Antonio
-  Archivo  — https://fonts.google.com/specimen/Archivo
-  OFL 1.1  — https://openfontlicense.org/
+  General Sans — https://www.fontshare.com/fonts/general-sans
 
-To refresh them, re-run the css2 request in README (Search section) and replace
-both static/fonts.css and these .woff2 files together.
+Scripts the file does not cover (Arabic, Hebrew, Devanagari, CJK, and others)
+fall through to the system font named after it in the stack.
