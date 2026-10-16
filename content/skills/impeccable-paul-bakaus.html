@@ -2,31 +2,38 @@
 {
   "title": "Impeccable, by Paul Bakaus",
   "date": "2026-10-15",
-  "modified": "2026-10-15",
-  "description": "Paul Bakaus's design skill: 24 shared commands and 59 checks so a coding agent stops repeating the same template and can repair a layout.",
-  "summary": "A design vocabulary and a set of checks that catch the template look coding agents keep producing.",
-  "standfirst": "Left alone, a coding agent reaches for the same template every time. Impeccable gives it a design vocabulary, and commands that can repair a layout already on the page."
+  "modified": "2026-10-16",
+  "description": "Paul Bakaus's design skill: 24 shared commands and 59 checks. It stops the same template, and it can fix a page you already have.",
+  "summary": "Shared design words, plus checks that catch the template look coding tools keep making.",
+  "standfirst": "Left alone, a coding tool picks the same template every time. Impeccable gives it words for design, and commands that can fix a page you already have."
 }
 -->
-<p><a class="text-link" href="https://github.com/pbakaus/impeccable">The Impeccable repository on GitHub</a></p>
-<p>Impeccable is Paul Bakaus's design skill for coding agents. The repository describes it as one skill, 24 commands, live browser iteration, and 59 detector rules for AI-generated frontend design. The documentation is at impeccable.style.</p>
+<p><a class="text-link" href="https://github.com/pbakaus/impeccable">See Impeccable on GitHub</a></p>
+<p>A skill is a pack of instructions you add to a coding tool.</p>
+<p>Impeccable is Paul Bakaus's design skill. The project page calls it one skill, 24 commands, a way to try changes in the browser, and 59 checks for design made by a coding tool. The docs are at impeccable.style.</p>
 
 <figure class="chart">
-  <img src="/img/skills/impeccable.webp" alt="A robot wiping a plain template page and revealing a page with its own type, color and layout." width="1280" height="720">
-  <figcaption>The left page is the template. The right page is what a shared design vocabulary is for.</figcaption>
+  <img src="/img/skills/impeccable.svg" alt="Two simple pages. The left page is a plain template. The right page has its own shape." width="640" height="360">
+  <figcaption>The left page is the template. The right page is what the shared design words are for.</figcaption>
 </figure>
 
-<h2>What the default gets wrong</h2>
-<p>The README's point is that models trained on the same templates repeat the same tells: the Inter font, a purple-to-blue gradient, cards nested in cards, gray text on a colored background, and a rounded icon tile above every heading.</p>
+<h2>What the usual result gets wrong</h2>
+<p>The README says tools trained on the same templates repeat the same signs.</p>
+<p>The Inter font. A fade from purple to blue. Cards inside cards. Gray text on a colored background. A round icon tile above every heading.</p>
 <ul class="fix-pair">
-  <li>Default. The same font, a purple gradient, and cards inside cards.</li>
-  <li>Impeccable. Twenty-four shared commands, and 59 checks that flag those tells.</li>
+  <li>Usual result. The same font, a purple fade, and cards inside cards.</li>
+  <li>Impeccable. 24 shared commands, and 59 checks that flag those signs.</li>
 </ul>
 
-<h2>What you can ask it</h2>
-<p>The commands are the vocabulary. /impeccable init records who the product is for, in PRODUCT.md, before later commands run. /impeccable layout repairs spacing and rhythm on a page that already exists. /impeccable polish, /impeccable typeset and /impeccable audit are the other passes for a page that is already up. /impeccable document writes DESIGN.md from the code you have.</p>
+<h2>What you can ask</h2>
+<p>The commands are the shared words.</p>
+<p>You start with /impeccable init. It writes who the product is for, in a file called PRODUCT.md, before the later commands run.</p>
+<p>You use /impeccable layout to fix spacing and rhythm on a page that already exists.</p>
+<p>You use /impeccable polish, /impeccable typeset, and /impeccable audit as other passes once the page is up.</p>
+<p>You use /impeccable document to write a DESIGN.md file from the code you already have.</p>
 
 <h2>How to install</h2>
-<p>From the project you want it in, run the installer, then /impeccable init inside the coding tool. Pass --providers and --scope=project or --scope=global to skip the questions.</p>
+<p>In the project you want, run the installer. Then run /impeccable init inside the coding tool.</p>
+<p>Add --providers, and --scope=project or --scope=global, if you want to skip the questions.</p>
 <pre><code>npx impeccable install</code></pre>
-<p><a class="text-link" href="https://github.com/pbakaus/impeccable">The Impeccable repository on GitHub</a></p>
+<p><a class="text-link" href="https://github.com/pbakaus/impeccable">See Impeccable on GitHub</a></p>

@@ -3,53 +3,60 @@
   "title": "gstack — Garry Tan's Claude Code setup",
   "date": "2026-10-16",
   "modified": "2026-10-16",
-  "description": "Garry Tan's free MIT-licensed Claude Code setup: roles that plan, review, test and ship. Stars, the install command and the repo link are from the project.",
-  "summary": "A free Claude Code setup that works as a small team: plan, review, test and ship, instead of only writing code.",
-  "standfirst": "Most people use a coding agent as one assistant. gstack is Garry Tan's setup for treating it as a small team, with a role for planning, design, review, docs, release and testing."
+  "description": "Garry Tan's free setup for Claude Code. It helps you plan, check, test, and ship. The star count and install steps come from the project.",
+  "summary": "A free setup that treats your coding helper like a small team, not one assistant.",
+  "standfirst": "Most people use a coding helper as one assistant. gstack is Garry Tan's setup. It treats that helper like a small team."
 }
 -->
-<p><a class="text-link" href="https://github.com/garrytan/gstack">The gstack repository on GitHub</a></p>
-<p>gstack is a free, open-source repository by Garry Tan, President and CEO of Y Combinator. The repository description calls it his Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA. On 16 October 2026 it had 136,673 stars and 20,279 forks. It is MIT licensed, written in TypeScript, and the last push was that same day.</p>
+<p><a class="text-link" href="https://github.com/garrytan/gstack">See gstack on GitHub</a></p>
+<p>A skill is a pack of instructions you add to a coding tool.</p>
+<p>gstack is free. You can read the code and use it. Garry Tan made it. He is the president and CEO of Y Combinator.</p>
+<p>The project page calls it his Claude Code setup. It has 23 tools. They do six jobs: boss, designer, engineering lead, release lead, docs, and tester.</p>
+<p>On 16 October 2026 it had 136,673 stars and 20,279 copies. The license is MIT. The code is TypeScript. The last update was that same day.</p>
 
 <figure class="chart">
-  <img src="/img/skills/gstack.webp" alt="Six small robots around a table, each with a job: planning, design, engineering, release, documentation and testing." width="1280" height="720">
-  <figcaption>The picture is the idea behind the name: one coding agent, several jobs.</figcaption>
+  <img src="/img/skills/gstack.svg" alt="Six simple people marks around a round table." width="640" height="360">
+  <figcaption>One helper. Six jobs.</figcaption>
 </figure>
 
-<h2>The six roles</h2>
-<p>The GitHub description names six roles. The README's sprint table is longer than the "23 tools" line, so these cards are the roles, not every command.</p>
+<h2>The six jobs</h2>
+<p>The project page names six jobs. The longer list in the README has more commands than the line that says "23 tools". These cards are the jobs, not every command.</p>
 <ul class="role-grid">
-  <li>CEO. Rethink the product before the code starts.</li>
-  <li>Designer. Score the design, then fix what the score finds.</li>
-  <li>Eng Manager. Lock the architecture, the edge cases and the tests.</li>
-  <li>Release Manager. Run the checks, push, and open the pull request.</li>
-  <li>Doc Engineer. Compare the change with the documentation.</li>
-  <li>QA. Try the real behavior and keep a failing test.</li>
+  <li>Boss. Think about the product before anyone writes code.</li>
+  <li>Designer. Score the design, then fix what is weak.</li>
+  <li>Engineering lead. Decide how it is built, what could go wrong, and which tests to write.</li>
+  <li>Release lead. Run the checks, send the code, and ask to add the change.</li>
+  <li>Docs. Check that the written notes still match the change.</li>
+  <li>Tester. Try the real thing, and keep a test that fails.</li>
 </ul>
 
-<h2>The sprint</h2>
-<p>The README says the skills run in sprint order, and each one reads what the step before it wrote. /office-hours writes a design note that the planning step reads. /plan-eng-review writes a test plan that /qa picks up.</p>
+<h2>The order of work</h2>
+<p>The README says the steps run in order. Each step reads what the one before it wrote.</p>
+<p>The command /office-hours writes a short note. The planning step reads that note. The command /plan-eng-review writes a test plan. The command /qa reads that plan.</p>
 <figure class="chart">
   <ol class="skill-flow">
-    <li>Think. Six questions, then a short design note.</li>
-    <li>Plan. CEO, design and engineering review, in that order.</li>
-    <li>Build. The plan turns into the change.</li>
-    <li>Review. Bugs that pass CI, and a security pass.</li>
-    <li>Test. Exercise the real behavior and keep a failing test.</li>
-    <li>Ship. Run the checks, push, and open a pull request.</li>
-    <li>Reflect. A weekly retro, and notes the tool kept.</li>
+    <li>Think. Six questions, then a short note.</li>
+    <li>Plan. The boss, the designer, and the engineer look, in that order.</li>
+    <li>Build. The plan becomes the change.</li>
+    <li>Review. Find bugs the automatic tests miss, and check security.</li>
+    <li>Test. Try the real behavior, and keep a test that fails.</li>
+    <li>Ship. Run the checks, send the code, and open a pull request.</li>
+    <li>Reflect. Look back once a week, and keep the notes the tool saved.</li>
   </ol>
-  <figcaption>Think, then plan, build, review, test, ship and reflect. The repository is the full command list.</figcaption>
+  <figcaption>Think, then plan, build, review, test, ship, and look back. The full command list is in the project.</figcaption>
 </figure>
-<p>Useful commands inside that order are /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /autoplan, /review, /cso, /design-review, /qa, /qa-only, /ship, /land-and-deploy, /document-release, /retro and /learn. Separate power tools cover a second opinion (/codex), safety (/careful, /freeze, /guard) and upgrading (/gstack-upgrade). Uninstall is ~/.claude/skills/gstack/bin/gstack-uninstall.</p>
+<p>Commands along the way: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /autoplan, /review, /cso, /design-review, /qa, /qa-only, /ship, /land-and-deploy, /document-release, /retro, and /learn.</p>
+<p>Other tools give a second opinion (/codex), help you stay safe (/careful, /freeze, /guard), and update the setup (/gstack-upgrade). To remove it, run ~/.claude/skills/gstack/bin/gstack-uninstall.</p>
 
 <h2>Who it is for</h2>
-<p>The README names three readers: founders and CEOs who still ship, people new to Claude Code who want roles instead of a blank prompt, and tech leads who want review, testing and a release check on every pull request.</p>
+<p>The README names three kinds of people.</p>
+<p>Founders and CEOs who still ship their own work. People new to Claude Code who want jobs to pick, not an empty box. Tech leads who want a review, a test, and a release check on every change.</p>
 
 <h2>How to install</h2>
-<p>The README requires Claude Code, Git, and Bun 1.4.2 or newer. Setup refuses Bun older than 1.3.3. Node.js is required on Windows only. The default install is Claude Code. ./setup --host auto installs for the other agents the README lists.</p>
+<p>You need Claude Code, Git, and Bun 1.4.2 or newer. Setup will not run if Bun is older than 1.3.3. You need Node.js only on Windows.</p>
+<p>The usual install is for Claude Code. ./setup --host auto sets it up for the other tools the README lists.</p>
 <pre><code>git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
 cd ~/.claude/skills/gstack &amp;&amp; ./setup</code></pre>
-<p>The README's suggested first commands are /office-hours, then /plan-ceo-review, /review and /qa.</p>
-<p>Team mode is optional. From the gstack folder the command is ./setup --team, then gstack-team-init required, then a commit of .claude/ and CLAUDE.md. Use optional instead of required when teammates should not be blocked.</p>
-<p><a class="text-link" href="https://github.com/garrytan/gstack">The gstack repository on GitHub</a></p>
+<p>Try /office-hours first. Then /plan-ceo-review, /review, and /qa.</p>
+<p>A team install is optional. From the gstack folder, run ./setup --team. Then run gstack-team-init required. Then commit the .claude/ folder and CLAUDE.md. Use optional instead of required if you do not want to block your teammates.</p>
+<p><a class="text-link" href="https://github.com/garrytan/gstack">See gstack on GitHub</a></p>
