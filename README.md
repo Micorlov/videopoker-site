@@ -126,22 +126,10 @@ points at it.
 
 ### Fonts
 
-Antonio and Archivo are self-hosted in `static/fonts/`, so the first paint waits
-on no cross-origin DNS, TLS and round trip to `fonts.googleapis.com` and
-`fonts.gstatic.com`. `static/fonts.css` is the Google Fonts stylesheet with the
-URLs pointed at local copies and nothing else changed, and the two latin files
-the header and body text need are preloaded in `templates/base.html`.
-
-To refresh them, fetch the stylesheet with a current browser's user agent (an old
-one is served ttf instead of woff2), download every `.woff2` it names, and replace
-`static/fonts.css` and `static/fonts/*.woff2` together:
-
-```sh
-curl -A "$(python3 -c 'print("Mozilla/5.0 Chrome/126.0.0.0 Safari/537.36")')" \
-  'https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Archivo:wght@400;500;600;700&display=swap'
-```
-
-Both faces are SIL Open Font License 1.1; see `static/fonts/NOTICE`.
+General Sans is self-hosted in `static/fonts/`, so the first paint waits on no
+font CDN. `static/fonts.css` declares the three weights the pages use, and the
+regular and bold files are preloaded in `templates/base.html`. Scripts the file
+does not cover fall through to the system font. See `static/fonts/NOTICE`.
 
 ## Analytics
 

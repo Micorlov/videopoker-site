@@ -190,8 +190,17 @@ def post_items(posts, apps_by_slug, show_app=True, summary=False):
     return '<div class="post-list">\n' + "\n".join(rows) + "\n  </div>"
 
 
+def shot_src(app):
+    """First screenshot. Video Poker's shots live in /img/; every other app keeps its own folder."""
+    name = app["screenshots"][0]
+    if (STATIC / "img" / "apps" / app["slug"] / name).exists():
+        return f"/img/apps/{app['slug']}/{name}"
+    return f"/img/{name}"
+
+
 def app_cards(apps, current=None):
     cards = []
+    i = 0
     for a in apps:
         if a["slug"] == current:
             continue
@@ -201,7 +210,7 @@ def app_cards(apps, current=None):
             else f'<span class="state">{esc(a["category"])}</span>'
         )
         cards.append(
-            f"""    <a class="card" href="{a['url']}">
+            f"""    <a class="card" href="{a['url']}" data-shot="{shot_src(a)}" data-reveal style="--i:{i}">
       <img src="{a['icon']}" alt="" width="64" height="64" loading="lazy">
       <span class="card-text">
         <strong>{esc(a['short_name'])}</strong>
@@ -210,6 +219,7 @@ def app_cards(apps, current=None):
       </span>
     </a>"""
         )
+        i += 1
     return '<div class="cards">\n' + "\n".join(cards) + "\n  </div>"
 
 
@@ -405,42 +415,65 @@ def build_home(apps, posts, abs_):
     live = [a for a in apps if a["status"] == "live"]
     testing = [a for a in apps if a["status"] == "testing"]
     featured = next(a for a in apps if a["featured"])
+    featured_shot = shot_src(featured)
+    fw, fh = image_size(STATIC / featured_shot.lstrip("/"))
+    frames = []
+    for i, a in enumerate(live[:6]):
+        src = shot_src(a)
+        w, h = image_size(STATIC / src.lstrip("/"))
+        frames.append(
+            f"""    <figure data-reveal class="pic" style="--i:{i}">
+      <img src="{src}" width="{w}" height="{h}" alt="" decoding="async">
+      <figcaption>{esc(a['short_name'])}</figcaption>
+    </figure>"""
+        )
     body = f"""
 <main>
-<div class="hero wrap">
-  <h1>Orlov Games<span class="sub">Small games for Android</span></h1>
-  <div class="hero-grid">
-    <div>
-      <p class="lede">Card tables, casino classics, puzzles and a couple of useful tools, made by Michael Orlov in Israel. The casino games play for chips only: no real money, ever.</p>
-      <div class="cta-row">
-        <a class="play" href="#apps">See all {len(apps)} apps</a>
-        <a class="text-link" href="/blog/">Read the blog</a>
-      </div>
+<div class="hero">
+  <div class="monument-mask">
+    <h1 class="monument">Orlov Games</h1>
+  </div>
+  <div class="hero-corner">
+    <p class="sub">Small games for Android</p>
+    <p class="lede">Card tables, casino classics, puzzles and a couple of useful tools, made by Michael Orlov in Israel. The casino games play for chips only: no real money, ever.</p>
+    <div class="cta-row">
+      <a class="play" href="#apps">See all {len(apps)} apps</a>
+      <a class="text-link" href="/blog/">Read the blog</a>
     </div>
-    <a class="feature" href="{featured['url']}">
-      <img src="{featured['icon']}" alt="" width="120" height="120" fetchpriority="high" decoding="async">
-      <span class="feature-label">Most played</span>
-      <strong>{esc(featured['name'])}</strong>
-      <span>{esc(featured['tagline'])}</span>
-    </a>
   </div>
 </div>
 
-<section class="wrap" id="apps">
-  <h2>Out now</h2>
-  <p class="section-lede">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
-  {app_cards(live)}
+<section class="wrap sheet" id="apps">
+  <h2 data-reveal>Out now</h2>
+  <p class="section-lede" data-reveal style="--i:1">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
+  <div class="catalog">
+    <div class="stage-col">
+      <div class="stage">
+        <img data-stage src="{featured_shot}" width="{fw}" height="{fh}" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <a class="feature" href="{featured['url']}">
+        <strong>{esc(featured['name'])}</strong>
+        <span class="feature-label">Most played</span>
+        <span>{esc(featured['tagline'])}</span>
+      </a>
+    </div>
+    {app_cards(live)}
+  </div>
 </section>
 
-<section class="wrap" id="testing">
-  <h2>In testing</h2>
-  <p class="section-lede">In closed testing on Google Play, and public as soon as they are ready.</p>
+<section class="gallery wrap" id="screens">
+{chr(10).join(frames)}
+</section>
+
+<section class="wrap sheet" id="testing">
+  <h2 data-reveal>In testing</h2>
+  <p class="section-lede" data-reveal style="--i:1">In closed testing on Google Play, and public as soon as they are ready.</p>
   {app_cards(testing)}
 </section>
 
-<section class="wrap" id="blog">
-  <h2>From the blog</h2>
-  <p class="section-lede">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
+<section class="wrap sheet" id="blog">
+  <h2 data-reveal>From the blog</h2>
+  <p class="section-lede" data-reveal style="--i:1">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
   {post_items(posts[:5], abs_, summary=True)}
   <p class="more"><a href="/blog/">All {len(posts)} posts</a></p>
 </section>
@@ -515,7 +548,7 @@ def app_posts_section(app, posts, abs_, heading="From the blog"):
     if not mine:
         return ""
     more = f'\n  <p class="more"><a href="/blog/{app["slug"]}/">All {len(mine)} {esc(app["short_name"])} posts</a></p>' if len(mine) > 5 else ""
-    return f"""<section class="wrap" id="blog">
+    return f"""<section class="wrap sheet" id="blog">
   <h2>{heading}</h2>
   <p class="section-lede">Notes on how {esc(app['short_name'])} works underneath.</p>
   {post_items(mine[:5], abs_, show_app=False, summary=True)}{more}
@@ -562,7 +595,7 @@ def build_app(app, apps, posts, abs_):
   </div>
 </div>
 
-<section class="wrap" id="screens">
+<section class="wrap sheet" id="screens">
   <h2>What it looks like</h2>
   <div class="strip {wide}">
 {chr(10).join(shots)}
@@ -678,7 +711,7 @@ def build_blog(apps, posts, abs_):
             body=f"""
 <main class="post wrap">
   <div class="post-head">
-    <p class="kicker"><a href="/blog/">Blog</a></p>
+    <p class="trail"><a href="/blog/">Blog</a></p>
     <h1>{esc(app['short_name'])}</h1>
     <p class="standfirst">Posts about <a href="{app['url']}">{esc(app['name'])}</a>, newest first.</p>
   </div>
@@ -743,7 +776,7 @@ def build_post(p, posts, abs_):
         body=f"""
 <main class="post wrap">
   <div class="post-head">
-    <p class="kicker"><a href="/blog/">Blog</a> · <a href="/blog/{app['slug']}/">{esc(app['short_name'])}</a> · <time datetime="{p['date']}">{nice_date(p['date'])}</time></p>
+    <p class="trail"><a href="/blog/">Blog</a> · <a href="/blog/{app['slug']}/">{esc(app['short_name'])}</a> · <time datetime="{p['date']}">{nice_date(p['date'])}</time></p>
     <h1>{p['title']}</h1>
     <p class="standfirst">{p['standfirst']}</p>
   </div>
