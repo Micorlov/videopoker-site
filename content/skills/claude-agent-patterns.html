@@ -1,0 +1,48 @@
+<!--
+{
+  "title": "Seven Claude agents, already written down",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "description": "A reel says seven new Claude agents can replace a company. The patterns are real. Anthropic wrote most of them down on 19 December 2024.",
+  "summary": "Real patterns, with an invented sense of news. Most were already in a 2024 article.",
+  "standfirst": "A reel says seven new Claude agents can replace a whole company. The patterns are real. They are not new."
+}
+-->
+<p><a class="text-link" href="https://www.anthropic.com/engineering/building-effective-agents">Read “Building effective agents”</a></p>
+<p><a class="text-link" href="https://www.anthropic.com/news/model-context-protocol">Read the MCP announcement</a></p>
+<p><a class="text-link" href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Read the Agent Skills post</a></p>
+<p><a class="text-link" href="https://code.claude.com/docs/en/skills">Read the Claude Code skills docs</a></p>
+<p><a class="text-link" href="https://modelcontextprotocol.io">Open the MCP docs</a></p>
+<p>A reel by Evgenii Arsentev lists seven new Claude agents and says they can replace a whole company. The patterns are real. Calling them new is the sales line.</p>
+
+<figure class="chart">
+  <img src="/img/skills/claude-agent-patterns.svg" alt="Seven small dots already drawn on one older page." width="640" height="360">
+  <figcaption>Seven names. One older article.</figcaption>
+</figure>
+
+<h2>The seven names</h2>
+<p>The reel uses everyday names. Here is each one, next to the page that already described that kind of work.</p>
+<ol>
+  <li>Tool agent. The reel says Claude uses Gmail, Notion, and other apps through MCP. Anthropic opened MCP on 25 November 2024. It is a shared way to connect an assistant to tools and files. The first example servers include Google Drive, Slack, and GitHub. The December article calls the basic piece an augmented model: a model plus tools.</li>
+  <li>Skills agent. The reel says you write the instructions once, in a file called SKILL.md, inside .claude/skills/. Anthropic published Agent Skills on 16 October 2025, later than the article. A skill is a folder with a SKILL.md file. Claude reads it when the task fits. Claude Code’s docs put a project skill at .claude/skills/.</li>
+  <li>Sequential agents. The reel says the tasks run in a chain. The article calls this prompt chaining. Each step reads what the step before it wrote.</li>
+  <li>Parallel agents. The reel says the agents work side by side. The article calls this parallelization. Split the job, run the pieces at the same time, then join the answers.</li>
+  <li>Router. The reel says a router sends each request to the right agent. The article calls this routing. Sort the request, then send it down the matching path.</li>
+  <li>Human in the loop. The reel says the agent does the work, then asks you to confirm before an important action, such as sending an email. The article does not give this its own name in the pattern list. It does say an agent can stop and ask a person at a checkpoint, or when it is stuck.</li>
+  <li>Orchestrator. The reel says one lead agent manages a team. The article calls this orchestrator-workers. One model splits the job, hands the pieces to worker models, and combines what they return.</li>
+</ol>
+
+<h2>What the article also has</h2>
+<p>The article describes one more pattern the reel skips. One model writes. Another model checks. They loop until the check is good enough. The article calls this evaluator-optimizer.</p>
+
+<h2>What came when</h2>
+<p>Put the dates in order. MCP launched on 25 November 2024. The article, “Building effective agents”, came on 19 December 2024. It already has prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer. Agent Skills came later, on 16 October 2025.</p>
+<ul class="fix-pair">
+  <li>The reel. Seven new agents, ready to replace a company.</li>
+  <li>The pages. Real patterns. Most of them were already written down in December 2024.</li>
+</ul>
+<p><a class="text-link" href="https://www.anthropic.com/engineering/building-effective-agents">Read “Building effective agents”</a></p>
+<p><a class="text-link" href="https://www.anthropic.com/news/model-context-protocol">Read the MCP announcement</a></p>
+<p><a class="text-link" href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Read the Agent Skills post</a></p>
+<p><a class="text-link" href="https://code.claude.com/docs/en/skills">Read the Claude Code skills docs</a></p>
+<p><a class="text-link" href="https://modelcontextprotocol.io">Open the MCP docs</a></p>
