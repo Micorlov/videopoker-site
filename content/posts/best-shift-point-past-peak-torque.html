@@ -1,0 +1,115 @@
+<!--
+{
+  "title": "When to shift: why the best shift point is past peak torque",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "PinkSlipKings",
+  "description": "Shift where wheel force in the next gear equals wheel force in this one. In an example engine that is 6,898 rpm, 1,900 rpm past peak torque.",
+  "summary": "The best shift point is where the wheel-force curves of two gears cross. Worked through an invented engine and two invented gears: the crossover sits at 6,898 rpm, well past the 5,000 rpm torque peak and just past the power peak.",
+  "standfirst": "Shifting at peak torque feels right and costs you force. The best moment to change gear is set by the gearing, not by a peak on the dyno chart, and it can be found with one equation."
+}
+-->
+<p>Peak torque is the wrong place to change gear. The next gear multiplies torque by a smaller number and drops the revs to a lower point on the curve. What counts is the force at the wheels before and after the shift. This post finds the point where the two are equal, using the invented engine from <a href="/blog/reading-a-dyno-chart.html">the dyno chart post</a> and two invented gears. None of it is data about a car in a game.</p>
+
+<h2>The rule</h2>
+<p>Force at the wheels is proportional to engine torque multiplied by the overall gear ratio (the gear times the final drive, as in <a href="/blog/gear-ratios-and-final-drive.html">the gear ratio post</a>). Losses and tyre radius apply to both gears equally, so they cancel.</p>
+<p>Changing up from one gear to the next at engine speed r drops the revs to r × (next ratio ÷ current ratio). The best moment to shift is when the force afterwards equals the force before:</p>
+<p><strong>torque at r × current ratio = torque at (r × next ratio ÷ current ratio) × next ratio</strong></p>
+<p>Before that point, staying in the current gear gives more force. After it, the next gear does. The point is where the two wheel-force curves cross.</p>
+
+<h2>An example pair of gears</h2>
+<p>Take the dyno chart engine (torque 220, 260, 290, 300, 280 and 240 lb-ft at 2,000 to 7,000 rpm, joined by straight lines) and a 3.42 final drive with 26-inch tyres. Gear A has a ratio of 1.30 and gear B a ratio of 1.15, both invented. The overall ratios are 1.30 × 3.42 = 4.45 and 1.15 × 3.42 = 3.93, so shifting from A to B drops the revs to 1.15 ÷ 1.30 = 0.885 of their value. Redline is 7,000 rpm. Road speed is mph = rpm × 26 ÷ (overall ratio × 336).</p>
+
+<table class="paytable-compare">
+  <caption>Wheel torque (engine torque × overall ratio, in lb-ft, losses ignored) at the same road speed in each gear.</caption>
+  <thead>
+    <tr><th>Road speed</th><th>Gear A rpm</th><th>Gear A</th><th>Gear B rpm</th><th>Gear B</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">100 mph</th><td>5,746</td><td>1,268</td><td>5,083</td><td>1,173</td></tr>
+    <tr><th scope="row">110 mph</th><td>6,320</td><td>1,188</td><td>5,591</td><td>1,133</td></tr>
+    <tr><th scope="row">120 mph</th><td>6,895</td><td>1,086</td><td>6,099</td><td>1,086</td></tr>
+    <tr><th scope="row">121.8 mph</th><td>7,000</td><td>1,067</td><td>6,192</td><td>1,071</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 290" role="img" aria-label="Chart of wheel torque against road speed for two gears of an invented car. Gear A, ratio 1.30: 1,268 at 100 mph, 1,188 at 110 mph, 1,086 at 120.1 mph and 1,067 at 121.8 mph, its 7,000 rpm limit. Gear B, ratio 1.15: 1,173 at 100 mph, 1,133 at 110 mph, 1,086 at 120.1 mph and 1,071 at 121.8 mph. The curves cross at 120.1 mph.">
+    <line class="grid" x1="50" x2="386" y1="210.0" y2="210.0"/><text x="44" y="214.0" text-anchor="end">1,000</text>
+    <line class="grid" x1="50" x2="386" y1="153.3" y2="153.3"/><text x="44" y="157.3" text-anchor="end">1,100</text>
+    <line class="grid" x1="50" x2="386" y1="96.7" y2="96.7"/><text x="44" y="100.7" text-anchor="end">1,200</text>
+    <line class="grid" x1="50" x2="386" y1="40.0" y2="40.0"/><text x="44" y="44.0" text-anchor="end">1,300</text>
+    <text x="50.0" y="226" text-anchor="middle">100</text>
+    <text x="126.4" y="226" text-anchor="middle">105</text>
+    <text x="202.7" y="226" text-anchor="middle">110</text>
+    <text x="279.1" y="226" text-anchor="middle">115</text>
+    <text x="355.5" y="226" text-anchor="middle">120</text>
+    <line class="axis" x1="50" x2="386" y1="210" y2="210"/>
+    <text x="218" y="244" text-anchor="middle">Road speed, mph</text>
+    <text x="12" y="125" text-anchor="middle" transform="rotate(-90 12 125)">Wheel torque, lb-ft</text>
+    <line class="ref" x1="356.3" x2="356.3" y1="30" y2="210"/>
+    <text x="352.3" y="196" text-anchor="end">Cross at 120.1 mph</text>
+    <path class="line" d="M50.0,58.4 L117.6,71.2 L383.4,172.0"/>
+    <path d="M50.0,111.7 L325.7,152.6 L383.4,169.8" fill="none" stroke="var(--chart-base)" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <g class="hit"><title>100.0 mph: 1,268 lb-ft</title><circle cx="50.0" cy="58.4" r="10" fill="transparent"/><circle class="dot" cx="50.0" cy="58.4" r="4.5"/></g>
+    <text class="strong" x="54.0" y="49.4" text-anchor="start">1,268</text>
+    <g class="hit"><title>110.0 mph: 1,188 lb-ft</title><circle cx="202.7" cy="103.5" r="10" fill="transparent"/><circle class="dot" cx="202.7" cy="103.5" r="4.5"/></g>
+    <text class="strong" x="202.7" y="94.5" text-anchor="middle">1,188</text>
+    <g class="hit"><title>121.8 mph: 1,067 lb-ft</title><circle cx="383.4" cy="172.0" r="10" fill="transparent"/><circle class="dot" cx="383.4" cy="172.0" r="4.5"/></g>
+    <text class="strong" x="383.4" y="163.0" text-anchor="end">1,067</text>
+    <circle cx="50.0" cy="111.7" r="4" fill="var(--chart-base)"/>
+    <text x="54.0" y="128.7" text-anchor="start">1,173</text>
+    <circle cx="202.7" cy="134.4" r="4" fill="var(--chart-base)"/>
+    <text x="202.7" y="151.4" text-anchor="middle">1,133</text>
+    <circle cx="383.4" cy="169.8" r="4" fill="var(--chart-base)"/>
+    <text x="381.4" y="186.8" text-anchor="end">1,071</text>
+    <circle cx="356.3" cy="161.7" r="5.5" fill="none" stroke="var(--chart-accent)" stroke-width="2"/>
+    <text x="348.3" y="177.7" text-anchor="end">1,086</text>
+    <line x1="60" x2="84" y1="268" y2="268" stroke="var(--chart-accent)" stroke-width="3"/><text x="90" y="272">Gear A, ratio 1.30 (bold)</text>
+    <line x1="230" x2="254" y1="268" y2="268" stroke="var(--chart-base)" stroke-width="2.5" stroke-dasharray="6 4"/><text x="260" y="272">Gear B, ratio 1.15</text>
+    </svg>
+  <figcaption>Figure 1. Wheel torque against road speed in two invented gears, using the example engine from the dyno chart post. Gear A is stronger until about 120.1 mph, where the lines cross; gear A stops at its 7,000 rpm limit at 121.8 mph.</figcaption>
+</figure>
+
+<h2>Solving for the crossover</h2>
+<p>Between 6,000 and 7,000 rpm the example torque falls in a straight line, 280 − 0.04 × (rpm − 6,000). Setting the two sides of the rule equal gives a shift at 6,898 rpm in gear A. Revs then drop to 6,898 × 0.885 = 6,102 rpm in gear B. Check it:</p>
+<ul>
+  <li>Gear A at 6,898 rpm: 244.1 lb-ft × 4.446 = 1,085.2.</li>
+  <li>Gear B at 6,102 rpm: 275.9 lb-ft × 3.933 = 1,085.2.</li>
+  <li>Both correspond to 120.1 mph.</li>
+</ul>
+<p>The torque peak is at 5,000 rpm. The crossover is 1,898 rpm above it, so the best shift is well past peak torque. It is also past the power peak, which with straight lines between the points is at about 6,500 rpm (the dyno chart post shows it lies between 6,000 and 7,000).</p>
+
+<h2>Why equal force means equal power</h2>
+<p>At one road speed the wheels turn at the same rate in either gear, so force at the wheels is proportional to the power the engine delivers. At the crossover the engine makes 244.1 × 6,898 ÷ 5,252 = 320.6 hp in gear A and 275.9 × 6,102 ÷ 5,252 = 320.6 hp in gear B. So the rule can be read off a horsepower curve: shift when the power at the dropped revs equals the power you are leaving. The two rev figures sit either side of the power peak.</p>
+
+<h2>What an early shift costs</h2>
+<p>Here is the force just before and just after a shift at four engine speeds in gear A, shifting into gear B:</p>
+<ul>
+  <li>5,000 rpm (peak torque): drops to 4,423 rpm, 1,334 becomes 1,157, a loss of 13.2%.</li>
+  <li>6,000 rpm: drops to 5,308 rpm, 1,245 becomes 1,156, a loss of 7.2%.</li>
+  <li>6,500 rpm (about peak power): drops to 5,750 rpm, 1,156 becomes 1,121, a loss of 3.0%.</li>
+  <li>7,000 rpm (redline): drops to 6,192 rpm, 1,067 becomes 1,071, a gain of 0.4%.</li>
+</ul>
+<p>The later the shift, the less it costs, until the crossover. Past it, staying in gear A gives up force.</p>
+
+<div class="callout">
+  <p>Peak torque and peak power are where the engine is strongest. The best shift point is where the next gear, after its drop in revs, is as strong as the current one. That depends on the gear spacing, so each gear has its own.</p>
+</div>
+
+<h2>When the crossover is beyond the redline</h2>
+<p>The gap between gears decides it. The four-speed in the gear ratio post has steps of 2.80 to 1.80, which drop the revs to 0.64 of their value. Checked against this engine, the curves do not cross anywhere below 7,000 rpm: the engine runs out of revs first. The right move there is to shift at the limiter. Close gears, like the 1.30 and 1.15 above, bring the crossover into range.</p>
+
+<h2>Limits of the method</h2>
+<ul>
+  <li><strong>The shift itself takes time.</strong> The comparison assumes no gap in drive, and a real change costs a moment of no push at all.</li>
+  <li><strong>Grip can cap the force.</strong> If the tyres cannot pass on the force, extra ratio only adds wheelspin. <a href="/blog/drag-racing-launch-rpm.html">The launch RPM post</a> covers that limit.</li>
+  <li><strong>The real curve bends.</strong> Straight lines between six points are an approximation, so treat 6,898 rpm as an estimate.</li>
+</ul>
+
+<h2>Using it in the game</h2>
+<p>Pink Slip Kings has manual shift controls, a dyno that compares horsepower and torque, and adjustable gear ratios and final drive. Estimate where the dropped revs land, then check the result on <a href="/blog/reading-a-drag-racing-time-slip.html">the time slip</a>. What suits any particular car in the game is outside this post.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls, detailed tuning, a dyno, telemetry and race time slips, and Test &amp; Tune and tuner sandbox modes. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>

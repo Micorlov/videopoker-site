@@ -1,0 +1,77 @@
+<!--
+{
+  "title": "Pocket pair against two overcards: the coin flip that isn't",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "HoldemCoach",
+  "description": "Pair against two overcards is called a coin flip. Computed over every board, it runs from 46.0% (22 v JTs) to 57.2% (QQ v AKo); only 22 v AKs is level.",
+  "summary": "Every board dealt: 22 against ace-king suited is 49.9%, but queens against ace-king offsuit is 57.2% and deuces against jack-ten suited is 46.0%. Suits cost the pair about three points.",
+  "standfirst": "Pair against two overcards is the textbook coin flip. Dealing out all 1,712,304 boards shows an eleven-point spread, set by the size of the pair and by whether the overcards are suited or connected."
+}
+-->
+<p>"Pair against two overcards is a coin flip" is one of the first things a Hold'em player hears about all-in pre-flop, and it is a fair summary of the average. It hides a spread of about eleven points, from a hand that is a clear favourite to one that is an underdog. Which end you are on depends on three things: how big the pair is, whether the overcards share a suit, and how close together they are.</p>
+
+<h2>How the numbers were made</h2>
+<p>Every figure below comes from dealing out all 1,712,304 possible five-card boards (that is 48 cards choose 5, with the four hole cards removed) and comparing the best five-card hand each side makes from its seven cards. No sampling is involved, so there is no margin of error. <em>Win</em> and <em>lose</em> are the shares of boards each side takes alone, <em>tie</em> is a split pot, and <em>equity</em> is the win share plus half the tie share.</p>
+<p>The suits matter a little, so for the record: the pair is always spades and hearts, the unsuited overcards are the ace of diamonds and king of clubs, and the suited ones are both diamonds. Giving the overcards the pair's suits instead moves the result by under a point in the cases I checked; for example 22 against the ace of hearts and king of spades is 52.3% rather than 53.0%, and 77 against the same cards is 54.6% rather than 55.4%.</p>
+
+<table class="paytable-compare">
+  <caption>Heads-up, all-in before the flop, every board dealt. "o" means offsuit, "s" suited.</caption>
+  <thead>
+    <tr><th>Matchup</th><th>Pair wins</th><th>Tie</th><th>Pair loses</th><th>Pair equity</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">22 v AKo</th><td>52.75%</td><td>0.58%</td><td>46.67%</td><td>53.04%</td></tr>
+    <tr><th scope="row">77 v AKo</th><td>55.25%</td><td>0.28%</td><td>44.47%</td><td>55.39%</td></tr>
+    <tr><th scope="row">QQ v AKo</th><td>56.99%</td><td>0.34%</td><td>42.66%</td><td>57.16%</td></tr>
+    <tr><th scope="row">22 v AKs</th><td>49.60%</td><td>0.63%</td><td>49.77%</td><td>49.92%</td></tr>
+    <tr><th scope="row">77 v AKs</th><td>51.95%</td><td>0.34%</td><td>47.71%</td><td>52.12%</td></tr>
+    <tr><th scope="row">QQ v AKs</th><td>53.59%</td><td>0.39%</td><td>46.02%</td><td>53.79%</td></tr>
+    <tr><th scope="row">22 v JTs</th><td>45.32%</td><td>1.41%</td><td>53.28%</td><td>46.02%</td></tr>
+    <tr><th scope="row">77 v JTs</th><td>48.94%</td><td>0.48%</td><td>50.58%</td><td>49.18%</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the pair's equity in eight all-in matchups, from 57.2% for queens against ace-king offsuit down to 46.0% for deuces against jack-ten suited">
+    <div class="bar-row" title="QQ v AKo: 57.2%"><span class="bar-label">QQ v AKo</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">57.2%</span></span></div>
+    <div class="bar-row" title="77 v AKo: 55.4%"><span class="bar-label">77 v AKo</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9690)"></span><span class="bar-val">55.4%</span></span></div>
+    <div class="bar-row" title="QQ v AKs: 53.8%"><span class="bar-label">QQ v AKs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9410)"></span><span class="bar-val">53.8%</span></span></div>
+    <div class="bar-row" title="22 v AKo: 53.0%"><span class="bar-label">22 v AKo</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9279)"></span><span class="bar-val">53.0%</span></span></div>
+    <div class="bar-row" title="77 v AKs: 52.1%"><span class="bar-label">77 v AKs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9118)"></span><span class="bar-val">52.1%</span></span></div>
+    <div class="bar-row hl" title="22 v AKs: 49.9%"><span class="bar-label">22 v AKs</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8733)"></span><span class="bar-val">49.9%</span></span></div>
+    <div class="bar-row" title="77 v JTs: 49.2%"><span class="bar-label">77 v JTs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8604)"></span><span class="bar-val">49.2%</span></span></div>
+    <div class="bar-row" title="22 v JTs: 46.0%"><span class="bar-label">22 v JTs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8051)"></span><span class="bar-val">46.0%</span></span></div>
+  </div>
+  <figcaption>Equity of the pair in each matchup, all boards dealt. The only true coin flip is deuces against ace-king suited, at 49.9%; the range runs from 46.0% to 57.2%.</figcaption>
+</figure>
+
+<h2>What moves the number</h2>
+<p><strong>Suited overcards cost the pair about three points.</strong> Going from AKo to AKs takes 22 from 53.04% to 49.92% (3.12 points), 77 from 55.39% to 52.12% (3.27) and QQ from 57.16% to 53.79% (3.37). The suit adds flush chances on top of everything the two cards could already do.</p>
+<p><strong>Half of all boards pair the overcards.</strong> Against a pair of sevens, six cards (three aces, three kings) help ace-king, and at least one of them lands on the board in 1 − C(42,5) ÷ C(48,5) = 50.3% of runouts. The pair has its own route: a set arrives on 1 − C(46,5) ÷ C(48,5) = 19.9% of boards, about one in five.</p>
+<p><strong>Connected overcards are not weaker than big ones.</strong> Against deuces, jack-ten suited takes 53.98% of the equity (100 minus 46.02), more than ace-king suited does (50.08%). Smaller cards, but they add straight chances, and neither card is dominated by the pair. Against 77 the pair is nearly level at 49.18%.</p>
+
+<h2>Pair size moves it in steps</h2>
+<p>Run the same sweep against ace-king offsuit and the pair's equity does not climb steadily:</p>
+<ol class="ranked">
+  <li>22: 53.04%, 33: 53.77%, 44: 54.43%</li>
+  <li>55: 55.01%, 66: 55.39%, 77: 55.39%</li>
+  <li>88: 55.57%, 99: 55.68%</li>
+  <li>TT: 57.28%, JJ: 57.25%, QQ: 57.16%</li>
+</ol>
+<p>Moving from deuces to nines adds 2.6 points. Nines to tens add another 1.6, and above tens nothing is gained: queens are fractionally below tens. Across the whole range, from 22 to QQ, the pair gains 4.1 points, slightly more than the three points the overcards gain by being suited.</p>
+
+<h2>Turning equity into a decision</h2>
+<p>Equal stacks, heads-up, all-in: you call 100 to win a pot of 200, so you need 50%, the break-even figure from the <a href="/blog/holdem-pot-odds.html">pot odds post</a>. Deuces against ace-king suited sit at 49.92%, which is level to within a rounding error. Deuces against jack-ten suited at 46.02% fall short. Over many repetitions the average result is 0.4602 × 200 − 100 = −8.0 per 100 put in. Queens against ace-king offsuit at 57.16% average +14.3 per 100.</p>
+<p>That arithmetic assumes no more betting and no one folding, which is exactly the all-in case. Once the flop comes, the picture changes: a pair is behind once an ace or king lands, and the <a href="/blog/holdem-rule-of-2-and-4.html">outs counting</a> from the earlier post gives your chance from there.</p>
+
+<div class="callout">
+  <p>"Coin flip" is a fair label for deuces against suited ace-king and a poor one for everything else here. Offsuit overcards give the pair about three points, a bigger pair adds up to four more, and connected cards such as jack-ten suited can leave a small pair an underdog.</p>
+</div>
+
+<p>The "Which hand is in front?" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> shows you two hands and asks which is more likely to win, which is the question this post answers with exact figures.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons on one idea at a time, nothing is timed, and practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

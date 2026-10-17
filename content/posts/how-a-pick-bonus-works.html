@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "How a pick bonus works, and why the picks are already decided",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "BrasslightSlots",
+  "seo_title": "How a pick bonus works: the picks are already decided",
+  "description": "In most pick bonuses the prize is drawn by the RNG when the bonus triggers, and the taps only reveal it. A worked example shows the expected value and why choice cannot help.",
+  "seo_description": "Most pick bonuses draw the prize when they trigger and the taps just reveal it. A worked example shows the expected value and why choosing cannot help.",
+  "summary": "A pick bonus usually fixes its result at the trigger and uses the taps to reveal it. In an illustrative table the expected prize is 11 times the bet, and on a real shuffled board of nine tiles three blind picks average 16.67 whatever you choose.",
+  "standfirst": "A pick bonus looks like a skill test: choose well and the prize grows. In the usual design it is a reveal, and where choice is real it still cannot beat chance. Two small examples, with every number checkable, show how to tell which is which."
+}
+-->
+<p>A pick bonus asks you to tap hidden objects and collect what is behind them. It feels as if the choice matters. In most slots it does not, and the reason is simple enough to check with a pencil. This post uses invented numbers throughout. They are an illustration of how such rounds are commonly built, not figures from any particular game.</p>
+
+<h2>Two ways to build a pick round</h2>
+<p><strong>Design A: decide first, reveal later.</strong> When the bonus triggers, the game's random number generator (RNG) draws the outcome from a table. Only then does the picking screen appear. Each tap shows the next piece of a result that already exists. Tapping the left tile or the right tile changes what you see first, not what you are paid.</p>
+<p><strong>Design B: a shuffled board.</strong> The game lays out a set of prizes in random positions, and your taps choose positions. Here the picks do select the prize, but you cannot see behind a tile, so every unopened tile is equally likely to hold any remaining prize. A choice made with no information cannot beat a random one.</p>
+<p>Either way, the player has no lever to pull. The difference is only whether the randomness is spent before the picking or during it.</p>
+
+<h2>Design A with numbers</h2>
+<p>Suppose a bonus pays a total of 5, 10, 20 or 50 times the bet, drawn when the bonus opens with these weights. The table is made up.</p>
+
+<table class="paytable-compare">
+  <caption>An illustrative pick-bonus outcome table (invented). Prizes are multiples of the bet.</caption>
+  <thead>
+    <tr><th>Total prize</th><th>Chance</th><th>Contribution to the average</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">5 &times; bet</th><td>50%</td><td>0.50 &times; 5 = 2.5</td></tr>
+    <tr><th scope="row">10 &times; bet</th><td>30%</td><td>0.30 &times; 10 = 3.0</td></tr>
+    <tr><th scope="row">20 &times; bet</th><td>15%</td><td>0.15 &times; 20 = 3.0</td></tr>
+    <tr><th scope="row">50 &times; bet</th><td>5%</td><td>0.05 &times; 50 = 2.5</td></tr>
+    <tr><th scope="row">Expected prize</th><td>100%</td><td class="good">11.0 &times; bet</td></tr>
+  </tbody>
+</table>
+
+<p>The expected value is the sum of each prize times its chance: 2.5 + 3.0 + 3.0 + 2.5 = 11 times the bet. That is the average bonus over a very large number of bonus rounds. It says nothing about the next one: half of all bonuses pay only 5 times the bet, and one in twenty pays 50.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of each prize's contribution to the expected value of an illustrative pick bonus: 5 times bet 2.5, 10 times bet 3.0, 20 times bet 3.0, 50 times bet 2.5">
+    <div class="bar-row" title="5 x bet, 50% chance: 2.5"><span class="bar-label">5&times; (50%)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8333)"></span><span class="bar-val">2.5</span></span></div>
+    <div class="bar-row hl" title="10 x bet, 30% chance: 3.0"><span class="bar-label">10&times; (30%)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">3.0</span></span></div>
+    <div class="bar-row hl" title="20 x bet, 15% chance: 3.0"><span class="bar-label">20&times; (15%)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">3.0</span></span></div>
+    <div class="bar-row" title="50 x bet, 5% chance: 2.5"><span class="bar-label">50&times; (5%)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8333)"></span><span class="bar-val">2.5</span></span></div>
+  </div>
+  <figcaption>How much each prize adds to the expected value of the invented table, in multiples of the bet. The rare 50&times; prize adds as much as the common 5&times; one; the four bars sum to 11.</figcaption>
+</figure>
+
+<p>Now the picks. Suppose the draw gave 20 times the bet and the screen has three tiles to open. Whether you tap them in the order 1-2-3 or 3-1-2, the total is 20 times the bet. The game may split it into three displayed prizes, but the split was settled with the total. This is why developers can program the animation, the near-miss tension and the sound without any of it touching the outcome.</p>
+
+<div class="callout">
+  <p>If the result is drawn when the bonus triggers, the picks are theatre: they change the order of the reveal and nothing else.</p>
+</div>
+
+<h2>Design B with numbers</h2>
+<p>Take a board of nine hidden tiles holding these prizes, in multiples of the bet: 1, 1, 1, 2, 2, 3, 5, 10 and 25. They add up to 50, so the average tile is 50 &divide; 9 = 5.56. You open three tiles and keep what is behind them.</p>
+<p>There are 9 &times; 8 &times; 7 &divide; (3 &times; 2 &times; 1) = 84 different sets of three tiles. Because the board was shuffled out of sight, each set is equally likely, so the expected total is three times the average tile: 3 &times; 5.56 = 16.67 times the bet. Averaging all 84 sets one by one gives the same figure.</p>
+<ul>
+<li><strong>Chance of finding the 25.</strong> It is behind 28 of the 84 sets, which is 28 &divide; 84 = 1 in 3, or simply 3 tiles out of 9.</li>
+<li><strong>Range.</strong> The worst set is 1 + 1 + 1 = 3 times the bet and the best is 25 + 10 + 5 = 40.</li>
+<li><strong>Strategy.</strong> Picking corners, the centre or the tiles that glow gives the same 16.67. Nothing in the layout points to the 25, so every rule for choosing is equivalent to guessing.</li>
+</ul>
+<p>Choice only matters when the board offers information, for example when some prizes are shown before you decide. Even then the information has to be real, not a coloured hint that the animation draws regardless.</p>
+
+<h2>Telling the designs apart</h2>
+<p>From the outside you often cannot see which design you are playing. The useful habit is to ask what information the screen actually gives you before you pick. If it gives none, the choice cannot be better than a guess, and the honest summary is that the picks are not a skill.</p>
+<p>The same reasoning is behind <a href="/blog/why-a-slot-is-never-due.html">why a slot is never due</a>: a random draw has no memory, and nothing you do on the screen alters the draw. How often a bonus opens, and how spread out its prizes are, belongs to the numbers described in <a href="/blog/slot-rtp-and-volatility.html">slot RTP and volatility</a>.</p>
+
+<h2>What the Brasslight Slots listing says</h2>
+<p>The Play listing for <a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> says that landing three balls of yarn opens the Yarn Pick bonus round, and that tapping the yarn finds three hidden prizes worth up to 25 times your bet. It does not say how the prizes are chosen, how often the bonus opens or what it averages, so nothing above is a claim about that game. The tables in this post are invented. What carries over is the method: ask when the result is drawn, then work out the average from the table.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

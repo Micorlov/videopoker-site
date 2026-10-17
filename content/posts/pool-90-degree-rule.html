@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "The 90-degree rule: where the cue ball goes after a stun shot",
+  "seo_title": "The 90-degree rule: cue ball path after a stun shot",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "EightBallsPool",
+  "description": "After a stun shot the cue ball leaves along the tangent line, 90 degrees from the object ball. Here is why, how the speeds split, and how spin bends the path.",
+  "summary": "With no spin at contact, the object ball goes along the line of centres and the cue ball along the tangent line, 90 degrees apart. Speeds split as cos and sin of the cut angle.",
+  "standfirst": "Cut a ball with a sliding cue ball and the two balls part at a right angle every time. The rule is short, it comes from equal masses, and it tells you where the cue ball ends up."
+}
+-->
+<p>Position play starts with knowing where the cue ball goes after contact. For one common case the answer is exact: a cut shot played with a sliding cue ball that has no topspin or backspin when it hits. This is a stun shot, and the object ball and cue ball leave at 90 degrees to each other. Everything else, follow and draw included, is a bend away from that baseline.</p>
+
+<h2>Why the angle is 90 degrees</h2>
+<p>Treat the contact as an elastic collision between two identical balls, with the second ball at rest. Two facts fix the result.</p>
+<ol class="ranked">
+  <li><strong>The push acts along the line of centres.</strong> For smooth balls, the only force between them at contact points along the line joining their centres. This is the same line the <a href="/blog/ghost-ball-aiming.html">ghost-ball method</a> uses, so the object ball leaves along it.</li>
+  <li><strong>Nothing pushes the cue ball sideways along the tangent.</strong> The tangent line is the one at right angles to the line of centres, through the contact point. The cue ball's motion along it is untouched by the contact, so it keeps that part of its velocity.</li>
+</ol>
+<p>Split the cue ball's incoming velocity into a part along the line of centres and a part along the tangent. With equal masses and an elastic hit, the first part is handed over entirely to the object ball. The cue ball keeps only the tangent part. Because the two directions are perpendicular by construction, the two balls move off at exactly 90 degrees.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Cut shot at 30 degrees. The cue ball travels right to the contact position. The object ball leaves along the line of centres at 30 degrees above the cue path with speed cos 30 degrees, 0.87 of the original. The cue ball leaves along the tangent line, 60 degrees below the original path, with speed sin 30 degrees, 0.50 of the original. The two paths are 90 degrees apart.">
+    <line x1="30" y1="130" x2="180" y2="130" class="ref"/>
+    <line x1="152" y1="82" x2="262" y2="272" class="ref" stroke-dasharray="4 4"/>
+    <line x1="180" y1="130" x2="330" y2="43" class="ref"/>
+    <circle cx="225" cy="104" r="26" class="fill-base"/>
+    <text x="225" y="108" text-anchor="middle" class="strong" style="fill:#fff">Object</text>
+    <circle cx="180" cy="130" r="26" fill="none" stroke="var(--chart-accent)" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <circle cx="40" cy="130" r="26" class="fill-accent"/>
+    <text x="40" y="176" text-anchor="middle" class="strong">Cue ball</text>
+    <line x1="180" y1="130" x2="225" y2="208" stroke="var(--chart-accent)" stroke-width="3"/>
+    <circle cx="225" cy="208" r="26" fill="none" stroke="var(--chart-accent)" stroke-width="2"/>
+    <path d="M 196.4 134.4 L 190.4 124 M 196.4 134.4 L 186 140.4" fill="none" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <path d="M 210 130 A 30 30 0 0 0 206 115" fill="none" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <text x="214" y="146">30°</text>
+    <text x="262" y="60" class="strong">Object ball: 0.87</text>
+    <text x="262" y="76">(cos 30°, along line of centres)</text>
+    <text x="256" y="206" class="strong">Cue ball: 0.50</text>
+    <text x="256" y="222">(sin 30°, along tangent)</text>
+    <text x="256" y="240">Paths are 90° apart</text>
+  </svg>
+  <figcaption>A 30-degree cut played as a stun shot. Dashed circle: where the cue ball is at contact. The dashed line is the tangent; speeds are fractions of the cue ball's speed before contact.</figcaption>
+</figure>
+
+<h2>How the speed splits</h2>
+<p>If the cut angle is the angle between the cue ball's path and the line of centres, the component along that line is cos(angle) times the incoming speed, and the tangent component is sin(angle) times it. So:</p>
+<div class="callout">
+  <p><strong>Object ball speed = cos(cut angle).</strong> <strong>Cue ball speed = sin(cut angle).</strong> Both as fractions of the cue ball's speed before contact, and the cue ball's path is 90 degrees minus the cut angle away from its original line.</p>
+</div>
+<p>Cos squared plus sin squared is 1, so the kinetic energy divides cleanly between the balls and none is lost in the ideal case. These values are worth knowing:</p>
+<ul>
+  <li><strong>10 degrees:</strong> object ball 0.98, cue ball 0.17. The cue ball path is 80 degrees off its original line, but it barely moves.</li>
+  <li><strong>30 degrees (half-ball):</strong> object ball 0.87, cue ball 0.50, cue path 60 degrees off its line.</li>
+  <li><strong>45 degrees:</strong> both 0.71, cue path 45 degrees off its line.</li>
+  <li><strong>60 degrees:</strong> object ball 0.50, cue ball 0.87, cue path 30 degrees off its line.</li>
+  <li><strong>80 degrees:</strong> object ball 0.17, cue ball 0.98. A very thin cut, so the cue ball keeps almost all its pace and almost all its direction.</li>
+</ul>
+<p>Two limits follow. At 0 degrees, a straight shot, the cue ball's sine is zero and it stops dead, which is the stun stop. At 90 degrees there is no contact worth the name and the cue ball carries on.</p>
+
+<h2>Using it to place the cue ball</h2>
+<p>Once you have the pot line, the cue ball's departure line comes free: it is at right angles to the line from the cue ball's contact position through the object ball to the pocket. If that line points at a rail or another ball, you know before you shoot that a stun hit will not work.</p>
+<p>The distance it travels depends on the speed split. A thin cut sends the cue ball a long way, because the sine is large. A near-straight shot leaves it with almost nothing, so on a nearly straight pot a stun hit leaves you roughly where the object ball was.</p>
+
+<h2>What spin does to the path</h2>
+<p>The rule needs the cue ball to arrive with no spin that the cloth has not already used up. Hit in the centre of the ball and not too far away, and it is still sliding at contact. As the <a href="/blog/cue-ball-spin-explained.html">spin explainer</a> shows, a ball struck at its centre slides until it has slowed to 5/7 of its starting speed, then rolls, so a short shot leaves it sliding. After the hit, the cloth acts on whatever spin the ball has left.</p>
+<ul>
+  <li><strong>Topspin (follow).</strong> The tangent line is only where the ball starts. The topspin pulls the path forward, bending it towards the object ball's direction. The curve begins after contact, not at it.</li>
+  <li><strong>Backspin (draw).</strong> The path bends back, away from the object ball's direction and towards the cue ball's starting side.</li>
+</ul>
+<p>The 30-degree rule is the rolling-ball version of the same idea. For cuts of roughly a quarter to three-quarter ball, which is cut angles from about 14.5 to 48.6 degrees, a naturally rolling cue ball leaves about 30 degrees from its original line, rather than the stun ball's 90 degrees minus the cut. It is a rule of thumb. For the half-ball cut in the figure, the stun path is 60 degrees off the original line and the rolling path about 30, so the follow shot pulls the cue ball around by roughly 30 degrees.</p>
+
+<h2>Where it stops being exact</h2>
+<p>Real balls are not frictionless. Contact friction between the balls throws the object ball a little off the line of centres, especially on slow shots, and a cue ball that has begun to roll takes a different path. Fast, short, centre-ball hits come closest to the ideal. Use the 90-degree line to plan the shot, then let your practice show you how far your shots depart from it.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

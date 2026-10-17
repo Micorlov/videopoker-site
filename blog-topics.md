@@ -163,54 +163,42 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-1. The order to learn video poker variants in
-
 ### OmahaPoker
-
-1. Why the second-best flush is a trap in Omaha
 
 ### Blackjack21
 
-1. Twenty-one, pontoon and blackjack: how the games differ
-
 ### BrasslightSlots
-
-1. How a pick bonus works, and why the picks are already decided
 
 ### PokerVsDealer
 
-1. Is the ace high or low? The ace in five-card poker
-
 ### FivesAndThrees
-
-1. Counting tiles: working out what your opponent cannot hold
 
 ### BlackjackCoach
 
-1. Hard 12 against a 2 or 3: why basic strategy says hit
-
 ### HoldemCoach
-
-1. Pocket pair against two overcards: the coin flip that isn't
 
 ### EightBallsPool
 
-1. The 90-degree rule: where the cue ball goes after a stun shot
-
 ### BigBenBlocks
-
-1. Shapes as well as colours: block puzzles for colour-blind players
 
 ### PinkSlipKings
 
-1. When to shift: why the best shift point is past peak torque
-
 ### ValleyRail
-
-1. Railway towns: how a station made a village grow
 
 ## Published
 
+- 2026-10-17 — The order to learn video poker variants in — VideoPoker — `video-poker-variants-learning-order`
+- 2026-10-17 — Why the second-best flush is a trap in Omaha — OmahaPoker — `omaha-second-best-flush`
+- 2026-10-17 — Twenty-one, pontoon and blackjack: how the games differ — Blackjack21 — `twenty-one-pontoon-and-blackjack`
+- 2026-10-17 — How a pick bonus works, and why the picks are already decided — BrasslightSlots — `how-a-pick-bonus-works`
+- 2026-10-17 — Is the ace high or low? The ace in five-card poker — PokerVsDealer — `ace-high-or-low-in-poker`
+- 2026-10-17 — Counting tiles in Fives and Threes: what they cannot hold — FivesAndThrees — `fives-and-threes-counting-tiles`
+- 2026-10-17 — Hard 12 against a 2 or 3: why basic strategy says hit — BlackjackCoach — `hard-12-against-2-or-3`
+- 2026-10-17 — Pocket pair against two overcards: the coin flip that isn't — HoldemCoach — `holdem-pair-vs-overcards`
+- 2026-10-17 — The 90-degree rule: where the cue ball goes after a stun shot — EightBallsPool — `pool-90-degree-rule`
+- 2026-10-17 — Shapes as well as colours: block puzzles for colour-blind players — BigBenBlocks — `block-puzzles-for-colour-blind-players`
+- 2026-10-17 — When to shift: why the best shift point is past peak torque — PinkSlipKings — `best-shift-point-past-peak-torque`
+- 2026-10-17 — Railway towns: how a station made a village grow — ValleyRail — `railway-towns-how-a-station-made-a-village-grow`
 - 2026-10-16 — Three of a kind: how each video poker variant treats it — VideoPoker — `three-of-a-kind-across-variants`
 - 2026-10-16 — Wraps: how an Omaha straight draw can have 20 outs — OmahaPoker — `omaha-wrap-straight-draws`
 - 2026-10-16 — What a six-deck shoe changes compared with a single deck — Blackjack21 — `six-deck-shoe-vs-single-deck`

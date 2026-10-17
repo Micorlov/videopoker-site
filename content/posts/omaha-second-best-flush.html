@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Why the second-best flush is a trap in Omaha",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "OmahaPoker",
+  "description": "A king-high flush looks strong, but Omaha opponents hold four cards each. Count how often one of them has the ace-high flush, from 1 to 8 opponents.",
+  "summary": "Against three opponents, the chance that one holds the ace of your suit and a second card of it to make the nut flush is 11.0%. Against eight it is 29.4%. The king-high flush is strong, but rarely safe.",
+  "standfirst": "In Hold'em a king-high flush is close to the best hand you can hold. In Omaha each opponent has four cards, and the maths of the missing ace changes how much that flush is worth."
+}
+-->
+<p>A flush feels like a finished hand. In Omaha the question is which flush. With two hearts in your hand and three on the board, a king-high flush is a good hand that can still lose to one specific card: the ace of hearts. Each opponent holds four cards, so the ace is more likely to be out there than a Hold'em habit suggests. This post counts exactly how likely, and when it matters.</p>
+
+<h2>The hand and the board</h2>
+<p>You hold K&#9829; 7&#9829; J&#9824; 3&#9827;. The flop is 9&#9829; 5&#9829; 2&#9829;. You use the king and seven from your hand and the three hearts from the board: K-9-7-5-2, a king-high flush. Only one flush beats it, the ace-high. The <a href="/blog/omaha-exactly-two-hole-cards.html">exactly-two-hole-cards rule</a> decides who can have that.</p>
+<p>To make a flush on this board an opponent must play two hearts from their hand with the three on the board. One heart does not do it, even if it is the ace, and even on a board with four hearts. So the dangerous opponent holds the A&#9829; <em>and</em> at least one more heart. An opponent with the ace and three off-suit cards has nothing to fear from you on that count.</p>
+
+<h2>Counting the danger</h2>
+<p>You can see seven cards: your four and the three on the flop. That leaves 45 unseen cards. Of the 13 hearts, you hold 2 and the board has 3, so 8 are unseen: the ace and 7 others. Take one opponent and work in two steps.</p>
+<ol class="ranked">
+  <li><strong>Do they hold the A&#9829;?</strong> Four of the 45 unseen cards are theirs, so the chance is 4 ÷ 45 = 8.9%.</li>
+  <li><strong>Is there a second heart with it?</strong> The other three cards come from the remaining 44, which contain 7 hearts and 37 non-hearts. The chance of no heart at all is C(37,3) ÷ C(44,3) = 7,770 ÷ 13,244 = 58.7%, so at least one heart is 41.3%.</li>
+</ol>
+<p>Multiply: 8.9% × 41.3% = <strong>3.7%</strong> for one opponent. Each further opponent adds another four cards from the same pool, and the ace can only be in one hand, so the chances add. For N opponents the chance that somebody has the nut flush is 4N ÷ 45 × 0.4133. A python3 check of 200,000 random deals for 1, 3 and 5 opponents landed within 0.2 percentage points of these figures.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that some opponent holds the ace-high heart flush, rising from 3.7% against one opponent to 29.4% against eight">
+    <div class="bar-row" title="1 opponent: 3.7%"><span class="bar-label">1 opponent</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1249)"></span><span class="bar-val">3.7%</span></span></div>
+    <div class="bar-row" title="2 opponents: 7.3%"><span class="bar-label">2 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2501)"></span><span class="bar-val">7.3%</span></span></div>
+    <div class="bar-row hl" title="3 opponents: 11.0%"><span class="bar-label">3 opponents</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">11.0%</span></span></div>
+    <div class="bar-row" title="4 opponents: 14.7%"><span class="bar-label">4 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5002)"></span><span class="bar-val">14.7%</span></span></div>
+    <div class="bar-row" title="5 opponents: 18.4%"><span class="bar-label">5 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">18.4%</span></span></div>
+    <div class="bar-row" title="8 opponents: 29.4%"><span class="bar-label">8 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">29.4%</span></span></div>
+  </div>
+  <figcaption>Chance that at least one opponent holds the A&#9829; plus another heart, so has the nut flush against your king-high flush on a three-heart flop. Calculated from the 45 unseen cards, before any betting is taken into account.</figcaption>
+</figure>
+
+<p>Three opponents, the highlighted row, give 12 ÷ 45 × 0.4133 = 11.0%. That is a one in nine chance, not alarming on its own. The ace alone is far likelier to be out: against three opponents it is in someone's hand 26.7% of the time. Most of those holders have no second heart, which is why the flush risk is much lower than the ace risk.</p>
+
+<h2>Why it still costs you</h2>
+<p>An 11% chance of being beaten sounds small until you compare the size of the loss. The times you lose to the nut flush are the times you have put in the most. In Pot-Limit Omaha a raise can be the size of the pot, so the amount at stake grows quickly; <a href="/blog/pot-limit-omaha-pot-sized-bet.html">working out a pot-sized bet</a> shows how fast.</p>
+<p>The percentages above also assume your opponents are not telling you anything. They are. Once an opponent bets or raises hard into a three-heart board, the chance that they hold the ace and another heart is higher than the card-counting figure. Treat the table as the starting point and adjust it up for strong action, not down.</p>
+
+<div class="callout">
+  <p>The second-nut flush is a very good hand and a poor reason to commit your whole stack. Its value depends on the opponent count and on what the betting says, not on the rank of the hand alone.</p>
+</div>
+
+<h2>The draw version</h2>
+<p>The same trap exists before the flush arrives. Hold K&#9829; 7&#9829; with two hearts on the flop and you have nine hearts left among 45 unseen cards. You hit by the river with probability 1 − (36 ÷ 45 × 35 ÷ 44) = 1 − 1,260 ÷ 1,980 = <strong>36.4%</strong>. Those nine outs are not all worth the same, though. When the flush comes, you are king-high, and anyone holding the A&#9829; with a second heart already has your hand beaten. Count the outs, then discount them by the chance that your flush is the second best.</p>
+<p>Compare holding the ace yourself. With A&#9829; and another heart in your hand, nobody can hold a better flush, and the only hands that can beat you are a full house or four of a kind, which need a paired board, or a straight flush. That is why the nut flush draw is worth more than its nine outs suggest.</p>
+
+<h2>What to do with the number</h2>
+<ol class="ranked">
+  <li><strong>Count the opponents.</strong> The danger rises almost in a straight line: about 3.7 percentage points for each extra opponent. Heads-up, the king-high flush is nearly always good. In a crowded pot it is often a hand to be careful with.</li>
+  <li><strong>Check the board for pairs.</strong> A paired board lets a full house beat any flush, so the second-nut flush has a second way to lose.</li>
+  <li><strong>Read the betting against the 11%.</strong> If one player puts in a pot-sized raise and the others fold, the fair estimate is well above the figures in the chart.</li>
+</ol>
+
+<p>The live hand insight in <a href="/OmahaPoker/">Omaha Poker</a> shows your win chance and your outs grouped by what they make. Compare its numbers with this count the next time a flush board appears.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, with live hand insight showing your win chance, the pot odds on a call and your outs. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

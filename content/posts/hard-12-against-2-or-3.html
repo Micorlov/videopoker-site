@@ -1,0 +1,78 @@
+<!--
+{
+  "title": "Hard 12 against a 2 or 3: why basic strategy says hit",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "BlackjackCoach",
+  "description": "Standing on 12 against a dealer 2 or 3 feels safe, but basic strategy hits it. Here is the 30.8% bust risk, the dealer's bust rates and why 4, 5 and 6 differ.",
+  "summary": "Basic strategy hits a hard 12 against a dealer 2 or 3 and stands against 4, 5 and 6. Hitting busts 30.8% of the time, but the dealer's 2 and 3 bust too rarely for standing to be better.",
+  "standfirst": "Twelve is the first total where drawing a card can lose you the hand at once, so standing feels like the careful play. Against a 2 or a 3 it costs more than hitting does."
+}
+-->
+<p>A hard 12 is the hand most players stand on too early. It cannot be improved by much, it can be spoiled by one card, and the dealer is showing a small card. Against a 2 or a 3, basic strategy still says to hit. The reason is a comparison between two numbers, how often you bust and how often the dealer does, and the gap between them is bigger than it looks.</p>
+
+<h2>The rule</h2>
+<p>Hard 12 means a total of 12 with no ace counted as 11. Against a dealer 2 or 3 you hit. Against a 4, 5 or 6 you stand. Against a 7 or higher you hit, as with every stiff total from 12 to 16. Against a 2 to 6 you stand on 13 to 16, so 12 is the only stiff total that draws against a 2 or 3. This is the answer for the rules taught by <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a>: six decks, the dealer standing on soft 17, double after split and late surrender.</p>
+
+<h2>What one card does to a hard 12</h2>
+<p>A hard 12 is the most forgiving of the stiff totals, because only one kind of card breaks it. Counting each of the 13 ranks as equally likely, with the four ten-value ranks (10, J, Q, K) counted separately, the next card does this:</p>
+<table class="paytable-compare">
+  <caption>The next card after hitting a hard 12, 13 ranks treated as equally likely.</caption>
+  <thead>
+    <tr><th>You draw</th><th>New total</th><th>Chance</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">10, J, Q or K</th><td>Bust (22)</td><td class="good">4 in 13, 30.8%</td></tr>
+    <tr><th scope="row">Ace to 4</th><td>13 to 16</td><td>4 in 13, 30.8%</td></tr>
+    <tr><th scope="row">5 to 9</th><td>17 to 21</td><td>5 in 13, 38.5%</td></tr>
+  </tbody>
+</table>
+<p>So 30.8% of the time you lose on the spot, 38.5% of the time you land on 17 or better, and the remaining 30.8% leave you on a total that is still weak but no worse than the 12 you started with. In 52 cards that is 16 tens, and a real shoe shifts the figure only slightly.</p>
+<p>Notice what the 13 to 16 outcomes are. Against a 2 or a 3 you stand on all of them.</p>
+
+<h2>What the dealer does</h2>
+<p>If you stand on 12, you win only if the dealer busts. Your whole chance of winning is the dealer's bust rate. These are the six-deck figures from <a href="/blog/blackjack-dealer-bust-rates.html">the dealer bust-rate post</a>, with the dealer standing on every 17:</p>
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart comparing the dealer's bust rate for up-cards 2 to 6 with the 30.8 percent chance of busting a hard 12 by hitting">
+    <div class="bar-row" title="Dealer 6 busts: 42.3%"><span class="bar-label">Dealer 6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">42.3%</span></span></div>
+    <div class="bar-row" title="Dealer 5 busts: 41.8%"><span class="bar-label">Dealer 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9882)"></span><span class="bar-val">41.8%</span></span></div>
+    <div class="bar-row" title="Dealer 4 busts: 39.6%"><span class="bar-label">Dealer 4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9362)"></span><span class="bar-val">39.6%</span></span></div>
+    <div class="bar-row hl" title="Dealer 3 busts: 37.4%"><span class="bar-label">Dealer 3</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8842)"></span><span class="bar-val">37.4%</span></span></div>
+    <div class="bar-row hl" title="Dealer 2 busts: 35.4%"><span class="bar-label">Dealer 2</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8369)"></span><span class="bar-val">35.4%</span></span></div>
+    <div class="bar-row" title="You bust a hard 12 by hitting: 30.8%"><span class="bar-label">You, hitting 12</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7281)"></span><span class="bar-val">30.8%</span></span></div>
+  </div>
+  <figcaption>How often the dealer busts, by up-card (six decks, dealer stands on every 17), against the 30.8% chance that one card busts a hard 12. The highlighted 2 and 3 are the up-cards where basic strategy hits.</figcaption>
+</figure>
+<p>Standing on 12 against a 2 wins 35.4% of the time and against a 3 wins 37.4%. Those look like decent numbers beside a 30.8% bust risk, and that is the trap. The 30.8% is only one outcome of the draw, and the draw also gives you a 38.5% chance of 17 or better, a hand that beats a dealer 2 or 3 far more often than a bare 12 does.</p>
+
+<h2>How close it is</h2>
+<p>This is a close decision, and the sensible way to say so is with numbers. I worked out the average result per unit bet with an infinite deck, the dealer standing on all 17s, and best play after any hit, which keeps the calculation exact and independent of the shoe. A six-deck shoe moves the figures slightly, so treat them as the size of the gap.</p>
+<table class="paytable-compare">
+  <caption>Average result per unit bet, hard 12, infinite deck, dealer stands on all 17s.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Stand</th><th>Hit</th><th>Better play</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td>-0.293</td><td class="good">-0.253</td><td>Hit, by 0.039</td></tr>
+    <tr><th scope="row">3</th><td>-0.252</td><td class="good">-0.234</td><td>Hit, by 0.019</td></tr>
+    <tr><th scope="row">4</th><td class="good">-0.211</td><td>-0.214</td><td>Stand, by 0.002</td></tr>
+    <tr><th scope="row">5</th><td class="good">-0.167</td><td>-0.193</td><td>Stand, by 0.026</td></tr>
+    <tr><th scope="row">6</th><td class="good">-0.154</td><td>-0.171</td><td>Stand, by 0.017</td></tr>
+  </tbody>
+</table>
+<p>Every figure is negative. A hard 12 loses on average against every dealer card, so the choice is between a bigger and a smaller loss. Hitting against a 2 loses about 3.9 units per hundred less than standing, and against a 3 about 1.9 less. Against a 4 the two plays are almost level, which is why that cell is the one you will see disagree between charts that assume different rules or a different number of decks. Against a 5 or a 6 the dealer busts often enough that waiting beats drawing.</p>
+
+<h2>Why the line falls between 3 and 4</h2>
+<p>As the dealer's bust rate rises, standing gets better, because your only way to win by standing is for the dealer to fail. The cost of hitting stays fixed: 30.8% of the time you lose before the dealer plays. The dealer's 2 and 3 are the two weakest of the weak cards, busting about one hand in three, so a stand wins too seldom to beat the draw. Once the bust rate reaches about 40%, at the 4, the two plays meet, and beyond that standing is ahead.</p>
+
+<div class="callout">
+  <p>Memory aid: stand on 12 only when the dealer shows 4, 5 or 6. Against a 2 or 3 the dealer is weak but not weak enough, and you should hit.</p>
+</div>
+
+<h2>Practising it</h2>
+<p>This one is easy to read and hard to do, because standing feels right when the dealer shows a low card. Blackjack Coach lets you choose a play on a hard 12, read the explanation and review the mistakes you made. For the surrender side of stiff hands, see <a href="/blog/blackjack-late-surrender.html">late surrender: the hands worth giving up on</a>, and for another hand where the chart contradicts instinct, <a href="/blog/soft-18-ace-seven-strategy.html">soft 18 against every dealer card</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> lets you choose a play, read the explanation and review your mistakes, either on the strategy chart or in practice rounds against the dealer at your own pace. The chart teaches fixed six-deck rules: the dealer stands on soft 17, with double after split and late surrender. Local training works offline. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

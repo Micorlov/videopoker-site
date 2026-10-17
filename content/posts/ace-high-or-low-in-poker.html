@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Is the ace high or low? The ace in five-card poker",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "app": "PokerVsDealer",
+  "description": "In five-card poker the ace is high, except in the wheel A-2-3-4-5, the lowest straight. Q-K-A-2-3 is no straight, and there are exactly 10 straight ranks.",
+  "summary": "The ace counts high by default and low only in A-2-3-4-5, the lowest straight. Straights never wrap round, which leaves 10 straight ranks, 10,200 straights and 40 straight flushes, 4 of them royal.",
+  "standfirst": "The ace is the only card in the pack that can sit at either end of a run. Poker allows it both ways, but with firm limits, and those limits are what fix the number of straights at ten."
+}
+-->
+<p>In five-card poker the ace is high. It beats a king, an ace-high hand beats a king-high hand, and a pair of aces beats every other pair. The one exception is the straight, where the ace may also count as the card below the two. That gives A-2-3-4-5 as a valid straight, and nothing else about the ace changes.</p>
+
+<h2>The ace is high by default</h2>
+<p>Outside a straight, the ace is always the top rank. A-K-9-5-3 beats K-Q-J-9-8 as a high-card hand, and A-A-4-3-2 beats K-K-Q-J-10 as a pair, because the pair of aces is compared first. In a tie-break the ace is the first card looked at, in the same way a king would be, only higher. The full comparison procedure is in <a href="/blog/five-card-poker-tie-breaks.html">Breaking ties in five-card poker</a>.</p>
+<p>The ace is never low in a flush, a full house or any hand made of pairs. A-2-3-4-6 in one suit is a flush with ace as the top card, not a flush with a six on top. Only the straight gives the ace a second life.</p>
+
+<h2>The wheel: the one low ace</h2>
+<p>The sequence A-2-3-4-5 is called the wheel (some players say "the bicycle"). It is a straight, and in it the five is the top card, because the ace is playing the part of "one". That makes it the lowest straight there is. It loses to 2-3-4-5-6, and every other straight beats it. If both the wheel and 2-3-4-5-6 are on the table, the six-high straight wins, as a higher top card always does.</p>
+<p>At the other end, 10-J-Q-K-A is the highest straight, with the ace counting high. So the ace sits at both ends of the straight ladder, and the same card is the top of the best straight and the bottom of the worst.</p>
+
+<h2>No wraparound</h2>
+<p>The ace connects to the two, but only at the bottom of a run. It does not let a sequence turn the corner. Q-K-A-2-3 is not a straight, and neither are K-A-2-3-4 or J-Q-K-A-2. Each of those is just a high-card hand (or a flush, or a pair, depending on the other details) and is ranked as such. Ace-high straights and ace-low straights are the only two ways the ace appears in a straight.</p>
+<p>Note that "no wraparound" is the standard rule, not a law of nature. Some home games and some variants change it, so a table that says "the ace goes round the corner" is playing a different game. The ranking below assumes the standard rule.</p>
+
+<h2>Counting the straights</h2>
+<p>A straight is defined by its lowest card, which can be an ace, a 2, a 3 and so on up to a 10. That gives <strong>10</strong> possible straight ranks:</p>
+<ul>
+  <li>A-2-3-4-5 (the wheel), 2-3-4-5-6, 3-4-5-6-7, 4-5-6-7-8, 5-6-7-8-9</li>
+  <li>6-7-8-9-10, 7-8-9-10-J, 8-9-10-J-Q, 9-10-J-Q-K, 10-J-Q-K-A</li>
+</ul>
+<p>Each of those ten ranks can be dealt in 4<sup>5</sup> = 1,024 suit combinations, because each of the five cards can be any of four suits. Four of the 1,024 have all five cards in one suit, so 1,020 are plain straights and 4 are straight flushes:</p>
+<ul>
+  <li><strong>Straights:</strong> 10 × (1,024 − 4) = <strong>10,200</strong></li>
+  <li><strong>Straight flushes:</strong> 10 × 4 = <strong>40</strong>, which includes the royal flushes</li>
+  <li><strong>Royal flushes:</strong> the 10-J-Q-K-A in each of the four suits, so <strong>4</strong>. The other 36 straight flushes run from the steel wheel (A-2-3-4-5 in one suit) up to K-Q-J-10-9 in one suit.</li>
+</ul>
+<p>Out of 2,598,960 possible five-card hands, 10,200 straights is about 0.39%, or roughly one deal in 255. A royal flush is 4 in 2,598,960, which is one deal in 649,740. The wheel is no rarer than any other straight: each of the ten ranks has exactly the same 1,020 hands. If the ace could also wrap round, there would be 13 straight ranks instead of ten (the extra three being J-Q-K-A-2, Q-K-A-2-3 and K-A-2-3-4), and the count of straights would rise to 13 × 1,020 = 13,260. The rule changes how rare a straight is. The reasoning behind the order of the hand ranks is in <a href="/blog/why-a-flush-beats-a-straight.html">Why a flush beats a straight</a>, and the counts for every category are in <a href="/blog/five-card-poker-hand-frequencies.html">How rare each five-card poker hand is</a>.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how many of the ten straights contain each rank: ace 2, king 2, queen 3, jack 4, ten to five 5 each, four 4, three 3, two 2">
+    <div class="bar-row hl" title="A: appears in 2 of the 10 straights"><span class="bar-label">A</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="K: appears in 2 of the 10 straights"><span class="bar-label">K</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="Q: appears in 3 of the 10 straights"><span class="bar-label">Q</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="J: appears in 4 of the 10 straights"><span class="bar-label">J</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="10: appears in 5 of the 10 straights"><span class="bar-label">10</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="9: appears in 5 of the 10 straights"><span class="bar-label">9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="8: appears in 5 of the 10 straights"><span class="bar-label">8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="7: appears in 5 of the 10 straights"><span class="bar-label">7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="6: appears in 5 of the 10 straights"><span class="bar-label">6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="5: appears in 5 of the 10 straights"><span class="bar-label">5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="4: appears in 4 of the 10 straights"><span class="bar-label">4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="3: appears in 3 of the 10 straights"><span class="bar-label">3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="2: appears in 2 of the 10 straights"><span class="bar-label">2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">2</span></span></div>
+  </div>
+  <figcaption>How many of the ten straights contain each rank. The ace, highlighted, appears in two: the wheel and the royal sequence. That matches the king and the two, because the ace sits at the end of the run at both ends and nowhere in the middle. The middle ranks, 5 to 10, each appear in five. The totals come to 50, which is 10 straights of 5 cards.</figcaption>
+</figure>
+
+<h2>What the edge position costs</h2>
+<p>Because the ace sits at the edge, it fits in only two of the ten sequences, while a six fits in five. That shows up when you draw. Holding A-2-3-4, only a 5 completes a straight: four cards in the pack. Holding 5-6-7-8, either a 4 or a 9 does: eight cards. The ace-low draw is an end-blocked one, the same shape as the draws in <a href="/blog/inside-vs-outside-straight-draws.html">Inside vs outside straight draws</a>.</p>
+
+<div class="callout">
+  <p>The ace is high, and it is low only in A-2-3-4-5, the lowest straight. Straights never wrap round, so there are 10 straight ranks, 10,200 straights and 40 straight flushes, 4 of them royal.</p>
+</div>
+
+<p><a href="/PokerVsDealer/">Poker vs Dealer</a> uses its own five-card rules and its Play listing says plainly that it is not Texas Hold'em. The listing does not say how the app treats the wheel, so the in-game rules screen, which you can read at any time, is the place to check. The maths above is the standard five-card ordering.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is five-card poker against the dealer and two computer opponents. Your five cards compete against the house and for the table pot, and you can hold, forge a card by exchanging it, or bail. It plays offline with no account, there are no ads or in-app purchases, and the play-money chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
