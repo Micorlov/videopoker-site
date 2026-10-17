@@ -1,0 +1,41 @@
+<!--
+{
+  "title": "geo-sleuth — find where a photo was taken",
+  "date": "2026-10-17",
+  "modified": "2026-10-17",
+  "description": "geo-sleuth is a free skill that finds where a photo was taken. It uses maps, mountain shapes, satellite pictures, and street view, and it shows its work.",
+  "summary": "A free skill that looks at one photo and shows where the camera stood.",
+  "standfirst": "A reel shows one photo of a stove in a field. With this skill, Claude put that spot within about two meters."
+}
+-->
+<p><a class="text-link" href="https://github.com/Oldcircle/geo-sleuth">See geo-sleuth on GitHub</a></p>
+<p>A skill is a pack of instructions you add to a coding tool.</p>
+<p>geo-sleuth is free. You can read the code and use it. The license is MIT. The code is Python.</p>
+<p>The project page says it finds where a photo was taken, and it shows its work. It uses map shapes from OpenStreetMap, mountain lines from elevation, satellite pictures, and street view.</p>
+<p>On 17 October 2026 it had 3,160 stars and 420 copies. The last code update was 16 October 2026.</p>
+<p>The README says it works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and GitHub Copilot. Any tool that reads a file called SKILL.md and can run commands can use it too.</p>
+
+<figure class="chart">
+  <img src="/img/skills/geo-sleuth.svg" alt="A simple photo of a mountain line beside a pin on a plain map." width="640" height="360">
+  <figcaption>One photo. A mountain line. A place on the map.</figcaption>
+</figure>
+
+<h2>What a reel showed</h2>
+<p>A reel says Claude looked at one photo of a stove in a field and found where that stove stood, within about two meters. That distance is the reel's example, not a promise for every photo.</p>
+<p>The same reel says the skill matches mountain shapes to elevation maps. It counts the supports under a bridge. It reads the shadows of cars to find where the photographer stood.</p>
+<p>The README describes the same kind of work. A ridge line can be matched to elevation data. The space between bridge supports can work as a ruler. Shadows can give a direction.</p>
+
+<h2>What you get back</h2>
+<p>The README says you get the camera's place, the direction it faced, and a satellite picture that shows the evidence.</p>
+<p>It also says a result has to name the command that ran and the file that command made.</p>
+
+<h2>A note on privacy</h2>
+<p>A window in a story can show where you live. Check your own photos before you share them.</p>
+<p>The project page asks you to run this only on your own photos, or on photos you have permission to study. Do not use it to find people who have not agreed to be found.</p>
+
+<h2>How to install</h2>
+<p>A reel says you can tell Claude: install geo-sleuth.</p>
+<p>The README gives this command. Then give the tool a photo and say find where this photo was taken.</p>
+<pre><code>npx skills add Oldcircle/geo-sleuth</code></pre>
+<p>You need Python 3.10 or newer, plus uv and curl. On the first run, ask the tool to run doctor.py from the skill's scripts folder, and fix any check that fails.</p>
+<p><a class="text-link" href="https://github.com/Oldcircle/geo-sleuth">See geo-sleuth on GitHub</a></p>

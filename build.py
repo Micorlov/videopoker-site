@@ -142,7 +142,8 @@ def load_skills():
         meta.setdefault("seo_description", meta["description"])
         meta["words"] = len(re.sub("<[^>]+>", " ", body).split())
         skills.append(meta)
-    skills.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
+    # Same calendar day keeps filename order, so geo-sleuth leads TailAdmin.
+    skills.sort(key=lambda p: p["date"], reverse=True)
     return skills
 
 
