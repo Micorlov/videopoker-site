@@ -1,0 +1,58 @@
+<!--
+{
+  "title": "Virality Predictor — score a reel before you post",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "description": "Higgsfield's Virality Predictor scores a clip of up to 15 seconds before you post it: a score, the peak hook moment, a hold rate, and a brain heatmap.",
+  "summary": "A Higgsfield tool that scores a short clip's hook before you post it. Claude can run it for you.",
+  "standfirst": "A reel says Claude can now tell how viral your reel will be before you post it. The tool is real. It gives a forecast, not a promise."
+}
+-->
+<p><a class="text-link" href="https://higgsfield.ai/apps/virality-predictor">Open Virality Predictor on Higgsfield</a></p>
+<p><a class="text-link" href="https://github.com/higgsfield-ai/skills">See the Higgsfield skills on GitHub</a></p>
+<p><a class="text-link" href="https://www.instagram.com/reel/DeoCA_jB0dM/">See Kirill Zhilnikov's reel</a></p>
+<p>A reel by Kirill Zhilnikov (@zhilnikov_it) says Claude can now predict how viral a reel will be, before you post it. He ran seven hooks from one of his reels through it. Each one got a score from 0 to 100.</p>
+<p>The tool is called Virality Predictor. It is made by Higgsfield, a company that makes AI image and video tools. Claude does not do the scoring. Claude sends your clip to Higgsfield and reads the answer back to you.</p>
+
+<figure class="chart">
+  <img src="/img/skills/virality-predictor.svg" alt="A short strip of video frames beside a simple brain outline and a falling line." width="640" height="360">
+  <figcaption>One short clip. One score. One line that shows where people may leave.</figcaption>
+</figure>
+
+<h2>What it does</h2>
+<p>You give it a clip of up to 15 seconds. It can be vertical or horizontal. Higgsfield's page says a modeled audience watches it. The tool then maps how a brain is expected to respond. It looks at sight, sound, memory, attention, and language.</p>
+<p>You get back four things:</p>
+<ul>
+  <li>A virality score, from 0 to 100.</li>
+  <li>The moment where the hook is strongest.</li>
+  <li>A hold rate, which is how much of the audience it expects to keep watching.</li>
+  <li>A heatmap of the brain regions the clip is expected to light up.</li>
+</ul>
+<p>There is also a link to a full report.</p>
+
+<h2>How to read the result</h2>
+<p>Higgsfield's own instructions for Claude say a higher score in the sight, sound, language, and attention areas means a stronger clip. A lower score in an area called the default mode network is better. That area is linked to mind-wandering.</p>
+<p>The same instructions tell Claude to call the scores a forecast, not a guarantee. Use it to compare two cuts of the same hook, or to find a weak first second. It does not replace real viewers.</p>
+
+<h2>Where the brain part comes from</h2>
+<p>The reel says the tool was trained on more than 1,000 hours of brain scans. Higgsfield has not published how its model was built, so that claim cannot be checked.</p>
+<p>That number does match a public research model. Meta's TRIBE v2 predicts how the brain responds to video, sound, and language. It was trained and tested on about 1,118 hours of fMRI scans from 720 people. Higgsfield does not say it uses TRIBE v2.</p>
+<p><a class="text-link" href="https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/">Read about Meta's TRIBE v2</a></p>
+
+<h2>How to use it with Claude</h2>
+<p>In Claude Code, Higgsfield's help page says to use the Higgsfield command-line tool. Install it, then sign in once:</p>
+<pre><code>npm install -g @higgsfield/cli
+higgsfield auth login</code></pre>
+<p>Then score a clip:</p>
+<pre><code>higgsfield generate create brain_activity --video ./clip.mp4 --wait</code></pre>
+<p>brain_activity is the tool's technical name. You can also add Higgsfield's skills, so Claude knows when to use it. Then just ask: score this video.</p>
+<pre><code>npx skills add higgsfield-ai/skills</code></pre>
+<p>In the Claude app, go to Settings, then Connectors, and add a custom connector named Higgsfield with this address. Higgsfield says this is its only official connector address.</p>
+<pre><code>https://mcp.higgsfield.ai/mcp</code></pre>
+<p>You can also skip Claude and upload the clip on the Higgsfield site.</p>
+
+<h2>What it costs</h2>
+<p>On 18 October 2026, the Virality Predictor page listed the tool at $0. Higgsfield's help page says connecting it to Claude or another AI agent needs an active paid Higgsfield plan. Check both before you start, since prices change.</p>
+<p><a class="text-link" href="https://higgsfield.ai/apps/virality-predictor">Open Virality Predictor on Higgsfield</a></p>
+<p><a class="text-link" href="https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent">Read how to connect Higgsfield to Claude</a></p>
+<p><a class="text-link" href="https://www.instagram.com/reel/DeoCA_jB0dM/">See Kirill Zhilnikov's reel</a></p>
