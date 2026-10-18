@@ -40,6 +40,7 @@ tools/fetch_play.py    refresh listing text, icons and screenshots from Google P
 | `/blog/<post>.html` | A post |
 | `/skills/` | Notes on AI coding-agent skills |
 | `/skills/<post>.html` | One skill note |
+| `/salary/` | Hebrew salary-market prototype (כמה אני שווה בשוק). Not a gross-to-net calculator, and not a translation of the site |
 | `/privacy-policy.html` | Website policy (Google Analytics) + links to each app's policy |
 | `/VideoPoker/privacy-policy.html`, `/VideoPoker/terms.html` | Video Poker's own legal pages |
 
@@ -110,6 +111,12 @@ and a day's new posts cost only their own strings. Commit `content/i18n/`.
 registry and from `--locales`, `tools/check.py` fails the build if a Hebrew
 tree, `lang`, `hreflang` or sitemap URL appears in the output, and the browser
 suite requests `/he/` and `/iw/` and expects a 404.
+
+`/salary/` is the one exception, and it is not a Hebrew edition of the site.
+It is a standalone prototype copied into `_site/salary/` after the language
+pass, so it is never published as `/he/` or `/es/salary/`. `tools/check.py`
+allows `lang="he"` and `hreflang="he"` on that page only. The estimate runs
+in the browser; `node tests/js/estimate.test.cjs` locks the numbers.
 
 Right-to-left (Arabic, Persian, Urdu) works through `dir="rtl"` and logical CSS
 properties; don't add `left`/`right` rules to `style.css`.

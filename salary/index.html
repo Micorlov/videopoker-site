@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NS1LGN6P3Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NS1LGN6P3Y', {content_group: 'Salary'});
+</script>
+<title>כמה אני שווה בשוק — Orlov Games</title>
+<meta name="description" content="הערכת טווח שכר ברוטו חודשי בשקלים למקצועות אוטומציה, DevOps ו-SRE, לפי טבלאות שוק פומביות לשנת 2026. לא מחשבון נטו ולא ייעוץ.">
+<meta name="author" content="Michael Orlov">
+<meta property="og:site_name" content="Orlov Games">
+<meta property="og:locale" content="he_IL">
+<link rel="canonical" href="https://michaelorlov.com/salary/">
+<link rel="alternate" hreflang="he" href="https://michaelorlov.com/salary/">
+<link rel="alternate" hreflang="x-default" href="https://michaelorlov.com/salary/">
+<meta property="og:title" content="כמה אני שווה בשוק — Orlov Games">
+<meta property="og:description" content="הערכת טווח שכר ברוטו חודשי בשקלים למקצועות אוטומציה, DevOps ו-SRE, לפי טבלאות שוק פומביות לשנת 2026. לא מחשבון נטו ולא ייעוץ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://michaelorlov.com/salary/">
+<meta property="og:image" content="https://michaelorlov.com/img/og-studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="כמה אני שווה בשוק — Orlov Games">
+<meta name="twitter:description" content="הערכת טווח שכר ברוטו חודשי בשקלים למקצועות אוטומציה, DevOps ו-SRE, לפי טבלאות שוק פומביות לשנת 2026. לא מחשבון נטו ולא ייעוץ.">
+<meta name="twitter:image" content="https://michaelorlov.com/img/og-studio.png">
+<link rel="alternate" type="application/rss+xml" title="Orlov Games blog" href="/feed.xml">
+<meta name="theme-color" content="#07170F">
+<link rel="icon" href="/img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="/img/mark-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/img/mark-180.png">
+<link rel="preload" href="/fonts/archivo-400-04.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/antonio-400-01.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/salary/salary.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "כמה אני שווה בשוק",
+  "description": "הערכת טווח שכר ברוטו חודשי בשקלים למקצועות אוטומציה, DevOps ו-SRE.",
+  "url": "https://michaelorlov.com/salary/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "he",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ILS" },
+  "publisher": { "@id": "https://michaelorlov.com/#organization" }
+}
+</script>
+</head>
+<body class="salary">
+<a class="skip" href="#main">לתוכן</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/"><img src="/img/mark.svg" alt="" width="28" height="28">ORLOV <span>GAMES</span></a>
+    <nav class="topnav" aria-label="ניווט באתר">
+      <a href="/#apps">אפליקציות</a>
+      <a href="/blog/">בלוג</a>
+      <a href="/skills/">מיומנויות</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap salary-page">
+  <p class="kicker">אב-טיפוס · ברוטו לחודש · 2026</p>
+  <h1>כמה אני שווה בשוק</h1>
+  <p class="lede">טווח שכר ברוטו חודשי בשקלים למקצועות אוטומציה, בדיקות, DevOps ו-SRE. זו הערכת שוק, לא מחשבון נטו.</p>
+
+  <div class="tool">
+    <form id="calc" class="panel" action="#result">
+      <label class="field" for="role">תפקיד
+        <select id="role" name="role">
+          <option value="seniorQa" selected>אוטומציית QA בכיר/ה</option>
+          <option value="qa">אוטומציית QA</option>
+          <option value="lead">ראש צוות אוטומציית בדיקות</option>
+          <option value="devops">DevOps</option>
+          <option value="sre">SRE</option>
+          <option value="network">מהנדס/ת אוטומציית רשתות</option>
+        </select>
+      </label>
+
+      <label class="field" for="years">שנות ניסיון
+        <input id="years" name="years" type="number" inputmode="numeric" min="0" max="40" step="1" value="7">
+      </label>
+      <label class="field" for="years-range">
+        <span class="hint" id="anchor-hint">עוגן הטבלה</span>
+        <input id="years-range" type="range" min="0" max="40" step="1" value="7" aria-label="שנות ניסיון, סרגל">
+      </label>
+
+      <fieldset>
+        <legend>סוג חברה</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="company" value="traditional"> חברה מסורתית</label>
+          <label class="choice"><input type="radio" name="company" value="hightech" checked> הייטק</label>
+          <label class="choice"><input type="radio" name="company" value="toptier"> מוצר מוביל</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>מיומנויות</legend>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="skill" value="python"> Python</label>
+          <label class="check"><input type="checkbox" name="skill" value="mobile"> אוטומציית מובייל</label>
+          <label class="check"><input type="checkbox" name="skill" value="embedded"> Embedded / IoT</label>
+          <label class="check"><input type="checkbox" name="skill" value="cicd"> CI/CD</label>
+          <label class="check"><input type="checkbox" name="skill" value="cloud"> ענן</label>
+          <label class="check"><input type="checkbox" name="skill" value="ai"> סוכני AI לבדיקות</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>תואר אקדמי רלוונטי</legend>
+        <div class="yesno">
+          <label class="choice"><input type="radio" name="degree" value="no" checked> לא</label>
+          <label class="choice"><input type="radio" name="degree" value="yes"> כן</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>הסמכה רלוונטית</legend>
+        <div class="yesno">
+          <label class="choice"><input type="radio" name="cert" value="no" checked> לא</label>
+          <label class="choice"><input type="radio" name="cert" value="yes"> כן</label>
+        </div>
+      </fieldset>
+
+      <label class="switch">
+        <input id="remote" name="remote" type="checkbox">
+        <span>עבודה מרחוק לחברה אמריקאית <span class="hint">מציג גם דולרים לשנה, והמרה לשקלים</span></span>
+      </label>
+    </form>
+
+    <section id="result" class="panel result" aria-live="polite">
+      <p class="eyebrow">ברוטו לחודש, בשקלים</p>
+      <div class="stats">
+        <div class="stat"><span>נמוך</span><strong id="nis-low">—</strong></div>
+        <div class="stat median"><span>חציון</span><strong id="nis-mid">—</strong></div>
+        <div class="stat"><span>גבוה</span><strong id="nis-high">—</strong></div>
+      </div>
+      <p class="fine">לפני מס, פנסיה, בונוס ו-RSU. השינוי מתעדכן כאן, בלי לשלוח את הנתונים.</p>
+      <ul class="why" id="why"></ul>
+      <noscript><p>כדי לחשב צריך JavaScript. החישוב רץ בדפדפן. המקורות והנוסחה כתובים למטה.</p></noscript>
+
+      <div id="remote-view" hidden>
+        <h2>מרחוק, חברה אמריקאית</h2>
+        <p class="eyebrow">דולר לשנה, לפני התאמה גיאוגרפית</p>
+        <div class="stats">
+          <div class="stat"><span>נמוך</span><strong id="usd-low">—</strong></div>
+          <div class="stat median"><span>חציון</span><strong id="usd-mid">—</strong></div>
+          <div class="stat"><span>גבוה</span><strong id="usd-high">—</strong></div>
+        </div>
+        <p class="eyebrow">אותה רצועה בשקלים לחודש, לפי 3.089</p>
+        <div class="stats">
+          <div class="stat"><span>נמוך</span><strong id="usd-nis-low">—</strong></div>
+          <div class="stat median"><span>חציון</span><strong id="usd-nis-mid">—</strong></div>
+          <div class="stat"><span>גבוה</span><strong id="usd-nis-high">—</strong></div>
+        </div>
+        <div class="geo">
+          <p>התאמה גיאוגרפית מישראל, לרוב <strong id="geo-usd">105,000–135,000</strong> דולר לשנה, כלומר כ־<strong id="geo-nis">—</strong> ₪ לחודש ברוטו.</p>
+        </div>
+        <ul class="remote-why" id="remote-why"></ul>
+      </div>
+    </section>
+  </div>
+
+  <aside class="notice" role="note">
+    <h2>זו הערכה, לא ייעוץ</h2>
+    <p>הטווח מחושב מטבלאות שכר פומביות לשנת 2026 ומהמשקלות שכתובים למטה. זו לא הצעת שכר, לא ייעוץ קריירה ולא תחליף למשא ומתן. השכר בפועל תלוי בחברה, באזור, בתפקיד המדויק ובתנאים שמעבר לברוטו. אין כאן חישוב נטו. הנתונים נשארים בדפדפן ולא נשלחים לשרת.</p>
+    <p>תצוגת הדולר היא רצועת שוק אמריקאית מרחוק, מומרת בשער קבוע של 3.089 שקלים לדולר. רוב החברות האמריקאיות לא משלמות את הרצועה המלאה למי שגר בישראל, אלא שכר מותאם גיאוגרפית, לרוב 105–135 אלף דולר לשנה.</p>
+  </aside>
+
+  <section class="block" id="method">
+    <h2>איך הרצועה מחושבת</h2>
+    <ol class="steps">
+      <li>נבחרת רצועת בסיס לפי התפקיד, סוג החברה ושנות הניסיון. מתחת לעוגן הרצועה יורדת, מעליו היא עולה עד תקרה.</li>
+      <li>ל-DevOps ול-SRE יש שתי נקודות מפורסמות, ביניים ובכיר, והמודל מתיישר ביניהן.</li>
+      <li>מיומנויות מוסיפות אחוזים, עם <strong>תקרה של 20%</strong>. סוכני AI לבדיקות מוסיפים 9%, לפי פרמיית ה-AI של GotFriends. שאר האחוזים הם משקלות של המודל: Python 3%, מובייל 4%, Embedded / IoT 5%, CI/CD 3%, ענן 4%.</li>
+      <li>תואר רלוונטי מוסיף 2%, והסמכה רלוונטית מוסיפה 2%.</li>
+      <li>חברת מוצר מוביל היא רצועת ההייטק ועוד <strong>12%</strong>. איפה שאין שורה לחברה מסורתית, נלקחים <strong>90%</strong> מרצועת ההייטק.</li>
+      <li>בסוף מעגלים למאה השקלים הקרובה. מיומנויות, תואר והסמכה לא משנים את רצועת הדולר.</li>
+    </ol>
+    <div class="anchors" id="anchors"></div>
+  </section>
+
+  <section class="block" id="sources">
+    <h2>מקורות, 2026</h2>
+    <ul class="sources">
+      <li><a href="https://www.nisha.co.il/טבלת-שכר-qa-ואוטומציה/">נישה, טבלת שכר QA ואוטומציה</a>. אוטומציה, 7+ שנים: <strong>32–36 אלף</strong> בחברות מסורתיות, <strong>38–44 אלף</strong> בהייטק. שורת 3–5 שנים: 23–27 מסורתי, 27–32 הייטק. זה עוגן הבכיר ועוגן אוטומציית ה-QA.</li>
+      <li><a href="https://www.gotfriends.co.il/בלוגים/high-tech-salary-tables/">GotFriends, טבלאות שכר הייטק 2026</a>. מפתח אוטומציה, 6–10 שנים: 33–38 אלף. ראש צוות אוטומציה, 6–10 שנים: <strong>35–45 אלף</strong>. DevOps, 6–10 שנים: 35–45 אלף. מומחיות AI משמעותית: כ־9%.</li>
+      <li><a href="https://www.nisha.co.il/משכורות-הייטק/">נישה, משכורות הייטק</a>. ראש צוות אוטומציה: סניור 35–40 אלף, ניהול בכיר 38–45 אלף. הרצועה חופפת את GotFriends.</li>
+      <li><a href="https://www.nisha.co.il/שכר-דב-אופס/">נישה, שכר DevOps ו-SRE</a>. DevOps: מיד 24–31 אלף, סניור 32–40 אלף. SRE: מיד 26–34 אלף, סניור 35–45 אלף.</li>
+      <li><a href="https://www.jobinfo.co.il/טבלאות-שכר/טבלאות-שכר-תוכנה">JobInfo, טבלאות שכר תוכנה</a>. מהנדס/ת אוטומציה, מעל 5 שנים: 30–37 אלף (הטבלה כוללת עלויות נלוות). הרצועה 32–35 אלף, שמופיעה גם בפרסומי דרושים, יושבת בתוך הטווח הזה ונמוכה משורת ה-7+ של נישה.</li>
+      <li><a href="https://www.techjob.co.il/salary-survey/qa">TechJob, סקר שכר QA 2026</a>. מפתח/ת אוטומציה, 6–10 שנים: 27–30 אלף.</li>
+      <li><a href="https://work.co.il/salary/industries/high-tech">WORK, משכורות הייטק 2026</a>. Automation Engineer, 6+ שנים: 23–34.5 אלף. Network Engineer, 6+ שנים: <strong>23,000–35,500 ₪</strong>. אין סקר ישראלי ייעודי לאוטומציית רשתות, אז שורת מהנדס הרשת היא הפרוקסי.</li>
+      <li><a href="https://www.geektime.co.il/israel-tech-salary-report-q1-2026/">גיקטיים על דוח GotFriends, חציון 2026</a>. פרמיית AI של כ־9% למי שיש מומחיות משמעותית, לא להיכרות עם כלי עזר.</li>
+      <li>ארצות הברית, מרחוק, לשנה: Senior SDET ב-Glassdoor ‏128–191 אלף (חציון 155 אלף). QA Lead מרחוק 110–140 אלף. Network Automation ‏106–164 אלף. DevOps מרחוק, ממוצע כ־161 אלף. התאמה גיאוגרפית מישראל: לרוב 105–135 אלף.</li>
+    </ul>
+  </section>
+</div>
+</main>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div><span class="eyebrow">נמוך</span><strong id="dock-low">—</strong></div>
+  <div><span class="eyebrow">חציון</span><strong class="median" id="dock-mid">—</strong></div>
+  <div><span class="eyebrow">גבוה</span><strong id="dock-high">—</strong></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="copyright">Orlov Games — Michael Orlov, Russia</p>
+    <nav aria-label="תחתית">
+      <a href="/">אפליקציות</a>
+      <a href="/blog/">בלוג</a>
+      <a href="/skills/">מיומנויות</a>
+      <a href="/salary/" aria-current="page">כמה אני שווה</a>
+      <a href="/privacy-policy.html">מדיניות פרטיות</a>
+      <a href="mailto:admin@michaelorlov.com">admin@michaelorlov.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/salary/estimate.js"></script>
+<script src="/salary/salary.js"></script>
+</body>
+</html>
