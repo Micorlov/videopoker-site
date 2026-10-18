@@ -10,7 +10,6 @@ on:
       - 'build.py'
       - 'i18n/**'
       - 'tools/check.py'
-      - 'salary/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -43,9 +42,6 @@ jobs:
 
       - name: Unit-test the translation machinery
         run: python3 -m unittest discover -s tests/python -t tests/python -v
-
-      - name: Check the salary estimate
-        run: node tests/js/estimate.test.cjs
 
       - name: Check links, analytics tag, languages and sitemap
         run: python3 tools/check.py

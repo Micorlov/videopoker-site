@@ -30,7 +30,6 @@ from i18n import pages as l10n
 ROOT = pathlib.Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
 STATIC = ROOT / "static"
-SALARY = ROOT / "salary"
 OUT = ROOT / "_site"
 
 SITE = "https://michaelorlov.com"
@@ -1012,9 +1011,6 @@ def build_sitemap(apps, posts, skills, built):
         if mine:
             urls.append((f"/blog/{a['slug']}/", max(p["modified"] for p in mine)))
     urls += [(p["url"], p["modified"]) for p in posts]
-    # Standalone Hebrew tool. Not a translated page, so it is listed once, at
-    # /salary/, and not under /es/ or any other prefix (built has no entry).
-    urls.append(("/salary/", "2026-10-18"))
     if skills:
         urls.append(("/skills/", max(s["modified"] for s in skills)))
         urls += [(s["url"], s["modified"]) for s in skills]
@@ -1099,19 +1095,6 @@ def collect():
     return apps, posts, skills, abs_
 
 
-def copy_salary():
-    """Copy the Hebrew salary tool in after the pages exist.
-
-    It is not a member of PAGES, so the language pass does not publish it
-    under /es/salary/ and a Hebrew sentence on it cannot drop a translation.
-    tools/check.py allows lang="he" only on this page.
-    """
-    dest = OUT / "salary"
-    if dest.exists():
-        shutil.rmtree(dest)
-    shutil.copytree(SALARY, dest)
-
-
 def main():
     requested = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--locales=")), None)
     if OUT.exists():
@@ -1127,7 +1110,6 @@ def main():
     for loc in wanted:
         if loc.code in published:
             build_feed(posts, abs_, loc, memories[loc.code], built)
-    copy_salary()
 
     languages = f"{len(published) + 1} languages" if published else "English only"
     print(f"built {sum(1 for _ in OUT.rglob('*.html'))} pages into "
