@@ -7,8 +7,7 @@
 - indexable pages have a unique <title>, a description and a canonical
 - titles and descriptions fit a search result, and each page has one <h1>
 - a translated page declares its language, links its alternates, and stays in
-  its own tree; the site is not translated into Hebrew. /salary/ is a
-  standalone Hebrew tool and the only page allowed to declare lang="he"
+  its own tree; no page anywhere is in Hebrew
 - every <img> carries alt text and width/height, so nothing shifts as it loads
 - the sitemap lists exactly the indexable pages, and the feed lists the newest posts
 """
@@ -32,10 +31,6 @@ DEFAULT_LOCALE, LANGUAGES = locales.load()
 BY_CODE = {loc.code: loc for loc in LANGUAGES}
 
 problems, warnings, titles, indexable = [], [], {}, set()
-
-# The games site is never published as a Hebrew locale. /salary/ is a separate
-# tool written in Hebrew; it is not a /he/ tree and it is not translated.
-HEBREW_TOOL_PAGES = {"/salary/"}
 
 
 def locale_of(rel):
@@ -112,12 +107,6 @@ for page in sorted(OUT.rglob("*.html")):
         problems.append(f"{rel}: og:site_name missing")
     if f'<link rel="canonical" href="{SITE}{rel}">' not in h:
         problems.append(f"{rel}: canonical missing or wrong")
-    if rel in HEBREW_TOOL_PAGES:
-        if '<html lang="he"' not in h or 'dir="rtl"' not in h:
-            problems.append(f"{rel}: Hebrew tool page must set lang=\"he\" and dir=\"rtl\"")
-        if 'hreflang="he"' not in h:
-            problems.append(f"{rel}: Hebrew tool page must list hreflang=\"he\"")
-        continue
     if f'<html lang="{loc.code}"' not in h:
         problems.append(f"{rel}: does not declare lang=\"{loc.code}\"")
     if not native:
@@ -158,21 +147,18 @@ else:
         elif loc.group(1)[len(SITE):] not in listed:
             problems.append(f"feed: links {loc.group(1)}, which is not an indexable page")
 
-# Hebrew is excluded as a site language. It would come back as a /he/ or /iw/
-# tree, or as a lang/hreflang tag on any other page. /salary/ may declare the
-# bare tag "he" and nothing else may.
-hebrew_tree = re.compile(r"^/(?:he|iw)(?:-|/)", re.I)
-hebrew_tag = re.compile(r'(?:lang|hreflang)="((?:he|iw)[^"]*)"', re.I)
+# Hebrew is excluded by request. It would come back as a tree, as an hreflang
+# tag pointing at one, or as a lang attribute, so all three are checked against
+# what was actually built rather than against the registry that built it.
+hebrew = re.compile(r'(?:lang|hreflang)="(?:he|iw)\b|^/(?:he|iw)(?:-|/)', re.I)
 for page in sorted(OUT.rglob("*.html")):
     rel = "/" + str(page.relative_to(OUT)).replace("index.html", "")
-    if hebrew_tree.search(rel):
+    if hebrew.search(rel):
         problems.append(f"{rel}: a Hebrew page was built")
-    for tag in set(hebrew_tag.findall(page.read_text())):
-        if rel in HEBREW_TOOL_PAGES and tag.lower() == "he":
-            continue
-        problems.append(f"{rel}: Hebrew language tag {tag!r}")
+    for hit in set(hebrew.findall(page.read_text())):
+        problems.append(f"{rel}: Hebrew language tag {hit!r}")
 for loc in re.findall(r"<loc>(.*?)</loc>", (OUT / "sitemap.xml").read_text()):
-    if hebrew_tree.search(loc[len(SITE):]):
+    if hebrew.search(loc[len(SITE):]):
         problems.append(f"sitemap: lists a Hebrew URL {loc}")
 
 # Each language's feed stays inside its own tree, so a reader never gets an
