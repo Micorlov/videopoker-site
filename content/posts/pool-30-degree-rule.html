@@ -1,0 +1,99 @@
+<!--
+{
+  "title": "The 30-degree rule for a rolling cue ball",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "EightBallsPool",
+  "description": "A rolling cue ball leaves a cut shot about 30 degrees off its line. The maths gives 33.7 degrees for a half-ball hit, and 27 to 34 across the common cuts.",
+  "summary": "A cue ball that is rolling at contact keeps its forward spin, which drags its path round from the tangent line. The result is a deflection of 27 to 34 degrees for most cuts, peaking at 33.7.",
+  "standfirst": "The 90-degree rule covers a ball with no spin. Most shots arrive with a rolling cue ball instead, and then the path bends round to roughly 30 degrees off its original line."
+}
+-->
+<p>A cue ball that has travelled far enough to settle into a roll arrives at the object ball with forward spin matched to its speed. Its path after a cut shot then follows a different rule from the <a href="/blog/pool-90-degree-rule.html">stun shot's 90-degree split</a>: the cue ball leaves roughly 30 degrees off the line it came in on. The figure is a rule of thumb, so this post works out what the maths gives and how far you can trust it.</p>
+
+<h2>Why a rolling ball does not take the tangent line</h2>
+<p>Take two identical smooth balls, an elastic hit, and a cue ball rolling at speed v. The contact itself is the same as in the stun case. The push is along the line of centres, so the object ball takes the component v cos(cut) and the cue ball keeps v sin(cut), pointing along the tangent line. The balls are smooth, so the contact leaves the cue ball's spin alone.</p>
+<p>That spin is the difference. It was set by rolling along the original line, so it still describes a ball moving at speed v in that direction. The cue ball is now moving along the tangent, so its surface slips across the cloth. Friction from the cloth removes the slip, and it does so by pulling the ball's centre towards the original line.</p>
+<p>For a solid sphere the slipping stops when the centre has moved 2/7 of the way from its velocity just after contact to the velocity that matches the spin. So, in units of the original speed v:</p>
+<div class="callout">
+  <p><strong>Final velocity = 5/7 × (tangent velocity) + 2/7 × (original velocity).</strong> The cue ball ends up rolling in a straight line in that new direction.</p>
+</div>
+<p>Write the cut angle as c. The tangent velocity is sin c, pointing 90 degrees minus c off the original line. Resolve everything along the original line and across it:</p>
+<ul>
+  <li>Along the original line: (5 sin²c + 2) / 7</li>
+  <li>Across it: 5 sin c cos c / 7</li>
+</ul>
+<p>The deflection angle d from the original line therefore satisfies</p>
+<p>tan d = sin c cos c / (sin²c + 2/5)</p>
+
+<h2>The half-ball hit, worked through</h2>
+<p>A half-ball hit is a 30-degree cut, since half the cue ball overlaps the object ball and sin 30° = 0.5. Substituting:</p>
+<ul>
+  <li>Along the line: (5 × 0.25 + 2) / 7 = 3.25 / 7 = 0.464</li>
+  <li>Across it: 5 × 0.5 × 0.866 / 7 = 2.165 / 7 = 0.309</li>
+  <li>tan d = 0.309 / 0.464 = 0.666, so <strong>d = 33.7 degrees</strong></li>
+  <li>Speed afterwards: the square root of 0.464² + 0.309² = 0.558 of the original</li>
+</ul>
+<p>Compare the stun shot at the same cut: 60 degrees off the line and 0.50 of the speed. Rolling pulls the path about 26 degrees back towards the original line and leaves the ball slightly faster, because the cloth converts some of its forward spin into speed.</p>
+<p>So the exact answer for a half-ball hit is 33.7 degrees, not 30. The &ldquo;30&rdquo; in the rule is a round number for a range.</p>
+
+<h2>How the angle varies with the cut</h2>
+<p>Try other cuts in the same formula. The deflection is not constant, but it stays in a narrow band across the middle of the range:</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: cue ball deflection from its original line against cut angle for a naturally rolling cue ball. It rises from 0 degrees at a straight shot to a peak of 33.7 degrees near a 30 degree cut, then falls: 28.2 at 15 degrees, 29.1 at 45, 20.6 at 60 and 10.6 at 75.">
+    <line class="grid" x1="46" x2="386" y1="210.0" y2="210.0"/>
+    <text x="40" y="214.0" text-anchor="end">0°</text>
+    <line class="grid" x1="46" x2="386" y1="166.2" y2="166.2"/>
+    <text x="40" y="170.2" text-anchor="end">10°</text>
+    <line class="grid" x1="46" x2="386" y1="122.5" y2="122.5"/>
+    <text x="40" y="126.5" text-anchor="end">20°</text>
+    <line class="grid" x1="46" x2="386" y1="78.8" y2="78.8"/>
+    <text x="40" y="82.8" text-anchor="end">30°</text>
+    <line class="grid" x1="46" x2="386" y1="35.0" y2="35.0"/>
+    <text x="40" y="39.0" text-anchor="end">40°</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46.0" y="226" text-anchor="middle">0°</text>
+    <text x="102.7" y="226" text-anchor="middle">15°</text>
+    <text x="159.3" y="226" text-anchor="middle">30°</text>
+    <text x="216.0" y="226" text-anchor="middle">45°</text>
+    <text x="272.7" y="226" text-anchor="middle">60°</text>
+    <text x="329.3" y="226" text-anchor="middle">75°</text>
+    <text x="386.0" y="226" text-anchor="middle">90°</text>
+    <text x="216" y="244" text-anchor="middle">Cut angle</text>
+    <text x="12" y="112" text-anchor="middle" transform="rotate(-90 12 112)">Cue ball deflection</text>
+    <line class="ref" x1="46" x2="386" y1="78.8" y2="78.8"/>
+    <text x="384" y="73.8" text-anchor="end">30° rule of thumb</text>
+    <path class="line hl" d="M46.0,210.0 L53.6,188.3 L61.1,167.3 L68.7,147.9 L76.2,130.4 L83.8,115.1 L91.3,102.2 L98.9,91.4 L106.4,82.7 L114.0,75.8 L121.6,70.6 L129.1,66.8 L136.7,64.3 L144.2,62.8 L151.8,62.3 L159.3,62.7 L166.9,63.8 L174.4,65.4 L182.0,67.7 L189.6,70.4 L197.1,73.5 L204.7,77.0 L212.2,80.9 L219.8,85.0 L227.3,89.4 L234.9,94.0 L242.4,98.8 L250.0,103.8 L257.6,109.0 L265.1,114.3 L272.7,119.7 L280.2,125.3 L287.8,131.0 L295.3,136.7 L302.9,142.6 L310.4,148.5 L318.0,154.5 L325.6,160.5 L333.1,166.6 L340.7,172.7 L348.2,178.9 L355.8,185.1 L363.3,191.3 L370.9,197.5 L378.4,203.8 L386.0,210.0"/>
+    <g class="hit"><title>Cut 15°: 28.2°</title><circle cx="102.7" cy="86.8" r="10" fill="transparent"/><circle class="dot" cx="102.7" cy="86.8" r="4.5"/></g>
+    <text class="strong" x="108.7" y="76.8" text-anchor="middle">28.2°</text>
+    <g class="hit"><title>Cut 30°: 33.7°</title><circle cx="159.3" cy="62.7" r="10" fill="transparent"/><circle class="dot hl" cx="159.3" cy="62.7" r="4.5"/></g>
+    <text class="strong" x="159.3" y="50.7" text-anchor="middle">33.7°</text>
+    <g class="hit"><title>Cut 45°: 29.1°</title><circle cx="216.0" cy="82.9" r="10" fill="transparent"/><circle class="dot" cx="216.0" cy="82.9" r="4.5"/></g>
+    <text class="strong" x="222.0" y="72.9" text-anchor="middle">29.1°</text>
+    <g class="hit"><title>Cut 60°: 20.6°</title><circle cx="272.7" cy="119.7" r="10" fill="transparent"/><circle class="dot" cx="272.7" cy="119.7" r="4.5"/></g>
+    <text class="strong" x="278.7" y="109.7" text-anchor="middle">20.6°</text>
+    <g class="hit"><title>Cut 75°: 10.6°</title><circle cx="329.3" cy="163.5" r="10" fill="transparent"/><circle class="dot" cx="329.3" cy="163.5" r="4.5"/></g>
+    <text class="strong" x="335.3" y="153.5" text-anchor="middle">10.6°</text>
+  </svg>
+  <figcaption>Cue ball deflection from its original line for a rolling cue ball, from tan d = sin c cos c / (sin²c + 2/5). The half-ball cut (30 degrees) is highlighted; the grey line is the 30-degree rule of thumb.</figcaption>
+</figure>
+
+<p>The peak is 33.75 degrees, at a cut of about 28.1 degrees. Quarter-ball and three-quarter-ball hits, which are cuts of 48.6 and 14.5 degrees, give 27.3 and 27.7 degrees. In between, a 20-degree cut gives 31.9 and a 40-degree cut gives 31.2. Across all of that, 30 degrees is out by less than 4. Over a metre of cue ball travel, 4 degrees is about 7 cm sideways.</p>
+<p>Outside that middle range the rule fails. A thin 75-degree cut deflects the ball only 10.6 degrees, and a near-straight shot hardly deflects it at all, because there is no tangent velocity to bend.</p>
+
+<h2>Using it on the table</h2>
+<ol class="ranked">
+  <li><strong>Find the object ball's line.</strong> Use the <a href="/blog/ghost-ball-aiming.html">ghost-ball method</a> to get the line of centres at contact.</li>
+  <li><strong>Draw 30 degrees from your cue line, on the side opposite the object ball.</strong> With a rolling cue ball and a cut between a quarter and three-quarters of a ball, that is where the cue ball heads, give or take a few degrees.</li>
+  <li><strong>Check that line is clear.</strong> If it runs into a rail or another ball within a few inches, a rolling hit will not take the ball where you want it, and you know before you shoot.</li>
+</ol>
+
+<h2>When the rule stops working</h2>
+<p>The working assumes a ball that is already rolling, smooth balls, and no loss of energy at contact. Real balls transfer a little friction, a short or slow shot may arrive before rolling has set in. Treat 30 degrees as the starting estimate for a long, centre-high hit, and let practice move it.</p>
+<p>In the app, the Play listing says you can adjust aim, shot power and cue-ball spin, and practise at your own pace. That makes a half-ball cut with a plain, centre-ball hit a good test of the rule: mark where the cue ball ends up against the figures above.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

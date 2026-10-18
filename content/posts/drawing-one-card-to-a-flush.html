@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Drawing one card to a flush: nine outs from 47 cards",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "PokerVsDealer",
+  "description": "Hold four cards of one suit and replace the fifth: 9 of the 47 unseen cards finish the flush, a 19.15% chance, or about one attempt in five, and 80.85% of the time you miss.",
+  "seo_description": "Hold four cards of one suit and replace the fifth: 9 of the 47 unseen cards finish the flush, a 19.15% chance. Four times in five you miss.",
+  "summary": "Four to a flush has nine outs among 47 unseen cards, so one exchange completes it 9 times in 47, or 19.15%. That beats an inside straight draw by more than double and sits just above an open-ended one.",
+  "standfirst": "A four-card flush is the most popular draw in five-card poker, and also one of the most misjudged. The count is short: nine cards help, forty-seven are unseen, and the answer is a fixed 19.15%."
+}
+-->
+<p>You hold the king, nine, six and two of spades, plus the four of hearts. Keep the four spades, exchange the heart, and you complete the flush if the new card is a spade. How often is that? A shade under one time in five. Four times in five the exchange gives you a hand that is worse than the flush you were hoping for, and that is the normal outcome, not a sign that something went wrong.</p>
+
+<h2>Counting the outs</h2>
+<p>A suit has 13 cards. You hold four of them, so <strong>9 spades</strong> are still unseen. These are your outs: the cards that finish the hand.</p>
+<p>The deck has 52 cards and you can see five of them, so <strong>47</strong> are unseen. Each is equally likely to be the one you receive. That gives</p>
+<p>9 ÷ 47 = 19.15%</p>
+<p>and the miss is 38 ÷ 47 = 80.85%, since 47 − 9 = 38. In odds terms that is 38 to 9 against, or about 4.2 to 1. Put the other way round, 47 ÷ 9 = 5.2, so on average a four-card flush completes once in every 5.2 attempts.</p>
+
+<div class="callout">
+  <p>Four to a flush, one card to come: 9 outs, 47 unseen cards, 19.15%. It does not depend on which suit you hold or which ranks, only on there being four of one suit in your hand.</p>
+</div>
+
+<h2>How it compares with other one-card draws</h2>
+<p>Every one-card draw is a count of outs over the same 47. Only the outs change:</p>
+<ul>
+  <li><strong>Open-ended straight draw</strong> (four in a row with both ends open, such as 5-6-7-8): eight outs, 8 ÷ 47 = 17.02%.</li>
+  <li><strong>Inside straight draw</strong> (one gap, such as 5-6-8-9): four outs, 4 ÷ 47 = 8.51%. <a href="/blog/inside-vs-outside-straight-draws.html">Why an inside straight draw is worth exactly half an outside one</a> covers that pair.</li>
+  <li><strong>Two pair to a full house</strong>: two cards of each pair's rank remain, so four outs, 8.51%.</li>
+  <li><strong>One named card</strong>: a single out, 1 ÷ 47 = 2.13%.</li>
+</ul>
+<p>The flush draw therefore sits just above the open-ended straight draw: nine outs against eight. It is also more than double any draw with four outs.</p>
+<p>Draws can also overlap. Suppose your four spades are also four in a row, say the 5, 6, 7 and 8 of spades. Any spade completes the flush (9 outs). Any 4 or 9 completes the straight (8 outs), but the 4 and 9 of spades are already counted among the spades, so only six non-spade cards add something new. Total outs: 9 + 6 = 15, and 15 ÷ 47 = 31.91%.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of completing each one-card draw from 47 unseen cards">
+    <div class="bar-row" title="Four spades that are also four in a row: 15 outs, 31.91%"><span class="bar-label">Flush + straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">31.91%</span></span></div>
+    <div class="bar-row hl" title="Four to a flush: 9 outs, 19.15%"><span class="bar-label">Four to a flush</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">19.15%</span></span></div>
+    <div class="bar-row" title="Open-ended straight draw: 8 outs, 17.02%"><span class="bar-label">Open-ended straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5333)"></span><span class="bar-val">17.02%</span></span></div>
+    <div class="bar-row" title="Inside straight draw: 4 outs, 8.51%"><span class="bar-label">Inside straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2667)"></span><span class="bar-val">8.51%</span></span></div>
+    <div class="bar-row" title="Two pair to a full house: 4 outs, 8.51%"><span class="bar-label">Two pair to full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2667)"></span><span class="bar-val">8.51%</span></span></div>
+    <div class="bar-row" title="One named card: 1 out, 2.13%"><span class="bar-label">One named card</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0667)"></span><span class="bar-val">2.13%</span></span></div>
+  </div>
+  <figcaption>Chance of completing the hand with one exchanged card, each out count divided by 47 unseen cards. Bar length follows the number of outs: 15, 9, 8, 4, 4 and 1.</figcaption>
+</figure>
+
+<h2>Missing is the usual result</h2>
+<p>An 80.85% miss rate is easy to nod at and hard to feel. Take five separate hands in which you start with four to a flush and make one exchange each. The chance you miss all five is (38 ÷ 47)<sup>5</sup> = 34.5%, so more than a third of the time, five in a row will fail. The chance of at least one flush in those five is 65.5%.</p>
+
+<h2>When the unseen count changes</h2>
+<p>The 47 assumes that the only cards you know are your own five. Any other card you can see removes one from the unseen pile, and the effect depends on what it is. Suppose you can see one extra card that comes from the same deck as the card you will receive:</p>
+<ul>
+  <li>If it is not a spade: 9 outs among 46 unseen, 9 ÷ 46 = 19.57%.</li>
+  <li>If it is a spade: 8 outs among 46 unseen, 8 ÷ 46 = 17.39%.</li>
+</ul>
+<p>So a visible card of your suit takes about two points off the draw, and a visible card of another suit adds less than half a point. Cards held by other players that you cannot see change nothing: from your seat they are as unknown as the rest of the deck, so 47 is still the right denominator.</p>
+
+<h2>Pricing the draw</h2>
+<p>If each exchange costs something, the 19.15% has to be set against that cost. Suppose an exchange costs a stake <em>c</em>, you lose it on a miss, and a hit gains <em>G</em> over what you had. The draw breaks even when 9 ÷ 47 × <em>G</em> = 38 ÷ 47 × <em>c</em>, which gives <em>G</em> = (38 ÷ 9) × <em>c</em> = 4.22<em>c</em>. A completed flush must be worth a little over four times the price of the attempt before the exchange is better than doing nothing, ignoring any value the hand already has.</p>
+<p>Breaking up a pair to chase a flush also gives up a hand that already has value, which the formula ignores. For the pair side of that comparison, see <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">The odds of improving a pair when you exchange cards</a>. How rare a finished flush is when dealt, and why it outranks a straight, is in <a href="/blog/why-a-flush-beats-a-straight.html">Why a flush beats a straight</a>.</p>
+
+<h2>Checklist for the table</h2>
+<ol class="ranked">
+  <li><strong>Count the suit.</strong> Four cards of one suit leave 9 of that suit among 47 unseen.</li>
+  <li><strong>Divide.</strong> 9 ÷ 47 is 19.15%. For a straight draw, replace the 9 with 8 or 4.</li>
+  <li><strong>Expect the miss.</strong> Four attempts in five fail, and that is the price of the draw, not a streak.</li>
+</ol>
+
+<p>These figures are plain five-card maths. How many cards you can exchange in a hand of <a href="/PokerVsDealer/">Poker vs Dealer</a>, and what each exchange costs, is set by that game's own rules. The store description says you can pay an ante to forge a card by exchanging it for a fresh one, so the break-even idea above applies to the forge: the fresh card has to be worth a good deal more than the ante. Check the in-game rules and payouts screen for the details before relying on any figure here.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Hard 16 against a dealer 10: why hitting is the lesser evil",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "BlackjackCoach",
+  "description": "Hard 16 against a dealer 10 loses about 54 bets in 100 whether you stand or hit. Surrender, at 50, is cheaper still. Here is the working.",
+  "summary": "Standing on hard 16 against a 10 wins only when the dealer busts, about 23% of the time, for an expected result near -0.54. Hitting is better by only a few hundredths of a bet per hundred, so basic strategy hits, and surrender at -0.50 beats both.",
+  "standfirst": "Hard 16 against a 10 is the worst spot in basic strategy. Every play loses more than half a bet on average, so the question is which loss is smallest, and the answer is closer than most players expect."
+}
+-->
+<p>Hard 16 against a dealer 10 is the hand players dread most, and with good reason: it is the one spot where no play is better than a loss. Basic strategy says to hit it, which feels like walking into a bust. The reason is a comparison of two losses, and the gap between them is small enough that card counters reverse the call at a count of zero.</p>
+
+<h2>Standing is a bet on the dealer busting</h2>
+<p>Stand on 16 and you can only win one way: the dealer goes over 21. Your 16 can never tie, because a dealer who does not bust finishes on 17 to 21, and every one of those totals beats 16. So there are exactly two results, win or lose, and the expected value comes straight from the bust rate.</p>
+<p>A dealer showing a 10 busts about 23% of the time once a dealer blackjack has been ruled out (the dealer checks for it before you act, so you only ever play out hands where it has not happened). The working, per one-unit bet:</p>
+<p>win 0.23 × (+1) + lose 0.77 × (−1) = <strong>−0.54</strong></p>
+<p>Put another way, stand on this hand 100 times and you can expect to be down about 54 bets net. That is a long way short of even, and it is the result of a hand that feels safe because you cannot bust.</p>
+
+<h2>Hitting trades a safe loss for a risky one</h2>
+<p>Hitting a hard 16 goes wrong more often than any other draw. Treat every rank as equally likely, with 10, J, Q and K counted separately, and a 6, 7, 8, 9 or any ten-value card takes you over 21. That is 8 ranks in 13, or 61.5%, as in <a href="/blog/blackjack-dealer-bust-rates.html">the dealer bust-rate post</a>. Only an ace to a 5 keeps you alive: 5 ranks in 13, or 38.5%.</p>
+<p>So hitting loses at once more than six times in ten. What rescues it is what happens in the other 38.5%. An ace, 2, 3, 4 or 5 gives you 17, 18, 19, 20 or 21, and the hand now beats a dealer who has to draw to a total that is often worse. Add up every branch, including the small chance of drawing again, and hitting comes out at −0.5398 against −0.5404 for standing (worked out for an infinite deck), better by six ten-thousandths of a unit.</p>
+
+<table class="paytable-compare">
+  <caption>Hard 16 against a dealer 10, dealer standing on soft 17, per one-unit bet, worked for an infinite deck (a six-deck shoe differs only in the third decimal).</caption>
+  <thead>
+    <tr><th>Play</th><th>Expected result</th><th>Net over 100 bets</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Stand</th><td>−0.540</td><td>−54.04</td></tr>
+    <tr><th scope="row">Hit</th><td class="good">−0.540</td><td class="good">−53.98</td></tr>
+    <tr><th scope="row">Surrender</th><td>−0.50</td><td>−50</td></tr>
+  </tbody>
+</table>
+
+<h2>Why the call is so close</h2>
+<p>That is the whole gap between hitting and standing. Published tables disagree in the third decimal place depending on how they treat the dealer's blackjack check and the exact cards in your hand, and some give the edge to standing. The honest reading is that the two plays are a near-tie, and a chart has to pick one. Basic strategy picks hit.</p>
+<p>The near-tie is also why this hand carries a famous count adjustment. In Hi-Lo counting, the index for standing on 16 against a 10 is 0: stand when the true count is zero or higher, hit when it is negative. A count above zero means the shoe is rich in tens, which busts you more often when you hit. The mechanics are in <a href="/blog/hi-lo-running-and-true-count.html">running count and true count</a>. For a player not counting, the index changes nothing: you hit.</p>
+
+<h2>The better play, where it is offered</h2>
+<p>Late surrender costs exactly half a bet, so it is worth −0.50. That beats both, which makes hard 16 against a 10 the first hand on the surrender list. The saving is about 0.04 of a bet each time, small per hand and still the right play. The full list of four hands, and the 25% win-chance test behind it, is in <a href="/blog/blackjack-late-surrender.html">late surrender: the hands worth giving up on</a>.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected loss per 100 one-unit bets on hard 16 against a dealer 10: stand 54.04, hit 53.98, surrender 50">
+    <div class="bar-row" title="Stand: 54.04"><span class="bar-label">Stand</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">54.04</span></span></div>
+    <div class="bar-row hl" title="Hit: 53.98"><span class="bar-label">Hit</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9989)"></span><span class="bar-val">53.98</span></span></div>
+    <div class="bar-row" title="Surrender: 50"><span class="bar-label">Surrender</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9259)"></span><span class="bar-val">50</span></span></div>
+  </div>
+  <figcaption>Expected net loss per 100 one-unit bets on hard 16 against a dealer 10, dealer standing on soft 17, infinite deck. Shorter is better. Hitting beats standing by six hundredths of a bet in 100; surrender, where allowed, beats both.</figcaption>
+</figure>
+
+<div class="callout">
+  <p>A loss you can see coming is not the same as a loss you can avoid. All three plays lose on average. Basic strategy picks the one that loses least among the plays you are always allowed to make.</p>
+</div>
+
+<h2>The exception: two eights</h2>
+<p>A hard 16 made of a pair of eights is not played as a 16. You split it, even against a 10, because two hands starting on 8 lose less than one hand on 16. The reasoning is in <a href="/blog/blackjack-always-split-aces-and-eights.html">why you always split aces and eights</a>. Everything above is for a 16 made of other cards, such as 10 and 6 or 9 and 7.</p>
+
+<h2>Why standing feels right and is not</h2>
+<p>The urge to stand comes from loss aversion: a bust is a loss you caused, and a dealer's 20 is a loss that simply happened to you. The arithmetic does not care who caused it. If you hit and bust, you lose one bet; if you stand and the dealer makes 17 or better, you also lose one bet. What matters is the average over many hands, and there hitting wins back just enough to finish slightly ahead.</p>
+<p>The same logic runs the other way on a hard 12, where hitting is correct against a 2 or 3 because the dealer's bust chance is too small for standing to pay. That case, with its own numbers, is in <a href="/blog/hard-12-against-2-or-3.html">hard 12 against a 2 or 3</a>.</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Standing on hard 16 against a 10 wins only on a dealer bust, about 23% of the time, for about −0.54.</li>
+  <li>Hitting busts 8 times in 13, yet it comes to −0.5398 against −0.5404 for standing, so basic strategy hits.</li>
+  <li>Surrender, where allowed, costs −0.50 and beats both.</li>
+  <li>Split two eights; this advice is for any other 16.</li>
+  <li>With Hi-Lo, the stand index is 0: stand at a true count of zero or more.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

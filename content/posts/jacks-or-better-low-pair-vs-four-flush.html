@@ -1,0 +1,77 @@
+<!--
+{
+  "title": "Low pair or four to a flush: the Jacks or Better call",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "VideoPoker",
+  "description": "In 9/6 Jacks or Better, four to a flush returns 1.15 to 1.34 coins per coin bet and a low pair returns 0.82. The counts behind that gap, and where each sits.",
+  "summary": "Four to a flush beats a low pair in 9/6 Jacks or Better even in its weakest form. A low pair wins more often, but its prizes are small. The counts show why.",
+  "standfirst": "A low pair feels safer because it is already a pair. It is the weaker hold: the weakest four-card flush draw returns about 0.32 of a coin more per coin bet."
+}
+-->
+<p>The deal gives you a pair of sevens, and four of your five cards are hearts, one of them a seven. Hold the pair or hold the four hearts? In 9/6 Jacks or Better the answer is the same every time: hold the four to a flush and throw the pair back. The pair feels like progress and the flush draw has nothing yet, but counting cards shows the draw is the better bet.</p>
+
+<p>The full list of holds is in <a href="/blog/jacks-or-better-strategy.html">the Jacks or Better strategy post</a>. This one takes a single line of it and shows the numbers underneath. The figures use the standard 9/6 paytable at five coins, the setting the strategy chart is built for, where a flush pays 6, a straight 4, three of a kind 3, two pair 2 and jacks or better 1 for each coin bet. Expected value (EV) below means coins returned per coin bet.</p>
+
+<h2>Four to a flush: 9 winning cards in 47</h2>
+<p>You see five cards, so 47 are unseen. Hold four hearts and 9 hearts remain (13 minus the four you hold). One card is drawn, so</p>
+<p>chance of the flush = 9 / 47 = 19.1%, worth 9 × 6 = 54 coins across the 47 draws.</p>
+<p>That alone gives 54 / 47 = <strong>1.15</strong> coins per coin bet. It is the floor, for a draw made only of low cards. If one of the four hearts is a jack, queen, king or ace, the draw has a second way to pay. Pair that card with a fresh one of the same rank and you have jacks or better, worth 1. Three cards of that rank are unseen, so:</p>
+<ul>
+  <li>no high card: 54 / 47 = 1.15</li>
+  <li>one high card: (54 + 3) / 47 = 1.21</li>
+  <li>two high cards: (54 + 6) / 47 = 1.28</li>
+  <li>three high cards (say J-Q-K): (54 + 9) / 47 = 1.34</li>
+</ul>
+<p>This assumes the card you discard is not of that rank. If it is, one of the three is gone and the bonus shrinks.</p>
+
+<h2>A low pair: 16,215 possible draws</h2>
+<p>Hold a pair of sevens and draw three cards from 47. There are 47 × 46 × 45 / 6 = 16,215 different draws. Of these, for a hand where the other three cards are a 2, 5 and 9:</p>
+<ul>
+  <li>2,592 give two pair, paying 2</li>
+  <li>1,854 give three of a kind, paying 3</li>
+  <li>165 give a full house, paying 9</li>
+  <li>45 give four of a kind, paying 25</li>
+  <li>the other 11,559 pay nothing</li>
+</ul>
+<p>Add the prizes: 2 × 2,592 + 3 × 1,854 + 9 × 165 + 25 × 45 = 5,184 + 5,562 + 1,485 + 1,125 = 13,356. Divide by 16,215 and the EV is <strong>0.82</strong> coins per coin bet. Every low pair, from twos to tens, works out the same, because the payouts do not depend on which low rank you hold.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins returned per coin bet for seven holds in 9/6 Jacks or Better">
+    <div class="bar-row" title="Pair of jacks: 1.54"><span class="bar-label">High pair (J-J)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.54</span></span></div>
+    <div class="bar-row" title="Three to a royal flush J-Q-K: 1.47"><span class="bar-label">Three to a royal (J-Q-K)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9555)"></span><span class="bar-val">1.47</span></span></div>
+    <div class="bar-row hl" title="Four to a flush with J-Q-K: 1.34"><span class="bar-label">Four to a flush, J-Q-K</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8724)"></span><span class="bar-val">1.34</span></span></div>
+    <div class="bar-row hl" title="Four to a flush with no high card: 1.15"><span class="bar-label">Four to a flush, no high card</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7478)"></span><span class="bar-val">1.15</span></span></div>
+    <div class="bar-row hl" title="Low pair: 0.82"><span class="bar-label">Low pair (2s to 10s)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5361)"></span><span class="bar-val">0.82</span></span></div>
+    <div class="bar-row" title="Four to an outside straight: 0.68"><span class="bar-label">Four to an outside straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4432)"></span><span class="bar-val">0.68</span></span></div>
+    <div class="bar-row" title="Suited K-Q: 0.60"><span class="bar-label">Suited K-Q</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3920)"></span><span class="bar-val">0.60</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet, 9/6 Jacks or Better at five coins. Each value is an exact count for one example hand. Even the weakest four-card flush draw (1.15) clears the low pair (0.82).</figcaption>
+</figure>
+
+<h2>Why the pair feels better and is not</h2>
+<p>Count how often each hold pays anything. The low pair pays on 4,656 of 16,215 draws, or 28.7%. The bare four-flush pays on 9 of 47, or 19.1%. The pair hits half as often again, but its prizes are small: most of them are a 2 or a 3, and a full house or better turns up on only 210 draws in 16,215, about 1.3%. A flush pays 6 on its own, twice what three of a kind pays.</p>
+<p>The gap between the two holds is 1.15 − 0.82 = 0.32 coins per coin bet even for the weakest draw, and up to 1.34 − 0.82 = 0.52 with J-Q-K. That is 32 to 52 coins for every hundred you stake, on a single decision. The pair feels safer because it fails less often. It still returns less.</p>
+
+<h2>Where four to a flush sits in the order</h2>
+<p>Read the chart from the top. Four to a flush loses to a handful of holds, and each has a reason:</p>
+<ul>
+  <li><strong>A high pair</strong> (1.54 for jacks) beats even the best flush draw, 1.34. With a pair of jacks and four hearts that include one jack, hold the pair; that hand's flush draw is worth 1.19.</li>
+  <li><strong>Three to a royal flush</strong> (J-Q-K: 1.47) beats four to a flush with those same three cards plus a low heart, 1.34. The royal's top prize is why: at five coins it pays 800 for each coin bet.</li>
+  <li><strong>Four to a royal flush</strong> is far above everything here. For 10-J-Q-K of one suit the EV is 19.68.</li>
+  <li><strong>Four to a straight flush</strong> also wins. Five of hearts, six, seven and nine is worth 2.34, because the flush draw also has straight and straight-flush outcomes.</li>
+  <li><strong>A made straight or flush</strong> stays. Dealt 4-5-6-7 of hearts and an off-suit 8, keep the straight: it pays 4 for certain against 3.45 for the flush draw.</li>
+</ul>
+<p>Below it, the next holds are the ones people often pick instead. A low pair is 0.82, four to an outside straight 0.68 and suited K-Q 0.60. The straight draw is covered in <a href="/blog/inside-vs-outside-straight-draws.html">the inside versus outside straight draws post</a>. If you need the paytable rows behind these figures, <a href="/blog/reading-a-video-poker-paytable.html">how to read a video poker paytable</a> covers them.</p>
+
+<div class="callout">
+  <p>These numbers belong to 9/6 Jacks or Better. On a machine that pays less for a flush, the four-flush draw falls and the gap to the low pair narrows.</p>
+</div>
+
+<h2>A rule to carry away</h2>
+<p>Low pair and four to a flush together: hold the flush draw. High pair and four to a flush: hold the pair. If a royal or straight-flush draw hides inside the flush, check the list before you discard.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays Jacks or Better offline, shows a full paytable on screen for each variant, and has strategy hints you can turn on to see which cards to hold while you learn. Chips are free and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

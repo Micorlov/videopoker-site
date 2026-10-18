@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "The Christmas tree: pro tree and sportsman tree starts",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "PinkSlipKings",
+  "description": "A sportsman tree runs three ambers 0.5 s apart, then green. A pro tree lights all three together, then green 0.4 s later. Here is how R/T reads on each.",
+  "summary": "The full tree counts down 1.5 seconds from the first amber to green; the pro tree needs only 0.4. Perfect light is .500 and .400 when timed from the last amber, 0.000 when timed from green, and a red light means leaving early.",
+  "standfirst": "Both trees end in the same green light, but they get there differently. One gives you a rhythm to follow; the other gives you a single flash and 0.4 of a second."
+}
+-->
+<p>A drag race is started by a tall pillar of lights between the two lanes, known as the Christmas tree. Both drivers watch their own column of bulbs, and the only light that matters is the last one. Two different sequences are in use, and the numbers on the time slip mean something slightly different depending on which one the track ran.</p>
+
+<h2>What is on the tree</h2>
+<p>Each lane has its own column. At the top are two small bulbs, pre-stage and stage, which show where the car is sitting relative to the starting beam. The driver rolls forward until both are lit and the car is staged. Below them are three amber bulbs, then a green, then a red at the bottom. Once both cars are staged, the tree runs its sequence.</p>
+<p>The green is the signal to go. The red is the penalty light: it comes on instead of the green when a car leaves the stage beam too early.</p>
+
+<h2>The sportsman tree</h2>
+<p>The full tree, also called the sportsman tree, is the one used for bracket racing and most amateur classes. The three ambers light one after another, 0.5 seconds apart, and the green follows 0.5 seconds after the third amber. Counting from the first amber, the green arrives at 0.5 + 0.5 + 0.5 = 1.5 seconds.</p>
+<p>That slow, even countdown gives you something to time. Many drivers learn to react to the last amber rather than the green itself, because the interval is the same every run.</p>
+
+<h2>The pro tree</h2>
+<p>The pro tree, used in the professional classes, lights all three ambers at the same instant. The green comes on 0.4 seconds later. There is no rhythm to count: one flash, then a wait of 0.4 seconds. The whole start takes 0.4 seconds against 1.5 on the full tree, so the pro sequence takes about a quarter as long (0.4 ÷ 1.5 = 0.27).</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 210" role="img" aria-label="Timing diagram of the two starts on a shared time axis from 0 to 1.5 seconds. Sportsman tree: ambers at 0, 0.5 and 1.0 seconds, green at 1.5 seconds. Pro tree: all three ambers at 0 seconds, green at 0.4 seconds.">
+    <text class="strong" x="8" y="50" text-anchor="start">Sportsman</text>
+    <text x="8" y="66" text-anchor="start">green at 1.5 s</text>
+    <line class="grid" x1="96" x2="376" y1="60" y2="60"/>
+    <circle cx="96" cy="60" r="8" class="fill-soft" style="stroke:var(--muted);stroke-width:1.5"/>
+    <circle cx="189.3" cy="60" r="8" class="fill-soft" style="stroke:var(--muted);stroke-width:1.5"/>
+    <circle cx="282.7" cy="60" r="8" class="fill-soft" style="stroke:var(--muted);stroke-width:1.5"/>
+    <circle cx="376" cy="60" r="8" class="fill-accent"/>
+    <text x="96" y="40" text-anchor="middle">amber 1</text>
+    <text x="189.3" y="40" text-anchor="middle">amber 2</text>
+    <text x="282.7" y="40" text-anchor="middle">amber 3</text>
+    <text class="strong" x="372" y="40" text-anchor="end">green</text>
+    <text x="142.7" y="82" text-anchor="middle">0.5 s</text>
+    <text x="236" y="82" text-anchor="middle">0.5 s</text>
+    <text x="329.3" y="82" text-anchor="middle">0.5 s</text>
+    <text class="strong" x="8" y="120" text-anchor="start">Pro</text>
+    <text x="8" y="136" text-anchor="start">green at 0.4 s</text>
+    <line class="grid" x1="96" x2="376" y1="130" y2="130"/>
+    <circle cx="96" cy="130" r="8" class="fill-soft" style="stroke:var(--muted);stroke-width:1.5"/>
+    <circle cx="170.7" cy="130" r="8" class="fill-accent"/>
+    <text x="96" y="110" text-anchor="start">3 ambers together</text>
+    <text class="strong" x="196" y="134" text-anchor="start">green</text>
+    <text x="133.3" y="152" text-anchor="middle">0.4 s</text>
+    <line class="axis" x1="96" x2="376" y1="170" y2="170"/>
+    <text x="96" y="186" text-anchor="middle">0</text>
+    <text x="189.3" y="186" text-anchor="middle">0.5</text>
+    <text x="282.7" y="186" text-anchor="middle">1.0</text>
+    <text x="376" y="186" text-anchor="middle">1.5</text>
+    <text x="236" y="203" text-anchor="middle">Seconds from the first amber</text>
+  </svg>
+  <figcaption>Both starts on one time axis. The sportsman tree reaches green at 1.5 seconds; the pro tree reaches it at 0.4. Gold circles mark the green.</figcaption>
+</figure>
+
+<p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> has you watch the starting lights, choose your launch RPM and time your shifts, so the start is the first thing the game asks you to get right.</p>
+
+<h2>Perfect light depends on where the clock starts</h2>
+<p>Reaction time is the gap between a reference moment on the tree and the moment your car leaves the stage beam. Slips choose the reference in one of two ways.</p>
+<ul>
+  <li><strong>Timed from the green.</strong> A perfect light is 0.000, and a driver who leaves 0.062 seconds after the green reads 0.062. This is the common NHRA-style scale, and it is the same for both trees.</li>
+  <li><strong>Timed from the last amber.</strong> The clock starts when the final amber lights, so a perfect light is the tree delay itself: 0.500 on a sportsman tree and 0.400 on a pro tree. The same 0.062 late reaction reads 0.562 on a sportsman tree and 0.462 on a pro tree.</li>
+</ul>
+<p>The conversion is a subtraction. Take the printed reaction time and subtract 0.500 (sportsman) or 0.400 (pro) to get the figure on the 0.000 scale. A .512 on a sportsman tree is 0.012 after the green, and so is a .412 on a pro tree.</p>
+<p>This is why a printed .450 can mean opposite things. On a sportsman tree timed from the last amber it is 0.050 early, a red light. On a pro tree timed the same way it is 0.050 late, a legal start. Check the tree and the scale before you compare two numbers.</p>
+
+<h2>Red light</h2>
+<p>If the car leaves the stage beam before the green, the red bulb lights in that lane. On the 0.000 scale that is any reaction below zero, shown as a negative number such as -0.012. Measured from the last amber it is any value under .500 on a sportsman tree or under .400 on a pro tree. A reaction of exactly 0.000 is a perfect light; the foul begins one thousandth earlier.</p>
+<p>A red light normally loses the round in eliminations, whatever the elapsed times were. The ET clock does not rescue you, because the foul is decided at the tree. The <a href="/blog/reading-a-drag-racing-time-slip.html">time slip post</a> covers the other lines on the slip.</p>
+
+<h2>What a tenth is worth</h2>
+<p>Reaction time is added to ET to decide a close race, so each thousandth lost at the tree has to be won back on the track. The conversion from time to distance is speed multiplied by time. At 120 mph a car covers 120 × 5,280 ÷ 3,600 = 176 feet every second.</p>
+<ul>
+  <li>0.100 seconds late is 17.6 feet at that speed.</li>
+  <li>0.050 seconds late is 8.8 feet.</li>
+  <li>0.010 seconds late is 1.76 feet.</li>
+</ul>
+<p>Those distances are measured at 120 mph, the example speed from the slip post. The race is decided by who crosses the line first, so the time is what counts.</p>
+
+<h2>How the two trees feel different</h2>
+<p>On the full tree you can lean on rhythm. The 0.5-second spacing is the same every pass, so a driver who learns it can aim to leave as the green is due. The risk is that the rhythm tempts an early guess, and a guess that is a few hundredths early is a red light.</p>
+<p>On the pro tree there is no spacing to learn. The amber flash is the only cue, and the green follows 0.4 seconds after it. Reaction there is a fixed delay from a single event, and the margin between a perfect light and a red one is the same thousandth as before, but with less time to settle.</p>
+
+<div class="callout">
+  <p>Sportsman: ambers 0.5 s apart, green 0.5 s after the last. Pro: ambers together, green 0.4 s later. Red light means leaving before the green, on either tree.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> asks you to watch the starting lights, choose your launch RPM and time your shifts, with Test &amp; Tune and a tuner sandbox for practice and race time slips to review the result. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>

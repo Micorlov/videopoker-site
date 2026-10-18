@@ -1,0 +1,60 @@
+<!--
+{
+  "title": "Why pocket aces are weaker in Omaha than in Hold'em",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "OmahaPoker",
+  "description": "Aces win about 85% against a random Hold'em hand but only about 65-70% in Omaha. Count why: four-card hands pair, draw and connect far more often.",
+  "summary": "In Hold'em a pair of aces is the best start by a wide margin. In Omaha an ace pair with two side cards wins roughly 65-70% against one random hand, and a random Omaha hand contains a pair 32.4% of the time.",
+  "standfirst": "A pair of aces is the strongest two cards in Hold'em and one of the best starts in Omaha, but the gap to everything else shrinks a lot. The reason is how much more a four-card hand can do with the same board."
+}
+-->
+<p>Aces are the best pair in any poker game that uses a standard deck. In Hold'em, though, they are nearly a lock against one opponent, and in Omaha they are only a good favourite. The cards are the same. What changes is how many hands the opponent can make with the board.</p>
+<p>All equity figures below are approximate. They come from widely published simulations and shift by a point or two depending on the source and, in Omaha, on the side cards and suits.</p>
+
+<h2>The numbers side by side</h2>
+<p>Pocket aces in Hold'em win about 85% of the time against one random hand, and about 82% against the next best start, pocket kings. Add opponents and the figure falls quickly: about 73% against two random hands and about 64% against three.</p>
+<p>In Omaha, a hand with two aces and two side cards wins roughly 65-70% against one random four-card hand. The best versions, such as A-A-K-K with two suits each, sit at the top of that range. A pair of aces with two unconnected, unsuited cards sits lower. So heads-up in Omaha, aces are about as strong as Hold'em aces against three opponents.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of approximate chance of winning for pocket aces">
+    <div class="bar-row" title="Hold'em, 1 random opponent: about 85%"><span class="bar-label">Hold'em, 1 opponent</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">≈85%</span></span></div>
+    <div class="bar-row" title="Hold'em, 2 random opponents: about 73%"><span class="bar-label">Hold'em, 2 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8588)"></span><span class="bar-val">≈73%</span></span></div>
+    <div class="bar-row hl" title="Omaha, 1 random opponent: about 65-70%"><span class="bar-label">Omaha, 1 opponent</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7941)"></span><span class="bar-val">≈65-70%</span></span></div>
+    <div class="bar-row" title="Hold'em, 3 random opponents: about 64%"><span class="bar-label">Hold'em, 3 opponents</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7529)"></span><span class="bar-val">≈64%</span></span></div>
+  </div>
+  <figcaption>Approximate chance that pocket aces win against random hands. The Omaha bar is drawn at the midpoint of its 65-70% range (67.5%) and is the case for aces with two side cards.</figcaption>
+</figure>
+
+<h2>Reason 1: opponents hold pairs far more often</h2>
+<p>A random Hold'em hand is a pair 78 times in 1,326, or 5.9%. A random Omaha hand has four cards, and the chance they are all different ranks is</p>
+<p>C(13,4) × 4<sup>4</sup> ÷ C(52,4) = 715 × 256 ÷ 270,725 = 183,040 ÷ 270,725 = 67.6%</p>
+<p>so a random Omaha hand contains at least one pair <strong>32.4%</strong> of the time. Since only two of the four cards play, the opponent usually picks their best two, but a pair, a pair of draws, or two ways to connect are all on offer at once.</p>
+
+<h2>Reason 2: more hands to beat your pair</h2>
+<p>In Hold'em the opponent has one two-card hand to improve. In Omaha the opponent can combine any two of four hole cards with any three of five board cards, which is 6 × 10 = 60 hands at the river, against 21 in Hold'em (see <a href="/blog/omaha-exactly-two-hole-cards.html">the exactly-two rule</a>). More ways to make a hand means a better chance that one of them beats a single pair.</p>
+<p>Your aces gain nothing from this, because they are still a single pair on most boards. The chance of flopping an ace for a set is only slightly better than in Hold'em. In Hold'em, with 50 cards unseen and two aces left, it is 1 − (48 × 47 × 46) ÷ (50 × 49 × 48) = 288 ÷ 2,450 = 11.8%. In Omaha, with 48 unseen and the same two aces left, it is 1 − (46 × 45 × 44) ÷ (48 × 47 × 46) = 276 ÷ 2,256 = 12.2%. Neither is common. Most of the time your aces are an overpair on a flop that opponents can hit with draws.</p>
+
+<h2>Reason 3: draws catch up</h2>
+<p>An overpair is the kind of hand that draws catch. In Hold'em the biggest straight draw is eight outs; in Omaha a hand can have up to 20 (see <a href="/blog/omaha-wrap-straight-draws.html">wraps</a>). Flush draws are also easier to come by, since four cards give more chances of holding two of one suit than two cards do. Against an overpair, an opponent with a big draw is often close to level, and sometimes ahead.</p>
+<p>That is why Omaha equity is so compressed. Hold'em has a big spread, with aces at 85% and a weak hand like 7-2 at around 35% against a random hand. Omaha hands cluster much closer together, and even the top starts are rarely above 70%.</p>
+
+<h2>What to do with that</h2>
+<ol class="ranked">
+  <li><strong>Look at the side cards.</strong> A-A-K-K and A-A-J-T with suits have an ace pair plus a way to connect or make a flush. A-A-7-2 of mixed suits has only the pair, and it sits at the low end of the range or below it.</li>
+  <li><strong>Aces want a nut-flush draw.</strong> An ace with a suited side card gives the nut flush draw for free, which is a hand that can win without improving to a set.</li>
+  <li><strong>Do not stack off on an overpair.</strong> After the flop, pair-only hands are the ones that lose to wraps and draws. A flop of J-T-9 or three of one suit makes aces weak. See <a href="/blog/omaha-second-best-flush.html">second-best flush</a> for the same logic with flushes.</li>
+</ol>
+
+<div class="callout">
+  <p>In Hold'em, aces are a hand to build the pot with. In Omaha they are a good start to be careful with: a favourite, but nowhere near the 85% that Hold'em teaches you to expect.</p>
+</div>
+
+<h2>A quick check</h2>
+<p>You can test the idea without any maths. Deal yourself A-A-K-K and one random four-card hand a few dozen times, and count how often the aces hold up. Expect them to win around two times in three, not five in six.</p>
+<p><a href="/OmahaPoker/">Omaha Poker</a> shows a live win chance and the pot odds on a call, and grades your four-card starting hand before the flop, so you can compare the grade for A-A-K-K with a ragged A-A-7-2.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

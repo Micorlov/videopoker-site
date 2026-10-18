@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Implied odds: when a call pays off on later streets",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "HoldemCoach",
+  "description": "A flush draw on the turn is 19.6% against a 25% price. Implied odds tell you the gap: you must win another 55.6 on later streets to break even.",
+  "summary": "When direct pot odds say fold, implied odds ask how much more you must win once the card arrives. Needed future winnings = call ÷ equity − (pot + call): 55.6 for a flush draw facing a half-pot bet, 87.5 for an open-ended straight draw.",
+  "standfirst": "Pot odds only count the money already in the middle. Implied odds add the money you expect to win after you hit, and one subtraction tells you how much of it you need."
+}
+-->
+<p>The <a href="/blog/holdem-pot-odds.html">pot odds post</a> ended on a call that looked a little short: a flush draw with 19.6% to hit, facing a price that needs 25%. On the numbers in the pot, that is a fold. Implied odds are the correction for what the pot does not show, which is the money you can still win on the river after the card arrives. This post turns that idea into one subtraction you can check.</p>
+
+<h2>The setup</h2>
+<p>Keep the same spot. It is the turn, there is 100 in the pot, and your opponent bets 50. You hold a flush draw with nine outs. Six cards are visible (your two and four on the board), so 46 are unseen, and your chance of hitting on the river is 9 ÷ 46 = 19.6%.</p>
+<p>Calling costs 50 and makes the pot 200, so the direct price is 50 ÷ 200 = 25%. You have 19.6% and need 25%, so the call loses on pot odds alone. The question implied odds answer is: how much more would you need to win, on average, each time the flush arrives, to make that loss disappear?</p>
+
+<h2>The formula</h2>
+<p>Break-even means your equity times your total winnings equals the call. Rearranged, the total you must win when you hit is the call divided by your equity. Part of that total is already in the pot, so what is left is the extra:</p>
+<div class="callout">
+  <p>Needed future winnings = call ÷ equity − (pot + call)</p>
+</div>
+<p>Here "pot" is the pot as it stands when your decision comes, including the opponent's bet (150), so pot + call is the 200 you would see after calling. Work it through:</p>
+<ol>
+  <li>Call ÷ equity = 50 ÷ (9 ÷ 46) = 50 × 46 ÷ 9 = 255.6.</li>
+  <li>Pot + call = 150 + 50 = 200.</li>
+  <li>Needed future winnings = 255.6 − 200 = 55.6.</li>
+</ol>
+<p>So you must win about 55.6 more, on average, every time the flush arrives. That is a little over one extra call-sized payment (55.6 ÷ 50 = 1.11).</p>
+<p>To check the result, test it directly. Suppose you win 150 from the pot plus 55.6 more when you hit, and lose 50 when you miss. Hitting happens 9 times in 46, missing 37 times in 46. Multiply through by 46: 9 × (150 + 55.6) = 1,850, and 37 × 50 = 1,850. They match, so the call breaks even.</p>
+
+<h2>How the requirement grows with the bet</h2>
+<p>The same flush draw against bigger bets into the same 100 pot needs more behind it, and it grows quickly.</p>
+
+<table class="paytable-compare">
+  <caption>Extra winnings needed on later streets for a nine-out flush draw on the turn (19.6%), pot of 100 before the bet.</caption>
+  <thead>
+    <tr><th>Bet</th><th>Direct price</th><th>Call ÷ equity</th><th>Pot + call</th><th>Extra needed</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">25</th><td>16.7%</td><td>127.8</td><td>150</td><td>None (22.2 spare)</td></tr>
+    <tr><th scope="row">50</th><td>25.0%</td><td>255.6</td><td>200</td><td>55.6</td></tr>
+    <tr><th scope="row">75</th><td>30.0%</td><td>383.3</td><td>250</td><td>133.3</td></tr>
+    <tr><th scope="row">100</th><td>33.3%</td><td>511.1</td><td>300</td><td>211.1</td></tr>
+  </tbody>
+</table>
+
+<p>A negative answer means the direct price is already low enough, as with the quarter-pot bet: 16.7% is under 19.6%, so the call works without any help from later streets. For a pot-sized bet you would need to win another 211.1, more than twice the original pot, from a single river bet. That is rarely available.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the extra winnings a nine-out flush draw needs on later streets, by turn bet size into a pot of 100">
+    <div class="bar-row" title="Bet 25: none needed"><span class="bar-label">Bet 25</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0000)"></span><span class="bar-val">none</span></span></div>
+    <div class="bar-row hl" title="Bet 50: 55.6"><span class="bar-label">Bet 50</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.2632)"></span><span class="bar-val">55.6</span></span></div>
+    <div class="bar-row" title="Bet 75: 133.3"><span class="bar-label">Bet 75</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6316)"></span><span class="bar-val">133.3</span></span></div>
+    <div class="bar-row" title="Bet 100: 211.1"><span class="bar-label">Bet 100</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">211.1</span></span></div>
+  </div>
+  <figcaption>Extra winnings needed on the river for a flush draw to break even on the turn, by bet size into a pot of 100. The half-pot bet from the worked example needs 55.6; a pot-sized bet needs 211.1, almost four times as much.</figcaption>
+</figure>
+
+<h2>Different draws, same bet</h2>
+<p>The same half-pot bet of 50 is a different decision for a different draw, because only the equity changes. With 46 unseen cards:</p>
+<ul>
+  <li><strong>Gutshot, 4 outs (8.7%):</strong> 50 × 46 ÷ 4 = 575.0, minus 200 = 375.0 needed.</li>
+  <li><strong>Open-ended straight draw, 8 outs (17.4%):</strong> 50 × 46 ÷ 8 = 287.5, minus 200 = 87.5 needed.</li>
+  <li><strong>Flush draw, 9 outs (19.6%):</strong> 55.6 needed, as above.</li>
+  <li><strong>Flush plus gutshot, 12 outs (26.1%):</strong> 50 × 46 ÷ 12 = 191.7, minus 200 = −8.3, so nothing is needed. The direct price of 25% is already covered.</li>
+</ul>
+<p>The gutshot shows why "I might win a big pot" is not a reason on its own. It needs 375.0 extra, which is 7.5 times the call. Every out you add makes later winnings matter less, and a large enough draw does not need them at all.</p>
+
+<h2>When implied odds are real, and when they are not</h2>
+<p>The formula tells you the number to beat. Whether you can beat it is a judgement, and three things decide it.</p>
+<ol class="ranked">
+  <li><strong>Stack depth.</strong> You can only win what your opponent still has behind. If they have 30 left after the turn bet, the 55.6 you need is not there, and the call is a fold however the river falls.</li>
+  <li><strong>Whether you are paid when you hit.</strong> The extra has to be an average over all your hits. If the flush card puts a fourth suited card on the board and your opponent can see it, they will often check and fold to a bet.</li>
+  <li><strong>Whether the card wins.</strong> A flush card that pairs the board can still lose to a full house. Count only the outs that really beat your opponent's hand, otherwise 19.6% is too generous and the needed figure is higher.</li>
+</ol>
+
+<h2>Using it at the table</h2>
+<p>Take the direct price from pot odds and your equity from the <a href="/blog/holdem-rule-of-2-and-4.html">rule of 2 and 4</a>. If equity beats the price, call. If not, subtract, then ask whether your opponent has that much behind and would really pay it. If either answer is no, fold.</p>
+<p>The "Is it worth calling?" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> asks you to work out the price you are being offered and whether your hand is worth it, which is the direct half of this calculation. Implied odds start from the same price and add the question of what comes next.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons, one idea at a time, and nothing in it is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

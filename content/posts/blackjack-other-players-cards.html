@@ -1,0 +1,56 @@
+<!--
+{
+  "title": "Other players at the table: do their cards hurt you?",
+  "date": "2026-10-18",
+  "modified": "2026-10-18",
+  "app": "Blackjack21",
+  "description": "Another player's hit never changes your expected result. Every unseen card is equally random, so the player who took the dealer's bust card cost you nothing.",
+  "summary": "The card another player draws is no more likely to be the one you needed than the one you feared. With six decks the chance the next card is a ten moves by about a fifth of a point.",
+  "standfirst": "Someone at third base hits a 12 against the dealer's 6, and the table groans. The belief behind the groan is that the card they took was meant for someone else. It was not meant for anyone, and the sums show why."
+}
+-->
+<p>The complaint is an old one: <em>he took the dealer's bust card</em>. A player hits a hard 12 against a dealer 6, the dealer then turns over a 20, and everyone at the table looks at the player who hit. The idea is that the order of the cards is fixed, so a player who changes how many cards they take changes who gets which card. That much is true. The conclusion, that this makes the table's results worse for the rest of you, does not follow.</p>
+
+<h2>Where the cards come from</h2>
+<p>A six-deck shoe holds 312 cards, of which 96 are tens, jacks, queens or kings. Before anything is dealt, the chance that the top card is a ten-value card is</p>
+<p>96 ÷ 312 = 30.77%</p>
+<p>Now ask the same question about the second card in the shoe, without looking at the first. It is a ten in two ways: the first card was a ten (96/312) and then another (95/311), or the first card was not a ten (216/312) and then a ten (96/311):</p>
+<p>(96/312 × 95/311) + (216/312 × 96/311) = 96 × (95 + 216) ÷ (312 × 311) = 96 × 311 ÷ (312 × 311) = <strong>96/312 = 30.77%</strong></p>
+<p>The 311s cancel, and the answer is the same as for the top card. The same cancellation happens at every position in a fairly shuffled shoe. A card you have not seen is a card drawn from the whole shoe, whether it is the first one off the top or the fortieth. Where it sits in the order tells you nothing about what it is.</p>
+
+<h2>What a player in front of you really changes</h2>
+<p>Take the dealer showing a 6, and a player who hits a 12 and draws a card you do not see. Two things can be true at once:</p>
+<ol>
+  <li>If that player had stood, the dealer's next draw would have been a different card from the one the player took.</li>
+  <li>The dealer's next draw, as far as anyone can tell, is still an unknown card from the same shoe, with the same 30.77% chance of being a ten.</li>
+</ol>
+<p>The first point is why the myth feels convincing. It treats the removed card as the dealer's card, but nothing marked it as the dealer's. For every shuffle in which the player pulls out the card that would have busted the dealer, there is a matching shuffle in which the player pulls out a card that would have helped the dealer, and the shoe has no way of preferring one to the other. Averaged over all of them, the dealer ends up with the same chances whether the player hit or stood. Your expected result per hand does not move.</p>
+<p>So a weak player does not drag your result down, and a strong one does not lift it. Their decisions change which cards land where this round, not the average quality of the cards you get.</p>
+
+<h2>What you do learn by watching</h2>
+<p>There is one real effect, and it is small. If you can see a card leave the shoe, the cards left are no longer a perfect sample of the whole shoe. Suppose you see another seat draw a ten. There are now 95 tens in 311 cards:</p>
+<p>95 ÷ 311 = 30.55%</p>
+<p>If instead you see them draw a card that is not a ten, there are still 96 tens, now in 311 cards:</p>
+<p>96 ÷ 311 = 30.87%</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that the next card is a ten-value card in a six-deck shoe, depending on what you have seen">
+    <div class="bar-row" title="You saw a non-ten leave the shoe: 30.87%"><span class="bar-label">Saw a non-ten go</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">30.87%</span></span></div>
+    <div class="bar-row hl" title="Nothing seen: 30.77%"><span class="bar-label">Nothing seen</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9968)"></span><span class="bar-val">30.77%</span></span></div>
+    <div class="bar-row" title="You saw a ten leave the shoe: 30.55%"><span class="bar-label">Saw a ten go</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9896)"></span><span class="bar-val">30.55%</span></span></div>
+  </div>
+  <figcaption>Chance that the next card is a ten-value card in a six-deck shoe. Seeing one card leave moves it by 0.10 points up or 0.22 points down. Bars start at zero.</figcaption>
+</figure>
+
+<p>Moves of 0.10 and 0.22 percentage points are far too small to act on. The size of the shift depends on how few cards remain, and a six-deck shoe is the reason it stays small. In a single deck, seeing a ten leave gives 15 tens in 51 cards, or 29.41%, against 16/52 = 30.77% beforehand: a drop of 1.36 points. The same sighting counts for six times as much. The post on <a href="/blog/six-deck-shoe-vs-single-deck.html">a six-deck shoe against a single deck</a> goes further.</p>
+<p>The shift cuts both ways. A ten removed makes tens rarer for the dealer's draw, which costs you a few dealer busts (see <a href="/blog/blackjack-dealer-bust-rates.html">how often each up-card busts</a>), and rarer for your own hit, which helps a stiff hand. It is a slow drift in the numbers, not a theft.</p>
+
+<h2>The five-seat table in Blackjack 21</h2>
+<p>The Play listing for <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> describes a five-seat table: you play against four opponents and the dealer, and the best hand sweeps every chip the losers left behind. It says to beat the dealer to keep your bet, then beat the table to sweep the pot, and it describes a six-deck shoe.</p>
+<p>Both halves of that line are worth reading separately. The dealer half is ordinary blackjack, and the argument above applies to it directly: what the four opponents do in front of you does not alter your expected result against the dealer. The sweep half is different, and in a way worth being clear about. Whether your hand is the best at the table depends on the other hands, because they are what you are competing with. That is competition, not interference. An opponent making 20 makes it harder for you to be best, just as it would at any table that compares hands, but their drawing the card did nothing to the chance that you would have drawn a better one.</p>
+<p>In practice that means the decisions for your own hand stay the same: play it for the best total you can reach against the dealer's up-card. The other seats are worth a glance when the sweep is in reach, but not as a reason to blame them when a draw goes against you.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer, and the best hand sweeps every chip the losers left behind. It plays offline with free daily chips, which have no cash value, and no real money is involved.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
