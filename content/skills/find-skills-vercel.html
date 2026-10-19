@@ -1,0 +1,47 @@
+<!--
+{
+  "title": "find-skills — the skill that finds other skills",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "description": "find-skills from Vercel Labs lets a coding agent search the skills.sh directory, check what it finds, and install a skill for the task you describe.",
+  "summary": "A skill that searches the skills.sh directory for you, checks install counts and sources, and offers to install the best match.",
+  "standfirst": "A reel calls it the most powerful Claude skill nobody uses. The skill is real, and it is the most installed one on skills.sh. It is also smaller than the reel makes it sound."
+}
+-->
+<p><a class="text-link" href="https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md">Read the find-skills file on GitHub</a></p>
+<p><a class="text-link" href="https://skills.sh/vercel-labs/skills/find-skills">See find-skills on skills.sh</a></p>
+<p><a class="text-link" href="https://www.facebook.com/reel/1153800737318244/">See Mikhail Gologan's reel</a></p>
+<p>A Russian-language reel by Mikhail Gologan says an engineer from Vercel built a Claude skill that finds any other skill for you. The reel says it holds about 700,000 skills, picks the ones that fit your task, downloads them and installs them in Claude. It also says the skill has more than three million installs.</p>
+<p>The skill is find-skills, from the vercel-labs/skills repository. Andrew Qu added it on 26 January 2026, and he announced it the same day on Vercel's changelog as a “meta” skill for agents. On 19 October 2026 skills.sh showed 3.9 million installs for it, the most of any skill on the site.</p>
+
+<figure class="chart">
+  <img src="/img/skills/find-skills.svg" alt="A search box above a grid of skill cards, with one card picked out." width="640" height="360">
+  <figcaption>Describe the task. Get a short list. Pick one.</figcaption>
+</figure>
+
+<h2>What find-skills is</h2>
+<p>find-skills is a single SKILL.md file with instructions for the agent. It has no catalogue of its own. It tells the agent to use the Skills CLI, Vercel's open tool for installing skills, which searches the skills.sh directory. On 19 October 2026 that directory listed about 1.4 million skills. It works in Claude Code, Cursor, GitHub Copilot and many other coding agents.</p>
+
+<h2>What it tells the agent to do</h2>
+<ol>
+  <li>Work out what you need: the area, such as testing or design, and the exact task.</li>
+  <li>Check the skills.sh leaderboard first, because popular skills for common tasks are often already there.</li>
+  <li>If the leaderboard does not cover it, search with a short query, for example “npx skills find react performance”.</li>
+  <li>Check every result before suggesting it. Prefer more than 1,000 installs, known sources such as Vercel, Anthropic or Microsoft, and repositories with at least 100 stars on GitHub.</li>
+  <li>Show you the options: what each skill does, its install count, its source, and the command to install it.</li>
+  <li>Offer to install the one you choose.</li>
+</ol>
+
+<h2>Where the reel goes too far</h2>
+<p>The skill does not keep a database of skills. It searches skills.sh each time. It also does not install skills on its own: it shows you a list and asks first. The directory now lists about 1.4 million skills, not 700,000. The three million installs are real.</p>
+
+<h2>One warning</h2>
+<p>Anyone can publish a skill, and a skill is instructions that your agent will follow. That is why find-skills tells the agent to check installs, source and stars before it suggests anything. Read a skill's SKILL.md yourself before you install it, especially if it comes from an unknown author.</p>
+
+<h2>How to use it</h2>
+<p>You need Node.js 18 or newer. Run this command in your terminal:</p>
+<pre><code>npx skills add vercel-labs/skills --skill find-skills</code></pre>
+<p>Then ask your agent in plain words, for example “find a skill for writing changelogs”. You can also search yourself with “npx skills find” and a few words about the task.</p>
+<p><a class="text-link" href="https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md">Read the find-skills file on GitHub</a></p>
+<p><a class="text-link" href="https://vercel.com/changelog/skills-v1-1-1-interactive-discovery-open-source-release-and-agent-support">Read Vercel's announcement</a></p>
+<p><a class="text-link" href="https://skills.sh/">Browse the skills.sh directory</a></p>
