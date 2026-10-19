@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "Two pair on the draw: how often it becomes a full house",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "PokerVsDealer",
+  "description": "Hold two pair and exchange the fifth card: 4 of 47 unseen cards make a full house, 8.51%, about 10.75 to 1 against. One pair drawing three manages 1.02%.",
+  "summary": "Two pair with one card to come has four outs among 47 unseen cards, so a full house arrives 8.51% of the time. Three of a kind drawing two makes one 6.11% of the time, and one pair drawing three only 1.02%.",
+  "standfirst": "Two pair is a made hand that can still be improved, and the improvement is a short count: four cards help and 47 are unseen. Set beside the other ways of reaching a full house, it is the best of them."
+}
+-->
+<p>You are dealt 9-9-5-5-K. Against the dealer you already hold two pair, which beats any single pair. The question is what to do with the king. Exchange it, and one card in about twelve gives you a full house. The other eleven leave you with two pair, which is what you had before.</p>
+
+<h2>Counting the outs</h2>
+<p>You can see five cards, so <strong>47</strong> are unseen. A full house needs a third card matching one of your pairs. Two nines and two fives are in your hand, so two nines and two fives remain unseen: <strong>4 outs</strong>.</p>
+<p>4 ÷ 47 = 8.51%</p>
+<p>The miss is 43 ÷ 47 = 91.49%. As odds, that is 43 to 4 against, or <strong>10.75 to 1</strong>. Put the other way round, 47 ÷ 4 = 11.75, so a full house arrives once in 11.75 attempts on average. Which ranks you hold does not matter, only that there are two pairs.</p>
+<p>Because you throw away the odd card, the draw cannot make the hand worse. Of the 47 cards, 4 give a full house and the other 43 leave two pair, including any card that matches the king you discarded. I checked this by listing all 47 possible draws: 4 full houses and 43 two-pair hands, nothing else.</p>
+
+<div class="callout">
+  <p>Two pair, one card to come: 4 outs, 47 unseen cards, 8.51%. The draw only improves the hand or leaves it unchanged. Whatever it costs is the only thing at risk.</p>
+</div>
+
+<h2>Three ways to reach a full house</h2>
+<p>A full house can be built from three different starting holdings. Each is a count of outs over the cards you can still receive:</p>
+<ul>
+  <li><strong>Two pair, exchange one card.</strong> 4 winning cards out of 47: 8.51%.</li>
+  <li><strong>Three of a kind, exchange two cards.</strong> Two cards come from the 47 unseen, giving 47 × 46 ÷ 2 = 1,081 possible draws. Say you hold three queens, and discard a 7 and a 3. A full house needs the two new cards to be a pair of some other rank. Ten ranks have four cards left (6 pairs each) and the 7 and 3 have three left (3 pairs each): 10 × 6 + 2 × 3 = 66. So 66 ÷ 1,081 = 6.11%. The single remaining queen gives four of a kind instead, in 46 of the 1,081 draws, or 4.26%.</li>
+  <li><strong>One pair, exchange three cards.</strong> There are 16,215 possible draws, and 165 of them give a full house: 165 ÷ 16,215 = 1.02%. The post on <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">improving a pair when you exchange cards</a> has the whole table.</li>
+</ul>
+<p>The ordering is perhaps not what you would guess. Three of a kind looks stronger than two pair, but it needs two exact cards to arrive together, while two pair needs only one. Two pair is therefore 1.39 times as likely to become a full house (8.51 ÷ 6.11), even though it starts with fewer cards of a kind.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of reaching a full house from three starting holdings">
+    <div class="bar-row hl" title="Two pair, draw one card: 4 outs of 47, 8.51%"><span class="bar-label">Two pair, draw 1</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8.51%</span></span></div>
+    <div class="bar-row" title="Three of a kind, draw two cards: 66 of 1,081 draws, 6.11%"><span class="bar-label">Three of a kind, draw 2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7173)"></span><span class="bar-val">6.11%</span></span></div>
+    <div class="bar-row" title="One pair, draw three cards: 165 of 16,215 draws, 1.02%"><span class="bar-label">One pair, draw 3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1196)"></span><span class="bar-val">1.02%</span></span></div>
+  </div>
+  <figcaption>Chance of finishing with a full house after one exchange: 4 of 47 draws, 66 of 1,081 draws and 165 of 16,215 draws. Three of a kind that draws two cards is assumed to discard two cards of different ranks.</figcaption>
+</figure>
+
+<h2>The cost of waiting</h2>
+<p>An 8.51% chance is rare enough that several attempts are normal before one lands. Across five separate hands with two pair and one exchange each, the chance of missing every time is (43 ÷ 47)<sup>5</sup> = 64.1%. The chance of at least one full house is 35.9%. A dry run of five is therefore the usual outcome, not bad luck.</p>
+<p>If an exchange has a price <em>c</em>, you lose it on a miss and gain <em>G</em> on a hit. The exchange breaks even when 4 ÷ 47 × <em>G</em> = 43 ÷ 47 × <em>c</em>, so <em>G</em> = 10.75<em>c</em>. A full house must be worth a little over ten times the price of the attempt, measured against keeping two pair, before drawing pays for itself on average. That is a much higher bar than the one for a flush draw: <a href="/blog/drawing-one-card-to-a-flush.html">nine outs need only about 4.2 times the price</a>.</p>
+
+<h2>What a full house is worth against the dealer</h2>
+<p>A full house outranks a straight, a flush and three of a kind, and only four of a kind and the straight flushes beat it. It is also scarce: 3,744 of the 2,598,960 possible five-card hands are full houses, which is 0.144%. The <a href="/blog/five-card-poker-hand-frequencies.html">five-card hand frequency table</a> puts it in context. Two pair, by contrast, is a decent hand but not a safe one: a dealer who finishes with a higher two pair, or three of a kind, still beats it. When two hands have the same category, <a href="/blog/five-card-poker-tie-breaks.html">the tie-break rules</a> decide the result.</p>
+
+<h2>Checklist for the table</h2>
+<ol class="ranked">
+  <li><strong>Count the two pairs.</strong> Each pair leaves two cards, so 2 + 2 = 4 outs.</li>
+  <li><strong>Divide by 47.</strong> 4 ÷ 47 is 8.51%, or 43 to 4 against.</li>
+  <li><strong>Compare the price.</strong> The full house must be worth about 10.75 times the cost of the exchange to break even.</li>
+</ol>
+
+<p>These figures are plain five-card maths. The store description of <a href="/PokerVsDealer/">Poker vs Dealer</a> says you can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. The in-game rules and payouts screen is the place to check how much a forge costs and how it settles, because those details decide whether a long shot is worth taking.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

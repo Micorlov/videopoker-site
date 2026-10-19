@@ -163,90 +163,90 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Four to a royal: when to break a made flush or straight
 - Holding two pair: the odds of drawing a full house
 - Suited high cards: when two cards beat three in Jacks or Better
 - Why the fifth coin matters: the royal flush bonus at max bet
 
 ### OmahaPoker
 
-- Double-suited hands: what two suits add before the flop
 - Paired boards in Omaha: when the nut flush loses to a full house
 - Quartering in Omaha Hi-Lo: how winning half a pot can lose chips
 - Danglers: why a disconnected fourth card weakens an Omaha hand
 
 ### Blackjack21
 
-- Why tens make up almost a third of a blackjack deck
 - Dealer stands on soft 17: what the rule changes for you
 - Pushes in blackjack: what happens when you tie the dealer
 - The dealer's peek: why blackjack is checked before you play
 
 ### BrasslightSlots
 
-- Hit frequency: why most slot wins are smaller than the bet
 - Near misses: why a symbol just off the line counts for nothing
 - Reel strips and stops: how a slot decides where the reels land
 - What a multiplier does to a ways-to-win payout
 
 ### PokerVsDealer
 
-- Two pair on the draw: how often it becomes a full house
 - Three of a kind: exchange one card or two?
 - Why no suit outranks another in poker
 - Five-card draw: where the oldest form of poker came from
 
 ### FivesAndThrees
 
-- Every end total that scores in Fives and Threes, from 3 to 20
 - Blocking in Fives and Threes: playing to deny a score
 - Drawing from the boneyard: what to do when you cannot play
 - Playing to 61: how pub dominoes borrowed the cribbage board
 
 ### BlackjackCoach
 
-- Doubling soft hands: ace-two to ace-seven explained
 - Splitting nines: why you stand on 18 against a 7
 - Never split tens: why a 20 beats two fresh hands
 - The Illustrious 18: the count-based changes worth learning first
 
 ### HoldemCoach
 
-- Suited or offsuit: how much a matching suit adds in Hold'em
 - Dominated hands: why ace-nine struggles against ace-king
 - Set mining: the odds of flopping a set with a pocket pair
 - Dirty outs: discounting cards that also help your opponent
 
 ### EightBallsPool
 
-- Throw: why cut shots need a touch of overcut
 - Bank shots: angle in, angle out, and where it fails
 - The physics of the break: momentum through a rack
 - Pool table sizes: 7, 8 and 9-foot tables compared
 
 ### BigBenBlocks
 
-- Playing Time Attack: block puzzle choices against a clock
 - Keeping a 3x3 box empty: room for the awkward piece
 - Edges first: where to place pieces on a 9x9 grid
 - Undo, hints, rotate and bomb: when a puzzle aid is worth it
 
 ### PinkSlipKings
 
-- Power-to-weight ratio: why a lighter car runs quicker
 - Why drag racers do a burnout before every run
 - Turbo or supercharger: two ways to force air into an engine
 - Racing for pink slips: where the name came from
 
 ### ValleyRail
 
-- How a steam locomotive turns coal into motion
 - Single track and passing loops: running trains both ways
 - Coned wheels: how a train steers itself round a curve
 - Tunnel or cutting: how engineers take a line through a hill
 
 ## Published
 
+- 2026-10-19 — Four to a royal: when to break a made flush or straight — VideoPoker — `four-to-a-royal-breaking-a-flush-or-straight`
+- 2026-10-19 — Double-suited hands: what two suits add before the flop — OmahaPoker — `omaha-double-suited-hands`
+- 2026-10-19 — Why tens make up almost a third of a blackjack deck — Blackjack21 — `blackjack-why-tens-are-a-third-of-the-deck`
+- 2026-10-19 — Hit frequency: why most slot wins are smaller than the bet — BrasslightSlots — `slot-hit-frequency`
+- 2026-10-19 — Two pair on the draw: how often it becomes a full house — PokerVsDealer — `two-pair-on-the-draw-full-house-odds`
+- 2026-10-19 — Every scoring end total in Fives and Threes, 3 to 20 — FivesAndThrees — `fives-and-threes-every-scoring-total`
+- 2026-10-19 — Doubling soft hands: ace-two to ace-seven explained — BlackjackCoach — `doubling-soft-hands-ace-two-to-ace-seven`
+- 2026-10-19 — Suited or offsuit: how much a matching suit adds in Hold'em — HoldemCoach — `holdem-suited-vs-offsuit`
+- 2026-10-19 — Throw: why cut shots need a touch of overcut — EightBallsPool — `pool-throw-and-overcut`
+- 2026-10-19 — Playing Time Attack: block puzzle choices against a clock — BigBenBlocks — `block-puzzle-time-attack`
+- 2026-10-19 — Power-to-weight ratio: why a lighter car runs quicker — PinkSlipKings — `power-to-weight-ratio`
+- 2026-10-19 — How a steam locomotive turns coal into motion — ValleyRail — `how-a-steam-locomotive-works`
 - 2026-10-18 — Low pair or four to a flush: the Jacks or Better call — VideoPoker — `jacks-or-better-low-pair-vs-four-flush`
 - 2026-10-18 — Why pocket aces are weaker in Omaha than in Hold'em — OmahaPoker — `omaha-aces-weaker-than-holdem`
 - 2026-10-18 — Other players at the table: do their cards hurt you? — Blackjack21 — `blackjack-other-players-cards`

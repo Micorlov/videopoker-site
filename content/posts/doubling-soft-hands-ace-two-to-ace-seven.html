@@ -1,0 +1,148 @@
+<!--
+{
+  "title": "Doubling soft hands: ace-two to ace-seven explained",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "BlackjackCoach",
+  "description": "Soft hands from ace-two to ace-seven double only against a weak dealer card. Here is the six-deck chart and the reason each cell is what it is.",
+  "summary": "Ace-two and ace-three double against a 5 or 6, ace-four and ace-five against 4 to 6, ace-six and ace-seven against 3 to 6. The rule follows from what one extra card can do to each hand.",
+  "standfirst": "A soft hand cannot bust on one card, so doubling looks like a free move. It is not free, and the chart shows how the weaker the hand, the weaker the dealer card has to be."
+}
+-->
+<p>A soft hand is one with an ace counted as 11, such as ace-four, which is a soft 15. Basic strategy doubles these hands in some places and not others, and the pattern is regular: the lower the soft total, the fewer dealer cards it doubles against. Once you see why, the whole block from ace-two to ace-seven is one idea rather than twelve separate facts.</p>
+
+<h2>The chart</h2>
+<p>This is the answer for six decks, with the dealer standing on soft 17, doubling allowed on any two cards, double after split and late surrender. Those are the rules the chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches, and they match the <a href="/blog/soft-18-ace-seven-strategy.html">soft 18 post</a>. Where doubling is not allowed, hit instead (stand for ace-seven).</p>
+<figure class="chart">
+  <svg viewBox="0 0 400 300" role="img" aria-label="Grid of soft hands ace-two to ace-seven against dealer upcards 2 to 6. Double: A2 and A3 against 5 and 6; A4 and A5 against 4, 5 and 6; A6 and A7 against 3 to 6. Otherwise hit, except A7 against 2 which stands." style="width:100%;height:auto;font-family:inherit">
+  <text x="200" y="22" text-anchor="middle" font-size="14" fill="currentColor">Dealer shows</text>
+  <text x="100.0" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">2</text>
+  <text x="160.0" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">3</text>
+  <text x="220.0" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">4</text>
+  <text x="280.0" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">5</text>
+  <text x="340.0" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">6</text>
+  <text x="58" y="72.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A2</text>
+  <rect x="71" y="51" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="72.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="131" y="51" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="160.0" y="72.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="191" y="51" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="220.0" y="72.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="251" y="51" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="72.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="51" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="72.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="58" y="107.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A3</text>
+  <rect x="71" y="86" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="107.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="131" y="86" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="160.0" y="107.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="191" y="86" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="220.0" y="107.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="251" y="86" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="107.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="86" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="107.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="58" y="142.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A4</text>
+  <rect x="71" y="121" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="142.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="131" y="121" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="160.0" y="142.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="191" y="121" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="220.0" y="142.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="251" y="121" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="142.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="121" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="142.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="58" y="177.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A5</text>
+  <rect x="71" y="156" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="177.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="131" y="156" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="160.0" y="177.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="191" y="156" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="220.0" y="177.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="251" y="156" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="177.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="156" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="177.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="58" y="212.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A6</text>
+  <rect x="71" y="191" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="212.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Hit</text>
+  <rect x="131" y="191" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="160.0" y="212.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="191" y="191" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="220.0" y="212.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="251" y="191" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="212.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="191" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="212.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="58" y="247.5" text-anchor="end" font-size="15" font-weight="700" fill="currentColor">A7</text>
+  <rect x="71" y="226" width="58" height="33" rx="3" fill="var(--chart-base)"/>
+  <text x="100.0" y="247.5" text-anchor="middle" font-size="13" font-weight="400" fill="currentColor">Stand</text>
+  <rect x="131" y="226" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="160.0" y="247.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="191" y="226" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="220.0" y="247.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="251" y="226" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="280.0" y="247.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <rect x="311" y="226" width="58" height="33" rx="3" fill="var(--chart-accent)"/>
+  <text x="340.0" y="247.5" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Double</text>
+  <text x="200" y="285" text-anchor="middle" font-size="12" fill="currentColor">Against a dealer 7, 8, 9, 10 or ace: hit A2 to A6; A7 stands on 7 and 8, hits on 9, 10, ace</text>
+  </svg>
+  <figcaption>Basic strategy for soft hands A2 to A7 against dealer upcards 2 to 6, six decks, dealer stands on soft 17. Highlighted cells double; the rest hit, apart from ace-seven against a 2, which stands. Each row doubles on one card more at the strong end of the dealer's range.</figcaption>
+</figure>
+<p>In words:</p>
+<ul>
+  <li>Ace-two (soft 13) and ace-three (soft 14): double against 5 and 6.</li>
+  <li>Ace-four (soft 15) and ace-five (soft 16): double against 4, 5 and 6.</li>
+  <li>Ace-six (soft 17) and ace-seven (soft 18): double against 3, 4, 5 and 6.</li>
+</ul>
+<p>Count the highlighted cells and you get 2 + 2 + 3 + 3 + 4 + 4 = 18 of the 30 in the grid. Against a 7 or higher, none of these hands doubles.</p>
+
+<h2>What one card does</h2>
+<p>A soft hand cannot bust on its next card, because the ace drops from 11 to 1 when it needs to. That is why doubling is on the table at all. The price is that you receive exactly one card and must live with it. Counting each of the 13 ranks as equally likely (10, J, Q and K separately), the single card does this:</p>
+<table class="paytable-compare">
+  <caption>One card drawn to each soft hand, counted over 13 ranks.</caption>
+  <thead>
+    <tr><th>Hand</th><th>17 or more</th><th>18 or more</th><th>Stuck on 12 to 16</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A2, A3, A4, A5</th><td>5 of 13</td><td>4 of 13</td><td>8 of 13</td></tr>
+    <tr><th scope="row">A6</th><td>8 of 13</td><td>4 of 13</td><td>5 of 13</td></tr>
+    <tr><th scope="row">A7</th><td class="good">8 of 13</td><td class="good">7 of 13</td><td>5 of 13</td></tr>
+  </tbody>
+</table>
+<p>The first row is the same for all four hands. For example, ace-two (13) reaches 18, 19, 20 and 21 with a 5, 6, 7 or 8, and ace-five (16) does it with a 2, 3, 4 or 5. In both cases 8 ranks in 13 (61.5%) leave a total of 12 to 16, a hand that is weak and cannot be improved after a double. That is why these hands only double when the dealer is weakest.</p>
+<p>Ace-six is better placed: the four ten-value cards give a hard 17, and ace to 4 gives 18 to 21, so 8 ranks in 13 reach 17 or more. Ace-seven keeps 18 from the four tens as well, so 7 ranks in 13 reach 18 or more.</p>
+
+<h2>Why the dealer card sets the line</h2>
+<p>A double doubles everything: the wins, and the losses when the dealer finishes with a 17 or better that your one card cannot beat. So a double needs a dealer who fails often. The weakest upcards are 5 and 6, then 4, then 3 and 2, in that order of bust chance (the figures are in <a href="/blog/blackjack-dealer-bust-rates.html">the dealer bust-rate post</a>). The chart lines up with that ordering:</p>
+<ul>
+  <li>Against a 5 or 6, every hand from ace-two to ace-seven doubles, even though 8 times in 13 the weak hands end on 12 to 16. The dealer must draw, and busts often enough to cover it.</li>
+  <li>Against a 4, ace-two and ace-three drop out. Their one card is worth least, and a dealer 4 is a little stronger than a 5 or 6.</li>
+  <li>Against a 3, only ace-six and ace-seven double. They are the two hands that finish at 17 or more 8 times in 13.</li>
+  <li>Against a 2, none double. The dealer 2 is the strongest of the five weak cards, so even ace-six hits and ace-seven stands.</li>
+</ul>
+<p>So the lines slope in one direction: each pair of rows up the chart doubles against one more dealer card, moving from 5 down to 4, then 3.</p>
+
+<div class="callout">
+  <p>Do not double soft hands against a 7 or higher, however good the hand looks. The dealer is no longer weak, and a single card cannot make a soft 13 to 17 strong enough to justify the extra bet.</p>
+</div>
+
+<h2>What to do when you cannot double</h2>
+<p>Where the table does not allow it, or you have three cards instead of two, the fallback is to hit ace-two to ace-six. Ace-seven stands, as the <a href="/blog/soft-18-ace-seven-strategy.html">soft 18 post</a> sets out in full, including why it hits against a 9, 10 or ace and stands against a 2, 7 and 8. The A7 row here is that post's middle group.</p>
+<p>The rule set matters in one cell. If the dealer hits soft 17 instead of standing, the commonly published chart changes ace-seven against a 2 from stand to double. Nothing else in this A2 to A7 block changes. The chart above is for a dealer who stands.</p>
+
+<h2>Remembering it</h2>
+<ol class="ranked">
+  <li>Every soft double is against a dealer 3 to 6. Nothing doubles against a 2 or a 7 and above.</li>
+  <li>A5 and A4 share a line: 4, 5, 6. A3 and A2 share a line: 5, 6.</li>
+  <li>A6 and A7 share a line: 3, 4, 5, 6.</li>
+  <li>That is 18 doubling cells of 30 in the grid.</li>
+</ol>
+<p>Blackjack Coach lets you choose a play, read the explanation and review your mistakes, so ace-three against a 4 and ace-six against a 2 are good pairs to repeat: they sit just outside the doubling line.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

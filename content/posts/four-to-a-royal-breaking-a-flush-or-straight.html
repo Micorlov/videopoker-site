@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Four to a royal: when to break a made flush or straight",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "VideoPoker",
+  "description": "In 9/6 Jacks or Better, four to a royal returns about 18.4 coins per coin bet, against 6 for a made flush. The exact counts, and the one made hand you keep.",
+  "summary": "Break a made flush or straight for four to a royal in 9/6 Jacks or Better. Keep a pat straight flush. The exact draw counts show why.",
+  "standfirst": "Throwing away a flush that pays 6 for sure feels wrong. With four cards to a royal flush it is correct by a factor of three, and the counts show where the value sits."
+}
+-->
+<p>You are dealt the ace, king, queen and jack of hearts and the seven of hearts. That is a flush, paying 6 for each coin bet with no draw needed. In 9/6 Jacks or Better the correct play is to discard the seven and keep four cards. This post counts the draw exactly, then checks a made straight, a high pair, a straight-flush draw and a pat straight flush.</p>
+
+<p>The paytable assumed is 9/6 Jacks or Better at five coins, per coin bet: royal flush 800, straight flush 50, four of a kind 25, full house 9, flush 6, straight 4, three of a kind 3, two pair 2, jacks or better 1. Expected value (EV) means coins returned per coin bet. You have seen five cards, so 47 are unseen and the draw takes one of them.</p>
+
+<h2>Made flush against four to a royal</h2>
+<p>Hold A-K-Q-J of hearts. The 47 unseen cards divide like this:</p>
+<ul>
+  <li>1 card (the ten of hearts) makes a royal flush, paying 800</li>
+  <li>7 other hearts make a flush, paying 6 each</li>
+  <li>3 off-suit tens make a straight, paying 4 each</li>
+  <li>12 aces, kings, queens and jacks make jacks or better, paying 1 each</li>
+  <li>the other 24 pay nothing</li>
+</ul>
+<p>Total: 800 + 7 × 6 + 3 × 4 + 12 × 1 = 866 coins across 47 draws. The EV is 866 / 47 = <strong>18.43</strong>, against a certain 6. Breaking the flush is worth 18.43 / 6 = 3.07 times as much.</p>
+
+<h2>Where the value comes from</h2>
+<p>The royal is 1 draw in 47, or 2.1%, yet it supplies 800 of the 866 coins, 92.4% of the EV. Everything else adds up to 66 / 47 = 1.40, and 24 of the 47 draws (51.1%) pay nothing. You give up a sure 6 for a draw that fails just over half the time.</p>
+<p>The royal prize only has to be big enough to carry that. Without it the hold needs a royal worth x where (66 + x) / 47 = 6, so x = 282 − 66 = 216. The paytable pays 800, which is why the call is not close. See <a href="/blog/royal-flush-share-of-the-return.html">the royal flush share of the return</a> for the same row seen from the other side.</p>
+
+<h2>Made straight and high pair</h2>
+<p>A straight pays only 4. Take A-K-Q-J of hearts with the ten of spades. Keep the four hearts. Now 2 tens can make a straight, since the ten of spades is gone, and 8 other hearts make a flush: 800 + 8 × 6 + 2 × 4 + 12 × 1 = 868 coins, or 868 / 47 = <strong>18.47</strong> against 4.</p>
+<p>If the fifth card pairs one of the four, as with the jack of spades, the pair is worth 24,915 / 16,215 = 1.54 (jacks, three cards drawn from 47). The four to a royal is worth 871 / 47 = <strong>18.53</strong>, with 11 jacks-or-better outs instead of 12. Discard the pair.</p>
+
+<h2>The straight-flush draw case</h2>
+<p>Hold 10-J-Q-K of hearts and two cards help: the ace of hearts for a royal, and the nine of hearts for a straight flush paying 50. With an off-suit nine as the fifth card (a made straight), the draw is:</p>
+<ul>
+  <li>1 royal flush: 800</li>
+  <li>1 straight flush: 50</li>
+  <li>7 other hearts make a flush: 42</li>
+  <li>5 off-suit aces and nines make a straight: 20 (one nine is the card you threw away)</li>
+  <li>9 jacks, queens and kings: 9</li>
+</ul>
+<p>That is 921 coins, so EV = 921 / 47 = <strong>19.60</strong>. With a low heart as the fifth card instead (a made flush) the sum is 800 + 50 + 36 + 24 + 9 = 919, an EV of <strong>19.55</strong>. The flush version is 53 coins above A-K-Q-J with a low heart (919 − 866), or 1.13 per coin bet. The extra card is worth a little, not a lot, because 10-J-Q-K has fewer jacks-or-better outs (9 against 12).</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins returned per coin bet for pat hands and four-to-a-royal holds in 9/6 Jacks or Better">
+    <div class="bar-row" title="Pat straight flush 9 to K: 50.00"><span class="bar-label">Pat straight flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">50.00</span></span></div>
+    <div class="bar-row hl" title="Four to a royal 10-J-Q-K, off-suit 9: 19.60"><span class="bar-label">10-J-Q-K, off-suit 9</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3919)"></span><span class="bar-val">19.60</span></span></div>
+    <div class="bar-row hl" title="Four to a royal 10-J-Q-K, low heart: 19.55"><span class="bar-label">10-J-Q-K, low heart</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3911)"></span><span class="bar-val">19.55</span></span></div>
+    <div class="bar-row hl" title="Four to a royal A-K-Q-J, off-suit 10: 18.47"><span class="bar-label">A-K-Q-J, off-suit 10</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3694)"></span><span class="bar-val">18.47</span></span></div>
+    <div class="bar-row hl" title="Four to a royal A-K-Q-J, 7 of hearts: 18.43"><span class="bar-label">A-K-Q-J, low heart</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3685)"></span><span class="bar-val">18.43</span></span></div>
+    <div class="bar-row" title="Pat flush: 6.00"><span class="bar-label">Pat flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1200)"></span><span class="bar-val">6.00</span></span></div>
+    <div class="bar-row" title="Pat straight: 4.00"><span class="bar-label">Pat straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0800)"></span><span class="bar-val">4.00</span></span></div>
+    <div class="bar-row" title="Pair of jacks: 1.54"><span class="bar-label">Pair of jacks</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0307)"></span><span class="bar-val">1.54</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet, 9/6 Jacks or Better at five coins. Highlighted bars are four-to-a-royal holds, each an exact count over the 47 unseen cards. Each is about three times a pat flush. Only the pat straight flush beats them.</figcaption>
+</figure>
+
+<h2>The exception: keep a pat straight flush</h2>
+<p>Deal 9-10-J-Q-K of hearts and the hand is already a straight flush paying 50. Discard the nine to chase the royal and the draw is 800 + 7 × 6 + 6 × 4 + 9 × 1 = 875 coins, an EV of 875 / 47 = <strong>18.62</strong>. Keep the 50. A pat royal flush and four of a kind (25) also stay. Both sit above the draw in the list from <a href="/blog/jacks-or-better-strategy.html">the Jacks or Better strategy post</a>.</p>
+
+<h2>Three to a royal is different</h2>
+<p>J-Q-K of hearts with two low hearts is a made flush, and the three-card draw is worth 1,555 / 1,081 = 1.44 against a pat 6. Keep the flush. The royal needs four cards held before it outweighs a made hand. For the smaller holds, see <a href="/blog/jacks-or-better-low-pair-vs-four-flush.html">low pair or four to a flush</a>.</p>
+
+<div class="callout">
+  <p>These numbers belong to 9/6 Jacks or Better at five coins. At one to four coins the royal pays 250 per coin bet. The break is still correct, as (66 + 250) / 47 = 6.72 is above 6, but the margin is thinner.</p>
+</div>
+
+<h2>A rule to carry away</h2>
+<p>Four to a royal beats a made flush, a made straight and a high pair. Only a pat straight flush, four of a kind or royal flush is worth more. Three to a royal does not. Count to four, then break the hand.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays Jacks or Better offline, shows a full paytable on screen for each variant, and has strategy hints you can turn on to see which cards to hold while you learn. Chips are free and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

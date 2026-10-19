@@ -1,0 +1,91 @@
+<!--
+{
+  "title": "How a steam locomotive turns coal into motion",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "ValleyRail",
+  "description": "Coal heats water, the steam pushes pistons, and rods turn the wheels. Follow the chain link by link, and work out the pull of a typical two-cylinder engine.",
+  "summary": "A two-cylinder steam locomotive gets four power strokes per wheel revolution, and one standard formula turns its pressure and dimensions into a pulling force. A typical example gives 26,000 lbf.",
+  "standfirst": "A steam locomotive is a chain of simple conversions: fuel to heat, heat to pressure, pressure to a push on a piston, and that push to a turning wheel. Each link can be checked with arithmetic."
+}
+-->
+<p>A steam locomotive is a boiler on wheels with an engine bolted to the side. Nothing in it is mysterious, and the numbers are small enough to do by hand. This post follows the energy from the shovel to the rail, then puts a figure on the pull at the end.</p>
+
+<h2>From coal to steam</h2>
+<p>Coal burns on a grate in the <strong>firebox</strong>. The hot gases do not go straight up the chimney. They are drawn forward through the boiler in many narrow <strong>fire tubes</strong>, which run through the water. Many tubes give the gases a far larger area to give up their heat than a single wide flue would.</p>
+<p>The water boils and the steam collects in a dome at the top of the boiler, under pressure. Typical working pressures for later steam locomotives were around 200 psi (about 14 bar), and some ran higher. Pressure is the useful part: it is what pushes on the piston.</p>
+<p>Many engines then pass the steam through a <strong>superheater</strong>, a bank of pipes inside the larger fire tubes. Superheating raises the steam well above its boiling point at that pressure, so it is dry. Dry steam does not condense inside the cylinders, where water would waste heat and could damage the engine, and it gives more work from each kilogram of water.</p>
+
+<h2>Cylinders, rods and wheels</h2>
+<p>A valve admits steam to a <strong>cylinder</strong> and pushes the <strong>piston</strong> along it. The piston rod and <strong>connecting rod</strong> carry that push to a crank pin on the <strong>driving wheel</strong>, which turns it. The wheel's own rotation brings the piston back again.</p>
+<p>Railway cylinders are <strong>double-acting</strong>. Steam is let in on one side of the piston for the push out, and on the other side for the push back. That gives two power strokes per cylinder for every turn of the wheel. A conventional locomotive has two cylinders, one on each side, with their cranks set a quarter of a turn apart so the engine can always start from rest. So:</p>
+<p>2 cylinders × 2 strokes each = <strong>4 power strokes per wheel revolution</strong></p>
+<p>This is the origin of the four chuffs per wheel turn heard from a two-cylinder engine. At a steady pace of one turn of the driving wheels per second, that is four chuffs a second.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 214" role="img" aria-label="Diagram of the energy chain in a two-cylinder steam locomotive: coal in the firebox, boiler tubes, steam at 200 psi, cylinders giving 4 power strokes per wheel turn, connecting rods, and driving wheels pulling with 26,000 lbf.">
+    <g class="hit"><title>Firebox: coal burns on the grate</title><rect x="8" y="14" width="112" height="62" rx="4" class="fill-soft"/></g>
+    <text class="strong" x="64" y="40" text-anchor="middle">1 Firebox</text>
+    <text x="64" y="58" text-anchor="middle">coal burns</text>
+    <g class="hit"><title>Boiler tubes: hot gas heats the water</title><rect x="144" y="14" width="112" height="62" rx="4" class="fill-soft"/></g>
+    <text class="strong" x="200" y="40" text-anchor="middle">2 Boiler tubes</text>
+    <text x="200" y="58" text-anchor="middle">water boils</text>
+    <g class="hit"><title>Steam at about 200 psi in the worked example</title><rect x="280" y="14" width="112" height="62" rx="4" class="fill-soft"/></g>
+    <text class="strong" x="336" y="40" text-anchor="middle">3 Steam</text>
+    <text x="336" y="58" text-anchor="middle">200 psi</text>
+    <path d="M122 45 H138 M133 40 L139 45 L133 50" fill="none" stroke="#EEEADD" stroke-width="1.5"/>
+    <path d="M258 45 H274 M269 40 L275 45 L269 50" fill="none" stroke="#EEEADD" stroke-width="1.5"/>
+    <path d="M336 78 V102 M331 97 L336 103 L341 97" fill="none" stroke="#EEEADD" stroke-width="1.5"/>
+    <g class="hit"><title>Cylinders: 2 cylinders x 2 strokes = 4 power strokes per wheel turn</title><rect x="280" y="108" width="112" height="62" rx="4" class="fill-accent"/></g>
+    <text x="336" y="134" text-anchor="middle" fill="#07170F" style="fill:#07170F;font-weight:600">4 Cylinders</text>
+    <text x="336" y="152" text-anchor="middle" style="fill:#07170F">4 strokes/turn</text>
+    <g class="hit"><title>Connecting rods carry the push to the crank pin</title><rect x="144" y="108" width="112" height="62" rx="4" class="fill-soft"/></g>
+    <text class="strong" x="200" y="134" text-anchor="middle">5 Rods</text>
+    <text x="200" y="152" text-anchor="middle">push to crank</text>
+    <g class="hit"><title>Driving wheels: 26,000 lbf of tractive effort in the worked example</title><rect x="8" y="108" width="112" height="62" rx="4" class="fill-soft"/></g>
+    <text class="strong" x="64" y="134" text-anchor="middle">6 Wheels</text>
+    <text x="64" y="152" text-anchor="middle">26,000 lbf</text>
+    <path d="M278 139 H262 M267 134 L261 139 L267 144" fill="none" stroke="#EEEADD" stroke-width="1.5"/>
+    <path d="M142 139 H126 M131 134 L125 139 L131 144" fill="none" stroke="#EEEADD" stroke-width="1.5"/>
+    <text x="200" y="198" text-anchor="middle">Read 1 to 6; the second row runs right to left</text>
+  </svg>
+  <figcaption>The energy chain of a two-cylinder locomotive. The gold box is the link that sets the rhythm of the engine: four power strokes per wheel turn. The 200 psi and 26,000 lbf are from the worked example below.</figcaption>
+</figure>
+
+<p>In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you buy a train and send it along a route you have built, choosing from six models for passengers and freight.</p>
+
+<h2>The exhaust that feeds the fire</h2>
+<p>After each stroke the used steam leaves the cylinder and is sent up the chimney through a narrow <strong>blastpipe</strong>. The jet of exhaust pulls gas out of the smokebox with it, which lowers the pressure there and draws air through the fire tubes and in through the firebox grate. This is the sharp bark of the exhaust, and it has a useful feature: the harder the engine works, the more steam it exhausts, and the harder the fire is drawn. The draught rises with the demand, without anyone touching a control.</p>
+
+<h2>How much can it pull?</h2>
+<p>The standard rule of thumb for a two-cylinder locomotive is:</p>
+<p>tractive effort = 0.85 × P × d² × s ÷ D</p>
+<p>where P is boiler pressure in psi, d the cylinder diameter in inches, s the piston stroke in inches, and D the driving wheel diameter in inches. The result is in pounds-force (lbf). The 0.85 is a conventional allowance for the cylinders not being filled with full boiler pressure throughout the stroke. It is an estimate, not a measurement.</p>
+<p>Take an illustrative engine: 200 psi boiler pressure, two cylinders of 20 in diameter and 26 in stroke, and driving wheels of 68 in.</p>
+<table class="paytable-compare">
+  <caption>Worked example, calculated step by step.</caption>
+  <thead>
+    <tr><th>Step</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">0.85 × 200</th><td>170</td></tr>
+    <tr><th scope="row">d² = 20 × 20</th><td>400</td></tr>
+    <tr><th scope="row">170 × 400 × 26</th><td>1,768,000</td></tr>
+    <tr><th scope="row">÷ 68</th><td>26,000 lbf</td></tr>
+    <tr><th scope="row">In kilonewtons (× 4.448)</th><td>about 115.7 kN</td></tr>
+  </tbody>
+</table>
+<p>The formula shows how the design trades force against speed. A bigger cylinder, a longer stroke or more pressure raises the pull. A bigger wheel lowers it, because the same push acts on a longer lever. One turn of a 68 in wheel moves the engine π × 68 in, which is about 5.43 m, so a large wheel covers more ground per stroke and suits fast trains. A small wheel gives more pull and suits heavy freight.</p>
+<p>Whether the engine can use all that force is a separate question. As the post on <a href="/blog/why-railways-follow-rivers.html">why railways follow rivers</a> explains, adhesion between wheel and rail limits what any locomotive can pull, however hard its cylinders push.</p>
+
+<div class="callout">
+  <p>A steam locomotive is a poor converter of energy. Typically less than about 10 per cent of the heat in the coal ends up as work at the wheels. Most leaves as hot gas up the chimney, as exhaust steam and as heat from the boiler.</p>
+</div>
+
+<h2>Why efficiency stays low</h2>
+<p>The exhaust steam is still hot and still carries away much of the heat that went into the water. A locomotive cannot recover it, because the exhaust is also what makes the draught. Superheating and better valves improved matters, but under 10 per cent remained the usual range.</p>
+<p>Coal also shows up as cargo in <a href="/ValleyRail/">Valley Rail</a>, where freight trains carry it, along with wood, oil, iron ore, steel and goods, between mines, forests, oil wells, mills and power stations.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has six train models for passengers and freight, from a one-coach commuter to a streamlined express, carrying coal, wood, oil, iron ore and steel. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Suited or offsuit: how much a matching suit adds in Hold'em",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "HoldemCoach",
+  "description": "Suited cards are 4 of the 16 combinations of a non-pair. They flop a flush 0.84% of the time and add about 4 points of equity, not enough to save a weak hand.",
+  "summary": "A matching suit adds 3.7 to 4.2 points of equity in the matchups computed here: flop a flush 0.84%, flop a flush draw 10.9%, make a flush by the river 6.4% against 1.85% offsuit.",
+  "standfirst": "Suited hands are worth playing for a reason you can count: a few extra ways to make a flush. The count also shows why suitedness is a small bonus on a good hand rather than a reason to play a poor one."
+}
+-->
+<p>Players talk about "suited" as if it were a strength of its own. It is a bonus, and a fairly small one, with a size you can work out exactly. Two cards of the same suit give you a route to a flush; nothing else changes, because the pairs, straights and high cards are the same either way.</p>
+
+<h2>Four combinations against twelve</h2>
+<p>Pick two different ranks, say eight and seven. Each rank comes in four suits, so there are 4 × 4 = 16 ways to hold them. Four share a suit and twelve do not. Across all 1,326 two-card hands, 312 are suited (78 rank pairs × 4 suits), 936 are offsuit non-pairs and 78 are pocket pairs, so you are dealt a suited hand 23.5% of the time.</p>
+<p>That is why charts write 87s and 87o separately: different holdings, and the suited one is rarer.</p>
+
+<h2>What the suit buys: flush chances</h2>
+<p>Hold two hearts. Eleven hearts are left among 50 unseen cards, and the flop is three of those 50. Every figure here is a count divided by a count, with nothing sampled.</p>
+<ol class="ranked">
+  <li><strong>Flop a flush:</strong> all three flop cards are hearts. C(11,3) ÷ C(50,3) = 165 ÷ 19,600 = 0.84%, about one flop in 119.</li>
+  <li><strong>Flop a flush draw:</strong> exactly two hearts and one other card. C(11,2) × 39 ÷ 19,600 = 2,145 ÷ 19,600 = 10.9%, about one flop in nine.</li>
+  <li><strong>Hold a flush on the river:</strong> three or more hearts among the five board cards. That is 135,597 of the 2,118,760 possible boards, or 6.40%.</li>
+</ol>
+<p>A flush draw on the flop is not a flush yet. With nine hearts left among 47 cards and two to come, you complete it 1 − (38 ÷ 47 × 37 ÷ 46) = 35.0% of the time, the figure from the <a href="/blog/holdem-pot-odds.html">pot odds post</a>. The 35.0% is a long way above the 6.4% overall, but the draw only appears on one flop in nine.</p>
+
+<h2>The same cards, offsuit</h2>
+<p>Offsuit, you can still make a flush, but it needs the board to do most of the work. With a heart and a spade in hand, a flush using one of your cards needs four cards of that suit on the board. There are 12 of each suit left, so the count is 2 × (C(12,4) × 38 + C(12,5)) = 39,204 boards out of 2,118,760, which is 1.85%. Flushes made entirely from the board are left out, because everyone at the table shares those.</p>
+<p>So the suit changes your chance of finishing with a flush from 1.85% to 6.40%, about three and a half times as often, and it is the only thing that moves.</p>
+
+<h2>How much equity that is</h2>
+<p>Equity is your share of the pot if the cards are dealt out with no more betting. To measure the suit I dealt out every one of the 1,712,304 possible boards for four matchups, changing one thing each time: the same two ranks, suited or offsuit. The opponent's cards are fixed in each case (ace of diamonds with king of clubs, queens of diamonds and clubs, or kings of diamonds and clubs), and ties count as half.</p>
+
+<table class="paytable-compare">
+  <caption>Equity, all-in before the flop, every board dealt. The suited and offsuit hand use the same two ranks.</caption>
+  <thead>
+    <tr><th>Your hand</th><th>Opponent</th><th>Suited</th><th>Offsuit</th><th>Suit adds</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">8-7</th><td>A♦ K♣</td><td>41.90%</td><td>38.11%</td><td>3.79</td></tr>
+    <tr><th scope="row">8-7</th><td>Q♦ Q♣</td><td>22.31%</td><td>18.58%</td><td>3.72</td></tr>
+    <tr><th scope="row">A-T</th><td>K♦ K♣</td><td>32.84%</td><td>29.17%</td><td>3.67</td></tr>
+    <tr><th scope="row">7-2</th><td>A♦ K♣</td><td>37.17%</td><td>33.00%</td><td>4.17</td></tr>
+  </tbody>
+</table>
+
+<p>The suit is worth between 3.7 and 4.2 points in these four matchups. Other opponents will give a slightly different gap, so read "about four points" as a size, not a constant. The same effect shows from the other side in the <a href="/blog/holdem-pair-vs-overcards.html">pair against overcards post</a>, where suited overcards cost the pair about three points.</p>
+
+<h2>Why it does not rescue a weak hand</h2>
+<p>Take the worst hand in the table. Seven-deuce suited has 37.17% against ace-king offsuit. Seven-deuce offsuit has 33.00%. The suit helped by 4.17 points, and yet suited seven-deuce is still behind eight-seven <em>offsuit</em>, which has 38.11% against the same ace-king. Rank and connection carry more weight than the suit.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of equity against ace-king offsuit: 8-7 suited 41.9%, 8-7 offsuit 38.1%, 7-2 suited 37.2%, 7-2 offsuit 33.0%">
+    <div class="bar-row hl" title="8♥7♥ (suited): 41.9%"><span class="bar-label">8♥7♥ (suited)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">41.9%</span></span></div>
+    <div class="bar-row" title="8♥7♠ (offsuit): 38.1%"><span class="bar-label">8♥7♠ (offsuit)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9095)"></span><span class="bar-val">38.1%</span></span></div>
+    <div class="bar-row hl" title="7♥2♥ (suited): 37.2%"><span class="bar-label">7♥2♥ (suited)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8871)"></span><span class="bar-val">37.2%</span></span></div>
+    <div class="bar-row" title="7♥2♠ (offsuit): 33.0%"><span class="bar-label">7♥2♠ (offsuit)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7876)"></span><span class="bar-val">33.0%</span></span></div>
+  </div>
+  <figcaption>Equity against A♦ K♣, all boards dealt. The suit adds 3.8 points to eight-seven and 4.2 to seven-deuce, but suited seven-deuce (37.2%) still sits below offsuit eight-seven (38.1%).</figcaption>
+</figure>
+
+<p>There is a second reason. These equities assume the hand is played to the river, but in a real hand you pay on each street. A flush draw on the flop completes 35.0% of the time with two cards to come, so the other 65.0% of the time you have nothing to show for the bets you called. And a low flush can lose to a higher one.</p>
+
+<div class="callout">
+  <p>Suited is worth roughly four points of equity and about three and a half times the flush chances. That makes a good hand slightly better and a borderline hand slightly easier to play. It does not make a bad hand good.</p>
+</div>
+
+<h2>Using it at the table</h2>
+<ol class="ranked">
+  <li><strong>Treat suited as a tiebreak.</strong> If two hands are close in rank and connection, play the suited one.</li>
+  <li><strong>Prefer suited hands that also connect.</strong> Neighbouring ranks add straight chances to the flush chances, as in 87s.</li>
+  <li><strong>Be wary of low flushes.</strong> A suit without a high card can complete a flush that someone else beats.</li>
+  <li><strong>Count before you call.</strong> A flush draw is 9 outs; set it against the price using the <a href="/blog/holdem-rule-of-2-and-4.html">rule of 2 and 4</a>.</li>
+</ol>
+<p>The "Which hands to play" lesson in <a href="/HoldemCoach/">Holdem Coach</a> puts the question to you with nobody having bet yet: are your two cards worth raising with? Suit is one of the things to weigh.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons on one idea at a time, nothing is timed, and practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

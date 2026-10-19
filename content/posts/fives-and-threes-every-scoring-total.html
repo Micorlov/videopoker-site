@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Every scoring end total in Fives and Threes, 3 to 20",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "FivesAndThrees",
+  "description": "Nine end totals between 3 and 20 score in Fives and Threes. Each one with its points, the ends that make it, and why 16, 17 and 19 never pay.",
+  "summary": "Nine totals from 3 to 20 score, worth 31 points between them. Each is listed with its points and the pairs of ends that make it, and the highest total, 22, scores nothing.",
+  "standfirst": "Only nine of the totals between 3 and 20 score anything. Knowing which ones, what each pays and which need a double at an end turns the sum you run after every placement into a quick look-up."
+}
+-->
+<p>After every placement in Fives and Threes you add the two open ends and check the total. Between 3 and 20 there are 18 possible totals, and only nine of them score. This post lists those nine with their points, shows which pairs of ends make each one, and accounts for the other nine. The rule itself is covered in <a href="/blog/fives-and-threes-scoring-explained.html">how Fives and Threes scoring works</a>.</p>
+
+<h2>The rule, briefly</h2>
+<p>A total that divides by three scores the total divided by three. A total that divides by five scores the total divided by five. If both apply, add the two scores. A double at an open end counts both its spots. In the tables below, a plain number is an end showing that many spots, and D4 is a double-four at an end, which shows 8.</p>
+
+<h2>The nine scoring totals</h2>
+<p>With a standard double-six set a plain end shows 0 to 6 and a double at an end shows 0 to 12 in steps of two. The last column counts the pairs of end faces that give each total; a double-six cannot sit at both ends, because there is only one.</p>
+
+<table class="paytable-compare">
+  <caption>Every end total from 3 to 20 that scores, its points, and the pairs of ends that make it.</caption>
+  <thead>
+    <tr><th>Total</th><th>Working</th><th>Points</th><th>Pairs</th><th>How it is made</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">3</th><td>3 ÷ 3 = 1</td><td class="good">1</td><td>4</td><td>0+3, 1+2, 1+D1, 3+D0</td></tr>
+    <tr><th scope="row">5</th><td>5 ÷ 5 = 1</td><td class="good">1</td><td>6</td><td>0+5, 1+4, 2+3, 1+D2, 3+D1, 5+D0</td></tr>
+    <tr><th scope="row">6</th><td>6 ÷ 3 = 2</td><td class="good">2</td><td>10</td><td>Four plain pairs (0+6, 1+5, 2+4, 3+3), six using doubles</td></tr>
+    <tr><th scope="row">9</th><td>9 ÷ 3 = 3</td><td class="good">3</td><td>5</td><td>3+6, 4+5, 1+D4, 3+D3, 5+D2</td></tr>
+    <tr><th scope="row">10</th><td>10 ÷ 5 = 2</td><td class="good">2</td><td>9</td><td>Two plain pairs (4+6, 5+5), seven using doubles</td></tr>
+    <tr><th scope="row">12</th><td>12 ÷ 3 = 4</td><td class="good">4</td><td>8</td><td>6+6, and seven using doubles, such as 6+D3 or D2+D4</td></tr>
+    <tr><th scope="row">15</th><td>5 + 3 = 8</td><td class="good">8</td><td>2</td><td>3+D6, 5+D5</td></tr>
+    <tr><th scope="row">18</th><td>18 ÷ 3 = 6</td><td class="good">6</td><td>3</td><td>6+D6, D3+D6, D4+D5</td></tr>
+    <tr><th scope="row">20</th><td>20 ÷ 5 = 4</td><td class="good">4</td><td>1</td><td>D4+D6</td></tr>
+  </tbody>
+</table>
+
+<p>The points add up to 31 across the nine totals, and the pair counts add up to 48 of the 98 possible pairs. Why 15 stands apart, and what the counts mean for how often it appears, is worked through in <a href="/blog/fives-and-threes-why-15-scores-best.html">why 15 is the best total in Fives and Threes</a>, so this post does not repeat it.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of points for each scoring end total: 3 scores 1, 5 scores 1, 6 scores 2, 9 scores 3, 10 scores 2, 12 scores 4, 15 scores 8, 18 scores 6, 20 scores 4.">
+    <div class="bar-row" title="Total 3: 1 point"><span class="bar-label">Total 3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1250)"></span><span class="bar-val">1</span></span></div>
+    <div class="bar-row" title="Total 5: 1 point"><span class="bar-label">Total 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1250)"></span><span class="bar-val">1</span></span></div>
+    <div class="bar-row" title="Total 6: 2 points"><span class="bar-label">Total 6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="Total 9: 3 points"><span class="bar-label">Total 9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="Total 10: 2 points"><span class="bar-label">Total 10</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="Total 12: 4 points"><span class="bar-label">Total 12</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row hl" title="Total 15: 8 points"><span class="bar-label">Total 15</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row" title="Total 18: 6 points"><span class="bar-label">Total 18</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="Total 20: 4 points"><span class="bar-label">Total 20</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">4</span></span></div>
+  </div>
+  <figcaption>Points for each scoring end total from 3 to 20. Fifteen collects both the three and the five, and 10 pays less than 9 because a five is worth less per spot than a three.</figcaption>
+</figure>
+
+<h2>The nine that never score</h2>
+<p>These are the totals between 3 and 20 that are not on the list:</p>
+<ul>
+  <li><strong>4, 7, 8, 11, 13, 14, 16 and 17</strong> divide by neither three nor five, so they score nothing, even though every one can be made with the right ends.</li>
+  <li><strong>19</strong> cannot be made at all. An odd total needs one plain end, which shows at most 6, so the other end would have to show 13 or more, and no end shows more than 12.</li>
+</ul>
+<p>The totals 16 and 17 sit between two of the best scores on the table and pay nothing.</p>
+
+<h2>Which totals need a double</h2>
+<p>Two plain ends show at most 6 + 6 = 12. So any total above 12 needs at least one double at an end, and that covers three of the scoring totals: 15, 18 and 20. The other six (3, 5, 6, 9, 10 and 12) can each be made from two plain ends, which is why they come up in ordinary play.</p>
+<p>The ceiling is easy to verify. The largest face is the double-six at 12 spots, the next is the double-five at 10, and the two cannot be beaten, so the highest possible total is 12 + 10 = 22. It divides by neither three nor five and scores nothing. The highest scoring total is therefore 20, and it needs two doubles at once: the double-six against the double-four, 12 + 8. That is the only pair that makes it.</p>
+<p>The 18 has three routes. A plain 6 against the double-six is the simplest, and the other two both involve two doubles: double-three against double-six, and double-four against double-five.</p>
+
+<h2>Using the list</h2>
+<p>Three small checks cover most of it.</p>
+<ol class="ranked">
+  <li>Multiples of three score a third of the total. Multiples of five score a fifth. The only total reached by both is 15.</li>
+  <li>For the same size, a multiple of three beats a multiple of five. A 12 scores 4 against 2 for a 10, and an 18 scores 6 against 4 for a 20.</li>
+  <li>Above 12, a total needs a double. If neither end is a double and neither is about to become one, the highest total you can make is 12.</li>
+</ol>
+<p>When you choose between tiles, run the sum for each and compare. The nine totals above are the only answers that score, so any tile that leaves a total outside the list is worth nothing on that placement, however high the total looks.</p>
+
+<div class="post-foot">
+  <p><a href="/FivesAndThrees/">Fives and Threes Dominoes</a> uses this scoring: divide by three, divide by five, add both when both apply, and a double at an open end counts both its spots. The table shows the open-end totals and the points scored after each move. You play solo against a computer opponent on Casual or Competitive, to a target of 61, 121, 181 or 241 points. There are no adverts or in-app purchases, and optional match points are in-game only with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.fivesandthrees"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

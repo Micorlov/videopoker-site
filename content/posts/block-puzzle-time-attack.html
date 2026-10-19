@@ -1,0 +1,156 @@
+<!--
+{
+  "title": "Playing Time Attack: block puzzle choices against a clock",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "app": "BigBenBlocks",
+  "description": "Big Ben Blocks has a three-minute Time Attack with no aids. Use line counts and fixed placements on the 9x9 grid to decide fast and avoid holes.",
+  "summary": "Time Attack removes undo, hints, rotate and bomb, so each placement stands. Three checks you can do in a glance: gaps per line, the three lines through a cell, and whether a gap takes the piece in only one position.",
+  "standfirst": "With a clock running and no aids, you cannot compare every placement. You can count three small things quickly, and each one rests on grid geometry you can check yourself."
+}
+-->
+<p>Big Ben Blocks offers untimed Classic play or a three-minute Time Attack. In Time Attack the aids are switched off: no undo, no hints, no rotate and no bomb. So a placement cannot be taken back and a bad one has to be lived with. This post is about the checks that are cheap enough to make against a clock, and the grid facts behind them. It does not cover scoring or bonuses, which the game's listing does not detail.</p>
+
+<h2>The geometry you are working with</h2>
+<p>The grid is 9x9, and a group clears when all nine of its cells are filled. The groups are 9 rows, 9 columns and 9 boxes of 3x3, which makes 27. Each cell sits in exactly one row, one column and one box, so every block you place feeds three groups. The <a href="/blog/nine-by-nine-grid-three-lines.html">post on the three lines</a> shows the counting in full.</p>
+<p>Three clear sizes are worth knowing by heart, because they tell you what a clear is worth in space:</p>
+<ul>
+  <li>One group clears 9 cells.</li>
+  <li>Two parallel rows or columns clear 18.</li>
+  <li>A row and a column that cross clear 9 + 9 &minus; 1 = 17, since the crossing cell is counted once. A row and a box that share three cells clear 9 + 9 &minus; 3 = 15.</li>
+</ul>
+<p>The <a href="/blog/block-puzzle-double-clears.html">post on double clears</a> works out which pieces complete two groups at once. Here the question is narrower: what can you decide in a second or two?</p>
+
+<h2>Check one: gaps per line</h2>
+<p>A gap is an empty cell in a line. A line with <em>g</em> gaps needs a piece, or pieces, that cover exactly those <em>g</em> cells. Scan for the lines with the fewest gaps and ask whether a piece you hold covers them.</p>
+<p>A single gap is the warning case. Once the cells around it are filled too, only a one-cell piece can finish the line, and that is the hole described in <a href="/blog/block-puzzle-holes-and-islands.html">holes and islands</a>. Where you can, leave two or three gaps together instead, because those take more shapes.</p>
+
+<h2>Check two: the three-line score</h2>
+<p>Because a cell is in three groups, you can rate any target cell by adding the filled cells in its row, its column and its box (not counting the cell itself). Each group has 8 other cells, so the score runs from 0 to 24. A high score means the block lands in groups that are close to done; a score of 0 means it starts three new ones from scratch.</p>
+<p>When two placements both look reasonable, the higher score is the one that moves more groups towards clearing.</p>
+
+<h2>Check three: fixed placements</h2>
+<p>A horizontal bar of three has 9 &minus; 3 + 1 = 7 possible starting columns in an empty row. Give the bar a gap of exactly three cells and the count falls to one. That is a fixed placement: only one position works, so there is nothing to decide when the piece arrives.</p>
+<p>Fixed placements suit a clock. A gap built to take one shape in one place can be filled the moment that shape appears, with no search. The diagram shows one built to clear a row and a box together.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 258" role="img" aria-label="Diagram of a 9x9 grid. Row 5 is filled except for columns 4 to 6, and the middle box is filled except for the same three cells. A bar of three fits in exactly one position and clears 15 cells.">
+    <rect x="13" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="13" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="39" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="65" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="91" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="117" y="91" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="143" y="91" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="169" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="91" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="39" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="65" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="91" y="117" width="24" height="24" rx="3" class="fill-accent"/>
+    <rect x="117" y="117" width="24" height="24" rx="3" class="fill-accent"/>
+    <rect x="143" y="117" width="24" height="24" rx="3" class="fill-accent"/>
+    <rect x="169" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="195" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="221" y="117" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="13" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="143" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="117" y="143" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="143" y="143" width="24" height="24" rx="3" class="fill-base"/>
+    <rect x="169" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="143" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="169" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="195" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="13" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="39" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="65" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="91" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="117" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="143" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="169" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="195" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <rect x="221" y="221" width="24" height="24" rx="3" class="fill-soft"/>
+    <line x1="12" y1="12" x2="12" y2="246" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="12" y1="12" x2="246" y2="12" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="90" y1="12" x2="90" y2="246" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="12" y1="90" x2="246" y2="90" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="168" y1="12" x2="168" y2="246" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="12" y1="168" x2="246" y2="168" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="246" y1="12" x2="246" y2="246" stroke="#90A894" stroke-width="1.5"/>
+    <line x1="12" y1="246" x2="246" y2="246" stroke="#90A894" stroke-width="1.5"/>
+    <rect x="264" y="40" width="14" height="14" rx="3" class="fill-accent"/><text class="strong" x="286" y="52">The bar: 3 cells</text>
+    <rect x="264" y="72" width="14" height="14" rx="3" class="fill-base"/><text class="strong" x="286" y="84">12 filled cells</text>
+    <text x="286" y="104">Row: 3 gaps</text>
+    <text x="286" y="121">Box: the same 3</text>
+    <text x="286" y="138">Positions: 1 of 7</text>
+    <text x="286" y="172">Clears 9 + 9 &minus; 3</text>
+    <text x="286" y="189">= 15 cells.</text>
+  </svg>
+  <figcaption>The middle row is filled apart from columns 4 to 6, and the middle box is filled apart from the same three cells. A horizontal bar of three goes in one place only, and completes the row and the box together: 9 + 9 &minus; 3 = 15 cells cleared, with 12 already filled and 3 placed.</figcaption>
+</figure>
+
+<p>Each of the three gap cells scores 14 on the three-line check: 6 filled in the row, 2 in the column (the box rows above and below) and 6 in the box. That is 14 out of a possible 24.</p>
+
+<h2>Where to put the pieces that do not clear</h2>
+<p>Most pieces you place will not clear anything, so the placement rule matters as much as the clear rule. One useful fact: line up a bar with a box. A horizontal bar of three has 7 starting columns in each row, and 3 of them (columns 1, 4 and 7) sit inside a single box. The other 4 straddle two. Across both orientations that is 54 of the 126 places for the bar, or 3 in 7.</p>
+<p>A bar inside one box adds 3 cells to that box and 3 to its row. A bar that straddles two boxes splits its cells between them, so neither box moves as far. If you have no clear available, the aligned place is usually the tidier one, because it keeps each box either fuller or emptier rather than half-started.</p>
+<p>Otherwise keep the empty space connected and avoid a placement that seals a one- or two-cell pocket.</p>
+
+<div class="callout">
+  <p>Under the clock, scan in this order: lines with the fewest gaps, then the three-line score as a tie-breaker, then whether a gap takes your piece in only one position.</p>
+</div>
+
+<h2>A time budget, as arithmetic</h2>
+<p>Three minutes is 180 seconds. If you set yourself 6 seconds a piece, that is 30 placements; at 10 seconds a piece it is 18. These are budgets you choose, not figures from the game, but they show the cost of a slow decision: each extra second per piece takes away several placements over the whole run. That favours the quick checks above over a long search for the best move.</p>
+<p>Because Classic is untimed and keeps undo, hints, rotate and bomb available, it is the place to practise the counts until they are quick. Then take them into Time Attack, where those aids stay off. The same applies to the Daily Challenge, which keeps the aids off too.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
