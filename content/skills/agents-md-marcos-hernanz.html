@@ -1,0 +1,48 @@
+<!--
+{
+  "title": "AGENTS.md — eight rules from 60 billion tokens",
+  "date": "2026-10-19",
+  "modified": "2026-10-19",
+  "description": "Marcos Hernanz shared the AGENTS.md he uses after about 60 billion tokens. Eight short rules that push a coding agent toward simple, proven solutions.",
+  "summary": "Eight short rules for an AI coding agent: keep it simple, read the docs, reuse what works. Made for side projects.",
+  "standfirst": "A reel says a developer burned 60 billion tokens and then shared the rules file he gives his AI. The file is real. It is eight short lines."
+}
+-->
+<p><a class="text-link" href="https://x.com/MarcosHernanz/status/2083954734487212511">Read Marcos Hernanz's post on X</a></p>
+<p><a class="text-link" href="https://x.com/MarcosHernanz/status/2084060569045541027">See the eighth rule</a></p>
+<p><a class="text-link" href="https://www.instagram.com/reel/DeO5WWolK-J/">See the @ii.systema reel</a></p>
+<p>A reel by @ii.systema says a developer burned 60 billion tokens, then published the rules file he uses for AI coding. The reel says the file makes the model look for simple solutions, read the documentation, and save your usage limits.</p>
+<p>The developer is Marcos Hernanz. He worked on Next.js at Vercel. On 2 August 2026 he posted on X: “After doing ~60B tokens, this is my full AGENTS.md”. The post showed seven rules. A few hours later he replied with an eighth one, under the words “Almost forgot”.</p>
+
+<figure class="chart">
+  <img src="/img/skills/agents-md.svg" alt="A short text file with eight lines next to one simple straight path." width="640" height="360">
+  <figcaption>One small file. Eight lines. One simple path.</figcaption>
+</figure>
+
+<h2>What an AGENTS.md is</h2>
+<p>AGENTS.md is a plain text file in the main folder of a project. Coding agents read it before they start work, so you write your rules once instead of in every chat. Claude Code reads it when the project has no CLAUDE.md file.</p>
+
+<h2>The eight rules, in plain words</h2>
+<ol>
+  <li>Do not keep old code alive. When something is replaced, delete the old path. Do not add fallbacks or layers to keep it working.</li>
+  <li>Pick the simplest solution that fully does the job today. Do not add settings or layers “just in case”.</li>
+  <li>Grow in small steps. First build the smallest version that works from start to finish. Then add one feature at a time on top of something that already works.</li>
+  <li>Keep parts separate. Each part does one job.</li>
+  <li>Use a good, well-known library when it makes things simpler or more reliable. Do not rewrite common features without a reason.</li>
+  <li>Check what the project already has before you add a package or write your own code. Read the library's documentation and types before you decide it cannot do something.</li>
+  <li>Decide for the long term. No quick fix that is meant to be thrown away later.</li>
+  <li>Before you design something, look at how good, established products solve the same problem. Copy their proven patterns instead of inventing your own.</li>
+</ol>
+
+<h2>Why it can save tokens</h2>
+<p>Most of these rules tell the agent to write less: no extra layers, no copies of libraries, no code kept only for old versions. Less code means less to read, fix, and explain on the next turn. Rule six is the one the reel calls “read the documentation”. Marcos does not give a number for how many tokens the file saves.</p>
+
+<h2>One warning from the author</h2>
+<p>Marcos added a note under his post: he only uses this file for side projects, and you should not use it in production if you do not want to destroy your codebase. The first rule is the risky one. In a real product, deleting old paths can break users who still need them.</p>
+
+<h2>How to use it</h2>
+<p>Create a file called AGENTS.md in the main folder of your project. Copy the eight rules from his two posts, and change any rule that does not fit your project. If you use Claude Code and already have a CLAUDE.md, add one line to it so Claude reads both:</p>
+<pre><code>@AGENTS.md</code></pre>
+<p><a class="text-link" href="https://x.com/MarcosHernanz/status/2083954734487212511">Read Marcos Hernanz's post on X</a></p>
+<p><a class="text-link" href="https://x.com/MarcosHernanz/status/2084060569045541027">See the eighth rule</a></p>
+<p><a class="text-link" href="https://code.claude.com/docs/en/memory">Read how Claude Code uses AGENTS.md</a></p>
