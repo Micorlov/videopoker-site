@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Single track and passing loops: running trains both ways",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "ValleyRail",
+  "description": "One track, two directions. See how a section's running time caps the trains per hour, why one passing loop doubles it, and how tokens kept trains apart.",
+  "summary": "On a single track a section can hold only one train at a time, so its running time sets the limit. A 20 km section at 60 km/h allows 1.5 trains an hour each way; a loop at the midpoint doubles that to 3.",
+  "standfirst": "Most of the world's railways started as one line of track, and many still are. Running trains in both directions on it comes down to one rule and one piece of arithmetic."
+}
+-->
+<p>Two tracks cost far more than one to build and maintain. A railway with little traffic therefore often has a single track, and trains in both directions share it. That works only because trains never meet between stations. They meet at a <strong>passing loop</strong>, a short stretch of second track where one train waits and the other goes by. How many trains the line can carry follows from simple division.</p>
+
+<h2>The rule: one train in a section</h2>
+<p>Take the stretch of single track between two places where trains can pass, and call it a <strong>section</strong>. The rule is that only one train may be in a section at a time. If two entered from opposite ends, neither could pass the other, and one would have to reverse a long way.</p>
+<p>The earlier post on <a href="/blog/how-railway-signals-keep-trains-apart.html">railway signals and blocks</a> covered following trains. Single track adds the opposite problem, and the same idea answers it: keep a section empty until the train in it has left.</p>
+
+<h2>A worked capacity example</h2>
+<p>These are the assumptions, chosen for clean arithmetic rather than taken from any real line:</p>
+<ul>
+  <li>Two stations, A and B, are 20 km apart on one track.</li>
+  <li>Every train runs at a constant 60 km/h, which is 1 km a minute.</li>
+  <li>Stops, turnaround time and speed limits through the points are ignored.</li>
+  <li>The trains are short enough to fit in any loop.</li>
+  <li>Trains alternate: one from A, then one from B, then one from A again.</li>
+</ul>
+<p><strong>Without a loop.</strong> The section is 20 km, so a train needs 20 ÷ 1 = 20 minutes to cross it. Nothing else can enter until it has left. The train from A takes 20 minutes, then the train from B takes the next 20. One of each direction therefore uses 40 minutes of the section, and:</p>
+<p>60 minutes ÷ 40 minutes = <strong>1.5 trains an hour in each direction</strong>, or 3 in total</p>
+<p>The section's running time sets the limit. Faster trains help only in proportion: at 120 km/h the crossing takes 10 minutes, the cycle takes 20, and the limit rises to 3 each way.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 216" role="img" aria-label="Diagram of a 20 km single track between stations A and B. With no loop the cycle is 40 minutes, 1.5 trains an hour each way. With a passing loop at the midpoint there are two 10 km sections, the cycle is 20 minutes, and the limit is 3 trains an hour each way.">
+    <text class="strong" x="8" y="20">No loop: one 20 km section</text>
+    <text x="200" y="42" text-anchor="middle">20 km, 20 min</text>
+    <g class="hit"><title>20 km section at 60 km/h takes 20 minutes; cycle 40 minutes; 1.5 trains an hour each way</title>
+      <path class="line" d="M40 50 H360"/>
+      <rect class="fill-base" x="33" y="43" width="14" height="14" rx="2"/>
+      <rect class="fill-base" x="353" y="43" width="14" height="14" rx="2"/>
+    </g>
+    <text x="40" y="74" text-anchor="middle">A</text>
+    <text x="360" y="74" text-anchor="middle">B</text>
+    <text class="strong" x="200" y="92" text-anchor="middle">cycle 40 min = 1.5 trains an hour each way</text>
+
+    <text class="strong" x="8" y="126">Loop at the midpoint: two 10 km sections</text>
+    <text x="104" y="148" text-anchor="middle">10 km, 10 min</text>
+    <text x="296" y="148" text-anchor="middle">10 km, 10 min</text>
+    <g class="hit"><title>Two 10 km sections of 10 minutes each; cycle 20 minutes; 3 trains an hour each way</title>
+      <path class="line hl" d="M40 156 H360"/>
+      <path class="line hl" d="M168 156 L178 174 H222 L232 156"/>
+      <rect class="fill-base" x="33" y="149" width="14" height="14" rx="2"/>
+      <rect class="fill-base" x="353" y="149" width="14" height="14" rx="2"/>
+    </g>
+    <text x="200" y="192" text-anchor="middle">passing loop</text>
+    <text x="40" y="180" text-anchor="middle">A</text>
+    <text x="360" y="180" text-anchor="middle">B</text>
+    <text class="strong" x="200" y="210" text-anchor="middle">cycle 20 min = 3 trains an hour each way</text>
+  </svg>
+  <figcaption>The same 20 km line at 60 km/h, with and without a passing loop at the midpoint. The loop (gold) halves the longest section, so the cycle falls from 40 to 20 minutes and the limit doubles from 1.5 to 3 trains an hour each way.</figcaption>
+</figure>
+
+<p><strong>With a loop at the midpoint.</strong> The line now has two 10 km sections of 10 minutes each. Send a train from A and a train from B at the same moment. Each takes 10 minutes to reach the loop. There the two trains meet, and each uses its own side of the loop to pass. For the next 10 minutes each runs the second half. After 20 minutes both have arrived, both sections are empty, and the next pair can leave:</p>
+<p>60 minutes ÷ 20 minutes = <strong>3 trains an hour in each direction</strong></p>
+<p>One loop doubled the capacity. In this simple model the cycle time is twice the running time of the longest section. The line is 20 km, so the cycle is 2 × 20 = 40 minutes without a loop, and 2 × 10 = 20 minutes with one. Three loops, spaced evenly, would give four 5 km sections, a cycle of 10 minutes, and 6 trains an hour each way. Real lines gain less than that, since trains must slow for the points and must stop and wait while their opposite number arrives. The answer of 3 is a ceiling, not a timetable.</p>
+
+<p>The listing for <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> says you drag track from town to town, buy a train and choose where it goes. Spacing out trains on a route you laid yourself is a version of the same sums.</p>
+
+<h2>Keeping the rule: staffs and tokens</h2>
+<p>Before track circuits and electric signals, the rule needed something physical to enforce it. The classic answer was the <strong>train staff</strong>: a single object, such as a wooden baton, kept for one section. A driver could enter the section only while carrying the staff, and since there was only one staff, there could only be one train. The driver handed it in at the far end, and it had to be carried back for the next train going the other way.</p>
+<p>The weakness is plain from the arithmetic above. If two trains must run the same way in a row, the second has nothing to carry. Railways added a ticket system for this case: the staff was shown to the driver, who was given a written ticket to run, and the last train took the staff itself.</p>
+<p>Later, <strong>token instruments</strong> at each end of the section solved it. The signalmen at each end are linked by wire, and the instruments are interlocked, so that one token can be drawn out at a time. Several tokens can sit in the machines, so trains can follow one another, but until the one in the section is returned, no token can be released for a train from either end. The principle did not change: only the train that holds the authority may be in the section.</p>
+
+<h2>Why a loop is a design choice</h2>
+<p>A loop must be long enough for the longest train that will use it, and it is built where it does most good. On the example line the midpoint is best, since it cuts the longest section to the smallest. If the loop were 5 km from A, the sections would be 5 km and 15 km, the longest would still be 15 minutes, and the cycle would be 30 minutes, giving 2 trains an hour each way instead of 3. The same money spent in the wrong place buys a third of the gain.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>A section holds one train, so its running time, doubled for the return, sets the cycle.</li>
+  <li>Trains an hour in each direction = 60 ÷ cycle time. Here, 60 ÷ 40 = 1.5.</li>
+  <li>A loop halves the longest section only when it is placed at the middle. At the 5 km point the cycle is 30 minutes, not 20.</li>
+  <li>Staffs and tokens enforce the rule physically: no token, no entry.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you drag track from town to town, build a station at each, and buy a train that runs its route on its own. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

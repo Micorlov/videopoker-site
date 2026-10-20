@@ -1,0 +1,67 @@
+<!--
+{
+  "title": "Paired boards in Omaha: when the nut flush loses to a full house",
+  "seo_title": "Paired boards in Omaha: when the nut flush loses",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "OmahaPoker",
+  "description": "Once the board pairs, even the ace-high flush can lose. Count exactly how many opponent hands make a full house and how often a board pairs by the river.",
+  "summary": "On a board of 9-9-5-2-Q with three hearts, an opponent holds a full house or better in 18,634 of 123,410 possible hands, or 15.1%. About half of all five-card boards contain a pair by the river.",
+  "standfirst": "The ace-high flush is the nut flush only while the board is unpaired. Once a rank appears twice on the board, a full house is possible, and the count of hands that make it is larger than most players expect."
+}
+-->
+<p>Players learn early that the ace-high flush is the nut flush, the best flush there is. That is true, and it is also incomplete. A flush ranks below a full house, and a full house needs only a pair on the board plus the right two cards in an opponent's hand. This post counts those hands on one concrete board, and then counts how often the board pairs at all.</p>
+
+<h2>One hand, one board</h2>
+<p>You hold A&#9829; 7&#9829; K&#9824; 3&#9827;. The board runs 9&#9829; 9&#9827; 5&#9829; 2&#9829; Q&#9830;. You play the ace and seven of hearts with the three hearts on the board: A-9-7-5-2, the nut flush. No heart hand can beat it, and no straight flush is possible on these three hearts.</p>
+<p>The board is paired, though, so you must now look at a different ranking. A full house needs three cards of one rank and two of another. Because <a href="/blog/omaha-exactly-two-hole-cards.html">exactly two hole cards play</a>, an opponent has to build it from two of their cards and three from the board. On this board that happens in three ways.</p>
+<ol class="ranked">
+  <li><strong>One nine plus a card that pairs the board.</strong> The 9&#9830; or 9&#9824; with a 5, a 2 or a queen. Nines on the board and one in hand make trips, and the matching card makes the pair: 9-9-9-5-5, for example.</li>
+  <li><strong>A pocket pair that matches a board card.</strong> A pair of fives, twos or queens in hand, with the single board card of that rank, makes three of a kind, and the board nines supply the pair: 5-5-5-9-9.</li>
+  <li><strong>Both remaining nines.</strong> That is four of a kind, which beats everything you can hold here.</li>
+</ol>
+<p>A single nine alone is not enough. A nine with an irrelevant card gives trips and nothing more, which loses to your flush.</p>
+
+<h2>Counting the hands that beat you</h2>
+<p>You can see nine cards: your four and the five on the board. That leaves 43 unseen, and an opponent holds four of them, so there are C(43,4) = 123,410 possible opposing hands. I enumerated all of them, picked each hand's best five-card combination using exactly two hole cards and three board cards, and counted what beat the flush.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance one opponent holds a hand that beats the nut flush on a 9-9-5-2-Q board: 8.7% a nine plus a pairing card, 5.8% a pocket pair, 0.7% four of a kind, 15.1% in total">
+    <div class="bar-row hl" title="Any hand that beats you: 15.1%"><span class="bar-label">Any beating hand</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">15.1% (18,634)</span></span></div>
+    <div class="bar-row" title="A nine plus a pairing card: 8.7%"><span class="bar-label">Nine + matching card</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5748)"></span><span class="bar-val">8.7% (10,710)</span></span></div>
+    <div class="bar-row" title="A pocket pair that makes trips: 5.8%"><span class="bar-label">Pocket pair</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3812)"></span><span class="bar-val">5.8% (7,104)</span></span></div>
+    <div class="bar-row" title="Four of a kind: 0.7%"><span class="bar-label">Four of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0440)"></span><span class="bar-val">0.7% (820)</span></span></div>
+  </div>
+  <figcaption>Share of the 123,410 possible opponent hands that beat A-high flush on the board 9&#9829; 9&#9827; 5&#9829; 2&#9829; Q&#9830;, split by how the full house or better is made. The three causes add up to the total.</figcaption>
+</figure>
+
+<p>The total is 18,634 hands, or 15.1%. Four of a kind is the easy one to check by hand: both remaining nines plus any two of the other 41 cards is C(41,2) = 820. The other two rows overlap in the raw counting (a hand can hold a pocket pair and a nine), so the enumeration assigned each hand to one row only: four of a kind first, then a pocket pair, then a nine with a pairing card.</p>
+<p>For one opponent that is about one hand in 6.6. The pot rarely stays heads-up, so I also dealt 30,000 random hands to each field size. At two opponents, someone beat the flush about 29% of the time, and at three about 40%. These are simulated, so treat them as good to a point or so, but the direction is not in doubt: every added opponent is another four cards that might fit the board.</p>
+
+<h2>How often the board pairs</h2>
+<p>All of this matters only when the board pairs, so the next question is how often it does. A board has no pair when every card has a different rank. The first card is free, the second must avoid its rank (48 of 51 cards), the third must avoid both (44 of 50), and so on.</p>
+<ul>
+  <li>Flop, three cards: 1 &minus; (48 &divide; 51 &times; 44 &divide; 50) = <strong>17.2%</strong> contain a pair or trips.</li>
+  <li>Turn, four cards: 1 &minus; (48 &divide; 51 &times; 44 &divide; 50 &times; 40 &divide; 49) = <strong>32.4%</strong>.</li>
+  <li>River, five cards: 1 &minus; (48 &divide; 51 &times; 44 &divide; 50 &times; 40 &divide; 49 &times; 36 &divide; 48) = <strong>49.3%</strong>.</li>
+</ul>
+<p>By the river, then, about half of all boards are paired. A flush you hold on the flop is more often safe than not, but the safety wears off street by street. A flush that is good on the flop on an unpaired board can turn into a loser when the turn or river pairs a board card, even though your own hand has not changed.</p>
+
+<h2>The same flush, an unpaired board</h2>
+<p>Change the board to 9&#9829; 6&#9827; 5&#9829; 2&#9829; Q&#9830;. Your A-high flush is unchanged, but no rank appears twice, so no opponent can make a full house with two hole cards and three board cards. The 15.1% from the table falls to zero. On this board, with no straight flush possible either, the ace-high flush really is the nuts. The hand is identical; the board decides whether it is the nuts.</p>
+<p>The same logic applies below the nuts. The <a href="/blog/omaha-second-best-flush.html">second-best flush</a> has two ways to lose on a paired board: to the ace-high flush and to any full house.</p>
+
+<h2>Rules to take to the table</h2>
+<ol class="ranked">
+  <li><strong>Look for a pair before you look at your flush.</strong> If a rank appears twice, ask which hands make the full house before you call the flush a certainty.</li>
+  <li><strong>Count the cards that fit.</strong> Here that is two nines and three each of fives, twos and queens. A board with more unseen cards that pair it gives opponents more combinations.</li>
+  <li><strong>Remember the exactly-two rule.</strong> One nine in an opponent's hand is not a danger unless the other hole card also matches the board. This keeps the count lower than it first looks.</li>
+  <li><strong>Re-check on every street.</strong> A river that pairs the board is a different board.</li>
+</ol>
+
+<p>The in-app Help &amp; Rules in <a href="/OmahaPoker/">Omaha Poker</a> covers the Omaha hand rankings and the two-cards-from-your-hand rule, so you can check which of these hands counts. Its live hand insight shows your win chance on each street, which makes it a good way to watch a flush's value fall when a board pairs.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

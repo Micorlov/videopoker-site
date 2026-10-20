@@ -1,0 +1,83 @@
+<!--
+{
+  "title": "Bank shots: angle in, angle out, and where it fails",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "EightBallsPool",
+  "description": "A bank shot follows the mirror rule: angle in equals angle out. Reflect the pocket across the cushion, aim at the image, and see why speed and spin spoil it.",
+  "summary": "Reflect the pocket across the cushion and aim at the image. With the ball 30 cm out and the pocket 120 cm out across the table, the ball meets the cushion 16 cm along. Speed and spin move it.",
+  "standfirst": "A bank shot looks like guesswork, but the ideal version is plain geometry: the ball leaves a cushion at the angle it arrived. The skill is knowing how far a real cushion departs from that ideal."
+}
+-->
+<p>A bank shot sends the object ball into a cushion first and into the pocket afterwards. The geometry behind it is the same rule that governs a ball bouncing off a wall: the angle the ball arrives at equals the angle it leaves at. There is a neat way to use that rule without measuring any angle, and a short list of reasons it stops being exact. This post covers both.</p>
+
+<h2>The mirror method</h2>
+<p>Pretend the cushion is a mirror. A ball that bounces off it and reaches the pocket travels the same path as a ball that carries straight on through the cushion and reaches the pocket's reflection on the other side. So the recipe is:</p>
+<ol class="ranked">
+  <li><strong>Reflect the pocket</strong> across the cushion line, so the image sits as far behind the cushion as the real pocket sits in front of it.</li>
+  <li><strong>Draw a straight line</strong> from the object ball to the image pocket.</li>
+  <li><strong>Find where that line crosses the cushion.</strong> That is the point to hit.</li>
+  <li><strong>Aim the object ball along that line</strong>, using the ghost-ball method from the <a href="/blog/ghost-ball-aiming.html">ghost-ball post</a> to set where the cue ball must strike.</li>
+</ol>
+<p>Because the bounce is mirrored, the ball arrives and leaves at equal angles to the cushion automatically. You never compare angles; you just draw one straight line.</p>
+
+<h2>A worked example</h2>
+<p>Take a ball 30 cm from the cushion it will bank off. The target pocket is on the opposite rail, 120 cm from that cushion, and the two are 80 cm apart measured along the cushion. The image pocket is 120 cm behind the cushion, so the straight line from the ball to the image drops 30 + 120 = 150 cm across the cushion while covering 80 cm along it. The line crosses the cushion in proportion to the distances:</p>
+<ul>
+  <li>Distance along the cushion to the contact point: 80 cm × 30 / 150 = <strong>16 cm</strong> from the ball.</li>
+  <li>The rest of the way to the pocket: 80 − 16 = <strong>64 cm</strong>.</li>
+</ul>
+<p>Check the angles. Measured from the line at right angles to the cushion, the ball arrives with tan = 16 / 30 = 0.533 and leaves with tan = 64 / 120 = 0.533. They match, which is the angle-in equals angle-out rule. The path lengths agree too: √(16² + 30²) + √(64² + 120²) = 34 + 136 = 170 cm, and the straight line to the image is √(80² + 150²) = 170 cm.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 320" role="img" aria-label="Diagram of a mirror-image bank shot, not drawn to scale across the page. A ball sits 30 cm from a horizontal cushion. The target pocket is on the opposite rail, 120 cm from that cushion, and 80 cm along it. A dashed straight line runs from the ball through the cushion to a mirror pocket 120 cm behind it. The solid path bounces at the cushion 16 cm along from the ball, then covers the remaining 64 cm along the cushion to the real pocket.">
+    <rect x="10" y="150" width="380" height="8" class="fill-soft"/>
+    <line x1="10" y1="150" x2="390" y2="150" stroke="var(--chart-base)" stroke-width="2"/>
+    <text x="388" y="143" text-anchor="end">Cushion</text>
+    <line x1="40" y1="120" x2="240" y2="270" class="ref" stroke-dasharray="5 4"/>
+    <line x1="240" y1="30" x2="240" y2="150" class="ref"/>
+    <text x="248" y="95" class="strong">120 cm</text>
+    <circle cx="240" cy="270" r="11" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="258" y="274">Mirror pocket</text>
+    <polyline points="40,120 80,150 240,30" fill="none" stroke="var(--chart-accent)" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="240" cy="30" r="11" class="fill-soft" stroke="var(--chart-base)" stroke-width="2"/>
+    <text x="258" y="34" class="strong">Pocket</text>
+    <circle cx="40" cy="120" r="14" class="fill-base"/>
+    <text x="40" y="98" text-anchor="middle" class="strong">Ball</text>
+    <circle cx="80" cy="150" r="4" fill="var(--chart-accent)"/>
+    <text x="12" y="176" class="strong">Hit here</text>
+    <text x="10" y="142" class="strong">30 cm</text>
+    <line x1="40" y1="296" x2="80" y2="296" class="ref"/>
+    <line x1="80" y1="296" x2="240" y2="296" class="ref"/>
+    <text x="60" y="312" text-anchor="middle" class="strong">16 cm</text>
+    <text x="160" y="312" text-anchor="middle" class="strong">64 cm</text>
+  </svg>
+  <figcaption>The pocket on the far rail is reflected across the cushion; the straight line to the image crosses the cushion 16 cm along from the ball, and the bounced path (solid) reaches the real pocket. Distances are from the worked example. Not to scale: the 80 cm along the cushion is drawn wider than the 120 cm across.</figcaption>
+</figure>
+
+<h2>Where the ideal fails</h2>
+<p>The mirror rule describes a perfectly elastic bounce off a frictionless wall. A cushion is neither. It is a strip of rubber that compresses, pushes back and grips the ball a little, and each of those changes the exit angle.</p>
+<ul>
+  <li><strong>Speed.</strong> Rubber is not perfectly elastic. It gives back less of the ball's speed towards the table than the ball put in, while the speed along the cushion is mostly kept. The ball therefore comes off at a flatter angle to the cushion than it arrived, and ends up longer than the mirror line says. The harder the hit, the deeper the cushion compresses, and the more the exit angle depends on how that compression behaves. Speed changes where the ball goes, so a bank needs a consistent pace as well as a line.</li>
+  <li><strong>Spin.</strong> Spin changes how the ball grips the cushion. Sidespin that turns the ball in the direction it is already travelling along the cushion (often called running spin) is picked up by the contact and carries the ball further along the rail, widening the exit angle. Spin the other way narrows it. Cue-ball spin is passed to the object ball only in small amounts, but a bank often has spin from the previous contact, so it counts. The <a href="/blog/cue-ball-spin-explained.html">spin post</a> covers the basic types.</li>
+  <li><strong>Cushion height.</strong> The cushion touches the ball above its centre, not at the middle. The push therefore has a downward part as well as a sideways one, and the ball is pressed into the cloth during contact. That adds friction at the table, which feeds into the spin and into how quickly the ball slows after the bounce.</li>
+  <li><strong>Where the ball is, not the line.</strong> The ball's centre cannot reach the cushion face. It turns round about one ball radius away from it. For a bank, mirror the pocket across that line, one radius out from the face, rather than the cushion face itself. Ignoring it shifts the contact point, and the error carries through the rest of the path.</li>
+  <li><strong>Cloth and rubber condition.</strong> A worn or dirty cloth and an older cushion both change the grip. The mirror line is the starting estimate, and the rest is calibration.</li>
+</ul>
+
+<h2>Using it well</h2>
+<p>The mirror method gives the line for a medium-pace shot with no deliberate spin. Everything in the list above pushes the real ball off that line in a consistent direction, so you can learn a correction. A few practical points:</p>
+<ol class="ranked">
+  <li><strong>Use a plain, medium-pace hit first.</strong> Spin and extra speed each shift the exit angle, so remove them while you learn what the line does.</li>
+  <li><strong>Keep the shot short in distance.</strong> Error in angle turns into distance missed, as the <a href="/blog/pool-throw-and-overcut.html">throw post</a> works out: 100 cm × tan 2° is 3.5 cm. A bank covers the ball's path twice, so errors accumulate.</li>
+  <li><strong>Note which way it misses.</strong> If a medium-pace bank consistently finishes long, aim the contact a little earlier along the rail next time, and keep that correction for the same speed.</li>
+  <li><strong>Treat harder banks as a different shot.</strong> Changing speed changes the answer, so re-learn the line when you change pace.</li>
+</ol>
+
+<h2>What to check in the app</h2>
+<p>The Play listing for 8balls says you can adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. It does not describe how cushions are modelled, so do not assume the app follows any particular bounce behaviour. The overhead view is useful for lining up the mirror line. Set up the layout by eye, with the ball 30 cm from the cushion and the pocket across the table, 120 cm from it and 80 cm along, play a plain medium-pace bank, then repeat it harder and with sidespin. If the contact point moves, you have found the effects in this post; if it does not, you have the geometry on its own.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

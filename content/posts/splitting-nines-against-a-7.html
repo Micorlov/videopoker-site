@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Splitting nines: why you stand on 18 against a 7",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "BlackjackCoach",
+  "description": "A pair of nines splits against most dealer cards but stands against a 7. The dealer's final totals show why: 18 beats a 17, and a 7 makes 17 most often.",
+  "summary": "Basic strategy splits 9,9 against 2 to 6, 8 and 9, and stands against 7, 10 and ace. With a 7 up the dealer ends on 17 36.86% of the time and busts 26.23%, so standing on 18 wins 63.09% and loses 23.13%.",
+  "standfirst": "Nine and nine is 18, a total that looks too good to break up. Against most dealer cards it should be broken up anyway, and the 7 is the one place where the usual reason fails."
+}
+-->
+<p>A pair of nines is the pair where basic strategy changes its mind most often. It splits against a 2, 3, 4, 5, 6, 8 and 9, and it stands against a 7, a 10 and an ace. The odd one out is the 7, which sits between two splitting cards. The explanation is in what the dealer ends up with, and it comes down to one fact: with a 7 showing, the dealer's most common final total is 17.</p>
+
+<h2>The rule in one line</h2>
+<p>The chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> is for six decks, dealer standing on soft 17, double after split and late surrender. For 9,9 it reads:</p>
+<ul>
+  <li>Split against a dealer 2, 3, 4, 5, 6, 8 or 9.</li>
+  <li>Stand against a 7, 10 or ace.</li>
+</ul>
+<p>The two groups stand for different reasons. Against a 10 or an ace, 18 is not far enough ahead of a strong dealer to be worth breaking up. Against a 7, the reverse is true: 18 is very good, and nothing a split can offer improves on it.</p>
+
+<h2>What a dealer 7 finishes on</h2>
+<p>The dealer must draw to 17 and stand there. From a 7, the hole card alone gives 17 when it is a 10-value card, 4 ranks in 13. The full distribution, counting every rank as equally likely with 10, J, Q and K separate, and drawing from an infinite deck, comes out like this (my own recursion, with the dealer standing on all 17s):</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of a dealer's final result with a 7 showing, in percent: 17 is 36.86, bust 26.23, 18 is 13.78, 19 is 7.86, 20 is 7.86, 21 is 7.41">
+    <div class="bar-row hl" title="Dealer ends on 17: 36.86%"><span class="bar-label">17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">36.86%</span></span></div>
+    <div class="bar-row" title="Dealer busts: 26.23%"><span class="bar-label">Bust</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7116)"></span><span class="bar-val">26.23%</span></span></div>
+    <div class="bar-row" title="Dealer ends on 18: 13.78%"><span class="bar-label">18</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3738)"></span><span class="bar-val">13.78%</span></span></div>
+    <div class="bar-row" title="Dealer ends on 19: 7.86%"><span class="bar-label">19</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2132)"></span><span class="bar-val">7.86%</span></span></div>
+    <div class="bar-row" title="Dealer ends on 20: 7.86%"><span class="bar-label">20</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2132)"></span><span class="bar-val">7.86%</span></span></div>
+    <div class="bar-row" title="Dealer ends on 21: 7.41%"><span class="bar-label">21</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2010)"></span><span class="bar-val">7.41%</span></span></div>
+  </div>
+  <figcaption>Dealer's final result with a 7 up, dealer standing on every 17, infinite deck. The six values add to 100%. A 17 is the single most common outcome, and your 18 beats it.</figcaption>
+</figure>
+
+<p>The total is 36.86 + 26.23 + 13.78 + 7.86 + 7.86 + 7.41 = 100.00. The 17 comes from more routes than any other total. Besides the 10 in the hole, a 17 can be reached from a small hole card plus draws, for instance 7 and 3 and 7, or 7 and 2 and 8.</p>
+
+<h2>Where 18 stands</h2>
+<p>Your 18 beats a 17 and a bust, ties an 18, and loses to 19, 20 and 21:</p>
+<ul>
+  <li>Win: 36.86% + 26.23% = <strong>63.09%</strong></li>
+  <li>Push: <strong>13.78%</strong></li>
+  <li>Lose: 7.86% + 7.86% + 7.41% = <strong>23.13%</strong></li>
+</ul>
+<p>Per one-unit bet that is 0.6309 − 0.2313 = <strong>+0.3996</strong>. Stand on 18 against a 7 a hundred times and you are ahead by about 40 bets on average. No dealer 7 can have a blackjack, so there is no peek complication in this working. Drawing instead is no help: only an ace, 2 or 3 improves 18 without busting, 3 ranks in 13.</p>
+
+<h2>Why the split loses here</h2>
+<p>Splitting turns one bet into two, so the comparison is +0.3996 against the total of both hands. I worked the split out too, again for an infinite deck, with these assumptions: a second bet on each nine, no resplitting, doubling allowed after the split, and each new hand played by the best of stand, hit or double. Under those assumptions the splits come to:</p>
+<table class="paytable-compare">
+  <caption>9,9 against a dealer up-card, per one-unit starting bet. Infinite deck, no resplits, double after split allowed, dealer standing on soft 17.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Stand on 18</th><th>Split</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">6</th><td>+0.2834</td><td>+0.4434</td></tr>
+    <tr><th scope="row">7</th><td class="good">+0.3996</td><td>+0.3700</td></tr>
+    <tr><th scope="row">8</th><td>+0.1060</td><td>+0.2153</td></tr>
+    <tr><th scope="row">9</th><td>−0.1832</td><td>−0.0937</td></tr>
+  </tbody>
+</table>
+<p>Only the 7 row favours standing. Against a 6 the dealer busts 42.32% of the time, so two nines each get a free run at a bust. Against an 8 the dealer lands on 18 in 35.93% of hands, so an 18 mostly pushes while a hand starting on 9 can still make 19 or 20. Against a 9 the standing 18 is a loser, and the split loses less. The 7 is different because it is the dealer card where your 18 is strongest, relative to what splitting can offer.</p>
+<p>The gap is not wide. On these assumptions it is 0.0296 of a bet, small enough that the exact rules matter to the third decimal place, but the published charts all stand.</p>
+
+<div class="callout">
+  <p>Look at the dealer's likely finish, not at your own total. Against a 7, the dealer ends on 17 more often than anything else, and your 18 beats it.</p>
+</div>
+
+<h2>The ten and the ace</h2>
+<p>Against a 10 or an ace the dealer is strong, and the mechanism reverses. Standing on 18 is still the call, but for a different reason: a dealer 10 finishes on 20 more often than any other total, and splitting your nines would start two hands at 9 against a card that is hard to beat. I have not worked the split and stand values for these two rows, so I will not quote them. The chart stands.</p>
+
+<h2>Remembering it</h2>
+<ol class="ranked">
+  <li>Dealer 7: stand. Their commonest total is 17, and 18 beats it.</li>
+  <li>Dealer 10 or ace: stand. The dealer is too strong for a split to pay.</li>
+  <li>Dealer 2 to 6, 8 or 9: split.</li>
+  <li>Against a 7, standing on 18 wins 63.09%, pushes 13.78% and loses 23.13%.</li>
+</ol>
+<p>The pair of eights follows a different rule, since it splits against everything (<a href="/blog/blackjack-always-split-aces-and-eights.html">why you always split aces and eights</a>). For how soft hands such as ace-seven treat the same dealer card, see the <a href="/blog/soft-18-ace-seven-strategy.html">soft 18 post</a>, and for the full bust-rate list, <a href="/blog/blackjack-dealer-bust-rates.html">dealer bust rates</a>.</p>
+<p>Blackjack Coach lets you choose a play, read the explanation and review your mistakes, so 9,9 against a 7 and against an 8 are a good pair to repeat: they are neighbours with opposite answers.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

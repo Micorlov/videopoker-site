@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Dealer stands on soft 17: what the rule changes for you",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "Blackjack21",
+  "description": "Whether the dealer hits or stands on soft 17 moves the house edge by about 0.2 points in six decks. See how it reshapes the dealer's totals and your plays.",
+  "summary": "A dealer who hits soft 17 ends on 17 far less often and busts more, but also reaches 18 to 21 more often. The net cost to the player is about 0.2 points, and six basic strategy plays change.",
+  "standfirst": "One line on the felt, 'Dealer must stand on all 17s' or 'Dealer hits soft 17', changes the dealer's final totals and a handful of your decisions. The size of the change is small, and it is worth knowing exactly how small."
+}
+-->
+<p>A soft 17 is a dealer hand of 17 that counts an ace as 11: an ace and a six, or an ace with other cards that add to six. Every table has a rule for it. Under <strong>S17</strong> the dealer stands. Under <strong>H17</strong> the dealer must draw another card. All other 17s, such as ten and seven, stand under both rules, so only this one hand type is affected.</p>
+
+<h2>How often it comes up</h2>
+<p>A dealer who has an ace and a six as two cards is rarer than it sounds: 2 × (24/312) × (24/311) = 1.19% of hands in a six-deck shoe. Soft 17 can also be reached by drawing, for example a 2 up, an ace and a 4 under. Counting every route, with cards drawn from an unlimited supply to keep the arithmetic exact, the dealer passes through soft 17 on about 1.8% of hands, one in 55. It happens 11.1% of the time with an ace showing and 7.7% of the time with a six showing (the six needs an ace as the hole card, 1/13). With a seven or higher showing it never happens at all.</p>
+
+<p>A rule that applies so rarely matters only if each hand carries a big swing. The listing for <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> describes its dealer as standing on 17 without saying how soft 17 is treated, so the numbers here are about the rule in general, not about any one table.</p>
+
+<h2>What the dealer does with a soft 17</h2>
+<p>Hitting soft 17 cannot bust the dealer, because the ace can drop back to 1. Of the thirteen ranks, the next card does this:</p>
+<ul>
+<li>Ace, 2, 3 or 4 (4 ranks of 13): the dealer reaches soft 18, 19, 20 or 21 and stands.</li>
+<li>Any ten-value card (4 ranks of 13): the dealer reaches hard 17 and stands. The 17 survives.</li>
+<li>5, 6, 7, 8 or 9 (5 ranks of 13): the dealer holds a hard 12 to 16 and must keep drawing, with a good chance to bust.</li>
+</ul>
+<p>So 4/13, or 30.8%, of the time the 17 stays a 17. The other 69.2% it moves, mostly upward. That is the whole mechanism. Under H17 the dealer swaps a certain 17 for a spread of outcomes that are better than 17 more often than worse. Worse here means busting, which helps you.</p>
+
+<h2>The dealer's final totals, ace showing</h2>
+<p>The ace is where the rule does most of its work. These figures treat the shoe as unlimited and count a natural as a 21, so they describe the dealer's hand before any peek for blackjack:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the dealer's final total when showing an ace, under stand on soft 17 and hit soft 17. A final 17 falls from 13.08 percent to 5.75 percent, 18 to 20 each rise from 13.08 to 14.32 percent, 21 rises from 36.16 to 37.40 percent and a bust rises from 11.53 to 13.89 percent.">
+    <div class="bar-row" title="17 · S17: 13.08%"><span class="bar-label">17 · S17</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3497)"></span><span class="bar-val">13.08%</span></span></div>
+    <div class="bar-row hl" title="17 · H17: 5.75%"><span class="bar-label">17 · H17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.1537)"></span><span class="bar-val">5.75%</span></span></div>
+    <div class="bar-row" title="18, 19 or 20 (each) · S17: 13.08%"><span class="bar-label">18, 19 or 20 (each) · S17</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3497)"></span><span class="bar-val">13.08%</span></span></div>
+    <div class="bar-row hl" title="18, 19 or 20 (each) · H17: 14.32%"><span class="bar-label">18, 19 or 20 (each) · H17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3829)"></span><span class="bar-val">14.32%</span></span></div>
+    <div class="bar-row" title="21 · S17: 36.16%"><span class="bar-label">21 · S17</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9668)"></span><span class="bar-val">36.16%</span></span></div>
+    <div class="bar-row hl" title="21 · H17: 37.40%"><span class="bar-label">21 · H17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">37.40%</span></span></div>
+    <div class="bar-row" title="Bust · S17: 11.53%"><span class="bar-label">Bust · S17</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3083)"></span><span class="bar-val">11.53%</span></span></div>
+    <div class="bar-row hl" title="Bust · H17: 13.89%"><span class="bar-label">Bust · H17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.3714)"></span><span class="bar-val">13.89%</span></span></div>
+  </div>
+  <figcaption>Dealer's final total with an ace showing, S17 against H17, as a share of hands (unlimited-deck figures, naturals counted as 21). The 17 share falls by 7.33 points; everything else gains.</figcaption>
+</figure>
+
+<p>With an ace up, a final 17 drops from 13.08% to 5.75%, a loss of 7.33 points. That probability is redistributed: busts gain 2.36 points, and each of 18, 19, 20 and 21 gains 1.24. Check it: 2.36 + 4 × 1.24 = 7.32, which is the 7.33 within rounding. Over all up-cards the effect is diluted. A final 17 goes from 14.51% to 13.33%, busts rise from 28.16% to 28.54%, and each of 18 to 21 rises by 0.20 points.</p>
+
+<p>A player holding 17 to 20 beats a dealer 17 and loses to anything higher, so probability moving from 17 to 18 and above hurts. The extra busts, 0.38 points overall, are the only gain, and they are outweighed.</p>
+
+<h2>The cost: about 0.2 points</h2>
+<p>The commonly quoted price of H17 in a six-deck game is about 0.2 points of added house edge, around 0.2% of the initial bet over the long run, compared with S17 and the same other rules. The 1.8% figure above gives a way to read it: 0.2 divided by 1.8 is roughly 0.11, so each time the dealer reaches soft 17 it costs the player about a tenth of a bet on average. That ratio is an implied figure, not a separate measurement. In the <a href="/blog/blackjack-3-to-2-payout.html">3:2 payout post</a> the same 0.2 points sits beside the other common rule changes, far behind the 1.36 points that a 6:5 natural costs.</p>
+
+<div class="callout">
+  <p>H17 does not make a table unplayable. It is a 0.2-point surcharge, about a seventh of what a 6:5 natural costs, and it only appears on about one hand in 55.</p>
+</div>
+
+<h2>The basic strategy changes</h2>
+<p>For a six-deck game with doubling after splits and late surrender, basic strategy under H17 differs from S17 in only a few places, and nearly all of them are against a dealer ace or a weak card where soft 17 matters:</p>
+<ol class="ranked">
+  <li><strong>Hard 11 against an ace:</strong> double under H17, hit under S17.</li>
+  <li><strong>Soft 19 (ace-eight) against a 6:</strong> double under H17, stand under S17.</li>
+  <li><strong>Soft 18 (ace-seven) against a 2:</strong> double under H17, stand under S17. The <a href="/blog/soft-18-ace-seven-strategy.html">ace-seven post</a> covers the rest of that hand.</li>
+  <li><strong>Hard 15 and hard 17 against an ace:</strong> surrender under H17, where surrender is offered. Under S17, hit 15 and stand on 17.</li>
+  <li><strong>Pair of 8s against an ace:</strong> surrender under H17 where it is offered, otherwise split. Under S17, split.</li>
+</ol>
+<p>That is six plays across five lines. Everything else on the chart, from hard 16 against a 10 to splitting aces and eights, is unchanged. An H17 dealer is stronger with an ace up, so marginal hands become surrenders and your 11 gains value as a double. The <a href="/blog/blackjack-late-surrender.html">late surrender post</a> explains why the hands that sit at the edge of surrender are the ones that move.</p>
+
+<h2>What to take away</h2>
+<p>Find the rule on the felt. If the dealer hits soft 17, expect fewer dealer 17s and more 18 to 21, and make the changes above. Playing the wrong chart costs little, because the hands are rare, but not nothing.</p>
+<p>The How to play guide in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> covers the dealer rules for that table, and the game offers hit, stand, double down, split, surrender and insurance, so the plays above can be practised there.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer on a six-deck shoe, and its How to play guide covers card values, every move, dealer rules and payouts. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

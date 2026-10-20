@@ -1,0 +1,77 @@
+<!--
+{
+  "title": "Keeping a 3x3 box empty: room for the awkward piece",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "BigBenBlocks",
+  "description": "A 3x3 square has 49 places on an empty 9x9 grid, and nine well-spread blocks can remove every one. Count which cells cost the most room.",
+  "summary": "Pieces with a 3x3 footprint have 49 positions on an empty 9x9 grid. A single block in the middle removes 9 of them, one in a corner removes 1, and nine blocks spaced three apart remove all 49.",
+  "standfirst": "Big pieces rarely fail because the board is full. They fail because small leftovers are scattered across it. The count of 3x3 spaces shows exactly where a stray block does the most harm."
+}
+-->
+<p>On a 9x9 board the pieces that cause trouble are the ones with a 3x3 footprint: a shape that does not fill a three-by-three area, but needs a free area that size to sit in. A board can be half empty and still have nowhere to put one. This post counts the places such a shape has and which cells destroy the most of them. <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> is played on a 9x9 grid where completing rows, columns or 3x3 boxes clears space, so the counts apply directly. Its listing does not name the pieces, so the shapes below are common block-puzzle shapes in general, not a list of what the game deals.</p>
+
+<h2>Which shapes need a 3x3 footprint</h2>
+<p>A shape's footprint is the smallest rectangle that holds it. Several familiar shapes have a 3x3 footprint even though they use far fewer than nine cells:</p>
+<ul>
+  <li>The 3x3 square: 9 cells, a completely full footprint.</li>
+  <li>The big corner, a row of three and a column of three sharing one end cell: 3 + 3 &minus; 1 = 5 cells.</li>
+  <li>The long T, a bar of three with a stem of two beneath its middle: 3 + 2 = 5 cells.</li>
+  <li>The plus sign, a cross of five cells.</li>
+</ul>
+<p>The four-cell L, S, Z and T have 2x3 footprints, and the three-cell corner and 2x2 square fit in 2x2. Straight bars are one cell thick, so they need a free run of cells, not an area.</p>
+
+<h2>How many places each footprint has</h2>
+<p>A footprint of width <em>w</em> and height <em>h</em> can start in 9 &minus; <em>w</em> + 1 columns and 9 &minus; <em>h</em> + 1 rows of an empty 9x9 grid. Multiply them:</p>
+
+<table class="paytable-compare">
+  <caption>Positions for one orientation of each footprint on an empty 9x9 grid.</caption>
+  <thead>
+    <tr><th>Footprint</th><th>Start columns</th><th>Start rows</th><th>Positions</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2x2</th><td>8</td><td>8</td><td>64</td></tr>
+    <tr><th scope="row">3 wide, 2 high</th><td>7</td><td>8</td><td>56</td></tr>
+    <tr><th scope="row">3x3</th><td>7</td><td>7</td><td>49</td></tr>
+    <tr><th scope="row">1x5 bar, lying flat</th><td>5</td><td>9</td><td>45</td></tr>
+  </tbody>
+</table>
+
+<p>The 3x3 footprint has the fewest positions of the area shapes, 7 x 7 = 49. Only 9 of them line up with the board's own boxes, since a box starts in column 1, 4 or 7 and row 1, 4 or 7. For a 3x3 square that is the useful case, because dropping it on an empty aligned box fills all nine cells and completes the box. The other 40 straddle box borders: 24 line up on one axis only and cross two boxes (3 x 4 x 2), and 16 line up on neither and cross four (4 x 4).</p>
+<p>The listing says a 3x3 box clears when it is complete, so an empty aligned box is worth keeping for a square. A five-cell shape needs only its own five cells free, so the other four cells of its footprint can hold stray blocks. The shape also has four orientations. If the game lets you rotate (the listing says rotate is an aid in Classic and Adventure), the big corner has up to 4 x 49 = 196 placements on an empty board.</p>
+
+<h2>What a single stray block costs</h2>
+<p>A 3x3 footprint starting at row <em>r</em> and column <em>c</em> covers rows <em>r</em> to <em>r</em> + 2. So a block in row 5 is covered by starting rows 3, 4 and 5: three of them. A block in row 1 is covered only by starting row 1: one. Count the same along the columns and multiply. The number of footprint positions a cell sits inside is the product of two numbers, each 1, 2 or 3:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how many of the 49 positions of a 3x3 footprint each kind of cell removes, from 1 for a corner to 9 for any cell in the middle 5x5.">
+    <div class="bar-row hl" title="Middle 5x5 (25 cells): 9"><span class="bar-label">Middle 5x5 (25 cells)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">9</span></span></div>
+    <div class="bar-row" title="One in from one edge (20 cells): 6"><span class="bar-label">One in from one edge (20 cells)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="One in from both edges (4 cells): 4"><span class="bar-label">One in from both edges (4 cells)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4444)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="Edge, middle five (20 cells): 3"><span class="bar-label">Edge, middle five (20 cells)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="Edge, next to a corner (8 cells): 2"><span class="bar-label">Edge, next to a corner (8 cells)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2222)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="Corner (4 cells): 1"><span class="bar-label">Corner (4 cells)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1111)"></span><span class="bar-val">1</span></span></div>
+  </div>
+  <figcaption>How many of the 49 positions of a 3x3 footprint one filled cell removes, by where the cell sits. The 25 cells of the middle 5x5 each remove 9; the four corners remove 1.</figcaption>
+</figure>
+
+<p>The cell counts add up: 25 + 20 + 4 + 20 + 8 + 4 = 81. As a check, 49 positions x 9 cells = 441, and 25 x 9 + 20 x 6 + 4 x 4 + 20 x 3 + 8 x 2 + 4 x 1 = 441 too.</p>
+<p>The practical reading is that 25 of the 81 cells, the middle 5x5, are the costly ones, and a leftover block parked there removes nine places at once. The same block against an edge removes three or fewer, and in a corner just one.</p>
+
+<h2>Nine blocks are enough to stop every 3x3</h2>
+<p>Fill the nine cells where rows 3, 6 and 9 cross columns 3, 6 and 9, and no 3x3 area on the board is free. Each start position spans three consecutive rows and three consecutive columns, and any run of three rows must contain one of rows 3, 6 and 9, and the same for columns. So every footprint contains one of the nine. Nine cells is 9 of 81, about 11% of the board, and the other 72 cells can all be empty. You cannot do it with fewer: the nine positions that start in row 1, 4 or 7 and column 1, 4 or 7 never overlap, so each needs its own block.</p>
+<p>That is why a board can feel blocked while looking open.</p>
+
+<h2>Habits that keep the room</h2>
+<ul>
+  <li><strong>Park small pieces at the edge.</strong> A one-cell or two-cell piece costs the least room in a corner or on an edge, where it removes 1 to 3 positions rather than 6 or 9.</li>
+  <li><strong>Build from one corner.</strong> Filling outwards keeps the free area as one region.</li>
+  <li><strong>Clear to reopen.</strong> A complete box returns a 3x3 area, a complete row a 1x9 strip. Taking the box when you have a choice gives back the shape that is hardest to find.</li>
+</ul>
+
+<p>The untimed Classic mode is the easy place to practise the count, since it has no clock and, per the listing, keeps undo, hints, rotate and bomb available. Time Attack and the Daily Challenge switch those aids off, so the habit has to be quick by then. The same geometry shows up in <a href="/blog/block-puzzle-holes-and-islands.html">holes and islands</a>, and <a href="/blog/nine-by-nine-grid-three-lines.html">the three lines through every cell</a> explains the box counts used here.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

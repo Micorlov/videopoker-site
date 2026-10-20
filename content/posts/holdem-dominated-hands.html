@@ -1,0 +1,66 @@
+<!--
+{
+  "title": "Dominated hands: why ace-nine struggles against ace-king",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "HoldemCoach",
+  "description": "Ace-nine shares an ace with ace-king and wins only about 24% against it, 26% with chops. Against king-queen the same hand is a 58% favourite.",
+  "summary": "Ace-king offsuit beats ace-nine about 72% to 24% with 5% chops, so ace-nine keeps 26%. Against king-queen, with no shared rank, it has 58%. Sharing a rank is what hurts.",
+  "standfirst": "A hand that looks strong can be a long way behind a better hand that shares one of its cards. Counting the boards shows what the shared ace does, and why the weaker kicker barely matters once it is dominated."
+}
+-->
+<p>Ace-nine is an ace, and an ace feels like a strong card. Against a random hand it is fine. Against ace-king it is in trouble, and the reason is not that the nine is weak but that the ace is shared. Poker players call this being dominated: your best card is matched by your opponent's, so it cannot win you the hand, and their second card is bigger than yours.</p>
+
+<h2>What domination costs</h2>
+<p>I dealt random boards for each matchup below (800,000 per line, so the figures are good to about a tenth of a point) with the suits fixed so the hands share none. Equity counts a chop as half a win.</p>
+<p>Ace-king offsuit against ace-nine offsuit comes out at 71.6% to win, 4.6% to chop and 23.8% to lose. Ace-nine therefore holds 23.8% + (4.6% ÷ 2) = 26.1% of the pot, and ace-king 73.9%. That is nearly three to one.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of pre-flop equity: ace-nine against king-queen 58%, king-queen against ace-nine 42%, ace-nine against ace-king 26%, king-queen against ace-king 26%">
+    <div class="bar-row" title="A♠9♦ against K♥Q♣: 58%"><span class="bar-label">A9 v KQ</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">58%</span></span></div>
+    <div class="bar-row" title="K♠Q♦ against A♥9♣: 42%"><span class="bar-label">KQ v A9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7241)"></span><span class="bar-val">42%</span></span></div>
+    <div class="bar-row hl" title="A♥9♣ against A♠K♦: 26%"><span class="bar-label">A9 v AK</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4483)"></span><span class="bar-val">26%</span></span></div>
+    <div class="bar-row hl" title="K♠Q♦ against A♥K♣: 26%"><span class="bar-label">KQ v AK</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4483)"></span><span class="bar-val">26%</span></span></div>
+  </div>
+  <figcaption>Equity before the flop, offsuit hands, chops counted as half. Where the two hands share no rank, ace-nine is the favourite at 58%. Where they share one, the weaker hand drops to 26%, and king-queen does the same against ace-king.</figcaption>
+</figure>
+
+<p>The comparison that shows what is going on is the first pair of bars. Ace-nine against king-queen has no shared rank and is a 58% to 42% favourite, simply because it has the ace. Put the same ace-nine against ace-king and it falls from 58% to 26%, a drop of 32 points. Nothing about ace-nine changed. The opponent's hand did.</p>
+
+<p>King-queen is dominated the same way by ace-king, because the king is shared. It holds 25.8% (about 26%). In <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> the "Which hand is in front?" lesson shows two hands and asks you to choose the one more likely to win, which is the question this table answers.</p>
+
+<h2>Where the 26% comes from</h2>
+<p>With both hands dealt, 48 cards are unseen, and the board takes five of them: C(48,5) = 1,712,304 possible boards. Three kings and three nines remain, plus two aces.</p>
+<ol class="ranked">
+  <li><strong>A king comes, no nine:</strong> ace-king pairs its second card and ace-nine does not. The count is C(45,5) − C(42,5) = 371,091 boards, or 21.7%.</li>
+  <li><strong>A nine comes, no king:</strong> now ace-nine has the pair. By the same count it is also 371,091 boards, 21.7%. The nine is no rarer than the king.</li>
+  <li><strong>An ace comes:</strong> both hands pair aces and the kicker decides. Ace-king's king beats the nine. This happens on 1,712,304 − 1,370,754 = 341,550 boards, 19.9%, and it only goes the other way if a nine also arrives and no king does.</li>
+</ol>
+<p>So the nine is as likely to appear as the king, and yet ace-nine wins just 23.8%. The difference is the ace. Even the cleanest case for ace-nine, a nine with no king and no ace on the board, covers C(43,5) − C(40,5) = 304,590 boards, or 17.8%. When an ace arrives the kicker decides, and when a king arrives with the nine the king pairs ace-king too. Either way the better kicker collects.</p>
+
+<h2>The lower card hardly matters</h2>
+<p>You might expect a closer kicker to help. It does not, much. I ran ace-king offsuit against ace-queen, ace-ten, ace-nine and ace-deuce, all offsuit and sharing no suit with it. The dominated hand held between 26 and 27% every time.</p>
+<p>That is the useful number to remember. Once you share the ace with a hand holding a better kicker, you start at about 26%, and the nine is worth barely more than a deuce. Domination is about the shared rank, not how good the second card is.</p>
+<p>Suit helps by the usual amount, about four points here. Ace-nine suited in hearts against ace-king offsuit with no heart in common came out at 30.4% (2,000,000 boards dealt). That is a better 26%, but still a long way behind, and the <a href="/blog/holdem-suited-vs-offsuit.html">suited or offsuit post</a> shows why the suit alone does not rescue a hand.</p>
+
+<h2>What it means for the call</h2>
+<p>Take the price. A half-pot bet asks you to win 25% of the time and a pot-sized bet asks for 33.3%, as worked out in the <a href="/blog/holdem-pot-odds.html">pot odds post</a>. Against exactly ace-king, ace-nine's 26.1% scrapes past the first and falls well short of the second.</p>
+<p>That is the optimistic reading. The bet in front of you comes from a range of hands, and the 26% is the share before any more betting. If the board then gives you an ace, you are likely to be the one paying: you both hold top pair, the opponent's king outkicks your nine, and the extra bets go in on the wrong side. Players call this reverse implied odds. When ace-nine does win, it often wins a small pot, and when it loses it loses a big one.</p>
+
+<div class="callout">
+  <p>When your hand shares a rank with an opponent who is betting, ask which of you has the better other card. If it is them, you are looking at about 26%, not at the hand you thought you had.</p>
+</div>
+
+<h2>Using it at the table</h2>
+<ol class="ranked">
+  <li><strong>Be careful with ace-small.</strong> The higher the opponent's kicker, the more of the hands that dominate you they can hold. Position changes how often that happens; see <a href="/blog/holdem-why-position-matters.html">why position matters</a>.</li>
+  <li><strong>Check the shared card first.</strong> If you hold A9 and someone raises, the hands that hurt you most are the ones holding an ace with a kicker above a nine.</li>
+  <li><strong>Prefer hands that dominate.</strong> Ace-king sits on the right side of every other ace hand, so it is the one that does the dominating.</li>
+  <li><strong>Compare with a hand that does not share a rank.</strong> The 58% against king-queen shows how much of the damage is domination; for another matchup worked out board by board, see <a href="/blog/holdem-pair-vs-overcards.html">pair against two overcards</a>.</li>
+</ol>
+<p>The hand charts in the app show at a glance which two-card hands to play from each seat, and the "Which hands to play" lesson asks whether your two cards are worth raising with before anyone has bet. Ace-nine is a good one to try both on.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons on one idea at a time, nothing is timed, and practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

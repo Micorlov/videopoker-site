@@ -163,78 +163,78 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Holding two pair: the odds of drawing a full house
 - Suited high cards: when two cards beat three in Jacks or Better
 - Why the fifth coin matters: the royal flush bonus at max bet
 
 ### OmahaPoker
 
-- Paired boards in Omaha: when the nut flush loses to a full house
 - Quartering in Omaha Hi-Lo: how winning half a pot can lose chips
 - Danglers: why a disconnected fourth card weakens an Omaha hand
 
 ### Blackjack21
 
-- Dealer stands on soft 17: what the rule changes for you
 - Pushes in blackjack: what happens when you tie the dealer
 - The dealer's peek: why blackjack is checked before you play
 
 ### BrasslightSlots
 
-- Near misses: why a symbol just off the line counts for nothing
 - Reel strips and stops: how a slot decides where the reels land
 - What a multiplier does to a ways-to-win payout
 
 ### PokerVsDealer
 
-- Three of a kind: exchange one card or two?
 - Why no suit outranks another in poker
 - Five-card draw: where the oldest form of poker came from
 
 ### FivesAndThrees
 
-- Blocking in Fives and Threes: playing to deny a score
 - Drawing from the boneyard: what to do when you cannot play
 - Playing to 61: how pub dominoes borrowed the cribbage board
 
 ### BlackjackCoach
 
-- Splitting nines: why you stand on 18 against a 7
 - Never split tens: why a 20 beats two fresh hands
 - The Illustrious 18: the count-based changes worth learning first
 
 ### HoldemCoach
 
-- Dominated hands: why ace-nine struggles against ace-king
 - Set mining: the odds of flopping a set with a pocket pair
 - Dirty outs: discounting cards that also help your opponent
 
 ### EightBallsPool
 
-- Bank shots: angle in, angle out, and where it fails
 - The physics of the break: momentum through a rack
 - Pool table sizes: 7, 8 and 9-foot tables compared
 
 ### BigBenBlocks
 
-- Keeping a 3x3 box empty: room for the awkward piece
 - Edges first: where to place pieces on a 9x9 grid
 - Undo, hints, rotate and bomb: when a puzzle aid is worth it
 
 ### PinkSlipKings
 
-- Why drag racers do a burnout before every run
 - Turbo or supercharger: two ways to force air into an engine
 - Racing for pink slips: where the name came from
 
 ### ValleyRail
 
-- Single track and passing loops: running trains both ways
 - Coned wheels: how a train steers itself round a curve
 - Tunnel or cutting: how engineers take a line through a hill
 
 ## Published
 
+- 2026-10-20 — Holding two pair in Jacks or Better: what the draw is worth — VideoPoker — `jacks-or-better-holding-two-pair`
+- 2026-10-20 — Paired boards in Omaha: when the nut flush loses to a full house — OmahaPoker — `omaha-paired-boards-nut-flush`
+- 2026-10-20 — Dealer stands on soft 17: what the rule changes for you — Blackjack21 — `dealer-stands-on-soft-17`
+- 2026-10-20 — Near misses: why a symbol just off the line counts for nothing — BrasslightSlots — `slot-near-misses`
+- 2026-10-20 — Three of a kind: exchange one card or two? — PokerVsDealer — `three-of-a-kind-draw-one-or-two`
+- 2026-10-20 — Blocking in Fives and Threes: playing to deny a score — FivesAndThrees — `fives-and-threes-blocking`
+- 2026-10-20 — Splitting nines: why you stand on 18 against a 7 — BlackjackCoach — `splitting-nines-against-a-7`
+- 2026-10-20 — Dominated hands: why ace-nine struggles against ace-king — HoldemCoach — `holdem-dominated-hands`
+- 2026-10-20 — Bank shots: angle in, angle out, and where it fails — EightBallsPool — `pool-bank-shots`
+- 2026-10-20 — Keeping a 3x3 box empty: room for the awkward piece — BigBenBlocks — `block-puzzle-keep-a-3x3-box-empty`
+- 2026-10-20 — Why drag racers do a burnout before every run — PinkSlipKings — `why-drag-racers-do-a-burnout`
+- 2026-10-20 — Single track and passing loops: running trains both ways — ValleyRail — `single-track-and-passing-loops`
 - 2026-10-19 — Four to a royal: when to break a made flush or straight — VideoPoker — `four-to-a-royal-breaking-a-flush-or-straight`
 - 2026-10-19 — Double-suited hands: what two suits add before the flop — OmahaPoker — `omaha-double-suited-hands`
 - 2026-10-19 — Why tens make up almost a third of a blackjack deck — Blackjack21 — `blackjack-why-tens-are-a-third-of-the-deck`

@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Three of a kind: exchange one card or two?",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "app": "PokerVsDealer",
+  "description": "Three of a kind drawing two cards makes a full house 66 in 1,081 and quads 46 in 1,081. Keeping a kicker and drawing one gives 3 in 47 and 1 in 47.",
+  "summary": "Trips with two cards to come improve 10.36% of the time (6.11% full house, 4.26% quads). Keep a kicker and draw one and it is 8.51% (6.38% full house, 2.13% quads). Drawing two wins on quads and costs a card.",
+  "standfirst": "With three of a kind you may throw away both odd cards or keep one as a kicker. The two choices have different odds of a full house and of four of a kind, and a short count shows exactly how they differ."
+}
+-->
+<p>You are dealt Q-Q-Q-7-3. The three queens are already a strong hand, so the only question is what to do with the 7 and the 3. You can exchange both, or keep the 7 as a kicker and exchange only the 3. Neither choice can make the hand worse, since the queens stay. The difference is in how often each one improves it.</p>
+
+<h2>Drawing two: 1,081 possible pairs of cards</h2>
+<p>You can see five cards, so <strong>47</strong> are unseen. Two new cards come from those 47, order ignored, which gives 47 × 46 ÷ 2 = <strong>1,081</strong> equally likely draws. Each result below is a count of those draws divided by 1,081.</p>
+<ul>
+  <li><strong>Four of a kind.</strong> One queen is left among the 47. Draw it, and the second card can be any of the other 46: <strong>46</strong> draws. 46 ÷ 1,081 = 4.26%.</li>
+  <li><strong>Full house.</strong> The two new cards must be a pair of some other rank. Ten ranks have all four cards unseen, so 6 pairs each: 10 × 6 = 60. The 7 and the 3 you threw away have three cards left each, so 3 pairs each: 2 × 3 = 6. Total 60 + 6 = <strong>66</strong> draws. 66 ÷ 1,081 = 6.11%.</li>
+  <li><strong>Still three of a kind.</strong> The rest: 1,081 − 46 − 66 = 969 draws, or 89.64%.</li>
+</ul>
+<p>Any improvement is 112 draws out of 1,081, which is <strong>10.36%</strong>, about 1 in 9.65. I also listed every one of the 1,081 draws by computer and got the same split: 66 full houses, 46 four of a kind and 969 unchanged.</p>
+
+<h2>Drawing one: keep the 7</h2>
+<p>Now only one card comes, from the same 47 unseen. Nothing needs counting in pairs, because a single card either helps or it does not.</p>
+<ul>
+  <li><strong>Four of a kind.</strong> The one remaining queen: 1 out of 47, 2.13%.</li>
+  <li><strong>Full house.</strong> A card that matches the kicker makes queens full of sevens. Three sevens are unseen: 3 out of 47, 6.38%.</li>
+  <li><strong>Still three of a kind.</strong> The other 43 cards: 91.49%.</li>
+</ul>
+<p>Any improvement is 4 outs in 47, or <strong>8.51%</strong>, about 1 in 11.75. These are the same four outs used for <a href="/blog/two-pair-on-the-draw-full-house-odds.html">two pair drawing one card</a>, though there they all make a full house.</p>
+
+<h2>Putting them on the same scale</h2>
+<p>The two draws have different denominators, which hides the comparison. Convert the one-card figures to 1,081ths: 47 × 23 = 1,081, so 3 ÷ 47 is 69 ÷ 1,081 and 1 ÷ 47 is 23 ÷ 1,081.</p>
+
+<table class="paytable-compare">
+  <caption>Three of a kind, exchanging two cards against keeping a kicker and exchanging one. Every figure is out of 1,081 equal slices.</caption>
+  <thead>
+    <tr><th>Result</th><th>Draw two</th><th>Keep kicker, draw one</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Full house</th><td>66 (6.11%)</td><td>69 (6.38%)</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>46 (4.26%)</td><td>23 (2.13%)</td></tr>
+    <tr><th scope="row">Any improvement</th><td>112 (10.36%)</td><td>92 (8.51%)</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of a full house or four of a kind from three of a kind, drawing one card or two">
+    <div class="bar-row" title="Full house, keep a kicker and draw one: 3 of 47, 6.38%"><span class="bar-label">Full house, draw 1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">6.38%</span></span></div>
+    <div class="bar-row" title="Full house, draw two: 66 of 1,081, 6.11%"><span class="bar-label">Full house, draw 2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9565)"></span><span class="bar-val">6.11%</span></span></div>
+    <div class="bar-row hl" title="Four of a kind, draw two: 46 of 1,081, 4.26%"><span class="bar-label">Quads, draw 2</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">4.26%</span></span></div>
+    <div class="bar-row" title="Four of a kind, keep a kicker and draw one: 1 of 47, 2.13%"><span class="bar-label">Quads, draw 1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">2.13%</span></span></div>
+  </div>
+  <figcaption>Chance of each improvement from three of a kind: 3 of 47 and 1 of 47 when one card is drawn, 66 of 1,081 and 46 of 1,081 when two are drawn. The two-card draw is assumed to discard two cards of different ranks.</figcaption>
+</figure>
+
+<p>The full house is almost a tie: the one-card draw is slightly ahead, 69 slices to 66, because a single card aimed at one rank does nearly as well as two cards needing to pair up. The real gap is in four of a kind. Two cards give two chances to find the last queen, so quads arrive exactly twice as often (46 ÷ 23). That is why drawing two improves 1.85 points more often overall (10.36% − 8.51%).</p>
+
+<div class="callout">
+  <p>Trips, draw two: full house 66/1,081, quads 46/1,081, any improvement 10.36%. Keep a kicker, draw one: full house 3/47, quads 1/47, any improvement 8.51%.</p>
+</div>
+
+<h2>What the extra card costs</h2>
+<p>Drawing two does not win on every count, so it comes down to price. Suppose each exchanged card costs <em>c</em>, and treat a full house and four of a kind as worth the same gain <em>G</em> over keeping trips. That is generous to the one-card draw, since quads is worth more. Drawing two adds 20 improving draws in 1,081, which is 1.85%, so the second card pays for itself on average only when 0.0185 × <em>G</em> is at least <em>c</em>, that is when <em>G</em> is about 54 times <em>c</em> or more. If the second card is cheap compared with the improvement it can buy, draw two. If it is not, the kicker stays.</p>
+<p>The kicker has one other use, and it is not in the odds. When hands are compared and both sides hold the same category, <a href="/blog/five-card-poker-tie-breaks.html">the tie-break rules</a> look at ranks, and three of a kind is decided first by the rank of the three. Two players holding trips cannot hold the same three ranks in one deck, so the kicker will only matter in rare cases. A high kicker is a small bonus, not a reason to give up 1.85 points of improvement. The same reasoning is behind <a href="/blog/why-a-kicker-never-helps.html">why a kicker rarely helps</a> in video poker, and the pair version of the count is in <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">the odds of improving a pair</a>.</p>
+
+<h2>Checklist</h2>
+<ol class="ranked">
+  <li><strong>Count unseen cards.</strong> Five in your hand leaves 47.</li>
+  <li><strong>Draw one:</strong> 3 outs for a full house (the kicker's rank), 1 out for quads.</li>
+  <li><strong>Draw two:</strong> 66 full-house draws and 46 quad draws, out of 1,081.</li>
+  <li><strong>Compare the price</strong> of the second card with the 1.85-point gain.</li>
+</ol>
+
+<p>These are plain five-card figures. The store description of <a href="/PokerVsDealer/">Poker vs Dealer</a> says you can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It does not say how many cards you may forge in a hand or what each costs, so check the in-game rules and payouts screen before applying the price comparison above.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
