@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#07170F"/>
+  <g stroke="#90A894" stroke-width="2">
+    <rect x="60" y="70" width="120" height="150" rx="8"/>
+    <rect x="80" y="110" width="120" height="150" rx="8" fill="#07170F"/>
+    <rect x="100" y="150" width="120" height="150" rx="8" fill="#0E2A1B"/>
+  </g>
+  <g fill="#227140">
+    <rect x="114" y="172" width="80" height="8" rx="3"/>
+    <rect x="114" y="190" width="60" height="8" rx="3"/>
+    <rect x="128" y="208" width="72" height="8" rx="3"/>
+    <rect x="128" y="226" width="48" height="8" rx="3"/>
+    <rect x="114" y="244" width="84" height="8" rx="3"/>
+    <rect x="114" y="262" width="56" height="8" rx="3"/>
+  </g>
+  <path d="M250 200h60" stroke="#329555" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/>
+  <path d="M306 190l12 10-12 10" stroke="#329555" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#1B3A28" stroke-width="3">
+    <path d="M380 90L460 140M460 140L540 100M460 140L470 230M380 90L370 200M370 200L470 230M470 230L560 260M540 100L560 180M560 180L560 260M370 200L400 290"/>
+  </g>
+  <g stroke="#E9BE4B" stroke-width="4" stroke-linecap="round">
+    <path d="M380 90L460 140L470 230L560 260"/>
+  </g>
+  <g fill="#329555">
+    <circle cx="540" cy="100" r="10"/>
+    <circle cx="370" cy="200" r="10"/>
+    <circle cx="560" cy="180" r="10"/>
+    <circle cx="400" cy="290" r="10"/>
+  </g>
+  <g fill="#07170F" stroke="#E9BE4B" stroke-width="4">
+    <circle cx="380" cy="90" r="13"/>
+    <circle cx="460" cy="140" r="16"/>
+    <circle cx="470" cy="230" r="13"/>
+    <circle cx="560" cy="260" r="13"/>
+  </g>
+</svg>
