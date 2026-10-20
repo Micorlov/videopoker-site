@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Graphify — a map of your code for AI coding tools",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "description": "Graphify turns a codebase into a knowledge graph on your computer, so Claude Code, Cursor, Codex or Gemini CLI can ask the map instead of reading every file.",
+  "summary": "A free tool that maps your code once, so your AI coding tool asks the map instead of opening file after file.",
+  "standfirst": "Every new session, a coding agent reads your files again to learn how the code fits together. Graphify draws that map once and lets the agent ask it."
+}
+-->
+<p><a class="text-link" href="https://github.com/Graphify-Labs/graphify">See Graphify on GitHub</a></p>
+<p>Graphify reads a project and builds a knowledge graph of it: every class, function and file, and how they connect through imports, calls and inheritance. Your AI coding tool can then ask the graph a question and get back a small, focused answer, instead of opening file after file.</p>
+<p>It is open source under the Apache 2.0 license and is written in Python. It works with Claude Code, Cursor, Codex, Gemini CLI, GitHub Copilot and more than 20 other assistants. On 20 October 2026 the repository had about 129,000 stars on GitHub, and the latest version was 0.9.92 from 16 October 2026.</p>
+
+<figure class="chart">
+  <img src="/img/skills/graphify.svg" alt="Code files on the left, an arrow, and a graph of connected dots on the right with one path lit up." width="640" height="360">
+  <figcaption>Map the code once. Ask the map.</figcaption>
+</figure>
+
+<h2>What it builds</h2>
+<p>Run it once on a folder and it writes three files into a folder called graphify-out:</p>
+<ul>
+  <li>graph.html is a picture of the graph you can open in any browser. You can click, filter and search it.</li>
+  <li>GRAPH_REPORT.md is a short report: the most connected parts of the code, the groups the code falls into, and questions worth asking.</li>
+  <li>graph.json is the graph itself. This is the file the agent asks.</li>
+</ul>
+<p>Every link in the graph is marked. EXTRACTED means it is written in the code, such as an import. INFERRED means Graphify worked it out. So you can tell what was read from what was guessed.</p>
+
+<h2>What stays on your computer</h2>
+<p>Code is read with tree-sitter, a parser that runs on your computer. There is no AI model in this step, nothing is sent anywhere, and no API key is needed. It knows about 40 programming languages.</p>
+<p>Docs, PDFs and images are different. To add those to the graph, Graphify sends them to the AI model your assistant uses, and that costs tokens. If you only want the code, the update command shown below reads code files only.</p>
+<p>The same team also sells Graphify Cloud, a hosted version with a free trial. The open-source tool on GitHub does not need it.</p>
+
+<h2>How the agent uses it</h2>
+<p>You can ask the graph yourself from the terminal:</p>
+<pre><code>graphify query "how is a signature checked?"
+graphify path "UserService" "DatabasePool"
+graphify explain "RateLimiter"</code></pre>
+<p>The first command returns the part of the graph that matches a question, capped at about 2,000 tokens by default. The second shows how two things connect. The third lists everything linked to one thing, with the file and line for each link.</p>
+<p>To make Claude Code use the graph on its own, run this inside your project:</p>
+<pre><code>graphify claude install</code></pre>
+<p>It adds a section to CLAUDE.md and a hook in .claude/settings.json. Before Claude Code searches or opens source files, the hook reminds it to ask the graph first. Cursor, Codex and other tools get the same advice through their own rule files.</p>
+
+<h2>Keeping the map up to date</h2>
+<pre><code>graphify update .
+graphify hook install
+graphify watch .</code></pre>
+<p>The first command reads the code again and changes only what changed. It uses no AI model. The second adds git hooks that rebuild the graph after every commit, checkout and merge. After a git pull, run the update command yourself. The third watches a folder and rebuilds while you work.</p>
+
+<h2>About the token numbers</h2>
+<p>You will see claims like 71.5 times or 79 times fewer tokens. Here is where they come from.</p>
+<p>71.5 times is the project’s own example. On a mix of 52 files, three small GPT code projects, five papers and four images, one question to the graph used 71.5 times fewer tokens than reading all the files. The same page shows 5.4 times on a project of 4 files, and about 1 time on 6 files. The project says this plainly: the savings grow with the size of the project.</p>
+<p>79 times comes from one user who ran it on a large codebase of about 496,000 tokens. Depending on the question, the result went from about 48 to about 714 times. It is a user’s report, not a test the project ran.</p>
+<p>Both numbers compare a graph question with reading every file, and both leave out the cost of building the graph. The project’s website also quotes 71.5 times “per session” from one user’s setup with Obsidian. Obsidian is only an extra place to export the graph as notes. It is not what makes the savings.</p>
+<p>A test run on itsdangerous, a small Python library, built the code-only graph in about one second, with no API key: 244 points and 567 links. The built-in benchmark said 5.7 times fewer tokens per question. On a small project that is the honest number. On a big one it can be much more.</p>
+
+<h2>How to install it</h2>
+<p>You need Python 3.10 or newer and uv. The package name on PyPI ends in two y letters. Other packages with similar names are not from this project.</p>
+<pre><code>uv tool install graphifyy
+graphify install</code></pre>
+<p>The second command adds the Graphify skill to Claude Code. For another tool, pick it by name, for example graphify install --platform codex or graphify cursor install. Then type this in your assistant:</p>
+<pre><code>/graphify .</code></pre>
+<p>In Codex the command starts with a dollar sign instead of a slash.</p>
+<p><a class="text-link" href="https://github.com/Graphify-Labs/graphify">See Graphify on GitHub</a></p>
