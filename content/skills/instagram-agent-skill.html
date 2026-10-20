@@ -1,0 +1,59 @@
+<!--
+{
+  "title": "instagram-agent-skill — 13 Claude skills for Instagram",
+  "date": "2026-10-20",
+  "modified": "2026-10-20",
+  "description": "instagram-agent-skill is a free set of 13 Claude skills that write Reels, captions, carousels, stories and replies for Instagram, then check the text.",
+  "summary": "Thirteen free Claude skills that plan, write and check Instagram posts. They write the text, and you post it yourself.",
+  "standfirst": "One GitHub repository gives Claude thirteen Instagram jobs, from the Reel script to the reply under your post. It writes everything and posts nothing."
+}
+-->
+<p><a class="text-link" href="https://github.com/Jakeschincariol/instagram-agent-skill">See instagram-agent-skill on GitHub</a></p>
+<p>instagram-agent-skill is a set of thirteen skills for Claude that do the writing work of an Instagram account. You give it an idea, and it writes the Reel script, the caption, the carousel slides or the replies. Then it checks the text before you see it.</p>
+<p>It is free and uses the MIT license. It needs no account, no API key and no connection to Instagram. On 20 October 2026 the repository had 2,031 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/instagram-agent.svg" alt="A phone with a Reel frame, a list of checked lines next to it, and a score bar." width="640" height="360">
+  <figcaption>Write the post. Check it. Then post it yourself.</figcaption>
+</figure>
+
+<h2>The thirteen skills</h2>
+<p>Each skill is a command you type in Claude Code:</p>
+<ul>
+  <li><code>/ig-reel</code> turns one idea into a Reel: three hooks from 26 hook formulas, each with a score, then the script, the text on screen and a timed plan.</li>
+  <li><code>/ig-viral</code> looks at Reels in your niche and ranks them by how far each one beat its own account’s usual views.</li>
+  <li><code>/ig-caption</code> writes the caption and shows the first 125 characters, which is what the feed shows before “more”.</li>
+  <li><code>/ig-carousel</code> writes swipe posts: the cover, the text for each slide, and 1080×1350 images.</li>
+  <li><code>/ig-story</code> plans the daily stories and which sticker to use for each one.</li>
+  <li><code>/ig-profile</code> scores your profile out of 100 and rewrites the parts that lost points.</li>
+  <li><code>/ig-plan</code> plans the week: what to post, in which format and when.</li>
+  <li><code>/ig-human</code> cleans text so it sounds less like AI. More on this one below.</li>
+  <li><code>/ig-comment</code> writes comments for other people’s posts.</li>
+  <li><code>/ig-reply</code> sorts the comments under your own post and writes the replies.</li>
+  <li><code>/ig-dm</code> writes direct messages: the first message, a collaboration pitch and two follow-ups.</li>
+  <li><code>/ig-repurpose</code> turns one video, podcast or newsletter into a week of Reels and carousels.</li>
+  <li><code>/ig-audit</code> looks back at what you already posted and ranks it.</li>
+</ul>
+
+<h2>The humanizer</h2>
+<p><code>/ig-human</code> runs two small Python scripts on your computer. The first one removes invisible characters that often come with AI text, such as zero-width spaces and soft hyphens. It changes long dashes and curly quotes to plain ones, and it swaps 154 stock phrases, such as “stop scrolling” or “follow for more”, for plain words or deletes them.</p>
+<p>The second script gives the text a score out of 100 from five checks: how much the sentence length varies, how many concrete details there are, how many stock phrases are left, typing marks like long dashes, and sentence patterns that sound written by a machine. In the repository’s own example, a bad caption scores 32.5 and is flagged. After cleaning it scores 79.7 and passes.</p>
+<p>These checks are simple rules that run on your computer. They are not an AI detector service, and the repository says clearly that nothing can promise text will never be flagged.</p>
+
+<h2>What it does not do</h2>
+<p>It does not post to Instagram, and it does not log in as you. Every skill ends with text you can copy, and you post it yourself. The repository explains why: tools that post, comment or send messages automatically break Instagram’s terms and can get an account blocked.</p>
+<p>The README is also honest about the hook score. In its own test it was good at catching weak hooks, but it could not tell which of two good hooks would do better.</p>
+
+<h2>How to install it</h2>
+<p>The simplest way is to paste the repository link into Claude Code and ask it to install the skill:</p>
+<pre><code>https://github.com/Jakeschincariol/instagram-agent-skill
+
+Install this skill, then confirm /ig-reel works.</code></pre>
+<p>Or do it yourself in the terminal:</p>
+<pre><code>git clone https://github.com/Jakeschincariol/instagram-agent-skill.git
+cp -r instagram-agent-skill/skills/ig-* ~/.claude/skills/</code></pre>
+<p>Or install it as a Claude Code plugin:</p>
+<pre><code>/plugin marketplace add Jakeschincariol/instagram-agent-skill
+/plugin install instagram-agent</code></pre>
+<p>Every skill reads one file that describes how you talk. Before you start, fill in <code>templates/voice.md</code> and save it as <code>~/.claude/instagram/voice.md</code>.</p>
+<p><a class="text-link" href="https://github.com/Jakeschincariol/instagram-agent-skill">See instagram-agent-skill on GitHub</a></p>
