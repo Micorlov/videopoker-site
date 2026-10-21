@@ -1,0 +1,87 @@
+<!--
+{
+  "title": "Suited high cards: when two beat three in Jacks or Better",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "VideoPoker",
+  "description": "On 9/6 Jacks or Better, holding suited Q-J is worth 0.610 coins per coin bet. Adding an offsuit king to hold K-Q-J is worth 0.515. Here is the count.",
+  "summary": "In 9/6 Jacks or Better, two suited high cards (0.610) beat three unsuited ones (0.515), because the flush and royal outs outweigh a slightly better pair draw.",
+  "standfirst": "More cards held usually means a better hand. Here it does not: discarding a king from K-Q-J and keeping the suited Q-J raises the expected return from 0.515 to 0.610 coins per coin bet."
+}
+-->
+<p>You are dealt K&#9829; Q&#9824; J&#9824; 7&#9827; 3&#9830;. Three high cards in a row look like the obvious keep. The better play is to throw the king away and hold only the queen and jack of spades. This post counts every possible draw for both holds under the 9/6 Jacks or Better paytable, so you can see where the difference comes from and where it stops applying.</p>
+
+<p>The paytable, per coin bet: royal flush 800, straight flush 50, four of a kind 25, full house 9, flush 6, straight 4, three of a kind 3, two pair 2, jacks or better 1. Expected value (EV) means coins returned per coin bet. You have seen five cards, so 47 are unseen.</p>
+
+<h2>The two holds, counted</h2>
+<p>Hold K-Q-J and you draw two cards: 47 &times; 46 / 2 = 1,081 possible draws. Hold Q&#9824; J&#9824; and you draw three: 47 &times; 46 &times; 45 / 6 = 16,215 possible draws. Add up what each draw pays and divide by the number of draws:</p>
+<ul>
+  <li>Suited Q-J: 9,891 coins over 16,215 draws, EV = <strong>0.610</strong></li>
+  <li>Offsuit K-Q-J: 557 coins over 1,081 draws, EV = <strong>0.515</strong></li>
+</ul>
+<p>The gap is 0.095 coins per coin bet, which is about 18% more for the two-card hold. Other holds from the same hand are worse still. Keeping K&#9829; Q&#9824; alone is worth 0.479, the king alone 0.450.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins per coin bet for four holds from K-Q-J-7-3 on 9/6 Jacks or Better: suited Q-J 0.610, K-Q-J 0.515, K-Q 0.479, K alone 0.450">
+    <div class="bar-row hl" title="Suited Q-J: 0.610"><span class="bar-label">Suited Q-J</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">0.610</span></span></div>
+    <div class="bar-row" title="K-Q-J offsuit: 0.515"><span class="bar-label">K-Q-J, 3 cards</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8447)"></span><span class="bar-val">0.515</span></span></div>
+    <div class="bar-row" title="K-Q offsuit: 0.479"><span class="bar-label">K-Q, unsuited</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7861)"></span><span class="bar-val">0.479</span></span></div>
+    <div class="bar-row" title="King alone: 0.450"><span class="bar-label">King alone</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7373)"></span><span class="bar-val">0.450</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet for four holds from K&#9829; Q&#9824; J&#9824; 7&#9827; 3&#9830; on 9/6 Jacks or Better. Holding the suited Q-J beats holding K-Q-J.</figcaption>
+</figure>
+
+<h2>Where the 0.095 comes from</h2>
+<p>Here is every outcome of the two draws, by hand:</p>
+
+<table class="paytable-compare">
+  <caption>Number of draws that finish as each hand. Suited Q-J draws three cards (16,215 draws); K-Q-J draws two (1,081 draws).</caption>
+  <thead>
+    <tr><th>Final hand</th><th>Pays</th><th>Suited Q-J</th><th>K-Q-J</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>800</td><td class="good">1</td><td>0</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td class="good">2</td><td>0</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>2</td><td>0</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>18</td><td>0</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td class="good">162</td><td>0</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>157</td><td>32</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>281</td><td>9</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>711</td><td>27</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>4,914</td><td>348</td></tr>
+    <tr><th scope="row">Nothing</th><td>0</td><td>9,967</td><td>665</td></tr>
+  </tbody>
+</table>
+
+<p>Look at the last row first. The suited hold finishes with nothing on 9,967 of 16,215 draws, or 61.5%. K-Q-J finishes with nothing on 665 of 1,081, also 61.5%. The two holds miss equally often. They differ in what the hits are worth.</p>
+
+<p>The pair side slightly favours the three-card hold. K-Q-J finishes as a high pair on 348 of 1,081 draws (32.2%), against 4,914 of 16,215 (30.3%) for Q-J. That is the genuine advantage of holding a third high card: nine live cards (three kings, three queens, three jacks left in the deck, since the K, Q and J you hold are not among them) can pair you, against six for the two-card hold.</p>
+
+<p>The flush side is where the suited hold takes over. Eleven spades remain, and any three of them give you a flush or better: 11 &times; 10 &times; 9 / 6 = 165 draws. One of those is the royal flush (A, K and 10 of spades), two are straight flushes (K-10-9 and 10-9-8), and the other 162 are plain flushes. They return</p>
+<p>1 &times; 800 + 2 &times; 50 + 162 &times; 6 = 800 + 100 + 972 = <strong>1,872 coins</strong></p>
+<p>which is 18.9% of the 9,891 coins the suited hold returns, from 165 draws out of 16,215 (1.0%). The royal alone is 800 of them, 8.1% of the hold's total return, from one draw in 16,215. K-Q-J as dealt has no flush draw at all, because the three cards are three different suits.</p>
+
+
+<h2>What this does to the ordering</h2>
+<p>The simplified list in <a href="/blog/jacks-or-better-strategy.html">the Jacks or Better strategy post</a> puts "two suited high cards" above "two unsuited high cards" but has no line for three unsuited high cards. For these hands the counts place them: suited Q-J (0.610) sits above unsuited K-Q-J (0.515), which sits above the best unsuited pair of the three, Q-J (0.495). Three more computed examples, each with a 7 and a 3 as the other two cards:</p>
+<ul>
+  <li>Suited K-Q (0.592) or suited K-J (0.592) beats the three cards K-Q-J when the third is offsuit (0.515).</li>
+  <li>Suited A-K (0.577) is the best hold from A&#9824; K&#9824; Q&#9829; 7&#9827; 3&#9830;; the best unsuited alternative, K-Q, is 0.483.</li>
+  <li>Suited Q-J (0.610) is the highest of these, since lower cards leave more straights and straight flushes to hit.</li>
+</ul>
+
+<h2>Where it stops</h2>
+<p>Three cards in the same suit are a different case. K-Q-J of one suit is three to a royal flush, and the strategy list puts that above both of these holds. It also matters whether you are one card from a four-card hand. With A&#9824; K&#9824; Q&#9829; J&#9830; 3&#9827; the best hold is all four high cards, A-K-Q-J, worth 28 / 47 = 0.596 (12 pairing cards plus four tens that make a straight, 12 &times; 1 + 4 &times; 4 = 28 coins over 47 draws), which beats the suited A-K at 0.568. In that hand four unsuited high cards beat two suited ones. Three do not.</p>
+<p>All of this is for 9/6 Jacks or Better. A paytable with a different flush or royal row changes the answer, so check those rows before you rely on any ordering. The <a href="/blog/royal-flush-share-of-the-return.html">royal flush post</a> shows how much of a machine's return sits in one row, and the <a href="/blog/four-to-a-royal-breaking-a-flush-or-straight.html">four to a royal post</a> covers the larger holds that sit above these.</p>
+
+<div class="callout">
+  <p>In the app, turn on strategy hints and deal until you see two suited high cards next to a third high card in another suit. Compare the hold the hint suggests with the counts above, and you will know what is at stake in that choice.</p>
+</div>
+
+<h2>A rule to carry away</h2>
+<p>Two suited high cards beat three unsuited ones, because the flush, straight flush and royal outs are worth more than a third card that pairs. In the example, both holds miss 61.5% of the time, and the suited pair returns 0.610 against 0.515. Keep the suited pair, discard the odd-suit king, and keep four unsuited high cards only when you really hold four.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays Jacks or Better offline, shows a full paytable on screen for each variant, and has strategy hints you can turn on to see which cards to hold while you learn. Chips are free and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

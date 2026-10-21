@@ -1,0 +1,88 @@
+<!--
+{
+  "title": "Quartering in Omaha Hi-Lo: how half a pot can lose chips",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "OmahaPoker",
+  "description": "Quartering in Omaha Hi-Lo means getting a quarter of the pot. With 2 or 3 players putting in equal amounts, that is less than you put in, so you lose chips.",
+  "summary": "Tie for the low half and lose the high half, and you collect a quarter of the pot. Whether that is a loss depends only on how many players put in equal stakes: a loss with 2 or 3, break-even with 4.",
+  "standfirst": "Winning part of a pot feels like winning. In Omaha Hi-Lo it can leave you behind, and the arithmetic is short enough to do at the table."
+}
+-->
+<p>In Omaha Hi-Lo the pot is split into a high half and a low half. Most of the time each half has one winner. Sometimes two players tie for the low and a third player holds the best high, and the low half is cut in two. Each of the tied players then receives one quarter of the whole pot. That outcome is called being <strong>quartered</strong>, and with a small number of players it is a losing result even though you "won" something.</p>
+
+<p>If the split itself is unfamiliar, <a href="/blog/omaha-hi-lo-eight-or-better.html">how a low hand is made in Omaha Hi-Lo</a> covers which cards count and how lows are ranked. This post assumes you know that.</p>
+
+<h2>How a quarter arises</h2>
+<p>Three things have to happen together:</p>
+<ol class="ranked">
+  <li><strong>The pot is split in half.</strong> A qualifying low exists, so the high half and the low half are separate.</li>
+  <li><strong>Two players hold exactly the same best low.</strong> Suits do not matter in a low, so A-2 in two different suits on the same board makes the same low for both players.</li>
+  <li><strong>Someone else wins the high half.</strong> If one of the two tied players also holds the best high, that player takes the high half plus a quarter and the other is the one who is quartered.</li>
+</ol>
+<p>Take the pot as P. The high half is P/2. The low half is P/2 shared between two players, so each tied player receives P/4.</p>
+
+<h2>The arithmetic with equal stakes</h2>
+<p>Suppose every player puts the same amount into the pot, 100 chips each, and nobody folds before the showdown. With n players the pot is 100n, and a quartered player receives 100n / 4 = 25n. Their net result is what they get back minus the 100 they put in.</p>
+
+<p><strong>Two players.</strong> The pot is 200. Player A wins the high and ties the low with B. A takes the high half, 100, plus a quarter of the pot, 50: 150 in total. B receives 50. B put in 100, so B is down 50.</p>
+
+<p><strong>Three players.</strong> The pot is 300. Player C has the best high and takes 150. Players A and B tie for the low, and the low half of 150 is split into 75 each. A put in 100 and received 75, so A is down 25. The same happens if C is not a separate player and A holds both the best high and the tied low: A gets 150 + 75 = 225, B gets 75, and B is still down 25.</p>
+
+<p><strong>Four players.</strong> The pot is 400 and a quarter is 100. The quartered player gets back exactly what they put in: break-even.</p>
+
+<p><strong>Five players.</strong> The pot is 500 and a quarter is 125. Now the quarter is a profit of 25.</p>
+
+<table class="paytable-compare">
+  <caption>Each player puts in 100. A quartered player receives one quarter of the pot.</caption>
+  <thead>
+    <tr><th>Players</th><th>Pot</th><th>Quarter</th><th>Net for the quartered player</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td>200</td><td>50</td><td>-50</td></tr>
+    <tr><th scope="row">3</th><td>300</td><td>75</td><td>-25</td></tr>
+    <tr><th scope="row">4</th><td>400</td><td>100</td><td>0</td></tr>
+    <tr><th scope="row">5</th><td>500</td><td>125</td><td class="good">+25</td></tr>
+  </tbody>
+</table>
+
+<p>The rule behind the table is short. A quarter of the pot is 25% of it, and your own stake is 100 / (100n) of it, which is 1/n. So a quarter beats your stake only when 1/4 is greater than 1/n, that is when n is greater than 4. At exactly four equal stakes the two are the same.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of chips returned to a quartered player who put in 100: 2 players 50, 3 players 75, 4 players 100, 5 players 125">
+    <div class="bar-row hl" title="2 players: 50 back, net -50"><span class="bar-label">2 players</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">50 (-50)</span></span></div>
+    <div class="bar-row hl" title="3 players: 75 back, net -25"><span class="bar-label">3 players</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">75 (-25)</span></span></div>
+    <div class="bar-row" title="4 players: 100 back, net 0"><span class="bar-label">4 players</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">100 (0)</span></span></div>
+    <div class="bar-row" title="5 players: 125 back, net +25"><span class="bar-label">5 players</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">125 (+25)</span></span></div>
+  </div>
+  <figcaption>Chips returned to a quartered player who put in 100, with the net result in brackets. With 2 or 3 equal stakes the quarter is less than the stake (the highlighted bars); at 4 it is level.</figcaption>
+</figure>
+
+<h2>Why it feels worse than it is</h2>
+<p>A quartered hand made a qualifying low and reached showdown, yet it still loses in the short-handed cases, because the pot holds only what was put in and the high half went elsewhere.</p>
+<p>Compare it with the alternatives on a three-player pot of 300, each having put in 100:</p>
+<ul>
+  <li>Win the high half only: you receive 150, net +50.</li>
+  <li>Win the low half alone: you receive 150, net +50.</li>
+  <li>Scoop both halves: you receive 300, net +200.</li>
+  <li>Quartered: you receive 75, net -25.</li>
+</ul>
+<p>The gap between a scoop and a quarter is 225 chips. That is why hands that can win both halves are prized, and why a low that others may share is treated with suspicion.</p>
+
+<h2>What follows for how you play</h2>
+<p>Because lows tie on rank alone, the hands most often quartered are the ones with the same obvious low cards as everybody else. A-2 is the best two-card low start, but a second A-2 at the table splits the low half with it.</p>
+<p>A few practical points follow from the sums:</p>
+<ol class="ranked">
+  <li><strong>Count the players still in.</strong> If it is you and two others, a nut low that can tie is worth much less than the same hand with four opponents. A quarter is only a good result when more than four equal stakes are in.</li>
+  <li><strong>Prefer the nut low with a high draw.</strong> A hand that can scoop is the way out of quartering, because holding the best high turns a tied low into a half plus a quarter.</li>
+  <li><strong>Notice what the tied low is worth to you.</strong> Calling a large bet on a low that you expect to share means risking the full call to win a quarter of what is in the middle.</li>
+</ol>
+<p>The calculation assumes equal stakes from every player. When stakes differ, the same quarter rule applies to each side pot separately, and odd chips left over are handled by each game's own rules.</p>
+
+<h2>Where the app fits</h2>
+<p>The listing for <a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> says it includes Omaha Hi-Lo (Omaha 8 or better) tables, in-app Help &amp; Rules and a full hand history in which you can replay any pot street by street. The listing does not say how the app divides tied low halves or odd chips, so this post is general game maths, not a description of the app's own rules. Replaying a split pot from the hand history and checking the quarter against the pot size is a quick way to see the numbers in this post for yourself.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> is played against computer opponents, offline, with free play-money points. There is no real money in it, the points have no cash value, and the listing says there are no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

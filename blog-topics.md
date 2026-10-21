@@ -163,66 +163,66 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Suited high cards: when two cards beat three in Jacks or Better
 - Why the fifth coin matters: the royal flush bonus at max bet
 
 ### OmahaPoker
 
-- Quartering in Omaha Hi-Lo: how winning half a pot can lose chips
 - Danglers: why a disconnected fourth card weakens an Omaha hand
 
 ### Blackjack21
 
-- Pushes in blackjack: what happens when you tie the dealer
 - The dealer's peek: why blackjack is checked before you play
 
 ### BrasslightSlots
 
-- Reel strips and stops: how a slot decides where the reels land
 - What a multiplier does to a ways-to-win payout
 
 ### PokerVsDealer
 
-- Why no suit outranks another in poker
 - Five-card draw: where the oldest form of poker came from
 
 ### FivesAndThrees
 
-- Drawing from the boneyard: what to do when you cannot play
 - Playing to 61: how pub dominoes borrowed the cribbage board
 
 ### BlackjackCoach
 
-- Never split tens: why a 20 beats two fresh hands
 - The Illustrious 18: the count-based changes worth learning first
 
 ### HoldemCoach
 
-- Set mining: the odds of flopping a set with a pocket pair
 - Dirty outs: discounting cards that also help your opponent
 
 ### EightBallsPool
 
-- The physics of the break: momentum through a rack
 - Pool table sizes: 7, 8 and 9-foot tables compared
 
 ### BigBenBlocks
 
-- Edges first: where to place pieces on a 9x9 grid
 - Undo, hints, rotate and bomb: when a puzzle aid is worth it
 
 ### PinkSlipKings
 
-- Turbo or supercharger: two ways to force air into an engine
 - Racing for pink slips: where the name came from
 
 ### ValleyRail
 
-- Coned wheels: how a train steers itself round a curve
 - Tunnel or cutting: how engineers take a line through a hill
 
 ## Published
 
+- 2026-10-21 — Suited high cards: when two beat three in Jacks or Better — VideoPoker — `jacks-or-better-suited-high-cards`
+- 2026-10-21 — Quartering in Omaha Hi-Lo: how half a pot can lose chips — OmahaPoker — `omaha-hi-lo-quartering`
+- 2026-10-21 — Pushes in blackjack: what happens when you tie the dealer — Blackjack21 — `blackjack-pushes-tie-the-dealer`
+- 2026-10-21 — Reel strips and stops: where a slot's reels land — BrasslightSlots — `slot-reel-strips-and-stops`
+- 2026-10-21 — Why no suit outranks another in poker — PokerVsDealer — `why-no-suit-outranks-another`
+- 2026-10-21 — Drawing from the boneyard in Fives and Threes — FivesAndThrees — `fives-and-threes-drawing-from-the-boneyard`
+- 2026-10-21 — Never split tens: why a 20 beats two fresh hands — BlackjackCoach — `never-split-tens`
+- 2026-10-21 — Set mining: the odds of flopping a set with a pocket pair — HoldemCoach — `holdem-set-mining`
+- 2026-10-21 — The physics of the break: momentum through a rack — EightBallsPool — `pool-physics-of-the-break`
+- 2026-10-21 — Edges first: where to place pieces on a 9x9 grid — BigBenBlocks — `block-puzzle-edges-first`
+- 2026-10-21 — Turbo or supercharger: two ways to force air in — PinkSlipKings — `turbo-or-supercharger`
+- 2026-10-21 — Coned wheels: how a train steers itself round a curve — ValleyRail — `coned-wheels-how-a-train-steers`
 - 2026-10-20 — Holding two pair in Jacks or Better: what the draw is worth — VideoPoker — `jacks-or-better-holding-two-pair`
 - 2026-10-20 — Paired boards in Omaha: when the nut flush loses to a full house — OmahaPoker — `omaha-paired-boards-nut-flush`
 - 2026-10-20 — Dealer stands on soft 17: what the rule changes for you — Blackjack21 — `dealer-stands-on-soft-17`

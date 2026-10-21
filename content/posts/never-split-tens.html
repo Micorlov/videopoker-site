@@ -1,0 +1,89 @@
+<!--
+{
+  "title": "Never split tens: why a 20 beats two fresh hands",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "BlackjackCoach",
+  "description": "A pair of tens is a 20, and a 20 wins 76% to 86% of the time against a dealer 2 to 9. Splitting it trades that for two hands that are worth far less.",
+  "summary": "Basic strategy always stands on 10,10. Against a dealer 6, a 20 wins 80.11%, pushes 10.17% and loses 9.72%, worth +0.7040 a bet, while splitting is worth about +0.5756. Only a high Hi-Lo count changes that.",
+  "standfirst": "Two tens make the second-best starting hand in the game, and splitting them looks like a way to double it. It is a way to swap a near-certain win for two ordinary ones."
+}
+-->
+<p>Every blackjack chart has one pair that says the same thing against every dealer card: stand. Ten and ten is a 20, and 20 is beaten only by a dealer 21. Some players split it against a weak dealer card, thinking two bets in play must beat one. The sums say otherwise. Aces and eights are split to escape a poor total; tens are kept because the total is already excellent.</p>
+
+<h2>The rule</h2>
+<p>The chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> is for six decks, dealer standing on soft 17, double after split and late surrender. For 10,10 it reads: stand against every dealer up-card. Any two ten-value cards, such as king and jack, are treated the same way.</p>
+
+<h2>What a 20 is worth</h2>
+<p>I worked out the dealer's final total from each up-card, drawing from an infinite deck with the dealer standing on all 17s. Ranks are equally likely except that the ten-value cards (10, J, Q, K) together make up 4 of 13. A 20 wins when the dealer busts or finishes on 17, 18 or 19, ties on 20 and loses to 21. Against a 6:</p>
+<ul>
+  <li>Dealer busts 42.32%, makes 17 16.54%, 18 10.63%, 19 10.63%.</li>
+  <li>Win: 42.32 + 16.54 + 10.63 + 10.63 = <strong>80.11%</strong> (rounded from the unrounded figures).</li>
+  <li>Push, dealer 20: <strong>10.17%</strong>.</li>
+  <li>Lose, dealer 21: <strong>9.72%</strong>.</li>
+</ul>
+<p>Per one-unit bet, that is 0.8011 − 0.0972 = <strong>+0.7040</strong>, so if you play a 20 against a 6 a hundred times you are ahead by about 70 bets on average. Even against the strongest low card, a dealer 2, the 20 wins 75.80%, pushes 12.40% and loses 11.80%.</p>
+
+<h2>What a split starts with</h2>
+<p>Split the tens and you place a second bet. Each ten becomes the first card of its own hand, and its second card comes from the deck:</p>
+<ul>
+  <li>A ten-value card, 4 in 13 = 30.77%: you are back to 20.</li>
+  <li>An ace, 1 in 13 = 7.69%: you hold 21. After a split this counts as 21, not as a blackjack, so it pays 1:1.</li>
+  <li>Anything else, 8 in 13 = 61.54%: a total of 12 to 19 that must be played on, with all the risk that brings.</li>
+</ul>
+<p>So 38.46% of the time a new hand is as good as the 20 you had or better, and 61.54% of the time it is worse, often a stiff 12 to 16 that can bust. You also have two bets at risk instead of one.</p>
+
+<h2>The comparison in full</h2>
+<p>I worked the split too. The assumptions are an infinite deck, a second bet equal to the first, no resplitting, doubling allowed on each new hand, and each hand played by the better of stand, hit or double. The figures are in units of the starting bet and cover both split hands together:</p>
+<table class="paytable-compare">
+  <caption>10,10 against a dealer up-card, per one-unit starting bet. Infinite deck, no resplits, double after split allowed, dealer standing on soft 17.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Stand on 20</th><th>Split</th><th>Stand ahead by</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">4</th><td class="good">+0.6610</td><td>+0.4609</td><td>0.2001</td></tr>
+    <tr><th scope="row">5</th><td class="good">+0.6704</td><td>+0.5125</td><td>0.1579</td></tr>
+    <tr><th scope="row">6</th><td class="good">+0.7040</td><td>+0.5756</td><td>0.1284</td></tr>
+    <tr><th scope="row">7</th><td class="good">+0.7732</td><td>+0.5138</td><td>0.2594</td></tr>
+    <tr><th scope="row">8</th><td class="good">+0.7918</td><td>+0.3959</td><td>0.3959</td></tr>
+    <tr><th scope="row">9</th><td class="good">+0.7584</td><td>+0.2331</td><td>0.5253</td></tr>
+  </tbody>
+</table>
+<p>Standing is ahead in every row. The split is closest against a 5 and a 6, which are the dealer's weakest cards, because those are the two up-cards that bust most often (41.64% and 42.32%). Even there the split gives up 0.13 to 0.16 of a bet. Against a 9, a pair of split tens is hurt by a dealer who finishes on 19 35.08% of the time, and the gap is more than half a bet.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected value per unit bet for 10,10: stand against a 6 is 0.7040, split against a 6 is 0.5756, stand against a 5 is 0.6704, split against a 5 is 0.5125">
+    <div class="bar-row hl" title="Stand on 20 against a 6: +0.7040"><span class="bar-label">Stand v 6</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+0.7040</span></span></div>
+    <div class="bar-row" title="Stand on 20 against a 5: +0.6704"><span class="bar-label">Stand v 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9523)"></span><span class="bar-val">+0.6704</span></span></div>
+    <div class="bar-row" title="Split against a 6: +0.5756"><span class="bar-label">Split v 6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8176)"></span><span class="bar-val">+0.5756</span></span></div>
+    <div class="bar-row" title="Split against a 5: +0.5125"><span class="bar-label">Split v 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7280)"></span><span class="bar-val">+0.5125</span></span></div>
+  </div>
+  <figcaption>Expected value per one-unit starting bet for a pair of tens against a dealer 6 and 5, infinite deck, dealer standing on soft 17. These are the two closest cases, and standing still wins both.</figcaption>
+</figure>
+
+<div class="callout">
+  <p>Splitting can only win if the two new hands are worth more than the 20 you hold. Against a 6 each half would have to be worth +0.3520 on average, and they come to +0.2878.</p>
+</div>
+
+<h2>Where this sits among the pairs</h2>
+<p>Against a 6 a 20 loses on fewer than one hand in ten. Pairs such as 8,8, which make a 16, start from the opposite position, as <a href="/blog/blackjack-always-split-aces-and-eights.html">the aces and eights post</a> explains. The 9,9 case is subtler, since 18 is also worth standing on against a 7 (see <a href="/blog/splitting-nines-against-a-7.html">splitting nines against a 7</a>).</p>
+<p>I worked the split only for dealer cards 4 to 9. The dealer 10 and ace rows involve the peek for blackjack, so I leave them out; the chart stands there too.</p>
+
+<h2>The counting exception</h2>
+<p>There is one place where basic strategy is overridden: card counting. In Hi-Lo, the cards 2 to 6 count +1, 7 to 9 count 0, and tens and aces count −1. A high true count means the remaining shoe is rich in tens, so each split ten is more likely to draw another. The well-known Hi-Lo deviations (part of the Illustrious 18 list) say to split 10,10 against a 5 at a true count of +5 or higher, and against a 6 at +4 or higher. Below those counts, you stand. If you are not counting, the rule is simply never.</p>
+<p>The running and true count are explained in <a href="/blog/hi-lo-running-and-true-count.html">Hi-Lo running and true count</a>.</p>
+
+<h2>Remembering it</h2>
+<ol class="ranked">
+  <li>10,10 is a 20: stand against every dealer card.</li>
+  <li>Against a 6, a 20 wins 80.11%, pushes 10.17% and loses 9.72%, worth +0.7040.</li>
+  <li>A split starts two hands that are a 20 or a 21 only 38.46% of the time.</li>
+  <li>The split is closest against a 5 or 6, and still trails by 0.13 to 0.16 of a bet.</li>
+  <li>Only a Hi-Lo true count of +5 (against a 5) or +4 (against a 6) turns that around.</li>
+</ol>
+<p>Blackjack Coach lets you choose a play, read the explanation and review your mistakes, so a few rounds of 10,10 against a 6 are an easy way to build the habit of leaving a good hand alone. For the dealer side of the numbers, the <a href="/blog/blackjack-dealer-bust-rates.html">dealer bust rates</a> post lists them for every up-card.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real money and no prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

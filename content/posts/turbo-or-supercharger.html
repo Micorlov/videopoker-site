@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Turbo or supercharger: two ways to force air in",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "PinkSlipKings",
+  "description": "Both pack more air into the cylinders. At 1 bar of boost the absolute pressure doubles, 1.013 to 2.013 bar, but the air heats up, so an intercooler matters.",
+  "summary": "An engine makes power in proportion to the air it burns. A turbocharger uses exhaust gas to spin a compressor and a supercharger uses a belt. Boost is gauge pressure, so 1 bar of boost nearly doubles absolute pressure, and the gas law shows what an intercooler is worth.",
+  "standfirst": "Forced induction is one idea with two ways of driving it. Both squeeze air into the engine so each intake stroke carries more oxygen, and the arithmetic of pressure and temperature shows what you gain and where the cost falls."
+}
+-->
+<p>A petrol engine releases energy by burning fuel, and fuel needs oxygen to burn. In a normal engine the piston draws air in at roughly atmospheric pressure, so the amount of air per stroke is capped by the cylinder size. A turbocharger or supercharger is a compressor that pushes air in at higher pressure, so the same cylinder holds more of it. The numbers below are textbook physics, not dyno figures for any real car.</p>
+
+<h2>More air, more fuel, more power</h2>
+<p>The mixture a petrol engine needs is set by chemistry: about 14.7 kg of air per 1 kg of petrol for a complete burn (the stoichiometric ratio). Fix that ratio and the fuel you can burn is proportional to the air mass you fit in the cylinder. Power is roughly proportional to fuel burned, so doubling the air mass lets you burn about twice the fuel. In practice the gain is a little less, but air mass is what decides it.</p>
+<p>Air mass is density times volume. The cylinder volume is fixed, so the only way to raise the mass is to raise the density. That is all forced induction does.</p>
+
+<h2>Boost is gauge pressure</h2>
+<p>A boost gauge reads pressure above the surrounding air, called gauge pressure. The engine cares about absolute pressure, which is the gauge reading plus atmospheric pressure. At sea level, standard atmospheric pressure is 1.013 bar (about 14.7 psi). So with 1 bar of boost:</p>
+<p><strong>absolute pressure = 1.013 + 1 = 2.013 bar</strong></p>
+<p>The ratio is 2.013 ÷ 1.013 = 1.987, so 1 bar of boost almost exactly doubles the pressure. Half a bar gives 1.513 ÷ 1.013 = 1.49 times, and 1.5 bar gives 2.513 ÷ 1.013 = 2.48 times.</p>
+
+<h2>Density, and why heat spoils it</h2>
+<p>For air treated as an ideal gas, P = ρ × R × T, so density is ρ = P ÷ (R × T), with T in kelvin and R = 287 J/(kg·K) for air. At 20 °C (293.15 K) and 1.013 bar, the density is 101,300 ÷ (287.05 × 293.15) = 1.204 kg/m³, or 1.204 g per litre.</p>
+<p>Pressure alone would double that. But compressing a gas heats it. For an ideal compressor with no heat loss, the outlet temperature is T₂ = T₁ × (P₂ ÷ P₁)^0.2857, where 0.2857 is (γ − 1) ÷ γ for air with γ = 1.4. Using the 1.987 pressure ratio:</p>
+<ul>
+  <li>1.987^0.2857 = 1.217</li>
+  <li>T₂ = 293.15 × 1.217 = 356.7 K, which is 83.5 °C</li>
+</ul>
+<p>That is the best case. Real compressors run hotter. Hot air is less dense. The density is now 2.013 bar at 356.7 K, which is 1.987 × (293.15 ÷ 356.7) = 1.633 times the original, not 1.987 times. The heat has cost 18% of the density you paid for.</p>
+<p>An intercooler is a radiator for the compressed air. Suppose it cools the charge to 40 °C (313.15 K). The density is then 1.987 × (293.15 ÷ 313.15) = 1.860 times the original, which is 14% more than the uncooled 1.633 (1.860 ÷ 1.633 = 1.139).</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of air density relative to unboosted air at 1 bar of boost. Unboosted: 1.00. Boosted with no cooling, air at 83.5 degrees Celsius: 1.63. Boosted with an intercooler to 40 degrees Celsius: 1.86.">
+    <div class="bar-row" title="Unboosted: 1.00"><span class="bar-label">No boost</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5376)"></span><span class="bar-val">1.00×</span></span></div>
+    <div class="bar-row" title="Boosted, no cooling: 1.63"><span class="bar-label">1 bar, uncooled</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8780)"></span><span class="bar-val">1.63×</span></span></div>
+    <div class="bar-row hl" title="Boosted, intercooled to 40 °C: 1.86"><span class="bar-label">1 bar, intercooled</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.86×</span></span></div>
+  </div>
+  <figcaption>Air density relative to unboosted air at 20 °C and 1.013 bar, for 1 bar of boost with an ideal compressor. The uncooled air leaves the compressor at 83.5 °C; the intercooled air is brought down to 40 °C.</figcaption>
+</figure>
+
+<p>Per litre of cylinder, that is 1.204 g of air unboosted and 1.204 × 1.860 = 2.24 g intercooled. At 14.7 to 1, the fuel that goes with it is 0.082 g against 0.152 g. These are ideal figures, with a cylinder that fills completely.</p>
+
+<h2>Turbocharger: driven by the exhaust</h2>
+<p>A turbocharger puts a turbine in the exhaust stream. The hot gas spins it, and a shaft links it to the compressor on the intake side. There is no mechanical connection to the crankshaft.</p>
+<p>The drawback is that it responds to exhaust flow. At low revs and light throttle there is little gas to spin the turbine, so little boost builds. The engine speed at which useful boost arrives is the boost threshold. After a sudden throttle opening, the turbine and compressor have to speed up, and gas flow has to build, before pressure rises. The delay is turbo lag. A wastegate lets exhaust bypass the turbine once the target pressure is reached, which stops boost climbing as the exhaust flow rises.</p>
+
+<h2>Supercharger: driven by a belt</h2>
+<p>A supercharger is driven by the crankshaft, usually through a belt. Its speed follows engine speed, so boost is available almost from idle and responds the moment the throttle opens.</p>
+<p>The price is parasitic loss: the compressor takes its power from the crankshaft. The minimum work for compressing air is cp × T₁ × (ratio^0.2857 − 1) per kilogram, with cp = 1,005 J/(kg·K). That is 1,005 × 293.15 × 0.2168 = 63.9 kJ/kg. For an assumed airflow of 0.1 kg/s, that is 6.4 kW, or 8.6 hp, at the very least; a real compressor needs more. A turbo needs the same compression work but takes it from the exhaust, at the cost of some back-pressure.</p>
+
+<div class="callout">
+  <p>Both do the same job: raise the absolute pressure of the intake air. The turbo gets its energy from the exhaust and arrives with revs. The supercharger takes it from the crank and arrives at once. Cooling the charge afterwards is what keeps the density you paid for.</p>
+</div>
+
+<h2>What to look for on a dyno chart</h2>
+<p>A supercharged engine tends to show strong torque low down, while a turbo engine's torque climbs as boost builds. The formula from <a href="/blog/reading-a-dyno-chart.html">the dyno chart post</a>, hp = torque × rpm ÷ 5,252, still applies. Gearing then decides how well you use the curve; see <a href="/blog/gear-ratios-and-final-drive.html">the gear ratio post</a>.</p>
+
+<h2>In the game</h2>
+<p><a href="/PinkSlipKings/">Pink Slip Kings</a> lists boost among the settings you can adjust in its tuning, and a dyno to compare horsepower and torque. Its listing does not describe turbochargers, superchargers or intercoolers, so the physics here is real-world background, not a description of how the game models them. The game is in closed testing.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls, detailed tuning of gear ratios, final drive, boost and launch RPM, a dyno, telemetry and race time slips. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. The game is currently in closed testing.</p>
+</div>

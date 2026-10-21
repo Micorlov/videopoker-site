@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Reel strips and stops: where a slot's reels land",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "BrasslightSlots",
+  "description": "A reel strip is an ordered list of stops. One random number picks a stop per reel, and a symbol's chance is its count over the strip length. A 20-stop example.",
+  "summary": "A slot reel is a strip of stops. A random number picks one stop per reel, independently, and the window shows that stop and its neighbours. In an invented 20-stop strip, a crown on 2 stops has a 10% centre chance, and 5 reels give 1 in 100,000.",
+  "standfirst": "Every spin starts with a choice of stop on each reel. Once you know the strip is a list and the choice is a random position in it, the odds of any symbol are a count divided by a length."
+}
+-->
+<p>For the odds, a slot reel is better thought of as a list than a spinning drum. This post explains that list, called a reel strip, and how a random number turns it into the symbols you see. The strip below is invented for the arithmetic. It is not a strip from <a href="/BrasslightSlots/">Brasslight Slots</a> or any real game, and the Play listing for that app says nothing about its strips or how it picks results, so this post makes no claim about either.</p>
+
+<h2>A strip is an ordered list of stops</h2>
+<p>A reel strip is the fixed sequence of symbols around one reel. Each position in the sequence is a stop. If a strip has 20 stops, they are numbered 0 to 19, and the strip is a loop: after stop 19 comes stop 0 again. What changes from spin to spin is which stop the reel rests on.</p>
+<p>Here is an invented 20-stop strip. The symbols echo those the listing names, but their counts are made up.</p>
+
+<table class="paytable-compare">
+  <caption>Illustration only: an invented 20-stop reel strip. Not a real strip from any game.</caption>
+  <thead>
+    <tr><th>Stops</th><th>Symbols, in order</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">0 to 4</th><td>Paw, Crown, Paw, Fish, Paw</td></tr>
+    <tr><th scope="row">5 to 9</th><td>Yarn, Paw, Fish, Paw, Yarn</td></tr>
+    <tr><th scope="row">10 to 14</th><td>Paw, Crown, Paw, Fish, Paw</td></tr>
+    <tr><th scope="row">15 to 19</th><td>Yarn, Fish, Paw, Fish, Paw</td></tr>
+  </tbody>
+</table>
+
+<p>Counting down the table gives 10 paws, 5 fish, 3 yarn and 2 crowns. Check the total: 10 + 5 + 3 + 2 = 20, the length of the strip.</p>
+
+<h2>One random number per reel</h2>
+<p>To spin, the game draws a random whole number for each reel from 0 to 19, with every stop equally likely, and the reel lands there. Because each reel gets its own draw, the reels are independent: where reel 1 stops tells you nothing about reel 2. This is the same independence that <a href="/blog/why-a-slot-is-never-due.html">why a slot is never due</a> relies on.</p>
+<p>Real games may weight stops, use longer strips or give each reel its own strip. This post assumes equal chance for every stop and the same strip on every reel, to keep the sums short.</p>
+
+<h2>The visible window shows neighbours</h2>
+<p>On a 3-row reel, the stop that is picked sits in the middle row. The window also shows the stop before it above and the stop after it below. Because the strip is a loop, the neighbours of stop 0 are stop 19 and stop 1.</p>
+<ul>
+<li><strong>Picked stop 1:</strong> the window reads Paw (stop 0), Crown (stop 1), Paw (stop 2).</li>
+<li><strong>Picked stop 0:</strong> the window reads Paw (stop 19), Paw (stop 0), Crown (stop 1).</li>
+</ul>
+<p>The first two give the same crown from different stops: in one it is in the middle row, in the other it is the bottom row. A symbol's neighbours are fixed by the strip, so what sits above and below a crown is set when the strip is built. Only the choice of stop is random.</p>
+
+<h2>The probability of a symbol</h2>
+<p>With equal chance for every stop, the chance that the picked stop holds a given symbol is the number of stops with that symbol divided by the strip length:</p>
+<ul>
+<li>Paw: 10 &divide; 20 = 0.5, or 50%</li>
+<li>Fish: 5 &divide; 20 = 0.25, or 25%</li>
+<li>Yarn: 3 &divide; 20 = 0.15, or 15%</li>
+<li>Crown: 2 &divide; 20 = 0.1, or 10%</li>
+</ul>
+<p>These add to 100%, a quick check on the count.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that the picked stop holds each symbol on an invented 20-stop strip: paw 50%, fish 25%, yarn 15%, crown 10%">
+    <div class="bar-row" title="Paw: 10 of 20 stops, 50%"><span class="bar-label">Paw (10)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">50%</span></span></div>
+    <div class="bar-row" title="Fish: 5 of 20 stops, 25%"><span class="bar-label">Fish (5)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">25%</span></span></div>
+    <div class="bar-row" title="Yarn: 3 of 20 stops, 15%"><span class="bar-label">Yarn (3)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3000)"></span><span class="bar-val">15%</span></span></div>
+    <div class="bar-row hl" title="Crown: 2 of 20 stops, 10%"><span class="bar-label">Crown (2)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.2000)"></span><span class="bar-val">10%</span></span></div>
+  </div>
+  <figcaption>Chance that the picked stop holds each symbol on the invented 20-stop strip, with the number of stops in brackets. The crown, on 2 stops, is the rarest. Illustrative numbers, not from any real game.</figcaption>
+</figure>
+
+<h2>Seen anywhere in the window versus picked</h2>
+<p>The 10% above is the chance the crown is on the picked, middle stop. The window is wider, so the chance of seeing a crown somewhere on the reel is higher. A crown at stop 1 appears in the window when stop 0, 1 or 2 is picked, since each of those windows includes stop 1. The second crown, at stop 11, appears when stop 10, 11 or 12 is picked. These two sets of three do not overlap, so the crown is visible on 3 + 3 = 6 of the 20 stops: 6 &divide; 20 = 30%. Yarn works the same way: stops 5, 9 and 15 have separate windows, so 9 of 20 stops show yarn, which is 45%. Counting windows is the only safe method, because windows that overlap, as the fish at stops 16 and 18 do, are easy to double count.</p>
+
+<h2>Five reels multiply</h2>
+<p>Chances multiply across independent reels. The chance that all five picked stops hold a crown is 0.1 &times; 0.1 &times; 0.1 &times; 0.1 &times; 0.1 = 0.1<sup>5</sup> = 0.00001, which is 1 in 100,000. Three crowns on the first three reels is 0.1<sup>3</sup> = 0.001, or 1 in 1,000. A different way to reach the same answer: five reels of 20 stops give 20<sup>5</sup> = 3,200,000 equally likely combinations of stops, and the number of those with a crown on every reel is 2<sup>5</sup> = 32. Then 32 &divide; 3,200,000 = 0.00001, matching.</p>
+<p>That is the picture of a spin: one combination chosen from millions. The companion posts on <a href="/blog/what-243-ways-to-win-means.html">what 243 ways to win means</a> and <a href="/blog/slot-hit-frequency.html">hit frequency</a> use these chances to count routes and to work out how often anything pays.</p>
+
+<h2>What this does not tell you</h2>
+<p>Two games with the same symbols can have quite different strips, so the look of a reel says little about its odds. The Play listing for <a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> names the symbols and the 5 reels with 3 rows, but gives no strip lengths, counts or stop weights. The figures here show the method, and they are not statements about the app.</p>
+
+<h2>Checking it yourself</h2>
+<ol class="ranked">
+  <li><strong>Count and divide.</strong> Tally each symbol; the tallies must add to 20. Crown: 2 &divide; 20 = 10%.</li>
+  <li><strong>Slide the window.</strong> For each stop 0 to 19, list it and its two neighbours, wrapping at the ends. Count the windows with a crown: you should reach 6, or 30%.</li>
+  <li><strong>Multiply across reels.</strong> 0.1<sup>5</sup> should give 0.00001.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

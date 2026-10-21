@@ -1,0 +1,77 @@
+<!--
+{
+  "title": "Edges first: where to place pieces on a 9x9 grid",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "BigBenBlocks",
+  "description": "A straight five has 90 places on a 9x9 grid, but only 2 cover a corner and 10 cover the centre. Count them to see why edges are the place to park pieces.",
+  "summary": "On an empty 9x9 grid a 1x5 bar has 90 places. A corner cell sits in 2 of them, an edge-middle cell in 6 and the centre cell in 10. Filling 25 cells in the middle leaves no room for a 3x3 square; 25 along an edge leaves 28 places.",
+  "standfirst": "Advice to start at the edges is common and rarely explained. The explanation is a count: the centre cells belong to far more of the places a piece could go, so they are the ones worth keeping open."
+}
+-->
+<p>The usual advice for a 9x9 block puzzle is to build from the edges and leave the middle alone. It is sound, but only as a tendency, and it is worth seeing where it comes from. The reason is that cells are not equally useful to the pieces still to come, and the difference can be counted. <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> is played on a 9x9 grid where completing rows, columns or 3x3 boxes clears space, so the counts below apply to it directly. Its listing does not name the pieces, so the shapes below are common block-puzzle shapes, not a list of what the game deals.</p>
+
+<h2>Three kinds of cell</h2>
+<p>Count each cell's neighbours above, below, left and right. A corner has 2. An edge cell that is not a corner has 3: 4 sides x 7 cells = 28 of them. Every other cell has 4, and those are the 7 x 7 = 49 interior cells. As a check, 4 + 28 + 49 = 81.</p>
+
+<h2>How many places cover a cell</h2>
+<p>Take the straight five, a bar of five cells. Lying flat in one row it can start in columns 1 to 5, so a row holds 5 places and the grid holds 9 x 5 = 45 flat ones. Standing upright gives another 45. That is 90 places in all, and each covers 5 cells, so the cells are covered 90 x 5 = 450 times between them.</p>
+<p>Now pick a cell in column <em>c</em>: a flat bar covers it if it starts anywhere from 4 columns to its left up to the cell's own column, clipped by the grid's edges. In column 1 that is one start, in column 2 two starts, rising to five starts in column 5 and then falling back. Along a row the counts are 1, 2, 3, 4, 5, 4, 3, 2, 1. A cell's total is its flat count (from its column) plus its upright count (from its row):</p>
+<ul>
+  <li>A corner: 1 + 1 = <strong>2</strong> of the 90 places.</li>
+  <li>The middle of an edge (row 1, column 5): 5 + 1 = <strong>6</strong>.</li>
+  <li>The centre (row 5, column 5): 5 + 5 = <strong>10</strong>.</li>
+</ul>
+<p>Moving diagonally from the corner towards the centre, the cells are covered 2, 4, 6, 8 and 10 times, so each step in adds 2:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how many of the 90 places of a straight five cover each cell on the diagonal from a corner to the centre: 2, 4, 6, 8 and 10.">
+    <div class="bar-row hl" title="Centre (row 5, column 5): 10"><span class="bar-label">Centre, 5th cell in</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">10</span></span></div>
+    <div class="bar-row" title="4th cell in: 8"><span class="bar-label">4th cell in</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row" title="3rd cell in: 6"><span class="bar-label">3rd cell in</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="2nd cell in: 4"><span class="bar-label">2nd cell in</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="Corner: 2"><span class="bar-label">Corner</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2000)"></span><span class="bar-val">2</span></span></div>
+  </div>
+  <figcaption>How many of the 90 places of a straight five (45 flat, 45 upright) cover each cell on the diagonal from a corner to the centre. The centre is in five times as many as a corner.</figcaption>
+</figure>
+
+<p>A 3x3 square shows the same pattern more sharply. It has 7 x 7 = 49 places. A corner cell is in 1 of them, the second cell in the diagonal in 4, and every cell from the third in, which is the whole middle 5x5 block of 25 cells, is in 9. The <a href="/blog/block-puzzle-keep-a-3x3-box-empty.html">post on keeping a 3x3 box empty</a> counts that for every kind of cell.</p>
+
+<h2>What that means for a piece you place</h2>
+<p>Placing a piece fills cells, and every place that uses any of those cells is gone until a clear gives the cells back. So the cost of a placement is the number of places it removes. Counting each place once, even if it overlaps the new piece in several cells, here is a straight three laid in a row on an empty grid:</p>
+
+<table class="paytable-compare">
+  <caption>Places removed by laying a straight three flat on an empty 9x9 grid.</caption>
+  <thead>
+    <tr><th>Where the three goes</th><th>Straight-five places removed (of 90)</th><th>3x3 places removed (of 49)</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Top row, columns 1 to 3 (corner end)</th><td>6</td><td>3</td></tr>
+    <tr><th scope="row">Top row, columns 4 to 6 (edge middle)</th><td>8</td><td>5</td></tr>
+    <tr><th scope="row">Middle row, columns 4 to 6</th><td>20</td><td>15</td></tr>
+  </tbody>
+</table>
+
+<p>The same three blocks cost 6 places at the corner end and 20 in the middle, more than three times as many. For squares the gap is 3 against 15.</p>
+
+<h2>Why the middle stays flexible</h2>
+<p>An empty middle gives a bar, a square or an awkward bent shape room in several positions, so a surprise piece rarely has nowhere to go. An empty corner serves few places, and a corner left empty is cheap to give up.</p>
+<p>A bigger comparison makes the same point. Fill 25 cells in the middle (the central 5x5 block) and no 3x3 square fits anywhere: 0 places left of 49, and 40 of the 90 bar places. Fill 25 cells along the top instead, the top two rows plus seven cells of the third, and 28 square places and 50 bar places survive. Same number of blocks, very different boards.</p>
+<p>Filling the whole outer ring, 32 cells, leaves a clear 7x7 area in the middle. That still holds 25 squares and 42 bars, which is why working inwards from the edges keeps the room that matters until last.</p>
+
+<h2>Where edges first stops being right</h2>
+<p>Three caveats keep the rule honest:</p>
+<ul>
+  <li><strong>Edge cells are easy to seal off.</strong> A corner cell has only 2 neighbours and an edge cell 3, so two or three blocks can wall in a single empty cell there, where an interior cell needs four. Fill edges in runs without gaps, and avoid leaving single cells behind. <a href="/blog/block-puzzle-holes-and-islands.html">Holes and islands</a> counts how small pockets form.</li>
+  <li><strong>The goal is still clearing.</strong> Every cell sits in one row, one column and one box, as <a href="/blog/nine-by-nine-grid-three-lines.html">the three lines through every cell</a> shows, and that is equally true of the edges.</li>
+  <li><strong>The middle must eventually be filled.</strong> Keeping it open is about timing. If a clear is one block away and the only fit is in the middle, take the clear.</li>
+</ul>
+
+<h2>A rule you can use</h2>
+<p>Before placing a piece, ask which of the legal spots uses the cells that appear in the fewest places. Usually that is a corner or an edge, next to blocks you have already put there. Complete a group if you can, and do not leave a single enclosed cell.</p>
+<p>Untimed Classic play is the easy place to practise, since there is no clock. Time Attack and the Daily Challenge switch undo and hints off, per the listing, so the habit has to be quick by then.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

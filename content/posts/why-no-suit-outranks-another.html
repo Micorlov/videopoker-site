@@ -1,0 +1,62 @@
+<!--
+{
+  "title": "Why no suit outranks another in poker",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "PokerVsDealer",
+  "description": "Poker ranks hands by card rank, never by suit. Each suit has 13 cards and 1,287 five-card combinations, so none is rarer and equal hands split.",
+  "summary": "Standard poker compares ranks only, and equal hands split the pot. Every suit has 13 cards, 1,287 five-card combinations and one royal flush, so no suit is rarer than another. Suit order exists only in a few side rules.",
+  "standfirst": "A spade looks no different from a heart once the hand is made, and the maths agrees. The four suits are exact copies of one another, which is why poker has no reason to put one above the rest."
+}
+-->
+<p>Ask which is the best suit in poker and the honest answer is that there is not one. A pair of aces in spades and a pair of aces in hearts are the same hand. Two flushes that hold the same five ranks are the same hand. If the cards are equal in everything but suit, the pot is split. This is a rule of standard poker, and it follows from how the deck is built.</p>
+
+<h2>Hands are ranked by rank, not by suit</h2>
+<p>Every comparison in five-card poker uses card ranks. Between categories the order is fixed: a flush beats a straight, a full house beats a flush, and so on. Inside a category, hands are compared card by card, highest first. The procedure never asks what suit a card is. The one place suits matter at all is in <em>making</em> a flush, where all five cards must share a suit. Once the flush exists, only its ranks are compared. Which suit it was in plays no part.</p>
+<p>Two flushes show it:</p>
+<ul>
+  <li>A&spades; K&spades; 9&spades; 5&spades; 2&spades; against A&hearts; K&hearts; 9&hearts; 5&hearts; 2&hearts;. Same ranks all the way down, so the pot is split.</li>
+  <li>A&spades; K&spades; 9&spades; 5&spades; 2&spades; against A&hearts; K&hearts; 9&hearts; 5&hearts; 3&hearts;. The ranks differ at the last card, so the three beats the two and the heart flush wins.</li>
+</ul>
+<p>The full comparison order, including kickers, is set out in <a href="/blog/five-card-poker-tie-breaks.html">Breaking ties in five-card poker</a>; across all nine hand categories there are 7,462 distinct hand strengths, and not one of them is separated by a suit.</p>
+
+<h2>No suit is rarer than another</h2>
+<p>A ranking by suit would only make sense if one suit were harder to come by, and none is. Each suit has the same 13 ranks, so each has the same number of cards: 13 clubs, 13 diamonds, 13 hearts and 13 spades, 52 in all.</p>
+<p>The number of ways to choose five cards from one suit is</p>
+<p>C(13, 5) = 13 × 12 × 11 × 10 × 9 ÷ (5 × 4 × 3 × 2 × 1) = 154,440 ÷ 120 = <strong>1,287</strong></p>
+<p>That is the same for every suit. Of those 1,287 combinations, 10 are straight flushes (A-2-3-4-5 up to 10-J-Q-K-A, the last being the royal flush), which leaves 1,277 ordinary flushes. Multiply by four suits and you get 5,148 five-card hands that are all one suit, made up of 5,108 flushes and 40 straight flushes. Out of the 2,598,960 possible five-card hands, that is 0.198%, or about one hand in 505, and each suit supplies exactly a quarter of it.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart: each of the four suits gives exactly 1,287 five-card combinations of a single suit">
+    <div class="bar-row" title="Clubs: 1,287"><span class="bar-label">Clubs</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1)"></span><span class="bar-val">1,287</span></span></div>
+    <div class="bar-row" title="Diamonds: 1,287"><span class="bar-label">Diamonds</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1)"></span><span class="bar-val">1,287</span></span></div>
+    <div class="bar-row" title="Hearts: 1,287"><span class="bar-label">Hearts</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1)"></span><span class="bar-val">1,287</span></span></div>
+    <div class="bar-row" title="Spades: 1,287"><span class="bar-label">Spades</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1)"></span><span class="bar-val">1,287</span></span></div>
+  </div>
+  <figcaption>Five-card combinations that can be drawn from each suit, C(13, 5). All four bars are the same length: no suit is rarer than another.</figcaption>
+</figure>
+
+<p>The top hand shows it most plainly. There are 4 royal flushes in the deck, one in each suit, out of 2,598,960 hands. That is 1 in 649,740 (2,598,960 ÷ 4), and a spade royal is exactly as likely as a club royal. Nobody holds a &ldquo;better&rdquo; royal flush, and if two players somehow each had one, they would tie.</p>
+
+<h2>The symmetry argument</h2>
+<p>There is a shorter way to see the same thing. Take any deal and swap two suits everywhere: every heart becomes a spade and every spade becomes a heart. The result is another legal deal, equally likely, and every hand in it has exactly the same strength as before. A flush stays a flush, a pair stays a pair, and a straight stays a straight. Because swapping suits changes nothing that poker measures, no suit can be systematically stronger. Any ranking of suits would be arbitrary, with nothing in the game to support it.</p>
+<p>The same holds in the draw. Hold four cards of any one suit and 13 &minus; 4 = 9 of that suit remain, so every flush draw has the same 9 outs.</p>
+
+<h2>Where suit order does exist</h2>
+<p>None of this means suit order is unknown to card players. It is used in a few games for jobs that have nothing to do with the strength of a hand:</p>
+<ul>
+  <li><strong>Bridge.</strong> Suits rank in the bidding, from lowest to highest: clubs, diamonds, hearts, spades, with no-trump above them all. This decides which of two equal-level bids is higher. It does not make a spade card beat a heart card of higher rank.</li>
+  <li><strong>Seven-card stud, the bring-in.</strong> The player showing the lowest door card has to start the betting. When two players show the same lowest rank, the usual rule breaks that tie by suit, with clubs lowest, then diamonds, hearts and spades. Rooms differ on small points, so check the house rules.</li>
+  <li><strong>Drawing for the deal or a seat.</strong> A common house convention is high card takes the deal, with suit used to separate two cards of the same rank. It is a convention of the table, not a rule of poker hands.</li>
+</ul>
+<p>The common thread is that a suit order is a tidy way to break a tie that would otherwise need a re-draw, and it is applied before or beside the hand, never to the final comparison between hands. In standard showdown poker, hands that are equal in rank are equal, and that includes the case where one of them is all spades.</p>
+
+<h2>What to take from it at the table</h2>
+<p>Suits only matter when you are counting towards a flush. Then <em>how many</em> of a suit you hold matters, and which suit it is does not. A flush draw is worth the same in any suit, and a pair is worth the same in any two suits.</p>
+<p>The split pot is how that equality is written down. Any ranking of suits would favour one of four identical sets of 13 cards.</p>
+<p>If you want to see how a flush compares with the hands around it, <a href="/blog/why-a-flush-beats-a-straight.html">Why a flush beats a straight</a> covers the category order, and the counts above are the same ones behind <a href="/blog/five-card-poker-hand-frequencies.html">five-card poker hand frequencies</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game against the dealer and two computer opponents, with its own Showdown rules, so it is not Texas Hold'em. Choose to hold, forge or bail as the dealer builds a hand one face-up card at a time. It works offline, with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

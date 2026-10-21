@@ -1,0 +1,87 @@
+<!--
+{
+  "title": "The physics of the break: momentum through a rack",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "EightBallsPool",
+  "description": "Why a square hit on the head ball breaks best: equal-mass collisions pass momentum straight on, the cue ball stops, and gaps in the rack waste the energy.",
+  "summary": "A 170 g cue ball at 10 m/s carries 1.7 kg m/s and 8.5 J. A square, stun hit on the head ball hands all of it to the rack; gaps and off-centre hits waste it.",
+  "standfirst": "The break looks like brute force, but most of its logic is two conservation laws and one fact about equal masses. Here is what happens to the cue ball's momentum on its way through fifteen balls."
+}
+-->
+<p>Strength helps on the break, but how it is used matters more. This post follows the momentum and energy of the cue ball as it meets the rack, and explains why a square hit on the head ball, a stopped cue ball and a tight rack all matter.</p>
+
+<h2>Equal masses: the cue ball stops</h2>
+<p>A standard pool ball is about 170 g and 57.15 mm (2&frac14; inches) across. The cue ball is close enough to the same mass for this argument, so treat all sixteen balls as equal.</p>
+<p>Two conservation laws govern a collision between hard balls. <strong>Momentum</strong> (mass times velocity) is conserved. <strong>Kinetic energy</strong> (&frac12;mv&sup2;) is conserved too, if the collision is perfectly elastic, which billiard balls come close to. Take a ball of speed v hitting an identical ball at rest, straight on. If the first ball ends with speed a and the second with speed b:</p>
+<ul>
+  <li>Momentum: mv = ma + mb, so v = a + b.</li>
+  <li>Energy: v&sup2; = a&sup2; + b&sup2;.</li>
+</ul>
+<p>Square the first line: v&sup2; = a&sup2; + 2ab + b&sup2;. Comparing with the second line, 2ab must be zero, so either a or b is zero. The second ball cannot be left at rest, because the first would then have to pass through it. So a = 0 and b = v. The moving ball stops dead and the other leaves with its full speed. That is the stop shot every player knows.</p>
+
+<h2>A worked example</h2>
+<p>Suppose the cue ball is hit at 10 m/s. This is a round number chosen for the arithmetic, not a measurement: hard breaks are in that general region, but speeds vary widely between players and tables. With a mass of 0.17 kg:</p>
+<ul>
+  <li>Momentum: 0.17 &times; 10 = <strong>1.7 kg m/s</strong>.</li>
+  <li>Kinetic energy: &frac12; &times; 0.17 &times; 10&sup2; = <strong>8.5 J</strong>.</li>
+</ul>
+<p>If the cue ball hits the head ball square, with no spin and no sideways component, the cue ball ends with zero of each and the rack receives all 1.7 kg m/s and 8.5 J, less the small amount lost as sound and heat. Hit the head ball off centre and the cue ball keeps part of the momentum, and the head ball leaves at an angle.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Diagram of the break. A cue ball travelling at speed v hits the head ball of a 15-ball rack square on. The rack has rows of 1, 2, 3, 4 and 5 balls, which add up to 15. After a square stun hit the cue ball is left with zero momentum and the rack carries all of it.">
+    <circle cx="50" cy="120" r="14" class="fill-base"/>
+    <text x="50" y="96" text-anchor="middle" class="strong">Cue ball</text>
+    <line x1="70" y1="120" x2="160" y2="120" stroke="var(--chart-accent)" stroke-width="2.5"/>
+    <polyline points="152,113 162,120 152,127" fill="none" stroke="var(--chart-accent)" stroke-width="2.5"/>
+    <text x="115" y="108" text-anchor="middle" class="strong">1.7 kg m/s</text>
+    <circle cx="190" cy="120" r="14" fill="var(--chart-accent)"/>
+    <text x="190" y="206" text-anchor="middle" class="strong">1</text>
+    <circle cx="216" cy="105" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="216" cy="135" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <text x="216" y="206" text-anchor="middle" class="strong">2</text>
+    <circle cx="242" cy="90" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="242" cy="120" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="242" cy="150" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <text x="242" y="206" text-anchor="middle" class="strong">3</text>
+    <circle cx="268" cy="75" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="268" cy="105" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="268" cy="135" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="268" cy="165" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <text x="268" y="206" text-anchor="middle" class="strong">4</text>
+    <circle cx="294" cy="60" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="294" cy="90" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="294" cy="120" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="294" cy="150" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <circle cx="294" cy="180" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <text x="294" y="206" text-anchor="middle" class="strong">5</text>
+    <text x="190" y="30" text-anchor="middle" class="strong">Head ball</text>
+    <line x1="190" y1="36" x2="190" y2="104" class="ref"/>
+    <text x="222" y="228" text-anchor="middle">Balls per row</text>
+    <text x="200" y="246" text-anchor="middle">1 + 2 + 3 + 4 + 5 = 15</text>
+    <text x="50" y="150" text-anchor="middle">After stun hit:</text>
+    <text x="50" y="168" text-anchor="middle" class="strong">0 kg m/s</text>
+  </svg>
+  <figcaption>A square hit on the head ball of the rack, using the worked example above (170 g cue ball at 10 m/s, momentum 1.7 kg m/s). The rack has 15 balls in rows of 1 to 5. After a square hit with no spin on the cue ball, all of that momentum has passed into the rack.</figcaption>
+</figure>
+
+<h2>Sharing it among fifteen</h2>
+<p>The rack has 1 + 2 + 3 + 4 + 5 = 15 balls, packed so that each touches its neighbours. Rows sit 57.15 &times; sin 60&deg; = 49.5 mm apart, so the rack is 4 &times; 49.5 + 57.15 = 255 mm deep.</p>
+<p>Could the 15 balls simply share the momentum equally, each moving off at v/15? Momentum would be conserved, but check the energy. Each ball would have &frac12;m(v/15)&sup2;, and 15 of them together have 15 &times; &frac12;m &times; v&sup2;/225 = (&frac12;mv&sup2;)/15. That is only one-fifteenth of the energy the cue ball brought in. In an elastic collision the energy has to go somewhere, and the only way to fit both laws is for the balls to leave at different speeds and in different directions: some fast, some slow, many sideways, a few backwards. That uneven spread is the scatter you see.</p>
+
+
+<h2>Newton's cradle and the gaps</h2>
+<p>A Newton's cradle is a row of equal steel balls hanging in contact. Lift one, let it swing in, and one ball leaves at the far end while the rest barely move. Lift two and two leave. That is the equal-mass result passed along a chain: each ball hands the motion on and stops. It works because every ball touches the next.</p>
+<p>A rack that is not tight breaks that chain. A gap, even a small one, means the ball in front moves first, covers the gap and hits the next ball as a separate collision, instead of a push that travels through touching balls together. The energy arrives as separate knocks, more of it is lost as noise, and the back balls get less of the push. The spread is weaker and less even. Racking tightly, every ball touching, is the cheapest improvement available.</p>
+
+<h2>Why stun and why square</h2>
+<p>The equal-mass result applies to the motion of the cue ball's centre. Spin is separate. A cue ball struck above centre carries topspin, and after it has handed over its forward motion it can roll on, following the rack in. A cue ball struck low carries backspin, which can pull it back. A ball hit at the centre with no spin at contact, a stun hit, stops almost exactly where it hit, since there is no spin to move it afterwards. That leaves the cue ball near the middle of the table, not flying about.</p>
+<p>"Square" is about where the cue ball meets the head ball. The centres must line up along the path, so the force passes straight through the head ball. Any sideways offset turns part of the cue ball's momentum into a sideways velocity, and the cue ball keeps moving. The <a href="/blog/pool-90-degree-rule.html">90-degree rule</a> shows where a cue ball goes after a partial hit, and the <a href="/blog/cue-ball-spin-explained.html">spin post</a> covers topspin and backspin.</p>
+
+<h2>Trying it in the app</h2>
+<p>The Play listing for <a href="/EightBallsPool/">8balls</a> says you can adjust your aim, shot power and cue-ball spin, and switch between overhead and aiming views. It does not describe how collisions or the rack are modelled, so do not assume any particular behaviour. Try lining up on the centre of the head ball with no spin, then aim slightly to one side and watch the cue ball. Compare what you see with the physics above.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

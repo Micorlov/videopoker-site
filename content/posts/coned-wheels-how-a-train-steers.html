@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Coned wheels: how a train steers itself round a curve",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "ValleyRail",
+  "description": "A train has no steering wheel. Tapered wheel treads let the wheelset find the right path round a curve. See the geometry and a 500 m worked example.",
+  "summary": "Rail wheels are fixed to one axle and tapered. On a curve the axle slides outward until the outer wheel rolls on a bigger circle. With a 1 in 20 taper on a 500 m curve the shift needed is about 14 mm.",
+  "standfirst": "Both wheels of a railway axle turn at the same speed, yet on a curve the outer one must travel further. The taper on the tread solves this without any moving part."
+}
+-->
+<p>A train has no steering. Nothing in the cab turns the wheels, yet a train follows a curve smoothly for mile after mile. The reason is the shape of the wheel, and the geometry fits in a few lines of algebra.</p>
+
+<h2>The problem: one axle, two paths</h2>
+<p>On a railway wheelset the two wheels are pressed onto a single solid axle, so they turn together at the same rate. On straight track that is fine. On a curve it is a problem, because the outer rail is longer than the inner one. If both wheels were the same diameter, one would have to slip.</p>
+<p>Road vehicles use a differential. A railway wheelset has none, and gets the same effect from the tread itself.</p>
+
+<h2>The taper</h2>
+<p>A rail wheel tread is not a flat cylinder. It is a shallow cone, wider in diameter on the side nearest the flange. A taper of 1 in 20 is a well-known figure, though real profiles vary and wear into other shapes. A slope of 1 in 20 is 0.05, so the wheel's radius changes by 5 mm for every 100 mm you move across the tread.</p>
+<p>Now picture the wheelset sliding sideways along its axle line towards the outer rail. The outer wheel meets the rail on a part of the cone with a larger radius, and the inner wheel meets it on a smaller one. The outer wheel covers more ground per turn, and the wheelset has steered itself.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the sideways shift a wheelset needs on curves of 250, 500, 1000 and 2000 metres radius. The shift is 27.6, 13.8, 6.9 and 3.45 millimetres, halving each time the radius doubles.">
+    <div class="bar-row" title="R = 250 m: 27.6 mm"><span class="bar-label">R = 250 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">27.6 mm</span></span></div>
+    <div class="bar-row hl" title="R = 500 m: 13.8 mm"><span class="bar-label">R = 500 m</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">13.8 mm</span></span></div>
+    <div class="bar-row" title="R = 1,000 m: 6.9 mm"><span class="bar-label">R = 1,000 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">6.9 mm</span></span></div>
+    <div class="bar-row" title="R = 2,000 m: 3.45 mm"><span class="bar-label">R = 2,000 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1250)"></span><span class="bar-val">3.45 mm</span></span></div>
+  </div>
+  <figcaption>Sideways shift y of the wheelset needed to run round a curve, for a 1 in 20 taper, 0.46 m wheel radius and 1.5 m between the contact points. The 500 m curve worked through below is highlighted. Halve the radius and the shift doubles.</figcaption>
+</figure>
+
+<h2>The derivation</h2>
+<p>Use these symbols:</p>
+<ul>
+  <li>R is the radius of the curve, measured to the centre of the track.</li>
+  <li>G is the distance between the two contact points on the rails. For standard gauge this is about 1.5 m, a little more than the 1,435 mm gauge, since the wheels touch near the middle of the rail head. (See <a href="/blog/why-standard-gauge-is-1435-mm.html">why standard gauge is 1,435 mm</a>.)</li>
+  <li>r<sub>0</sub> is the wheel's rolling radius when it is centred on the track.</li>
+  <li>The taper is 0.05, written as t.</li>
+  <li>y is the sideways shift of the wheelset towards the outer rail.</li>
+</ul>
+<p><strong>Step 1: what the track demands.</strong> The outer rail follows a circle of radius R + G/2 and the inner one R &minus; G/2. In one turn through a small angle &theta;, the outer wheel must travel (R + G/2)&theta; and the inner (R &minus; G/2)&theta;. The difference is G&theta;. As a fraction of the distance R&theta; the wheelset travels, that is G/R.</p>
+<p><strong>Step 2: what the wheels give.</strong> Both wheels turn through the same angle, so the distance each covers is proportional to its rolling radius. After a shift y the outer wheel rolls on r<sub>0</sub> + ty and the inner on r<sub>0</sub> &minus; ty. The difference in radius is 2ty, and the fractional difference is 2ty / r<sub>0</sub>.</p>
+<p><strong>Step 3: set them equal.</strong> The wheels give exactly what the track demands when</p>
+<p>2ty / r<sub>0</sub> = G / R, so <strong>y = r<sub>0</sub>G / (2tR)</strong></p>
+<p>This is the same as r<sub>0</sub> &times; (G/2) / (R &times; t), if you prefer half the track width. The approximation is that the exact ratio of rail radii, (R + G/2)/(R &minus; G/2), is taken as 1 + G/R, which is accurate at these radii.</p>
+
+<h2>A worked example</h2>
+<p>Take R = 500 m, r<sub>0</sub> = 0.46 m (a wheel about 920 mm across), G = 1.5 m and t = 0.05:</p>
+<p>y = (0.46 &times; 1.5) / (2 &times; 0.05 &times; 500) = 0.69 / 50 = 0.0138 m, which is <strong>13.8 mm</strong></p>
+<p>Check it. The radii become 0.46 + 0.05 &times; 0.0138 = 0.46069 m outside and 0.45931 m inside. Their difference is 1.38 mm, which divided by 0.46 gives 0.0030. The track asks for G/R = 1.5 / 500 = 0.0030. Over 100 m of curve, the outer wheel travels 0.3 m further than the inner one, and the tapered tread supplies exactly that.</p>
+<p>A smaller taper needs a larger shift, because less radius difference is gained per millimetre.</p>
+
+<h2>When the taper runs out: flanges</h2>
+<p>The wheelset cannot slide far. There is only a little clearance between the flange and the rail, and the free sideways play is often quoted as of the order of a few millimetres up to about a centimetre each way. It varies by railway and wear, so treat 7 mm as an assumption. Then y reaches 7 mm when R = 0.69 / (0.1 &times; 0.007), about 986 m. Any curve tighter than that pushes the flange against the rail.</p>
+<p>There the flange is the backup. It carries the extra sideways force, and the wheel and rail wear and squeal. The 13.8 mm needed at 500 m exceeds the assumed play, so that curve would involve flange contact. The taper steers on gentle curves; the flange takes the sharp ones.</p>
+
+<h2>Hunting</h2>
+<p>The taper has a side effect. Take a wheelset on straight track that is displaced sideways. The cones push it back to the centre, it overshoots, and so it weaves from side to side. This is called <strong>hunting</strong>, and Klingel's formula gives the wavelength of the weave as 2&pi; &times; &radic;(r<sub>0</sub>e / t), where e is half the contact distance, 0.75 m. With our numbers that is 2&pi; &times; &radic;(0.46 &times; 0.75 / 0.05) = 2&pi; &times; &radic;6.9, about 16.5 m.</p>
+<p>The wavelength does not depend on speed, so at 100 km/h (27.8 m/s) the wheelset weaves 27.8 / 16.5 &asymp; 1.7 times a second. Real vehicles have suspension and damping to stop the weave growing. A steeper taper steers better but hunts more, so the taper is a compromise.</p>
+
+
+<h2>What to take from it</h2>
+<ul>
+  <li>The required shift is y = r<sub>0</sub>G / (2tR). It halves each time the radius doubles.</li>
+  <li>At R = 500 m with a 1 in 20 taper, y = 13.8 mm.</li>
+  <li>Flanges take over when the shift exceeds the play. Hunting is the taper's price.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you drag track from town to town, build a station at each, and buy a train that runs its route on its own. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

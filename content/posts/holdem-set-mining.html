@@ -1,0 +1,50 @@
+<!--
+{
+  "title": "Set mining: the odds of flopping a set with a pocket pair",
+  "date": "2026-10-21",
+  "modified": "2026-10-21",
+  "app": "HoldemCoach",
+  "description": "A pocket pair flops a set or better 11.8% of the time, about 7.5 to 1 against. That is why set mining needs a stack 15 to 20 times the call.",
+  "summary": "Flopping a set or better with a pocket pair happens in 2,304 of 19,600 flops, 11.8% or 7.5 to 1 against. Even seeing all five cards only reaches 19.2%, so the call must be small against the stacks behind.",
+  "standfirst": "Calling a raise with a small pair to hit a set is a bet on one 7.5-to-1 shot. The arithmetic behind it is short, and it also explains the 15-to-20-times rule of thumb."
+}
+-->
+<p>Set mining means calling a raise with a small pocket pair for one reason: to flop three of a kind, a set, and win a large pot from a hand that cannot easily fold. The pair itself rarely wins unimproved, so the whole plan rests on one event. Here is how often it happens, what that does to the price you can pay, and why a set is not always safe.</p>
+
+<h2>Counting the flops that give you a set</h2>
+<p>You hold a pair, say two sevens. Fifty cards are unseen, and two of them are sevens. The flop is three of those fifty, so there are C(50,3) = 19,600 possible flops, all equally likely.</p>
+<p>It is easier to count the flops that miss. A miss means none of the three flop cards is a seven, so all three come from the 48 other cards: C(48,3) = 17,296 flops. The rest give you a set or better:</p>
+<p>19,600 − 17,296 = 2,304 flops, and 2,304 ÷ 19,600 = 11.8%.</p>
+<p>The odds against are 17,296 to 2,304, which is 7.5 to 1. Of those 2,304 flops, 2,112 give a plain set, 144 give a full house because the board also holds a pair, and 48 give four of a kind (both remaining sevens plus any of 48 cards). The figure holds for every pair from deuces to aces, because only the two remaining cards of your rank matter.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of a set or better with a pocket pair: 11.8% on the flop, 15.5% by the turn, 19.2% by the river">
+    <div class="bar-row hl" title="By the flop: 11.8%"><span class="bar-label">By the flop (3 cards)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 9em) * 0.6128)"></span><span class="bar-val">11.8%</span></span></div>
+    <div class="bar-row" title="By the turn: 15.5%"><span class="bar-label">By the turn (4 cards)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 9em) * 0.8085)"></span><span class="bar-val">15.5%</span></span></div>
+    <div class="bar-row" title="By the river: 19.2%"><span class="bar-label">By the river (5 cards)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 9em) * 1.0000)"></span><span class="bar-val">19.2%</span></span></div>
+  </div>
+  <figcaption>Chance of at least three of your rank with a pocket pair, by how many board cards you see. The flop alone is 11.8%; waiting for every card only lifts it to 19.2%, and that assumes you are never made to fold on the way.</figcaption>
+</figure>
+
+<h2>Seeing more cards helps less than you hope</h2>
+<p>The same method works for later streets. With four board cards the miss count is C(48,4) out of C(50,4), so the chance of a set or better is 1 − 194,580 ÷ 230,300 = 15.5%. With all five it is 1 − C(48,5) ÷ C(50,5) = 1 − 1,712,304 ÷ 2,118,760 = 19.2%, or about 4.2 to 1 against.</p>
+<p>That 19.2% is a ceiling, not a plan. To see the turn and river you usually have to call more bets, and a bet on a board that has not helped you is where a pair of sevens folds. Treat 11.8% as the number the call has to justify.</p>
+
+<h2>What the 7.5 to 1 does to the price</h2>
+<p>Call a raise and put in one unit. Most of the time you miss and the unit is gone. Set the expected result to zero: 0.1176 × W = 0.8824 × 1, so W = 7.5. You need to win about 7.5 times your call, on average, each time the set arrives. It is the break-even logic of the <a href="/blog/holdem-pot-odds.html">pot odds post</a>, with a hit chance in place of a draw.</p>
+<p>The pot holds only a few times your call, usually the blinds and the raise. The rest of the 7.5 has to come from your opponent's stack, and they will not always pay you off. That is the job of <a href="/blog/holdem-implied-odds.html">implied odds</a>.</p>
+<p>The familiar rule of thumb says the effective stack, the smaller of the two stacks, should be 15 to 20 times the amount you call. The factor of two over 7.5 allows for not being paid in full. Suppose that, when you hit, you collect on average half of what is behind. A stack of 15 times the call then returns 7.5 times the call, break-even before the pot's own contribution; at 20 times it returns 10. Calling 3 big blinds needs 45 to 60 behind; calling 10 needs 150 to 200. "Half of what is behind" is an assumption, not a law, so the rule shows whether a call is plausible. It does not prove it pays. Shorter stacks make the call worse, because even a paid-off set cannot then win 7.5 calls.</p>
+
+<h2>When a set is not the best hand</h2>
+<p>A set is strong, not unbeatable. The scenario that costs set miners their stacks is set over set. Say you hold 77 and your opponent has 88. How often do both of you flop a set? Counting flops from the 48 cards left (excluding both pairs' four cards), the answer is 180 flops out of 17,296, or 1.04%, about 1 in 96. Conditional on you flopping a set, they flop theirs 8.5% of the time (180 out of 2,116).</p>
+<p>That 1.04% only applies when they hold 88. For the chance that someone holds a higher pair at all, count pairs: with 77 in your hand, there are 6 higher ranks, each with 6 possible pairs, so 36 of the C(50,2) = 1,225 two-card holdings, or 2.9% for one opponent. Against a deuce the figure doubles, 72 in 1,225 or 5.9%. Set over set is rare, but when it happens the smaller set usually loses everything.</p>
+<p>The board matters too: a set on a flop with three to a straight or flush can still be beaten by the right turn and river, so some flops give you fewer free chips than a dry one.</p>
+
+<h2>Using it before you call</h2>
+<p>Keep three questions in order. Is the call small compared with the stacks, around one-fifteenth or less of the effective stack? Is the opponent likely to pay a set off? And do you have a plan for the 88.2% of flops that miss, which is to fold to a bet and take the small loss? If you cannot answer yes to all three, the pair is better folded or reraised.</p>
+<p>The "Which hands to play" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> has you decide whether a two-card hand is worth raising with when nobody has bet yet, and its hand charts show at a glance which two-card hands to play from each seat.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short Texas Hold'em lessons, one idea at a time, with nothing timed. It reads the cards, the question and the answer aloud using your phone's voice, and practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
