@@ -84,7 +84,7 @@ The blog covers every Orlov Games app. A post is one file and nothing else:
    (`/<Slug>/`).
    - **Live app:** add the Play button, copied from an existing post, with
      `href="https://play.google.com/store/apps/details?id=<package>"`.
-   - **App in testing** (`"status": "testing"`: PinkSlipKings, ValleyRail):
+   - **App in testing** (`"status": "testing"`: ValleyRail):
      no Play button. Its listing is not public, so link only to `/<Slug>/`
      and say it is in closed testing.
 4. **Add one chart or diagram** where a number has a shape: a curve, a

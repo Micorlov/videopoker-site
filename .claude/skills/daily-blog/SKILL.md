@@ -75,7 +75,7 @@ Rules:
   that is not in them. The Video Poker listing and `content/apps/VideoPoker.html`
   disagree with the app source on the royal flush payout, so state nothing about
   the royal's pay in a Video Poker post unless the listing supports it.
-- Apps with `"status": "testing"` (PinkSlipKings, ValleyRail) get no Play
+- Apps with `"status": "testing"` (ValleyRail) get no Play
   button and no Play Store link; say the app is in closed testing.
 - Never imply chips, coins or points have cash value, or that any game is
   gambling.

@@ -441,6 +441,16 @@ def build_home(apps, posts, abs_):
     live = [a for a in apps if a["status"] == "live"]
     testing = [a for a in apps if a["status"] == "testing"]
     featured = next(a for a in apps if a["featured"])
+    # An empty testing list would otherwise leave a heading over nothing.
+    testing_section = ""
+    if testing:
+        testing_section = f"""
+<section class="wrap" id="testing">
+  <h2>In testing</h2>
+  <p class="section-lede">In closed testing on Google Play, and public as soon as they are ready.</p>
+  {app_cards(testing)}
+</section>
+"""
     body = f"""
 <main>
 <div class="hero wrap">
@@ -467,13 +477,7 @@ def build_home(apps, posts, abs_):
   <p class="section-lede">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
   {app_cards(live)}
 </section>
-
-<section class="wrap" id="testing">
-  <h2>In testing</h2>
-  <p class="section-lede">In closed testing on Google Play, and public as soon as they are ready.</p>
-  {app_cards(testing)}
-</section>
-
+{testing_section}
 <section class="wrap" id="blog">
   <h2>From the blog</h2>
   <p class="section-lede">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
