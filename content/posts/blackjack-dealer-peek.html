@@ -1,0 +1,70 @@
+<!--
+{
+  "title": "The dealer's peek: why blackjack is checked before you play",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "Blackjack21",
+  "description": "With an ace or a ten showing, a dealer who peeks checks for blackjack before you act. See the 30.87% and 7.72% odds, and what the check saves a double.",
+  "summary": "A peek settles a dealer blackjack before you can double or split. An ace shows a natural 30.87% of the time, a ten 7.72%, and any other card never does.",
+  "standfirst": "The peek is the dealer's quick look at the hole card when the up-card is an ace or a ten. It decides whether you ever get to make a decision, and it is why a double down is safer in some games than in others."
+}
+-->
+<p>When a dealer shows an ace or a ten-value card, many tables pause before anyone plays. The dealer looks at the hole card, face down on the felt, to see whether it makes a natural. This is the <strong>peek</strong>. If the dealer has blackjack, the hand ends on the spot. If not, play carries on as normal, and every player now knows the dealer does not have a natural.</p>
+
+<h2>When the dealer peeks, and when not</h2>
+<p>Only two up-cards can make a blackjack: an ace (with a ten underneath) or a ten-value card (with an ace underneath). Tens, jacks, queens and kings all count. With a 2 through 9 showing, the dealer cannot have a natural, so there is nothing to check.</p>
+<p>In a six-deck shoe of 312 cards there are 24 aces and 96 ten-value cards. That makes 120 cards out of 312 that call for a peek, which is 5 in 13, or <strong>38.46%</strong> of hands. The order of events at a table with a peek runs like this:</p>
+<ol>
+  <li>Cards are dealt: two to you, one up and one down for the dealer.</li>
+  <li>If the up-card is an ace, insurance is offered first.</li>
+  <li>The dealer checks the hole card. With a ten-value up-card there is no insurance, and the check comes straight away.</li>
+  <li>A natural is turned over and the hand is settled. Otherwise you play your hand.</li>
+</ol>
+<p>Insurance comes before the check on purpose. It is a bet on what the hole card is, so it has to be placed while the card is still unknown. For the maths behind it, see <a href="/blog/blackjack-insurance-explained.html">why insurance loses unless you are counting</a>.</p>
+
+<h2>How often the peek finds a natural</h2>
+<p>The odds follow directly from what is left in the shoe. Take a fresh six-deck shoe and a dealer's up-card that is an ace. The hole card comes from the other 311 cards, and 96 of them are tens:</p>
+<p>96 / 311 = <strong>30.87%</strong></p>
+<p>With a ten-value card up, the hole card has to be one of the 24 aces among the other 311:</p>
+<p>24 / 311 = <strong>7.72%</strong></p>
+<p>These count only the dealer's own card. Your two cards and any others on the table change the real figure a little. The ace figure is four times the ten figure, because there are four times as many tens as aces.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance the hole card makes a dealer blackjack, by up-card">
+    <div class="bar-row hl" title="Ace up: 30.87%"><span class="bar-label">Ace up</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">30.87%</span></span></div>
+    <div class="bar-row" title="Ten-value up: 7.72%"><span class="bar-label">Ten-value up</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">7.72%</span></span></div>
+    <div class="bar-row" title="2 to 9 up: 0%"><span class="bar-label">2 to 9 up</span><span class="bar-track"><span class="bar" style="width:0"></span><span class="bar-val">0%</span></span></div>
+  </div>
+  <figcaption>Chance that the dealer's hole card completes a natural, by up-card, in a fresh six-deck shoe. An ace is four times as likely as a ten-value card, and no other up-card can do it.</figcaption>
+</figure>
+
+<p>Combine the two and a dealer natural comes up on 2 × (24/312) × (96/311) = 4.75% of hands, about one in 21. Spread over the 38.46% of hands where the dealer peeks, that is 12.3%: the peek finds a natural roughly once in every eight looks. On the other seven, it removes the dealer's natural from the list of things that can happen to you.</p>
+
+<h2>What the peek saves you</h2>
+<p>The peek matters most for the moves that add chips to the table. Suppose you hold 11 and double down on a 10-chip bet, putting 20 chips in play.</p>
+<ul>
+  <li><strong>With a peek,</strong> a dealer natural is found before you double. You lose your original 10 chips and nothing more.</li>
+  <li><strong>Without a peek,</strong> some games let you double, split or raise first. If the hole card then turns out to give the dealer a natural, all 20 chips are lost.</li>
+</ul>
+<p>Games with no hole card, common in parts of Europe, work this way, and some of them soften it with an &ldquo;original bet only&rdquo; rule, where a dealer natural takes just the first bet and returns the extra chips from a double or split. Where the rule is not in force, the cost of that extra exposure is one more bet on each hand where the dealer turns out to have a natural. Take the 10-chip double above:</p>
+<ul>
+  <li>Dealer ace up: 30.87% &times; 10 = about 3.09 extra chips lost per double.</li>
+  <li>Dealer ten-value up: 7.72% &times; 10 = about 0.77 extra chips lost per double.</li>
+</ul>
+<p>Those are the figures for the doubles you make against those up-cards. With a peek, both are zero, which is why the rule is worth having and why basic-strategy charts differ between peek and no-peek games. Against an ace or a ten, the no-peek version asks you to double and split less.</p>
+
+<h2>What a peek tells you</h2>
+<p>A peek also gives information, even when it finds nothing. If the dealer shows an ace and the game goes on, the hole card is not a ten-value card. If the dealer shows a ten and the game goes on, it is not an ace. That is useful in two small ways:</p>
+<ul>
+  <li>The dealer's total is now one that can still change: an ace up with a non-ten underneath is a soft hand, and a ten up with no ace underneath is a hard 12 to 20.</li>
+  <li>Surrender comes after the check. In a late-surrender game, you decide knowing the dealer does not have a natural. The odds of a dealer bust from each up-card are listed in <a href="/blog/blackjack-dealer-bust-rates.html">how often the dealer busts</a>.</li>
+</ul>
+<p>One thing the peek does not change is a natural of your own. If you hold blackjack and the dealer does too, the hand is a push, and you keep your bet. A natural against a dealer natural pays nothing and loses nothing. The value of an uncontested natural is covered in <a href="/blog/blackjack-3-to-2-payout.html">why 3:2 matters more than any other rule</a>.</p>
+
+<h2>Checking the peek in practice</h2>
+<p>When you sit down at any blackjack table, find out whether the dealer takes a hole card and whether the game checks for a natural before you act. The rules printed on the felt or in the help screen will say. The answer changes how safely you can double against an ace or a ten. <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> pays blackjack at 3:2, with a six-deck shoe and the dealer standing on 17, and it offers hit, stand, double down, split, surrender and insurance. The figures above are for a fresh six-deck shoe, so they describe the start of a shoe, not a particular hand.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer at a five-seat table, and the best hand sweeps every chip the losers left behind. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

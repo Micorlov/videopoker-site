@@ -1,0 +1,56 @@
+<!--
+{
+  "title": "Undo, hints, rotate and bomb: when a puzzle aid is worth it",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "BigBenBlocks",
+  "description": "Block puzzle aids cost coins, so use them where the grid says they pay. On a 9x9 board, one hole blocks 3 of 27 groups and turning an L adds 192 places.",
+  "summary": "Rotation matters most for pieces with many orientations: an L of three cells gains 192 places on an empty 9x9 grid, a square gains none. A sealed hole blocks 3 of the 27 groups, which is what undo and bomb are worth spending on.",
+  "standfirst": "Undo, hints, rotate and bomb are not equally useful, and the grid shows why. Count what a mistake costs and what a turn gains, and you can tell which aid is worth a coin before you tap it."
+}
+-->
+<p>Big Ben Blocks lets you earn coins by playing and spend them on aids. The Play listing names four: undo, hints, rotate and bomb. It says they are available in Classic and Adventure, and switched off in the Daily Challenge and Time Attack. It does not say what each costs or how often you can use one, so this post does not guess. Instead it works out, from the 9x9 grid itself, what each kind of help could be worth, so you can decide when a coin is well spent.</p>
+
+<h2>What the listing says, and what it leaves out</h2>
+<p>The listing gives the four names and the modes where they work. It does not describe how a hint is shown or what area a bomb affects. Where the arguments below depend on what an aid does, they follow from the name and are marked as such. The grid facts are not in doubt: 81 cells, and 27 groups (9 rows, 9 columns and 9 3x3 boxes), each of which clears when all nine of its cells are filled.</p>
+
+<h2>Rotate: worth most for pieces that have many orientations</h2>
+<p>Take rotate to mean turning a piece before you place it. Its value is the extra places a piece gains. The <a href="/blog/block-puzzle-holes-and-islands.html">post on holes and islands</a> counts placements on an empty grid: a piece with a bounding box of <em>h</em> by <em>w</em> cells goes in (9 &minus; <em>h</em> + 1) &times; (9 &minus; <em>w</em> + 1) positions.</p>
+<p>For a bar of three that is 9 &times; 7 = 63 positions lying flat. Turn it and you get another 63, so rotation adds 63. A bar of five adds 45 (9 &times; 5 each way), and a domino adds 72. An L of three cells has four orientations, each in a 2x2 box and so 8 &times; 8 = 64 positions. One orientation gives 64 places, all four give 256, and the turn adds 192. A square looks the same turned, so it adds nothing.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of extra places gained by turning a piece on an empty 9x9 grid: L of three cells 192, domino 72, bar of three 63, bar of five 45, square 0">
+    <div class="bar-row hl" title="L of three cells: 192"><span class="bar-label">L of three cells</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">192</span></span></div>
+    <div class="bar-row" title="Domino: 72"><span class="bar-label">Domino</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">72</span></span></div>
+    <div class="bar-row" title="Bar of three: 63"><span class="bar-label">Bar of three</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3281)"></span><span class="bar-val">63</span></span></div>
+    <div class="bar-row" title="Bar of five: 45"><span class="bar-label">Bar of five</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2344)"></span><span class="bar-val">45</span></span></div>
+    <div class="bar-row" title="Square: 0"><span class="bar-label">Square</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0000)"></span><span class="bar-val">0</span></span></div>
+  </div>
+  <figcaption>Extra places a piece gains from being turned, on an empty 9x9 grid. An L of three cells goes from 64 places in one orientation to 256 in four, a gain of 192. A square has one orientation, so turning gains nothing.</figcaption>
+</figure>
+
+<p>Those are empty-board counts. On a crowded board the gain is smaller, but it can matter more, because one open slot of the right shape may be all that exists. The rule: rotate pays when the piece is an L or a bar and the slot you want runs the other way. It is wasted on a square.</p>
+
+<h2>Undo: worth it when a placement makes a hole</h2>
+<p>Most placements are harmless, so most are not worth undoing. The ones that matter create a hole, an empty cell walled in on every side. A corner cell is sealed by 2 neighbours, an edge cell by 3 and an interior cell by 4, so a hole is easiest to make by accident in a corner and hardest in the middle.</p>
+<p>A hole sits in one row, one column and one box, and none of them can clear while it is empty. That blocks 3 of the 27 groups, one ninth of them. A mistake that costs a ninth of your ways to clear is the one to take back. A piece that merely sits a cell away from where you would have put it, leaving the empty region in one piece, is not.</p>
+
+<h2>Hints: worth it when you are searching, not choosing</h2>
+<p>A hint can help with two different problems. If you cannot find any place for a piece, the search is the problem and a hint saves time. If you can see several places and cannot choose, the problem is the position afterwards, and the grid counts are better than any pointer: prefer the wall, keep the empty region in one piece, and avoid pockets of one or two cells.</p>
+<p>On a nearly empty board you rarely need one. A bar of five has 90 places on an empty grid, and even a 3x3 square has 49. The search gets harder only as the board fills, so that is when a hint might pay. The listing does not say what a hint shows, so use it to check your own count.</p>
+
+<h2>Bomb: worth it on the pocket, not the pile</h2>
+<p>The listing gives only the name, so take it to remove blocks. Whatever it removes, the question is the same: which cells are costing you most? A sealed hole costs 3 groups, and it can only be opened by removing one of its walls. A corner hole has just 2 walls and an interior hole has 4.</p>
+<p>So aim it first at a sealed pocket that blocks lines you are building, and last at a board that is merely busy. Empty cells together are playable; empty cells that are all holes are not. The checkerboard is the extreme: 40 filled cells and 41 empty, with no two empty cells touching, so no domino fits anywhere.</p>
+
+<h2>Practise without them</h2>
+<p>The Daily Challenge and Time Attack keep the aids off, so a hole there stays. That is a reason to treat the aids as training: use undo in Classic to see what a bad placement looks like, then learn to spot it first. The coins are earned in play, have no cash value, and the listing says there are no in-app purchases. The <a href="/blog/block-puzzle-double-clears.html">double-clear counting</a> is a good companion habit, since both reward looking at the gaps before you place.</p>
+
+<div class="callout">
+  <p>Spend an aid on the cost you can count: rotate for an L or a bar, undo for a hole, a bomb for a pocket that blocks lines. Do not spend one on a square or a roomy board.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

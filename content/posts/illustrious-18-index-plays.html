@@ -1,0 +1,81 @@
+<!--
+{
+  "title": "The Illustrious 18: count-based plays worth learning first",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "BlackjackCoach",
+  "description": "The Illustrious 18 are the Hi-Lo plays where the true count changes basic strategy: insurance at +3, 16 against 10 at 0, 15 against 10 at +4, and 15 more.",
+  "summary": "Don Schlesinger's Illustrious 18 are the eighteen plays where a Hi-Lo true count most often overrides basic strategy. Each has an index: the true count at which the decision flips.",
+  "standfirst": "Basic strategy assumes a shoe in its starting state. The Illustrious 18 say which eighteen decisions change first when the true count moves, and at exactly what number."
+}
+-->
+<p>Basic strategy is the best fixed answer for a fresh shoe. Once you are tracking a <a href="/blog/hi-lo-running-and-true-count.html">Hi-Lo true count</a>, a few of those answers turn out to be close calls that tip the other way when the shoe is rich or poor in tens. Don Schlesinger, in <em>Blackjack Attack</em>, ranked the changes by how much each is worth and published the top eighteen as the Illustrious 18. The numbers below are his Hi-Lo indices for multi-deck games where the dealer stands on soft 17.</p>
+
+<h2>What an index is</h2>
+<p>An index is a true count. It is the point at which the second-best play overtakes the one in basic strategy. The rule has two forms:</p>
+<ul>
+  <li>For a positive or zero index on a play that basic strategy does not make, make it when the true count is <strong>at or above</strong> the index.</li>
+  <li>For the plays where basic strategy stands and the index is the reverse, hit when the true count is <strong>below</strong> the index. At the index itself, stay with basic strategy.</li>
+</ul>
+<p>A worked case. The running count is +9 with two decks left, so the true count is 9 ÷ 2 = +4.5. You hold 15 against a dealer 10. Basic strategy hits, but the index for standing is +4, and 4.5 is above it, so you stand. Now take 12 against a 5 with a running count of −3 and a deck and a half left: −3 ÷ 1.5 = −2. The index is −2 and the count is not below it, so you stand as usual. At −8 with two decks left the true count is −4, which is below −2, and you hit.</p>
+
+<h2>The eighteen plays</h2>
+<table class="paytable-compare">
+  <caption>The Illustrious 18, Hi-Lo indices, multi-deck, dealer stands on soft 17.</caption>
+  <thead>
+    <tr><th>Situation</th><th>Basic strategy</th><th>Index play</th><th>Index</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Insurance</th><td>Decline</td><td>Take</td><td>+3</td></tr>
+    <tr><th scope="row">16 v 10</th><td>Hit</td><td>Stand</td><td>0</td></tr>
+    <tr><th scope="row">15 v 10</th><td>Hit</td><td>Stand</td><td>+4</td></tr>
+    <tr><th scope="row">10,10 v 5</th><td>Stand</td><td>Split</td><td>+5</td></tr>
+    <tr><th scope="row">10,10 v 6</th><td>Stand</td><td>Split</td><td>+4</td></tr>
+    <tr><th scope="row">10 v 10</th><td>Hit</td><td>Double</td><td>+4</td></tr>
+    <tr><th scope="row">12 v 3</th><td>Hit</td><td>Stand</td><td>+2</td></tr>
+    <tr><th scope="row">12 v 2</th><td>Hit</td><td>Stand</td><td>+3</td></tr>
+    <tr><th scope="row">11 v A</th><td>Hit</td><td>Double</td><td>+1</td></tr>
+    <tr><th scope="row">9 v 2</th><td>Hit</td><td>Double</td><td>+1</td></tr>
+    <tr><th scope="row">10 v A</th><td>Hit</td><td>Double</td><td>+4</td></tr>
+    <tr><th scope="row">9 v 7</th><td>Hit</td><td>Double</td><td>+3</td></tr>
+    <tr><th scope="row">16 v 9</th><td>Hit</td><td>Stand</td><td>+5</td></tr>
+    <tr><th scope="row">13 v 2</th><td>Stand</td><td>Hit below index</td><td>−1</td></tr>
+    <tr><th scope="row">12 v 4</th><td>Stand</td><td>Hit below index</td><td>0</td></tr>
+    <tr><th scope="row">12 v 5</th><td>Stand</td><td>Hit below index</td><td>−2</td></tr>
+    <tr><th scope="row">12 v 6</th><td>Stand</td><td>Hit below index</td><td>−1</td></tr>
+    <tr><th scope="row">13 v 3</th><td>Stand</td><td>Hit below index</td><td>−2</td></tr>
+  </tbody>
+</table>
+<p>"10,10" is a pair of ten-value cards. Where late surrender is offered, basic strategy gives up 16 against 9, 10 and ace and 15 against 10 before any of those stands apply, and surrender has its own separate indices. The <a href="/blog/blackjack-late-surrender.html">late surrender post</a> covers the four basic-strategy surrenders.</p>
+
+<h2>Why these hands</h2>
+<p>Look at the pattern. Five of the plays are stands on stiff hands: 16 and 15 against a 10, 16 against a 9, 12 against a 2 or 3. These hands lose a lot either way, and what decides between hitting and standing is how likely the next card is to bust you. Hitting a 16 busts on any 6 or higher, and in a ten-rich shoe that is more likely, which is why 16 against 10 flips at 0 and 16 against 9, a slightly better dealer card for you, needs +5.</p>
+<p>The doubles and splits work the same way in reverse. Doubling 10 or 11 wants a big card, and a high true count means more of them. Splitting tens breaks up a strong 20, so it only pays when the shoe is very rich in tens. That is why 10,10 against 5 needs +5 and against 6 needs +4, and it is why <a href="/blog/never-split-tens.html">never splitting tens</a> is the right rule at a true count below those numbers.</p>
+<p>The five negative-side plays are the opposite: basic strategy stands on 12 or 13 against a weak dealer card because the dealer is likely to bust. When the shoe is poor in tens the dealer busts less often and your own draw is safer, so hitting takes over.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the six Illustrious 18 plays with an index of +4 or higher">
+    <div class="bar-row hl" title="16 v 9, stand: +5"><span class="bar-label">16 v 9, stand</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+5</span></span></div>
+    <div class="bar-row hl" title="10,10 v 5, split: +5"><span class="bar-label">10,10 v 5, split</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+5</span></span></div>
+    <div class="bar-row" title="15 v 10, stand: +4"><span class="bar-label">15 v 10, stand</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">+4</span></span></div>
+    <div class="bar-row" title="10,10 v 6, split: +4"><span class="bar-label">10,10 v 6, split</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">+4</span></span></div>
+    <div class="bar-row" title="10 v 10, double: +4"><span class="bar-label">10 v 10, double</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">+4</span></span></div>
+    <div class="bar-row" title="10 v A, double: +4"><span class="bar-label">10 v A, double</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">+4</span></span></div>
+  </div>
+  <figcaption>The six plays that need a true count of +4 or more. Two of them need +5, so they come up least often.</figcaption>
+</figure>
+
+<h2>How to learn them</h2>
+<ol class="ranked">
+  <li>Start with insurance and 16 against 10. Insurance at +3 is the most clear-cut because it depends only on the share of tens, as the <a href="/blog/blackjack-insurance-explained.html">insurance post</a> shows: it breaks even once a third of the unseen cards are tens. The 16 against 10 stand at 0 applies whenever the count is neutral or better.</li>
+  <li>Learn the zero and ±1 indices next: 12 against 4, 11 against ace, 9 against 2, 13 against 2 and 12 against 6. The true count spends much of its time near zero, so these apply often.</li>
+  <li>Leave the +5 plays for last. A true count of +5 is rare, so 16 against 9 and 10,10 against 5 matter least in practice.</li>
+</ol>
+<p>Two cautions. First, the indices are tied to their rule set: a different number of decks or a dealer who hits soft 17 shifts some of them, so use the table only for the stated game. Second, the published numbers assume a particular rounding convention for the true count, so check how your source rounds before you compare.</p>
+
+<p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> covers basic strategy, insurance and Hi-Lo card counting. Basic strategy is the baseline these indices adjust, so be fluent in it first.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> lets you choose a play, read the explanation and review your mistakes, either on the strategy chart or in practice rounds against the dealer at your own pace. The chart teaches fixed six-deck rules: the dealer stands on soft 17, with double after split and late surrender. Local training works offline. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

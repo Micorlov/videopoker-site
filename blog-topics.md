@@ -163,54 +163,42 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Why the fifth coin matters: the royal flush bonus at max bet
-
 ### OmahaPoker
-
-- Danglers: why a disconnected fourth card weakens an Omaha hand
 
 ### Blackjack21
 
-- The dealer's peek: why blackjack is checked before you play
-
 ### BrasslightSlots
-
-- What a multiplier does to a ways-to-win payout
 
 ### PokerVsDealer
 
-- Five-card draw: where the oldest form of poker came from
-
 ### FivesAndThrees
-
-- Playing to 61: how pub dominoes borrowed the cribbage board
 
 ### BlackjackCoach
 
-- The Illustrious 18: the count-based changes worth learning first
-
 ### HoldemCoach
-
-- Dirty outs: discounting cards that also help your opponent
 
 ### EightBallsPool
 
-- Pool table sizes: 7, 8 and 9-foot tables compared
-
 ### BigBenBlocks
-
-- Undo, hints, rotate and bomb: when a puzzle aid is worth it
 
 ### PinkSlipKings
 
-- Racing for pink slips: where the name came from
-
 ### ValleyRail
-
-- Tunnel or cutting: how engineers take a line through a hill
 
 ## Published
 
+- 2026-10-22 — Why the fifth coin matters: the royal flush bonus at max bet — VideoPoker — `video-poker-fifth-coin-royal-bonus`
+- 2026-10-22 — Danglers: why a disconnected fourth card weakens a hand — OmahaPoker — `omaha-danglers`
+- 2026-10-22 — The dealer's peek: why blackjack is checked before you play — Blackjack21 — `blackjack-dealer-peek`
+- 2026-10-22 — What a multiplier does to a ways-to-win payout — BrasslightSlots — `slot-multipliers-ways-to-win`
+- 2026-10-22 — Five-card draw: where the oldest form of poker came from — PokerVsDealer — `five-card-draw-history`
+- 2026-10-22 — Playing to 61: how pub dominoes borrowed the cribbage board — FivesAndThrees — `fives-and-threes-playing-to-61`
+- 2026-10-22 — The Illustrious 18: count-based plays worth learning first — BlackjackCoach — `illustrious-18-index-plays`
+- 2026-10-22 — Dirty outs: discounting cards that also help your opponent — HoldemCoach — `holdem-dirty-outs`
+- 2026-10-22 — Pool table sizes: 7, 8 and 9-foot tables compared — EightBallsPool — `pool-table-sizes-compared`
+- 2026-10-22 — Undo, hints, rotate and bomb: when a puzzle aid is worth it — BigBenBlocks — `block-puzzle-undo-hints-rotate-bomb`
+- 2026-10-22 — Racing for pink slips: where the name came from — PinkSlipKings — `racing-for-pink-slips`
+- 2026-10-22 — Tunnel or cutting: how engineers take a line through a hill — ValleyRail — `railway-tunnel-or-cutting`
 - 2026-10-21 — Suited high cards: when two beat three in Jacks or Better — VideoPoker — `jacks-or-better-suited-high-cards`
 - 2026-10-21 — Quartering in Omaha Hi-Lo: how half a pot can lose chips — OmahaPoker — `omaha-hi-lo-quartering`
 - 2026-10-21 — Pushes in blackjack: what happens when you tie the dealer — Blackjack21 — `blackjack-pushes-tie-the-dealer`

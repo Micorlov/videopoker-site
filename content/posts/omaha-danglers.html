@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Danglers: why a disconnected fourth card weakens a hand",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "OmahaPoker",
+  "description": "A dangler is a fourth Omaha card that cannot join a straight with the other three. Count how often J-T-9-3 makes a straight by the river against J-T-9-8.",
+  "summary": "J-T-9-8 makes a straight by the river 27.5% of the time, J-T-9-3 only 19.1%. Any fourth card from a 5 down adds nothing to J-T-9, so three of the six two-card combinations are dead.",
+  "standfirst": "Three connected cards and one stray is a common Omaha deal, and the stray looks harmless. Counting the boards shows what it costs, and why a 5, a 4, a 3 and a 2 are equally useless next to J-T-9."
+}
+-->
+<p>A dangler is a hole card that sits apart from the other three, such as the 3 in J-T-9-3. The hand looks fine because J-T-9 is connected, and the 3 seems to cost nothing. It costs a lot, and the cost can be counted exactly. This post compares J-T-9-8 with J-T-9-3 and shows where the difference comes from.</p>
+
+<h2>Six pairs, and which of them can work</h2>
+<p>Omaha deals four hole cards, and you must use <a href="/blog/omaha-exactly-two-hole-cards.html">exactly two of them</a> with three from the board. Four cards make C(4,2) = 6 different two-card pairs, and any one of them can be the pair you play.</p>
+<p>For straights, a pair is only useful if both ranks can sit in the same five-card straight. That means the ranks are no more than four apart, with the ace counting high or low. Apply the test to both hands:</p>
+<ul>
+  <li><strong>J-T-9-8:</strong> J-T, J-9, J-8, T-9, T-8 and 9-8 are all within four ranks. All 6 pairs can work.</li>
+  <li><strong>J-T-9-3:</strong> J-T, J-9 and T-9 work. J-3 is eight ranks apart, T-3 is seven and 9-3 is six, so the three pairs that include the 3 can never make a straight. Only 3 of 6 can work.</li>
+</ul>
+<p>That is the whole meaning of a dangler: a card whose every pair with the rest of the hand is out of range. It is still a card, and you still hold it, but for straights it is dead weight.</p>
+
+<h2>What it costs, counted</h2>
+<p>I took each hand as four different suits, so that flushes do not blur the count, and dealt out every possible board against it. There are C(48,3) = 17,296 flops and C(48,5) = 1,712,304 five-card boards. A straight counts only if it uses exactly two hole cards and three board cards.</p>
+
+<table class="paytable-compare">
+  <caption>Chance of making a straight, rainbow hands, using exactly two hole cards.</caption>
+  <thead>
+    <tr><th>Hand</th><th>Pairs that can work</th><th>Straight on the flop</th><th>Straight by the river</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">J-T-9-8</th><td>6 of 6</td><td class="good">848 flops, 4.90%</td><td class="good">470,544 boards, 27.48%</td></tr>
+    <tr><th scope="row">J-T-9-3</th><td>3 of 6</td><td>560 flops, 3.24%</td><td>326,508 boards, 19.07%</td></tr>
+  </tbody>
+</table>
+
+<p>The dangler hand flops a straight 560 times in 17,296, against 848 for the connected one. By the river the gap is 470,544 against 326,508 boards. The connected hand makes a straight about 1.44 times as often (27.48 ÷ 19.07), or 8.4 percentage points more. Both hands share J-T-9, so the 3 does not damage anything. It just fails to add what the 8 adds, which is the extra 144,036 boards.</p>
+
+<h2>Not every weak fourth card is equally weak</h2>
+<p>Replace the 8 with each lower rank in turn and count again.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of making a straight by the river for J-T-9 plus a fourth card: an 8 gives 27.5%, a 7 gives 24.7%, a 6 gives 20.1%, and a 5, 4, 3 or 2 all give 19.1%">
+    <div class="bar-row" title="J-T-9-8: 27.5%"><span class="bar-label">J-T-9-8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">27.5%</span></span></div>
+    <div class="bar-row" title="J-T-9-7: 24.7%"><span class="bar-label">J-T-9-7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8988)"></span><span class="bar-val">24.7%</span></span></div>
+    <div class="bar-row" title="J-T-9-6: 20.1%"><span class="bar-label">J-T-9-6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7325)"></span><span class="bar-val">20.1%</span></span></div>
+    <div class="bar-row hl" title="J-T-9 with a 5, 4, 3 or 2: 19.1%"><span class="bar-label">J-T-9-5 to 2</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6940)"></span><span class="bar-val">19.1%</span></span></div>
+  </div>
+  <figcaption>Chance of making a straight by the river, counted over all 1,712,304 boards, with J-T-9 and a fourth card of four different suits. A 5, 4, 3 or 2 gives the same result, which is the dangler level.</figcaption>
+</figure>
+
+<p>The 7 gives up only 2.8 points against the 8. The 6 gives up 7.4, and then the line goes flat: a 5, a 4, a 3 and a 2 all give exactly 326,508 boards, the same 19.07%.</p>
+<p>The flat part has a reason. The 5 can share a straight with the 9, but only the 5-6-7-8-9 straight, and that needs 6-7-8 on the board. If the board is 6-7-8, your T-9 already makes 6-7-8-9-T. So every board that the 5 completes was already completed without it. The 6 is the last card that adds anything, through straights such as 5-6-7-8-9 that J-T-9 cannot reach alone. Below that, the card is a pure dangler.</p>
+
+<div class="callout">
+  <p>A dangler is not a bad card in itself. It is a card with no partner. J-T-9 is a three-card hand in both rows of the table; the fourth card either extends it or it does not.</p>
+</div>
+
+<h2>What the count leaves out</h2>
+<p>These figures are for straights only, and they say nothing about winning. A few things change the picture:</p>
+<ol class="ranked">
+  <li><strong>Suits.</strong> A dangler in the same suit as another card of yours can still make a flush. A suited ace is the strongest case, since it gives the nut flush draw, and the <a href="/blog/omaha-double-suited-hands.html">double-suited</a> count shows why a second suit matters.</li>
+  <li><strong>Pairs.</strong> A dangler that matches the rank of another card gives you a pair, which can make a set. That is a different kind of connection.</li>
+  <li><strong>Strength.</strong> Whether your straight wins depends on the board and your opponents. Even a straight made from the top of the range can lose to a flush or a full house.</li>
+</ol>
+<p>So the lesson is narrower than "never play a dangler". For hands that rely on straights, the fourth card is where the hand gets either 6 working pairs or 3. Between two hands with the same three good cards, choose the one whose fourth card connects.</p>
+
+<h2>A quick way to check a hand</h2>
+<ol class="ranked">
+  <li>Write down the four ranks and test each pair: are they four or fewer ranks apart, with the ace high or low?</li>
+  <li>Count the pairs that pass. Six is a rundown, and three means one card is a dangler.</li>
+  <li>If a card fails every test, ask whether its suit or its rank (a pair) gives it another job.</li>
+</ol>
+<p>The same counting explains the size of wrap draws, covered in <a href="/blog/omaha-wrap-straight-draws.html">how an Omaha straight draw can have 20 outs</a>: more working pairs means more ways to complete a straight.</p>
+<p><a href="/OmahaPoker/">Omaha Poker</a> gives each starting hand a grade before the flop, so you can deal yourself hands like these and see which four-card hands are worth playing. Its live hand insight shows your win chance and your outs grouped by what they make.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

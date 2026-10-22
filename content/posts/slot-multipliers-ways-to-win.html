@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "What a multiplier does to a ways-to-win payout",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "BrasslightSlots",
+  "description": "A multiplier scales the pay per way, not the number of ways. Worked through with hypothetical pay values: one cell, the whole win, and stacked multipliers.",
+  "summary": "A ways win is the number of ways times the pay per way. A multiplier scales the second factor, either for every way or only for the ways through one cell, and stacked multipliers can add or multiply.",
+  "standfirst": "A wild changes how many ways a symbol has. A multiplier leaves that count alone and changes what each way pays. Which ways it touches, and how several combine, decide how big the effect is."
+}
+-->
+<p>On a ways-to-win slot the payout for a symbol is two numbers multiplied together: how many ways the symbol has, and what each way pays for a run of that length. A wild works on the first number, as the post on <a href="/blog/wilds-on-a-ways-to-win-slot.html">wilds on a ways-to-win slot</a> shows. A multiplier works on the second. It does not add a single way; it makes the ways that already exist pay more.</p>
+<p>Every pay value below is hypothetical and chosen to keep the sums easy. None of it is the pay table of any real game, including <a href="/BrasslightSlots/">Brasslight Slots</a>, whose Play listing does not describe multipliers on ways wins.</p>
+
+<h2>The base sum</h2>
+<p>Suppose a fish pays, per way and in multiples of the total bet, 1 for a three-reel run, 3 for four reels and 10 for five. Now take a screen where the fish counts on reels 1 to 5 are 2, 2, 1, 2, 0.</p>
+<ul>
+<li>Reel 5 has no fish, so the run stops at four reels.</li>
+<li>The ways are 2 × 2 × 1 × 2 = 8. The counting rule is in <a href="/blog/what-243-ways-to-win-means.html">what 243 ways to win means</a>.</li>
+<li>The win is 8 ways × 3 = 24 times the bet.</li>
+</ul>
+<p>Everything that follows starts from that 24.</p>
+
+<h2>A multiplier on the whole win</h2>
+<p>The simplest design applies the multiplier to the finished total. A ×2 gives 24 × 2 = 48. A ×3 gives 72. Nothing about the ways changes: still 8 ways, still a four-reel run, and each way now pays 6 instead of 3.</p>
+<p>It makes no difference whether you think of the multiplier as scaling the total or scaling each way, because the multiplication can be done in either order: 8 × (3 × 2) is the same as (8 × 3) × 2.</p>
+
+<h2>A multiplier on one cell</h2>
+<p>Some games attach the multiplier to a single symbol or cell, so that it applies only to ways passing through that cell. Then you need to know how many ways that is. The ways through any one cell are the total divided by the count on that cell's reel, because every other reel still offers its full count.</p>
+<p>Here, put a ×2 on one of the two fish on reel 2. The ways through that cell are 8 ÷ 2 = 4. The other 4 ways go through the second fish on reel 2 and are untouched.</p>
+<ul>
+<li>4 multiplied ways: 4 × 3 × 2 = 24.</li>
+<li>4 plain ways: 4 × 3 = 12.</li>
+<li>Total: 24 + 12 = 36 times the bet.</li>
+</ul>
+<p>So the same ×2 is worth 36 on one cell and 48 on the whole win. A cell multiplier is worth more the larger its share of the ways. On a reel where the symbol appears once, every way passes through that cell, and the cell multiplier behaves like a whole-win one.</p>
+
+<h2>When multipliers stack</h2>
+<p>Two multipliers on one spin can be combined in two ways, and games differ. Take a ×2 and a ×3 on the whole win.</p>
+<ul>
+<li><strong>Added:</strong> 2 + 3 = ×5, so 24 × 5 = 120.</li>
+<li><strong>Multiplied:</strong> 2 × 3 = ×6, so 24 × 6 = 144.</li>
+</ul>
+<p>The gap grows as multipliers get bigger. Two ×10s add to ×20 but multiply to ×100. Any rule you read about stacking should say which of the two it uses, because the same symbols give very different results.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of a hypothetical win in multiples of the bet. No multiplier: 24. Times 2 on one fish cell: 36. Times 2 on the whole win: 48. Times 2 and times 3 added: 120. Times 2 and times 3 multiplied: 144.">
+    <div class="bar-row" title="No multiplier: 24"><span class="bar-label">No multiplier</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1667)"></span><span class="bar-val">24</span></span></div>
+    <div class="bar-row" title="×2 on one cell: 36"><span class="bar-label">×2 on one cell</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">36</span></span></div>
+    <div class="bar-row" title="×2 on the whole win: 48"><span class="bar-label">×2 whole win</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">48</span></span></div>
+    <div class="bar-row" title="×2 and ×3 added: 120"><span class="bar-label">×2, ×3 added</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8333)"></span><span class="bar-val">120</span></span></div>
+    <div class="bar-row hl" title="×2 and ×3 multiplied: 144"><span class="bar-label">×2, ×3 multiplied</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">144</span></span></div>
+  </div>
+  <figcaption>One hypothetical screen: 8 ways, a four-reel run, 3 per way, so 24 times the bet before any multiplier. How each multiplier rule changes the win.</figcaption>
+</figure>
+
+<h2>The ceiling</h2>
+<p>The largest possible count is 243 ways, with one symbol, or that symbol plus wilds, filling all fifteen cells. At the hypothetical 10 per way for five reels, that is 243 × 10 = 2,430 times the bet. A ×2 on the whole win makes it 4,860. Most of a multiplier's headline value comes from landing it on a screen that was already large. On the 24-times win above, a ×2 adds 24; on a screen like this one it adds 2,430.</p>
+
+<div class="callout">
+  <p>Win = ways × pay per way × multiplier. A whole-win multiplier scales all the ways. A cell multiplier scales only the ways through that cell, which is the total divided by that reel's count. Check whether stacked multipliers add or multiply.</p>
+</div>
+
+<h2>What a multiplier does not change</h2>
+<p>A multiplier changes the size of a win, not how often one happens. The reel strips decide which symbols land, and a multiplier only acts once a winning screen already exists. It also does not move the long-run average for free: the return of a game comes from the pay table, the reel strips and any multipliers together, as the post on <a href="/blog/slot-rtp-and-volatility.html">RTP and volatility</a> explains. A game with big multipliers has to pay less elsewhere to keep the same return, which usually means smaller base wins and a bumpier ride.</p>
+<p>A multiplier is also not the same thing as a bonus prize quoted as a multiple of the bet. The Play listing for Brasslight Slots says the Yarn Pick bonus hides three prizes worth up to 25 times your bet. That is a prize size, picked once in a bonus round. A multiplier scales a ways win that has already been counted.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> has 5 reels, 3 rows and 243 ways to win on every spin. Three balls of yarn open the Yarn Pick bonus, where three hidden prizes are worth up to 25 times your bet. It is a free game for adults, with no ads and nothing to buy: there is no real-money play, and the coins and gems have no cash value and cannot be bought, sold or cashed out.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

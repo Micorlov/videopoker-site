@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Five-card draw: where the oldest form of poker came from",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "PokerVsDealer",
+  "description": "Early poker used 20 cards and four players. What is documented about the road to five-card draw, and which dates stay uncertain.",
+  "summary": "The first written accounts of poker, from the 1830s and 1840s, describe four players and a 20-card pack. That pack left no cards to draw from, so the draw, the 52-card pack, the straight and the flush came later, around 1850.",
+  "standfirst": "Five-card draw is the poker most people picture first, yet it is not where the game began. The early record is thin, so this post separates what is documented from what is only repeated."
+}
+-->
+<p>Five-card draw is five cards each, a round of betting, a chance to swap cards, and a second round of betting. It is the form most people learn first, but it was not the first form of poker. The early history was written by travellers and by a reformed gambler, not by rule-book authors, so dates come with a margin. Where a date is uncertain, this post says so.</p>
+
+<h2>What the earliest accounts describe</h2>
+<p>Two sources are cited again and again. The English actor Joseph Cowell described a game he saw in New Orleans in 1829, in a memoir published in 1844. Jonathan H. Green, who had given up gambling, wrote about the game in an 1843 book, <em>An Exposure of the Arts and Miseries of Gambling</em>, and placed its spread along the Mississippi at around 1834. Both describe four players and a pack of 20 cards, which is the ace, king, queen, jack and ten of each of the four suits. Both are recollections written years afterwards, so treat 1829 and 1834 as "about then", not as exact first dates.</p>
+<p>Poker also had older relatives, such as the French <em>poque</em> and the German <em>pochen</em>. How direct the line from them is has long been debated, and nothing here depends on it.</p>
+
+<h2>Why a 20-card pack could not support a draw</h2>
+<p>Four players with five cards each is 4 × 5 = 20 cards, the whole pack. Nothing is left to swap in, so a draw was impossible. The numbers also show how different that game was:</p>
+<ul>
+  <li>The number of different five-card hands from 20 cards is C(20, 5) = 1,860,480 ÷ 120 = <strong>15,504</strong>.</li>
+  <li>A hand with no pair needs one card of each of the 5 ranks, with any of 4 suits for each: 4<sup>5</sup> = <strong>1,024</strong> hands, or 6.6%. So <strong>93.4%</strong> of deals hold a pair or better.</li>
+  <li>With only five cards in each suit, a flush can only be 10-J-Q-K-A in one suit. That is 4 hands, or one deal in 3,876.</li>
+  <li>The 10-J-Q-K-A run is the only straight that the pack can make.</li>
+</ul>
+<p>In a pack like that, the straight and the flush have nothing useful to rank, because one is almost impossible and the other is a single sequence. The hands that matter are the pairs, three of a kind, full houses and fours.</p>
+
+<h2>The 52-card pack changes the maths</h2>
+<p>Moving to the full 52-card pack is generally placed in the 1830s and 1840s, though sources differ on when. The numbers change at once. There are C(52, 5) = <strong>2,598,960</strong> five-card hands, about 168 times as many as before (2,598,960 ÷ 15,504 = 167.6). Hands with five different ranks number C(13, 5) × 4<sup>5</sup> = 1,287 × 1,024 = 1,317,888, which is 50.7% of all deals, so about half of hands now have no pair.</p>
+<p>Straights and flushes become real hands. There are 10,200 straights and 5,108 non-straight flushes, which is exactly why the flush ranks higher: it is the rarer hand. That reasoning is in <a href="/blog/why-a-flush-beats-a-straight.html">Why a flush beats a straight</a>, and every count is in <a href="/blog/five-card-poker-hand-frequencies.html">How rare each five-card poker hand is</a>. Sources do not agree on exactly when the straight and the flush entered play, only that it was in the middle of the nineteenth century.</p>
+<p>The bigger pack also leaves cards undealt. With four players, 52 − 20 = <strong>32</strong> cards remain, and that is what makes a draw possible.</p>
+
+<h2>The draw appears in print</h2>
+<p>Draw poker is usually traced to about 1850, when American games compendiums, many sold under Hoyle's name, began printing rules for poker. Which edition printed the draw first is debated, so "around 1850" is the safest date. Stud poker, with some cards dealt face up, is usually associated with the American Civil War, 1861 to 1865, and draw stayed the standard home game well after that.</p>
+<p>The draw also introduced a decision. After the first bet you look at your hand and choose which cards to keep. The maths is simple for a four-card flush: you hold 4 suited cards, 9 cards of that suit are among the 47 you cannot see, and one drawn card completes the flush 9 ÷ 47 = <strong>19.1%</strong> of the time. The cases are worked through in <a href="/blog/drawing-one-card-to-a-flush.html">Drawing one card to a flush</a>.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 200" role="img" aria-label="Timeline of early poker: 1829 Cowell's account of a four-player, 20-card game; 1834 the date Green gives for the game spreading; 1843 Green's book published; around 1850 draw poker in American rule books.">
+    <line class="axis" x1="30" x2="380" y1="100" y2="100"/>
+    <line class="ref" x1="83" x2="83" y1="64" y2="100"/>
+    <line class="ref" x1="136" x2="136" y1="100" y2="136"/>
+    <line class="ref" x1="232" x2="232" y1="64" y2="100"/>
+    <line class="ref" x1="307" x2="307" y1="100" y2="136"/>
+    <g class="hit"><title>1829: Cowell's account, 4 players, 20 cards</title><circle class="dot" cx="83" cy="100" r="6"/></g>
+    <g class="hit"><title>1834: the date Green gives</title><circle class="dot" cx="136" cy="100" r="6"/></g>
+    <g class="hit"><title>1843: Green's book published</title><circle class="dot" cx="232" cy="100" r="6"/></g>
+    <g class="hit"><title>About 1850: draw poker in American rule books</title><circle class="dot hl" cx="307" cy="100" r="7"/></g>
+    <text class="strong" x="83" y="30">1829</text>
+    <text x="83" y="45">Cowell: 4 players,</text>
+    <text x="83" y="59">20 cards</text>
+    <text class="strong" x="136" y="156">1834</text>
+    <text x="136" y="171">Green's date for the</text>
+    <text x="136" y="185">game spreading</text>
+    <text class="strong" x="232" y="30">1843</text>
+    <text x="232" y="45">Green's book</text>
+    <text x="232" y="59">is published</text>
+    <text class="strong" x="307" y="156">c. 1850</text>
+    <text x="307" y="171">Draw in American</text>
+    <text x="307" y="185">rule books</text>
+  </svg>
+  <figcaption>Dates in the early record of poker. The 1829 and 1834 dates come from later recollections, and "c. 1850" is approximate, so the spacing shows order, not exact years.</figcaption>
+</figure>
+
+<h2>What is solid and what is not</h2>
+<ul>
+  <li><strong>Well supported:</strong> early poker was a four-player game with 20 cards (Cowell, Green), and it was being played on the Mississippi by the 1830s.</li>
+  <li><strong>Approximate:</strong> the move to 52 cards, and the arrival of the straight and the flush, in the 1830s to 1850s.</li>
+  <li><strong>Debated:</strong> which book printed draw poker first, and how closely poker descends from <em>poque</em> and <em>pochen</em>.</li>
+</ul>
+
+<div class="callout">
+  <p>Early poker used 20 cards and four players, which left nothing to draw. The 52-card pack, with 32 cards undealt at four players and 2,598,960 hands, is what allowed the draw, the straight and the flush, around the middle of the 1800s.</p>
+</div>
+
+<p><a href="/PokerVsDealer/">Poker vs Dealer</a> is not a draw game in the old sense. Its Play listing says it uses its own five-card rules, and that you can pay an ante to forge a card by exchanging it for a fresh one. That echoes the central idea of the draw, which is deciding which cards to swap. The in-game rules, which you can read at any time, are the place to check the details.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is five-card poker against the dealer and two computer opponents. Your five cards compete against the house and for the table pot, and you can hold, forge a card by exchanging it, or bail. It plays offline with no account, there are no ads or in-app purchases, and the play-money chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

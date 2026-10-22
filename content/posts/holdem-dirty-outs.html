@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Dirty outs: discounting cards that also help your opponent",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "HoldemCoach",
+  "description": "A dirty out completes your hand and your opponent's better one. Dropping two of eight outs cuts a turn draw from 17.4% to 13.0%, below a 16.7% price.",
+  "summary": "A dirty out makes your hand and a better one for your opponent, so it is not a real out. Take two of eight straight outs away and the turn chance falls from 17.4% to 13.0%, which turns a call at 16.7% into a fold.",
+  "standfirst": "Counting outs assumes every one of them wins. Some do not, and the cards that fail are the ones that help your opponent as well. Learn to spot them and discount them before you compare with the price."
+}
+-->
+<p>An out is an unseen card that makes your hand the best hand. The second half of that definition is the one people skip. A card that completes your draw but also completes a better hand for your opponent is called a dirty out, and counting it as a full out makes a draw look stronger than it is. This post shows how to find dirty outs and what they cost, with exact card counts.</p>
+
+<h2>What makes an out dirty</h2>
+<p>A clean out improves your hand and leaves it ahead. A dirty out improves your hand but gives someone else something better, or at least something equal. Two patterns cover most cases:</p>
+<ol class="ranked">
+  <li><strong>The flush card.</strong> Your straight card is also the third card of a suit on the board. An opponent holding two cards of that suit now has a flush, which beats your straight.</li>
+  <li><strong>The pairing card.</strong> Your card pairs the board. An opponent who already has trips or two pair can turn that into a full house, which beats a flush or a straight.</li>
+</ol>
+<p>None of these means the out is worthless. It means the out is only good when your opponent does not hold the hand it helps. You cannot see that hand, so you discount.</p>
+
+<h2>A worked example</h2>
+<p>You hold the 10♠ 9♠. The flop is the 8♥ 7♥ 2♣. Any 6 gives you 6-7-8-9-10 and any jack gives you 7-8-9-10-J, so you have an open-ended straight draw: four sixes and four jacks, 8 outs.</p>
+<p>The board has two hearts. If a third heart arrives, anyone holding two hearts has a flush. Two of your eight outs are hearts, the 6♥ and the J♥. If the opponent is on a heart draw, those two cards win you nothing, because the straight they give you loses to the flush they give him. That leaves 6 clean outs.</p>
+<p>Count the cost with the two-card formula from the flop to the river: one minus the chance of missing both cards, 1 − C(47 − outs, 2) ÷ C(47, 2). There are 47 unseen cards and C(47, 2) = 1,081 pairs of them.</p>
+<ul>
+  <li><strong>8 outs:</strong> 1 − 741 ÷ 1,081 = 340 ÷ 1,081 = 31.5%, since C(39, 2) = 741.</li>
+  <li><strong>6 outs:</strong> 1 − 820 ÷ 1,081 = 261 ÷ 1,081 = 24.1%, since C(41, 2) = 820.</li>
+</ul>
+<p>Two cards cost you more than seven percentage points. Counting them as clean would have overstated the draw by nearly a third.</p>
+
+<h2>The same hand on the turn</h2>
+<p>The turn is the K♦ and nothing has changed in the hearts: the board is 8♥ 7♥ 2♣ K♦, and 46 cards are unseen. With one card to come the chance is simply outs ÷ 46.</p>
+<ul>
+  <li><strong>8 outs:</strong> 8 ÷ 46 = 17.4%.</li>
+  <li><strong>6 outs:</strong> 6 ÷ 46 = 13.0%.</li>
+</ul>
+<p>Each out is worth 1 ÷ 46, or about 2.2 points, so every dirty out you remove costs that much.</p>
+<p>Now add a price. The pot is 60 and your opponent bets 15. Calling adds 15 to make a pot of 90, so you need 15 ÷ 90 = 16.7%, using the division from <a href="/blog/holdem-pot-odds.html">the post on pot odds</a>. At 8 outs you clear it narrowly, at 17.4%. At 6 outs you are well short, at 13.0%. The dirty outs turn a call into a fold, which is the whole reason to count them.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart: chance of hitting the straight on the turn with 8, 7 and 6 outs against the 16.7% price of calling 15 into a pot of 60">
+    <div class="bar-row" title="8 outs: 17.4%"><span class="bar-label">8 outs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">17.4%</span></span></div>
+    <div class="bar-row" title="Call price: 16.7%"><span class="bar-label">Call price</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9598)"></span><span class="bar-val">16.7%</span></span></div>
+    <div class="bar-row" title="7 outs: 15.2%"><span class="bar-label">7 outs</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8736)"></span><span class="bar-val">15.2%</span></span></div>
+    <div class="bar-row hl" title="6 outs: 13.0%"><span class="bar-label">6 outs</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7471)"></span><span class="bar-val">13.0%</span></span></div>
+  </div>
+  <figcaption>Chance of hitting on the turn (outs ÷ 46) against the 16.7% needed to call 15 into a pot of 60. Only the full 8 outs clear the price. At 7 outs, a half-discount for a possible heart draw, and at 6 outs, the draw falls short.</figcaption>
+</figure>
+
+<h2>Discounting when you are not sure</h2>
+<p>You rarely know whether the opponent holds hearts. Two practical ways to handle that:</p>
+<ol class="ranked">
+  <li><strong>Count by likelihood.</strong> If a heart draw is about as likely as not, treat the two heart outs as one: 7 outs, 7 ÷ 46 = 15.2%. That is still under the 16.7% price, so the call remains marginal at best.</li>
+  <li><strong>Read the betting.</strong> A bet that has not slowed down on a two-heart board is more worrying than a check. The more the line fits a flush draw, the nearer to a full discount you should go.</li>
+</ol>
+
+<h2>Where the shortcut goes wrong</h2>
+<p>Discounting is a correction to the count, not to the method. <a href="/blog/holdem-rule-of-2-and-4.html">The rule of 2 and 4</a> still applies once you have the right number of outs: 6 outs on the turn is 12 by the rule of 2, against an exact 13.0%. Two cautions:</p>
+<ol class="ranked">
+  <li><strong>Do not discount everything.</strong> An out is dirty only if a specific hand that beats you becomes possible. Run through the two patterns above and discount only those cards, not the whole draw.</li>
+  <li><strong>Do not use the two-card figure for a one-card price.</strong> The 24.1% on the flop applies only if you see both cards for one payment. If another bet is likely on the turn, the next-card figure is the honest one.</li>
+</ol>
+
+<div class="callout">
+  <p>Before you count outs, ask of each one: if this card arrives, could my opponent have something better because of it? Remove the outs where the answer is yes, then turn what is left into a percentage and compare with the price.</p>
+</div>
+
+<p>The "Reading the cards" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> has you look at your cards and the shared cards and name the best hand you can make, which is the habit that makes dirty outs easy to see. "Is it worth calling?" then asks you to work out the price you are being offered and whether your hand is worth it.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons on one idea at a time, and nothing in them is timed. Practice works offline, and the app can read the cards, the question and the answer aloud using your phone's voice. It is a training app with no real-money wagering, not a poker solver or a promise of winnings.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

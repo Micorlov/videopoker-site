@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Tunnel or cutting: how engineers take a line through a hill",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "app": "ValleyRail",
+  "description": "A cutting's volume grows with the square of its depth, a tunnel's only with its length. Work out where the break-even depth falls, with an example.",
+  "summary": "With fixed side slopes, a cutting's cross-section grows with depth squared, while a tunnel's stays constant. In a worked example the tunnel wins once the hill is deeper than about 9 metres.",
+  "standfirst": "Dig a cutting twice as deep and you move far more than twice the earth. Dig a tunnel twice as long and you move exactly twice. Somewhere between the two sits the hill where the choice flips."
+}
+-->
+<p>When a railway meets a hill that is too steep to climb, the engineer has two ways to go straight on: dig the hill away from the top, or dig through it from the inside. Both keep the gradient gentle. They differ in how the amount of digging grows, and that difference decides most of the choices on a real route.</p>
+
+<h2>Cutting: depth is squared</h2>
+<p>A cutting cannot have vertical walls, because loose ground would slide into the track. The sides are cut back at a slope. Take a simple, assumed shape: a flat floor <strong>8 m</strong> wide for the track, and side slopes of <strong>2 m across for every 1 m of height</strong>. For a cutting of depth <em>d</em> the cross-section is a rectangle plus two triangles:</p>
+<p><strong>Area = 8d + 2d&sup2;</strong> square metres.</p>
+<p>The first term grows in proportion to depth. The second grows with its square, and it takes over as the cutting deepens. Each metre of length multiplies that area by one metre, so the area is also the volume of earth to remove per metre of line.</p>
+<table class="paytable-compare">
+  <caption>Cutting cross-section for an 8 m floor and 2-to-1 side slopes, with the width at the top and the earth moved over 100 m of line.</caption>
+  <thead>
+    <tr><th>Depth</th><th>Width at top</th><th>Area per metre</th><th>Over 100 m</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">5 m</th><td>28 m</td><td>90 m&sup2;</td><td>9,000 m&sup3;</td></tr>
+    <tr><th scope="row">10 m</th><td>48 m</td><td>280 m&sup2;</td><td>28,000 m&sup3;</td></tr>
+    <tr><th scope="row">15 m</th><td>68 m</td><td>570 m&sup2;</td><td>57,000 m&sup3;</td></tr>
+    <tr><th scope="row">20 m</th><td>88 m</td><td>960 m&sup2;</td><td>96,000 m&sup3;</td></tr>
+  </tbody>
+</table>
+<p>Going from 10 m to 20 m deep does not double the work. It multiplies it by 960 / 280, about 3.4. A cutting that was cheap at 5 m becomes a major project at 20 m, and it also takes a strip 88 m wide out of the hillside.</p>
+
+<h2>Tunnel: length is all that counts</h2>
+<p>A tunnel's cross-section is set by the trains it must carry, not by how much hill lies above. Assume a double-track bore of <strong>60 m&sup2;</strong> excavated. Then every metre of tunnel is 60 m&sup3; whether the hill above is 5 m or 100 m thick. A 100 m tunnel is 6,000 m&sup3;, and a 1,000 m tunnel is 60,000 m&sup3;: volume is linear in length.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of earth removed per metre of line: tunnel at any depth 60 square metres, cutting 5 metres deep 90, 10 metres deep 280, 15 metres deep 570, 20 metres deep 960 square metres.">
+    <div class="bar-row hl" title="Tunnel, any depth: 60 m2"><span class="bar-label">Tunnel</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.0625)"></span><span class="bar-val">60 m&sup2;</span></span></div>
+    <div class="bar-row" title="Cutting 5 m deep: 90 m2"><span class="bar-label">Cutting 5 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0938)"></span><span class="bar-val">90 m&sup2;</span></span></div>
+    <div class="bar-row" title="Cutting 10 m deep: 280 m2"><span class="bar-label">Cutting 10 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2917)"></span><span class="bar-val">280 m&sup2;</span></span></div>
+    <div class="bar-row" title="Cutting 15 m deep: 570 m2"><span class="bar-label">Cutting 15 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5938)"></span><span class="bar-val">570 m&sup2;</span></span></div>
+    <div class="bar-row" title="Cutting 20 m deep: 960 m2"><span class="bar-label">Cutting 20 m</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">960 m&sup2;</span></span></div>
+  </div>
+  <figcaption>Earth to remove per metre of line, in square metres of cross-section (8 m floor, 2-to-1 side slopes, 60 m&sup2; tunnel). The tunnel bar stays the same at any depth; the cutting bars grow roughly with the square of depth.</figcaption>
+</figure>
+
+<h2>Volume is not cost</h2>
+<p>By volume alone a tunnel wins at almost any depth: 8d + 2d&sup2; passes 60 at only about 3.8 m. But a cubic metre from a tunnel costs more. It is dug in the dark, usually needs a lining, and the spoil must be hauled out through the portal. A cutting is open to the sky, and its spoil can often build an embankment close by.</p>
+<p>So include a cost factor <em>k</em>: a cubic metre of tunnel costs <em>k</em> times a cubic metre of cutting. The tunnel is cheaper once the cutting area exceeds 60 &times; <em>k</em>. Solving 2d&sup2; + 8d = 60<em>k</em> gives d = &minus;2 + &radic;(4 + 30<em>k</em>).</p>
+<table class="paytable-compare">
+  <caption>Break-even depth for the example shape: the cutting depth beyond which the tunnel is cheaper, for three assumed cost factors.</caption>
+  <thead>
+    <tr><th>Tunnel cost per m&sup3;</th><th>Cutting area at break-even</th><th>Break-even depth</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2 &times; cutting</th><td>120 m&sup2;</td><td>6.0 m</td></tr>
+    <tr><th scope="row">4 &times; cutting</th><td>240 m&sup2;</td><td>9.1 m</td></tr>
+    <tr><th scope="row">6 &times; cutting</th><td>360 m&sup2;</td><td>11.6 m</td></tr>
+  </tbody>
+</table>
+<p>The factors 2, 4 and 6 are assumptions chosen to show the pattern, not measured costs. Even a tunnel that costs six times as much per cubic metre wins once the hill is about 12 m deep. At 20 m, a 100 m stretch of cutting is 96,000 m&sup3;; the tunnel is 6,000 m&sup3;, and at four times the unit cost that is the equivalent of 24,000 m&sup3;.</p>
+
+<div class="callout">
+  <p>A real hill is not a constant depth. The cutting is deepest at the summit and shallow at its ends, so engineers often combine the two: a tunnel under the top, with cuttings leading to each portal.</p>
+</div>
+
+<h2>What the early builders chose</h2>
+<p>The Liverpool and Manchester Railway, opened in 1830, cut through sandstone at Olive Mount, a cutting of about two miles. Robert Stephenson's London and Birmingham Railway, opened in 1838, took the Chiltern ridge in the Tring cutting, about two and a half miles long, dug largely with picks, shovels and barrows. Brunel's Great Western went the other way at Box, near Bath, where the hill was too thick to cut. Box Tunnel opened in 1841, is about 1.8 miles (2.9 km) long, and carries the line on a falling gradient of 1 in 100, the ruling gradient discussed in <a href="/blog/why-railways-follow-rivers.html">Why railways follow rivers</a>. At the time it was the longest railway tunnel in the world.</p>
+<p>These were the two answers to the same problem: a cutting at Tring and Olive Mount where the ground was shallow enough, a tunnel at Box where it was not.</p>
+
+<h2>A rule to carry away</h2>
+<p>Doubling a cutting's depth multiplies its volume by up to four. Doubling a tunnel's length multiplies it by two. For any shape and cost factor there is a depth where the lines cross, and past it the tunnel is the cheaper way through.</p>
+<p>In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you drag a track from town to town, and cross the river on a bridge in one of five styles. For the structural side of those crossings, see <a href="/blog/how-railway-bridges-carry-a-load.html">How railway bridges carry a load</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has six train models for passengers and freight, from a one-coach commuter to a streamlined express. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>
