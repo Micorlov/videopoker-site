@@ -1,0 +1,52 @@
+<!--
+{
+  "title": "REA — see how any app feature works, then build yours",
+  "date": "2026-10-22",
+  "modified": "2026-10-22",
+  "description": "REA is a free MCP server that lets Claude Code, Codex or Cursor inspect an app without its source code, explain how a feature works and show the evidence.",
+  "summary": "A free tool that lets your AI coding agent look inside an app on your computer and explain how a feature works, with the evidence.",
+  "standfirst": "You see a feature in an app and want something like it in your own product. REA lets your coding agent look inside that app, explain how the feature works, and help you build your own version."
+}
+-->
+<p><a class="text-link" href="https://github.com/morluto/rea">See REA on GitHub</a></p>
+<p>REA stands for Reverse Engineer Anything. It is an MCP server, a set of tools your AI coding agent can call. With it the agent can inspect an app that is installed on your computer, even when you do not have its source code. It finds the part of the app behind a feature, explains how that feature works, and shows the evidence for each conclusion.</p>
+<p>It is open source under the MIT license and runs on Node.js. It works with Claude Code, Codex, Cursor, Gemini CLI, Grok Build and other agents that support local MCP servers. On 22 October 2026 the repository had about 359,000 stars on GitHub, and the latest version on npm was 6.7.0 from 18 October 2026.</p>
+
+<figure class="chart">
+  <img src="/img/skills/rea.svg" alt="A closed app window on the left, a magnifying glass in the middle, and on the right the app opened up into connected parts with one path lit up." width="640" height="360">
+  <figcaption>See a feature. Understand how it works.</figcaption>
+</figure>
+
+<h2>What it can look at</h2>
+<p>REA connects your agent to tools for many kinds of targets. The main ones are:</p>
+<ul>
+  <li>JavaScript and Electron apps, such as many desktop chat and note apps. REA finds the modules, the imports and how the parts of the app talk to each other.</li>
+  <li>Websites, through a Chrome-family browser. REA reports the page structure, the scripts and the network requests.</li>
+  <li>Native programs. With Hopper, Ghidra or IDA installed, REA returns pseudocode, assembly, strings and the calls between functions.</li>
+  <li>Android APKs, .NET programs, Unity and Godot game files, and saved network captures.</li>
+</ul>
+<p>Static JavaScript and .NET inspection only read the files and do not run the app. Native analysis needs one of the three engines above.</p>
+
+<h2>How the agent uses it</h2>
+<p>After setup you ask your agent in plain words, for example:</p>
+<pre><code>Understand how search works in the Notes app,
+show me the evidence, and build a similar
+feature for my project.</code></pre>
+<p>The agent calls REA to inspect the app and trace the code behind the feature. REA answers with what it found, where it found it, and what it could not confirm. The agent then explains the feature, or writes and tests your own version of it.</p>
+<p>The project shows real examples on its website: following a clipboard feature through the Notion desktop app, and rebuilding a sound calculation from the 1990s game DX-Ball so that it matches the original byte for byte.</p>
+
+<h2>What stays on your computer</h2>
+<p>REA analyzes the app on your own computer and does not upload it. Your agent does see the results, and the AI model behind your agent follows its own provider’s data rules.</p>
+<p>REA only sees what is on your computer. Logic that runs on a company’s servers, such as billing or accounts, is not in the app, so REA cannot read it.</p>
+
+<h2>What it is not for</h2>
+<p>Videos about REA often say it can clone any app. That is not what the project says. Its goal is to understand how a feature works and then build your own version. Its rules say not to use it to copy someone else’s protected code or assets, break DRM or license checks, or make game cheats. Use it on software you own or are allowed to examine.</p>
+
+<h2>How to install it</h2>
+<p>You need Node.js 22.19 or newer and npm. Run this and choose your agents:</p>
+<pre><code>npx rea-agents setup</code></pre>
+<p>Setup adds REA to your agent, adds matching instructions, and backs up your old settings first. Restart your agent afterward. To use REA from the terminal as well:</p>
+<pre><code>npm install --global rea-agents
+rea --help</code></pre>
+<p>The official sources are the morluto/rea repository, rea.tools and the rea-agents package on npm. A repository with a similar name is not from this project.</p>
+<p><a class="text-link" href="https://github.com/morluto/rea">See REA on GitHub</a></p>
