@@ -163,30 +163,102 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
+- How often each hand lands in Jacks or Better
+- Two pair in Double Bonus Poker: why it pays only even money
+- Penalty cards: when a discard changes the right hold
+- Holding a lone deuce in Deuces Wild
+
 ### OmahaPoker
+
+- Counterfeiting in Omaha Hi-Lo: when the board kills your low
+- Rundowns: why connected four-card hands play well in PLO
+- Blockers in Omaha: what holding the nut card tells you
+- Sit and Go payouts: what a 50/30/20 split means for your play
 
 ### Blackjack21
 
+- Why the player acts first, and why that is the house's edge
+- Doubling down: one card, twice the bet
+- Where blackjack's house edge comes from, rule by rule
+- Five-card Charlie: a house rule and what it would be worth
+
 ### BrasslightSlots
+
+- Turbo and auto spin: what speed changes and what it doesn't
+- How a random number generator picks each spin
+- From one-armed bandit to video slot: a short history
+- Stacked symbols: why they make wins rarer but bigger
 
 ### PokerVsDealer
 
+- Break-even odds: what a 3-to-1 payout needs you to win
+- Pat hands: how often five cards need no exchange
+- Trips, boats and wheels: poker's hand nicknames explained
+- The dead man's hand: aces and eights and other named hands
+
 ### FivesAndThrees
+
+- Fives and Threes against All Fives: two ways to score the ends
+- Heavy tiles: when to get rid of high-spot dominoes
+- Long suits: why holding many of one number controls the line
+- Fives and Threes with partners: the four-player game
 
 ### BlackjackCoach
 
+- Small pairs: when to split twos, threes, fours and sixes
+- Stiff hands against a 2 to 6: why you stand on 13 to 16
+- Deck penetration: why a count needs cards dealt
+- Betting with the count: how a true-count bet ramp works
+
 ### HoldemCoach
+
+- The blinds and the button: how forced bets drive the action
+- Three-betting: when to re-raise instead of calling
+- Continuation bets: why the preflop raiser bets the flop
+- Minimum defence frequency: what a bet size asks you to call
 
 ### EightBallsPool
 
+- Safety play: when not potting is the better shot
+- Pocket geometry: why a fast ball misses a pocket it should make
+- Pool and snooker: how the two games differ
+- Bridge, stance and a straight stroke: the basics of cueing
+
 ### BigBenBlocks
+
+- Inside the Great Clock: how pennies keep Big Ben on time
+- Westminster to Piccadilly: the places behind the levels
+- Tap to place: playing a block puzzle without dragging
+- Reduced motion: why some players switch animations off
 
 ### PinkSlipKings
 
+- Weight transfer: why a car squats at the launch
+- Eighth mile or quarter mile: how the two distances compare
+- Drag racing classes: from bracket racing to Top Fuel
+- Boost pressure: what a pound of boost adds
+
 ### ValleyRail
+
+- Level crossings: how automatic barriers know a train is coming
+- Light rail and trams: how they differ from main-line trains
+- Why trains can't stop quickly: braking distance explained
+- Diesel or electric: how modern trains get their power
 
 ## Published
 
+- 2026-10-23 — Throwing all five away: when Jacks or Better says redraw — VideoPoker — `video-poker-discard-all-five`
+- 2026-10-23 — Five-Card Omaha: what a fifth hole card changes — OmahaPoker — `five-card-omaha`
+- 2026-10-23 — Soft and hard hands: how an ace changes value mid-hand — Blackjack21 — `blackjack-soft-and-hard-hands`
+- 2026-10-23 — Left to right: why a ways win must start on reel one — BrasslightSlots — `slot-ways-left-to-right`
+- 2026-10-23 — Card removal: how the cards you can see change your odds — PokerVsDealer — `poker-card-removal`
+- 2026-10-23 — Starting with 6, 7, 8 or 9 tiles: what hand size changes — FivesAndThrees — `fives-and-threes-hand-size`
+- 2026-10-23 — Doubling 9, 10 and 11: the hard totals worth doubling — BlackjackCoach — `blackjack-doubling-9-10-11`
+- 2026-10-23 — 1,326 starting hands, 169 types: counting Hold'em combos — HoldemCoach — `holdem-1326-starting-hands`
+- 2026-10-23 — Combination shots: potting one ball off another — EightBallsPool — `pool-combination-shots`
+- 2026-10-23 — Midnight UK time: GMT, BST and when the clocks change — BigBenBlocks — `uk-midnight-gmt-and-bst`
+- 2026-10-23 — The 60-foot time: why the first 18 metres decide a run — PinkSlipKings — `drag-racing-60-foot-time`
+- 2026-10-23 — Railway time: how trains standardised the clocks — ValleyRail — `railway-time-standard-clocks`
 - 2026-10-22 — Why the fifth coin matters: the royal flush bonus at max bet — VideoPoker — `video-poker-fifth-coin-royal-bonus`
 - 2026-10-22 — Danglers: why a disconnected fourth card weakens a hand — OmahaPoker — `omaha-danglers`
 - 2026-10-22 — The dealer's peek: why blackjack is checked before you play — Blackjack21 — `blackjack-dealer-peek`

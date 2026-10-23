@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Combination shots: potting one ball off another",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "EightBallsPool",
+  "description": "A combination pots one ball by driving another into it. Aim errors multiply across the gap: a 1 mm slip becomes about 5 degrees on the second ball at 300 mm.",
+  "summary": "Aim the first ball at a ghost position behind the second, then the cue ball at a ghost behind the first. A 1 mm aiming slip grows by the gap divided by one ball diameter: about 5 times at 300 mm.",
+  "standfirst": "A combination is two pots in one stroke, so it needs two lots of ghost-ball aiming and the first error is passed on to the second, multiplied by the distance between the balls."
+}
+-->
+<p>A combination shot sends the cue ball into one ball, called here the first ball, and drives that into a second ball, which is the one you want to pot. It is legal in both main pool games and harder than it looks. The reason is what the gap between the two balls does to a small error in your aim.</p>
+
+<h2>What the rules allow</h2>
+<p>Legality depends on the first ball the cue ball touches, not on which ball ends up in the pocket.</p>
+<ul>
+  <li><strong>9-ball:</strong> the first contact must be the lowest-numbered ball on the table. Pocketing a higher ball off it is fine, and the 9 wins the game when it is pocketed on a legal shot. That is the classic combination: hit the 1, drive it into the 9. The <a href="/blog/nine-ball-rules-explained.html">9-ball rules post</a> covers the fouls that cancel it.</li>
+  <li><strong>8-ball:</strong> once groups are decided, the first contact must be a ball from your own group. A combination that starts on an opponent's ball is a foul, even if your own ball drops. Under WPA rules the shot should be called, because a combination is not an obvious shot. See <a href="/blog/eight-ball-rules-explained.html">8-ball rules explained</a>.</li>
+</ul>
+<p>Venues vary on the finer points, so these are the standard WPA-style versions. The app's Play listing does not describe its rules in this detail.</p>
+
+<h2>Aim in two steps</h2>
+<p>The <a href="/blog/ghost-ball-aiming.html">ghost-ball method</a> works backwards from the pocket, and a combination just applies it twice.</p>
+<ol class="ranked">
+  <li><strong>Ghost for the second ball.</strong> Draw the pot line from the pocket through the second ball and continue behind it. The first ball must arrive with its centre one diameter behind the second ball's centre, on that line.</li>
+  <li><strong>Ghost for the first ball.</strong> Draw a line from the first ball's resting place to that target position, and continue behind the first ball. The cue ball's centre must arrive one diameter behind the first ball's centre, on that line.</li>
+</ol>
+<p>Most misses come from skipping the second step and aiming the cue ball at the first ball itself.</p>
+
+<h2>How the error grows</h2>
+<p>Suppose the cue ball's path is 1 mm to one side of where it should be. A standard ball is 57.15 mm across, and at the first contact the sideways slip of e mm turns the first ball's direction by an angle with sine e / 57.15. For 1 mm that is asin(1 / 57.15) = <strong>1.0 degree</strong>. For a plain pot that is the end of it.</p>
+<p>In a combination the first ball then travels a distance d before it meets the second. Its sideways error on arrival is d × tan(1.0°), and that slip is exactly the kind that the second contact converts into an angle, now with sine (d × tan 1.0°) / 57.15. For a straight-in shot at both contacts, the result is close to a simple rule: the angle error is multiplied by <strong>d divided by 57.15 mm</strong>, the gap measured in ball diameters.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the direction error of the second ball, in degrees, caused by a 1 mm aiming slip, for four gaps between the balls">
+    <div class="bar-row" title="Plain pot, no second ball: 1.0°"><span class="bar-label">Plain pot (no gap)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0947)"></span><span class="bar-val">1.0°</span></span></div>
+    <div class="bar-row" title="Gap 150 mm: 2.6°"><span class="bar-label">Gap 150 mm</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2487)"></span><span class="bar-val">2.6°</span></span></div>
+    <div class="bar-row hl" title="Gap 300 mm: 5.3°"><span class="bar-label">Gap 300 mm</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4979)"></span><span class="bar-val">5.3°</span></span></div>
+    <div class="bar-row" title="Gap 600 mm: 10.6°"><span class="bar-label">Gap 600 mm</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">10.6°</span></span></div>
+  </div>
+  <figcaption>Direction error of the ball you are potting, from a 1 mm aiming slip of the cue ball, when both contacts are straight-in and the first ball travels the stated gap. Standard 57.15 mm balls; throw is ignored.</figcaption>
+</figure>
+
+<p>The working for each bar: 1.0° at the first ball, a sideways slip of d × tan 1.0° on arrival, then asin of that slip over 57.15 mm.</p>
+<ul>
+  <li>150 mm: 150 × 0.0175 = 2.6 mm, and asin(2.6 / 57.15) = 2.6°.</li>
+  <li>300 mm: 300 × 0.0175 = 5.3 mm, and asin(5.3 / 57.15) = 5.3°.</li>
+  <li>600 mm: 600 × 0.0175 = 10.5 mm, and asin(10.5 / 57.15) = 10.6°.</li>
+</ul>
+<p>On the cloth, the ball you are potting then travels on towards the pocket. After 1 m, a 1.0 degree error is 100 cm × tan 1.0° = <strong>1.7 cm</strong> off line, the plain pot. A 5.3 degree error is 100 cm × tan 5.3° = <strong>9.3 cm</strong>, about 1.6 ball widths. The slip of the cue is the same; the result is not.</p>
+
+<div class="callout">
+  <p><strong>Rule of thumb:</strong> a 1 mm slip is multiplied by the gap in ball diameters. A gap of about 5 balls (300 mm) makes it about 5 times worse, a gap of about 10 balls (600 mm) about 10 times.</p>
+</div>
+
+<h2>Cuts make it worse</h2>
+<p>The figures above assume both contacts are straight-in. As the <a href="/blog/ghost-ball-aiming.html">ghost-ball post</a> shows, a sideways slip costs about 1 / cos(cut angle) more direction on a cut. In a combination that factor applies at each contact, so the total magnification is roughly:</p>
+<p><strong>(d / 57.15 mm) × 1 / (cos of first cut) × 1 / (cos of second cut)</strong></p>
+<p>With a 60-degree cut on the second ball and a straight first contact, cos 60° = 1/2, so the 5.3° at 300 mm becomes roughly 10°. Cut both contacts by 60° and it is four times the straight-in figure. This is a small-angle estimate, so use it for ordering shots rather than for exact numbers. Throw, covered in <a href="/blog/pool-throw-and-overcut.html">the overcut post</a>, acts at both contacts too and is not included here.</p>
+
+<h2>Choosing a good one</h2>
+<p>The numbers above give a short checklist.</p>
+<ol class="ranked">
+  <li><strong>Keep the gap short.</strong> Two balls close together are far more forgiving than two balls a table apart. The error scales directly with d.</li>
+  <li><strong>Keep the cuts small.</strong> The best combination has the first ball, the second ball and the pocket nearly in a line, so both cos terms are close to 1.</li>
+  <li><strong>Count the cost of a miss.</strong> In 9-ball a failed combination costs only your turn, as long as the first contact was right. In 8-ball, check that the first ball is in your group before you consider anything else.</li>
+</ol>
+
+<h2>Trying it in the app</h2>
+<p>The listing says you can practise at your own pace and switch between overhead and aiming views. The overhead view is the natural place to draw the two ghost positions in your head. Set up two balls with a short gap, aim with both ghosts, then widen the gap a ball diameter at a time and see how your tolerance shrinks.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

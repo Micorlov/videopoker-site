@@ -1,0 +1,77 @@
+<!--
+{
+  "title": "Soft and hard hands: how an ace changes value mid-hand",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "Blackjack21",
+  "description": "An ace counts as 11 until that would bust you, then as 1. See why a soft hand cannot bust on one hit, and how often a hit turns soft 13 to 21 into a hard total.",
+  "summary": "An ace is worth 11 or 1, whichever keeps you at 21 or under. A soft hand cannot bust on one hit, but each card can turn it hard: 61.54% of hits at soft 13, 0% at soft 21.",
+  "standfirst": "Every hand with an ace in it has two possible totals. Knowing which one you are holding, and when it flips, explains why soft 17 is safe to hit and hard 17 is not."
+}
+-->
+<p>Most blackjack cards have one value. Twos to tens count as their number, and jacks, queens and kings count as 10. The ace counts as 1 or 11, whichever suits the hand, and the choice is remade every time a card is dealt.</p>
+
+<h2>How a hand is counted</h2>
+<p>Add every card with each ace counted as 1. If the hand holds an ace and that total is 11 or less, add 10 more, which counts one ace as 11. That is the whole rule. A hand where an ace is currently counted as 11 is <strong>soft</strong>. A hand with no ace, or with every ace counted as 1, is <strong>hard</strong>.</p>
+<p>Only one ace can ever count as 11. Two elevens make 22, which is already a bust, so a hand of ace and ace is soft 12 (11 + 1), not 22. Examples:</p>
+<ul>
+  <li>Ace and 6: 1 + 6 = 7, plus 10 is 17. Soft 17.</li>
+  <li>Ace, 6 and 4: 1 + 6 + 4 = 11, plus 10 is 21. Soft 21.</li>
+  <li>Ace, 6 and 5: 1 + 6 + 5 = 12, and adding 10 would make 22, so the ace stays at 1. Hard 12.</li>
+  <li>Ace and 10: 1 + 10 = 11, plus 10 is 21. Soft 21, and with two cards it is a natural.</li>
+</ul>
+<p>The direction only runs one way. An ace counted as 1 never goes back to 11, because every later card adds to the total and a total that could not take the extra 10 before cannot take it now. A soft hand can become hard. A hard hand never becomes soft.</p>
+
+<h2>Why a soft hand cannot bust on one hit</h2>
+<p>The highest value any card can add is 10, and an ace drawn onto a soft hand counts as 1. Take the highest soft total, 21. Draw a ten and the total would be 31, so the ace drops from 11 to 1 and the hand becomes hard 21: 31 &minus; 10 = 21. For a soft total <em>t</em> from 12 to 21 and a card worth <em>c</em> from 1 to 10:</p>
+<ul>
+  <li>If <em>t</em> + <em>c</em> is 21 or less, the hand stays soft at that total.</li>
+  <li>If it is more, the ace drops to 1 and the hand is hard at <em>t</em> + <em>c</em> &minus; 10. The largest that can be is 21 + 10 &minus; 10 = 21.</li>
+</ul>
+<p>So no single card busts a soft hand. A hard 11 or less is also safe, since 11 + 10 = 21, but from hard 12 upward some cards bust it. Using the chance of each rank as 1 in 13, with tens, jacks, queens and kings together at 4 in 13:</p>
+<ul>
+  <li>Hard 12 busts on a 10, J, Q or K: 4/13 = 30.77%.</li>
+  <li>Hard 16 busts on a 6, 7, 8, 9 or any ten-value card: 8/13 = 61.54%.</li>
+  <li>Hard 17 busts on a 5 or higher: 9/13 = 69.23%.</li>
+</ul>
+<p>Hard 17 and soft 17 are the same number and very different hands. One hit on soft 17 carries a 0% bust risk. One hit on hard 17 carries 69.23%.</p>
+
+<h2>How quickly a soft hand turns hard</h2>
+<p>A card keeps a soft total soft only if the total stays at 21 or under with the ace still at 11. That means the card's value, with an ace counted as 1, must be no more than 21 minus your total. At soft 17 that allows an ace, 2, 3 or 4: four ranks out of 13, so a 4/13 = 30.77% chance of staying soft. The other 69.23% of cards turn it hard, the same share that would bust a hard 17. The difference is that the soft hand survives as a hard total, anywhere from 12 to 17 (soft 17 plus a 5 is hard 12, plus a 10 is hard 17).</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that one more card leaves a soft hand soft, for soft totals 13 to 21">
+    <div class="bar-row" title="Soft 13: 61.54%"><span class="bar-label">Soft 13</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">61.54%</span></span></div>
+    <div class="bar-row" title="Soft 14: 53.85%"><span class="bar-label">Soft 14</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8750)"></span><span class="bar-val">53.85%</span></span></div>
+    <div class="bar-row" title="Soft 15: 46.15%"><span class="bar-label">Soft 15</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">46.15%</span></span></div>
+    <div class="bar-row" title="Soft 16: 38.46%"><span class="bar-label">Soft 16</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">38.46%</span></span></div>
+    <div class="bar-row hl" title="Soft 17: 30.77%"><span class="bar-label">Soft 17</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">30.77%</span></span></div>
+    <div class="bar-row" title="Soft 18: 23.08%"><span class="bar-label">Soft 18</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">23.08%</span></span></div>
+    <div class="bar-row" title="Soft 19: 15.38%"><span class="bar-label">Soft 19</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">15.38%</span></span></div>
+    <div class="bar-row" title="Soft 20: 7.69%"><span class="bar-label">Soft 20</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1250)"></span><span class="bar-val">7.69%</span></span></div>
+    <div class="bar-row" title="Soft 21: 0%"><span class="bar-label">Soft 21</span><span class="bar-track"><span class="bar" style="width:0"></span><span class="bar-val">0%</span></span></div>
+  </div>
+  <figcaption>Chance that one more card leaves a soft hand soft, each rank at 1 in 13 and tens at 4 in 13. Every other card turns the hand hard. The share drops by 7.69 points for each step up in total.</figcaption>
+</figure>
+
+<p>The pattern is regular. Each extra point on a soft total removes one rank from the cards that keep it soft, and each rank is 1/13, or 7.69%. At soft 20 only an ace keeps the hand soft, and it moves you to soft 21.</p>
+
+<div class="callout">
+  <p>Soft means the ace is a spare. While it counts as 11 it can drop to 1, which is the hand's escape. Once it has dropped, the escape is spent.</p>
+</div>
+
+<h2>The dealer follows the same counting</h2>
+<p>The dealer counts aces the same way, and <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> describes its dealer as standing on 17. Whether a dealer stands or hits on soft 17 is a table rule in its own right: a dealer holding ace and 6 has soft 17, and where the rule is to stand, it stands even though a hit could not bust it. For how often each up-card busts, see <a href="/blog/blackjack-dealer-bust-rates.html">how the dealer plays</a>; for what the soft-17 rule changes, see <a href="/blog/dealer-stands-on-soft-17.html">dealer stands on soft 17</a>.</p>
+<p>The app calls the dealer's total as it plays and reads your hand total aloud when the turn reaches you, so you can hear a total and ask yourself whether an ace is behind it.</p>
+
+<h2>Three checks to run on any hand</h2>
+<ol>
+  <li>Is there an ace, and is it counted as 11? If so, the hand is soft and one card cannot bust it.</li>
+  <li>If the hand is soft, which cards turn it hard? Count the ranks above 21 minus your total.</li>
+  <li>If the hand is hard, how far is it from 21? From 12 upward, the ranks worth more than 21 minus your total are the ones that bust you.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer at a five-seat table, and the best hand sweeps every chip the losers left behind. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

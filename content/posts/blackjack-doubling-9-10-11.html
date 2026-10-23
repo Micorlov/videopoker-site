@@ -1,0 +1,102 @@
+<!--
+{
+  "title": "Doubling 9, 10 and 11: the hard totals worth doubling",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "BlackjackCoach",
+  "description": "Basic strategy doubles hard 9 against a 3 to 6, hard 10 against a 2 to 9 and hard 11 against a 2 to 10. Here is why each line sits where it does.",
+  "summary": "Hard 11 doubles against 2 to 10 and hits an ace, hard 10 doubles against 2 to 9, and hard 9 doubles against 3 to 6 only. Against a 6, doubling 11 is worth +0.6674 a bet and merely hitting +0.3337.",
+  "standfirst": "Three hard totals make up almost every double in the basic strategy chart. The lines look arbitrary until you compare what one extra card does for each, and what the dealer's up-card does to it."
+}
+-->
+<p>Most of the doubles in a basic strategy chart come from three hard totals: 9, 10 and 11. They are the hands that cannot bust on the next card, and they sit one card away from a strong total. The three lines are different lengths, though, and the differences are checkable. Eleven doubles against nine dealer cards, ten against eight, and nine against only four.</p>
+
+<h2>The rule</h2>
+<p>The chart in <a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> is for six decks, dealer standing on soft 17, double after split and late surrender. For those rules the hard doubles are:</p>
+<ul>
+  <li><strong>Hard 11:</strong> double against a dealer 2 to 10. Hit against an ace.</li>
+  <li><strong>Hard 10:</strong> double against a dealer 2 to 9. Hit against a 10 or an ace.</li>
+  <li><strong>Hard 9:</strong> double against a dealer 3 to 6. Hit against everything else.</li>
+</ul>
+<p>Where doubling is not allowed, hit. None of these hands ever stands.</p>
+
+<h2>What the one card does</h2>
+<p>A double gives you exactly one card, and you must keep the result. Counting the 13 ranks as equally likely, with 10, J, Q and K separate (so a ten-value card is 4 in 13), the card does this:</p>
+<table class="paytable-compare">
+  <caption>One card drawn to each hard total, counted over 13 ranks.</caption>
+  <thead>
+    <tr><th>Hand</th><th>19 or more</th><th>17 or more</th><th>Stuck on 16 or less</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Hard 9</th><td>5 of 13</td><td>7 of 13</td><td>6 of 13</td></tr>
+    <tr><th scope="row">Hard 10</th><td>6 of 13</td><td class="good">8 of 13</td><td>5 of 13</td></tr>
+    <tr><th scope="row">Hard 11</th><td>6 of 13</td><td class="good">8 of 13</td><td>5 of 13</td></tr>
+  </tbody>
+</table>
+<p>Ten and eleven are alike on this count: 8 ranks in 13 (61.54%) reach 17 or more, and 6 in 13 (46.15%) reach 19 or more. The difference is where the best cards land. Eleven makes 21 with any of the four ten-value cards, which is 4 in 13 (30.77%), while ten makes 20 with them and needs the ace for 21. Nine is a step behind. A ten gives only 19, an ace makes a soft 20, and 6 ranks in 13 (46.15%) leave you on 16 or less.</p>
+
+<h2>Why the dealer card sets the line</h2>
+<p>A double doubles the loss as well as the win, so the test is whether it beats simply hitting. That depends on how often the dealer fails.</p>
+<p>I worked it out for an infinite deck, with these assumptions: a ten-value card is 4 in 13, the dealer stands on all 17s, a double takes one card and no more, and a hit hand is then played on with the better of standing or hitting. Where the dealer shows a 10 or an ace, the figures assume the dealer has no blackjack. All figures are in units of the starting bet. The table shows how much better doubling is than hitting, so a negative number means hit.</p>
+<table class="paytable-compare">
+  <caption>Doubling minus hitting, per one-unit starting bet. Infinite deck, dealer standing on soft 17. A negative figure means hitting is better.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Hard 9</th><th>Hard 10</th><th>Hard 11</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td>−0.0133</td><td class="good">+0.1764</td><td class="good">+0.2323</td></tr>
+    <tr><th scope="row">3</th><td class="good">+0.0196</td><td class="good">+0.2032</td><td class="good">+0.2575</td></tr>
+    <tr><th scope="row">4</th><td class="good">+0.0530</td><td class="good">+0.2305</td><td class="good">+0.2830</td></tr>
+    <tr><th scope="row">5</th><td class="good">+0.0850</td><td class="good">+0.2563</td><td class="good">+0.3073</td></tr>
+    <tr><th scope="row">6</th><td class="good">+0.1210</td><td class="good">+0.2878</td><td class="good">+0.3337</td></tr>
+    <tr><th scope="row">7</th><td>−0.0676</td><td class="good">+0.1355</td><td class="good">+0.1707</td></tr>
+    <tr><th scope="row">8</th><td>−0.1248</td><td class="good">+0.0887</td><td class="good">+0.1207</td></tr>
+    <tr><th scope="row">9</th><td>−0.2488</td><td class="good">+0.0278</td><td class="good">+0.0695</td></tr>
+    <tr><th scope="row">10</th><td>−0.3138</td><td>−0.0340</td><td class="good">+0.0602</td></tr>
+    <tr><th scope="row">Ace</th><td>−0.3672</td><td>−0.0955</td><td>−0.0339</td></tr>
+  </tbody>
+</table>
+<p>Every positive cell is a double in the chart and every negative cell is a hit. By column:</p>
+<ul>
+  <li><strong>Hard 11</strong> is ahead of hitting against everything except the ace. The margin shrinks from +0.3337 against a 6 to +0.0602 against a 10, and turns negative at −0.0339 against the ace.</li>
+  <li><strong>Hard 10</strong> follows the same shape but starts lower, because the 21 is harder to reach. The margin is just +0.0278 against a 9, then −0.0340 against a 10.</li>
+  <li><strong>Hard 9</strong> is the narrow one. It needs a dealer who busts often: 35.36% against a 2, 37.39% against a 3 and 42.32% against a 6.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how much better doubling hard 10 is than hitting it, per unit bet, by dealer up-card: 6 is 0.2878, 5 is 0.2563, 4 is 0.2305, 3 is 0.2032, 2 is 0.1764, 7 is 0.1355, 8 is 0.0887, 9 is 0.0278">
+    <div class="bar-row hl" title="Dealer 6: +0.2878"><span class="bar-label">Dealer 6</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+0.2878</span></span></div>
+    <div class="bar-row" title="Dealer 5: +0.2563"><span class="bar-label">Dealer 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8905)"></span><span class="bar-val">+0.2563</span></span></div>
+    <div class="bar-row" title="Dealer 4: +0.2305"><span class="bar-label">Dealer 4</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8009)"></span><span class="bar-val">+0.2305</span></span></div>
+    <div class="bar-row" title="Dealer 3: +0.2032"><span class="bar-label">Dealer 3</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7060)"></span><span class="bar-val">+0.2032</span></span></div>
+    <div class="bar-row" title="Dealer 2: +0.1764"><span class="bar-label">Dealer 2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6129)"></span><span class="bar-val">+0.1764</span></span></div>
+    <div class="bar-row" title="Dealer 7: +0.1355"><span class="bar-label">Dealer 7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4708)"></span><span class="bar-val">+0.1355</span></span></div>
+    <div class="bar-row" title="Dealer 8: +0.0887"><span class="bar-label">Dealer 8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3082)"></span><span class="bar-val">+0.0887</span></span></div>
+    <div class="bar-row" title="Dealer 9: +0.0278"><span class="bar-label">Dealer 9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0966)"></span><span class="bar-val">+0.0278</span></span></div>
+  </div>
+  <figcaption>How much better doubling hard 10 is than hitting it, per one-unit starting bet, by dealer up-card. Infinite deck, dealer standing on soft 17. The edge is largest against the dealer's weakest cards and almost gone against a 9.</figcaption>
+</figure>
+
+<h2>Three details worth knowing</h2>
+<p><strong>The 7 is a break in the pattern.</strong> Against a 7 the dealer busts only 26.23% of the time, against 42.32% for a 6, so the margin for hard 10 drops from +0.2878 to +0.1355. Hard 9 turns negative at that point, and stays that way.</p>
+<p><strong>Hard 11 against an ace is the exception to doubling.</strong> A dealer ace ends on 17, 18, 19 or 20 about 18.9% of the time each, so the doubled bet is exposed to a strong dealer. Hitting is worth +0.1430 and doubling +0.1091, assuming no dealer blackjack. Check the rule line before copying a chart, because a dealer who hits soft 17 changes this cell.</p>
+<p><strong>Hard 9 against a 3 is the closest call.</strong> The margin is only +0.0196 of a bet, and against a 2 it flips to −0.0133. Both come from an infinite deck, so treat them as close calls rather than exact six-deck values.</p>
+
+<div class="callout">
+  <p>The extra card is the same for every dealer. What changes is the dealer's chance of failing, and the doubled bet makes you pay for each dealer card that does not.</p>
+</div>
+
+<h2>Remembering it</h2>
+<ol class="ranked">
+  <li>Hard 11: double against 2 to 10, hit against an ace.</li>
+  <li>Hard 10: double against 2 to 9, hit against a 10 or ace.</li>
+  <li>Hard 9: double against 3 to 6, hit otherwise.</li>
+  <li>Against a 6, doubling 11 is worth +0.6674 a bet and hitting is worth +0.3337.</li>
+</ol>
+<p>Soft hands follow the same logic with shorter lines, as the <a href="/blog/doubling-soft-hands-ace-two-to-ace-seven.html">soft doubles post</a> sets out. The reason the dealer's bust rate drives all of it is covered in <a href="/blog/blackjack-dealer-bust-rates.html">how the dealer plays and how often each up-card busts</a>.</p>
+<p>Blackjack Coach lets you choose a play, read the explanation and review your mistakes. Hard 10 against a 9 and a 10 are neighbours with opposite answers, so repeat them as a pair.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

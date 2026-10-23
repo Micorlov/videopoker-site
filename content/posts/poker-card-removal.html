@@ -1,0 +1,73 @@
+<!--
+{
+  "title": "Card removal: how the cards you can see change your odds",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "PokerVsDealer",
+  "description": "Every visible card leaves the unseen pile. A flush draw of 9 in 47 (19.15%) falls to 17.39% if another spade shows, and rises to 19.57% for any other card.",
+  "summary": "Odds are outs divided by unseen cards, and each visible card changes one or both numbers. A visible card of your suit takes a flush draw from 19.15% to 17.39%; a visible card of another suit lifts it to 19.57%. Hidden cards change nothing.",
+  "standfirst": "The usual odds assume you know only your own cards. Any extra card you can see removes itself from the unseen pile, and the effect depends on whether it was one of your outs. Here is the rule, with the numbers."
+}
+-->
+<p>The odds quoted for a draw, such as 19.15% for a four-card flush, assume that the only cards you can see are your own five. Show one more card and the figure moves. It does not move by much, but it moves in a direction you can work out in advance, and the rule is the same for every draw.</p>
+
+<h2>The rule</h2>
+<p>A draw is a fraction: outs divided by unseen cards. A visible card removes itself from the unseen cards, so the bottom number always falls by one. What happens to the top number depends on the card:</p>
+<ul>
+  <li><strong>It is one of your outs.</strong> Both numbers fall by one. The fraction gets smaller.</li>
+  <li><strong>It is not one of your outs.</strong> Only the bottom number falls. The fraction gets larger.</li>
+</ul>
+<p>So a card that you wanted is gone and your draw is worse, while a card that was no use to you is gone and your draw is slightly better, because the useful cards are now a larger share of what remains.</p>
+
+<h2>Worked example: four to a flush</h2>
+<p>You hold four spades and one card of another suit. You can see five cards, so 47 are unseen, and 9 of them are spades.</p>
+<ul>
+  <li>Nothing else visible: 9 ÷ 47 = 19.15%.</li>
+  <li>One more card visible, not a spade: 9 ÷ 46 = 19.57%.</li>
+  <li>One more card visible, a spade: 8 ÷ 46 = 17.39%.</li>
+</ul>
+<p>If several spades are visible, the fall continues. Each extra spade removes one out and one unseen card, so with two visible it is 7 ÷ 45 = 15.56%, with three 6 ÷ 44 = 13.64%, and with four 5 ÷ 43 = 11.63%. About two-fifths of the draw is gone by then, and no single step looks dramatic.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of completing a four-card flush with one exchanged card, by which extra cards are visible">
+    <div class="bar-row" title="One non-spade visible: 9 outs in 46, 19.57%"><span class="bar-label">1 non-spade seen</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">19.57%</span></span></div>
+    <div class="bar-row hl" title="Nothing else visible: 9 outs in 47, 19.15%"><span class="bar-label">Nothing else seen</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9787)"></span><span class="bar-val">19.15%</span></span></div>
+    <div class="bar-row" title="1 spade visible: 8 outs in 46, 17.39%"><span class="bar-label">1 spade seen</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8889)"></span><span class="bar-val">17.39%</span></span></div>
+    <div class="bar-row" title="2 spades visible: 7 outs in 45, 15.56%"><span class="bar-label">2 spades seen</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7951)"></span><span class="bar-val">15.56%</span></span></div>
+    <div class="bar-row" title="3 spades visible: 6 outs in 44, 13.64%"><span class="bar-label">3 spades seen</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6970)"></span><span class="bar-val">13.64%</span></span></div>
+    <div class="bar-row" title="4 spades visible: 5 outs in 43, 11.63%"><span class="bar-label">4 spades seen</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5943)"></span><span class="bar-val">11.63%</span></span></div>
+  </div>
+  <figcaption>Chance of completing four to a flush with one exchanged card, outs ÷ unseen cards. The highlighted bar is the baseline of 9 ÷ 47. Each extra spade on view lowers it; an extra card of another suit raises it slightly.</figcaption>
+</figure>
+
+<h2>Straights and pairs</h2>
+<p>The same rule works for any draw. Only the starting counts differ.</p>
+<ul>
+  <li><strong>Open-ended straight draw</strong> (eight outs): 8 ÷ 47 = 17.02%. If one of the eight cards you need is visible, it is 7 ÷ 46 = 15.22%.</li>
+  <li><strong>Inside straight draw</strong> (four outs): 4 ÷ 47 = 8.51%. If one of the four is visible, it is 3 ÷ 46 = 6.52%. One visible out cuts the inside draw by about a quarter (8.51% to 6.52%) and the open-ended draw by about a tenth (17.02% to 15.22%), so the damage is larger in proportion when you have few outs.</li>
+</ul>
+<p>Pairs show the effect most sharply. Hold a pair of kings and exchange the other three cards. Two kings remain in 47 unseen cards, and the chance that at least one of them arrives in three cards is 1 − C(45,3) ÷ C(47,3) = 12.49%. Now suppose one of those kings is visible elsewhere. One king remains among 46 unseen cards, and the chance that it arrives in three cards is simply 3 ÷ 46 = 6.52%. One visible card has halved your chance of three of a kind. If you want the whole picture of what a pair becomes when you exchange three cards, <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">The odds of improving a pair when you exchange cards</a> sets it out.</p>
+
+<div class="callout">
+  <p>A visible card that is one of your outs lowers your odds. A visible card that is not one of your outs raises them a little. A card you cannot see changes nothing.</p>
+</div>
+
+<h2>What does not count as removal</h2>
+<p>Only information counts. Cards that are face down, whoever holds them, are exactly as unknown to you as the rest of the deck, so they stay in the unseen total. If four other players each hold five hidden cards, you still count 47 unseen cards, because you cannot tell which of them are in someone's hand and which are still to come. Your own discards are different: you know what they are, so they are not drawable and are already outside the 47.</p>
+<p>This also explains why the correction is small unless the cards you see are specific. One random visible card moves a flush draw by less than half a point when it is not a spade (19.15% to 19.57%) and by under two points when it is (19.15% to 17.39%). The cards that matter are the ones that match what you need.</p>
+
+<h2>Where it applies in a game with face-up cards</h2>
+<p>The store description of <a href="/PokerVsDealer/">Poker vs Dealer</a> says the dealer builds a hand one face-up card at a time. Face-up cards are visible information, so they are the kind of card this post is about. The listing does not say whether those cards come from the same deck as the cards you may exchange for, and this post does not assume either. If they do, count each one that matches your outs as a removal. If they come from a separate deck, no card of theirs is removed from your count and the base figures stand. The in-game rules and payouts screen is the place to check how the cards are dealt.</p>
+
+<h2>A routine for the table</h2>
+<ol class="ranked">
+  <li><strong>Write the base fraction.</strong> Outs over unseen cards, such as 9 ÷ 47 for four to a flush.</li>
+  <li><strong>Check each visible card.</strong> If it matches an out, subtract one from the top and one from the bottom. If not, subtract one from the bottom only.</li>
+  <li><strong>Ignore hidden cards.</strong> They have not left the unseen pile as far as you can tell.</li>
+</ol>
+<p>For the starting figures of the commonest draws, see <a href="/blog/drawing-one-card-to-a-flush.html">Drawing one card to a flush</a>, which also covers the break-even price of an exchange.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

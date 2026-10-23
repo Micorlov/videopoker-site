@@ -1,0 +1,82 @@
+<!--
+{
+  "title": "Railway time: how trains standardised the clocks",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "ValleyRail",
+  "description": "Local noon moves 4 minutes per degree of longitude. See how that gap, about 10 minutes at Bristol, pushed railways to one standard time.",
+  "summary": "Local solar time shifts by 4 minutes for every degree of longitude, so Bristol runs about 10 minutes behind London and Penzance about 22. Railways adopted London time from 1840, and the rest of Britain and North America followed.",
+  "standfirst": "Every town used to keep the time the sun gave it. That worked until a train could cross several towns before anyone's watch had a chance to disagree, and a timetable had to say which clock it meant."
+}
+-->
+<p>Before railways, a town set its clocks by the sun. Noon was the moment the sun stood highest, and a place further west reached that moment later. Nobody minded, because a stagecoach travelled so slowly that the difference was lost in the delays. A train changed that. It covered the distance between two towns on different times, and a timetable had to choose one.</p>
+
+<h2>The sums: 4 minutes per degree</h2>
+<p>The Earth turns through 360 degrees of longitude in 24 hours. That is 24 &times; 60 = 1,440 minutes, and 1,440 &divide; 360 = <strong>4 minutes per degree</strong>. Put another way, 15 degrees is exactly one hour.</p>
+<p>Greenwich sits at 0 degrees. A place west of it has noon later, so its sun clock runs behind. Multiply its longitude by four and you have the gap in minutes. The longitudes below are rounded.</p>
+<table class="paytable-compare">
+  <caption>Local solar time compared with London (Greenwich), using approximate longitudes west of 0 degrees.</caption>
+  <thead>
+    <tr><th>Town</th><th>Longitude</th><th>Working</th><th>Behind London</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Bristol</th><td>2.58&deg; W</td><td>2.58 &times; 4 = 10.3</td><td>about 10 min</td></tr>
+    <tr><th scope="row">Exeter</th><td>3.53&deg; W</td><td>3.53 &times; 4 = 14.1</td><td>about 14 min</td></tr>
+    <tr><th scope="row">Plymouth</th><td>4.14&deg; W</td><td>4.14 &times; 4 = 16.6</td><td>about 17 min</td></tr>
+    <tr><th scope="row">Penzance</th><td>5.54&deg; W</td><td>5.54 &times; 4 = 22.2</td><td>about 22 min</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of how far local solar time runs behind London: Bristol about 10 minutes, Exeter 14, Plymouth 17, Penzance 22.">
+    <div class="bar-row" title="Bristol: about 10 min"><span class="bar-label">Bristol</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4545)"></span><span class="bar-val">10 min</span></span></div>
+    <div class="bar-row" title="Exeter: about 14 min"><span class="bar-label">Exeter</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6364)"></span><span class="bar-val">14 min</span></span></div>
+    <div class="bar-row" title="Plymouth: about 17 min"><span class="bar-label">Plymouth</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7727)"></span><span class="bar-val">17 min</span></span></div>
+    <div class="bar-row hl" title="Penzance: about 22 min"><span class="bar-label">Penzance</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">22 min</span></span></div>
+  </div>
+  <figcaption>Minutes by which local solar time runs behind London, at 4 minutes per degree of longitude west. Along the Great Western main line, the clocks drift further apart with every station.</figcaption>
+</figure>
+
+<p>Ten minutes at Bristol sounds small. On a railway it is not. The time-interval method described in <a href="/blog/how-railway-signals-keep-trains-apart.html">How railway signals keep trains apart</a> separated trains by a few minutes. If two stations disagree by ten, a signalman and a driver can both be right by their own clocks and still be in the same place.</p>
+
+<h2>The dates, in order</h2>
+<ol class="ranked">
+  <li><strong>1840:</strong> the Great Western Railway adopts London time at all its stations.</li>
+  <li><strong>1847:</strong> the Railway Clearing House recommends that every British railway use Greenwich Mean Time (GMT).</li>
+  <li><strong>1855:</strong> most public clocks in Britain are now set to GMT.</li>
+  <li><strong>1880:</strong> the Statutes (Definition of Time) Act makes GMT the legal time in Great Britain.</li>
+  <li><strong>18 November 1883:</strong> railways in the United States and Canada switch to standard time zones.</li>
+  <li><strong>1884:</strong> the International Meridian Conference chooses Greenwich as the world's prime meridian.</li>
+</ol>
+<p>The order matters. The railways acted first, because they had the problem. The public followed because the railway clock was the one on the station wall, and law arrived last, 40 years after the Great Western's decision, to confirm what most people already did.</p>
+
+<h2>A continent needs zones</h2>
+<p>Britain is narrow enough for one time. North America is not. From the Atlantic coast to the Pacific is far too wide for a single clock, so the railways there chose zones. Each zone is centred on a meridian that is a multiple of 15 degrees, so each differs from its neighbour by exactly one hour:</p>
+<ul>
+  <li>Eastern: 75&deg; W, which is 75 &times; 4 = 300 minutes, or 5 hours, behind Greenwich.</li>
+  <li>Central: 90&deg; W, 6 hours behind.</li>
+  <li>Mountain: 105&deg; W, 7 hours behind.</li>
+  <li>Pacific: 120&deg; W, 120 &times; 4 = 480 minutes, or 8 hours, behind.</li>
+</ul>
+<p>The switch took place on 18 November 1883, sometimes called the day of two noons, because in many places the clock had to be set back and noon came twice. Within a zone, a town's sun clock could now be well off the railway clock. A town on the edge of a zone could be as much as 7.5 degrees, or 30 minutes, from its zone's central meridian, since the zone extends 7.5 degrees to each side.</p>
+
+<div class="callout">
+  <p>Standard time trades accuracy for agreement. The sun clock in Bristol was right about the sun and wrong about everyone else. Railway time is wrong about the sun by up to half an hour within a zone, and right about everyone else.</p>
+</div>
+
+<h2>Why a timetable needed it</h2>
+<p>A timetable is a promise about when and where. Run it on local time and a through train would have to be re-timed at every station, with each station's staff doing the subtraction, and the cheapest mistake would be a missed connection. The worst mistake would be two trains on the same single line, a problem covered in <a href="/blog/single-track-and-passing-loops.html">Single track and passing loops</a>. A single time removes that whole category of error. Everyone along the line reads the same number off the same clock.</p>
+<p>That is the idea to keep: when many people have to coordinate in space, they first need to agree on a clock. Signals, passing loops and connections all depend on it.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>The Earth turns 360&deg; in 24 hours, so local time shifts 4 minutes per degree and one hour per 15&deg;.</li>
+  <li>Bristol is about 10 minutes behind London and Penzance about 22.</li>
+  <li>The sequence was 1840 (Great Western), 1847 (Railway Clearing House), 1880 (law), 1883 (North American zones), 1884 (prime meridian).</li>
+  <li>Railways standardised time first because a shared timetable could not work without it.</li>
+</ul>
+<p>In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you buy a train, choose where it goes and it runs the route on its own. You can pause at any time, or speed time up to 2x or 4x.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has six train models for passengers and freight, from a one-coach commuter to a streamlined express. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

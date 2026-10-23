@@ -1,0 +1,86 @@
+<!--
+{
+  "title": "Throwing all five away: when Jacks or Better says redraw",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "VideoPoker",
+  "description": "On 9/6 Jacks or Better, redrawing all five from 3-5-7-9-T returns 0.358 coins per coin bet. Keeping the ten returns 0.325. Here is the count.",
+  "summary": "In 9/6 Jacks or Better, a hand with no pair, no jack or better and no draw is worth more redrawn (0.358) than with any one low card kept (at most 0.325).",
+  "standfirst": "Keeping a card feels safer than throwing everything away. For 3-5-7-9-T the count says otherwise: discarding all five returns 0.358 coins per coin bet and keeping the ten returns 0.325."
+}
+-->
+<p>You are dealt 3&#9827; 5&#9830; 7&#9824; 9&#9829; T&#9827;. No pair, no jack or better, no four to a flush, no four to a straight. Most players keep something anyway, usually the ten. The better play is to throw all five cards away. This post counts every possible redraw for that hand under the 9/6 Jacks or Better paytable, and shows where the rule stops.</p>
+
+<p>The paytable, per coin bet: royal flush 800, straight flush 50, four of a kind 25, full house 9, flush 6, straight 4, three of a kind 3, two pair 2, jacks or better 1. Expected value (EV) means coins returned per coin bet. You have seen five cards, so 47 are unseen.</p>
+
+<h2>Counting the redraw</h2>
+<p>Discard all five and you draw five cards from the 47 unseen: 47 &times; 46 &times; 45 &times; 44 &times; 43 / 120 = 1,533,939 possible draws. I ran every one of them through a hand evaluator. The result:</p>
+
+<table class="paytable-compare">
+  <caption>Final hands after discarding all five from 3&#9827; 5&#9830; 7&#9824; 9&#9829; T&#9827;, out of 1,533,939 draws.</caption>
+  <thead>
+    <tr><th>Final hand</th><th>Pays</th><th>Draws</th><th>Coins returned</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>800</td><td>3</td><td>2,400</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>14</td><td>700</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>344</td><td>8,600</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>2,124</td><td>19,116</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td>2,821</td><td>16,926</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>5,359</td><td>21,436</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>31,502</td><td>94,506</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>71,802</td><td>143,604</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>241,680</td><td>241,680</td></tr>
+    <tr><th scope="row">Nothing</th><td>0</td><td>1,178,290</td><td>0</td></tr>
+  </tbody>
+</table>
+
+<p>The coins add up to 548,968. Divide by 1,533,939 draws and the EV is <strong>0.3579</strong>. The hand finishes with nothing on 1,178,290 draws, which is 76.8%, and pays on the other 23.2%. Most of the return comes from the cheap rows: jacks or better and two pair together supply 385,284 of the 548,968 coins, about 70%.</p>
+
+<p>The royal count is 3, not 4, and it is worth seeing why. The ten of clubs is in your hand before the draw, so it is not in the 47 cards you draw from, and only three suits can still make a ten-to-ace royal. Cards you throw away are dead in the same way. Dead cards like this are already counted in the 0.3579.</p>
+
+<h2>Against keeping one card</h2>
+<p>Keep one card and you draw four from 47: 47 &times; 46 &times; 45 &times; 44 / 24 = 178,365 draws. The same count for each single card:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins per coin bet from 3-5-7-9-T on 9/6 Jacks or Better: discard all five 0.358, hold the ten 0.325, hold the five 0.325, hold the nine 0.324, hold the seven 0.323, hold the three 0.312">
+    <div class="bar-row hl" title="Discard all five: 0.358"><span class="bar-label">Discard all five</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">0.358</span></span></div>
+    <div class="bar-row" title="Hold the ten: 0.325"><span class="bar-label">Hold the ten</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9088)"></span><span class="bar-val">0.325</span></span></div>
+    <div class="bar-row" title="Hold the five: 0.325"><span class="bar-label">Hold the five</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9086)"></span><span class="bar-val">0.325</span></span></div>
+    <div class="bar-row" title="Hold the nine: 0.324"><span class="bar-label">Hold the nine</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9055)"></span><span class="bar-val">0.324</span></span></div>
+    <div class="bar-row" title="Hold the seven: 0.323"><span class="bar-label">Hold the seven</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9025)"></span><span class="bar-val">0.323</span></span></div>
+    <div class="bar-row" title="Hold the three: 0.312"><span class="bar-label">Hold the three</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8707)"></span><span class="bar-val">0.312</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet from 3&#9827; 5&#9830; 7&#9824; 9&#9829; T&#9827; on 9/6 Jacks or Better. Bars start at zero. Discarding all five is the highest.</figcaption>
+</figure>
+
+<p>Holding the ten returns 58,012 coins over 178,365 draws, or 0.3252. Discarding everything beats it by 0.0326 coins per coin bet, about 10% more. The gap is small, and I have not claimed it is large. The point is the direction: every single low card loses to the redraw, and the best hold of two or more cards (the 3 and T of clubs, suited) manages only 0.2686.</p>
+
+<h2>Why the ten does not help</h2>
+<p>Jacks or Better pays a pair only from jacks upwards. A pair of tens returns nothing. Hold the ten and the one way it can pair is a deck ten, which finishes as a pair that pays zero. Compare a held jack. Three jacks are left in 47 cards, and at least one lands in your four drawn cards with probability 1 &minus; 44&times;43&times;42&times;41 / (47&times;46&times;45&times;44) = 1 &minus; 135,751 / 178,365 = 23.9%. Each of those draws finishes with a paying pair or better.</p>
+
+<p>The redraw gets its value another way. Five new cards can pair up with each other, and the pair, three of a kind or two pair that results is as good as one you built from a held card. A low card in your hand adds nothing the deck cannot supply, and it takes a slot away from the draw.</p>
+
+<h2>The same hand with a jack</h2>
+<p>Swap the ten for the J&#9827;, keeping 3&#9827; 5&#9830; 7&#9824; 9&#9829;. Now the lone jack returns 85,428 coins over 178,365 draws, EV <strong>0.4790</strong>. The redraw drops to 521,552 over 1,533,939, or 0.3400. The jack wins by 0.139. The same sums with a queen, king or ace give 0.4755, 0.4710 and 0.4697 for the single card, and 0.3404, 0.3409 and 0.3411 for the redraw. A held high card beats the redraw in all four cases.</p>
+
+<p>The redraw EV also moves a little with the hand, from 0.3400 here to 0.3579 with the ten. Dead cards change the straight and flush counts, so 0.358 is the figure for this hand, not for every hand with nothing in it.</p>
+
+<div class="callout">
+  <p>In the app, turn on strategy hints and deal until you see a hand with no pair, no jack or better and no four-card draw. Compare what the hint tells you to hold with the counts above before you redraw.</p>
+</div>
+
+<h2>Where the rule stops</h2>
+<p>The strategy ordering in <a href="/blog/jacks-or-better-strategy.html">the Jacks or Better strategy post</a> ends with "one high card" and then "nothing, discard all five". This post gives the number behind that last line. Two things to keep in mind:</p>
+<ul>
+  <li>In this hand no single low card is worth keeping. Add a second card, a suited ten with a jack for example, and the answer can change. The <a href="/blog/jacks-or-better-suited-high-cards.html">suited high cards post</a> shows how a two-card hold is counted.</li>
+  <li>All of this is for 9/6 Jacks or Better. A different pay for the flush, full house or royal moves every number, though not the logic of a ten that cannot pay as a pair.</li>
+</ul>
+
+<h2>A rule to carry away</h2>
+<p>When the deal has nothing on the strategy list above "one high card", with no pair, no draw and no jack, queen, king or ace, discard all five. In the example, 3-5-7-9-T returns 0.358 coins per coin bet redrawn and 0.325 with the ten kept. A held ten feels like progress, but it is a card that pairs for nothing.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays Jacks or Better offline, shows a full paytable on screen for each variant, and has strategy hints you can turn on to see which cards to hold while you learn. Chips are free and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

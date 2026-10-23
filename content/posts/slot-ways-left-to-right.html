@@ -1,0 +1,67 @@
+<!--
+{
+  "title": "Left to right: why a ways win must start on reel one",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "app": "BrasslightSlots",
+  "description": "In a ways slot a symbol pays only if it runs unbroken from reel one. Counting examples show how one missing cell turns 81 ways into none.",
+  "summary": "Ways are counted from the left: reel 1, then each adjacent reel until one lacks the symbol. Twelve matching cells on reels 2 to 5 are worth nothing if reel 1 has none, and one cell on reel 1 makes them worth 81 ways.",
+  "standfirst": "A ways game does not count how many matching symbols are on screen. It counts unbroken left-to-right runs that begin on the first reel, and that one rule explains most near-miss screens."
+}
+-->
+<p>Count the fish on a ways-to-win screen and you will often find a dozen of them and no win. The symbols are there, but the game is not counting symbols. It is counting runs: chains of the same symbol on neighbouring reels, starting at the left-hand edge. The multiplication is covered in <a href="/blog/what-243-ways-to-win-means.html">what 243 ways to win means</a>; this post is about where a run may start and where it has to stop.</p>
+
+<h2>The rule in three parts</h2>
+<p>On a five-reel, three-row grid there are 15 cells, and 3 × 3 × 3 × 3 × 3 = 243 left-to-right paths through them. The usual rule for a ways game has three parts.</p>
+<ol class="ranked">
+  <li><strong>Start on reel 1.</strong> A symbol must appear at least once on the first reel. Otherwise it has no ways at all.</li>
+  <li><strong>Stay adjacent.</strong> Each following reel, 2, 3, 4 and so on, must also show the symbol. The run ends at the first reel that does not.</li>
+  <li><strong>Count by multiplying.</strong> The ways are the number of matching cells on each reel in the run, multiplied together.</li>
+</ol>
+<p>Where the symbol sits within a reel does not matter. Top, middle or bottom, a cell is a cell. Position only matters across reels: a run has to be unbroken, and it has to begin on the left.</p>
+
+<h2>Worked counts</h2>
+<p>Write a screen as five numbers: how many cells show the symbol on each reel, from reel 1 to reel 5. These are all arithmetic you can check on paper.</p>
+<ul>
+<li><strong>1, 3, 3, 3, 3.</strong> One cell on reel 1 and every cell on the other four. That is 13 matching cells, and the run reaches reel 5, so the ways are 1 × 3 × 3 × 3 × 3 = 81.</li>
+<li><strong>0, 3, 3, 3, 3.</strong> Take away the single cell on reel 1. That leaves 12 matching cells, and the ways are 0 × 3 × 3 × 3 × 3 = 0. Twelve symbols, no win.</li>
+<li><strong>3, 3, 3, 3, 0.</strong> Now keep reel 1 and lose reel 5. The run stops after four reels with 3 × 3 × 3 × 3 = 81 ways, each of them a four-reel run.</li>
+<li><strong>3, 3, 3, 0, 0.</strong> The run stops after three reels with 3 × 3 × 3 = 27 ways.</li>
+<li><strong>3, 3, 0, 3, 3.</strong> A gap on reel 3 ends the run at two reels with 3 × 3 = 9 ways. The cells on reels 4 and 5 are never reached.</li>
+</ul>
+<p>Compare the first two. The same twelve cells on reels 2 to 5 are worth 81 ways with one cell on reel 1 and nothing without it. Reel 1 is a gate, not just one reel of five.</p>
+<p>Of the 243 paths, 81 pass through any given cell on reel 1 (3 × 3 × 3 × 3 = 81). Every path starts on reel 1, so a symbol that misses it can reach none of them.</p>
+
+<h2>Same number of symbols, different results</h2>
+<p>The chart below holds the number of symbols fixed. Each of the five screens has exactly eight matching cells, spread over the reels in a different way. The labels give the count on reels 1 to 5.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of ways for five screens that each show eight matching cells. Counts per reel 2, 2, 2, 2, 0 give 16 ways. 2, 2, 2, 1, 1 give 8. 3, 2, 1, 1, 1 give 6. 2, 2, 0, 2, 2 give 4, a run of two reels. 0, 2, 2, 2, 2 give 0.">
+    <div class="bar-row" title="2, 2, 2, 2, 0: 16 ways over four reels"><span class="bar-label">2·2·2·2·0</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">16</span></span></div>
+    <div class="bar-row" title="2, 2, 2, 1, 1: 8 ways over five reels"><span class="bar-label">2·2·2·1·1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row" title="3, 2, 1, 1, 1: 6 ways over five reels"><span class="bar-label">3·2·1·1·1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="2, 2, 0, 2, 2: 4 ways over two reels"><span class="bar-label">2·2·0·2·2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row hl" title="0, 2, 2, 2, 2: 0 ways"><span class="bar-label">0·2·2·2·2</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0)"></span><span class="bar-val">0</span></span></div>
+  </div>
+  <figcaption>Ways for five screens that each show eight matching cells, labelled by the count on reels 1 to 5. The runs are four reels, five reels, five reels, two reels and none. The screen with no symbol on reel 1 has no ways.</figcaption>
+</figure>
+
+<p>Two things stand out. The best screen has nothing on reel 5, yet it has the most ways, because 2 × 2 × 2 × 2 = 16. The count is a product, so cells spread evenly across the early reels beat cells piled on one. And the worst screen is the best one shifted a single reel to the right: 16 ways become 0.</p>
+<p>The 2·2·0·2·2 screen needs one caution. Its four ways are real, but they are a two-reel run, and the pay table decides what a run of that length pays. Many ways games start paying at three reels, so a two-reel run would pay nothing. The rule for the minimum run belongs to each game's own pay table, so check it before assuming.</p>
+
+<div class="callout">
+  <p>Ways come from unbroken runs that start on reel 1. Count the symbol on each reel from the left, stop at the first reel without it, and multiply. A symbol missing from reel 1 has zero ways, whatever lands on the other four.</p>
+</div>
+
+<h2>Wilds and the left edge</h2>
+<p>A wild is the exception that helps. In most ways games a wild stands in for the symbol being counted, so it raises the count on its reel. That includes reel 1: a wild there can open a run for a symbol that would otherwise have been shut out. If the 0·3·3·3·3 screen above had a wild on reel 1, it would count as one cell for the symbol, and the screen becomes 1·3·3·3·3, which is 81 ways. The post on <a href="/blog/wilds-on-a-ways-to-win-slot.html">wilds on a ways-to-win slot</a> goes through the details.</p>
+<p>The Play listing for <a href="/BrasslightSlots/">Brasslight Slots</a> mentions heart-eyes cat wilds among its symbols. It does not describe the pay rules, so the counts here show how ways games generally work, not the exact pay table of any one game.</p>
+
+<h2>Reading a screen</h2>
+<p>Look at reel 1 first. If the symbol is not there, stop. If it is, move right one reel at a time, noting the count, until you reach a reel without it. Then multiply.</p>
+<p>Some games do pay in both directions, with runs from the right-hand edge as well. That is a separate feature, so a game that offers it will say so. Without it, symbols that only appear on the right side of the grid are just decoration.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> has 5 reels, 3 rows and 243 ways to win on every spin, with heart-eyes cat wilds among its symbols. It is a free game for adults, with no ads and nothing to buy: there is no real-money play, and the coins and gems have no cash value and cannot be bought, sold or cashed out.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
