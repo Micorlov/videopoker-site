@@ -1,0 +1,57 @@
+<!--
+{
+  "title": "Superpowers — ask, plan and test before your agent codes",
+  "date": "2026-10-23",
+  "modified": "2026-10-23",
+  "description": "Superpowers is a free set of skills for Claude Code, Codex, Cursor and other agents. It asks what you want, writes a plan, then builds it with tests.",
+  "summary": "A free set of skills that makes your AI coding agent ask what you want, plan the work, and test it as it builds.",
+  "standfirst": "Ask a coding agent for a feature and it usually starts writing code right away. Superpowers makes it stop first, find out what you want, agree on a plan with you, and then build it step by step with tests."
+}
+-->
+<p><a class="text-link" href="https://github.com/obra/superpowers">See Superpowers on GitHub</a></p>
+<p>Superpowers is a set of skills for AI coding agents, plus short instructions that make the agent use them. Together they work as a method for building software: understand the goal, plan the work, build it with tests, and review it.</p>
+<p>It is open source under the MIT license. It works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, OpenCode and other agents. On 23 October 2026 the repository had about 304,000 stars on GitHub, and the latest version was 7.0.1 from 21 October 2026.</p>
+
+<figure class="chart">
+  <img src="/img/skills/superpowers.svg" alt="A speech bubble on the left, a checklist in the middle, and on the right a row of small boxes with checkmarks, joined by one lit path." width="640" height="360">
+  <figcaption>Ask first. Plan next. Then build with tests.</figcaption>
+</figure>
+
+<h2>What changes when it is installed</h2>
+<p>Without it, an agent that hears “build me this” usually starts writing code at once. With Superpowers, it steps back first and asks what you are really trying to do. The skills start on their own when they fit the task, so you do not need to type a special command.</p>
+
+<h2>The steps it follows</h2>
+<ol>
+  <li>Brainstorming. Before anything is built, the agent asks questions until it understands what you want and why. Then it plays its understanding back so you can correct it. A small change is agreed in the chat. A bigger project gets a written design, shown in parts short enough to read.</li>
+  <li>A separate workspace. After you approve the design, it makes a git worktree on a new branch and checks that the tests pass before it starts.</li>
+  <li>A plan. It breaks the work into small tasks of two to five minutes each. Every task names the exact files, the code and how to check it.</li>
+  <li>Building. A fresh subagent takes each task, and the work is reviewed after every task. To spend less, the agent can instead do all the tasks itself, with one review of the whole branch at the end.</li>
+  <li>Tests first. It follows red, green, refactor: write a test, watch it fail, write just enough code to pass, watch it pass, commit. Code written before its test is deleted.</li>
+  <li>Code review. Between tasks, the work is checked against the plan, and problems are reported by how serious they are. A critical problem stops the work.</li>
+  <li>Finishing. When the tasks are done, it runs the tests and asks you whether to merge, open a pull request, keep the branch or throw it away.</li>
+</ol>
+<p>The plan also follows two simple rules: YAGNI, which means do not build what you are not going to need, and DRY, which means do not repeat yourself. The project says it is common for the agent to work on its own for a couple of hours without leaving the plan you agreed on.</p>
+
+<h2>Other skills in the set</h2>
+<ul>
+  <li>Systematic debugging, a four-step process to find the real cause of a bug.</li>
+  <li>Checking that a fix really works before calling it done.</li>
+  <li>Running several agents at the same time on separate problems.</li>
+  <li>Responding to a code review.</li>
+  <li>Writing new skills of your own.</li>
+  <li>Finding out what went wrong in a session, with evidence from its transcript.</li>
+</ul>
+
+<h2>What to know first</h2>
+<p>It is a strict method. The project calls its workflows mandatory, not suggestions. A quick, clear request, such as changing a color, is simply done. Bigger work goes through the questions and the plan, so expect more back and forth at the start.</p>
+<p>The brainstorming step has an optional visual companion. Its logo is loaded from the makers’ website, together with the Superpowers version number. The project says nothing about your project, prompts or agent is sent. To turn this off, set SUPERPOWERS_DISABLE_TELEMETRY to true.</p>
+
+<h2>How to install it</h2>
+<p>In Claude Code, install it from the official plugin marketplace:</p>
+<pre><code>/plugin install superpowers@claude-plugins-official</code></pre>
+<p>In Cursor, type this in the Agent chat:</p>
+<pre><code>/add-plugin superpowers</code></pre>
+<p>In Codex, open /plugins, search for Superpowers and install it. In Gemini CLI:</p>
+<pre><code>gemini extensions install https://github.com/obra/superpowers</code></pre>
+<p>Other agents have their own command in the project’s README. If you use more than one agent, install it in each one. To check that it works, start a new session and ask for something small, like a to-do list app. The agent should start asking questions before it writes any code.</p>
+<p><a class="text-link" href="https://github.com/obra/superpowers">See Superpowers on GitHub</a></p>
