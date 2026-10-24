@@ -1,0 +1,60 @@
+<!--
+{
+  "title": "scroll-craft — scroll websites that pass a design check",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "description": "scroll-craft is a free skill for Claude Code, Codex and other agents that builds scroll-driven websites, then checks every scroll position in a browser.",
+  "summary": "A free skill that has your AI coding agent build a scroll-driven website with real design rules, then check every scroll position in a browser.",
+  "standfirst": "Ask an AI agent for a website and you usually get one of two things: a neat page you forget at once, or a flashy scroll animation with text you can hardly read. scroll-craft tries to avoid both. It gives the agent a scroll engine, strict design rules and a browser that checks every point of the scroll before you see the page."
+}
+-->
+<p><a class="text-link" href="https://github.com/nateherkai/scroll-craft">See scroll-craft on GitHub</a></p>
+<p>scroll-craft is a skill for AI coding agents that builds scroll-driven websites. As you scroll, video plays forward frame by frame, sections stay pinned while their story moves on, and headlines build up line by line. Along with the motion, it follows firm rules for type, spacing, color and depth.</p>
+<p>It is open source under the MIT license. It works with Claude Code, Codex and other coding agents that can read instructions, edit files, run commands and look at a browser. It also comes as a Claude Code plugin. On 24 October 2026 the repository had nearly 4,000 stars on GitHub, and its README describes version 0.3.0.</p>
+
+<figure class="chart">
+  <img src="/img/skills/scroll-craft.svg" alt="A tall web page on the left with a scroll bar, and on the right a row of frames from a film, with the lit frame matching the scroll position." width="640" height="360">
+  <figcaption>The scroll position is the timeline.</figcaption>
+</figure>
+
+<h2>What it builds</h2>
+<ul>
+  <li>Scroll as a timeline. Video moves under the scroll wheel, sections pin, rows slide sideways, and the background color changes as you go down the page. The mouse pointer can move things too.</li>
+  <li>Eight page styles, such as a one-shot film, a chaptered magazine, a poster, a gallery or a split stage. Each one forbids what the others require, so two sites do not slowly turn into the same page.</li>
+  <li>One signature move. Every site gets one interaction of its own that no other site has.</li>
+  <li>A check against repeats. A new site has to differ from your earlier ones in at least four of six ways, such as the page style, the navigation, the opening and the ending.</li>
+</ul>
+
+<h2>The design rules</h2>
+<ul>
+  <li>Before it builds, it writes one line per section: the feeling it should give and what on screen causes it.</li>
+  <li>One planned high point. The page gets one peak, with the most scroll room and the best images.</li>
+  <li>Type rules: at most two font families, and a line length of 45 to 75 characters.</li>
+  <li>A spacing scale built on 4 pixels, with more space above a heading than below it, and less padding on a phone.</li>
+  <li>Colors with fixed roles and one accent color, and no pure black.</li>
+  <li>Your brand guide wins. If you give it brand rules, they come before its own taste.</li>
+  <li>A list of things it refuses, such as identical card grids, gradient text, fake dashboards, purple AI gradients and made-up statistics.</li>
+</ul>
+
+<h2>How it checks its work</h2>
+<p>A browser with no window scrolls through the finished page, waits for the video to settle at every position, and reports problems:</p>
+<ul>
+  <li>Scroll that changes nothing on screen.</li>
+  <li>Text that never becomes fully visible.</li>
+  <li>Text without enough contrast, measured line by line against the brightest frame that ever passes behind it.</li>
+  <li>A video clip that never loaded and just shows its first picture.</li>
+</ul>
+<p>Then it makes a contact sheet of screenshots, because a machine can prove that a page works but cannot tell you whether it means anything.</p>
+
+<h2>What to know first</h2>
+<p>The project says it has only ever been run on Windows. Its scripts also look for FFmpeg and Chrome in macOS and Linux locations, but no site has been built on a Mac yet. It needs Node.js 18 or newer, a full FFmpeg build, and playwright-core with Chrome for the checks. A KIE_AI_API_KEY is needed only if you want it to generate images or video, which costs money. A page built from your own photos and footage costs nothing.</p>
+<p>It is opinionated on purpose. It will refuse layouts and colors that make AI pages easy to spot, and it will argue with you about the high point of your page.</p>
+
+<h2>How to install it</h2>
+<p>In Claude Code, add the marketplace and install the plugin:</p>
+<pre><code>/plugin marketplace add nateherkai/scroll-craft
+/plugin install nateherk-design</code></pre>
+<p>Then describe the site you want, or call it directly:</p>
+<pre><code>/nateherk-design:scroll-craft</code></pre>
+<p>If the installer asks for it, run /reload-plugins. In Codex, copy the whole scroll-craft folder from plugins/nateherk-design/skills/ in the repository into your project’s .agents/skills/ folder and ask Codex to use the skill. Before the first build, run the doctor script that comes with the skill, which finds the usual setup problems.</p>
+<p><a class="text-link" href="https://github.com/nateherkai/scroll-craft">See scroll-craft on GitHub</a></p>
