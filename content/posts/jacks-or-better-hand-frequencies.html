@@ -1,0 +1,82 @@
+<!--
+{
+  "title": "How often each hand lands in Jacks or Better",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "VideoPoker",
+  "description": "After the draw, jacks or better lands about one hand in 4.7 and a royal one in 40,400. Each row of 9/6 Jacks or Better, and what it adds to the 99.54% return.",
+  "summary": "Under correct play, 54.5% of 9/6 Jacks or Better hands pay nothing, and three humble rows (a high pair, two pair, trips) supply about 70 of the 99.54 points of return.",
+  "standfirst": "The famous frequency tables show what you are dealt. The ones that matter at the machine show what you finish with, and they look very different."
+}
+-->
+<p>Most hand-frequency tables count the five cards you are dealt. <a href="five-card-poker-hand-frequencies.html">That table</a> is fixed by arithmetic: 2,598,960 possible hands, 4 of them royal flushes. A video poker machine lets you hold some cards and replace the rest, so the hand you <em>finish</em> with lands far more often than the hand you start with. This post gives those finishing frequencies for 9/6 Jacks or Better, played correctly, and shows where the 99.54% return comes from.</p>
+
+<h2>The table after the draw</h2>
+<p>These are the standard figures for 9/6 Jacks or Better (a full house pays 9, a flush 6) with the best hold chosen every time. The royal pays 800 per coin at a five-coin bet. "Once in" is one divided by the probability, rounded. "Return" is the pay multiplied by the probability, in percentage points of the amount bet.</p>
+
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better, optimal play, finished hand after the draw. Rows add to 99.54% before rounding.</caption>
+  <thead>
+    <tr><th>Final hand</th><th>Pays per coin</th><th>Chance</th><th>Once in</th><th>Return</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>800</td><td>0.0025%</td><td>40,400</td><td>1.98</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>0.0109%</td><td>9,150</td><td>0.55</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>0.236%</td><td>423</td><td>5.91</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>1.151%</td><td>87</td><td>10.36</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td>1.101%</td><td>91</td><td>6.61</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>1.122%</td><td>89</td><td>4.49</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>7.445%</td><td>13.4</td><td>22.34</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>12.928%</td><td>7.7</td><td>25.86</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>21.459%</td><td>4.7</td><td>21.46</td></tr>
+    <tr><th scope="row">Nothing</th><td>0</td><td>54.54%</td><td>1.8</td><td>0</td></tr>
+  </tbody>
+</table>
+
+<p>Check any row yourself: 25 × 0.236% = 5.9 points for four of a kind, and 3 × 7.445% = 22.3 points for three of a kind. Add the column and you reach the machine's 99.54%. The rounded rows land a hair above that, which is rounding and nothing else.</p>
+
+<h2>Dealt against finished</h2>
+<p>The gap between the two tables is the draw doing its work. A royal flush is dealt once in 649,740 hands (2,598,960 ÷ 4). Finished with, it comes once in about 40,400, roughly sixteen times as often, because every hand with four royal cards is a chance to complete it. A flush is dealt about once in 509 hands. Correct play finishes one about once in 91, because four to a flush is worth drawing to.</p>
+<p>Notice how close the next three rows finish: full house 1 in 87, straight 1 in 89, flush 1 in 91. Those hands are worth 9, 4 and 6 coins, so the order of the paytable is not the order of frequency.</p>
+
+<h2>Where the return actually comes from</h2>
+<p>The royal flush gets the attention, but it supplies 1.98 of the 99.54 points. Look at the three most common winners instead:</p>
+<ul>
+  <li>Jacks or better: 21.46 points</li>
+  <li>Two pair: 25.86 points</li>
+  <li>Three of a kind: 22.34 points</li>
+</ul>
+<p>Together that is 69.66 points, a little over 70% of everything the machine returns, from hands that pay 1, 2 and 3 coins. Add the full house and the total is 80.02. The quads, straight flushes and royals that give the game its reputation supply just 8.44 between them.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of each final hand's contribution to the return, in percentage points">
+    <div class="bar-row hl" title="Two pair: 25.86"><span class="bar-label">Two pair</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">25.86</span></span></div>
+    <div class="bar-row" title="Three of a kind: 22.34"><span class="bar-label">Three of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8639)"></span><span class="bar-val">22.34</span></span></div>
+    <div class="bar-row" title="Jacks or better: 21.46"><span class="bar-label">Jacks or better</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8299)"></span><span class="bar-val">21.46</span></span></div>
+    <div class="bar-row" title="Full house: 10.36"><span class="bar-label">Full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4006)"></span><span class="bar-val">10.36</span></span></div>
+    <div class="bar-row" title="Flush: 6.61"><span class="bar-label">Flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2556)"></span><span class="bar-val">6.61</span></span></div>
+    <div class="bar-row" title="Four of a kind: 5.91"><span class="bar-label">Four of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2285)"></span><span class="bar-val">5.91</span></span></div>
+    <div class="bar-row" title="Straight: 4.49"><span class="bar-label">Straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1736)"></span><span class="bar-val">4.49</span></span></div>
+    <div class="bar-row" title="Royal flush: 1.98"><span class="bar-label">Royal flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0766)"></span><span class="bar-val">1.98</span></span></div>
+    <div class="bar-row" title="Straight flush: 0.55"><span class="bar-label">Straight flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0213)"></span><span class="bar-val">0.55</span></span></div>
+  </div>
+  <figcaption>Points of the 99.54% return contributed by each final hand in 9/6 Jacks or Better with optimal play. Two pair, the largest, is highlighted.</figcaption>
+</figure>
+
+<h2>What a typical hand looks like</h2>
+<p>Add the winning rows: 0.0025 + 0.0109 + 0.236 + 1.151 + 1.101 + 1.122 + 7.445 + 12.928 + 21.459 comes to about 45.46%. So 54.54% of hands pay nothing, and the other 45.46% pay something. Of those, the jacks-or-better row at 21.46% only returns your own coin. That leaves roughly 24.0% of hands, about one in four, that pay more than you put in.</p>
+<p>Put another way, a hand that ends with a refund is nearly as common as a hand that ends with a profit, and both are outnumbered by the hands that end with nothing. A machine returning 99.54% is not one that pays you back most of the time. It is one that pays back small amounts often and large amounts rarely, and the long-run average works out close to even. How far a real session strays from that average is a separate matter, covered in <a href="video-poker-variance.html">the post on variance</a>.</p>
+
+<h2>Using the table</h2>
+<p>Three things follow, all checkable against the numbers above.</p>
+<ol class="ranked">
+  <li>A session of a few hundred hands is dominated by the first three winning rows. Expect a pair of jacks or better about every fifth hand and two pair about every eighth.</li>
+  <li>Quads, straight flushes and royals together appear in about 0.25% of hands (0.236 + 0.0109 + 0.0025), roughly once in 400. They carry 8.44 points of the return. They are worth playing for, but not worth planning around.</li>
+  <li>The royal flush's weight is small but not trivial. For its share and what happens when it is removed, see <a href="royal-flush-share-of-the-return.html">why the royal is worth two points of return</a>.</li>
+</ol>
+<p>None of this changes which cards to hold, which is set by comparing the expected pay of each choice (see the <a href="jacks-or-better-strategy.html">hold order</a>). What it does is show why those choices matter. Correct play is the reason a flush finishes one hand in 91 instead of one in 509, and each such finish is a few extra points of return that a lazier strategy would give up. For how to read the pay column of any machine before you sit down, see <a href="reading-a-video-poker-paytable.html">reading a video poker paytable</a>.</p>
+
+<div class="post-foot">
+  <p>You can see these frequencies build up in <a href="/VideoPoker/">Video Poker: Jacks or Better</a>. It works offline, shows a full paytable on screen for every variant, and has strategy hints that show which cards to hold. It is a free practice game with no real money, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

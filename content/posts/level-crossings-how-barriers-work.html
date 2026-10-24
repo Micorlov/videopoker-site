@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Level crossings: how automatic barriers know a train is coming",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "ValleyRail",
+  "description": "Track circuits, axle counters and treadles detect a train, and the strike-in point is set by distance = speed × warning time: 27 s at 100 mph is about 1.2 km.",
+  "seo_title": "How automatic level crossing barriers know a train is coming",
+  "summary": "A crossing detects trains with track circuits, axle counters or treadles. The detector sits far enough up the line to give the warning time the road needs, found by multiplying speed by time. The design is fail-safe: loss of power means barriers down.",
+  "standfirst": "An automatic crossing has no one watching the line. A detector placed a set distance up the track starts the lights and barriers, and that distance is plain arithmetic: how fast the train travels multiplied by how long the road needs."
+}
+-->
+<p>Where a road crosses a railway at the same level, something has to stop the traffic before the train arrives. On an automatic crossing nobody does it by eye. The train announces itself to the track, the track tells the equipment, and the lights and barriers work in a fixed order. Each step uses a simple physical idea, and the placement of the detector comes down to one multiplication.</p>
+
+<h2>Detecting the train</h2>
+<p>There are three common ways to know that a train is on a stretch of line.</p>
+
+<p><strong>Track circuits.</strong> A low voltage is fed into one rail, runs along it, crosses to the other rail and passes back through a relay. While the line is empty, the current holds the relay energised. When a train arrives, its steel wheels and axles connect the two rails and divert the current away from the relay, which drops. The same idea keeps trains apart on the main line, as covered in <a href="/blog/how-railway-signals-keep-trains-apart.html">how railway signals keep trains apart</a>. A relay that has dropped means "occupied", and the crossing equipment reads that as a train in the section.</p>
+
+<p><strong>Axle counters.</strong> Instead of using the wheels as an electrical short, a sensor at each end of a section counts the axles that go in and the axles that come out. If 12 axles enter and 12 leave, the section is clear. If the numbers differ, it is treated as occupied. Axle counters do not rely on a clean electrical connection through the rails, so rust or leaves on the railhead do not confuse them.</p>
+
+<p><strong>Treadles.</strong> A treadle is a device on the side of the rail that is pressed or sensed as a wheel flange passes. It registers each passing wheel as a pulse. Treadles are simple and are also a way of counting, so they appear in older installations and as a supplement to the other two.</p>
+
+<h2>Where the detector goes</h2>
+<p>Detecting a train at the crossing itself would be useless. The road needs time first: lights flash, bells sound, and then the barriers descend and drivers have to stop or clear the crossing. The detector therefore sits some way up the line, at the <strong>strike-in point</strong>. When a train reaches it, the sequence starts.</p>
+<p>How far up the line depends on two things: how fast the train travels and how long the warning has to last. The relationship is the basic one for any steady speed:</p>
+<p><strong>distance = speed × warning time</strong></p>
+<p>The warning time is a design choice, set by the road authority or railway for the particular crossing. It has to cover the lights, the barriers' travel and a margin for a vehicle already inside. The 27 seconds used here is an illustrative figure, not a rule from any one country. Take a line speed of 100 mph, or about 160 km/h:</p>
+<ul>
+  <li>100 mph × 0.44704 = 44.7 m/s (160 km/h ÷ 3.6 gives 44.4 m/s, much the same).</li>
+  <li>44.7 m/s × 27 s = about 1,207 m, or roughly 1.2 km.</li>
+</ul>
+<p>So the detector sits about 1.2 km before the road. A train that passes it at line speed reaches the crossing 27 seconds later. The next chart applies the same 27 seconds to other speeds.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of strike-in distance for a 27 second warning at 25, 50, 75 and 100 miles per hour">
+    <div class="bar-row" title="25 mph: 302 m"><span class="bar-label">25 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">302 m</span></span></div>
+    <div class="bar-row" title="50 mph: 604 m"><span class="bar-label">50 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">604 m</span></span></div>
+    <div class="bar-row" title="75 mph: 905 m"><span class="bar-label">75 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">905 m</span></span></div>
+    <div class="bar-row hl" title="100 mph: 1,207 m"><span class="bar-label">100 mph</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1,207 m</span></span></div>
+  </div>
+  <figcaption>Distance from detector to crossing for a 27 second warning, an illustrative figure. The relationship is linear: double the speed and the distance doubles, from 302 m at 25 mph to 1,207 m at 100 mph.</figcaption>
+</figure>
+
+<p>Note the contrast with braking, where doubling the speed quadruples the distance. Here the relationship is straight, because the train is not slowing down; it simply covers twice as much ground in the same time.</p>
+
+<h2>The problem of slow trains</h2>
+<p>The strike-in point is fixed, but trains are not all the same speed. A train at 25 mph that triggers a detector placed for 100 mph takes 1,207 m ÷ 11.18 m/s, about 108 seconds, to reach the road. The barriers would be down for four times as long as needed, and drivers would wait with nothing in sight. A crossing that cries wolf teaches people to go round the barriers.</p>
+<p>Crossings on lines with mixed speeds therefore deal with this in one of two ways. Some measure speed using two detectors a known distance apart and start the sequence at a point chosen for that speed. Others add a timer, so the warning is cut to fit. Both are ways of restoring the intended warning time whatever the train's speed.</p>
+
+<h2>Fail-safe design</h2>
+<p>The main safety principle is that a fault should cost the road user some convenience and never some safety. The relays are built to drop by gravity, so losing power drops them, and a dropped relay means "train present". In the same way a broken rail, a failed cable or a dead supply looks like an occupied section.</p>
+<p>The result is that loss of power should leave the barriers down, not up. Drivers are stopped by an unneeded barrier, which is a nuisance. They are not left to cross a live railway with no warning, which is a hazard. Wrong-side failures, where the equipment shows safe when it is not, are the ones designers work hardest to prevent.</p>
+
+<h2>Putting it together</h2>
+<ol class="ranked">
+  <li><strong>Detect:</strong> a train enters the strike-in section and drops a relay or changes an axle count.</li>
+  <li><strong>Warn:</strong> lights flash and bells sound.</li>
+  <li><strong>Lower:</strong> the barriers come down once the road has had time to react.</li>
+  <li><strong>Release:</strong> when the train has passed beyond the crossing, the section clears and the barriers rise.</li>
+</ol>
+
+<p>The listing for <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> mentions rail crossings with automatic signals. It does not say how they detect trains, so everything above is real-world engineering, not a description of the game.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>Track circuits use the train's axles to short the rails and drop a relay; axle counters compare counts in and out.</li>
+  <li>The detector sits up the line by speed × warning time. At 100 mph and 27 s that is about 1.2 km.</li>
+  <li>Distance for a fixed warning time scales with speed, but braking distance scales with its square.</li>
+  <li>Fail-safe means a fault drops the relays and puts the barriers down.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you drag track between towns, buy a train and run the route on its own, with rail crossings that have automatic signals. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

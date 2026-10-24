@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Why the player acts first, and why that is the house's edge",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "Blackjack21",
+  "description": "You finish your hand before the dealer plays, so if you bust, the dealer's cards no longer matter. Copy the dealer exactly and that one rule costs you about 8% of every bet.",
+  "seo_description": "You finish your hand before the dealer plays, so a bust loses even if the dealer would also bust. Copy the dealer and that costs about 8% of each bet.",
+  "seo_title": "Why the player acts first in blackjack: the house edge",
+  "summary": "Bust first and you lose even if the dealer would have busted too. That double-bust is worth roughly 8% of each bet to a player who copies the dealer, and 3:2 and smart play claw it back.",
+  "standfirst": "Blackjack looks like an even contest: same cards, same totals, same target. The house edge comes from one fact about order, and you can estimate its size on the back of an envelope."
+}
+-->
+<p>Take a player who copies the dealer. They hit until they reach 17, stand on anything higher, and never double, split or surrender. Their rules are identical to the dealer's, and they still lose in the long run. Nothing in the cards explains it. The reason is the order of play.</p>
+
+<h2>The double-bust</h2>
+<p>The player completes their hand first. If you go over 21, you lose at once and the dealer never needs to finish. The dealer might have busted too, but that is not checked. A hand where both of you go over is a loss for you, not a push.</p>
+<p>Every other result in the game is symmetrical. Make 19 against a dealer 18 and you win; make 18 against a dealer 19 and you lose. Equal totals tie. Remove the double-bust and a player copying the dealer would break even on those hands. That is the whole edge, and it is the same one the <a href="/blog/blackjack-3-to-2-payout.html">3:2 payout post</a> describes as the thing the natural's bonus has to offset.</p>
+
+<h2>Sizing it with two numbers</h2>
+<p>The dealer's script is fixed: draw to 16, stand on 17. In a six-deck shoe where the dealer stands on every 17, the dealer busts on 28.2% of hands, as worked out in <a href="/blog/blackjack-dealer-bust-rates.html">how the dealer plays, and how often each up-card busts</a>. A player copying that script busts at about the same rate, since the same drawing rule produces the same totals.</p>
+<p>Treat the two hands as independent, and the chance that both bust is</p>
+<p>0.282 × 0.282 = 0.0795, or about <strong>7.95%</strong></p>
+<p>On those hands the player loses a full bet rather than pushing. Everything else is symmetrical, so 7.95% of the stake is the estimate for what acting first costs a copycat player. It is an approximation, not an exact figure: the two hands come from one shoe, so they are not quite independent, and the dealer's bust rate depends on the up-card. Round it to 8%.</p>
+
+<h2>What the natural pays back</h2>
+<p>The natural is the first thing that moves the number the other way. An uncontested natural, meaning the dealer does not also have one, turns up on 4.53% of hands. It pays 3:2, half a bet more than even money, so the bonus is worth</p>
+<p>0.5 × 4.53% = <strong>2.27%</strong> of each bet</p>
+<p>Take that from the double-bust cost: 7.95% - 2.27% = 5.68%, or about 5.7%. Naturals otherwise cancel out: without the bonus, a player natural against a plain hand wins one bet, and so does a dealer natural.</p>
+<p>The commonly quoted house edge for a player who copies the dealer, with 3:2 naturals, is about 5.5%. Different sources land between roughly 5.5% and 8% depending on the rules assumed and on whether they allow for the bonus. The envelope figure of 5.7% is within a fifth of a point of the low end, which is as close as independent hands allow.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of house edge for a player who copies the dealer: 7.95 percent from the double-bust alone, 5.7 percent after the 3:2 natural, 5.5 percent commonly quoted, and about 0.5 percent for basic strategy">
+    <div class="bar-row hl" title="Double-bust alone: 7.95%"><span class="bar-label">Double-bust alone</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">7.95%</span></span></div>
+    <div class="bar-row" title="After the 3:2 natural: 5.7%"><span class="bar-label">After 3:2 natural</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7145)"></span><span class="bar-val">5.7%</span></span></div>
+    <div class="bar-row" title="Commonly quoted: about 5.5%"><span class="bar-label">Commonly quoted</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6918)"></span><span class="bar-val">≈5.5%</span></span></div>
+    <div class="bar-row" title="Basic strategy: about 0.5%"><span class="bar-label">Basic strategy</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0629)"></span><span class="bar-val">≈0.5%</span></span></div>
+  </div>
+  <figcaption>House edge as a share of the initial bet. The first two bars are the estimate worked out above for a player who copies the dealer; the third is the commonly quoted figure; the last is the rough edge for a six-deck game played by basic strategy.</figcaption>
+</figure>
+
+<h2>How good play claws the rest back</h2>
+<p>A well-played six-deck game sits at roughly half a percent to the house, so basic strategy recovers around five points of the 5.5%. The 3:2 natural accounts for 2.27 of those points. The rest comes from the decisions the copycat never makes: when to stand early, and when to put more chips out.</p>
+<p>The clearest case is a hard 16 against a dealer 6. The copycat hits it, and taking one more card busts on 8 ranks in 13, or 61.5%. Standing wins whenever the dealer busts, which against a 6 is 42.3% of the time. Standing wins more often than hitting could possibly manage, because hitting survives only 38.5% of the time and still needs a good result after that. The same logic runs through the chart: against a 2 to 6, stand on stiff totals and let the dealer take the risk of going over.</p>
+<p>Doubling and splitting work from the other side. They put more chips out where the dealer is weakest. A hard 11 cannot bust on a single card, so doubling on it puts a larger bet on a hand with no bust risk, and splitting eights turns one bad 16 into two hands that each start from 8. The copycat's refusal to do either leaves those chips on the table. This post does not break the remaining points down move by move, only the 3:2 share, since that is the part shown above.</p>
+
+<div class="callout">
+  <p>The edge is not that the dealer has better cards. It is that your bust is settled before the dealer's is. Good play avoids that bust where it can, and puts a bigger bet where the dealer is weakest.</p>
+</div>
+
+<h2>What to take away</h2>
+<ul>
+<li>A double-bust is a loss for the player, not a push.</li>
+<li>With the same drawing rule as the dealer, that costs about 0.282 × 0.282 = 7.95% of each bet.</li>
+<li>A 3:2 natural on 4.53% of hands returns 2.27 points, which brings the copycat to about 5.7%.</li>
+<li>The commonly quoted figure is about 5.5%; basic strategy brings it to roughly 0.5%.</li>
+<li>Stand on stiff totals against a 2 to 6, where the dealer busts 35% to 42% of the time.</li>
+</ul>
+<p>For the other side of a hand that does not bust, see <a href="/blog/blackjack-pushes-tie-the-dealer.html">pushes in blackjack</a>, and for a dealer rule that shifts the odds further, see <a href="/blog/dealer-stands-on-soft-17.html">what standing on soft 17 changes for you</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

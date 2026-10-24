@@ -1,0 +1,86 @@
+<!--
+{
+  "title": "Turbo and auto spin: what speed changes and what it doesn't",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "BrasslightSlots",
+  "description": "Faster spins mean more spins per hour, not better or worse odds per spin. In an example, 4 times the spin rate uses 4 times the coins per hour at the same RTP.",
+  "summary": "Turbo and auto spin change how many spins fit in an hour. They do not change the odds of any one spin or the RTP, so coins used per hour scale with spin rate.",
+  "standfirst": "A faster spin is the same spin in less time. The odds and the return per coin stay put; the number of spins per hour goes up, and everything that is counted per hour goes up with it."
+}
+-->
+<p>Many slots offer a way to play faster: a turbo mode that shortens the reel animation, and an auto mode that starts the next spin for you. This post is about the maths of speed in general, using made-up numbers that are labelled as examples. <a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> lists Turbo and Auto spin for when you want to play faster, and this post makes no claim about how either one works in the app beyond that. What follows holds for any slot where speed changes only how quickly a result is shown.</p>
+
+<h2>What speed changes</h2>
+<p>One thing: how many spins fit into an hour. An hour has 3,600 seconds, so spins per hour is 3,600 divided by the length of one spin in seconds. Everything else in this post follows from that single division.</p>
+<p>These spin lengths are examples, not measurements of any game:</p>
+<ul>
+  <li>6 seconds per spin: 3,600 ÷ 6 = 600 spins an hour.</li>
+  <li>3 seconds per spin: 3,600 ÷ 3 = 1,200 spins an hour.</li>
+  <li>1.5 seconds per spin: 3,600 ÷ 1.5 = 2,400 spins an hour.</li>
+</ul>
+<p>Halving the spin length doubles the spins per hour, so going from 6 seconds to 1.5 seconds is four times as many spins.</p>
+
+<h2>What speed does not change</h2>
+<p>The odds of each spin. A slot's result comes from its reel strips and a random draw, as described in <a href="/blog/slot-reel-strips-and-stops.html">reel strips and stops</a>, and the draw is the same whether the reels take a long time to settle or a short one. A shorter animation is a shorter wait for the same answer.</p>
+<p>Two measures are fixed by the game's design rather than by the clock:</p>
+<ul>
+  <li><strong>RTP</strong>, the share of the coins bet that comes back over a very long run. The meaning of RTP and volatility is covered in <a href="/blog/slot-rtp-and-volatility.html">slot RTP and volatility</a>.</li>
+  <li><strong>Hit frequency</strong>, the share of spins that pay anything at all, covered in <a href="/blog/slot-hit-frequency.html">hit frequency</a>.</li>
+</ul>
+<p>Both are properties of one spin, so neither mentions time. A game that returns 96 coins in every 100 bet returns 96 per 100 at any speed.</p>
+
+<h2>Coins used per hour: a worked example</h2>
+<p>Suppose, purely as an example, a slot has an RTP of 96% and you bet 100 coins a spin. Over a long run, each spin is expected to return 96 coins, so the expected cost of a spin is 100 − 96 = 4 coins. That figure is an average. On any single spin you may get 0 back, or 500.</p>
+<p>Now multiply by spins per hour:</p>
+
+<table class="paytable-compare">
+  <caption>Hypothetical example: 100 coins a spin, 96% RTP. Expected cost is 4 coins a spin.</caption>
+  <thead>
+    <tr><th>Spin length</th><th>Spins an hour</th><th>Coins bet an hour</th><th>Expected coins used an hour</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">6 seconds</th><td>600</td><td>60,000</td><td>2,400</td></tr>
+    <tr><th scope="row">3 seconds</th><td>1,200</td><td>120,000</td><td>4,800</td></tr>
+    <tr><th scope="row">1.5 seconds</th><td>2,400</td><td>240,000</td><td class="good">9,600</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins used per hour in the example: 2,400 at 6 seconds a spin, 4,800 at 3 seconds, 9,600 at 1.5 seconds">
+    <div class="bar-row" title="6 seconds a spin: 2,400"><span class="bar-label">6 s a spin</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">2,400</span></span></div>
+    <div class="bar-row" title="3 seconds a spin: 4,800"><span class="bar-label">3 s a spin</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">4,800</span></span></div>
+    <div class="bar-row hl" title="1.5 seconds a spin: 9,600"><span class="bar-label">1.5 s a spin</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">9,600</span></span></div>
+  </div>
+  <figcaption>Expected coins used per hour in the hypothetical example (100 coins a spin, 96% RTP). The cost per spin is 4 coins at every speed; only the number of spins an hour changes.</figcaption>
+</figure>
+
+<p>The cost per coin bet is 4% in every row. The cost per hour is four times larger in the last row than in the first, because there are four times as many spins in it. If you start with a stack of 100,000 coins, the same average rate would take about 41.7 hours to use up at 2,400 coins an hour, and 10.4 hours at 9,600. These are averages from the example, not predictions.</p>
+<p>In general: expected use per hour = bet × (1 − RTP) × spins per hour. Speed only enters through the last term.</p>
+
+<div class="callout">
+  <p>Faster play does not make a slot tighter or looser. It makes the same slot run through its averages sooner.</p>
+</div>
+
+<h2>Features arrive faster too, and so do dry spells</h2>
+<p>Take the same hypothetical feature used in <a href="/blog/why-a-slot-is-never-due.html">why a slot is never due</a>: it appears on 1 spin in 100. At 600 spins an hour you would expect it about 6 times, at 1,200 about 12 times, and at 2,400 about 24 times. The chance on each spin is still 1 in 100.</p>
+<p>The average wait for it is 100 spins, which is 600 seconds (10 minutes) at 6 seconds a spin, 300 seconds (5 minutes) at 3 seconds and 150 seconds (2.5 minutes) at 1.5 seconds. A long gap between features is a number of spins, not a number of minutes.</p>
+
+<h2>Why auto spin changes nothing about independence</h2>
+<p>An auto mode removes a tap. It does not remove the randomness: each spin is still drawn fresh, and the result of one tells you nothing about the next. A run of five spins that paid nothing leaves the sixth at the same chance as before.</p>
+
+<h2>What does grow with speed</h2>
+<p>Averages are fixed per spin, but the spread of results is not. The variation in the total over <em>n</em> spins grows with the square root of <em>n</em>. Four times as many spins in an hour (2,400 rather than 600) means the typical swing in the total is about twice as large, since √4 = 2, while the average cost per spin stays at 4 coins. So a fast hour tends to land further from the middle, in either direction, than a slow one. The size of that swing for a given game is what volatility describes.</p>
+
+<h2>A quick check you can run</h2>
+<ol class="ranked">
+  <li>Time a few spins with a stopwatch and divide 3,600 by the average seconds a spin.</li>
+  <li>Multiply by your bet to get coins bet an hour.</li>
+  <li>Multiply by (1 − RTP) for the expected cost. Any RTP you use is an assumption unless the game publishes it.</li>
+</ol>
+<p>Brasslight Slots does not give an RTP in its Play listing, so treat any figure for it as a guess. The method is what matters: speed multiplies the volume of play, and the odds stay where the game put them.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

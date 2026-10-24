@@ -1,0 +1,78 @@
+<!--
+{
+  "title": "Safety play: when not potting is the better shot",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "EightBallsPool",
+  "description": "A safety is a legal shot played to leave your opponent nothing. In an illustrative example, a 30% pot beats the safety only if a miss leaves them a hard shot.",
+  "summary": "A safety trades a chance to pot for control of what your opponent faces. In the worked example, a safety worth 40% beats a pot below 42.9%, but only when a miss would leave an easy out.",
+  "standfirst": "Potting is only one way to win a rack. When the pot is hard and a miss would hand over the table, the better shot is often one that aims to pot nothing at all."
+}
+-->
+<p>A safety is a shot played to leave your opponent in a bad position rather than to pot a ball. You make a legal shot, but you choose where the cue ball and the object balls finish: hidden behind a ball, tight to a cushion, or a long way from anything they can hit. For a hard pot it is often the stronger choice, and a few multiplications show why.</p>
+
+<h2>What makes a safety legal</h2>
+<p>A safety still has to be a legal shot, otherwise it is just a foul. Under WPA rules, the cue ball must first contact a legal ball: one of your own group in 8-ball once groups are set, or the lowest-numbered ball on the table in 9-ball. After that contact, one of two things must happen: a ball is pocketed, or any ball, the cue ball included, reaches a cushion.</p>
+<p>That second condition is the one safeties live on. You do not need to pot anything. You need the cue ball or an object ball to touch a cushion after the first contact. Fail to do both and the shot is a foul, usually giving your opponent the cue ball in hand anywhere on the table. House rules vary: many bar rules limit ball in hand, or give two visits instead, so agree the rules before you start. The <a href="/blog/eight-ball-rules-explained.html">8-ball rules post</a> and the <a href="/blog/nine-ball-rules-explained.html">9-ball rules post</a> cover the full foul lists.</p>
+
+<h2>The three common types</h2>
+<ol class="ranked">
+  <li><strong>Hiding behind a ball.</strong> The cue ball finishes with another ball between it and the object ball your opponent needs to hit. They have no straight line and must kick off a cushion, which is hard to do accurately.</li>
+  <li><strong>Distance.</strong> You send the object ball to the far end of the table, or tight to a cushion, and leave the cue ball at the opposite end. Even with a clear view, a long, thin shot is a poor one to be forced into.</li>
+  <li><strong>Snookering.</strong> A snooker blocks the cue ball's direct path to every legal ball with balls that are not legal, such as your opponent's group or the 8 ball. It is the hiding safety taken further: the whole target set is covered, not one ball.</li>
+</ol>
+<p>All three make your opponent's best option a low-percentage one.</p>
+
+<h2>The expected-value comparison</h2>
+<p>A fair way to compare a pot with a safety is to ask which gives you the better chance of winning the rack. The figures below are illustrative assumptions, not measured results. They show how the reasoning works; your own numbers will differ.</p>
+<ul>
+  <li>If you pot the ball and have a clear run, you win the rack 80% of the time.</li>
+  <li>If you miss and leave an easy out, you win only 10% of the time, because your opponent usually runs the table.</li>
+  <li>A good safety leaves your opponent a hard shot, and from there you win 40% of the time.</li>
+</ul>
+<p>Suppose you pot this shot 30% of the time. Then the pot is worth</p>
+<p>0.30 × 80% + 0.70 × 10% = 24% + 7% = <strong>31%</strong></p>
+<p>against 40% for the safety. The safety is better by 9 points even though it never pots anything.</p>
+
+<h3>Where the pot takes over</h3>
+<p>Call the chance of potting <em>p</em>. The pot is worth 10% + 70% × <em>p</em>, since the miss gives 10% and a pot adds 70 points on top of that. Set that equal to the safety's 40% and p = 30 ÷ 70 = <strong>42.9%</strong>. Below that, play safe; above it, shoot.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of winning the rack for a pot at different pot success rates, compared with a safety worth 40%">
+    <div class="bar-row" title="Pot, made 20% of the time: 24%"><span class="bar-label">Pot at 20%</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4)"></span><span class="bar-val">24%</span></span></div>
+    <div class="bar-row" title="Pot, made 30% of the time: 31%"><span class="bar-label">Pot at 30%</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5167)"></span><span class="bar-val">31%</span></span></div>
+    <div class="bar-row hl" title="Safety: 40%"><span class="bar-label">Safety</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">40%</span></span></div>
+    <div class="bar-row" title="Pot, made 40% of the time: 38%"><span class="bar-label">Pot at 40%</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6333)"></span><span class="bar-val">38%</span></span></div>
+    <div class="bar-row" title="Pot, made 50% of the time: 45%"><span class="bar-label">Pot at 50%</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.75)"></span><span class="bar-val">45%</span></span></div>
+    <div class="bar-row" title="Pot, made 70% of the time: 59%"><span class="bar-label">Pot at 70%</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9833)"></span><span class="bar-val">59%</span></span></div>
+  </div>
+  <figcaption>Illustrative chance of winning the rack: a pot at five different success rates against a safety worth 40%. The pot overtakes the safety between 40% and 50%, at 42.9%.</figcaption>
+</figure>
+
+<p>The other rows use the same sum: 16% + 8% = 24% at 20%, 32% + 6% = 38% at 40%, 40% + 5% = 45% at 50%, and 56% + 3% = 59% at 70%.</p>
+
+<h2>What a miss leaves matters more than the pot</h2>
+<p>The result depends heavily on the 10% figure. It assumed that a miss hands over an easy out. Change that one assumption: if a miss leaves your opponent only a hard shot, and you still win 30% of the time from there, the pot is worth</p>
+<p>0.30 × 80% + 0.70 × 30% = 24% + 21% = <strong>45%</strong></p>
+<p>That beats the safety's 40% at the same 30% pot rate. The break-even drops to 30% + 50% × <em>p</em> = 40%, so p = 20%. The same pot goes from wrong to right without the shot changing.</p>
+
+<div class="callout">
+  <p>Before a hard pot, ask what the table looks like if you miss. A pot you make 30% of the time is a good shot if the miss leaves a hard shot, and a poor one if the miss leaves an easy out. The pot success rate is only half the sum.</p>
+</div>
+
+<h2>Reading the situation at the table</h2>
+<p>Three questions cover most decisions.</p>
+<ol class="ranked">
+  <li><strong>Where does the object ball go if I miss?</strong> A miss that leaves it near a pocket, or opens a cluster for your opponent, is expensive.</li>
+  <li><strong>Where does the cue ball finish?</strong> A cue ball left close to a cushion with no line to a legal ball is the start of a safety. One left in the open is not.</li>
+  <li><strong>Can I make the safety legal?</strong> A ball must reach a cushion after the first contact, or the foul gives them the table.</li>
+</ol>
+<p>Speed and spin decide whether the cue ball stops behind the blocking ball, so the <a href="/blog/cue-ball-spin-explained.html">cue-ball spin post</a> is a good place to start.</p>
+
+<h2>What to try in the app</h2>
+<p>The Play listing for 8balls says you can adjust aim, shot power and cue-ball spin, and switch between overhead and aiming views. It does not describe any specific foul rules, so do not assume the app enforces the legal-shot requirement above. Set up a hard pot, then play the safety instead: take the pace off, aim to leave the cue ball tucked behind another ball, and use the overhead view to judge whether your opponent would have a line. Repeat it ten times and count how often it works: that is your safety success rate.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Inside the Great Clock: how pennies keep Big Ben on time",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "BigBenBlocks",
+  "description": "A pendulum with a 4-second period is 3.97 m long, and one old penny on its tray makes the Great Clock gain 0.4 seconds a day. The physics, worked through.",
+  "summary": "The Great Clock's pendulum beats every 2 seconds, so its period is 4 s and T = 2π√(L/g) gives a length of 3.97 m. One old penny on the tray adds 0.4 s a day, a change of under 0.04 mm in effective length.",
+  "standfirst": "The most famous clock in Britain is regulated with small coins. The reason is the pendulum formula, and it takes a few lines of arithmetic to see why a penny is enough."
+}
+-->
+<p>The Great Clock in Elizabeth Tower has run since 1859, and its timekeeping is adjusted in a way that sounds like a joke: by placing old pennies on the pendulum. It is not a joke. This post works out how long the pendulum must be, then why a coin can move the clock by a measurable amount.</p>
+
+<h2>The pendulum and its beat</h2>
+<p>The pendulum is roughly 3.9 to 4 m long and beats every 2 seconds. A &ldquo;beat&rdquo; is one swing, from one side to the other. The pendulum needs two swings to return to where it started, so one full period, the time for a complete there-and-back cycle, is 4 seconds.</p>
+<p>That gives a quick count of how much work the clock does in a day. There are 24 &times; 60 &times; 60 = 86,400 seconds in a day, so the pendulum makes 86,400 &divide; 2 = <strong>43,200 beats</strong> every day, or 21,600 full periods.</p>
+
+<h2>Working out the length</h2>
+<p>For a pendulum swinging through small angles, the period depends on only two things: its length <em>L</em> and the strength of gravity <em>g</em>.</p>
+<p><strong>T = 2&pi;&radic;(L/g)</strong></p>
+<p>Mass and the size of the swing do not appear (the swing matters a little at larger angles, which is why clock pendulums swing through only a few degrees). To find <em>L</em> from a known period, square both sides and rearrange:</p>
+<p>L = g T&sup2; &divide; (4&pi;&sup2;)</p>
+<p>Now put in the numbers, using standard gravity, g = 9.80665 m/s&sup2;, and T = 4 s:</p>
+<ul>
+  <li>T&sup2; = 4 &times; 4 = 16 s&sup2;</li>
+  <li>g &times; T&sup2; = 9.80665 &times; 16 = 156.906</li>
+  <li>4&pi;&sup2; = 4 &times; 9.8696 = 39.478</li>
+  <li>L = 156.906 &divide; 39.478 = <strong>3.97 m</strong> (3.9745 to four figures)</li>
+</ul>
+<p>The result sits inside the quoted 3.9 to 4 m. Using g = 9.81 m/s&sup2; instead gives 3.976 m, so the answer is 3.97 to 3.98 m depending on the value of g. A real pendulum is a rod with a heavy bob, not a point on a string, so <em>L</em> is the effective length to its centre of oscillation. The 3.97 m is a check on the design, not a ruler measurement.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of pendulum length needed for periods of 1, 2 and 4 seconds: 0.25 m, 0.99 m and 3.97 m">
+    <div class="bar-row" title="Period 1 s: 0.25 m"><span class="bar-label">Period 1 s</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0625)"></span><span class="bar-val">0.25 m</span></span></div>
+    <div class="bar-row" title="Period 2 s: 0.99 m"><span class="bar-label">Period 2 s</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">0.99 m</span></span></div>
+    <div class="bar-row hl" title="Period 4 s (the Great Clock): 3.97 m"><span class="bar-label">Period 4 s</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">3.97 m</span></span></div>
+  </div>
+  <figcaption>Pendulum length from L = gT&sup2;/(4&pi;&sup2;) with g = 9.80665 m/s&sup2;. Doubling the period quadruples the length, so the Great Clock's 4-second period needs a pendulum four times as long as a 2-second one.</figcaption>
+</figure>
+
+
+<h2>Why a penny changes the time</h2>
+<p>The same formula explains the coins. A small tray fixed to the pendulum holds the pennies, and each one lifts the pendulum's centre of mass by a tiny amount. That makes the effective length slightly shorter, the period slightly shorter, and the clock gains. Take pennies off and it loses.</p>
+<p>The published figure is that adding one old penny to the tray makes the clock gain about 0.4 seconds a day, two-fifths of a second. Turn that into a change in length:</p>
+<ul>
+  <li>Fraction of a day gained: 0.4 &divide; 86,400 = 0.00000463, or about 0.0005%.</li>
+  <li>That is also the fractional shortening of each period, so each 4 s period is about 0.000019 s shorter, and each beat about 9.3 microseconds shorter (0.4 &divide; 43,200 = 0.0000093 s).</li>
+  <li>Because T depends on the square root of L, a change in L is twice as large as the change in T: &Delta;L &divide; L = 2 &times; 0.00000463 = 0.0000093.</li>
+  <li>On a length of 3.97 m, that is 0.0000093 &times; 3.97 = 0.000037 m, or about <strong>0.04 mm</strong>.</li>
+</ul>
+<p>So a coin moves the effective length of a 4-metre pendulum by about four hundredths of a millimetre. This is an idealised calculation, since the real effect depends on where the tray sits, but it shows the scale. Left alone, 0.4 seconds a day builds to 12 seconds in 30 days and about 146 seconds in a year (0.4 &times; 365 = 146).</p>
+
+<h2>Why the escapement matters as well</h2>
+<p>A pendulum loses energy to friction and air, so it has to be nudged on every swing, and the nudge is where errors creep in: if the push varies, the swing varies.</p>
+<p>The Great Clock uses the double three-legged gravity escapement designed by Edmund Beckett Denison. The weights drive the wheels of the clock, but the escapement does not hand that force straight to the pendulum. The wheel releases small arms that are lifted and then drop under gravity, and it is the falling arm that gives the pendulum its push. The push is therefore much the same each time, whatever the state of the driving train or the pressure of wind on the large hands outside. That steadiness is why a coin-sized adjustment is worth making.</p>
+
+<h2>One mechanism, four dials</h2>
+<p>This one mechanism drives all four dials, each about 7 m across (the post on why <a href="/blog/big-ben-is-a-bell.html">Big Ben is a bell</a> covers the tower's other numbers). For how UK clocks relate to the rest of the world, see the post on <a href="/blog/uk-midnight-gmt-and-bst.html">GMT, BST and when the clocks change</a>.</p>
+
+<h2>What to take from the numbers</h2>
+<ul>
+  <li>A 2-second beat is a 4-second period, and 86,400 &divide; 2 = 43,200 beats a day.</li>
+  <li>L = gT&sup2; &divide; 4&pi;&sup2; = 3.97 m for T = 4 s, and doubling the period quadruples the length.</li>
+  <li>One old penny gains about 0.4 s a day, roughly 0.04 mm of effective length.</li>
+</ul>
+<p>The method works for any pendulum you can time. Count the swings in a minute, convert to a period, and the formula gives you the length to expect.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels run from Westminster to Piccadilly, and the game plays offline with no ads and no in-app purchases. The coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

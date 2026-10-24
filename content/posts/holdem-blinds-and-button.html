@@ -1,0 +1,112 @@
+<!--
+{
+  "title": "The blinds and the button: how forced bets drive the action",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "HoldemCoach",
+  "description": "The small and big blind sit left of the button and post 1.5 big blinds a hand. See who acts when before and after the flop, and the heads-up exception.",
+  "summary": "Two forced bets, 0.5 and 1 big blind, start every hand with 1.5 big blinds in the pot. The blinds act last before the flop and first after it, and heads-up the button posts the small blind.",
+  "standfirst": "Nobody has to enter a hand of Hold'em, so the game forces two players to pay. Those two bets, and the way the button moves, decide who acts when."
+}
+-->
+<p>Hold'em has no ante in its basic form. Instead, two players put chips in before they see their cards, and the seat that does it moves one place round the table after every hand. If nobody paid anything, the best play would be to fold everything but aces. The forced bets give everyone a reason to contest the pot.</p>
+
+<h2>The button and the two blinds</h2>
+<p>A dealer button marks the nominal dealer and moves one seat clockwise after each hand. The two seats immediately clockwise from the button post the blinds:</p>
+<ol class="ranked">
+  <li><strong>Small blind (SB):</strong> the first seat left of the button, posting half a big blind.</li>
+  <li><strong>Big blind (BB):</strong> the next seat, posting one full big blind.</li>
+</ol>
+<p>So before anyone has looked at a card the pot holds 0.5 + 1 = 1.5 big blinds. That is the prize everyone is playing for.</p>
+
+<h2>Who acts when</h2>
+<p>The order differs before the flop and after it. Before the flop, the first player to act is the one left of the big blind, called under the gun (UTG). Action goes clockwise, so the button is third from last, then the small blind, and the big blind speaks last. After the flop, the turn and the river, the first player still in the hand who is left of the button acts first, so the small blind (if still in) leads and the button acts last.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 270" role="img" aria-label="Diagram of a nine-handed table. Before the flop the order is UTG 1, UTG+1 2, UTG+2 3, lojack 4, hijack 5, cutoff 6, button 7, small blind 8, big blind 9. After the flop it is small blind 1, big blind 2, UTG 3, UTG+1 4, UTG+2 5, lojack 6, hijack 7, cutoff 8, button 9.">
+    <ellipse class="fill-soft" cx="200" cy="132" rx="88" ry="50"/>
+    <text x="200" y="124" text-anchor="middle">Top: before the flop</text>
+    <text x="200" y="140" text-anchor="middle">Bottom: flop, turn, river</text>
+    <text x="200" y="156" text-anchor="middle">(1 acts first)</text>
+    <circle class="fill-base" cx="200.0" cy="210.0" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="200.0" y="209.0" text-anchor="middle">7</text>
+    <text style="fill:var(--night);font-size:11px" x="200.0" y="222.0" text-anchor="middle">9</text>
+    <text class="strong" x="200.0" y="245.0" text-anchor="middle">Button</text>
+    <circle class="fill-accent" cx="124.2" cy="191.8" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="124.2" y="190.8" text-anchor="middle">8</text>
+    <text style="fill:var(--night);font-size:11px" x="124.2" y="203.8" text-anchor="middle">1</text>
+    <text class="strong" x="98.2" y="195.8" text-anchor="end">Small blind</text>
+    <circle class="fill-accent" cx="83.8" cy="145.5" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="83.8" y="144.5" text-anchor="middle">9</text>
+    <text style="fill:var(--night);font-size:11px" x="83.8" y="157.5" text-anchor="middle">2</text>
+    <text class="strong" x="57.8" y="149.5" text-anchor="end">Big blind</text>
+    <circle class="fill-base" cx="97.8" cy="93.0" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="97.8" y="92.0" text-anchor="middle">1</text>
+    <text style="fill:var(--night);font-size:11px" x="97.8" y="105.0" text-anchor="middle">3</text>
+    <text class="strong" x="71.8" y="97.0" text-anchor="end">UTG</text>
+    <circle class="fill-base" cx="159.6" cy="58.7" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="159.6" y="57.7" text-anchor="middle">2</text>
+    <text style="fill:var(--night);font-size:11px" x="159.6" y="70.7" text-anchor="middle">4</text>
+    <text class="strong" x="133.6" y="62.7" text-anchor="end">UTG+1</text>
+    <circle class="fill-base" cx="240.4" cy="58.7" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="240.4" y="57.7" text-anchor="middle">3</text>
+    <text style="fill:var(--night);font-size:11px" x="240.4" y="70.7" text-anchor="middle">5</text>
+    <text class="strong" x="266.4" y="62.7" text-anchor="start">UTG+2</text>
+    <circle class="fill-base" cx="302.2" cy="93.0" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="302.2" y="92.0" text-anchor="middle">4</text>
+    <text style="fill:var(--night);font-size:11px" x="302.2" y="105.0" text-anchor="middle">6</text>
+    <text class="strong" x="328.2" y="97.0" text-anchor="start">Lojack</text>
+    <circle class="fill-base" cx="316.2" cy="145.5" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="316.2" y="144.5" text-anchor="middle">5</text>
+    <text style="fill:var(--night);font-size:11px" x="316.2" y="157.5" text-anchor="middle">7</text>
+    <text class="strong" x="342.2" y="149.5" text-anchor="start">Hijack</text>
+    <circle class="fill-base" cx="275.8" cy="191.8" r="19"/>
+    <text class="strong" style="fill:var(--night)" x="275.8" y="190.8" text-anchor="middle">6</text>
+    <text style="fill:var(--night);font-size:11px" x="275.8" y="203.8" text-anchor="middle">8</text>
+    <text class="strong" x="301.8" y="195.8" text-anchor="start">Cutoff</text>
+  </svg>
+  <figcaption>Action order at a nine-handed table, with the button at the bottom. The two blinds, in gold, go last before the flop (8th and 9th) and first after it (1st and 2nd). The button is 7th before the flop and 9th, last, on every later street.</figcaption>
+</figure>
+
+<p>The blinds act last before the flop but first after it. What that order is worth is covered in <a href="/blog/holdem-why-position-matters.html">the position post</a>; here the point is only the order.</p>
+
+<h2>The big blind's option</h2>
+<p>The big blind has already bet, but they are the last to act before the flop. If every player folds or merely calls the 1 big blind, the action returns to them with nothing to call. They can <em>check</em> and see the flop, or <em>raise</em>. This is the big blind's option. The betting round does not close until they have used it. If someone has raised, there is no option, and the big blind faces an ordinary decision: fold, call or re-raise.</p>
+<p>The small blind has no such option. To stay in against a limp they must add 0.5 to match the 1 big blind, and they act first after the flop.</p>
+
+<h2>The heads-up exception</h2>
+<p>With two players the usual layout breaks down, so heads-up play changes it. The button posts the <strong>small blind</strong>, the other player posts the big blind, and the button acts <strong>first</strong> before the flop. After the flop the order reverses: the big blind acts first and the button acts last. The button is therefore last to act after the flop in every format, and in a heads-up game it also begins the betting.</p>
+
+<h2>What the blinds cost</h2>
+<p>A full trip of the button round the table is an orbit. In one orbit you pay the small blind once and the big blind once, 1.5 big blinds in all, however many players are seated. What changes is how many hands that is spread across.</p>
+
+<table class="paytable-compare">
+  <caption>Cost of the blinds to one player who folds every hand, at three table sizes (antes not counted).</caption>
+  <thead>
+    <tr><th>Table</th><th>Hands per orbit</th><th>Blinds per orbit</th><th>Average per hand</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Nine-handed</th><td>9</td><td>1.5 big blinds</td><td>0.167 big blinds</td></tr>
+    <tr><th scope="row">Six-handed</th><td>6</td><td>1.5 big blinds</td><td>0.25 big blinds</td></tr>
+    <tr><th scope="row">Heads-up</th><td>2</td><td>1.5 big blinds</td><td>0.75 big blinds</td></tr>
+  </tbody>
+</table>
+
+<p>A player with 100 big blinds who never plays a hand would be down 1.5 each orbit, so the stack lasts 100 ÷ 1.5 = 66.7 orbits. That is 600 hands nine-handed and about 133 heads-up. This is the pressure: sitting still has a price, and it is higher the fewer players share it.</p>
+
+<h2>Why the pot is worth fighting for</h2>
+<p>Suppose everyone folds to you and you raise to 2.5 big blinds. You risk 2.5 to win the 1.5 already in the middle. Ignoring your chance of winning when called, the raise breaks even when the others fold often enough that f × 1.5 = (1 − f) × 2.5. That gives f = 2.5 ÷ 4 = 62.5%. A raise to 3 needs 3 ÷ 4.5 = 66.7%.</p>
+<p>Anyone who calls has some chance of winning, so this is a ceiling on what folds must deliver, not a promise. But the fewer opponents left to act, the likelier they all fold, which is why late seats open more hands.</p>
+<p>The blinds get a discount on the price. Say a player raises to 3 big blinds and the small blind folds. The big blind has 1 in and needs 2 more. The pot after the call is 3 + 0.5 + 3 = 6.5, so the call needs 2 ÷ 6.5 = 30.8%. A player with nothing posted would need 3 ÷ 7.5 = 40% against the same raise. The method is the one in <a href="/blog/holdem-pot-odds.html">the pot odds post</a>. A cheap price is not a good hand, though, and the big blind acts early on every later street.</p>
+
+<div class="callout">
+  <p>The rule in one line: the blinds go last before the flop and first after it, and the button, which pays nothing, acts last on every street after the flop.</p>
+</div>
+
+<h2>Seeing it in practice</h2>
+<p>The Hand charts section of <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> shows at a glance which two-card hands to play from each seat, and its "Which hands to play" lesson asks you to decide whether your cards are worth raising with when nobody has bet yet.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> is free to use with ads, nothing in its lessons is timed, and practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

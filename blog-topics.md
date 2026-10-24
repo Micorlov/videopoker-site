@@ -163,90 +163,90 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- How often each hand lands in Jacks or Better
 - Two pair in Double Bonus Poker: why it pays only even money
 - Penalty cards: when a discard changes the right hold
 - Holding a lone deuce in Deuces Wild
 
 ### OmahaPoker
 
-- Counterfeiting in Omaha Hi-Lo: when the board kills your low
 - Rundowns: why connected four-card hands play well in PLO
 - Blockers in Omaha: what holding the nut card tells you
 - Sit and Go payouts: what a 50/30/20 split means for your play
 
 ### Blackjack21
 
-- Why the player acts first, and why that is the house's edge
 - Doubling down: one card, twice the bet
 - Where blackjack's house edge comes from, rule by rule
 - Five-card Charlie: a house rule and what it would be worth
 
 ### BrasslightSlots
 
-- Turbo and auto spin: what speed changes and what it doesn't
 - How a random number generator picks each spin
 - From one-armed bandit to video slot: a short history
 - Stacked symbols: why they make wins rarer but bigger
 
 ### PokerVsDealer
 
-- Break-even odds: what a 3-to-1 payout needs you to win
 - Pat hands: how often five cards need no exchange
 - Trips, boats and wheels: poker's hand nicknames explained
 - The dead man's hand: aces and eights and other named hands
 
 ### FivesAndThrees
 
-- Fives and Threes against All Fives: two ways to score the ends
 - Heavy tiles: when to get rid of high-spot dominoes
 - Long suits: why holding many of one number controls the line
 - Fives and Threes with partners: the four-player game
 
 ### BlackjackCoach
 
-- Small pairs: when to split twos, threes, fours and sixes
 - Stiff hands against a 2 to 6: why you stand on 13 to 16
 - Deck penetration: why a count needs cards dealt
 - Betting with the count: how a true-count bet ramp works
 
 ### HoldemCoach
 
-- The blinds and the button: how forced bets drive the action
 - Three-betting: when to re-raise instead of calling
 - Continuation bets: why the preflop raiser bets the flop
 - Minimum defence frequency: what a bet size asks you to call
 
 ### EightBallsPool
 
-- Safety play: when not potting is the better shot
 - Pocket geometry: why a fast ball misses a pocket it should make
 - Pool and snooker: how the two games differ
 - Bridge, stance and a straight stroke: the basics of cueing
 
 ### BigBenBlocks
 
-- Inside the Great Clock: how pennies keep Big Ben on time
 - Westminster to Piccadilly: the places behind the levels
 - Tap to place: playing a block puzzle without dragging
 - Reduced motion: why some players switch animations off
 
 ### PinkSlipKings
 
-- Weight transfer: why a car squats at the launch
 - Eighth mile or quarter mile: how the two distances compare
 - Drag racing classes: from bracket racing to Top Fuel
 - Boost pressure: what a pound of boost adds
 
 ### ValleyRail
 
-- Level crossings: how automatic barriers know a train is coming
 - Light rail and trams: how they differ from main-line trains
 - Why trains can't stop quickly: braking distance explained
 - Diesel or electric: how modern trains get their power
 
 ## Published
 
+- 2026-10-24 — How often each hand lands in Jacks or Better — VideoPoker — `jacks-or-better-hand-frequencies`
+- 2026-10-24 — Counterfeiting in Omaha Hi-Lo: when the board kills your low — OmahaPoker — `omaha-hi-lo-counterfeiting`
+- 2026-10-24 — Why the player acts first, and why that is the house's edge — Blackjack21 — `blackjack-player-acts-first`
+- 2026-10-24 — Turbo and auto spin: what speed changes and what it doesn't — BrasslightSlots — `slot-turbo-and-auto-spin`
+- 2026-10-24 — Break-even odds: what a 3-to-1 payout needs you to win — PokerVsDealer — `poker-break-even-odds-3-to-1`
+- 2026-10-24 — Fives and Threes against All Fives: two ways to score — FivesAndThrees — `fives-and-threes-vs-all-fives`
+- 2026-10-24 — Small pairs: when to split twos, threes, fours and sixes — BlackjackCoach — `blackjack-small-pairs-splitting`
+- 2026-10-24 — The blinds and the button: how forced bets drive the action — HoldemCoach — `holdem-blinds-and-button`
+- 2026-10-24 — Safety play: when not potting is the better shot — EightBallsPool — `pool-safety-play`
+- 2026-10-24 — Inside the Great Clock: how pennies keep Big Ben on time — BigBenBlocks — `big-ben-great-clock-pennies`
+- 2026-10-24 — Weight transfer: why a car squats at the launch — PinkSlipKings — `drag-racing-weight-transfer`
+- 2026-10-24 — Level crossings: how automatic barriers know a train is coming — ValleyRail — `level-crossings-how-barriers-work`
 - 2026-10-23 — Throwing all five away: when Jacks or Better says redraw — VideoPoker — `video-poker-discard-all-five`
 - 2026-10-23 — Five-Card Omaha: what a fifth hole card changes — OmahaPoker — `five-card-omaha`
 - 2026-10-23 — Soft and hard hands: how an ace changes value mid-hand — Blackjack21 — `blackjack-soft-and-hard-hands`

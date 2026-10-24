@@ -1,0 +1,60 @@
+<!--
+{
+  "title": "Weight transfer: why a car squats at the launch",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "PinkSlipKings",
+  "description": "Accelerating moves load from front to rear: ΔW = m·a·h ÷ L. For a 1,500 kg car at 1 g that is 278 kg, which helps rear-drive and hurts front-drive.",
+  "summary": "Weight transfer worked through on a 1,500 kg example car: 277.8 kg moves rearwards at 1 g, rear-drive and front-drive traction limits of 0.61 g and 0.42 g, how much acceleration lifts the front wheels, and what wheelie bars and anti-squat do.",
+  "standfirst": "When a car accelerates, load moves from the front tyres to the rear. The size of the shift follows from three measurements and one formula, and it explains why drag cars are rear-drive and why a squatting tail is a good sign."
+}
+-->
+<p>Watch a car leave the line and the nose rises while the tail drops. That is weight transfer, and it is not a suspension quirk: it follows from Newton's laws and the shape of the car. This post works through one example car with stated assumptions. The figures are illustrative, not those of any car in a game.</p>
+
+<h2>The formula</h2>
+<p>The tyres push the car forwards at road level, but the car's mass acts at its centre of gravity, above the road. The two forces form a pair that tries to rotate the car nose-up, and the tyres must supply an opposing change in load. Taking moments about the contact patches gives the extra load on the rear axle, and the same amount comes off the front:</p>
+<p><strong>ΔW = m × a × h ÷ L</strong></p>
+<p>Here m is the mass, a the acceleration, h the height of the centre of gravity above the road, and L the wheelbase. Mass, acceleration and height all raise the transfer, and a longer wheelbase lowers it. It does not depend on springs, tyres or which wheels are driven.</p>
+
+<h2>A worked example</h2>
+<p>Assume a 1,500 kg car with its centre of gravity 0.5 m up, a wheelbase of 2.7 m, and a static split of 50:50, so 750 kg rests on each axle. Launch it at 1 g, which is a deliberately generous figure, and take g as 9.81 m/s².</p>
+<p>The transfer is 1,500 × 0.5 ÷ 2.7 = <strong>277.8 kg</strong> of load per 1 g, or 2,725 N once multiplied by 9.81. That is 18.5% of the car's weight moved from one axle to the other. The rear axle then carries 750 + 277.8 = 1,027.8 kg and the front 750 − 277.8 = 472.2 kg. Each moves by 37% of its static load: the rear is up 37.0%, the front down 37.0%. In newtons, the rear carries 10,082.5 N and the front 4,632.5 N, and together they still add up to the car's weight of 14,715 N.</p>
+
+<h2>Why rear-drive gains and front-drive loses</h2>
+<p>A tyre can push with at most the friction coefficient μ times the load on it. Weight transfer raises the load on the rear tyres and lowers it on the front, so it helps a car driven from the rear and hurts one driven from the front. Take μ = 1.0, a plausible figure for a good tyre, and let a be the acceleration in g. The transfer at that acceleration is a × 277.8 kg.</p>
+<ul>
+  <li><strong>Rear-drive:</strong> the maximum force is μ × (750 + 277.8a) kg-force, and the car needs 1,500a. Solving gives a = 0.5 ÷ (1 − 5/27) = <strong>0.614 g</strong>. Without transfer the limit would be 0.5 g, so the transfer is worth 0.114 g.</li>
+  <li><strong>Front-drive:</strong> the front tyres carry 750 − 277.8a, so a = 0.5 ÷ (1 + 5/27) = <strong>0.422 g</strong>. Transfer costs 0.078 g against the static 0.5 g.</li>
+  <li><strong>All-wheel drive:</strong> every tyre pushes and the loads still sum to the car's weight, so the ceiling is μ × g, <strong>1.00 g</strong>, with no penalty for the split.</li>
+</ul>
+<p>These are traction ceilings only. A real car also needs the power to reach them, which is why <a href="/blog/drag-racing-launch-rpm.html">launch RPM</a> exists as a setting.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the traction-limited launch acceleration of the example car: all-wheel drive 1.00 g, rear-drive 0.61 g, front-drive 0.42 g">
+    <div class="bar-row" title="All-wheel drive: 1.00 g"><span class="bar-label">All-wheel drive</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.00 g</span></span></div>
+    <div class="bar-row hl" title="Rear-drive: 0.61 g"><span class="bar-label">Rear-drive</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6136)"></span><span class="bar-val">0.61 g</span></span></div>
+    <div class="bar-row" title="Front-drive: 0.42 g"><span class="bar-label">Front-drive</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4219)"></span><span class="bar-val">0.42 g</span></span></div>
+  </div>
+  <figcaption>The most the example car can accelerate before its driven tyres slip, with μ = 1.0 and a 50:50 static split. Rear-drive is 0.614 g and front-drive 0.422 g, so the rear-drive car has about 45% more traction-limited acceleration.</figcaption>
+</figure>
+
+<p>The 60-foot time shows the difference. Sixty feet is 18.288 m, and at constant acceleration t = √(2d ÷ a). Rear-drive at 0.614 g (6.02 m/s²) covers it in 2.46 s, and front-drive at 0.422 g (4.14 m/s²) in 2.97 s. For comparison, 1 g would take 1.93 s. <a href="/blog/drag-racing-60-foot-time.html">The 60-foot post</a> covers why that stretch matters.</p>
+
+<h2>Wheelie bars</h2>
+<p>If the transfer grows until the front axle carries nothing, the front wheels lift. In this simple model that happens when a × h ÷ L equals the static front share of 0.5, so a = 0.5 × 2.7 ÷ 0.5 = <strong>2.7 g</strong>. An ordinary car never gets near that. A dragster, with a rearward weight bias, enormous grip and far more power than a road car, can. A wheelie bar is a pair of small wheels on a frame behind the rear axle. It does not add traction; it stops the nose rising past a few degrees, because a car with its front in the air cannot be steered and a rising nose can carry on over.</p>
+
+<h2>Squat and anti-squat</h2>
+<p>The formula gives the total load that moves, but not how it travels. Some goes through the springs, which compress at the rear and extend at the front. That is squat. The rest goes through the suspension links, which push on the body directly. Anti-squat geometry angles the rear links so that the driving force on the axle has an upward component on the body, and a design with a high anti-squat figure carries more of the transfer through the links and less through the springs.</p>
+<p>Anti-squat does not change ΔW. The rear tyres carry the same extra load either way; only the route differs. Its benefit is control, with less pitching. Drag setups often go the other way on the front, with soft springs and long travel so the nose can rise and the load can reach the rear tyres without a fight.</p>
+
+<div class="callout">
+  <p>Weight transfer is set by mass, centre-of-gravity height, wheelbase and acceleration. Suspension decides how it moves, not how much moves.</p>
+</div>
+
+<h2>In the game</h2>
+<p>The Play listing for Pink Slip Kings says you can upgrade tyres, drivetrain and suspension, and balance power against tyre grip to improve your launch. It does not say whether the game models weight transfer, so read the physics here as background about real cars.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls and detailed tuning of the engine, drivetrain, tyres and suspension, with a dyno, telemetry and race time slips. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

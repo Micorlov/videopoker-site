@@ -1,0 +1,104 @@
+<!--
+{
+  "title": "Break-even odds: what a 3-to-1 payout needs you to win",
+  "date": "2026-10-24",
+  "modified": "2026-10-24",
+  "app": "PokerVsDealer",
+  "description": "A payout of N-to-1 breaks even when you win 1 time in N+1. At 3-to-1 that is 25%, which a flush draw (19.15%) misses and an improving pair (28.71%) clears.",
+  "summary": "Any N-to-1 payout breaks even at a win rate of 1 in N+1, so 3-to-1 needs 25%. A flush draw on one card is 19.15%, an open-ended straight draw 17.02%, and a pair drawing three cards improves 28.71% of the time.",
+  "standfirst": "Every payout hides a minimum win rate. Learn the one-line conversion and you can test any offer against the odds of the draw you are holding."
+}
+-->
+<p>A payout is a promise about frequency. If a result pays 3 to 1, you win three units for each one you risk, and that only makes sense if the result turns up often enough to cover the times it does not. The minimum frequency is the break-even rate, and it takes one line of arithmetic to find.</p>
+
+<p>This post is general maths, not any one game's paytable.</p>
+
+<h2>From a payout to a win rate</h2>
+<p>A payout of N to 1 means a win returns N units of profit and a loss costs 1. Over a run of attempts, suppose you win a fraction <em>p</em> of the time. Your average result per unit risked is</p>
+<p>p × N − (1 − p) = p × (N + 1) − 1</p>
+<p>That is zero when p = 1 ÷ (N + 1). For 3 to 1 it is 1 ÷ 4 = <strong>25%</strong>: win one attempt in four and you finish level, because the three losses (3 units) are repaid by one win of 3 units. Win more than a quarter of the time and you gain on average; win less and you lose on average.</p>
+<p>Read backwards, a 25% chance is "3 to 1 against", so a fair price for it is a 3-to-1 payout.</p>
+
+<table class="paytable-compare">
+  <caption>Break-even win rate for common payouts, from 1 ÷ (N + 1).</caption>
+  <thead>
+    <tr><th>Payout</th><th>Win rate needed</th><th>Win one in every</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1 to 1</th><td>50.00%</td><td>2</td></tr>
+    <tr><th scope="row">2 to 1</th><td>33.33%</td><td>3</td></tr>
+    <tr><th scope="row">3 to 1</th><td>25.00%</td><td>4</td></tr>
+    <tr><th scope="row">4 to 1</th><td>20.00%</td><td>5</td></tr>
+    <tr><th scope="row">5 to 1</th><td>16.67%</td><td>6</td></tr>
+    <tr><th scope="row">9 to 1</th><td>10.00%</td><td>10</td></tr>
+    <tr><th scope="row">19 to 1</th><td>5.00%</td><td>20</td></tr>
+    <tr><th scope="row">99 to 1</th><td>1.00%</td><td>100</td></tr>
+  </tbody>
+</table>
+
+<h2>"To 1" is not "for 1"</h2>
+<p>Read the wording carefully. "3 to 1" pays three units of profit and also hands back your stake, so you hold four units in total. "3 for 1" pays three units in total including the stake, a profit of 2, which is 2 to 1. Its break-even rate is 1 ÷ 3 = 33.33%, not 25%.</p>
+
+<h2>Testing a draw against a 3-to-1 payout</h2>
+<p>In five-card draw you hold some cards and exchange the rest. With five cards in hand, 47 are unseen, so a one-card draw completes with probability outs ÷ 47:</p>
+<ul>
+  <li><strong>Four to a flush:</strong> 9 outs, 9 ÷ 47 = 19.15%. The full count is in <a href="/blog/drawing-one-card-to-a-flush.html">Drawing one card to a flush</a>.</li>
+  <li><strong>Open-ended straight draw:</strong> 8 outs, 8 ÷ 47 = 17.02%.</li>
+  <li><strong>Inside straight draw:</strong> 4 outs, 4 ÷ 47 = 8.51%. Both straight draws are compared in <a href="/blog/inside-vs-outside-straight-draws.html">Why an inside straight draw is worth exactly half an outside one</a>.</li>
+  <li><strong>A pair, exchanging three cards:</strong> 4,656 of the 16,215 possible draws make two pair or better, 28.71%. The breakdown is in <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">The odds of improving a pair when you exchange cards</a>.</li>
+</ul>
+
+<p>Put each against the 25% line a 3-to-1 payout demands:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart comparing the 25% break-even rate at 3 to 1 with the chance of completing four draws">
+    <div class="bar-row" title="Pair improving on a three-card draw: 28.71%"><span class="bar-label">Pair, draw three</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">28.71%</span></span></div>
+    <div class="bar-row hl" title="Break-even rate at 3 to 1: 25.00%"><span class="bar-label">Break-even at 3 to 1</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8708)"></span><span class="bar-val">25.00%</span></span></div>
+    <div class="bar-row" title="Four to a flush: 19.15%"><span class="bar-label">Four to a flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6670)"></span><span class="bar-val">19.15%</span></span></div>
+    <div class="bar-row" title="Open-ended straight draw: 17.02%"><span class="bar-label">Open-ended straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5928)"></span><span class="bar-val">17.02%</span></span></div>
+    <div class="bar-row" title="Inside straight draw: 8.51%"><span class="bar-label">Inside straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2964)"></span><span class="bar-val">8.51%</span></span></div>
+  </div>
+  <figcaption>The 25.00% a 3-to-1 payout needs (highlighted) beside the chance of completing four common draws. Only the pair, exchanging three cards, clears the line.</figcaption>
+</figure>
+
+<p>Suppose a draw that came in paid 3 to 1. With p × 4 − 1, the average per unit risked would be:</p>
+
+<table class="paytable-compare">
+  <caption>Average result per unit risked if a successful draw paid 3 to 1 (a hypothetical, not a real paytable).</caption>
+  <thead>
+    <tr><th>Draw</th><th>Win rate</th><th>Average per unit</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Pair, draw three</th><td>28.71%</td><td class="good">+0.15</td></tr>
+    <tr><th scope="row">Four to a flush</th><td>19.15%</td><td>−0.23</td></tr>
+    <tr><th scope="row">Open-ended straight</th><td>17.02%</td><td>−0.32</td></tr>
+    <tr><th scope="row">Inside straight</th><td>8.51%</td><td>−0.66</td></tr>
+  </tbody>
+</table>
+
+<p>Take the flush draw over 100 attempts at one unit each. About 19 succeed and pay 3, roughly 57 units. The other 81 or so lose 1 each, leaving you near 23 units short: the −0.23 in the table, as a long-run average rather than a forecast.</p>
+
+<h2>The price a draw would need to be fair</h2>
+<p>You can also turn the sum around and ask what payout a draw would need. The odds against are misses divided by hits.</p>
+<ol class="ranked">
+  <li><strong>Four to a flush:</strong> 38 misses to 9 hits, about 4.22 to 1.</li>
+  <li><strong>Open-ended straight:</strong> 39 to 8, about 4.88 to 1.</li>
+  <li><strong>Inside straight:</strong> 43 to 4, 10.75 to 1.</li>
+</ol>
+<p>So a 3-to-1 payout is too small for any of them; even a flush draw needs more than 4 to 1. The four-card flush is the best of the one-card draws here, and it still falls short of 3 to 1.</p>
+
+<div class="callout">
+  <p>The two-step habit: convert the payout to a win rate with 1 ÷ (N + 1), then convert your draw to a win rate with outs ÷ unseen cards. Whichever number is bigger tells you which side of break-even you are on.</p>
+</div>
+
+<h2>What the arithmetic leaves out</h2>
+<p>Break-even is a floor for a single, self-contained bet. Some losses cost less than the whole stake, and a hand can win in more than one way. A result that is positive on average can also lose for a long stretch: a 25% event misses three attempts in a row 42.19% of the time (0.75 × 0.75 × 0.75).</p>
+
+<h2>Where this meets Poker vs Dealer</h2>
+<p>The store listing for <a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> says that after the dealer's third card you can double your stake against the house, and that a win on that doubled stake pays 3 to 1 in play-money chips. The listing does not say how often a doubled stake wins, and each hand has two contests, so this post puts no number on that decision. The in-game rules and payouts have the exact terms.</p>
+<p>What the maths does give you is the test to run. If a payout is 3 to 1, the doubled stake has to win at least a quarter of the time to be worth making, judged against your hand and the dealer's cards so far. If the payout is described as "for" rather than "to", re-read it first, because the bar moves from 25% to 33.33%.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
