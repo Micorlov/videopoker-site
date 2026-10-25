@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "Three-betting: when to re-raise instead of calling",
+  "date": "2026-10-25",
+  "modified": "2026-10-25",
+  "app": "HoldemCoach",
+  "description": "A 3-bet is the re-raise of an open. See why QQ+ and AK is 34 combos, 2.6% of 1,326, and how risk/(risk + reward) gives the folds a 3-bet bluff needs.",
+  "summary": "A 3-bet re-raises the opening raise. QQ+ and AK is 34 of 1,326 combos (2.6%). A raise to 8 over a 2.5 open risks 8 to win 4, so it needs 66.7% folds to break even before any equity.",
+  "standfirst": "Calling a raise lets the opener keep control of the pot. Re-raising takes it back, and the arithmetic behind the choice is short enough to do at the table."
+}
+-->
+<p>Before the flop, the blinds count as the first bet, an open raise is the second and the first re-raise is the third. That is why a re-raise of an opening raise is called a <strong>3-bet</strong>, and a re-raise of that a 4-bet. The question here is narrow: you face one raise, you have a hand worth playing, and you must choose between calling and 3-betting.</p>
+
+<h2>What a call gives away</h2>
+<p>Calling leaves the opener with the initiative: they chose to put money in, you only matched it, and they can bet the flop whatever it brings. A call also lets everyone behind you join, which is how a pot becomes three-way with your hand weaker than it looked. A 3-bet does three jobs a call cannot:</p>
+<ol class="ranked">
+  <li><strong>It builds the pot while you are ahead.</strong> Hands such as aces, kings and ace-king are the ones you want money in with.</li>
+  <li><strong>It can win the pot at once.</strong> If the opener folds, you collect the blinds and their raise without seeing a flop.</li>
+  <li><strong>It takes the initiative.</strong> Even when called, you are now the player who may bet first on the flop.</li>
+</ol>
+<p>The cost is that a 3-bet puts much more of your stack at risk, and the opener's calling hands are the ones that play well after the flop. So you need a reason, and the reason is either a hand that wants a big pot or a hand that wants the opener to fold.</p>
+
+<h2>Counting a value range</h2>
+<p>Take a tight 3-betting range: queens or better, plus ace-king. Count the combinations as in <a href="/blog/holdem-1326-starting-hands.html">the post on the 1,326 starting hands</a>:</p>
+<ul>
+  <li>Three pairs, QQ, KK and AA, at 6 combinations each: 3 × 6 = 18.</li>
+  <li>Ace-king suited, 4 combinations, and ace-king offsuit, 12: 4 + 12 = 16.</li>
+</ul>
+<p>The total is 18 + 16 = 34 combinations, and 34 ÷ 1,326 = 2.56% of all deals, roughly 1 in 39. Add jacks and tens (12 more combinations) and the range is 46 combinations, 3.47%. Neither is a large slice. A 3-bet range built only from premium hands is rare, and opponents notice when you re-raise so seldom.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the percentage of folds a 3-bet bluff needs to break even, ignoring equity when called: raise to 7 over a 2.5 open, 63.6 percent; to 8, 66.7 percent; to 9, 69.2 percent; from the big blind to 11, 71.4 percent">
+    <div class="bar-row" title="Button 3-bets to 7: needs 7 / (7 + 4) = 63.6% folds"><span class="bar-label">In position, to 7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.636)"></span><span class="bar-val">63.6%</span></span></div>
+    <div class="bar-row hl" title="Button 3-bets to 8: needs 8 / (8 + 4) = 66.7% folds"><span class="bar-label">In position, to 8</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.667)"></span><span class="bar-val">66.7%</span></span></div>
+    <div class="bar-row" title="Button 3-bets to 9: needs 9 / (9 + 4) = 69.2% folds"><span class="bar-label">In position, to 9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.692)"></span><span class="bar-val">69.2%</span></span></div>
+    <div class="bar-row" title="Big blind 3-bets to 11: needs 10 / (10 + 4) = 71.4% folds"><span class="bar-label">Big blind, to 11</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.714)"></span><span class="bar-val">71.4%</span></span></div>
+  </div>
+  <figcaption>Folds a pure bluff 3-bet needs to break even against a 2.5 open, in percent. The in-position raises risk the raise size to win 4; the big blind adds 10 more to win the same 4. A bigger 3-bet, or one from out of position, needs more folds.</figcaption>
+</figure>
+
+<h2>The bluff arithmetic</h2>
+<p>A 3-bet also works as a bluff, and the break-even point is plain risk-and-reward maths. Say stacks are 100 big blinds, the cutoff opens to 2.5 and you are on the button. The pot holds 0.5 + 1 + 2.5 = 4 big blinds before you act. You re-raise to 8 and both blinds fold.</p>
+<ul>
+  <li><strong>Risk:</strong> 8, the chips you put in.</li>
+  <li><strong>Reward:</strong> 4, the dead money already in the pot.</li>
+  <li><strong>Break-even fold frequency:</strong> risk ÷ (risk + reward) = 8 ÷ 12 = 66.7%.</li>
+</ul>
+<p>Check it: if the opener folds two times in three, you win 4 twice and lose 8 once, which nets zero. Raising to 7 needs 7 ÷ 11 = 63.6%, and raising to 9 needs 9 ÷ 13 = 69.2%. Each extra big blind in the raise asks for roughly 2.5 to 3 more percentage points of folds.</p>
+<p>From the big blind it costs more. Your 1 is already in the pot, so a fold still wins the same 4 (the small blind's 0.5, your 1 and the opener's 2.5), but a 3-bet to 11 puts in 10 more and needs 10 ÷ 14 = 71.4%. That is the price of a common convention: out of position, 3-bets are sized at about 4 times the open, against about 3 times in position, because the player acting first after the flop wants the hand settled sooner. Those are conventions, not rules, and the break-even figures show what they cost.</p>
+
+<h2>Why a bluff is not a pure bluff</h2>
+<p>The figures above ignore what happens when the opener calls, so they overstate what you need. You still have equity, and you may still win by betting the flop. The opener also has a price to consider. After your raise to 8 the pot is 1.5 + 2.5 + 8 = 12, and calling costs 5.5 to win it, so they need 5.5 ÷ 17.5 = 31.4% equity. That price is why the opener cannot fold everything, and why a 66.7% fold target is hard to reach against a player who defends well. The <a href="/blog/holdem-pot-odds.html">pot odds post</a> has the method.</p>
+<p>Which hands to bluff with matters. Pick hands that play badly as calls but carry a blocker. Suited ace-five holds an ace, and an ace in your hand removes aces from the opener's range. With A♠5♠ in your hand, the opener has 3 combinations of AA instead of 6 and 12 of AK instead of 16, so AA and AK fall from 22 combinations to 15. Fewer of the hands that would 4-bet you are left, so a fold becomes likelier. The hand still has an ace, a suit and a wheel straight draw when called.</p>
+
+<h2>Calling is still right sometimes</h2>
+<p>A 3-bet is not always better. Hands that are fine but not great, such as a middling pair or suited connectors, often do best by calling in position, because they win by hitting the flop and a re-raise folds out the worse hands you beat. Hands that are dominated, like ace-ten against a raiser, are poor 3-bets as well, since the only hands that continue are the ones that have you beaten, a point made in <a href="/blog/holdem-dominated-hands.html">the post on dominated hands</a>.</p>
+<ul>
+  <li><strong>3-bet</strong> the strongest hands for value, and a few blocker hands as bluffs.</li>
+  <li><strong>Call</strong> hands with good playability that are weak to a 4-bet.</li>
+  <li><strong>Fold</strong> the rest, particularly out of position against a raise from an early seat.</li>
+</ul>
+
+<div class="callout">
+  <p>The rule in one line: a 3-bet bluff risks the raise to win the dead money, so it needs risk ÷ (risk + reward) folds, and a bigger raise or a worse seat needs more.</p>
+</div>
+
+<p>The "When someone raises" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> puts you in this spot: another player has raised and you decide whether to fold, call or raise again. Its "Is it worth calling?" lesson works out the price you are offered.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> is free to use with ads, and nothing in its lessons is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

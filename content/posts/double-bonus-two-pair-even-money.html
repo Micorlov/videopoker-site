@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Two pair in Double Bonus Poker: why it pays only even money",
+  "date": "2026-10-25",
+  "modified": "2026-10-25",
+  "app": "VideoPoker",
+  "description": "Double Bonus pays two pair 1, the same as a pair of jacks. Holding it is worth 1.766 coins per coin bet, and a lone pair of aces is almost level at 1.763.",
+  "summary": "In 10/7 Double Bonus, two pair pays 1 per coin. Holding AA-77 is worth 1.766, holding only the aces 1.763. On Jacks or Better the same choice is 2.596 against 1.541.",
+  "standfirst": "A made two pair feels like progress. On Double Bonus it pays exactly what a pair of jacks pays, and for some hands it is barely better than throwing half of it away."
+}
+-->
+<p>In Jacks or Better, two pair pays 2 for 1. In Double Bonus Poker it pays 1 for 1, the same as a single pair of jacks, queens, kings or aces. A hand with two pairs in it looks stronger than a hand with one, and on the paytable it is no longer worth more. This post uses the standard 10/7 Double Bonus table to show what that does to the hold.</p>
+
+<p>The paytable, per coin bet at the five-coin maximum: royal flush 800, straight flush 50, four aces 160, four 2s to 4s 80, four 5s to kings 50, full house 10, flush 7, straight 5, three of a kind 3, two pair 1, jacks or better 1. Played correctly, the full table returns about 100.17%. Expected value (EV) means coins returned per coin bet, from counting every possible draw.</p>
+
+<h2>Where the missing coin went</h2>
+<p>Compare the two tables row by row. Double Bonus raises the full house from 9 to 10, the flush from 6 to 7 and the straight from 4 to 5. It at least doubles the quads: 25 becomes 50, 80 or 160 depending on the rank. Four aces pays 160 against 25, more than six times as much. The royal and the three of a kind are unchanged. Exactly one row goes down, and it is two pair.</p>
+<p>That is not an accident. On Jacks or Better with perfect play, two pair finishes about 12.9% of hands, second among paying hands only to a high pair (the <a href="jacks-or-better-hand-frequencies.html">frequency table</a> has the full list). A row that busy is the cheapest place to take a coin from, because the cut is felt on roughly one hand in eight, while the quads that pay for it are rare. That is why <a href="bonus-poker-and-double-bonus.html">Double Bonus reads as a high-variance game</a> even though its return is slightly above 100%.</p>
+
+<h2>What a dealt two pair is now worth</h2>
+<p>Take A&#9824; A&#9829; 7&#9830; 7&#9827; K&#9824;. Two pair is dealt to you in 123,552 of 2,598,960 hands, about 4.75% or one in 21. The obvious play is to hold both pairs and replace the king. That leaves 47 unseen cards, and 4 of them (two aces, two sevens) complete a full house.</p>
+<ul>
+  <li>Jacks or Better: (4 &times; 9 + 43 &times; 2) / 47 = 122 / 47 = <strong>2.596</strong></li>
+  <li>Double Bonus: (4 &times; 10 + 43 &times; 1) / 47 = 83 / 47 = <strong>1.766</strong></li>
+</ul>
+<p>Same cards, same draw, and the hand has lost about a third of its value. In 43 of the 47 draws you finish with the two pair you already held, which now pays 1; only the 4 full houses add anything. On Double Bonus a made two pair behaves like a pair that has already collected its payout, plus a one-in-twelve shot at 10.</p>
+
+<h2>The alternative: keep only the aces</h2>
+<p>On Jacks or Better there is no contest. Holding just the aces and drawing three is worth 24,980 / 16,215 = 1.541, far behind 2.596, so you keep both pairs. On Double Bonus the sums come out differently. Holding A&#9824; A&#9829; alone, you draw three cards from 47, which is 47 &times; 46 &times; 45 / 6 = 16,215 possible draws. I counted every one:</p>
+
+<table class="paytable-compare">
+  <caption>Hold A&#9824; A&#9829; only from A-A-7-7-K on 10/7 Double Bonus, 16,215 three-card draws.</caption>
+  <thead>
+    <tr><th>Final hand</th><th>Pays</th><th>Draws</th><th>Coins returned</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Four aces</th><td>160</td><td>45</td><td>7,200</td></tr>
+    <tr><th scope="row">Full house</th><td>10</td><td>169</td><td>1,690</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>1,852</td><td>5,556</td></tr>
+    <tr><th scope="row">Pair of aces or two pair</th><td>1</td><td>14,149</td><td>14,149</td></tr>
+  </tbody>
+</table>
+
+<p>The coins add to 28,595. Divided by 16,215 draws, that is <strong>1.7635</strong>, against 1.7660 for holding both pairs. The holds are 0.0025 coins apart per coin bet, a quarter of a coin over a hundred such hands. Two pair still wins, but the margin is a rounding error compared with the 1.055 it was worth on Jacks or Better.</p>
+
+<p>The aces hold gets there through the top rows. It finishes as four aces 45 times in 16,215 draws (0.28%), and that single row supplies 7,200 of the 28,595 coins, about a quarter. Otherwise, in 87.3% of draws, it finishes with a pair of aces (11,520 draws) or picks up a second pair (2,629), and both pay 1, exactly what the two pair pays.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins per coin bet for A-A-7-7-K: Jacks or Better hold two pair 2.596, Double Bonus hold two pair 1.766, Double Bonus hold aces only 1.763, Jacks or Better hold aces only 1.541">
+    <div class="bar-row" title="Jacks or Better, hold two pair: 2.596"><span class="bar-label">JoB, two pair</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">2.596</span></span></div>
+    <div class="bar-row hl" title="Double Bonus, hold two pair: 1.766"><span class="bar-label">DB, two pair</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6803)"></span><span class="bar-val">1.766</span></span></div>
+    <div class="bar-row hl" title="Double Bonus, hold aces only: 1.763"><span class="bar-label">DB, aces only</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6794)"></span><span class="bar-val">1.763</span></span></div>
+    <div class="bar-row" title="Jacks or Better, hold aces only: 1.541"><span class="bar-label">JoB, aces only</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5935)"></span><span class="bar-val">1.541</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet from A&#9824; A&#9829; 7&#9830; 7&#9827; K&#9824;, by hold. JoB is 9/6 Jacks or Better, DB is 10/7 Double Bonus. Bars start at zero; the two Double Bonus holds are highlighted.</figcaption>
+</figure>
+
+<h2>Why the gap closes</h2>
+<p>The two-pair hold keeps a guaranteed 1 and chases a 10. The aces hold keeps a guaranteed 1 and chases a 160, a 10 and a 3. When two pair paid 2, its guarantee was worth twice the other hold's, and the aces could not catch up. Cut the pay to 1 and both start from the same floor, so only the chase matters.</p>
+<p>It also depends on the aces. Change the hand to A&#9824; A&#9829; K&#9830; K&#9827; 5&#9824; and holding the kings alone returns 23,645 / 16,215 = 1.458, well behind. The 160 row belongs to aces. With low two pair such as 3-3-4-4-K, holding both pairs still returns 1.766, since the full-house count does not depend on rank, while holding the 4s alone returns only 0.831.</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Count a made two pair on Double Bonus as one coin plus a 4-in-47 chance of a full house paying 10. It is no longer a hand to be proud of.</li>
+  <li>With two pair that includes a pair of aces, the choice between both pairs and the aces alone is close to level (1.766 against 1.763). Hold both pairs, but do not expect a visible difference between the two.</li>
+  <li>With two pair that does not include aces, keep both pairs. The lone pair loses ground quickly.</li>
+  <li>Do not carry the Jacks or Better habit across. The <a href="jacks-or-better-holding-two-pair.html">post on holding two pair</a> is right for that table and wrong in size for this one.</li>
+</ol>
+<p>Before you play any variant, read the paytable on the screen. A single changed row, here a 2 turned into a 1, can reshape which holds are correct, as the guide to <a href="reading-a-video-poker-paytable.html">reading a video poker paytable</a> explains.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> includes Double Bonus Poker alongside Jacks or Better, Deuces Wild and Bonus Poker, shows a full paytable on screen for every variant, and has strategy hints that show which cards to hold. It plays offline, is a free practice game with no real money, and the chips have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

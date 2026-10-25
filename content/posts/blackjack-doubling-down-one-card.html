@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Doubling down: one card, twice the bet",
+  "date": "2026-10-25",
+  "modified": "2026-10-25",
+  "app": "Blackjack21",
+  "description": "Doubling down doubles your bet for exactly one more card. See why the one-card limit exists, when it pays, and how house rules change the move.",
+  "summary": "A double doubles the stake for one card and then stands. Hard 11 against a dealer 6 is worth +0.6674 a bet doubled, against +0.3337 for hitting, but house limits trim how often you may use it.",
+  "standfirst": "Doubling down is the one move that lets you raise the bet after seeing your cards. The rule is short; the reasons for its limits, and for the house variations, are worth knowing."
+}
+-->
+<p>Most blackjack decisions change your hand. Doubling down changes your stake. You put out a second bet equal to the first, take exactly one more card, and stand on whatever you get. The hand then plays out at double the original size, win or lose.</p>
+<p>The rule is simple enough to learn in a minute. The interesting parts are why it stops at one card, how much it is worth when the hand suits it, and which house rules shrink it. Which totals to double is covered in <a href="/blog/blackjack-doubling-9-10-11.html">doubling 9, 10 and 11</a> and <a href="/blog/doubling-soft-hands-ace-two-to-ace-seven.html">doubling soft hands</a>, so this post leaves the chart alone and looks at the move itself.</p>
+
+<h2>What the rule says</h2>
+<p>On your turn, with a fresh two-card hand, you may double. Three things then happen:</p>
+<ul>
+  <li>Your bet is matched by a second one of the same size, so the hand now carries twice the stake.</li>
+  <li>You receive one card and no more. Even if it leaves you on 12, you cannot draw again.</li>
+  <li>The hand is settled as normal against the dealer, and the doubled bet is won or lost in full.</li>
+</ul>
+<p>A winning double pays even money on the doubled stake, so a 10-chip bet doubled to 20 returns 20 chips of profit. A losing one costs all 20. A push returns both bets. In <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a>, double down is one of the listed moves, alongside hit, stand, split, surrender and insurance. The chips are free practice chips with no cash value.</p>
+
+<h2>Why only one card</h2>
+<p>Hitting is a choice you make again after every card, and each look at the next card lets you adjust. Doubling asks you to give that up. You are paying for a bigger bet with a worse way of playing it, and the limit is what makes the trade fair.</p>
+<p>Imagine the limit removed. You could double on hard 11, see a 2 that makes 13, and keep hitting with twice the money out. You would get the doubled stake and the full freedom to improve the hand. Doubling would be a free upgrade on every hand where it is favourable, rather than a decision with a cost. One card keeps the cost real: if the card is poor, you are stuck with it.</p>
+<p>That cost is why the move belongs to a narrow set of hands. The hand must be strong enough that one card is likely to be good, and the dealer must be weak enough that a good card usually wins.</p>
+
+<h2>When it pays</h2>
+<p>Hard 11 is the standard case. No single card can bust it, and eight ranks in 13 (61.54%) take it to 17 or more, with the four ten-value cards making 21 on 30.77% of draws. The dealer matters as much as the hand. Against a 6 the dealer busts 42.3% of the time when standing on all 17s, and I worked out the rest for an infinite deck, in units of the starting bet:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected profit per starting bet for hard 11 against a dealer 6: hitting is worth plus 0.3337, doubling is worth plus 0.6674, exactly twice as much">
+    <div class="bar-row" title="Hit hard 11 against a 6: +0.3337"><span class="bar-label">Hit</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">+0.3337</span></span></div>
+    <div class="bar-row hl" title="Double hard 11 against a 6: +0.6674"><span class="bar-label">Double</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+0.6674</span></span></div>
+  </div>
+  <figcaption>Expected profit per starting bet for hard 11 against a dealer 6, infinite deck, dealer standing on all 17s. Doubling is worth exactly twice hitting here, because the one-card hand is also the best hand to play on.</figcaption>
+</figure>
+
+<p>Standing is worth &minus;0.1537 on the same hand, so it is not close. The doubled hand wins 63.34% of the time, loses 29.98% and pushes 6.68%. Doubled, that is 2 &times; (0.6334 &minus; 0.2998) = +0.6674. It is exactly double hitting because the best play after one card is always to stand.</p>
+<p>That connects to the order of play. As the <a href="/blog/blackjack-player-acts-first.html">player-acts-first post</a> explains, the dealer holds a small structural edge from your bust being settled first. A double on a hand that cannot bust, against a dealer likely to, puts a larger bet exactly where that edge is reversed.</p>
+
+<h2>The cost of a bad double</h2>
+<p>Doubling also doubles the losses, and the same 11 shows it. A losing hand there loses two units rather than one, and happens 29.98% of the time. Over many hands the favourable ones outweigh this, which is why the move is on every basic strategy chart.</p>
+<p>Against a dealer ace, the same 11 is a closer call, because the dealer starts strong. In a multi-deck game where the dealer stands on soft 17, basic strategy hits 11 against an ace rather than doubling; where the dealer hits soft 17, the extra dealer risk tips it back to a double. Hard 11 is not a double against every up-card in every game.</p>
+
+<h2>House-rule variations</h2>
+<p>The version above, any two cards, is the broadest. Tables in different places narrow it:</p>
+<ul>
+  <li><strong>Double on 9, 10 or 11 only.</strong> Soft hands and lower totals cannot be doubled, so the soft doubles in the other post are lost.</li>
+  <li><strong>Double on 10 or 11 only.</strong> Stricter again; hard 9 is just hit.</li>
+  <li><strong>Double after split.</strong> After you split a pair, each new hand can be doubled if allowed. Split 3s against a 6, draw an 8 and you hold hard 11, which is a double if the table permits it and a plain hit if not.</li>
+  <li><strong>Double for less.</strong> Some tables let you add a smaller second bet than the first.</li>
+  <li><strong>Doubling on three or more cards.</strong> Rare; most tables allow it on the first two cards only.</li>
+</ul>
+<p>Each restriction takes a small share of the profitable doubles away. The usual effect is a fraction of a percent on the house edge for each rule, which is small but real over many hands.</p>
+
+<div class="callout">
+  <p>A double is a bet-sizing decision with a price: you trade the freedom to keep drawing for twice the stake. It pays when one card is likely to be good and the dealer is likely to fail.</p>
+</div>
+
+<h2>What to take away</h2>
+<ul>
+<li>Doubling matches your bet, gives you one card, and then you stand.</li>
+<li>The one-card limit is what makes it a real decision rather than a free upgrade.</li>
+<li>Hard 11 against a 6 is worth +0.6674 doubled, against +0.3337 for hitting.</li>
+<li>A losing double costs two units, which happens 29.98% of the time in that spot.</li>
+<li>Restrictions such as 9&ndash;11 only or no double after split trim the move; check the table's rules first.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

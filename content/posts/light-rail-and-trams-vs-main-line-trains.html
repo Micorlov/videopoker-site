@@ -1,0 +1,78 @@
+<!--
+{
+  "title": "Light rail and trams: how they differ from main-line trains",
+  "date": "2026-10-25",
+  "modified": "2026-10-25",
+  "app": "ValleyRail",
+  "description": "Trams drive on sight at about 750 V DC; UK main lines signal trains apart and use 25 kV AC. A typical tram stops in 39 m, a 100 mph train in about 2 km.",
+  "seo_title": "Light rail and trams vs main-line trains: the differences",
+  "summary": "Trams share streets and drive on sight, so they brake hard, use low-voltage overhead lines (typically 600 to 750 V DC against 25 kV AC on UK main lines), take tight curves and steep gradients, and weigh less per axle. Main-line trains rely on signals because they cannot stop within sight.",
+  "standfirst": "A tram and an express both run on two steel rails, but they are built for different jobs. The tram has to share a street with people. The express has to run fast and be kept clear of everything else."
+}
+-->
+<p>Both run on steel wheels on steel rails, and from a distance a modern light rail vehicle can look like a short train. The differences are in the rules each one operates under. A main-line train is separated from everything else and kept apart from other trains by signals. A tram often shares space with pedestrians, cyclists and cars, and its driver is expected to stop for whatever appears. Almost every other difference follows from that one.</p>
+
+<p>All numbers below are typical values. They vary from country to country and from one system to the next, so treat them as the usual order of magnitude, not as rules.</p>
+
+<h2>Driving on sight, or by signal</h2>
+<p>A tram driver on a street section drives <strong>on sight</strong>. They look ahead, and they must be able to stop within the distance they can see. Speeds in streets are low, commonly around 50 km/h (31 mph) or less, and trams are built with strong brakes, including track brakes that clamp onto the rail. An emergency rate of about 2.5 m/s&sup2; is a reasonable typical figure.</p>
+<p>A main-line train cannot work this way. It is heavy, it has only the grip between steel wheel and steel rail, and braking is gentle: service rates are usually below 1 m/s&sup2;, and this post uses a cautious round 0.5 m/s&sup2; to show the scale. At 100 mph the driver could not stop in the distance they can see. Signals therefore give the driver permission to proceed over a block of line, as explained in <a href="/blog/how-railway-signals-keep-trains-apart.html">how railway signals keep trains apart</a>.</p>
+<p>The stopping distance from speed v at constant deceleration a is v&sup2; &divide; 2a. For the figures above:</p>
+<ul>
+  <li>Tram, 50 km/h = 13.9 m/s: 13.9&sup2; &divide; (2 &times; 2.5) = about 39 m.</li>
+  <li>Main-line train, 50 mph = 22.35 m/s: 22.35&sup2; &divide; (2 &times; 0.5) = about 500 m.</li>
+  <li>Main-line train, 100 mph = 44.7 m/s: 44.7&sup2; &divide; (2 &times; 0.5) = about 1,998 m, nearly 2 km.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of typical stopping distance: a tram at 31 mph about 39 metres, a main-line train at 50 mph about 500 metres, at 100 mph about 1,998 metres.">
+    <div class="bar-row hl" title="Tram at 50 km/h (31 mph): 39 m"><span class="bar-label">Tram, 31 mph</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.0195)"></span><span class="bar-val">39 m</span></span></div>
+    <div class="bar-row" title="Main-line train at 50 mph: 500 m"><span class="bar-label">Train, 50 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2502)"></span><span class="bar-val">500 m</span></span></div>
+    <div class="bar-row" title="Main-line train at 100 mph: 1,998 m"><span class="bar-label">Train, 100 mph</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1,998 m</span></span></div>
+  </div>
+  <figcaption>Stopping distance from v&sup2; &divide; 2a, using typical illustrative braking rates of 2.5 m/s&sup2; for the tram and 0.5 m/s&sup2; for the train. The tram stops well inside what its driver can see; the train needs signals.</figcaption>
+</figure>
+
+<p>That is why a tram can share a street and a fast train cannot. Level crossings are the place where the two worlds meet, covered in <a href="/blog/level-crossings-how-barriers-work.html">how automatic barriers know a train is coming</a>.</p>
+
+<h2>Overhead power: 750 V or 25,000 V</h2>
+<p>Trams usually take power from an overhead wire at a low voltage, typically <strong>600 to 750 V DC</strong>. Low voltage suits a street: wires hang close to buildings, and the equipment on the vehicle is smaller. The cost is current. Power is voltage times current, so a low voltage needs a large current for the same power, and that means thick wires and substations placed fairly close together.</p>
+<p>UK main lines that are electrified overhead use <strong>25 kV AC</strong>, which is 25,000 V. The ratio is 25,000 &divide; 750, about 33 times, or about 42 times against 600 V. For the same power, the current is about 33 times smaller, so the wire can be lighter and the supply points further apart. High voltage needs large clearances, which is why bridges and tunnels on such lines have to be built or altered for it. Not every main line is the same: some use a third rail at about 750 V DC instead, and other countries use other systems.</p>
+
+<h2>Curves and gradients</h2>
+<p>A main line is laid out for speed. Its curves are gentle, typically hundreds of metres in radius or more, and its gradients are small. A common limit on a heavy railway is around 1 in 100 to 1 in 50, which is 1% to 2%, for reasons set out in <a href="/blog/why-railways-follow-rivers.html">why railways follow rivers</a>.</p>
+<p>A tram has to follow the street. Tight corners are normal, with minimum radii on the order of 20 to 25 m, and modern vehicles can manage steeper hills, commonly 6% to 8% and in some systems more. They can do so because they are lighter, they often have motors on many axles, and they travel slowly. Wheels still follow the coned-profile idea described in <a href="/blog/coned-wheels-how-a-train-steers.html">coned wheels: how a train steers itself round a curve</a>, but a tram has to take the corner at a crawl.</p>
+
+<h2>Lighter vehicles, lighter track</h2>
+<p>Main-line trains carry heavy axle loads, typically somewhere around 20 to 25 tonnes per axle for freight and a little less for passenger stock, so the track needs deep ballast, strong rails and robust bridges. A tram is lighter, with axle loads often around 10 tonnes. The track can be built into the road surface with grooved rail, and it is cheaper to put in, which is a large part of why cities choose it.</p>
+<p>Light rail sits between the two. It usually has its own right of way for much of its length, higher speeds than a street tram and longer stops, but it may still run on the street in the centre. It is a spectrum, not a category with a sharp edge.</p>
+
+<h2>Side by side</h2>
+<table class="paytable-compare">
+  <caption>Typical values only; real systems vary.</caption>
+  <thead>
+    <tr><th>Feature</th><th>Tram</th><th>Main-line train</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Driving</th><td>On sight</td><td>By signal</td></tr>
+    <tr><th scope="row">Overhead voltage</th><td>600 to 750 V DC</td><td>25 kV AC (UK)</td></tr>
+    <tr><th scope="row">Minimum curve radius</th><td>about 20 to 25 m</td><td>hundreds of metres</td></tr>
+    <tr><th scope="row">Steepest gradient</th><td>about 6% to 8%</td><td>about 1% to 2%</td></tr>
+    <tr><th scope="row">Axle load</th><td>about 10 t</td><td>about 20 to 25 t</td></tr>
+  </tbody>
+</table>
+
+<h2>In Valley Rail</h2>
+<p>The listing for <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> mentions light rail that takes fans from the station straight to the stadium, along with six train models, from a one-coach commuter to a streamlined express. It does not describe how light rail is built or driven, so everything above is real-world engineering, not a description of the game.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>A tram drives on sight and stops in tens of metres; a fast train needs signals because it takes about 2 km at 100 mph.</li>
+  <li>Typical tram wires carry 600 to 750 V DC; UK main-line overhead wires carry 25 kV AC, about 33 times higher than 750 V.</li>
+  <li>Trams accept tight curves and steeper hills because they are light and slow.</li>
+  <li>Light rail is a spectrum between a street tram and a heavy railway.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you drag track between towns, buy a train and run the route on its own, with light rail that takes the fans from the station straight to the stadium. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

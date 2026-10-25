@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Stiff hands against a 2 to 6: why you stand on 13 to 16",
+  "date": "2026-10-25",
+  "modified": "2026-10-25",
+  "app": "BlackjackCoach",
+  "description": "Against a dealer 2 to 6, basic strategy stands on hard 13 to 16. The dealer busts 35.4% to 42.3% of hands and hitting loses more. Plus the hard 12 exception.",
+  "summary": "Basic strategy stands on hard 13 to 16 against a dealer 2 to 6. The dealer busts between 35.4% and 42.3% of hands, a hit busts you 38.5% to 61.5% of the time, and standing wins the comparison every time.",
+  "standfirst": "A total of 13 to 16 loses to nearly everything the dealer can make, which makes standing feel passive. The dealer's bust rate is the reason it is still the better play."
+}
+-->
+<p>A hard 13, 14, 15 or 16 is the worst place to be in blackjack. It loses to any dealer total of 17 or more, and it busts on a good share of the cards that could improve it. Against a dealer showing 2 to 6, basic strategy tells you to do nothing: stand. That feels like giving up, but it is the stronger play, and the reason comes down to two fixed facts about the dealer and one about your own hand.</p>
+<p>The rules assumed here are the ones the <a href="/BlackjackCoach/">Blackjack Coach</a> chart teaches: six decks, dealer stands on soft 17, double after split and late surrender. Hard means no ace counted as 11, so these are totals where the next card can only add to the count or bust you.</p>
+
+<h2>What standing is worth</h2>
+<p>The dealer draws to 16 and stands on every 17, so the dealer never finishes between 13 and 16. Your 13, 14, 15 or 16 therefore cannot win by comparison and cannot tie. It wins in one way only: the dealer busts. Every other outcome is a loss.</p>
+<p>That makes standing easy to price. Your winning chance is the dealer's bust rate, and it is the same whether you hold 13 or 16. Using a six-deck shoe with the dealer standing on all 17s, the rates are:</p>
+<ul>
+  <li><strong>Dealer 2:</strong> 35.4%</li>
+  <li><strong>Dealer 3:</strong> 37.4%</li>
+  <li><strong>Dealer 4:</strong> 39.6%</li>
+  <li><strong>Dealer 5:</strong> 41.8%</li>
+  <li><strong>Dealer 6:</strong> 42.3%</li>
+</ul>
+<p>These are the figures in the <a href="/blog/blackjack-dealer-bust-rates.html">dealer bust-rate post</a>. Standing wins your bet about two hands in five against a 5 or 6, and a little over one in three against a 2. In terms of average result per unit bet, with an infinite deck for a clean comparison, that is a loss of 0.293 per unit against a 2, 0.252 against a 3, 0.211 against a 4, 0.167 against a 5 and 0.154 against a 6. Every one is a losing hand on average. The question is only whether hitting loses more.</p>
+
+<h2>What hitting costs</h2>
+<p>Each added point of total puts one more rank over the edge. Treating the 13 ranks as equally likely, with 10, J, Q and K counted separately, the share of cards that bust you on one hit is:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance one extra card busts a hard total: 12 busts 30.8 percent, 13 busts 38.5, 14 busts 46.2, 15 busts 53.8 and 16 busts 61.5 percent">
+    <div class="bar-row" title="Hard 12: 4 ranks in 13 bust, 30.8%"><span class="bar-label">Hard 12</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">30.8%</span></span></div>
+    <div class="bar-row hl" title="Hard 13: 5 ranks in 13 bust, 38.5%"><span class="bar-label">Hard 13</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">38.5%</span></span></div>
+    <div class="bar-row hl" title="Hard 14: 6 ranks in 13 bust, 46.2%"><span class="bar-label">Hard 14</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">46.2%</span></span></div>
+    <div class="bar-row hl" title="Hard 15: 7 ranks in 13 bust, 53.8%"><span class="bar-label">Hard 15</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8750)"></span><span class="bar-val">53.8%</span></span></div>
+    <div class="bar-row hl" title="Hard 16: 8 ranks in 13 bust, 61.5%"><span class="bar-label">Hard 16</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">61.5%</span></span></div>
+  </div>
+  <figcaption>The chance that one more card busts a hard total, 13 ranks treated as equally likely. The highlighted 13 to 16 are the totals basic strategy stands on against a dealer 2 to 6. Each step up adds one more busting rank, 7.7 percentage points.</figcaption>
+</figure>
+
+<p>A hard 13 busts on 9 or any ten-value card, which is 5 ranks in 13, or 38.5%. A 14 adds the 8: 6 in 13, 46.2%. A 15 adds the 7: 7 in 13, 53.8%. A 16 adds the 6: 8 in 13, 61.5%. Bust and you lose at once, with no chance that the dealer fails afterwards.</p>
+<p>Notice how it compares with standing. Against a dealer 6, standing wins 42.3% of the time, yet a 16 that hits loses 61.5% of the time before the dealer has even played. The cards that do not bust you rarely leave a hand that beats the dealer, either. They give totals such as 17 or 18, which still lose to a dealer who makes 19 or 20.</p>
+
+<h2>How wide the gap is</h2>
+<p>I worked out the full average result of hitting, playing the best choice after each card, with an infinite deck and the dealer standing on all 17s. The table shows how much better standing does, per unit bet. It is never a close call except one corner.</p>
+<table class="paytable-compare">
+  <caption>Standing minus hitting, average result per unit bet, infinite deck, dealer stands on all 17s.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Hard 13</th><th>Hard 14</th><th>Hard 15</th><th>Hard 16</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td class="good">0.015</td><td>0.069</td><td>0.124</td><td>0.178</td></tr>
+    <tr><th scope="row">3</th><td>0.039</td><td>0.096</td><td>0.154</td><td>0.212</td></tr>
+    <tr><th scope="row">4</th><td>0.063</td><td>0.124</td><td>0.185</td><td>0.245</td></tr>
+    <tr><th scope="row">5</th><td>0.090</td><td>0.154</td><td>0.218</td><td>0.282</td></tr>
+    <tr><th scope="row">6</th><td>0.082</td><td>0.147</td><td>0.212</td><td>0.277</td></tr>
+  </tbody>
+</table>
+<p>Every figure is positive, so standing always wins. The widest gap is a 16 against a 5, worth 0.282 per unit bet. The narrowest is 13 against a 2, at 0.015. That one is thin because a 13 is the stiff total that hits best: only 38.5% of cards bust it, and plenty of the others land on 17 to 21. A six-deck shoe moves these figures slightly, but not their signs.</p>
+
+<h2>Where 12 sits</h2>
+<p>The same logic stops working at 12. It busts only 30.8% of the time when hit (4 ranks in 13), so hitting is cheaper than for any other stiff total. Basic strategy hits 12 against a 2 or 3, where the dealer's bust rate is lowest, and stands against a 4, 5 or 6. Against a 4 the difference is tiny, about 0.002 per unit bet in favour of standing, which is why it is the one cell people argue about. The full reasoning is in <a href="/blog/hard-12-against-2-or-3.html">hard 12 against a 2 or 3</a>.</p>
+<div class="callout">
+  <p>Stand on 13 to 16 against a 2 to 6. Stand on 12 against a 4, 5 or 6, and hit it against a 2 or 3. Against a 7 or higher, all of these hands hit, with surrender an option for some of them.</p>
+</div>
+
+<h2>Common mistakes</h2>
+<p>The usual error is standing on a stiff hand against a 7 or higher because hitting looks risky. The dealer's bust rate drops to 26.2% for a 7 and 21.2% for a ten, so waiting for the dealer to fail stops working. <a href="/blog/hard-16-against-a-10.html">Hard 16 against a 10</a> covers that side of the chart.</p>
+<p>The opposite error is hitting 13 against a 2 or 3 because the hand looks too weak to win. It is weak, but the dealer is weaker than the hand suggests, and an average loss of 0.293 beats the 0.308 you give up by hitting. Practise the chart with Blackjack Coach: choose a play, read the explanation and review your mistakes until standing on these totals stops feeling wrong.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real money and no prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

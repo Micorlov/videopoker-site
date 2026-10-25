@@ -163,78 +163,78 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Two pair in Double Bonus Poker: why it pays only even money
 - Penalty cards: when a discard changes the right hold
 - Holding a lone deuce in Deuces Wild
 
 ### OmahaPoker
 
-- Rundowns: why connected four-card hands play well in PLO
 - Blockers in Omaha: what holding the nut card tells you
 - Sit and Go payouts: what a 50/30/20 split means for your play
 
 ### Blackjack21
 
-- Doubling down: one card, twice the bet
 - Where blackjack's house edge comes from, rule by rule
 - Five-card Charlie: a house rule and what it would be worth
 
 ### BrasslightSlots
 
-- How a random number generator picks each spin
 - From one-armed bandit to video slot: a short history
 - Stacked symbols: why they make wins rarer but bigger
 
 ### PokerVsDealer
 
-- Pat hands: how often five cards need no exchange
 - Trips, boats and wheels: poker's hand nicknames explained
 - The dead man's hand: aces and eights and other named hands
 
 ### FivesAndThrees
 
-- Heavy tiles: when to get rid of high-spot dominoes
 - Long suits: why holding many of one number controls the line
 - Fives and Threes with partners: the four-player game
 
 ### BlackjackCoach
 
-- Stiff hands against a 2 to 6: why you stand on 13 to 16
 - Deck penetration: why a count needs cards dealt
 - Betting with the count: how a true-count bet ramp works
 
 ### HoldemCoach
 
-- Three-betting: when to re-raise instead of calling
 - Continuation bets: why the preflop raiser bets the flop
 - Minimum defence frequency: what a bet size asks you to call
 
 ### EightBallsPool
 
-- Pocket geometry: why a fast ball misses a pocket it should make
 - Pool and snooker: how the two games differ
 - Bridge, stance and a straight stroke: the basics of cueing
 
 ### BigBenBlocks
 
-- Westminster to Piccadilly: the places behind the levels
 - Tap to place: playing a block puzzle without dragging
 - Reduced motion: why some players switch animations off
 
 ### PinkSlipKings
 
-- Eighth mile or quarter mile: how the two distances compare
 - Drag racing classes: from bracket racing to Top Fuel
 - Boost pressure: what a pound of boost adds
 
 ### ValleyRail
 
-- Light rail and trams: how they differ from main-line trains
 - Why trains can't stop quickly: braking distance explained
 - Diesel or electric: how modern trains get their power
 
 ## Published
 
+- 2026-10-25 — Two pair in Double Bonus Poker: why it pays only even money — VideoPoker — `double-bonus-two-pair-even-money`
+- 2026-10-25 — Rundowns: why connected four-card hands play well in PLO — OmahaPoker — `omaha-rundowns`
+- 2026-10-25 — Doubling down: one card, twice the bet — Blackjack21 — `blackjack-doubling-down-one-card`
+- 2026-10-25 — How a random number generator picks each spin — BrasslightSlots — `rng-picks-each-slot-spin`
+- 2026-10-25 — Pat hands: how often five cards need no exchange — PokerVsDealer — `pat-hands-no-exchange-needed`
+- 2026-10-25 — Heavy tiles: when to get rid of high-spot dominoes — FivesAndThrees — `heavy-tiles-high-spot-dominoes`
+- 2026-10-25 — Stiff hands against a 2 to 6: why you stand on 13 to 16 — BlackjackCoach — `stiff-hands-stand-13-to-16`
+- 2026-10-25 — Three-betting: when to re-raise instead of calling — HoldemCoach — `holdem-three-bet-or-call`
+- 2026-10-25 — Pocket geometry: why a fast ball misses a pocket it should make — EightBallsPool — `pool-pocket-geometry`
+- 2026-10-25 — Westminster to Piccadilly: the places behind the levels — BigBenBlocks — `westminster-to-piccadilly-london-places`
+- 2026-10-25 — Eighth mile or quarter mile: how the two distances compare — PinkSlipKings — `eighth-mile-or-quarter-mile`
+- 2026-10-25 — Light rail and trams: how they differ from main-line trains — ValleyRail — `light-rail-and-trams-vs-main-line-trains`
 - 2026-10-24 — How often each hand lands in Jacks or Better — VideoPoker — `jacks-or-better-hand-frequencies`
 - 2026-10-24 — Counterfeiting in Omaha Hi-Lo: when the board kills your low — OmahaPoker — `omaha-hi-lo-counterfeiting`
 - 2026-10-24 — Why the player acts first, and why that is the house's edge — Blackjack21 — `blackjack-player-acts-first`
