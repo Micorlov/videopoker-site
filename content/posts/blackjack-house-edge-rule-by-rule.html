@@ -1,0 +1,73 @@
+<!--
+{
+  "title": "Where blackjack's house edge comes from, rule by rule",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "Blackjack21",
+  "description": "Blackjack's house edge is a sum of small rule effects. Acting first costs about 8%; 3:2 naturals, surrender and deck count move it. Each rule priced in points.",
+  "summary": "Acting first costs a copycat about 8% of each bet. The 3:2 natural, good play and friendly rules claw it back to about half a point, and the 6:5 natural alone gives 1.36 points back.",
+  "standfirst": "A blackjack table does not have one house edge. It has a long list of rules, each adding or taking away a few hundredths of a point, and it helps to know which ones are big and which are small."
+}
+-->
+<p>Quoted house edges for blackjack run from under half a percent to over two. The cards are the same in every case. What differs is a printed list of rules, and each rule has a price. This post is the overview: where the edge starts, what pulls it down, and what a table can add back. The detail behind each number is in the posts linked as we go.</p>
+
+<h2>Where the edge starts</h2>
+<p>The player acts first. If you bust, the hand is over and the dealer never draws, so a hand where both of you would have gone over is still your loss. Take a player who copies the dealer's fixed script and the dealer busts about 28.2% of the time in a six-deck game; so does the copycat. Both busting on the same deal is roughly 0.282 &times; 0.282 = 7.95% of hands, each a full bet lost rather than a push. That is the starting disadvantage, about 8%, worked through in <a href="/blog/blackjack-player-acts-first.html">why the player acts first</a>.</p>
+<p>Nothing else in the game is that large. Everything below is the rule set either giving some of that 8% back or taking it again.</p>
+
+<h2>What gives it back</h2>
+<p>Three things do most of the work.</p>
+<ol>
+  <li><strong>The 3:2 natural.</strong> An uncontested natural turns up on 4.53% of hands and pays half a bet more than even money, worth 0.5 &times; 4.53% = 2.27% of each bet.</li>
+  <li><strong>Choices the dealer does not get.</strong> You can stand on 12 to 16 against a weak up-card, double on a strong total, split pairs and surrender. The dealer has to follow a script, so every decision you make correctly is a point the script cannot take.</li>
+  <li><strong>The dealer's own forced draws.</strong> A dealer who must draw to 16 busts on 28.2% of hands overall, and far more often with a 5 or 6 showing.</li>
+</ol>
+<p>A player using basic strategy under reasonable rules ends up near half a percent against them, compared with about 5.5% for the player who copies the dealer. Strategy is worth around five points. No single rule variation comes close, which is also why rules look small beside it.</p>
+
+<h2>What a table can add back</h2>
+<p>These are the commonly quoted figures for a six-deck game, each measured against the more favourable version of the same rule. Sources differ in the second decimal place, so treat the smaller ones as approximate.</p>
+
+<table class="paytable-compare">
+  <caption>Points added to the house edge by one unfavourable rule, six decks, other rules held the same.</caption>
+  <thead>
+    <tr><th>Rule change</th><th>Added to house edge</th><th>More on</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Natural pays 6:5, not 3:2</th><td class="good">1.36 points</td><td><a href="/blog/blackjack-3-to-2-payout.html">3:2 payout</a></td></tr>
+    <tr><th scope="row">Six decks, not one</th><td>about 0.5 points</td><td><a href="/blog/six-deck-shoe-vs-single-deck.html">six decks vs one</a></td></tr>
+    <tr><th scope="row">Dealer hits soft 17</th><td>about 0.2 points</td><td><a href="/blog/dealer-stands-on-soft-17.html">soft 17</a></td></tr>
+    <tr><th scope="row">No doubling after a split</th><td>about 0.14 points</td><td>this post</td></tr>
+    <tr><th scope="row">No hole card until you act</th><td>about 0.11 points</td><td><a href="/blog/blackjack-dealer-peek.html">the peek</a></td></tr>
+    <tr><th scope="row">No late surrender</th><td>about 0.08 points</td><td><a href="/blog/blackjack-late-surrender.html">surrender</a></td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of points added to the house edge: 6:5 natural 1.36, six decks instead of one about 0.5, dealer hits soft 17 about 0.2, no double after split about 0.14, no hole card about 0.11, no late surrender about 0.08">
+    <div class="bar-row hl" title="Natural paid 6:5: 1.36"><span class="bar-label">Natural paid 6:5</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.36</span></span></div>
+    <div class="bar-row" title="Six decks, not one: about 0.5"><span class="bar-label">Six decks, not one</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3676)"></span><span class="bar-val">≈0.5</span></span></div>
+    <div class="bar-row" title="Dealer hits soft 17: about 0.20"><span class="bar-label">Dealer hits soft 17</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1471)"></span><span class="bar-val">≈0.20</span></span></div>
+    <div class="bar-row" title="No double after split: about 0.14"><span class="bar-label">No double after split</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1029)"></span><span class="bar-val">≈0.14</span></span></div>
+    <div class="bar-row" title="No hole card: about 0.11"><span class="bar-label">No hole card</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0809)"></span><span class="bar-val">≈0.11</span></span></div>
+    <div class="bar-row" title="No late surrender: about 0.08"><span class="bar-label">No late surrender</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0588)"></span><span class="bar-val">≈0.08</span></span></div>
+  </div>
+  <figcaption>Points added to the house edge by each rule, against the more favourable version. The 6:5 natural is the only one above a point; the other five together come to about 1.0.</figcaption>
+</figure>
+
+<p>Check the arithmetic: 0.5 + 0.2 + 0.14 + 0.11 + 0.08 = 1.03. Add all six rules together and you get 2.39 points. The effects are not perfectly additive, because some rules overlap, but the sum is close enough to explain why a worst-case table lands above two percent while a good one sits around half.</p>
+
+<h2>How to price a rule yourself</h2>
+<p>A rule is cheap or expensive depending on two things: how often it comes up, and how much a hand changes when it does. A 6:5 natural comes up on 4.53% of hands and loses 0.3 of a bet each time, a fixed loss with no decision attached. Soft 17 for the dealer arises on about 1.8% of hands and costs roughly a tenth of a bet each time. Surrender is used on a small share of hands and saves a few hundredths of a bet each time. The large effects are those that apply to common hands, and the rules that look dramatic, such as a dealer reaching soft 17, tend to be rare events.</p>
+<p>It also explains the ordering in the chart. The number of decks changes every hand a little, which adds up to half a point. A surrender rule changes a handful of hands a lot, and adds up to less.</p>
+
+<div class="callout">
+  <p>Read the rules in order of size: the natural's payout, then the number of decks, then dealer soft 17, then doubling after splits and surrender. The first line on the felt is worth more than the other five together.</p>
+</div>
+
+<h2>What stays the same on every table</h2>
+<p>The base game does not change. Aces and tens still make up a third of what is left in the shoe, the dealer still draws to 16 and stands on 17, and an uncontested natural still comes along once every 21 hands or so. Two tables with different rules differ by the sum of the prices above, nothing more. For a player using a correct basic strategy chart, that makes the choice of table the only lever left, since no play can undo a 6:5 payout or a rule that is missing.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. The figures in this post describe blackjack in general rather than the app's sweep pot. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

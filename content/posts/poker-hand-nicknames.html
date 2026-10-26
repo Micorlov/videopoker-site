@@ -1,0 +1,76 @@
+<!--
+{
+  "title": "Trips, boats and wheels: poker's hand nicknames explained",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "PokerVsDealer",
+  "description": "Trips is three of a kind (54,912 hands), a boat is a full house (3,744), a wheel is A-2-3-4-5 (1,020 plus 4 steel wheels). Each nickname, counted.",
+  "summary": "Poker slang pinned to exact counts out of 2,598,960 five-card hands: trips 54,912, aces up 19,008, boat 3,744, quads 624, wheel and Broadway 1,020 each, steel wheel 4.",
+  "standfirst": "Poker talk is full of short names for hands. Most are plain labels for a standard rank, and a few name something narrower. Each one can be tied to a count you can check."
+}
+-->
+<p>Players rarely say "three of a kind" at the table. They say <strong>trips</strong>, announce a <strong>boat</strong>, and groan about a <strong>wheel</strong>. These nicknames look like loose slang, but each one points at an exact set of five-card hands, and the number of hands in that set is a short piece of counting. A standard deck deals C(52, 5) = <strong>2,598,960</strong> different five-card hands, all equally likely, so every nickname below has an exact frequency.</p>
+
+<h2>Names for a whole rank</h2>
+<p>Three nicknames simply rename a standard hand rank. The rank positions here count from the top of the usual ten rows, with the royal flush as row one.</p>
+<ul>
+  <li><strong>Trips</strong> means three of a kind: three cards of one rank and two unrelated cards. It is 7th of ten and there are <strong>54,912</strong> such hands (13 ranks &times; 4 suit choices &times; 66 pairs of other ranks &times; 16 suit patterns).</li>
+  <li><strong>Boat</strong> (or <strong>full boat</strong>) means a full house: three of one rank and two of another. It is 4th of ten, with <strong>3,744</strong> hands (13 &times; 4 &times; 12 &times; 6).</li>
+  <li><strong>Quads</strong> means four of a kind. It is 3rd of ten, with <strong>624</strong> hands (13 ranks &times; 48 choices for the fifth card).</li>
+</ul>
+<p>"Set" is a close cousin of trips that is easy to misuse. In Texas Hold'em, a set is three of a kind made from a pocket pair plus one board card, and trips is made from one hole card plus a pair on the board. They are the same rank of hand but different situations, and the distinction only exists in games with shared cards. In five-card poker, where you just hold five cards, the word to use is trips.</p>
+<p>Boats are read with the three-of-a-kind rank first: "kings full of fours" is three kings and two fours. Each trips rank can pair with 12 other ranks in 6 ways, so every "aces full" or "sevens full" has exactly 4 &times; 12 &times; 6 = 288 hands, and 13 &times; 288 gives the 3,744 above.</p>
+
+<h2>Names for one specific hand</h2>
+<p>The other nicknames pick out a narrower slice of a rank.</p>
+<ul>
+  <li><strong>Wheel</strong> (also <strong>bicycle</strong>) is the straight A-2-3-4-5, the lowest straight. Its suits can fall 4<sup>5</sup> = 1,024 ways. Four of those are all one suit, so there are <strong>1,020</strong> wheels that count as plain straights. It is one tenth of the 10,200 straights.</li>
+  <li><strong>Broadway</strong> is the highest straight, 10-J-Q-K-A, and by the same arithmetic it has <strong>1,020</strong> plain-straight hands too. Any other straight, from 2-3-4-5-6 to 9-10-J-Q-K, has the same 1,020.</li>
+  <li><strong>Steel wheel</strong> is the wheel in a single suit: a straight flush. There are <strong>4</strong>, one per suit. Four more hands make the royal flush, the Broadway of a single suit, so the steel wheel is exactly as rare as a royal.</li>
+  <li><strong>Aces up</strong> is two pair with aces as the higher pair. There are 12 choices of the other pair, 6 &times; 6 suit choices, and 44 cards left for the fifth, so 12 &times; 36 &times; 44 = <strong>19,008</strong> hands. That is 12 of the 78 rank pairs that make up the 123,552 two-pair hands. "Kings up" and "queens up" work the same way with a smaller set.</li>
+</ul>
+<p>The wheel is the only nickname here that changes how a hand is ordered: it is a five-high straight, so it loses to every other straight. <a href="ace-high-or-low-in-poker.html">Is the ace high or low? The ace in five-card poker</a> covers why the ace may drop below the two only in this run.</p>
+
+<h2>How common each one is</h2>
+<p>Dividing 2,598,960 by each count gives the "one deal in N" figure for the chart. Trips come up about once in 47 deals and aces up once in 137. A boat is one deal in 694, and a wheel (or a Broadway) is one in 2,548. Quads are one in 4,165, and the steel wheel is one in 649,740.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart on a logarithmic scale: trips one deal in 47, aces up one in 137, a boat one in 694, a wheel or Broadway one in 2,548, quads one in 4,165, a steel wheel one in 649,740">
+    <div class="bar-row" title="Trips: 1 in 47"><span class="bar-label">Trips</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2877)"></span><span class="bar-val">1 in 47</span></span></div>
+    <div class="bar-row" title="Aces up: 1 in 137"><span class="bar-label">Aces up</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3676)"></span><span class="bar-val">1 in 137</span></span></div>
+    <div class="bar-row hl" title="Boat: 1 in 694"><span class="bar-label">Boat</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.4888)"></span><span class="bar-val">1 in 694</span></span></div>
+    <div class="bar-row" title="Wheel or Broadway: 1 in 2,548"><span class="bar-label">Wheel / Broadway</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5860)"></span><span class="bar-val">1 in 2,548</span></span></div>
+    <div class="bar-row" title="Quads: 1 in 4,165"><span class="bar-label">Quads</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6227)"></span><span class="bar-val">1 in 4,165</span></span></div>
+    <div class="bar-row" title="Steel wheel: 1 in 649,740"><span class="bar-label">Steel wheel</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1 in 649,740</span></span></div>
+  </div>
+  <figcaption>About one deal in N for each nickname, on a logarithmic scale where each step is ten times rarer. The boat (highlighted) is the nickname most people mention first, and it is about 15 times rarer than trips. The wheel and Broadway share one row because each has 1,020 plain-straight hands.</figcaption>
+</figure>
+
+<table class="paytable-compare">
+  <caption>Each nickname with its rank and exact count among the 2,598,960 five-card hands. Shares are rounded.</caption>
+  <thead>
+    <tr><th>Nickname</th><th>Means</th><th>Rank (of 10)</th><th>Hands</th><th>Share of deals</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Trips</th><td>Three of a kind</td><td>7th</td><td>54,912</td><td>2.11%</td></tr>
+    <tr><th scope="row">Aces up</th><td>Two pair, aces the higher pair</td><td>8th</td><td>19,008</td><td>0.73%</td></tr>
+    <tr><th scope="row">Boat</th><td>Full house</td><td>4th</td><td>3,744</td><td>0.144%</td></tr>
+    <tr><th scope="row">Wheel</th><td>A-2-3-4-5, not all one suit</td><td>6th</td><td>1,020</td><td>0.039%</td></tr>
+    <tr><th scope="row">Broadway</th><td>10-J-Q-K-A, not all one suit</td><td>6th</td><td>1,020</td><td>0.039%</td></tr>
+    <tr><th scope="row">Quads</th><td>Four of a kind</td><td>3rd</td><td>624</td><td>0.024%</td></tr>
+    <tr><th scope="row">Steel wheel</th><td>A-2-3-4-5, all one suit</td><td>2nd</td><td>4</td><td>0.00015%</td></tr>
+  </tbody>
+</table>
+<p>The rank column is why a boat beats a wheel and quads beat a boat: the order of the ten rows follows the order of rarity. The full table behind these counts is in <a href="five-card-poker-hand-frequencies.html">How rare each five-card poker hand is</a>.</p>
+
+<h2>Reading the table with care</h2>
+<p>Nicknames tell you the rank, but they do not settle a tie. Two boats are compared by the three-of-a-kind rank first, so aces full beats kings full whatever the pairs are. Two wheels tie exactly, because suits never break a tie. If you want the full set of comparison rules, <a href="five-card-poker-tie-breaks.html">the tie-break post</a> has them.</p>
+<p>The counts also show that a nickname can mislead about scarcity. Aces up sounds like a notable hand, yet at 19,008 hands it is about five times more common than a boat. A wheel sounds like a rare trick, but at 1,020 hands it is no scarcer than any other straight.</p>
+
+<h2>Where this meets Poker vs Dealer</h2>
+<p>The names above are standard poker vocabulary and the counts are standard five-card maths. <a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card game with its own rules that the listing says are not Texas Hold'em, and the listing mentions an in-game rules and payouts screen you can read at any time. It also says the app tracks hand categories, so the ranks in the table are the same categories you can look for in your own record. This post does not claim how often the app deals any particular hand.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Tap to place: playing a block puzzle without dragging",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "BigBenBlocks",
+  "description": "Dragging a piece across a 9x9 board hides the target under your finger. Why tap-to-place helps, what WCAG 2.2 says, and how many placements a piece has.",
+  "summary": "A 1x3 bar has 126 legal placements on an empty 9x9 board. Dragging asks for fine aim; WCAG 2.2 criterion 2.5.7 asks for a single-pointer alternative to dragging, and Big Ben Blocks offers tap-to-place controls as an alternative to dragging.",
+  "standfirst": "Most block puzzles are played by dragging a piece onto the board. That works for many people and badly for others, and the numbers show how much aim it asks for."
+}
+-->
+<p>The usual way to play a block puzzle is to pick a piece up, carry it across the board and let go over the spot you want. It feels natural, and it asks for more than it seems to. You need to hold contact for the whole movement, keep your hand steady, and judge a drop position that your own finger is covering. An alternative that lets you choose a position with separate taps removes most of that, and it is worth understanding why.</p>
+
+<h2>How much aim a drop needs</h2>
+<p>The board is 9x9, so 81 cells. How many places a piece can go depends on its shape. A piece that is <em>w</em> cells wide and <em>h</em> cells tall fits in (9 - <em>w</em> + 1) x (9 - <em>h</em> + 1) positions on an empty board, because its left edge can sit in any column that leaves room for the rest of it, and likewise for the top edge.</p>
+<p>Take a straight bar of 3. Laid flat it is 3 wide and 1 tall, so it has 7 x 9 = 63 positions. Stood upright it has 9 x 7 = 63 more. In total that is 126 placements, and a 1x1 block has 81. A domino has 2 x (8 x 9) = 144, the most of the shapes in the chart below, and a 3x3 square has only 7 x 7 = 49. A real board is never empty, so the live number is lower, but the empty-board figure shows the range a drop can aim for.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of legal placements on an empty 9x9 board: 1x2 domino 144, 1x3 bar 126, 2x3 rectangle 112, 1x4 bar 108, 1x5 bar 90, 1x1 single 81, 2x2 square 64, 3x3 square 49.">
+    <div class="bar-row" title="1x2 domino: 144 placements"><span class="bar-label">1x2 domino</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">144</span></span></div>
+    <div class="bar-row hl" title="1x3 bar: 126 placements"><span class="bar-label">1x3 bar</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8750)"></span><span class="bar-val">126</span></span></div>
+    <div class="bar-row" title="2x3 rectangle: 112 placements"><span class="bar-label">2x3 rectangle</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7778)"></span><span class="bar-val">112</span></span></div>
+    <div class="bar-row" title="1x4 bar: 108 placements"><span class="bar-label">1x4 bar</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">108</span></span></div>
+    <div class="bar-row" title="1x5 bar: 90 placements"><span class="bar-label">1x5 bar</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">90</span></span></div>
+    <div class="bar-row" title="1x1 single: 81 placements"><span class="bar-label">1x1 single</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5625)"></span><span class="bar-val">81</span></span></div>
+    <div class="bar-row" title="2x2 square: 64 placements"><span class="bar-label">2x2 square</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4444)"></span><span class="bar-val">64</span></span></div>
+    <div class="bar-row" title="3x3 square: 49 placements"><span class="bar-label">3x3 square</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3403)"></span><span class="bar-val">49</span></span></div>
+  </div>
+  <figcaption>Legal placements of each shape on an empty 9x9 board, counting both orientations where they differ. The 1x3 bar, highlighted, has 126: 63 flat and 63 upright. The square shapes have the same count in either orientation.</figcaption>
+</figure>
+
+<p>Each placement is one specific set of cells, and neighbouring placements differ by one cell. So a drag has to land within about half a cell of the intended spot or the piece goes somewhere next to it. If a 9-cell board is 324 px wide, which is a plausible phone figure, each cell is 36 px across. An adult fingertip pad is roughly 10 mm wide, which on most phones is more than one of those cells, so the finger hides the cell you are aiming at.</p>
+
+<h2>What goes wrong with dragging</h2>
+<ul>
+  <li><strong>Occlusion.</strong> The finger covers the target. Players cope by working out the drop in advance, then trusting a hand they cannot see.</li>
+  <li><strong>Sustained contact.</strong> A drag needs the finger held down and moving in a controlled line. Tremor, limited grip, a stylus or head pointer, or a bumpy train journey all make that harder.</li>
+  <li><strong>No cheap correction.</strong> Slip by one cell on release and the piece is placed, or you must start the drag over.</li>
+  <li><strong>Single-finger and switch use.</strong> Some assistive input methods can select but cannot press and hold while moving.</li>
+</ul>
+<p>None of this makes dragging bad. It is quick and many people prefer it. The point is that a game offering only that one input has made a motor-skill demand part of a puzzle that is meant to be about spatial planning.</p>
+
+<h2>What the accessibility guidelines say</h2>
+<p>WCAG, the Web Content Accessibility Guidelines, is written for the web but its rules are widely used as a yardstick for apps. Version 2.2, published as a W3C Recommendation in October 2023, added two criteria that bear on this directly.</p>
+<ol class="ranked">
+  <li><strong>2.5.7 Dragging Movements (Level AA).</strong> Anything that can be done by dragging must also be doable with a single pointer without dragging, such as a tap or click, unless dragging is essential.</li>
+  <li><strong>2.5.8 Target Size (Minimum) (Level AA).</strong> Tap targets should be at least 24 x 24 CSS pixels, with exceptions, including targets spaced so that a 24 px circle centred on each does not overlap another.</li>
+</ol>
+<p>The 24 px minimum is deliberately low. The stricter Level AAA criterion, 2.5.5, asks for 44 x 44 CSS pixels. On the 36 px cells above, a cell passes the AA minimum with room to spare and falls short of the AAA size, which is a fair description of a 9x9 board on a phone: the cells are big enough to tap, but not generous. Cell size and the need to drag are separate problems, which is why the dragging criterion exists alongside the size one.</p>
+
+<h2>Tapping as an alternative, not a replacement</h2>
+<p>An input that is a sequence of separate, discrete actions has three advantages for placement. Each action is brief, so there is no held contact to keep steady. A choice can be made and checked before it is committed, so the finger no longer has to guess what it is covering. And the same action works for a finger, a stylus, a switch or a mouse.</p>
+<p>The <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> listing says that tap-to-place controls provide an alternative to dragging, alongside shape symbols as well as colours, screen-reader labels and reduced-motion support. The listing does not describe how the controls work in detail, so this post does not either; the aim here is the general case for the input method. The related post on <a href="/blog/block-puzzles-for-colour-blind-players.html">colour-blind players</a> covers the shape-symbol side of the same design thinking.</p>
+
+<div class="callout">
+  <p>A 1x3 bar has 7 x 9 = 63 flat positions and 63 upright, 126 in all. Precision per cell matters because neighbouring placements differ by a single cell.</p>
+</div>
+
+<h2>Playing well when you tap</h2>
+<p>If you place pieces by taps, planning is where the time goes, and a few habits carry over from any block puzzle.</p>
+<ul>
+  <li>Decide the cell set first, then perform the input. Because the board is not hidden, you can afford to look at the whole of it.</li>
+  <li>Work from the edges. The <a href="/blog/block-puzzle-edges-first.html">post on edges first</a> explains why placements against a wall leave fewer awkward gaps.</li>
+  <li>Use the aids the mode allows. Undo, hints, rotate and bomb are available in Classic and Adventure, and Daily Challenge and Time Attack switch them off, per the listing. The <a href="/blog/block-puzzle-undo-hints-rotate-bomb.html">post on those aids</a> covers when each is worth using.</li>
+</ul>
+<p>The general rule for any input method is that it should cost you attention only for the decision, not for the mechanics. A puzzle on a 9x9 grid already has plenty to think about: 27 groups that can clear and as many as 144 positions for a single shape. Aiming should not be added to the list.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> is a block puzzle on a 9x9 grid, with untimed Classic play, a three-minute Time Attack and a Daily Challenge that changes at midnight UK time. Tap-to-place controls provide an alternative to dragging. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

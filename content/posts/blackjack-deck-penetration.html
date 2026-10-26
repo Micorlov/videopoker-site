@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "Deck penetration: why a count needs cards dealt",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "BlackjackCoach",
+  "description": "Penetration is how much of the shoe is dealt before the shuffle. The same Hi-Lo running count of +4 is a true count of +0.9 at 25% dealt and +4 at 83%.",
+  "summary": "Deck penetration is the share of a shoe dealt before the reshuffle. A running count of +4 is a true count of +0.89 with 4.5 decks left and +4 with one deck left, so a count only means much once cards have been dealt.",
+  "standfirst": "A Hi-Lo count is only as informative as the part of the shoe it has seen. Penetration decides how far the count can travel, and how much one running number is worth when you convert it."
+}
+-->
+<p>Counting is often described as if the count were a property of the game. It is really a property of the part of the shoe that has been dealt, and that part is set by the casino, not the counter. The measure is called <strong>penetration</strong>: the share of the cards dealt before the shoe is shuffled again. It decides how far a Hi-Lo count can drift from zero, and it changes what a given running count is worth.</p>
+<p>This post is about the arithmetic. It follows on from <a href="/blog/hi-lo-running-and-true-count.html">running count and true count explained</a>, which covers the card values and the division. Counting here is an educational skill: a way to understand how a shoe changes as it is dealt, not a method for making money.</p>
+
+<h2>What penetration is</h2>
+<p>A six-deck shoe holds 312 cards. A cut card is placed in it, and when that card comes out the round finishes and the shoe is reshuffled. Cards behind the cut card are never dealt. Penetration is the dealt share:</p>
+<p><strong>penetration = cards dealt ÷ cards in the shoe</strong></p>
+<p>If the cut card sits 1.5 decks from the back, 4.5 decks are dealt. That is 234 cards out of 312, so penetration is 75%, and 78 cards are never played. Cut at one deck from the back and 260 cards are dealt, which is 83.3%. Cut at three decks and penetration is 50%, with 156 cards dealt and 156 never seen.</p>
+
+<h2>Why a deeper shoe lets the count mean more</h2>
+<p>Hi-Lo is balanced, so a whole deck sums to zero. That has a useful consequence. Once some cards have been dealt, the cards still in the shoe must sum to the <em>negative</em> of the running count. A running count of +4 means the remaining cards total −4: four more high cards than low ones are still to come, net.</p>
+<p>The size of that surplus is fixed, but the number of cards it is spread across is not. The true count divides by the decks remaining, so the same +4 gives:</p>
+<table class="paytable-compare">
+  <caption>A running count of +4 converted at different penetrations of a six-deck shoe.</caption>
+  <thead>
+    <tr><th>Penetration</th><th>Decks dealt</th><th>Decks remaining</th><th>Calculation</th><th>True count</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">25%</th><td>1.5</td><td>4.5</td><td>4 ÷ 4.5</td><td>+0.89</td></tr>
+    <tr><th scope="row">50%</th><td>3</td><td>3</td><td>4 ÷ 3</td><td>+1.33</td></tr>
+    <tr><th scope="row">66.7%</th><td>4</td><td>2</td><td>4 ÷ 2</td><td>+2</td></tr>
+    <tr><th scope="row">75%</th><td>4.5</td><td>1.5</td><td>4 ÷ 1.5</td><td>+2.67</td></tr>
+    <tr><th scope="row">83.3%</th><td>5</td><td>1</td><td>4 ÷ 1</td><td class="good">+4</td></tr>
+  </tbody>
+</table>
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the true count for a running count of +4: 0.89 at 25 percent penetration, 1.33 at 50, 2 at 66.7, 2.67 at 75 and 4 at 83.3 percent">
+    <div class="bar-row" title="25% dealt, 4.5 decks left: 4 ÷ 4.5 = 0.89"><span class="bar-label">25% dealt</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2222)"></span><span class="bar-val">+0.89</span></span></div>
+    <div class="bar-row" title="50% dealt, 3 decks left: 4 ÷ 3 = 1.33"><span class="bar-label">50% dealt</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3333)"></span><span class="bar-val">+1.33</span></span></div>
+    <div class="bar-row" title="66.7% dealt, 2 decks left: 4 ÷ 2 = 2"><span class="bar-label">66.7% dealt</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">+2</span></span></div>
+    <div class="bar-row" title="75% dealt, 1.5 decks left: 4 ÷ 1.5 = 2.67"><span class="bar-label">75% dealt</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">+2.67</span></span></div>
+    <div class="bar-row hl" title="83.3% dealt, 1 deck left: 4 ÷ 1 = 4"><span class="bar-label">83.3% dealt</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">+4</span></span></div>
+  </div>
+  <figcaption>The true count for the same running count of +4 in a six-deck shoe, by how much of the shoe has been dealt. The running count never changes; the number of decks it is divided by does.</figcaption>
+</figure>
+<p>Nothing about the +4 differs between the first and last row. With 4.5 decks still to come, four surplus high cards are a thin tilt, under one per deck. With one deck left the same four are a strong tilt. The calculation does not add information. It stops you reading the same number as if it meant the same thing early and late.</p>
+
+<h2>Why shallow penetration limits a count</h2>
+<p>Two things work against a count when the cut card comes early.</p>
+<ol class="ranked">
+  <li><strong>The count has less time to move.</strong> It starts at zero after every shuffle and changes by at most one per card. After 1.5 decks it can have wandered only so far, and the division by 4.5 decks shrinks whatever it reaches. Large true counts need cards dealt.</li>
+  <li><strong>The high-count part of the shoe is cut off.</strong> The late stretch, where the divisor is small and true counts can become large, is exactly the part behind the cut card. A shoe cut at three decks never reaches the one-deck row in the table above.</li>
+</ol>
+<p>This is why penetration is the first thing a counting student learns to judge about a table. A rough guide is to look at where the cut card sits, or at the discard tray, and ask how many decks are left.</p>
+
+<h2>How errors grow late in the shoe</h2>
+<p>Decks remaining are estimated, usually to the nearest half deck. Because the divisor is in the denominator, the same half-deck misjudgement matters far more late on:</p>
+<ul>
+  <li>With +4 and 4.5 decks left, a half-deck slip gives 4 ÷ 4 = +1 instead of +0.89. The difference is 0.11.</li>
+  <li>With +4 and 1.5 decks left, a half-deck slip gives 4 ÷ 1 = +4 instead of +2.67. The difference is 1.33.</li>
+</ul>
+<p>Early in a shoe the estimate hardly matters. Near the end, a careful look at the tray matters more than the addition does.</p>
+<div class="callout">
+  <p>Penetration is cards dealt divided by cards in the shoe. A running count is worth more as it rises, because the true count divides it by a shrinking number of decks. In a six-deck shoe, +4 is +0.89 at 25% dealt and +4 at 83.3% dealt.</p>
+</div>
+
+<h2>Connecting it to a decision</h2>
+<p>Insurance gives a concrete case. The standard Hi-Lo threshold for taking it is a true count of +3, as explained in <a href="/blog/blackjack-insurance-explained.html">the insurance post</a>. A running count of +4 with 1.5 decks left is +2.67, which is below that line. The same +4 with one deck left is +4, which is above it. The running count is identical, and the decision flips because of penetration alone.</p>
+<p>None of this makes the cards less random. A positive count describes the averages of what is left, over many hands, and any single round can still go against it. For the learner, the lesson is a sound one: a number only means something relative to what remains. Blackjack Coach includes Hi-Lo practice, which is a good place to run a short count and then ask how many decks you would have left at that point.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> includes Hi-Lo card counting practice alongside hand values, basic strategy and insurance. You choose a play, read the explanation and review your mistakes, and the chart teaches fixed six-deck rules. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,89 @@
+<!--
+{
+  "title": "Blockers in Omaha: what holding the nut card tells you",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "OmahaPoker",
+  "description": "On a three-heart flop 20.9% of opponent hands hold a flush. Each heart in your four cards removes some, and the ace of hearts removes every nut flush.",
+  "summary": "A blocker is a card you hold that an opponent therefore cannot. Counting all 148,995 four-card opponent hands on a three-heart flop shows each heart you hold cuts flush hands, and holding the ace removes all 6,104 nut-flush hands.",
+  "standfirst": "In Omaha you hold four cards, so you remove far more of your opponents' possible hands than in Hold'em. Counting those hands shows what a blocker is worth and what it is not."
+}
+-->
+<p>A blocker is a card in your hand that an opponent therefore cannot hold. If you have the A&#9829;, nobody else has it, so nobody else has the nut flush in hearts. The idea is simple. What is less obvious is how much it changes, and that the answer depends on how many cards you hold, which in Pot-Limit Omaha (PLO) is four. This post counts the opponent hands your cards remove, so that a blocker becomes a number rather than a feeling.</p>
+
+<h2>The setup</h2>
+<p>The flop is 9&#9829; 5&#9829; 2&#9829;. You hold four cards, so 52 &minus; 3 &minus; 4 = 45 cards are unseen, and one opponent holds some four of them: C(45,4) = 148,995 possible hands. Of the 13 hearts, 3 are on the board, so 10 are not on the board, and some of those may be in your hand.</p>
+<p>Because of <a href="/blog/omaha-exactly-two-hole-cards.html">the exactly-two rule</a>, an opponent has a flush here only with at least two hearts in their hand. One heart plus the board is not enough. So count the four-card hands containing two or more hearts, for each number of hearts you hold yourself.</p>
+
+<h2>Every heart you hold takes a slice</h2>
+<p>If you hold <em>h</em> hearts, then 10 &minus; <em>h</em> hearts are unseen. The number of opponent hands with at least two of them comes straight from the combinations:</p>
+<table class="paytable-compare">
+  <caption>Opponent four-card hands with a flush on a 9&#9829; 5&#9829; 2&#9829; flop, by hearts in your hand. Exact counts out of 148,995.</caption>
+  <thead>
+    <tr><th>Hearts you hold</th><th>Hearts unseen</th><th>Opponent flush hands</th><th>Share</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">0</th><td>10</td><td>31,185</td><td>20.9%</td></tr>
+    <tr><th scope="row">1</th><td>9</td><td>25,830</td><td>17.3%</td></tr>
+    <tr><th scope="row">2</th><td>8</td><td>20,790</td><td>14.0%</td></tr>
+    <tr><th scope="row">3</th><td>7</td><td>16,128</td><td>10.8%</td></tr>
+    <tr><th scope="row">4</th><td>6</td><td>11,910</td><td>8.0%</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the share of opponent four-card hands holding a flush on a three-heart flop: 20.9% if you hold no hearts, 17.3% with one, 14.0% with two, 10.8% with three, 8.0% with four">
+    <div class="bar-row" title="No hearts held: 20.9%"><span class="bar-label">0 hearts</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">20.9%</span></span></div>
+    <div class="bar-row" title="1 heart held: 17.3%"><span class="bar-label">1 heart</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8283)"></span><span class="bar-val">17.3%</span></span></div>
+    <div class="bar-row hl" title="2 hearts held: 14.0%"><span class="bar-label">2 hearts</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6667)"></span><span class="bar-val">14.0%</span></span></div>
+    <div class="bar-row" title="3 hearts held: 10.8%"><span class="bar-label">3 hearts</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5172)"></span><span class="bar-val">10.8%</span></span></div>
+    <div class="bar-row" title="4 hearts held: 8.0%"><span class="bar-label">4 hearts</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3819)"></span><span class="bar-val">8.0%</span></span></div>
+  </div>
+  <figcaption>Share of one opponent's possible four-card hands that contain a flush, by how many hearts you hold. With two hearts, the highlighted row, it is 14.0%: a flush is still far from rare.</figcaption>
+</figure>
+
+<p>The effect is large but gradual. Two hearts in your hand cut the opponent's flush hands from 20.9% to 14.0%, about a third fewer. Even holding four hearts leaves 8.0%, because six unseen hearts still pair up in 15 ways and fit with other cards. For comparison, a Hold'em opponent has only two cards: with eight hearts unseen the same count is C(8,2) &divide; C(47,2) = 28 &divide; 1,081 = 2.6%. Four-card hands put flushes in range far more often, and it is why a blocker matters more here.</p>
+
+<h2>The nut card is different</h2>
+<p>The table counts every flush. The ace changes which flush. Suppose you hold the K&#9829; and no other heart. The A&#9829; is unseen, and the opponent hands that hold it with at least one more heart (among the 8 other unseen hearts) number 6,104, which is 4.1% of all hands. Those are exactly the hands that make the nut flush.</p>
+<p>Now suppose you hold the A&#9829; instead. Those 6,104 hands vanish, because the ace is in your hand. The opponent can still make a flush from 25,830 hands, but every one of them is a lower flush than any you could make with the ace. That is the whole value of the nut blocker: it does not cut the number of flushes much (both cases have 9 hearts unseen), it removes the top of the range.</p>
+
+<table class="paytable-compare">
+  <caption>Same flop, you hold one heart. Opponent hands out of 148,995.</caption>
+  <thead>
+    <tr><th>Your heart</th><th>Opponent flush hands</th><th>Of which nut flush</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">K&#9829;</th><td>25,830</td><td>6,104 (4.1%)</td></tr>
+    <tr><th scope="row" class="good">A&#9829;</th><td class="good">25,830</td><td class="good">0</td></tr>
+  </tbody>
+</table>
+
+<h2>What the nut flush share looks like when you have the flush</h2>
+<p>Hold two hearts without the ace and the opponent has 20,790 flush hands, of which 5,474 contain the ace (26.3%). That is the 3.7% single-opponent figure worked out in <a href="/blog/omaha-second-best-flush.html">the second-best flush post</a>, seen from the other side: 5,474 &divide; 148,995 = 3.7%. About one flush in four that your opponent could hold beats yours. Hold the A&#9829; with a second heart and that share is zero.</p>
+
+<h2>What a blocker does not do</h2>
+<ul>
+  <li><strong>It does not make your hand better.</strong> A&#9829; with three unrelated cards has no flush on this flop. It only means one specific opponent holding is impossible.</li>
+  <li><strong>It does not lower the other threats.</strong> A full house or four of a kind needs a paired board. See <a href="/blog/omaha-paired-boards-nut-flush.html">paired boards and the nut flush</a> for when the flush stops being the top hand.</li>
+  <li><strong>It cuts hands, not certainty.</strong> After holding the ace, the opponent still has a flush 17.3% of the time with your one heart, and 14.0% with two.</li>
+</ul>
+
+<h2>Using it when you bluff</h2>
+<p>The same count works as a bluffing tool. An opponent who calls a big bet on a three-heart board is representing a flush. If you hold the A&#9829;, you know they cannot have the nut flush, so the hands that call are lower flushes and sets or straights. If you hold the K&#9829; with nothing else, they can have the nuts in 4.1% of all hands, a gap you must set against how they have played. The blocker is a reason to bluff, never a guarantee, because it tells you what they cannot hold and nothing about what they do.</p>
+
+<h2>Practical rules</h2>
+<ol class="ranked">
+  <li><strong>Count unseen cards of the suit.</strong> Ten minus the hearts you hold, on a three-heart board. Then C(unseen, 2) is the flush pairs.</li>
+  <li><strong>Prefer holding the top card of a suit.</strong> It cuts the nuts out of an opponent's range, which a middle card cannot do.</li>
+  <li><strong>Remember the second heart.</strong> The ace without a second heart blocks the nuts but gives you no made flush.</li>
+  <li><strong>Use blockers to choose between close decisions</strong>, not to justify weak hands.</li>
+</ol>
+
+<h2>Checking it in the app</h2>
+<p>The listing for <a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> says its live hand insight shows your win chance and your outs grouped by what they make, and that its Help &amp; Rules cover Omaha hand rankings and the two-cards-from-your-hand rule. It does not say the app counts blockers, so the counts here are game maths. When you hold the ace of a suit the board shows three of, watch how your win chance compares with the same hand holding only the king.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo and 5-Card Omaha against computer opponents, offline. The chips and points are free play-money points, with no cash value and no real money. The listing says there are no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

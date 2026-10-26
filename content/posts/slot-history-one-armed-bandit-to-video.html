@@ -1,0 +1,66 @@
+<!--
+{
+  "title": "From one-armed bandit to video slot: a short history",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "BrasslightSlots",
+  "description": "Four dates show how slots changed: the 1890s Liberty Bell, 1963's Money Honey, the 1976 video slot and the 1984 virtual reel patent, with the odds each allowed.",
+  "summary": "A slot's odds were first limited by physical reel stops. Charles Fey's three-reel machine had 1,000 combinations, 22-stop mechanical reels capped at 10,648, and the 1984 virtual reel patent removed the cap. A short, dated history with the arithmetic.",
+  "standfirst": "Four dates mark the change from a counter-top lever machine to a screen: each one raised the limit on how many outcomes a slot could have."
+}
+-->
+<p>A modern slot is a screen, a random number generator and a table of results. Its ancestor was a cast-iron box with a lever, three drums and a spring. Between the two there are four well-documented steps, and each one answers the same engineering question: how many different outcomes can the machine have? This post follows those steps with the arithmetic. <a href="/BrasslightSlots/">Brasslight Slots</a> is a free game with virtual coins only and no real money, and its Play listing says nothing about slot history, so this is general background, not a description of that app.</p>
+
+<h2>The Liberty Bell, late 1890s</h2>
+<p>The machine usually credited as the first successful slot is the Liberty Bell, built by Charles Fey in San Francisco in the late 1890s (c. 1898 is the date most often given). It had three spinning reels, and the lever on its side earned it the nickname &ldquo;one-armed bandit&rdquo;. The reels carried horseshoes, diamonds, spades, hearts and a Liberty Bell, with ten positions on each reel. The top result was three bells.</p>
+<p>The number of outcomes is simple to compute. Ten positions on each of three reels gives 10 × 10 × 10 = 1,000 combinations. If each of the 1,000 is equally likely, any one named combination turns up once in 1,000 spins on average.</p>
+<p>The payout was mechanical too. Everything, from the reel stops to the coin tray, was a physical part, so the maker could not change the odds without cutting new metal.</p>
+
+<h2>Fruit and the 22-stop limit</h2>
+<p>In the early twentieth century slot makers moved to fruit symbols, and the three-reel layout became the standard. A mechanical reel can only hold so many stops. A figure widely quoted for traditional machines is 22 stops per reel, and it gives a ceiling of 22 × 22 × 22 = 10,648 combinations on three reels. That is about ten times the Liberty Bell, but it is still small. Symbols also had to be big enough to read, so the practical limit sat close to that.</p>
+
+<h2>Money Honey, 1963</h2>
+<p>The next step was electrical, not mathematical. In 1963 Bally introduced Money Honey, widely described as the first fully electromechanical slot. Its reels still turned and stopped on physical positions, but electricity drove the mechanism, and it had a hopper that paid out coins automatically. Before this, a big win meant an attendant with a bucket. The machine&rsquo;s odds were still set by its reel stops, so the 10,648 ceiling stood.</p>
+
+<h2>The first video slot, 1976</h2>
+<p>In 1976 the Fortune Coin Company in Las Vegas showed what is generally accepted as the first video slot. The reels were pictures on a modified television set. A picture has no stops to wear out, so in principle it could show any number of positions, and a computer chose the result. For the first time the symbols were no longer tied to metal. In practice the early video machine kept to the familiar three-reel pattern, because that was what players recognised.</p>
+
+<figure class="chart">
+<svg viewBox="0 0 400 250" role="img" aria-label="Timeline of four slot milestones: about 1898 the Liberty Bell with 1,000 combinations; 1963 Bally Money Honey, electromechanical with an automatic payout; 1976 the first video slot; 1984 the virtual reel patent, where a 64-stop virtual reel gives 262,144 combinations on three reels.">
+  <line x1="40" y1="30" x2="40" y2="210" stroke="var(--chart-base)" stroke-width="2"/>
+  <circle cx="40" cy="30" r="6" fill="var(--chart-base)"/>
+  <text x="60" y="26" font-size="13" font-weight="700" fill="currentColor">c. 1898 &#8211; Liberty Bell</text>
+  <text x="60" y="44" font-size="12" fill="currentColor">3 reels × 10 positions = 1,000 combinations</text>
+  <circle cx="40" cy="90" r="6" fill="var(--chart-base)"/>
+  <text x="60" y="86" font-size="13" font-weight="700" fill="currentColor">1963 &#8211; Bally Money Honey</text>
+  <text x="60" y="104" font-size="12" fill="currentColor">Electromechanical, automatic coin payout</text>
+  <circle cx="40" cy="150" r="6" fill="var(--chart-base)"/>
+  <text x="60" y="146" font-size="13" font-weight="700" fill="currentColor">1976 &#8211; Fortune Coin video slot</text>
+  <text x="60" y="164" font-size="12" fill="currentColor">Reels drawn on a screen, result chosen by computer</text>
+  <circle cx="40" cy="210" r="7" fill="var(--chart-accent)"/>
+  <text x="60" y="206" font-size="13" font-weight="700" fill="currentColor">1984 &#8211; Telnaes virtual reel patent</text>
+  <text x="60" y="224" font-size="12" fill="currentColor">64 virtual stops: 64 × 64 × 64 = 262,144 combinations</text>
+  <text x="60" y="240" font-size="11" fill="currentColor">(compare 22 × 22 × 22 = 10,648 on a mechanical reel)</text>
+</svg>
+<figcaption>Four milestones in slot history. The combination counts are worked examples: 10 positions on the Liberty Bell, 22 as the quoted mechanical limit, and a 64-stop virtual reel chosen for the arithmetic.</figcaption>
+</figure>
+
+<h2>The virtual reel, 1984</h2>
+<p>The change that mattered most for the odds was a patent. In 1984 Inge Telnaes was granted a US patent describing a <em>virtual reel</em>: the random number generator picks from a long list of virtual stops, and a table maps each virtual stop to a position that is actually shown. The physical reel, or the picture of one, stays small. The number of outcomes behind it does not.</p>
+<p>Here is a made-up example. Take a reel with 22 visible stops and one jackpot symbol. On a mechanical reel the chance of that symbol is 1 ÷ 22, about 4.5%. Now give the reel 64 virtual stops, and map just one of them to the jackpot symbol. The chance is 1 ÷ 64, or 1.56%. On three reels the jackpot line comes up with probability 1 in 64<sup>3</sup> = 1 in 262,144, instead of 1 in 22<sup>3</sup> = 1 in 10,648. That is roughly 24.6 times rarer, with the same picture on the screen.</p>
+<p>The count of stops that matters is the virtual one. <a href="slot-reel-strips-and-stops.html">reel strips and stops</a> explains the simple case, where each visible stop is one stop in the draw.</p>
+
+<div class="callout">
+  <p>Each step raised the ceiling on outcomes: 1,000 on the Liberty Bell, 10,648 on a 22-stop mechanical reel, and any number you like once the reel is a table in software.</p>
+</div>
+
+<h2>From three reels to ways to win</h2>
+<p>Once the result is chosen by software, nothing limits the layout either. Video slots moved to five reels, several rows and many paylines, and later to counting ways instead of lines. The Brasslight Slots listing describes 5 reels, 3 rows and 243 ways to win, which is 3<sup>5</sup> = 243 paths from left to right, one symbol position per reel in each. <a href="what-243-ways-to-win-means.html">What 243 ways to win means</a> covers how that count is built. The software side, a generator feeding stops, is described in <a href="rng-picks-each-slot-spin.html">how a random number generator picks each spin</a>.</p>
+
+<h2>A check you can do</h2>
+<p>Multiply the stops on each reel of any three-reel machine you read about. Ten per reel gives 1,000; 22 per reel gives 10,648; 64 gives 262,144. Then ask which of those is the visible reel and which is the draw behind it. Since 1984 they have not had to be the same number.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

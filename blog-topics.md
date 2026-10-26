@@ -163,66 +163,66 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Penalty cards: when a discard changes the right hold
 - Holding a lone deuce in Deuces Wild
 
 ### OmahaPoker
 
-- Blockers in Omaha: what holding the nut card tells you
 - Sit and Go payouts: what a 50/30/20 split means for your play
 
 ### Blackjack21
 
-- Where blackjack's house edge comes from, rule by rule
 - Five-card Charlie: a house rule and what it would be worth
 
 ### BrasslightSlots
 
-- From one-armed bandit to video slot: a short history
 - Stacked symbols: why they make wins rarer but bigger
 
 ### PokerVsDealer
 
-- Trips, boats and wheels: poker's hand nicknames explained
 - The dead man's hand: aces and eights and other named hands
 
 ### FivesAndThrees
 
-- Long suits: why holding many of one number controls the line
 - Fives and Threes with partners: the four-player game
 
 ### BlackjackCoach
 
-- Deck penetration: why a count needs cards dealt
 - Betting with the count: how a true-count bet ramp works
 
 ### HoldemCoach
 
-- Continuation bets: why the preflop raiser bets the flop
 - Minimum defence frequency: what a bet size asks you to call
 
 ### EightBallsPool
 
-- Pool and snooker: how the two games differ
 - Bridge, stance and a straight stroke: the basics of cueing
 
 ### BigBenBlocks
 
-- Tap to place: playing a block puzzle without dragging
 - Reduced motion: why some players switch animations off
 
 ### PinkSlipKings
 
-- Drag racing classes: from bracket racing to Top Fuel
 - Boost pressure: what a pound of boost adds
 
 ### ValleyRail
 
-- Why trains can't stop quickly: braking distance explained
 - Diesel or electric: how modern trains get their power
 
 ## Published
 
+- 2026-10-26 — Penalty cards: when a discard changes the right hold — VideoPoker — `video-poker-penalty-cards`
+- 2026-10-26 — Blockers in Omaha: what holding the nut card tells you — OmahaPoker — `omaha-blockers-nut-card`
+- 2026-10-26 — Where blackjack's house edge comes from, rule by rule — Blackjack21 — `blackjack-house-edge-rule-by-rule`
+- 2026-10-26 — From one-armed bandit to video slot: a short history — BrasslightSlots — `slot-history-one-armed-bandit-to-video`
+- 2026-10-26 — Trips, boats and wheels: poker's hand nicknames explained — PokerVsDealer — `poker-hand-nicknames`
+- 2026-10-26 — Long suits: why many of one number controls the line — FivesAndThrees — `fives-and-threes-long-suits`
+- 2026-10-26 — Deck penetration: why a count needs cards dealt — BlackjackCoach — `blackjack-deck-penetration`
+- 2026-10-26 — Continuation bets: why the preflop raiser bets the flop — HoldemCoach — `holdem-continuation-bets`
+- 2026-10-26 — Pool and snooker: how the two games differ — EightBallsPool — `pool-and-snooker-differences`
+- 2026-10-26 — Tap to place: playing a block puzzle without dragging — BigBenBlocks — `block-puzzle-tap-to-place`
+- 2026-10-26 — Drag racing classes: from bracket racing to Top Fuel — PinkSlipKings — `drag-racing-classes`
+- 2026-10-26 — Why trains can't stop quickly: braking distance explained — ValleyRail — `why-trains-cant-stop-quickly`
 - 2026-10-25 — Two pair in Double Bonus Poker: why it pays only even money — VideoPoker — `double-bonus-two-pair-even-money`
 - 2026-10-25 — Rundowns: why connected four-card hands play well in PLO — OmahaPoker — `omaha-rundowns`
 - 2026-10-25 — Doubling down: one card, twice the bet — Blackjack21 — `blackjack-doubling-down-one-card`

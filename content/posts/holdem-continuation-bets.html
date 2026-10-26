@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Continuation bets: why the preflop raiser bets the flop",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "HoldemCoach",
+  "description": "A continuation bet follows a preflop raise. Two unpaired cards miss the flop 67.6% of the time, and a half-pot bluff only needs b/(p+b) = 33.3% folds.",
+  "summary": "A c-bet is a flop bet by the player who raised before it. An unpaired hand pairs a hole card on the flop 32.4% of the time, and a bluff of size b into pot p breaks even when the opponent folds b/(p+b): 33.3% at half pot.",
+  "standfirst": "The player who raised before the flop usually bets when it comes down, whatever the board does to their hand. The habit rests on two short pieces of arithmetic, and both can be checked by hand."
+}
+-->
+<p>A <strong>continuation bet</strong>, or c-bet, is a bet on the flop by the player who made the last raise before it. If you opened the pot with a raise and one player called, you bet again on the flop whether or not the cards helped you. The bet "continues" the story your raise began. It is one of the most common plays in Hold'em, and it can look reckless: why bet into a board that missed your hand?</p>
+
+<h2>Most hands miss the flop</h2>
+<p>Take two unpaired hole cards, such as A♠ J♦. The deck holds 50 unseen cards, and 6 of them help: three aces and three jacks. A flop is three cards from those 50, and the number of possible flops is 50 × 49 × 48 ÷ 6 = 19,600. The flops containing none of your six helpful cards are chosen from the other 44: 44 × 43 × 42 ÷ 6 = 13,244.</p>
+<ul>
+  <li><strong>Miss completely:</strong> 13,244 ÷ 19,600 = 67.6%, a little over two flops in three.</li>
+  <li><strong>Pair at least one hole card:</strong> 1 − 0.676 = 32.4%, about one flop in three.</li>
+</ul>
+<p>That figure counts only flops that give you a pair or better using your own cards. It leaves out flush and straight draws, which add to the hands worth continuing with. Even so, an ace-jack flops a made pair or better less than a third of the time. The point to take is that the raiser's hand is usually weak by the flop, and so is the caller's.</p>
+<p>The same count applies across the table: a player who called your raise with two unpaired cards also misses two flops in three. A pocket pair is different, since it starts as a pair, but <a href="/blog/holdem-set-mining.html">the post on set mining</a> shows how rarely it improves to a set.</p>
+
+<h2>What a bluff has to achieve</h2>
+<p>So both players have mostly missed, and the one who bets first has a choice that the checker lacks: win the pot now. A bet is a trade. You risk the bet <em>b</em> to win the pot <em>p</em> that is already there. If the opponent folds you gain <em>p</em>; if they call you lose <em>b</em> (ignoring, for now, any chance of winning later). The break-even fold frequency <em>f</em> makes those equal:</p>
+<p><em>f</em> × <em>p</em> = (1 − <em>f</em>) × <em>b</em>, so <em>f</em> = <em>b</em> ÷ (<em>p</em> + <em>b</em>).</p>
+<p>Say the pot is 6 and you bet 3, half the pot. Then <em>f</em> = 3 ÷ 9 = 33.3%. Check it over three tries: the opponent folds once, and you win 6; they call twice, and you lose 3 each time. The total is 6 − 6 = 0, so the bluff breaks even. A bet of 6 into 6 needs 6 ÷ 12 = 50%.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the folds a pure bluff needs to break even, by bet size as a fraction of the pot: one third 25.0 percent, half 33.3 percent, two thirds 40.0 percent, three quarters 42.9 percent, full pot 50.0 percent">
+    <div class="bar-row" title="Third pot: (1/3) / (1 + 1/3) = 25.0%"><span class="bar-label">Third pot</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.250)"></span><span class="bar-val">25.0%</span></span></div>
+    <div class="bar-row hl" title="Half pot: 0.5 / 1.5 = 33.3%"><span class="bar-label">Half pot</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.333)"></span><span class="bar-val">33.3%</span></span></div>
+    <div class="bar-row" title="Two-thirds pot: (2/3) / (1 + 2/3) = 40.0%"><span class="bar-label">Two-thirds pot</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.400)"></span><span class="bar-val">40.0%</span></span></div>
+    <div class="bar-row" title="Three-quarters pot: 0.75 / 1.75 = 42.9%"><span class="bar-label">Three-quarters pot</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.429)"></span><span class="bar-val">42.9%</span></span></div>
+    <div class="bar-row" title="Pot: 1 / 2 = 50.0%"><span class="bar-label">Full pot</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.500)"></span><span class="bar-val">50.0%</span></span></div>
+  </div>
+  <figcaption>Folds a pure bluff needs to break even, in percent, by bet size as a fraction of the pot (b ÷ (p + b)). A smaller bet asks for fewer folds, which is why continuation bets are often small.</figcaption>
+</figure>
+
+<h2>Why a small bet is enough</h2>
+<p>Put the two results together. Your opponent holds, most of the time, a hand that has missed. A third-pot bet needs only 25% folds, and a half-pot bet 33.3%. Against a player who folds a missed hand more often than that, the bet shows a profit before your own cards are counted at all.</p>
+<p>Your cards still count. When you are called you may hold an overcard, a draw or a pair, and each is a chance to win later. The bluff figure is a floor: the real requirement is lower than the table shows, and it falls further when you hit.</p>
+<p>The price runs both ways. The opponent calling a half-pot bet is paying the price in <a href="/blog/holdem-pot-odds.html">the post on pot odds</a>: 3 to win 9, so 3 ÷ 12 = 25% equity. Hands with a decent pair or a strong draw can often call. Hands with no pair, no draw and no overcard are the ones that give up, and those are the hands a c-bet is aimed at.</p>
+
+<h2>Why the raiser is the one who bets</h2>
+<p>Raising before the flop is a claim about your hand, and a flop bet repeats it. The caller has made no such claim, so when they check they give the raiser the first chance to act on a board that probably missed both. Position adds to it: the player who acts last on each street sees what the other does first, a point developed in <a href="/blog/holdem-why-position-matters.html">the post on why position matters</a>.</p>
+
+<h2>When to skip the bet</h2>
+<p>The arithmetic is a floor under a bet, not a command to make it. Three habits keep it honest:</p>
+<ol class="ranked">
+  <li><strong>Count the opponents.</strong> The fold target must be met by every player. With two callers, both have to fold, and the chance that neither connected drops quickly.</li>
+  <li><strong>Read the board.</strong> A flop of 9♥ 8♥ 7♠ connects with the hands a caller holds, such as suited connectors and middle pairs. A dry flop of K♣ 7♦ 2♠ connects with few of them. Fold frequency is higher on the second.</li>
+  <li><strong>Know what you do when raised.</strong> A bluff that is raised loses its bet and gains nothing, so a c-bet with a hand that has no outs is a bet you are prepared to abandon.</li>
+</ol>
+
+<div class="callout">
+  <p>The rule in one line: a hand misses the flop about two times in three, so a bet of <em>b</em> into pot <em>p</em> only has to win folds <em>b</em> ÷ (<em>p</em> + <em>b</em>) of the time, and a smaller bet needs fewer.</p>
+</div>
+
+<p>The "Which hands to play" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> covers the raise that gives you the initiative, and its "Is it worth calling?" lesson works out the price you are offered when you are the one facing a bet. For the same arithmetic one street earlier, see <a href="/blog/holdem-three-bet-or-call.html">the 3-bet post</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> is free to use with ads, and nothing in its lessons is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

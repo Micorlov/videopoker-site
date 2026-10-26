@@ -1,0 +1,81 @@
+<!--
+{
+  "title": "Penalty cards: when a discard changes the right hold",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "app": "VideoPoker",
+  "description": "On 9/6 Jacks or Better, suited J-T beats K-J (0.497 to 0.486) until a spade sits among the discards. Then K-J wins, 0.486 to 0.480. Counted draw by draw.",
+  "summary": "A penalty card is a discard that removes outs from a hold. From J-T-K, one discarded spade drops suited J-T from 0.497 to 0.480 and K-J becomes the right hold.",
+  "standfirst": "Two hands can share the same best cards and still want different holds. The difference is a card you throw away: it cannot hurt a hold you did not make, but it can quietly cost the one you did."
+}
+-->
+<p>You are dealt J&#9824; T&#9824; K&#9829; and two low cards. The choice is the suited jack and ten, or the king with the jack. Which is right depends on the two low cards, even though neither will be kept. Video poker players call a discard that removes outs from a hold a <em>penalty card</em>. This post counts one example in full under the 9/6 Jacks or Better paytable.</p>
+
+<p>The paytable, per coin bet: royal flush 800, straight flush 50, four of a kind 25, full house 9, flush 6, straight 4, three of a kind 3, two pair 2, jacks or better 1. Expected value (EV) means coins returned per coin bet. With five cards seen, 47 are unseen, and holding two cards means drawing three: 47 &times; 46 &times; 45 / 6 = 16,215 possible draws.</p>
+
+<h2>The same two holds, three sets of discards</h2>
+<p>Take J&#9824; T&#9824; K&#9829; and compare two holds: the suited J-T, or the offsuit K&#9829; J&#9824;. Only the other two cards change.</p>
+<ul>
+  <li>Discards 4&#9827; 7&#9830;: suited J-T is worth 8,056 / 16,215 = <strong>0.497</strong>; K-J is worth 7,883 / 16,215 = <strong>0.486</strong>.</li>
+  <li>Discards 4&#9824; 7&#9830;: suited J-T falls to 7,786 / 16,215 = <strong>0.480</strong>; K-J is still <strong>0.486</strong>.</li>
+</ul>
+<p>The first hand holds J-T. The second holds K-J. The cards you keep are identical, and one of the discards changed from a club to a spade. I checked every other hold in both hands (single cards, three cards, discarding all five); none of them comes close, and the best of the rest, the king alone, is worth 0.461.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected coins per coin bet from J-T-K with low discards on 9/6 Jacks or Better: suited J-T with no spade discarded 0.497, K-J 0.486, suited J-T with a spade discarded 0.480">
+    <div class="bar-row" title="Suited J-T, 4 of clubs and 7 of diamonds discarded: 0.497"><span class="bar-label">J-T, no spade out</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">0.497</span></span></div>
+    <div class="bar-row" title="K-J offsuit, either set of discards: 0.486"><span class="bar-label">K-J offsuit</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9786)"></span><span class="bar-val">0.486</span></span></div>
+    <div class="bar-row hl" title="Suited J-T, 4 of spades and 7 of diamonds discarded: 0.480"><span class="bar-label">J-T, spade out</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.9666)"></span><span class="bar-val">0.480</span></span></div>
+  </div>
+  <figcaption>Expected coins returned per coin bet from J&#9824; T&#9824; K&#9829; plus two low cards on 9/6 Jacks or Better. One discarded spade moves suited J-T from first to last. Bars start at zero.</figcaption>
+</figure>
+
+<h2>Where the 270 coins go</h2>
+<p>Here is how many of the 16,215 draws finish as each hand:</p>
+
+<table class="paytable-compare">
+  <caption>Final hands from 16,215 three-card draws, J&#9824; T&#9824; K&#9829; plus two low cards.</caption>
+  <thead>
+    <tr><th>Final hand</th><th>Pays</th><th>J-T, 4&#9827; 7&#9830; out</th><th>J-T, 4&#9824; 7&#9830; out</th><th>K-J</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>800</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>3</td><td>3</td><td>0</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>2</td><td>2</td><td>2</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>18</td><td>18</td><td>18</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td class="good">161</td><td>116</td><td>0</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>204</td><td>204</td><td>96</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>281</td><td>281</td><td>281</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>711</td><td>711</td><td>711</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>2,847</td><td>2,847</td><td>5,022</td></tr>
+    <tr><th scope="row">Nothing</th><td>0</td><td>11,987</td><td>12,032</td><td>10,085</td></tr>
+    <tr><th scope="row">Coins returned</th><td></td><td>8,056</td><td>7,786</td><td>7,883</td></tr>
+  </tbody>
+</table>
+
+<p>Only one row differs between the two J-T columns: flushes. With J and T of spades in your hand, eleven spades are unseen, and any three of them give a flush or better: 11 &times; 10 &times; 9 / 6 = 165 draws. That is 1 royal, 3 straight flushes (7-8-9, 8-9-Q and 9-Q-K of spades) and 161 plain flushes. Throw away a spade and ten remain: 10 &times; 9 &times; 8 / 6 = 120 draws, so 45 flush draws vanish. Each paid 6, and 45 &times; 6 = <strong>270 coins</strong>. That is the whole gap between 8,056 and 7,786, and 270 / 16,215 is 0.0167 per coin bet.</p>
+<p>The K-J column does not move at all. Its draws never use spades, so the 4&#9824; is just another dead card. That is how penalty cards work: they cost the hold whose outs they sit on and nothing else.</p>
+
+<h2>Reading the margin</h2>
+<p>The clean hand favours J-T by 173 coins (8,056 against 7,883). The spade takes 270 away, which is more than the lead, so the order flips by 97 coins the other way. A margin that thin is why this is a penalty-card hand rather than a plain rule. Change the king for an ace and suited J-T starts at 0.501 against 0.474 for A-J; with the same spade discarded it is still 0.484 against 0.474, and J-T stays correct. The size of the lead decides whether a given penalty is enough.</p>
+
+<h2>A straight penalty is smaller</h2>
+<p>Keep the same hand but discard 9&#9830; and 4&#9827;. J-T can make a straight with 7-8-9, 8-9-Q, 9-Q-K or Q-K-A, and the nine is in three of those four. With one nine gone, J-T's straight draws fall from 204 to 176, a loss of 28 &times; 4 = 112 coins, and its EV from 0.497 to 0.490. K-J loses some straights too, 96 down to 84, and falls to 0.483. J-T is still correct here, 0.490 to 0.483. The straight penalty cost 112 coins against 270 for the flush penalty: 28 lost draws paying 4, against 45 lost draws paying 6.</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>When two holds are close, count what you are discarding. The cards you keep do not decide it alone.</li>
+  <li>A discard that shares a suit with your suited hold removes flush outs: 165 draws become 120 for a two-card suited hold, 45 fewer paying draws.</li>
+  <li>A discard that completes straights removes some straight outs. It costs less than a suited penalty on the same hand.</li>
+  <li>Penalty cards matter only near a tie. With the ace instead of the king, one spade among the discards was not enough to change the hold.</li>
+</ol>
+<p>All of this is for 9/6 Jacks or Better. A different flush or straight row changes the price of a penalty, so check the paytable first. The <a href="/blog/jacks-or-better-suited-high-cards.html">post on suited high cards</a> covers the same kind of choice without discards, the <a href="/blog/jacks-or-better-strategy.html">strategy list</a> gives the general ordering, and the <a href="/blog/four-to-a-royal-breaking-a-flush-or-straight.html">four to a royal post</a> shows larger holds where the same arithmetic applies.</p>
+
+<div class="callout">
+  <p>In the app, turn on strategy hints and deal until you get a suited jack and ten with a king. Before you look at the hint, check whether a low spade is among the discards and work out which hold it points to.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays Jacks or Better, Deuces Wild, Bonus Poker and Double Bonus offline, shows a full paytable on screen for every variant, and has strategy hints you can turn on to see which cards to hold. It is a free practice game with no real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
