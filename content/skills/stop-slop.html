@@ -1,0 +1,41 @@
+<!--
+{
+  "title": "Stop Slop — a skill that removes AI tells from writing",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "description": "Stop Slop is a free skill that teaches Claude and other AI models to cut the phrases, structures and rhythms that make writing sound machine-made.",
+  "summary": "A small, free skill that teaches your AI to spot and remove the phrases, structures and rhythms that make text sound machine-written.",
+  "standfirst": "You can often tell AI text within one sentence: the same openers, the same dramatic contrasts, the same rhythm. Stop Slop is a short set of rules that teaches the model to catch these patterns and write plainly instead."
+}
+-->
+<p><a class="text-link" href="https://github.com/hardikpandya/stop-slop">See Stop Slop on GitHub</a></p>
+<p>Stop Slop is a skill for removing AI tells from prose, written by Hardik Pandya. It works with Claude and, as the README says, with any language model: you can load it as a skill, add it to a project or paste its rules into a system prompt.</p>
+<p>It is free under the MIT license. On 26 October 2026 the repository had about 18,000 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/stop-slop.svg" alt="A paragraph of text with some phrases crossed out, and a score bar below it." width="640" height="360">
+  <figcaption>Cut the tells, then score the result.</figcaption>
+</figure>
+
+<h2>What it catches</h2>
+<ul>
+  <li>Filler phrases: throat-clearing openers, emphasis crutches, business jargon, vague statements and all adverbs.</li>
+  <li>Stock structures: contrasts like “not X, it’s Y”, dramatic fragments, rhetorical setups and a narrator who watches from a distance.</li>
+  <li>Sentence habits: em dashes, sentences that start with a question word, passive voice and lazy extremes like “always” and “never”.</li>
+</ul>
+
+<h2>The rules it follows</h2>
+<p>The core of the skill is eight rules. Among them: use active voice with a real person doing something, name the specific thing instead of making a vague claim, vary the length of sentences, and trust the reader instead of explaining everything twice. It also rewrites any line that sounds like a ready-made quote.</p>
+
+<h2>How it checks the result</h2>
+<p>After writing, the model rates the text from 1 to 10 on five points: directness, rhythm, trust in the reader, authenticity and density. If the total is below 35 out of 50, it revises the text.</p>
+<p>The repository also has reference files with the phrases and structures to avoid, plus before-and-after examples. They load only when they are needed.</p>
+
+<h2>What to know first</h2>
+<p>It is a writing skill, not a coding tool, and it is small: one instruction file and three reference files. Its rules are strict on purpose, with no adverbs and no em dashes at all. The files are plain text, so you can edit any rule that does not fit your own style.</p>
+
+<h2>How to install it</h2>
+<p>In Claude Code, add the folder as a skill, for example by cloning it into your skills folder:</p>
+<pre><code>git clone https://github.com/hardikpandya/stop-slop.git ~/.claude/skills/stop-slop</code></pre>
+<p>In Claude Projects, upload the instruction file and the reference files to the project knowledge. With other models, put the instruction file in the system prompt.</p>
+<p><a class="text-link" href="https://github.com/hardikpandya/stop-slop">See Stop Slop on GitHub</a></p>
