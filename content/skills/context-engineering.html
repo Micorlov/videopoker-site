@@ -1,0 +1,41 @@
+<!--
+{
+  "title": "Context Engineering — skills for building better AI agents",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "description": "Agent Skills for Context Engineering is a free set of 18 skills on managing an AI agent’s context window, memory, tools and evaluation.",
+  "summary": "A free set of 18 skills that teaches your coding agent how to manage context, memory, tools and evaluation when you build AI agents.",
+  "standfirst": "An AI model can only pay attention to so much at once, and long sessions make it worse. This collection teaches your coding agent the discipline of context engineering: what to put in front of the model, what to leave out and how to check that an agent still works."
+}
+-->
+<p><a class="text-link" href="https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering">See Agent Skills for Context Engineering on GitHub</a></p>
+<p>Agent Skills for Context Engineering is an open collection of skills by Muratcan Koylan. It is meant for people who build AI agents, and the skills work with Claude Code, Cursor, Codex and other platforms that support skills.</p>
+<p>It is free under the MIT license. On 26 October 2026 the repository had 18 skills and about 18,000 stars on GitHub, and it is cited in academic papers, including a survey on agent harness engineering by researchers from CMU, Yale, other universities and Amazon.</p>
+
+<figure class="chart">
+  <img src="/img/skills/context-engineering.svg" alt="A context window drawn as a box, with a few bright blocks inside and many grey blocks left outside." width="640" height="360">
+  <figcaption>Keep the few tokens that matter.</figcaption>
+</figure>
+
+<h2>What context engineering means</h2>
+<p>Prompt engineering is about writing good instructions. Context engineering covers everything the model reads: the system prompt, tool definitions, documents it looks up, the message history and tool output. As that grows, models get worse in predictable ways, for example they lose track of what sits in the middle. The goal is the smallest set of useful tokens that gets the job done.</p>
+
+<h2>What the skills cover</h2>
+<ul>
+  <li>Basics: what context is, how it fails and how to compress long sessions.</li>
+  <li>Architecture: multi-agent patterns, memory systems, tool design and files as extra memory.</li>
+  <li>Operations: compaction, masking and caching, plus evaluation and LLM-as-a-judge methods.</li>
+  <li>Long-running agents: task briefs for agents that work alone for a long time, harness design and self-improvement loops.</li>
+  <li>Project development: whether a language model fits the task at all, and how to plan pipelines and costs.</li>
+</ul>
+<p>The skills load in stages. At first the agent sees only their names and short descriptions, and the full text loads only when a task needs it.</p>
+
+<h2>What to know first</h2>
+<p>This is knowledge for building agents, not a switch that makes Claude use fewer tokens in your own chats. Its optimization skills are about token efficiency in the agent systems you design. Many of its scripts are Python pseudocode, written to explain ideas rather than to run as a finished product.</p>
+
+<h2>How to install it</h2>
+<p>In Claude Code:</p>
+<pre><code>/plugin marketplace add muratcankoylan/Agent-Skills-for-Context-Engineering
+/plugin install context-engineering@context-engineering-marketplace</code></pre>
+<p>In Cursor, Codex and other tools, copy the skill folders you want into that tool’s skills folder, for example .cursor/skills. Keep each skill as a folder, not a single file.</p>
+<p><a class="text-link" href="https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering">See Agent Skills for Context Engineering on GitHub</a></p>
