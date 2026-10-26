@@ -1,0 +1,44 @@
+<!--
+{
+  "title": "Marketing Skills — a marketing playbook for your agent",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "description": "Marketing Skills is a free set of 52 skills that helps Claude Code, Codex, Cursor and other agents with copy, SEO, ads, email and conversion.",
+  "summary": "A free library of 52 marketing skills that teaches your AI coding agent copywriting, SEO, ads, email, pricing and conversion work.",
+  "standfirst": "Most AI agents can write marketing copy, but they write it without knowing your product or your customers. Marketing Skills gives the agent one shared brief about your product and 52 focused playbooks, from landing pages to cold email, so every task starts from what you actually sell."
+}
+-->
+<p><a class="text-link" href="https://github.com/coreyhaines31/marketingskills">See Marketing Skills on GitHub</a></p>
+<p>Marketing Skills is a collection of skills for AI coding agents, built by Corey Haines. Each skill is a markdown file with a workflow and best practices for one marketing task. When you work on that task, the agent recognizes it and follows the right playbook.</p>
+<p>It is free and open source under the MIT license, and it works with Claude Code, OpenAI Codex, Cursor, Windsurf and any agent that supports the Agent Skills format. On 26 October 2026 the repository had 52 skills and about 56,000 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/marketing-skills.svg" alt="One product brief in the middle, joined by lines to boxes for SEO, conversion, copy, ads and email." width="640" height="360">
+  <figcaption>Every skill reads the same product brief first.</figcaption>
+</figure>
+
+<h2>How it works</h2>
+<p>One skill is the foundation. The product marketing skill writes a short context document about your product, your audience and your positioning. Every other skill checks that document first, so you do not have to explain your product again for each task.</p>
+<p>The skills also point to each other. Copywriting, conversion and A/B testing work together, and so do the SEO audit, schema markup and AI search skills.</p>
+
+<h2>What it covers</h2>
+<ul>
+  <li>SEO and content: SEO audits, site structure, pages at scale, schema markup, app store listings and getting cited by AI search engines.</li>
+  <li>Conversion: landing pages, sign-up flows, onboarding, popups and paywalls.</li>
+  <li>Copy: writing and editing copy, cold email, email sequences, social posts, video and images.</li>
+  <li>Paid ads and measurement: ad campaigns, ad creative, A/B tests, analytics and attribution.</li>
+  <li>Growth and retention: referral programs, free tools, lead magnets, churn prevention and community.</li>
+  <li>Sales and strategy: pricing, launches, competitor pages, sales materials, marketing ideas and marketing psychology.</li>
+</ul>
+
+<h2>What to know first</h2>
+<p>The skills give your agent knowledge and workflows, not access to your accounts. To let it read your analytics or ad data, you connect those tools separately, and the project has a guide for that. The README also lists paid partner tools, and it says partners never influence what the core skills recommend.</p>
+
+<h2>How to install it</h2>
+<p>The quickest way is the skills command line tool:</p>
+<pre><code>npx skills add coreyhaines31/marketingskills</code></pre>
+<p>In Claude Code you can also install it as a plugin:</p>
+<pre><code>/plugin marketplace add coreyhaines31/marketingskills
+/plugin install marketing-skills</code></pre>
+<p>Then ask for the work in plain words, for example: “Audit the conversion of my pricing page.”</p>
+<p><a class="text-link" href="https://github.com/coreyhaines31/marketingskills">See Marketing Skills on GitHub</a></p>
