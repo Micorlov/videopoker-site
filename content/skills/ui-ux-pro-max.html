@@ -1,0 +1,44 @@
+<!--
+{
+  "title": "UI UX Pro Max — design rules for your AI coding agent",
+  "date": "2026-10-26",
+  "modified": "2026-10-26",
+  "description": "UI UX Pro Max is a free skill that gives Claude Code, Cursor, Codex and other agents a design system generator with styles, colors and fonts.",
+  "summary": "A free design skill that picks a style, colors, fonts and a layout for your kind of product before your AI agent writes the interface.",
+  "standfirst": "Ask an AI agent for a landing page and it often reaches for the same look every time. UI UX Pro Max gives the agent a searchable design library and design rules for each kind of product, so it first decides what the product should look like and only then writes the code."
+}
+-->
+<p><a class="text-link" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">See UI UX Pro Max on GitHub</a></p>
+<p>UI UX Pro Max is a skill that adds design knowledge to AI coding agents. Its README lists more than 20 supported agents, among them Claude Code, Cursor, Windsurf, Codex CLI, Gemini CLI and GitHub Copilot.</p>
+<p>The basic version in the repository is free and open source under the MIT license. On 26 October 2026 it had about 140,000 stars on GitHub. There is also a paid premium version with brand, logo and slide design.</p>
+
+<figure class="chart">
+  <img src="/img/skills/ui-ux-pro-max.svg" alt="A design system card with a color palette, two font samples and a stack of page sections." width="640" height="360">
+  <figcaption>Style, colors, fonts and layout, decided before the code.</figcaption>
+</figure>
+
+<h2>How it works</h2>
+<p>When you ask for interface work, the skill turns on by itself. It runs five searches at once over its data: the product type, the visual style, the color palette, the landing page pattern and the font pairing. A reasoning step then applies the rules for your kind of product and puts together a full design system.</p>
+<p>That design system names a page structure, a style, exact colors, fonts, effects, things to avoid and a checklist to run before delivery. For a bank, for example, it warns against purple and pink AI gradients. Only then does the agent write the code.</p>
+
+<h2>What is inside</h2>
+<ul>
+  <li>79 UI styles you can search, 50 of them active by default, such as glassmorphism, minimalism, brutalism, bento grids and dark mode.</li>
+  <li>192 product types, each with its own color palette and design rules.</li>
+  <li>74 font pairings with Google Fonts imports, and 34 landing page patterns.</li>
+  <li>119 UX guidelines, including accessibility rules and text that reflows without clipping.</li>
+  <li>Guidance for 22 tech stacks, from React, Next.js and Vue to SwiftUI, Flutter and Jetpack Compose. If you name no stack, it uses HTML with Tailwind.</li>
+</ul>
+
+<h2>What to know first</h2>
+<p>The search script needs Python 3. It uses only the standard library and makes no network calls. The skill gives design guidance and does not rewrite an existing app on its own, but you can ask the agent to apply a new style to your app one component at a time.</p>
+
+<h2>How to install it</h2>
+<p>In Claude Code:</p>
+<pre><code>/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@ui-ux-pro-max-skill</code></pre>
+<p>For other agents, use the command line tool:</p>
+<pre><code>npm install -g ui-ux-pro-max-cli
+uipro init --ai cursor</code></pre>
+<p>Replace cursor with your agent, for example claude, codex or gemini. Then ask in plain words: “Build a landing page for my SaaS product.”</p>
+<p><a class="text-link" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">See UI UX Pro Max on GitHub</a></p>
