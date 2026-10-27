@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Sit and Go payouts: what a 50/30/20 split means for your play",
+  "seo_title": "Sit and Go payouts: what 50/30/20 means for play",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "OmahaPoker",
+  "description": "In a 50/30/20 Sit and Go, chips are not prize share. With stacks of 5,000, 3,000 and 2,000 the chip leader's equity is 38.4% of the prize pool, not 50%.",
+  "summary": "A worked Malmuth-Harville calculation for a three-player 50/30/20 finish. Stacks of 5,000, 3,000 and 2,000 give prize equities of 38.39%, 32.75% and 28.86%, and a fair coin-flip all-in costs both players who take it.",
+  "standfirst": "A Sit and Go pays the top three places, so a chip is worth less to the leader than to the short stack. Working through three stacks shows by how much, and what that does to all-in decisions."
+}
+-->
+<p>The <a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> listing says its Bronze, Silver and Gold Sit and Go events have rising blind levels and that the top three finishers are paid 50/30/20. That is a common tournament structure, and it changes the right play in a way cash-game habits miss. In a cash game a chip is a chip. In a tournament that pays places, your chips only matter for what finishing position they buy. This post works the numbers for a three-player finish so the effect is something you can check.</p>
+<p>The listing describes everything as free play-money points with no cash value. The maths below is general tournament theory, not a description of the app's internals.</p>
+
+<h2>What 50/30/20 means</h2>
+<p>The prize pool is split in fixed shares by finishing place: 50% for first, 30% for second and 20% for third. Fourth place and below get nothing. Holding the most chips does not enlarge a share; it only improves your chance at the bigger places. Your stack's worth in prize share is called its equity.</p>
+
+<h2>The Malmuth&ndash;Harville method</h2>
+<p>The standard way to estimate equity from stacks is the Malmuth&ndash;Harville model, usually called ICM (independent chip model). It makes one assumption: the chance a player finishes first equals their share of all the chips. Then, with that player removed, the chance that someone finishes second is again each remaining player's share of the remaining chips, and so on down the places.</p>
+<p>Take three players left, with 10,000 chips between them and 100 units of prize pool (so 50, 30 and 20 units for the places):</p>
+<ul>
+  <li>A has 5,000, B has 3,000, C has 2,000.</li>
+  <li>Chance of winning: A 0.50, B 0.30, C 0.20.</li>
+  <li>Given A won, chance C is second: 2,000 &divide; 5,000 = 0.40; B: 3,000 &divide; 5,000 = 0.60.</li>
+</ul>
+<p>Doing this for all six possible finishing orders and weighting each by its probability gives the equities:</p>
+
+<table class="paytable-compare">
+  <caption>Three players, 100-unit pool paid 50/30/20, Malmuth&ndash;Harville equities (computed for all six finishing orders).</caption>
+  <thead>
+    <tr><th>Player</th><th>Chips</th><th>Chip share</th><th>Prize equity</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A</th><td>5,000</td><td>50.0%</td><td>38.39</td></tr>
+    <tr><th scope="row">B</th><td>3,000</td><td>30.0%</td><td>32.75</td></tr>
+    <tr><th scope="row">C</th><td>2,000</td><td>20.0%</td><td>28.86</td></tr>
+  </tbody>
+</table>
+
+<p>The three equities add to 100, as they must. The chip leader holds half the chips but only 38.39% of the prize share. The short stack holds a fifth of the chips and is worth 28.86%. The payout ladder explains it: the player who busts first of these three still collects the 20 for third, so the floor is high and the ceiling is capped.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart comparing chip share with prize equity for three players: A 50.0 chip share and 38.39 equity, B 30.0 and 32.75, C 20.0 and 28.86">
+    <div class="bar-row" title="A chip share: 50.0%"><span class="bar-label">A chips</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">50.0</span></span></div>
+    <div class="bar-row hl" title="A prize equity: 38.39"><span class="bar-label">A equity</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7678)"></span><span class="bar-val">38.39</span></span></div>
+    <div class="bar-row" title="B chip share: 30.0%"><span class="bar-label">B chips</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">30.0</span></span></div>
+    <div class="bar-row hl" title="B prize equity: 32.75"><span class="bar-label">B equity</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6550)"></span><span class="bar-val">32.75</span></span></div>
+    <div class="bar-row" title="C chip share: 20.0%"><span class="bar-label">C chips</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">20.0</span></span></div>
+    <div class="bar-row hl" title="C prize equity: 28.86"><span class="bar-label">C equity</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5772)"></span><span class="bar-val">28.86</span></span></div>
+  </div>
+  <figcaption>Chip share against prize equity out of 100 units, stacks of 5,000, 3,000 and 2,000. The highlighted equity bars sit closer together than the chip bars: 38.39 to 28.86 is a gap of 9.53 units, against 30.0 for the chips.</figcaption>
+</figure>
+
+<h2>A fair coin-flip costs both players</h2>
+<p>Now let B (3,000) and C (2,000) go all-in against each other for 2,000 each, with an exact 50% chance either way. In chips this is a fair bet. In equity it is not.</p>
+<ul>
+  <li><strong>C wins:</strong> stacks become A 5,000, B 1,000, C 4,000. Equities are 38.89, 24.67 and 36.44.</li>
+  <li><strong>C loses:</strong> C is out in third and takes the 20. A and B each have 5,000 and are worth 40 apiece.</li>
+</ul>
+<p>Average the two outcomes. C: 0.5 &times; 36.44 + 0.5 &times; 20 = 28.22, against 28.86 before the flip, a loss of 0.64. B: 0.5 &times; 24.67 + 0.5 &times; 40 = 32.33, against 32.75, a loss of 0.42. The player who gains is A, who did nothing: 0.5 &times; 38.89 + 0.5 &times; 40 = 39.44, up from 38.39.</p>
+<p>Winning the flip lifts a player less than losing it drops them. To take such a risk you need better than 50%; how much better depends on the stacks and payouts.</p>
+
+<h2>Why the leader is worth less per chip</h2>
+<p>With stacks of 6,000, 2,000 and 2,000 the equities are 41.0, 29.5 and 29.5: the leader owns 60% of the chips but 41.0% of the prize share. With a flatter 4,000, 3,000 and 3,000 the leader is worth 35.43 and the others 32.29 each. Level stacks give level equities.</p>
+
+<h2>What this means in Pot-Limit Omaha</h2>
+<p>Omaha makes the effect matter more often. With four hole cards, hands run closer in equity before the flop than in Hold'em; <a href="/blog/omaha-aces-weaker-than-holdem.html">aces are weaker than in Hold'em</a> for the same reason. A pre-flop all-in in PLO is therefore more often something near a flip than a clear favourite against an underdog. Pot-sized bets, covered in <a href="/blog/pot-limit-omaha-pot-sized-bet.html">the pot-sized bet post</a>, can also commit a stack within a street or two. A close all-in is exactly where the flip above says you lose a little by taking a fair chance.</p>
+<p>Three habits follow from the numbers:</p>
+<ol class="ranked">
+  <li><strong>Decline even-money all-ins when you can.</strong> A fair chip bet costs prize equity, as the flip showed.</li>
+  <li><strong>Be wary in the middle.</strong> With a short stack likely to bust soon, waiting is worth more than in a cash game.</li>
+  <li><strong>Ask for more than 50%.</strong> Risking a stack that still pays should need a clear edge in hand equity.</li>
+</ol>
+
+<h2>What the model leaves out</h2>
+<p>ICM assumes a player's finishing chance depends on chips alone. It ignores skill differences, position and the blinds, and it also tends to undervalue a big stack's power to push others around. Treat 38.39 as a baseline, not a prediction. Rising blinds, which the listing mentions, bring all-in decisions sooner. The listing does not say the app shows equities or applies ICM.</p>
+
+<h2>Checking it yourself</h2>
+<p>The method needs only stacks and payouts. Find each player's chance of each place from chip shares of those still in, multiply by the prize and add up. Try the example on paper and confirm the equities add to the pool.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo and 5-Card Omaha against computer opponents, offline, including Bronze, Silver and Gold Sit and Go events. The chips and points are free play-money points, with no cash value and no real money. The listing says there are no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

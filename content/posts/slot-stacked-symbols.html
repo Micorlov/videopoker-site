@@ -1,0 +1,78 @@
+<!--
+{
+  "title": "Stacked symbols: why they make wins rarer but bigger",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "BrasslightSlots",
+  "description": "Stacking a symbol on a reel strip cuts how often it shows but fills more rows when it does. On an invented 30-stop strip, 60% of windows fall to 26.7%.",
+  "summary": "On an invented 30-stop strip with a symbol on 6 stops, spreading it out shows it in 18 of 30 windows, always on one row. Stacking it shows it in 8 of 30, and 4 of those fill all three rows. The average rows filled is 0.6 either way.",
+  "standfirst": "Stacking changes how a symbol's appearances are grouped on the strip, not how many there are. That one change moves the odds from frequent and small to rare and large."
+}
+-->
+<p>A stacked symbol is one that sits in several neighbouring places on a reel strip, so when it lands it can fill two or three rows at once. This post compares the same symbol, with the same number of stops, spread out and stacked. The strip is invented for the arithmetic. It is not a strip from <a href="/BrasslightSlots/">Brasslight Slots</a> or any real game, and the Play listing for that app does not say whether it uses stacked symbols, so this post makes no claim either way.</p>
+
+<h2>The set-up</h2>
+<p>Take a looped strip of 30 stops and one symbol, a crown, that appears on 6 of them. As in <a href="/blog/slot-reel-strips-and-stops.html">the post on reel strips and stops</a>, the game picks one stop at random, every stop equally likely, and the 3-row window shows that stop and the two beside it. That gives 30 equally likely windows. The two layouts are:</p>
+<ul>
+<li><strong>Spread:</strong> crowns on stops 0, 5, 10, 15, 20 and 25, one in every five.</li>
+<li><strong>Stacked:</strong> crowns on stops 0 to 5, six in a row, with the other 24 stops holding other symbols.</li>
+</ul>
+<p>The crown is 6 &divide; 30 = 20% of the strip in both cases. Only the arrangement differs.</p>
+
+<h2>Counting the windows</h2>
+<p>For each of the 30 windows, count how many of its three rows hold a crown.</p>
+<p>In the spread strip, the crowns are 5 stops apart and a window is only 3 wide, so a window can never hold two. Each crown is visible in 3 windows, and 6 &times; 3 = 18 windows show a crown. The other 12 show none.</p>
+<p>In the stacked strip, name each window by its top stop. Tops at stops 0, 1, 2 and 3 hold three crowns: 4 windows. Tops at 29 and 4 hold two (stops 29, 0, 1 and stops 4, 5, 6). Tops at 28 and 5 hold one. That is 8 windows with a crown and 22 with none.</p>
+
+<table class="paytable-compare">
+  <caption>Illustration only: windows out of 30 by number of rows holding a crown, on invented strips.</caption>
+  <thead>
+    <tr><th>Rows holding a crown</th><th>Spread</th><th>Stacked</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">0</th><td>12 (40.0%)</td><td>22 (73.3%)</td></tr>
+    <tr><th scope="row">1</th><td>18 (60.0%)</td><td>2 (6.7%)</td></tr>
+    <tr><th scope="row">2</th><td>0</td><td>2 (6.7%)</td></tr>
+    <tr><th scope="row">3</th><td>0</td><td>4 (13.3%)</td></tr>
+    <tr><th scope="row">Total</th><td>30</td><td>30</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of each number of crown rows on the stacked strip: none 73.3%, one 6.7%, two 6.7%, three 13.3%">
+    <div class="bar-row" title="No crown: 22 of 30 windows, 73.3%"><span class="bar-label">No crown</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">73.3%</span></span></div>
+    <div class="bar-row" title="One row: 2 of 30 windows, 6.7%"><span class="bar-label">One row</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0909)"></span><span class="bar-val">6.7%</span></span></div>
+    <div class="bar-row" title="Two rows: 2 of 30 windows, 6.7%"><span class="bar-label">Two rows</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0909)"></span><span class="bar-val">6.7%</span></span></div>
+    <div class="bar-row hl" title="Three rows: 4 of 30 windows, 13.3%"><span class="bar-label">Three rows</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.1818)"></span><span class="bar-val">13.3%</span></span></div>
+  </div>
+  <figcaption>Stacked strip: how many rows of one reel hold a crown, out of 30 equally likely windows. The crown is absent from 22 and fills all three rows in 4. On the spread strip it is never more than one row, and appears in 18 windows (60%). Invented strips, not from any real game.</figcaption>
+</figure>
+
+<h2>Rarer, but not smaller on average</h2>
+<p>The spread crown shows up in 60% of windows; the stacked crown in 8 &divide; 30 = 26.7%. That is the "rarer" half. The "bigger" half is that when the stacked crown does show, it fills all three rows in 4 of those 8 cases, half of the time.</p>
+<p>Now the average number of crown rows per reel. Spread: 18 windows with one row gives 18 crown rows in total. Stacked: (2 &times; 1) + (2 &times; 2) + (4 &times; 3) = 2 + 4 + 12 = 18 crown rows. Both come to 18 &divide; 30 = 0.6 rows per reel. This is no accident. Every crown is visible in exactly three windows, however the crowns are arranged, so the total is always 6 &times; 3 = 18. Stacking moves the same total into fewer windows.</p>
+
+<h2>What happens across reels</h2>
+<p>Suppose every reel uses the same strip and a payout needs the crown on the first three reels. The reels are independent, so chances multiply:</p>
+<ul>
+<li>Spread: 0.6 &times; 0.6 &times; 0.6 = 0.216, or about 1 spin in 4.6.</li>
+<li>Stacked: (8 &divide; 30)<sup>3</sup> = (4 &divide; 15)<sup>3</sup> = 64 &divide; 3,375, which is about 1.9%, or about 1 spin in 53.</li>
+</ul>
+<p>The stacked layout is about 11 times rarer at three reels (0.216 &divide; 0.0190 &asymp; 11.4). A rarer event usually has to pay more per occurrence to balance that.</p>
+<p>The size comes from the count of routes. In a ways-to-win layout like the 5-reel, 3-row, 243-ways layout the Play listing describes, the number of matching routes is the product of the crown rows on each reel (see <a href="/blog/slot-ways-left-to-right.html">how ways are counted left to right</a>). With one crown per reel that is 1 &times; 1 &times; 1 = 1 route. With three crowns on each of three reels it is 3 &times; 3 &times; 3 = 27 routes. The chance of a full three-high crown on all three reels is (4 &divide; 30)<sup>3</sup> = 64 &divide; 27,000 &asymp; 0.24%, or about 1 in 420. That is possible on the stacked strip and impossible on the spread one.</p>
+<p>Expected routes come out equal. Because the reels are independent, the average of a product is the product of the averages: 0.6 &times; 0.6 &times; 0.6 = 0.216 routes for both layouts. Stacking leaves the average alone and widens the spread around it. That is volatility in miniature (see <a href="/blog/slot-rtp-and-volatility.html">RTP and volatility</a>), and it changes the share of spins that pay at all, covered in <a href="/blog/slot-hit-frequency.html">hit frequency</a>.</p>
+
+<h2>What this does not tell you</h2>
+<p>Real games choose strip lengths, symbol counts and stop weights that this post does not know. The Play listing for <a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> names heart-eyes cat wilds, crowns, fish, paws and balls of yarn, 5 reels, 3 rows and 243 ways, but gives no strip, counts or stacking details. The numbers here show a method and are not statements about the app.</p>
+
+<h2>Checking it yourself</h2>
+<ol class="ranked">
+  <li><strong>Write the strip.</strong> Mark 6 crowns in 30 stops, first every fifth stop, then stops 0 to 5.</li>
+  <li><strong>Slide the window.</strong> For each of 30 starts, count crowns in three consecutive stops, wrapping at the end. You should get 12, 18, 0, 0 and 22, 2, 2, 4.</li>
+  <li><strong>Add the rows.</strong> Both layouts should total 18 crown rows, which is 0.6 per reel.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and Turbo and Auto spin. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

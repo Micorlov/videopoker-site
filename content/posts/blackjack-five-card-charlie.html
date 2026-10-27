@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Five-card Charlie: a house rule and what it would be worth",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "Blackjack21",
+  "description": "A five-card Charlie wins any hand of five cards that has not bust. How rare that is, why a third of such hands still lose, and what the rule is worth.",
+  "summary": "With a simple strategy, about 1.3% of hands end on five cards without busting. An automatic win on those is worth roughly 1.2 points of player edge; quoted figures run nearer 1.5.",
+  "standfirst": "Five cards and no bust turns up on about one deal in 75. The rule that rewards it is small in frequency, and its value is smaller than the name suggests."
+}
+-->
+<p>A five-card Charlie is a house rule that makes any five-card hand worth 21 or less an automatic winner, whatever the dealer holds. You see it in some home games and in a few casino variants, and it is related to the five-card trick in pontoon, covered in <a href="/blog/twenty-one-pontoon-and-blackjack.html">how twenty-one, pontoon and blackjack differ</a>. It is not part of standard casino blackjack, and the listing for Blackjack 21 Big Cards Offline does not mention it, so nothing here describes how that app plays. This post prices the rule in general: how often it happens, and how much it would move the game.</p>
+
+<h2>What the rule says</h2>
+<p>Versions differ, so check the table before you rely on any of them. The common one reads: if you hold five cards and have not gone over 21, you win at once, usually at even money, and the dealer does not play against you. Some versions pay more, and some extend the idea to six or seven cards.</p>
+
+<h2>How often five cards survive</h2>
+<p>The obstacle is the bust. Each extra card to a middling hand risks going over, and five cards means three hits after the first two. I worked out the chance of reaching five cards without busting by exact enumeration, using an endless deck with aces counted as 1 or 11 as they suit, and always drawing until the fifth card:</p>
+<ul>
+  <li>Dealt two cards at random and drawing every time, you reach five cards unbust on <strong>6.19%</strong> of hands.</li>
+  <li>If you stop at 17 or more, as a dealer does, that falls to <strong>1.97%</strong>.</li>
+</ul>
+<p>I checked both with a six-deck simulation of two million hands each, which gave 6.08% and 1.91%. The small gap is noise plus the effect of removing cards from a real shoe, so the endless-deck figures are good to about a tenth of a point. The first number is a ceiling, since nobody should keep drawing on 19 to chase a rule. It shows that the rule has a limited reach even for a player who bends their play entirely around it.</p>
+
+<h2>It depends on where you start</h2>
+<p>Five-card hands come from low starts. A two-card hard 5 reaches five cards about 29% of the time when you keep drawing. A hard 16 does it on about 0.5% of hands, because nearly any card takes it into the danger zone.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance of reaching five cards without busting, always drawing, by hard two-card start: 5 is 28.9 percent, 8 is 14.1, 10 is 7.5, 12 is 3.8, 14 is 1.6, 16 is 0.5">
+    <div class="bar-row" title="Start on hard 5: 28.9%"><span class="bar-label">Start on 5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">28.9%</span></span></div>
+    <div class="bar-row" title="Start on hard 8: 14.1%"><span class="bar-label">Start on 8</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4879)"></span><span class="bar-val">14.1%</span></span></div>
+    <div class="bar-row" title="Start on hard 10: 7.5%"><span class="bar-label">Start on 10</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2595)"></span><span class="bar-val">7.5%</span></span></div>
+    <div class="bar-row hl" title="Start on hard 12: 3.8%"><span class="bar-label">Start on 12</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.1315)"></span><span class="bar-val">3.8%</span></span></div>
+    <div class="bar-row" title="Start on hard 14: 1.6%"><span class="bar-label">Start on 14</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0554)"></span><span class="bar-val">1.6%</span></span></div>
+    <div class="bar-row" title="Start on hard 16: 0.5%"><span class="bar-label">Start on 16</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0173)"></span><span class="bar-val">0.5%</span></span></div>
+  </div>
+  <figcaption>Chance of reaching five cards without busting when you keep drawing, by hard two-card start (endless deck). From a 5 it is 28.9%; from a 12 it is 3.8%; from a 16 it is 0.5%.</figcaption>
+</figure>
+
+<p>This is why the rule matters little at a normal table. The starts that reach five cards often, such as 5 to 8, are hands where basic strategy already hits freely. The starts where the choice is hard, such as 12 to 16 against a strong dealer card, are the ones where five cards almost never arrive. For the difference between hard and soft totals, see <a href="/blog/blackjack-soft-and-hard-hands.html">soft and hard hands</a>.</p>
+
+<h2>Why a third of Charlies still lose</h2>
+<p>The surprise is in what a five-card hand looks like. Five cards that stay at 21 or under are mostly small cards, so the total is usually low, often 15 to 18. Played out normally, many of them would lose to the dealer. I ran four million hands in a six-deck shoe with a simple strategy: hit hard totals up to 11 and soft totals up to 17, hit 12 to 16 against a dealer 7 to ace, hit 12 against a 2 or 3, otherwise stand. The dealer stood on 17, naturals were set aside, and doubling and splitting were left out. Of the hands that ended on five cards without busting:</p>
+<ul>
+  <li>49.5% would have won anyway.</li>
+  <li>11.5% would have pushed.</li>
+  <li>39.0% would have lost.</li>
+</ul>
+<p>The rule helps most exactly where the hand is weakest. The tie result, a push, is another place where the usual game is cautious, as the post on <a href="/blog/blackjack-pushes-tie-the-dealer.html">why a push is not a win</a> explains.</p>
+
+<h2>What it is worth</h2>
+<p>In the same simulation, five-card hands came up on 1.33% of deals. Turning each into an even-money win gains on average 0.895 of a bet per Charlie: nothing on the 49.5% that won, one bet on the 11.5% that pushed, two bets on the 39.0% that lost. Multiply and you get 1.33% &times; 0.895 &times; 100, or about <strong>1.2 points</strong> in the player's favour.</p>
+<p>The figure commonly quoted for a five-card Charlie in a six-deck game is a little higher, around 1.5 points, and the gap is plausible: my strategy is deliberately simple, and a full chart would reach five cards differently. Treat 1.2 as what I verified and 1.5 as the published ballpark, not as the same measurement.</p>
+<p>Set against the rules in <a href="/blog/blackjack-house-edge-rule-by-rule.html">where the house edge comes from</a>, a worth of one to one and a half points is large. It is about the size of the 6:5 natural's cost, at 1.36 points, and enough to turn a half-point house edge into a small player edge. So where the rule is offered, it is worth reading the rest of the rules alongside it.</p>
+
+<div class="callout">
+  <p>A five-card Charlie reaches the table on about one hand in 75 under simple play. Its value comes from how many of those hands were going to lose, not from how often they occur.</p>
+</div>
+
+<h2>If you meet it</h2>
+<ol class="ranked">
+  <li>Ask whether it pays even money or more, and whether it applies at six and seven cards.</li>
+  <li>Ask whether a Charlie beats a dealer 21 or a natural. Versions differ, and some do not beat a natural.</li>
+  <li>Do not draw on a good total to chase it. A hard 17 busts on 9 cards in 13.</li>
+  <li>Hit small totals with confidence. Hands of 5 to 9 are where the rule helps and where you were hitting anyway.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. Its listing does not mention a five-card rule, so the figures here describe blackjack in general. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

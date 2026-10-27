@@ -163,54 +163,43 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Holding a lone deuce in Deuces Wild
-
 ### OmahaPoker
-
-- Sit and Go payouts: what a 50/30/20 split means for your play
 
 ### Blackjack21
 
-- Five-card Charlie: a house rule and what it would be worth
-
 ### BrasslightSlots
-
-- Stacked symbols: why they make wins rarer but bigger
 
 ### PokerVsDealer
 
-- The dead man's hand: aces and eights and other named hands
-
 ### FivesAndThrees
-
-- Fives and Threes with partners: the four-player game
 
 ### BlackjackCoach
 
-- Betting with the count: how a true-count bet ramp works
-
 ### HoldemCoach
-
-- Minimum defence frequency: what a bet size asks you to call
 
 ### EightBallsPool
 
-- Bridge, stance and a straight stroke: the basics of cueing
-
 ### BigBenBlocks
-
-- Reduced motion: why some players switch animations off
 
 ### PinkSlipKings
 
-- Boost pressure: what a pound of boost adds
-
 ### ValleyRail
 
-- Diesel or electric: how modern trains get their power
 
 ## Published
 
+- 2026-10-27 — Holding a lone deuce in Deuces Wild — VideoPoker — `deuces-wild-lone-deuce`
+- 2026-10-27 — Sit and Go payouts: what a 50/30/20 split means for your play — OmahaPoker — `omaha-sit-and-go-50-30-20-payouts`
+- 2026-10-27 — Five-card Charlie: a house rule and what it would be worth — Blackjack21 — `blackjack-five-card-charlie`
+- 2026-10-27 — Stacked symbols: why they make wins rarer but bigger — BrasslightSlots — `slot-stacked-symbols`
+- 2026-10-27 — The dead man's hand: aces and eights and other named hands — PokerVsDealer — `dead-mans-hand-named-hands`
+- 2026-10-27 — Fives and Threes with partners: the four-player game — FivesAndThrees — `fives-and-threes-partners-four-player`
+- 2026-10-27 — Betting with the count: how a true-count bet ramp works — BlackjackCoach — `blackjack-true-count-bet-ramp`
+- 2026-10-27 — Minimum defence frequency: what a bet size asks you to call — HoldemCoach — `holdem-minimum-defence-frequency`
+- 2026-10-27 — Bridge, stance and a straight stroke: cueing basics — EightBallsPool — `pool-bridge-stance-straight-stroke`
+- 2026-10-27 — Reduced motion: why some players switch animations off — BigBenBlocks — `block-puzzle-reduced-motion`
+- 2026-10-27 — Boost pressure: what a pound of boost adds — PinkSlipKings — `boost-pressure-what-a-pound-adds`
+- 2026-10-27 — Diesel or electric: how modern trains get their power — ValleyRail — `diesel-or-electric-trains`
 - 2026-10-26 — Penalty cards: when a discard changes the right hold — VideoPoker — `video-poker-penalty-cards`
 - 2026-10-26 — Blockers in Omaha: what holding the nut card tells you — OmahaPoker — `omaha-blockers-nut-card`
 - 2026-10-26 — Where blackjack's house edge comes from, rule by rule — Blackjack21 — `blackjack-house-edge-rule-by-rule`

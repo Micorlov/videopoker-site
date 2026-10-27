@@ -1,0 +1,97 @@
+<!--
+{
+  "title": "Minimum defence frequency: what a bet size asks you to call",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "HoldemCoach",
+  "description": "Minimum defence frequency is pot ÷ (pot + bet): the share of your range that must continue. A half-pot bet asks for 66.7%; pot odds ask a hand for 25%.",
+  "summary": "Pot odds tell one hand what equity it needs. Minimum defence frequency, pot ÷ (pot + bet), tells a whole range how much to continue: 66.7% against a half-pot bet, 50.0% against a pot-sized one, and where the formula misleads.",
+  "standfirst": "Pot odds ask whether one hand can call. Minimum defence frequency asks how often all your hands together must call, so that a bluff cannot show a profit just by betting. The two numbers move in opposite directions as the bet grows."
+}
+-->
+<p>When an opponent bets, there are two different questions on the table. The first is about the hand you hold: does it win often enough to call? That is pot odds, covered in <a href="/blog/holdem-pot-odds.html">the post on pot odds</a>. The second is about every hand you could have in this spot: how often must you continue so that betting is not an automatic win for the other player? The answer is the <strong>minimum defence frequency</strong>, or MDF.</p>
+
+<h2>Where the formula comes from</h2>
+<p>A bluff risks the bet <em>b</em> to win the pot <em>p</em>. As <a href="/blog/holdem-continuation-bets.html">the post on continuation bets</a> shows, it breaks even when the opponent folds <em>b</em> ÷ (<em>p</em> + <em>b</em>) of the time. If you fold more often than that, any bluff profits. So the most you can afford to fold is that fraction, and the least you must continue is what is left:</p>
+<p>MDF = 1 − <em>b</em> ÷ (<em>p</em> + <em>b</em>) = <em>p</em> ÷ (<em>p</em> + <em>b</em>).</p>
+<p>Take a pot of 100 and a bet of 50. MDF = 100 ÷ 150 = 66.7%. Check it from the bluffer's side: three bluffs of 50 into 100, with you folding once and calling twice. The bluffer wins 100 once and loses 50 twice, so the total is zero. Continue less than two times in three and the bluffs show a profit.</p>
+
+<h2>Two numbers for the same bet</h2>
+<p>Pot odds for the same bet are 50 ÷ 200 = 25%, the equity one hand needs, found from <em>b</em> ÷ (<em>p</em> + 2<em>b</em>). The two figures answer different questions and are easy to mix up. One is a property of a single hand; the other is a share of your whole range.</p>
+
+<table class="paytable-compare">
+  <caption>Bet size as a fraction of the pot before the bet. "Third pot" is exactly 1/3.</caption>
+  <thead>
+    <tr><th>Bet size</th><th>MDF: continue with</th><th>Can fold</th><th>Hand needs (pot odds)</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Quarter pot</th><td>80.0%</td><td>20.0%</td><td>16.7%</td></tr>
+    <tr><th scope="row">Third pot</th><td>75.0%</td><td>25.0%</td><td>20.0%</td></tr>
+    <tr><th scope="row">Half pot</th><td>66.7%</td><td>33.3%</td><td>25.0%</td></tr>
+    <tr><th scope="row">Three-quarters pot</th><td>57.1%</td><td>42.9%</td><td>30.0%</td></tr>
+    <tr><th scope="row">Pot</th><td>50.0%</td><td>50.0%</td><td>33.3%</td></tr>
+    <tr><th scope="row">One and a half times the pot</th><td>40.0%</td><td>60.0%</td><td>37.5%</td></tr>
+    <tr><th scope="row">Twice the pot</th><td>33.3%</td><td>66.7%</td><td>40.0%</td></tr>
+  </tbody>
+</table>
+
+<p>The columns run in opposite directions. A bigger bet lets you fold more hands, from 20.0% of your range against a quarter-pot bet to 66.7% against twice the pot. But each hand that stays in needs more equity, from 16.7% up to 40.0%. A big bet therefore asks little in total but a lot from each hand.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart by bet size from 0 to 2 times the pot: the minimum defence frequency falls from 100% to 33.3%, while the equity a hand needs to call rises from 0% to 40%. At a half-pot bet they are 66.7% and 25.0%; at a pot-sized bet 50.0% and 33.3%; at twice the pot 33.3% and 40.0%.">
+    <line class="grid" x1="46" x2="386" y1="210.0" y2="210.0"/>
+    <text x="40" y="214.0" text-anchor="end">0%</text>
+    <line class="grid" x1="46" x2="386" y1="166.5" y2="166.5"/>
+    <text x="40" y="170.5" text-anchor="end">25%</text>
+    <line class="grid" x1="46" x2="386" y1="123.0" y2="123.0"/>
+    <text x="40" y="127.0" text-anchor="end">50%</text>
+    <line class="grid" x1="46" x2="386" y1="79.5" y2="79.5"/>
+    <text x="40" y="83.5" text-anchor="end">75%</text>
+    <line class="grid" x1="46" x2="386" y1="36.0" y2="36.0"/>
+    <text x="40" y="40.0" text-anchor="end">100%</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46.0" y="226" text-anchor="middle">0×</text>
+    <text x="131.0" y="226" text-anchor="middle">0.5×</text>
+    <text x="216.0" y="226" text-anchor="middle">1×</text>
+    <text x="301.0" y="226" text-anchor="middle">1.5×</text>
+    <text x="386.0" y="226" text-anchor="middle">2×</text>
+    <text x="216" y="244" text-anchor="middle">Bet as a fraction of the pot</text>
+    <path class="line hl" d="M46.0,36.0 L49.4,39.4 L52.8,42.7 L56.2,45.8 L59.6,48.9 L63.0,51.8 L66.4,54.6 L69.8,57.4 L73.2,60.0 L76.6,62.5 L80.0,65.0 L83.4,67.4 L86.8,69.7 L90.2,71.9 L93.6,74.1 L97.0,76.2 L100.4,78.2 L103.8,80.1 L107.2,82.1 L110.6,83.9 L114.0,85.7 L117.4,87.5 L120.8,89.2 L124.2,90.8 L127.6,92.4 L131.0,94.0 L134.4,95.5 L137.8,97.0 L141.2,98.5 L144.6,99.9 L148.0,101.2 L151.4,102.6 L154.8,103.9 L158.2,105.2 L161.6,106.4 L165.0,107.6 L168.4,108.8 L171.8,110.0 L175.2,111.1 L178.6,112.2 L182.0,113.3 L185.4,114.4 L188.8,115.4 L192.2,116.5 L195.6,117.4 L199.0,118.4 L202.4,119.4 L205.8,120.3 L209.2,121.2 L212.6,122.1 L216.0,123.0 L219.4,123.9 L222.8,124.7 L226.2,125.5 L229.6,126.3 L233.0,127.1 L236.4,127.9 L239.8,128.7 L243.2,129.4 L246.6,130.2 L250.0,130.9 L253.4,131.6 L256.8,132.3 L260.2,133.0 L263.6,133.7 L267.0,134.3 L270.4,135.0 L273.8,135.6 L277.2,136.3 L280.6,136.9 L284.0,137.5 L287.4,138.1 L290.8,138.7 L294.2,139.3 L297.6,139.8 L301.0,140.4 L304.4,141.0 L307.8,141.5 L311.2,142.0 L314.6,142.6 L318.0,143.1 L321.4,143.6 L324.8,144.1 L328.2,144.6 L331.6,145.1 L335.0,145.6 L338.4,146.0 L341.8,146.5 L345.2,147.0 L348.6,147.4 L352.0,147.9 L355.4,148.3 L358.8,148.7 L362.2,149.2 L365.6,149.6 L369.0,150.0 L372.4,150.4 L375.8,150.8 L379.2,151.2 L382.6,151.6 L386.0,152.0"/>
+    <path class="line" d="M46.0,210.0 L49.4,206.7 L52.8,203.6 L56.2,200.7 L59.6,198.0 L63.0,195.5 L66.4,193.2 L69.8,191.0 L73.2,188.9 L76.6,187.0 L80.0,185.1 L83.4,183.4 L86.8,181.8 L90.2,180.2 L93.6,178.8 L97.0,177.4 L100.4,176.0 L103.8,174.8 L107.2,173.6 L110.6,172.4 L114.0,171.3 L117.4,170.3 L120.8,169.3 L124.2,168.3 L127.6,167.4 L131.0,166.5 L134.4,165.6 L137.8,164.8 L141.2,164.0 L144.6,163.3 L148.0,162.5 L151.4,161.8 L154.8,161.2 L158.2,160.5 L161.6,159.9 L165.0,159.2 L168.4,158.7 L171.8,158.1 L175.2,157.5 L178.6,157.0 L182.0,156.5 L185.4,156.0 L188.8,155.5 L192.2,155.0 L195.6,154.5 L199.0,154.1 L202.4,153.6 L205.8,153.2 L209.2,152.8 L212.6,152.4 L216.0,152.0 L219.4,151.6 L222.8,151.2 L226.2,150.9 L229.6,150.5 L233.0,150.2 L236.4,149.9 L239.8,149.5 L243.2,149.2 L246.6,148.9 L250.0,148.6 L253.4,148.3 L256.8,148.0 L260.2,147.7 L263.6,147.4 L267.0,147.2 L270.4,146.9 L273.8,146.6 L277.2,146.4 L280.6,146.1 L284.0,145.9 L287.4,145.7 L290.8,145.4 L294.2,145.2 L297.6,145.0 L301.0,144.8 L304.4,144.5 L307.8,144.3 L311.2,144.1 L314.6,143.9 L318.0,143.7 L321.4,143.5 L324.8,143.3 L328.2,143.1 L331.6,143.0 L335.0,142.8 L338.4,142.6 L341.8,142.4 L345.2,142.2 L348.6,142.1 L352.0,141.9 L355.4,141.8 L358.8,141.6 L362.2,141.4 L365.6,141.3 L369.0,141.1 L372.4,141.0 L375.8,140.8 L379.2,140.7 L382.6,140.5 L386.0,140.4"/>
+    <text class="strong" x="137.0" y="86.0">Defend 66.7%</text>
+    <text class="strong" x="222.0" y="115.0">50.0%</text>
+    <text class="strong" x="382.0" y="142.0" text-anchor="end">33.3%</text>
+    <text class="strong" x="137.0" y="182.5">Hand needs 25.0%</text>
+    <text class="strong" x="210.0" y="168.0" text-anchor="end">33.3%</text>
+    <text class="strong" x="382.0" y="156.4" text-anchor="end">40.0%</text>
+    <g class="hit"><title>Half pot: defend 66.7% of range; hand needs 25.0% equity</title><circle cx="131.0" cy="94.0" r="10" fill="transparent"/><circle class="dot hl" cx="131.0" cy="94.0" r="4.5"/></g>
+    <g class="hit"><title>Half pot: 25.0%</title><circle cx="131.0" cy="166.5" r="10" fill="transparent"/><circle class="dot" cx="131.0" cy="166.5" r="4.5"/></g>
+    <g class="hit"><title>Pot: defend 50.0% of range; hand needs 33.3% equity</title><circle cx="216.0" cy="123.0" r="10" fill="transparent"/><circle class="dot hl" cx="216.0" cy="123.0" r="4.5"/></g>
+    <g class="hit"><title>Pot: 33.3%</title><circle cx="216.0" cy="152.0" r="10" fill="transparent"/><circle class="dot" cx="216.0" cy="152.0" r="4.5"/></g>
+    <g class="hit"><title>Twice the pot: defend 33.3% of range; hand needs 40.0% equity</title><circle cx="386.0" cy="152.0" r="10" fill="transparent"/><circle class="dot hl" cx="386.0" cy="152.0" r="4.5"/></g>
+    <g class="hit"><title>Twice the pot: 40.0%</title><circle cx="386.0" cy="140.4" r="10" fill="transparent"/><circle class="dot" cx="386.0" cy="140.4" r="4.5"/></g>
+  </svg>
+  <figcaption>For bets from nothing to twice the pot, the share of your range you must continue with (upper line) and the equity a single hand needs to call (lower line). Against a half-pot bet they are 66.7% and 25.0%, against a pot-sized bet 50.0% and 33.3%, and against twice the pot 33.3% and 40.0%.</figcaption>
+</figure>
+
+<h2>Using it</h2>
+<p>Suppose your range on a given flop contains 30 hands. Facing a half-pot bet, 66.7% means continuing with 20 of them and folding 10. Which 20 is a separate matter: you keep the strongest, plus draws that can improve. A hand that clears the 25% it needs is a natural member of that 20; MDF just tells you how many such hands you must find.</p>
+<p>The "Is it worth calling?" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> works on the per-hand side of this, asking you to work out the price you are being offered and whether your hand is worth it. MDF is the same price seen from the range.</p>
+
+<h2>Where MDF misleads</h2>
+<ol class="ranked">
+  <li><strong>It assumes the bettor may be bluffing.</strong> The formula protects you against a player whose bets include enough bluffs. If your opponent bets only strong hands, folding more than MDF costs you nothing, and defending the full amount just pays them. Against a player who bluffs too much, you should defend more. MDF is a floor against exploitation, not a target to hit every time.</li>
+  <li><strong>Range advantage.</strong> The formula looks only at the pot and the bet. It does not know that one player's range is stronger. If the board suits the bettor's hands far better than yours, many of your hands have so little equity that continuing loses more than folding, and defending 66.7% is impossible without calling with hands that are simply behind. Folding more than MDF there is usually correct. The reverse also holds: when your range is the stronger one, you can defend more, and raise some of those hands.</li>
+  <li><strong>No rake in the theory.</strong> The break-even sums treat the whole pot as won or lost. In a game where the house takes a cut of the pot, the pot is smaller than the formula assumes, so the real defence frequency is a little different. The arithmetic here says nothing about any particular rake.</li>
+  <li><strong>Multiway pots.</strong> The derivation assumes one defender who must fold for the bluff to work. With two opponents, the bluff only wins when both fold, so the pair of them share the work. If both fold equally often, half-pot bluffs need <em>f</em> × <em>f</em> = 33.3%, so <em>f</em> = 57.7% each, and each defends only 42.3%, not 66.7%. Calling a bet because "I must defend two-thirds" in a multiway pot is a mistake.</li>
+  <li><strong>It ignores later streets.</strong> The sums stop at this bet. Raises, further bets and the chance to improve all change what a call is worth, which is the territory of <a href="/blog/holdem-implied-odds.html">implied odds</a>.</li>
+</ol>
+
+<div class="callout">
+  <p>In one line: pot odds, <em>b</em> ÷ (<em>p</em> + 2<em>b</em>), say what one hand needs. MDF, <em>p</em> ÷ (<em>p</em> + <em>b</em>), says how much of the range must continue. Use MDF as a guard against folding too much, and let the board, the opponent and the number of players adjust it.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons, one idea at a time, and nothing is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,66 @@
+<!--
+{
+  "title": "Boost pressure: what a pound of boost adds",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "PinkSlipKings",
+  "description": "At sea level each psi of boost packs in about 6.8% more air before heat. 15 psi gives a pressure ratio of 2.02, but compression heat takes a large share back.",
+  "summary": "Boost is gauge pressure above the atmosphere's 14.7 psi, so the air the engine gets scales with (14.7 + boost) divided by 14.7. Each psi is worth about 6.8% more air in theory, and heating from compression, knock and fuel limits mean the real gain is smaller.",
+  "standfirst": "A boost gauge reads from zero, but the engine feels the whole pressure, atmosphere included. That one fact turns a pound of boost into a percentage you can calculate, and the same arithmetic shows where the gain leaks away."
+}
+-->
+<p>Tuning menus and dyno sheets quote boost in psi or bar, and the numbers sound small next to the power they produce. The reason is simple once you separate the two pressures involved. The figures below are textbook physics for a petrol engine, not measurements from any particular car. For the basics of how a turbo or supercharger delivers the pressure, see <a href="/blog/turbo-or-supercharger.html">the turbo or supercharger post</a>; this one is about what each pound is worth.</p>
+
+<h2>Gauge pressure and the pressure ratio</h2>
+<p>A boost gauge reads pressure above the surrounding air. The air outside is already pressing at 14.7 psi (1.013 bar) at sea level, so the pressure in the intake manifold is the reading plus 14.7. The number that matters is the <strong>pressure ratio</strong>:</p>
+<p><strong>pressure ratio = (14.7 + boost) ÷ 14.7</strong></p>
+<p>At 10 psi that is 24.7 ÷ 14.7 = 1.68. The engine is not seeing "10 more", it is seeing 68% more pressure than it would at zero boost. In metric units the same sum applies: 1 psi is 0.0689 bar, and 1 bar is about 14.5 psi.</p>
+
+<h2>What one pound is worth</h2>
+<p>A cylinder has a fixed volume, so the mass of air in it follows the density, and density follows absolute pressure when the temperature does not change. An engine burns fuel in proportion to the air it has, so in the ideal case power rises in step with the pressure ratio. Adding 1 psi raises the ratio by 1 ÷ 14.7 = 0.068, which is <strong>about 6.8% more air per psi</strong> measured against the unboosted engine.</p>
+<p>That 6.8% is a rule for the first few pounds, and it is measured against the baseline, not the previous step. Each extra psi adds the same 0.068 to the multiplier, but the percentage on top of the already boosted figure shrinks. Going from 20 to 21 psi adds 0.068 to 2.36, which is a 2.9% rise on where you were.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the ideal pressure ratio, which is also the ideal power multiplier, by boost. 0 psi 1.00, 5 psi 1.34, 10 psi 1.68, 15 psi 2.02, 20 psi 2.36, 25 psi 2.70, 30 psi 3.04.">
+    <div class="bar-row" title="0 psi: 1.00"><span class="bar-label">0 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3289)"></span><span class="bar-val">1.00×</span></span></div>
+    <div class="bar-row" title="5 psi: 1.34"><span class="bar-label">5 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4407)"></span><span class="bar-val">1.34×</span></span></div>
+    <div class="bar-row" title="10 psi: 1.68"><span class="bar-label">10 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5526)"></span><span class="bar-val">1.68×</span></span></div>
+    <div class="bar-row hl" title="15 psi: 2.02"><span class="bar-label">15 psi</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.6644)"></span><span class="bar-val">2.02×</span></span></div>
+    <div class="bar-row" title="20 psi: 2.36"><span class="bar-label">20 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7763)"></span><span class="bar-val">2.36×</span></span></div>
+    <div class="bar-row" title="25 psi: 2.70"><span class="bar-label">25 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8881)"></span><span class="bar-val">2.70×</span></span></div>
+    <div class="bar-row" title="30 psi: 3.04"><span class="bar-label">30 psi</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">3.04×</span></span></div>
+  </div>
+  <figcaption>Ideal pressure ratio, (14.7 + boost) ÷ 14.7, which is also the ideal power multiplier at sea level with no heating. Each 5 psi adds 0.34. Heat and engine limits mean real power rises by less.</figcaption>
+</figure>
+
+<p>Read it as a ceiling. Doubling the air takes about 14.7 psi, and 15 psi gets you to 2.02. No engine delivers 3.04 times its power at 30 psi, for the reasons below.</p>
+
+<h2>Compression heats the air</h2>
+<p>Squeezing a gas warms it. For an ideal compressor that loses no heat, the outlet temperature is</p>
+<p><strong>T₂ = T₁ × PR^((γ − 1) ÷ γ)</strong></p>
+<p>with γ = 1.4 for air, so the exponent is 0.2857, and temperatures in kelvin. Take 20 °C (293.15 K) intake air and 15 psi, where PR = 2.02:</p>
+<ul>
+  <li>2.02^0.2857 = 1.2226</li>
+  <li>T₂ = 293.15 × 1.2226 = 358.4 K, which is 85.2 °C</li>
+</ul>
+<p>Real compressors do more work on the air than the ideal one. If the compressor efficiency is η, the actual temperature rise is the ideal rise divided by η. The ideal rise here is 65.2 K. With an assumed efficiency of 70%, the rise is 65.2 ÷ 0.70 = 93.1 K, so the air leaves at 113.2 °C. The 70% is an illustration, not a figure for any specific compressor.</p>
+<p>Density is proportional to pressure divided by absolute temperature, so the hot air is thinner than the pressure ratio suggests: 2.02 × 293.15 ÷ 386.4 = <strong>1.53</strong>. Of the 2.02 the pressure promised, 1.53 arrives as density, about 24% less than ideal.</p>
+
+<h2>Intercooling wins some back</h2>
+<p>An intercooler removes heat from the compressed air before it enters the engine. If it brings the charge down to 40 °C (313.15 K), the 15 psi density is 2.02 × 293.15 ÷ 313.15 = <strong>1.89</strong>, which is 23% more than the uncooled 1.53 at the same boost. That is why the same gauge reading can mean quite different amounts of air in two cars.</p>
+
+<div class="callout">
+  <p>At 15 psi: ideal pressure ratio 2.02, density with a 70% efficient compressor and no cooling 1.53, density intercooled to 40 °C 1.89. The pressure is the same in all three cases. Only the temperature differs.</p>
+</div>
+
+<h2>Why real gains are smaller still</h2>
+<p>Density is only the first limit. Hot, dense air in a cylinder raises the temperature during compression, and if the end of the mixture ignites on its own before the flame reaches it, the result is knock, a sharp pressure spike that can damage pistons. Engines manage it by retarding the ignition timing, adding fuel to cool the charge, or lowering the compression ratio, and each of those gives up some of the power the extra air could have made. Fuel delivery, the strength of the engine's parts and the grip at the tyres put further ceilings on what a given boost can be used for.</p>
+<p>So the ideal multiplier is a guide to direction and size, not a forecast. A sensible expectation is that the first pounds give close to the 6.8% each, and later ones give less per psi, especially without cooling.</p>
+
+<h2>In the game</h2>
+<p><a href="/PinkSlipKings/">Pink Slip Kings</a> lists boost among the values you can adjust when tuning, alongside gear ratios, final drive and launch RPM, and it has a dyno for comparing horsepower and torque. Its listing does not say how boost, heat or knock are modelled, so everything above is real-world physics, not a description of the game's rules. To see how a change in power shows up on a curve, read <a href="/blog/reading-a-dyno-chart.html">the dyno chart post</a>, and for how torque meets the tyres, <a href="/blog/drag-racing-launch-rpm.html">the launch RPM post</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls, detailed tuning of gear ratios, final drive, boost and launch RPM, and a dyno. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be purchased or exchanged for real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

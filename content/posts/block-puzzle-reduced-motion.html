@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Reduced motion: why some players switch animations off",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "BigBenBlocks",
+  "description": "Screen motion can cause dizziness and nausea for some people. What reduced-motion settings are, what WCAG says about animation, and what a calmer design swaps.",
+  "summary": "Screen motion can trigger dizziness and nausea in people with vestibular disorders or motion sensitivity. WCAG 2.3.3, 2.2.2 and 2.3.1 cover animation from interactions, auto-moving content and flashing (no more than three flashes in any one second). Android's Remove animations and CSS prefers-reduced-motion let people opt out.",
+  "standfirst": "A sliding, bouncing, shaking interface looks lively to most people. For some it is a reason to put a game down, which is why operating systems let you ask for less."
+}
+-->
+<p>Most puzzle games lean on motion: pieces slide into place, cleared lines burst, the screen shakes on a big combo. For many players that is part of the fun. For others it is uncomfortable, and the setting that turns it down is one of the more useful accessibility options a game can have.</p>
+
+<h2>Why motion bothers some people</h2>
+<p>The sense of balance depends on the vestibular system in the inner ear, working together with vision. In a vestibular disorder, or in people who are simply sensitive to motion, that system can be thrown off by what the eyes see on a screen. The usual symptoms are dizziness, nausea, headache and a sense of the room moving. Motion sickness works on the same mismatch: the eyes report movement while the body is still.</p>
+<p>The motion that tends to cause trouble is large or covers much of the screen: zooming, spinning, sliding transitions, parallax (layers moving at different speeds to suggest depth) and shaking. A small icon changing colour rarely does. Reactions vary from person to person, so there is no single safe amount of animation, which is why this is a setting and not a design rule.</p>
+<p>Vestibular sensitivity is not the same thing as photosensitive epilepsy. The second is about rapid flashing, and it has its own limits, covered next.</p>
+
+<h2>What the accessibility guidelines say</h2>
+<p>The Web Content Accessibility Guidelines (WCAG) are written for the web, but their wording is the usual reference for apps too. Three success criteria in version 2.1 bear on animation.</p>
+<ul>
+  <li><strong>2.3.1 Three Flashes or Below Threshold (Level A).</strong> Nothing should flash more than three times in any one-second period, unless the flash is below the defined general flash and red flash thresholds. This is the photosensitivity rule.</li>
+  <li><strong>2.2.2 Pause, Stop, Hide (Level A).</strong> Moving, blinking or scrolling content that starts automatically, lasts more than five seconds and sits alongside other content needs a way to pause, stop or hide it. Essential motion is exempt.</li>
+  <li><strong>2.3.3 Animation from Interactions (Level AAA).</strong> Motion animation that is triggered by a user action can be switched off, unless it is essential to the function or the information. This is the one aimed at vestibular triggers, and it is the strictest level, so many products do not claim it.</li>
+</ul>
+<p>The three differ in who they protect. 2.3.1 sets a hard ceiling for everyone. 2.2.2 is about things that keep moving while you try to read. 2.3.3 is about the response to your own taps, which is the case for a puzzle game: you press, and the board answers with movement.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 190" role="img" aria-label="Two one-second timelines. Top: three flashes in one second, which is within the WCAG 2.3.1 limit. Bottom: four flashes in one second, which is over the limit unless each flash is below the general flash and red flash thresholds.">
+    <text x="10" y="20" font-size="13" fill="currentColor" font-weight="600">3 flashes in 1 second: within the limit</text>
+    <rect x="10" y="30" width="380" height="34" rx="3" fill="none" stroke="var(--chart-base)" stroke-width="1.5"/>
+    <rect x="30" y="30" width="50" height="34" fill="var(--chart-base)"/>
+    <rect x="165" y="30" width="50" height="34" fill="var(--chart-base)"/>
+    <rect x="300" y="30" width="50" height="34" fill="var(--chart-base)"/>
+    <text x="10" y="82" font-size="12" fill="currentColor">0 s</text>
+    <text x="390" y="82" font-size="12" fill="currentColor" text-anchor="end">1 s</text>
+    <text x="10" y="116" font-size="13" fill="currentColor" font-weight="600">4 flashes in 1 second: over the limit</text>
+    <rect x="10" y="126" width="380" height="34" rx="3" fill="none" stroke="var(--chart-accent)" stroke-width="1.5"/>
+    <rect x="25" y="126" width="40" height="34" fill="var(--chart-accent)"/>
+    <rect x="120" y="126" width="40" height="34" fill="var(--chart-accent)"/>
+    <rect x="215" y="126" width="40" height="34" fill="var(--chart-accent)"/>
+    <rect x="310" y="126" width="40" height="34" fill="var(--chart-accent)"/>
+    <text x="10" y="180" font-size="12" fill="currentColor">0 s</text>
+    <text x="390" y="180" font-size="12" fill="currentColor" text-anchor="end">1 s</text>
+  </svg>
+  <figcaption>WCAG 2.3.1 allows no more than 3 flashes in any one-second period. Four in a second fails unless every flash is below the general flash and red flash thresholds. Each filled block is one flash; the layout is a schematic, not a measured animation.</figcaption>
+</figure>
+
+<h2>The settings that switch animation off</h2>
+<p>On Android, the accessibility settings include <strong>Remove animations</strong>. Turning it on shortens or removes the transitions the system itself plays, such as opening an app or switching screens, and apps can read the preference and follow it. Where it sits in the menu varies by phone maker and Android version, so search the settings for &ldquo;animation&rdquo;.</p>
+<p>On the web the equivalent is the CSS media query <code>prefers-reduced-motion</code>. It has two values, <code>no-preference</code> and <code>reduce</code>, and it reflects a setting made once at operating system level. A page that respects it can swap its movement for something calmer when the value is <code>reduce</code>. Other platforms have similar switches, and the idea is the same everywhere: the player says it once, and software is meant to listen.</p>
+
+<h2>What a reduced-motion design typically swaps</h2>
+<p>Reduced motion does not mean no feedback. Players still need to know a piece landed or a line cleared. The usual approach is to keep the information and change the way it arrives:</p>
+<ol class="ranked">
+  <li><strong>Fades instead of movement.</strong> A cleared cell fades out in place rather than flying off or bursting.</li>
+  <li><strong>No parallax.</strong> Background layers stay still, so there is no depth effect to track.</li>
+  <li><strong>No screen shake.</strong> Emphasis comes from a static change, such as a highlight or a number appearing.</li>
+  <li><strong>No zooming or spinning.</strong> Scale and rotation changes are replaced by an instant switch or a short fade.</li>
+  <li><strong>Nothing that loops on its own.</strong> Ambient animation is removed, in the spirit of 2.2.2.</li>
+</ol>
+<p>None of this makes a puzzle easier or harder. A row of nine cells is complete whether it flashes, fades or simply disappears. That is one reason block puzzles suit the setting well: the rules are about which cells are filled, and the animation is decoration on top.</p>
+
+<div class="callout">
+  <p>WCAG 2.3.1: no more than three flashes in any one second. WCAG 2.2.2: a way to stop auto-moving content that lasts more than five seconds. WCAG 2.3.3: motion from your own actions can be turned off.</p>
+</div>
+
+<h2>What Big Ben Blocks says</h2>
+<p>The Google Play listing for <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> says the game includes screen-reader labels and reduced-motion support. The listing does not say how reduced motion is switched on or which effects it changes, so this post does not either. What it does show is that the option sits alongside the other accessibility features it names: blocks carry shape symbols as well as colours, and tap-to-place controls are an alternative to dragging. Those are covered in the posts on <a href="/blog/block-puzzles-for-colour-blind-players.html">colour-blind players</a> and <a href="/blog/block-puzzle-tap-to-place.html">tap-to-place</a>.</p>
+<p>If you are choosing a game with motion in mind, three checks are worth making. Does it follow the system setting, or have its own switch? Does the feedback still make sense with the movement removed? And does anything flash? If you are prone to dizziness, try a short session with the Android setting on before a long one, and stop if symptoms start.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels run from Westminster to Piccadilly. The listing names screen-reader labels and reduced-motion support among its accessibility options. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

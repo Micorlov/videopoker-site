@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "Diesel or electric: how modern trains get their power",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "ValleyRail",
+  "description": "Diesel-electric trains carry a power station on board; electric trains take power from a wire or rail, from 750 V DC up to 25 kV AC.",
+  "summary": "A diesel-electric train runs a generator and traction motors; an electric train draws power from overhead wire (1.5 kV or 3 kV DC, 15 kV 16.7 Hz or 25 kV 50 Hz AC) or a 750 V DC third rail. Higher voltage means less current for the same power.",
+  "standfirst": "Almost every modern train turns its wheels with electric motors. The real difference is where the electricity comes from: a generator on board, or a wire along the track."
+}
+-->
+<p>Walk along a platform and the trains in front of you will mostly be driven by electric motors, whether or not there is a wire overhead. What differs is the source of the electricity. A diesel train makes it on board from fuel. An electric train collects it from the railway itself. That one choice shapes acceleration, running cost and which lines are worth wiring.</p>
+
+<h2>Diesel: three ways to reach the wheels</h2>
+<p>A diesel engine runs best at a fairly steady speed, but a train must start from rest with a huge load. Something has to sit between the engine and the wheels to bridge that gap.</p>
+<ul>
+  <li><strong>Diesel-electric.</strong> The engine drives a generator, and the electricity it makes feeds <strong>traction motors</strong> that turn the axles. There is no mechanical link from engine to wheels, so the engine can run at its best speed while the motors supply strong pull from a standstill. This is the usual arrangement for main-line locomotives and many multiple units.</li>
+  <li><strong>Diesel-hydraulic.</strong> A fluid coupling or torque converter passes the power on, much as in an automatic car. It has been used on lighter locomotives and railcars, notably in Germany.</li>
+  <li><strong>Diesel-mechanical.</strong> A clutch and gearbox, as in a lorry. It is simple and suits small railcars and shunters, but gets awkward as power rises.</li>
+</ul>
+<p>The engine itself converts roughly 35 to 45 percent of the fuel's energy into shaft power, and the generator and motors lose some more. A diesel-electric train is therefore a small power station with wheels. Its steam ancestor did the same job with a boiler and cylinders, as described in <a href="/blog/how-a-steam-locomotive-works.html">how a steam locomotive works</a>.</p>
+
+<h2>Electric: power from outside</h2>
+<p>An electric train takes current from an overhead wire through a <strong>pantograph</strong>, or from a conductor rail beside the track through a contact shoe. A transformer and converters on the train adjust it for the motors. The electric motors and their equipment are typically well over 85 percent efficient from supply to wheel, approximately, though the overall figure also depends on how the electricity was generated.</p>
+<p>Systems differ by country and are often a legacy of when each line was electrified:</p>
+<ul>
+  <li><strong>25 kV, 50 Hz AC</strong> overhead: Britain, much of Europe and most new high-speed lines.</li>
+  <li><strong>15 kV, 16.7 Hz AC</strong> overhead: Germany, Switzerland, Austria, Sweden and Norway.</li>
+  <li><strong>3 kV DC</strong> overhead: for example Italy, Belgium and Poland.</li>
+  <li><strong>1.5 kV DC</strong> overhead: for example the Netherlands and parts of France.</li>
+  <li><strong>750 V DC third rail:</strong> much of southern England.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of railway supply voltage in volts: third rail 750, overhead DC 1,500 and 3,000, overhead AC 15,000 and 25,000">
+    <div class="bar-row" title="Third rail DC: 750 V"><span class="bar-label">Third rail, DC</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.03)"></span><span class="bar-val">750</span></span></div>
+    <div class="bar-row" title="Overhead DC: 1,500 V"><span class="bar-label">Overhead, DC</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.06)"></span><span class="bar-val">1,500</span></span></div>
+    <div class="bar-row" title="Overhead DC: 3,000 V"><span class="bar-label">Overhead, DC</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.12)"></span><span class="bar-val">3,000</span></span></div>
+    <div class="bar-row" title="Overhead AC 16.7 Hz: 15,000 V"><span class="bar-label">Overhead, 16.7 Hz</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6)"></span><span class="bar-val">15,000</span></span></div>
+    <div class="bar-row hl" title="Overhead AC 50 Hz: 25,000 V"><span class="bar-label">Overhead, 50 Hz</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0)"></span><span class="bar-val">25,000</span></span></div>
+  </div>
+  <figcaption>Common railway supply voltages in volts. The 25 kV system runs at 25,000 V, which is 33 times the 750 V of a third rail. The DC systems are 750, 1,500 and 3,000 V; the other AC system is 15,000 V.</figcaption>
+</figure>
+
+<h2>Why the voltage matters</h2>
+<p>Power is voltage times current, so for the same power a higher voltage needs less current. A 5 MW train needs about 200 A at 25 kV but about 6,700 A at 750 V. Thinner wire and fewer feeder points will do at high voltage. That is why 25 kV overhead suits long, fast routes, while a 750 V third rail suits dense, short-distance networks with substations close together. The rail sits near the ground, so high voltage there would be unsafe.</p>
+
+<h2>Why electric trains accelerate harder</h2>
+<p>A diesel train carries its power source, so the engine's size and weight cap its output. A typical main-line diesel locomotive delivers in the region of 2 to 3 MW. An electric locomotive leaves the generating plant behind and can draw 5 MW or more from the wire, sometimes much more. More power for the same mass means harder acceleration and a higher top speed, which suits stopping services and high-speed lines.</p>
+<p>The wheels still have to grip. As <a href="/blog/why-trains-cant-stop-quickly.html">steel on steel has limited adhesion</a>, extra power helps only up to the point where the wheels slip.</p>
+
+<h2>Regenerative braking</h2>
+<p>An electric motor can run backwards as a generator. When the driver brakes, the traction motors turn the train's motion back into electricity and feed it into the line, where another train may use it, or into resistors on the roof if nothing can accept it. The saving is largest on routes with frequent stops. Diesel-electric trains can use the same motor trick, but they have nowhere useful to send the power, so it is normally burned off as heat in resistors.</p>
+
+<h2>Wiring cost against traffic</h2>
+<p>Masts, wire, substations and bridge or tunnel clearances cost a lot for every kilometre, and the bill is the same whether ten trains or a hundred use the line. Electric trains are cheaper to run and maintain, so the wiring pays back where traffic is heavy. On a quiet branch it may never do so. Many railways keep diesel for sparse lines and electrify trunk routes.</p>
+<p>The <strong>bi-mode</strong> unit covers the gap. It carries diesel engines and a pantograph, runs electric under the wire and switches to diesel where the wire ends. Britain's Class 800 family is an example. The compromise is extra weight, because it carries engines it uses only part of the time.</p>
+
+<p>In <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> you buy a train, choose where it goes and it runs the route on its own, with six train models for passengers and freight. The app is in closed testing.</p>
+
+<div class="callout">
+  <p>Nearly all modern trains are electrically driven. The question is whether the electricity is made on the train or collected from a wire or rail.</p>
+</div>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>Diesel-electric: engine, generator, traction motors. Diesel-hydraulic and diesel-mechanical use fluid or gears instead.</li>
+  <li>Supplies run from 750 V DC third rail to 25 kV 50 Hz AC overhead; the same power at 25 kV needs about a thirtieth of the current it needs at 750 V.</li>
+  <li>Electric trains draw power from outside, so they can have more of it, and they can return energy while braking.</li>
+  <li>Wiring is a fixed cost per kilometre, so it suits busy lines, with bi-mode units bridging the rest.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you build railways, run trains and watch small towns grow into busy cities. It has six train models for passengers and freight, and rail crossings with automatic signals. Any money in the game is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

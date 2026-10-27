@@ -1,0 +1,73 @@
+<!--
+{
+  "title": "The dead man's hand: aces and eights and other named hands",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "PokerVsDealer",
+  "description": "Aces and eights is plain two pair: 1,584 of 2,598,960 five-card hands, 1 in 1,641. Hickok's 1876 hand, its disputed fifth card, and other named hands.",
+  "summary": "The dead man's hand is two pair, aces and eights: 1,584 of 2,598,960 five-card hands, one in 78 of all two pair. With the black suits fixed it is 44 hands; with the fifth card fixed too, exactly one.",
+  "standfirst": "Black aces and black eights are tied to Wild Bill Hickok's death in 1876. The hand's fame is a story, not a rarity, and the counting shows exactly how ordinary it is."
+}
+-->
+<p>On 2 August 1876, in Deadwood, Wild Bill Hickok was shot from behind while playing poker, and the cards in his hand became a legend: a pair of aces and a pair of eights, all four of them black. Poker players still call that holding the <strong>dead man's hand</strong>. The story is better known than the maths, and the maths is short. This post counts the hand exactly, then looks at a few other holdings that have nicknames. <a href="/blog/poker-hand-nicknames.html">Yesterday's post on trips, boats and wheels</a> covered the names for whole ranks; this one is about named specific hands.</p>
+
+<h2>What the hand was, and what is disputed</h2>
+<p>The agreed part is the two pair: aces and eights, usually given as the aces and eights of spades and clubs. The fifth card is not agreed. Accounts name different cards, and the story seems to have been tidied up in the retelling, so any single "correct" fifth card should be treated with suspicion. That is why this post counts the hand with the fifth card free first, and only then pins it down.</p>
+<p>The nickname attached itself later, as the legend grew. It does not describe a rank in the rule books. As far as hand ranking goes, aces and eights is simply two pair, with aces as the high pair and eights as the low pair.</p>
+
+<h2>Counting aces and eights</h2>
+<p>A standard deck deals C(52, 5) = <strong>2,598,960</strong> different five-card hands, all equally likely. To build aces and eights with any fifth card:</p>
+<ul>
+  <li>Choose two of the four aces: C(4, 2) = 6 ways.</li>
+  <li>Choose two of the four eights: C(4, 2) = 6 ways.</li>
+  <li>Choose the fifth card from the 44 that are neither an ace nor an eight: 44 ways.</li>
+</ul>
+<p>That gives 6 &times; 6 &times; 44 = <strong>1,584</strong> hands, or 0.061% of deals, about one in 1,641. The fifth card must avoid aces and eights because a third ace or eight would make a full house instead.</p>
+<p>Now compare it with the whole two-pair rank. There are 13 &times; 12 / 2 = 78 pairs of ranks, each with the same 36 &times; 44 = 1,584 hands, which gives 78 &times; 1,584 = <strong>123,552</strong> two-pair hands. Aces and eights is exactly 1 of those 78 combinations. Kings and fives, fours and threes, and every other pair of ranks are just as common. The aces-up group from the earlier post is 12 of the 78 and holds 19,008 hands, so aces and eights is a twelfth of aces up.</p>
+
+<h2>Fixing the suits and the fifth card</h2>
+<p>The legend is more specific than "aces and eights": it names the black ones. Each pair can take 6 suit combinations, so there are 6 &times; 6 = 36 suit patterns, and only one of them is spades and clubs for both pairs. Dividing, 1,584 / 36 = <strong>44</strong> hands that hold the ace and eight of both spades and clubs with a fifth card that completes two pair. Four further hands, with the fifth card another ace or eight, make a full house instead.</p>
+<p>That is one deal in about 59,067. Fix the fifth card as well and there is exactly <strong>one</strong> hand out of 2,598,960, whichever card you choose. Since the fifth card is in dispute, this last number is the same for every candidate. If suits sound as though they should count, <a href="/blog/why-no-suit-outranks-another.html">no suit outranks another</a> in standard ranking, so black versus red changes the story and not the strength of the hand.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart on a logarithmic scale, one deal in N: any two pair 1 in 21, aces up 1 in 137, aces and eights 1 in 1,641, black aces and black eights with any completing fifth card 1 in 59,067, one exact five-card hand 1 in 2,598,960">
+    <div class="bar-row" title="Any two pair: 1 in 21"><span class="bar-label">Any two pair</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2062)"></span><span class="bar-val">1 in 21</span></span></div>
+    <div class="bar-row" title="Aces up: 1 in 137"><span class="bar-label">Aces up</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3330)"></span><span class="bar-val">1 in 137</span></span></div>
+    <div class="bar-row hl" title="Aces and eights: 1 in 1,641"><span class="bar-label">Aces and eights</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5012)"></span><span class="bar-val">1 in 1,641</span></span></div>
+    <div class="bar-row" title="Black aces and black eights: 1 in 59,067"><span class="bar-label">Black aces and eights</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7438)"></span><span class="bar-val">1 in 59,067</span></span></div>
+    <div class="bar-row" title="One exact five-card hand: 1 in 2,598,960"><span class="bar-label">One exact hand</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1 in 2,598,960</span></span></div>
+  </div>
+  <figcaption>About one deal in N as the description narrows, on a logarithmic scale where each step is ten times rarer. Any two pair is 123,552 hands, aces up 19,008, aces and eights 1,584 (highlighted), black aces and black eights with a completing fifth card 44, and one exact five-card hand 1.</figcaption>
+</figure>
+
+<table class="paytable-compare">
+  <caption>The same hand described more and more narrowly, out of 2,598,960 five-card hands.</caption>
+  <thead>
+    <tr><th>Description</th><th>Hands</th><th>One deal in</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Any two pair</th><td>123,552</td><td>21</td></tr>
+    <tr><th scope="row">Aces up (aces the higher pair)</th><td>19,008</td><td>137</td></tr>
+    <tr><th scope="row">Aces and eights, any suits, any fifth card</th><td>1,584</td><td>1,641</td></tr>
+    <tr><th scope="row">Black aces and black eights, two pair</th><td>44</td><td>59,067</td></tr>
+    <tr><th scope="row">One exact five cards</th><td>1</td><td>2,598,960</td></tr>
+  </tbody>
+</table>
+
+<h2>Other named holdings</h2>
+<p>Most famous names in poker belong to Texas Hold'em starting hands, where a player holds two cards and there are C(52, 2) = 1,326 possible holdings (see <a href="/blog/holdem-1326-starting-hands.html">the 1,326 starting hands</a>). The counts are easy to check.</p>
+<ul>
+  <li><strong>Pocket rockets</strong> is a pair of aces: C(4, 2) = 6 of the 1,326 holdings, one in 221.</li>
+  <li><strong>Big Slick</strong> is ace-king: 4 &times; 4 = 16 holdings, one in about 83 (1,326 / 16 = 82.9).</li>
+  <li><strong>The Doyle Brunson</strong> is ten-deuce, named after Doyle Brunson, who won the World Series of Poker Main Event in 1976 and 1977 with it. It is also 16 holdings, exactly as common as Big Slick.</li>
+</ul>
+<p>The pattern matches the dead man's hand. A nickname marks a story, not scarcity: ace-king and ten-deuce occur equally often, and they could not be less alike in strength.</p>
+
+<h2>What the counting shows</h2>
+<p>A named hand is useful because it gives a table something to say, and a story is a good way to remember a ranking. The numbers keep the story in proportion. Aces and eights beats kings and fives because aces rank higher, not because it is rarer, and black aces and eights are no stronger than the same ranks in red. The full rank-by-rank counts are in <a href="/blog/five-card-poker-hand-frequencies.html">how rare each five-card poker hand is</a>, and two pair against two pair is settled by the high pair, then the low pair, then the kicker, as set out in <a href="/blog/five-card-poker-tie-breaks.html">the tie-break rules</a>. Those rules mean Hickok's aces and eights would lose to aces and nines, whatever the fifth card.</p>
+<p>For checking against a real game, <a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card game with its own rules that the listing says are not Texas Hold'em, and its listing mentions an in-game rules and payouts screen and a record of hand categories. This post makes no claim about how often the app deals any particular hand.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

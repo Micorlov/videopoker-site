@@ -1,0 +1,81 @@
+<!--
+{
+  "title": "Holding a lone deuce in Deuces Wild",
+  "date": "2026-10-27",
+  "modified": "2026-10-27",
+  "app": "VideoPoker",
+  "description": "With one deuce and nothing else useful, you keep the deuce alone and draw four. What that draw makes, and which suited pairs are strong enough to join it.",
+  "summary": "A lone deuce draws four cards and pays on 53.5% of draws. It is kept when the rest is junk, but two suited royal cards or a suited run from 6-7 up to 9-10 beat it.",
+  "standfirst": "One wild card and four cards of no use: throw the four away. The less obvious part is which pairs of suited cards are good enough to stay beside the deuce, and which are not."
+}
+-->
+<p>The most common one-deuce hand in Deuces Wild has nothing else worth keeping. The deuce goes in the hold, the other four cards go, and four new ones arrive. It feels like giving up, but it is the usual play when the rest of the hand is empty. This post covers what that draw makes, what beats it, and the suited pairs that look useful and are not.</p>
+<p>Everything here is for the full-pay table, which pays 25 for a wild royal flush, 15 for five of a kind, 9 for a straight flush, 5 for four of a kind, 3 for a full house, 2 for a flush, 2 for a straight and 1 for three of a kind, with 200 for four deuces. The <a href="/blog/reading-a-deuces-wild-paytable.html">paytable post</a> explains those rows. On a different table the borderline holds below can change, so check the rows on screen.</p>
+
+<h2>What one deuce draws to</h2>
+<p>Hold a single deuce and draw four cards from the other 51 in the pack, and there are 249,900 equally likely draws. Counting them gives this:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the result of drawing four cards to a lone deuce: no payout 46.49 percent, three of a kind 37.24, straight 7.39, four of a kind 5.72, flush 1.53, full house 0.95, straight flush 0.41, five of a kind 0.15, wild royal flush 0.10, four deuces 0.02">
+    <div class="bar-row" title="No payout: 46.49%"><span class="bar-label">No payout</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">46.49%</span></span></div>
+    <div class="bar-row hl" title="Three of a kind: 37.24%"><span class="bar-label">Three of a kind</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8010)"></span><span class="bar-val">37.24%</span></span></div>
+    <div class="bar-row" title="Straight: 7.39%"><span class="bar-label">Straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1590)"></span><span class="bar-val">7.39%</span></span></div>
+    <div class="bar-row" title="Four of a kind: 5.72%"><span class="bar-label">Four of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1230)"></span><span class="bar-val">5.72%</span></span></div>
+    <div class="bar-row" title="Flush: 1.53%"><span class="bar-label">Flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0329)"></span><span class="bar-val">1.53%</span></span></div>
+    <div class="bar-row" title="Full house: 0.95%"><span class="bar-label">Full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0204)"></span><span class="bar-val">0.95%</span></span></div>
+    <div class="bar-row" title="Straight flush: 0.41%"><span class="bar-label">Straight flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0088)"></span><span class="bar-val">0.41%</span></span></div>
+    <div class="bar-row" title="Five of a kind: 0.15%"><span class="bar-label">Five of a kind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0032)"></span><span class="bar-val">0.15%</span></span></div>
+    <div class="bar-row" title="Wild royal flush: 0.10%"><span class="bar-label">Wild royal</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0022)"></span><span class="bar-val">0.10%</span></span></div>
+    <div class="bar-row" title="Four deuces: 0.02%"><span class="bar-label">Four deuces</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0004)"></span><span class="bar-val">0.02%</span></span></div>
+  </div>
+  <figcaption>What four cards drawn to a lone deuce make, from all 249,900 possible draws. The ten figures add to 100%; 53.51% of draws pay at least the bet back, and three of a kind alone is 37.24%.</figcaption>
+</figure>
+
+<p>Two things stand out. Nearly half the draws pay nothing, so a lone deuce misses often. And the most likely good result by far is three of a kind, because any one of the three remaining deuces or any pair among the four new cards completes it. Four of a kind at 5.72% is about one draw in 17 or 18.</p>
+<p>The average works out at 0.99 times the bet for the draw above. In real hands it comes out a little higher, around 1.03 to 1.05 in the hands checked, because the four cards you throw away are not deuces and so leave the pack richer in them. With three deuces left in 47 cards, a draw of four finds at least one of them 23.9% of the time, against 22.1% when you count all 51 cards.</p>
+
+<h2>What beats a lone deuce</h2>
+<p>Anything that already pays or is close to a big hand. In rough order:</p>
+<ol class="ranked">
+  <li><strong>Made hands.</strong> A deuce with a pair is three of a kind already, and a deuce with four suited cards is a flush. Keep them. Those are different hands from the one in this post.</li>
+  <li><strong>Four to a wild royal or straight flush.</strong> A deuce with K, Q, J suited is worth about 3.68 times the bet, with A, K, Q suited about 3.40, and with 7, 6, 5 suited about 2.26. Each is at least double what the deuce alone earns, which is about 1.04.</li>
+  <li><strong>Three to a royal, or a suited run.</strong> The deuce plus two suited royal cards, or two suited cards in a run, as the table shows.</li>
+  <li><strong>The deuce on its own.</strong></li>
+</ol>
+
+<h2>Suited pairs: which ones join the deuce</h2>
+<p>The table compares the exact return of keeping the deuce with two suited cards against keeping the deuce alone. The other two cards were discarded, and each row gives the spread across up to four different pairs of discards. Positive means the pair is worth keeping.</p>
+<table class="paytable-compare">
+  <caption>Return of deuce plus two suited cards minus return of the deuce alone, in multiples of the bet.</caption>
+  <thead>
+    <tr><th>Suited pair kept with the deuce</th><th>Difference</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Ten-jack</th><td class="good">+0.27 to +0.29</td></tr>
+    <tr><th scope="row">Ten-queen, jack-queen</th><td class="good">+0.18 to +0.21</td></tr>
+    <tr><th scope="row">Ten-king, jack-king, queen-king</th><td class="good">+0.08 to +0.11</td></tr>
+    <tr><th scope="row">Six-seven, seven-eight, eight-nine, nine-ten</th><td class="good">+0.02 to +0.07</td></tr>
+    <tr><th scope="row">Ace with ten, jack, queen or king</th><td>-0.02 to +0.01</td></tr>
+    <tr><th scope="row">Low or gapped: 4-5, 5-6, 6-8, 7-9, 8-10, 9-J</th><td>-0.01 to -0.11</td></tr>
+    <tr><th scope="row">Wide gaps: 9-Q, 8-J, 7-10</th><td>-0.11 to -0.14</td></tr>
+    <tr><th scope="row">Three-four</th><td>-0.19</td></tr>
+  </tbody>
+</table>
+<p>Two suited royal cards are worth holding with a deuce, and the nearer they are to each other the better, since they also make a straight flush. That includes the king-queen that looks so tempting in <a href="/blog/deuces-wild-strategy.html">Jacks or Better</a> and is a good hold here too. A suited run is a smaller gain, but a gain: six-seven up to nine-ten edge out the lone deuce by a few hundredths of a bet. Below that, or with a gap, the lone deuce wins.</p>
+<p>Ace-high suited pairs, such as ace-king, are close to even with the lone deuce. The difference moved from plus to minus depending on the two cards thrown away, so treat them as a coin toss rather than a rule.</p>
+
+<div class="callout">
+  <p>With one deuce and no made hand, keep the deuce alone when the other cards are junk: low or gapped suited cards, or unsuited cards. Keep it with two suited royal cards, ten to king, or a suited run from six-seven to nine-ten. An ace with one other royal card is a close call.</p>
+</div>
+
+<h2>Why the lone deuce holds up so well</h2>
+<p>A wild card does the job of any missing card, so the deuce already gives you a lot of straight and flush draws before you touch the other four. Keeping two cards that rarely help costs you two draw slots, and each slot could have landed a deuce or a pair. The draw above has a 37.24% chance of three of a kind and 5.72% of four of a kind, which is a lot to give up for a weak suited pair.</p>
+<p>The same idea appears in <a href="/blog/video-poker-penalty-cards.html">penalty cards</a>: which cards you throw away changes the right hold. Since the exact figures depend on the discards, margins near zero are a judgement, and the ones above about 0.04 are firm.</p>
+
+<h2>Practising it</h2>
+<p>The Play listing for the app says every 2 is wild in Deuces Wild and that strategy hints can be turned on to learn which cards to hold. Deal a few hundred one-deuce hands with the hints on, and watch for the cases above: the lone deuce kept beside low suited cards, and a suited king-queen kept beside it.</p>
+
+<div class="post-foot">
+  <p>Deuces Wild is one of four machines in <a href="/VideoPoker/">Video Poker: Jacks or Better</a>. It plays offline, and the chips are free, with no cash value and no real money involved.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
