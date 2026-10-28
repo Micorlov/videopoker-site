@@ -27,12 +27,12 @@
 {{ head }}
 <!-- @alternates -->
 <link rel="alternate" type="application/rss+xml" title="Orlov Games blog" href="/feed.xml">
-<meta name="theme-color" content="#07170F">
+<meta name="theme-color" content="#10141a">
 <link rel="icon" href="/img/mark.svg" type="image/svg+xml">
 <link rel="icon" href="/img/mark-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/img/mark-180.png">
-<link rel="preload" href="/fonts/archivo-400-04.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/antonio-400-01.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -41,11 +41,13 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="mark" href="/"><img src="/img/mark.svg" alt="" width="28" height="28">ORLOV <span>GAMES</span></a>
+    <a class="mark" href="/"><span class="pip" aria-hidden="true"></span><span class="mark-text">ORLOV <span>GAMES</span></span></a>
     <nav class="topnav">
-      <a href="/#apps">Apps</a>
-      <a href="/blog/"{{ blog_current }}>Blog</a>
-      <a href="/skills/"{{ skills_current }}>Skills</a>
+      <span class="seg">
+        <a href="/#apps">Apps</a>
+        <a href="/blog/"{{ blog_current }}>Blog</a>
+        <a href="/skills/"{{ skills_current }}>Skills</a>
+      </span>
       {{ header_cta }}
     </nav>
   </div>
@@ -55,7 +57,7 @@
 
 <footer>
   <div class="wrap">
-    <p class="copyright">Orlov Games — Michael Orlov, Russia</p>
+    <p class="copyright"><span class="pip" aria-hidden="true"></span>Orlov Games — Michael Orlov, Russia</p>
     <nav>
       <a href="/">Apps</a>
       <a href="/blog/">Blog</a>

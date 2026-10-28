@@ -218,27 +218,29 @@ def post_items(posts, apps_by_slug, show_app=True, summary=False):
     return '<div class="post-list">\n' + "\n".join(rows) + "\n  </div>"
 
 
-def app_cards(apps, current=None):
+def app_cards(apps, current=None, big=False):
     cards = []
     for a in apps:
         if a["slug"] == current:
             continue
         state = (
-            f'<span class="state soon">Coming soon</span>'
+            '<span class="state soon">Coming soon</span>'
             if a["status"] == "testing"
-            else f'<span class="state">{esc(a["category"])}</span>'
+            else '<span class="state">On Google Play</span>'
         )
+        sub = f'\n        <span class="card-sub">{esc(a["sub_name"])}</span>' if a.get("sub_name") else ""
         cards.append(
-            f"""    <a class="card" href="{a['url']}">
+            f"""    <a class="card" href="{a['url']}" data-category="{esc(a['category'], quote=True)}">
+      <span class="card-top"><span class="cat">{esc(a['category'])}</span>{state}</span>
       <img src="{a['icon']}" alt="" width="64" height="64" loading="lazy">
       <span class="card-text">
-        <strong>{esc(a['short_name'])}</strong>
-        <span>{esc(a['tagline'])}</span>
-        {state}
+        <strong>{esc(a['short_name'])}</strong>{sub}
+        <span class="card-tagline">{esc(a['tagline'])}</span>
       </span>
+      <span class="card-go" aria-hidden="true">→</span>
     </a>"""
         )
-    return '<div class="cards">\n' + "\n".join(cards) + "\n  </div>"
+    return f'<div class="cards{" big" if big else ""}">\n' + "\n".join(cards) + "\n  </div>"
 
 
 def render_description(text):
@@ -437,54 +439,139 @@ def emit(built, memories, wanted):
 # ---------------------------------------------------------------- pages
 
 
-def build_home(apps, posts, abs_):
+def build_home(apps, posts, abs_, skills=()):
     live = [a for a in apps if a["status"] == "live"]
     testing = [a for a in apps if a["status"] == "testing"]
     featured = next(a for a in apps if a["featured"])
+    # Filter tabs: one per category that has a live app, in the order the apps
+    # are listed. Hidden until the script below runs, so with JavaScript off
+    # there are no buttons that do nothing.
+    cats = []
+    for a in live:
+        if a["category"] not in cats:
+            cats.append(a["category"])
+    tabs = ['<button type="button" class="tab" data-filter="" aria-pressed="true">All <span>'
+            f'{len(live)}</span></button>']
+    for c in cats:
+        n = sum(1 for a in live if a["category"] == c)
+        tabs.append(f'<button type="button" class="tab" data-filter="{esc(c, quote=True)}" aria-pressed="false">'
+                    f'{esc(c)} <span>{n}</span></button>')
     # An empty testing list would otherwise leave a heading over nothing.
     testing_section = ""
     if testing:
         testing_section = f"""
-<section class="wrap" id="testing">
-  <h2>In testing</h2>
+<section class="wrap band" id="testing">
+  <p class="hud-kicker"><span class="pip amber" aria-hidden="true"></span>Play Console</p>
+  <div class="section-head">
+    <h2>In testing <span class="count">{len(testing)}</span></h2>
+  </div>
   <p class="section-lede">In closed testing on Google Play, and public as soon as they are ready.</p>
-  {app_cards(testing)}
+  {app_cards(testing, big=True)}
 </section>
 """
+    stats = [("#apps", len(live), "Out now"), ("#testing", len(testing), "In testing"),
+             ("/blog/", len(posts), "Blog"), ("/skills/", len(skills), "Skills")]
+    tiles = "\n".join(
+        f'      <a class="stat" href="{href}"><span class="stat-num">{n}</span><span class="stat-label">{label}</span></a>'
+        for href, n, label in stats if n
+    )
     body = f"""
 <main>
 <div class="hero wrap">
-  <h1>Orlov Games<span class="sub">Small games for Android</span></h1>
   <div class="hero-grid">
-    <div>
+    <div class="hero-copy">
+      <p class="hud-chips"><span class="hud-chip"><span class="pip" aria-hidden="true"></span>Michael Orlov</span><span class="hud-chip">Android</span></p>
+      <h1>Orlov Games <span class="dash" aria-hidden="true">—</span> <span class="sub">Small games for Android</span></h1>
       <p class="lede">Card tables, casino classics, puzzles and a couple of useful tools, made by Michael Orlov in Israel. The casino games play for chips only: no real money, ever.</p>
       <div class="cta-row">
         <a class="play" href="#apps">See all {len(apps)} apps</a>
-        <a class="text-link" href="/blog/">Read the blog</a>
+        <a class="ghost text-link" href="/blog/">Read the blog</a>
       </div>
     </div>
-    <a class="feature" href="{featured['url']}">
-      <img src="{featured['icon']}" alt="" width="120" height="120" fetchpriority="high" decoding="async">
-      <span class="feature-label">Most played</span>
-      <strong>{esc(featured['name'])}</strong>
-      <span>{esc(featured['tagline'])}</span>
-    </a>
+    <div class="stats">
+{tiles}
+    </div>
   </div>
 </div>
 
-<section class="wrap" id="apps">
-  <h2>Out now</h2>
+<section class="wrap featured" aria-labelledby="featured-title">
+  <div class="panel">
+    <a class="panel-stage" href="{featured['url']}" tabindex="-1" aria-hidden="true">
+      <span class="stage-shots">
+        <img src="/img/shot1.jpg" width="480" height="902" alt="" fetchpriority="high" decoding="async">
+        <img src="/img/shot2.jpg" width="480" height="902" alt="" loading="lazy">
+        <img src="/img/shot3.jpg" width="480" height="902" alt="" loading="lazy">
+      </span>
+    </a>
+    <div class="panel-side">
+      <p class="hud-kicker"><span class="pip" aria-hidden="true"></span>Most played</p>
+      <div class="panel-title">
+        <img src="{featured['icon']}" alt="" width="64" height="64">
+        <h2 id="featured-title"><a href="{featured['url']}">{esc(featured['short_name'])}</a><span class="sub">{esc(featured['sub_name'])}</span></h2>
+      </div>
+      <p class="panel-lede">{esc(featured['tagline'])}</p>
+      <ul class="variants">
+        <li>Jacks or Better</li><li>Deuces Wild</li><li>Bonus Poker</li><li>Double Bonus</li>
+      </ul>
+      <div class="paytable mini">
+        <table>
+          <caption>Jacks or Better — coins bet</caption>
+          <thead>
+            <tr><th scope="col">Hand</th><th scope="col">1</th><th scope="col">5</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Royal flush</th><td>250</td><td>4000</td></tr>
+            <tr><th scope="row">Straight flush</th><td>50</td><td>250</td></tr>
+            <tr><th scope="row">Four of a kind</th><td>25</td><td>125</td></tr>
+            <tr><th scope="row">Full house</th><td>9</td><td>45</td></tr>
+            <tr><th scope="row">Flush</th><td>6</td><td>30</td></tr>
+            <tr><th scope="row">Straight</th><td>4</td><td>20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cta-row">
+        {play_button(featured)}
+      </div>
+      <p class="cta-note">Android 10 and up. Free, 18+.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap band" id="apps">
+  <p class="hud-kicker"><span class="pip" aria-hidden="true"></span>Google Play</p>
+  <div class="section-head">
+    <h2>Out now <span class="count">{len(live)}</span></h2>
+    <div class="tabs" role="group" aria-label="Filter apps by category" hidden>{"".join(tabs)}</div>
+  </div>
   <p class="section-lede">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
   {app_cards(live)}
 </section>
 {testing_section}
-<section class="wrap" id="blog">
-  <h2>From the blog</h2>
+<section class="wrap band" id="blog">
+  <p class="hud-kicker"><span class="pip" aria-hidden="true"></span><a href="{FEED}">RSS</a></p>
+  <div class="section-head">
+    <h2>From the blog</h2>
+    <p class="more"><a href="/blog/">All {len(posts)} posts</a></p>
+  </div>
   <p class="section-lede">How these games work underneath: paytables, odds, strategy and the maths behind the machines.</p>
-  {post_items(posts[:5], abs_, summary=True)}
-  <p class="more"><a href="/blog/">All {len(posts)} posts</a></p>
+  {post_items(posts[:6], abs_, summary=True)}
 </section>
 </main>
+<script>
+(function () {{
+  var bar = document.querySelector('#apps .tabs');
+  if (!bar) return;
+  var cards = document.querySelectorAll('#apps .card');
+  bar.hidden = false;
+  bar.addEventListener('click', function (e) {{
+    var b = e.target.closest('button');
+    if (!b) return;
+    var f = b.getAttribute('data-filter');
+    bar.querySelectorAll('button').forEach(function (x) {{ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }});
+    cards.forEach(function (c) {{ c.hidden = !!f && c.getAttribute('data-category') !== f; }});
+  }});
+}})();
+</script>
 """
     schema = [
         {
@@ -1088,7 +1175,7 @@ def collect():
     abs_ = {a["slug"]: a for a in apps}
     posts = load_posts(abs_)
     skills = load_skills()
-    build_home(apps, posts, abs_)
+    build_home(apps, posts, abs_, skills)
     for app in apps:
         build_app(app, apps, posts, abs_)
     build_blog(apps, posts, abs_)
