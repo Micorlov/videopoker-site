@@ -1,0 +1,38 @@
+<!--
+{
+  "title": "React Three Fiber — 3D scenes for React sites",
+  "date": "2026-10-28",
+  "modified": "2026-10-28",
+  "description": "React Three Fiber lets you build Three.js 3D scenes as React components, so an AI coding agent can add a rotating product model to your site.",
+  "summary": "A free library that turns Three.js 3D scenes into React components, so your AI agent can add interactive 3D to a site.",
+  "standfirst": "A 3D model that turns as you drag it makes a landing page look like a studio built it. React Three Fiber lets you write that 3D scene as ordinary React components, which an AI coding agent like Claude Code can write for you."
+}
+-->
+<p><a class="text-link" href="https://github.com/pmndrs/react-three-fiber">See React Three Fiber on GitHub</a></p>
+<p>React Three Fiber is a React renderer for Three.js, the popular 3D library for the web. It is made by the Poimandres (pmndrs) open-source collective.</p>
+<p>It is not an agent skill but a code library. You describe the 3D scene you want, and your AI agent writes the components.</p>
+<p>It is free under the MIT license. On 28 October 2026 the repository had about 33,000 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/react-three-fiber.svg" alt="A 3D cube inside a browser window, with a curved arrow showing it can be rotated." width="640" height="360">
+  <figcaption>3D in a web page, written as React components.</figcaption>
+</figure>
+
+<h2>What it does</h2>
+<ul>
+  <li>Every Three.js object becomes a JSX element: a mesh, a light or a camera is written like any other component.</li>
+  <li>Objects can react to state, clicks and hover, and each one can run its own animation on every frame.</li>
+  <li>The README says everything that works in Three.js works here, with no overhead, because the scene renders outside React.</li>
+  <li>It also works in React Native.</li>
+</ul>
+
+<h2>What you can add with it</h2>
+<p>A product model the visitor can rotate, a 3D hero section, or a small animated object behind a headline. Around it there is a large ecosystem: Drei adds ready-made helpers, and other packages add post-processing effects, physics and VR or AR.</p>
+
+<h2>What to know first</h2>
+<p>The version must match your React version: version 8 works with React 18, and version 9 works with React 19. The README also says you should know both React and Three.js before you start. If an agent writes the code for you, it still helps to understand what it builds. A 3D scene also adds weight to the page, so check how it loads on phones.</p>
+
+<h2>How to install it</h2>
+<pre><code>npm install three @types/three @react-three/fiber</code></pre>
+<p>Then ask your agent for the scene you want, for example a model of your product that turns when you drag it.</p>
+<p><a class="text-link" href="https://github.com/pmndrs/react-three-fiber">See React Three Fiber on GitHub</a></p>
