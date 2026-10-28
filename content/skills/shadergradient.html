@@ -1,0 +1,37 @@
+<!--
+{
+  "title": "ShaderGradient — moving 3D gradients for sites",
+  "date": "2026-10-28",
+  "modified": "2026-10-28",
+  "description": "ShaderGradient makes smooth, moving 3D gradients for React, Vue, Figma and Framer. Design one on its site, then let your AI agent add it to your page.",
+  "summary": "A free tool for smooth, moving 3D gradients: design one in the browser, then add it to a React or Vue site, or use it in Figma and Framer.",
+  "standfirst": "A soft gradient that slowly moves behind the headline is a common sign of an expensive landing page. ShaderGradient lets you design one in the browser and drop it into your site, and an AI coding agent can do the wiring for you."
+}
+-->
+<p><a class="text-link" href="https://github.com/ruucm/shadergradient">See ShaderGradient on GitHub</a></p>
+<p>ShaderGradient makes customizable, moving 3D gradients. It works as a React package, a Vue and Nuxt package, a Figma plugin and a Framer component.</p>
+<p>It is a code library, not an agent skill: your AI agent writes the code that uses it.</p>
+<p>The README says it is under the MIT license, although the repository has no separate license file. On 28 October 2026 it had about 3,000 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/shadergradient.svg" alt="A web page whose background is a soft wave of green, gold and blue color." width="640" height="360">
+  <figcaption>A gradient that moves like a slow wave.</figcaption>
+</figure>
+
+<h2>What it does</h2>
+<ul>
+  <li>Renders the gradient as a 3D shape, a plane, a sphere or a water surface, so it moves and catches light.</li>
+  <li>You choose three colors and set the speed, strength, density, grain, lighting and camera angle.</li>
+  <li>You can design a gradient on the ShaderGradient website and copy its settings as a link. The component can load the gradient straight from that link.</li>
+  <li>It can load only when the gradient scrolls into view.</li>
+</ul>
+
+<h2>What to know first</h2>
+<p>The React version is built on React Three Fiber and Three.js, so it adds a 3D engine to your page. That makes the page heavier than a plain CSS gradient, so check how fast it loads, especially on phones. Versions matter too: for the Next.js 15 App Router, the README says you must use React Three Fiber 9 with React 19.</p>
+
+<h2>How to install it</h2>
+<p>For React, install the package and its peer dependencies:</p>
+<pre><code>npm i @shadergradient/react @react-three/fiber three three-stdlib camera-controls
+npm i -D @types/three</code></pre>
+<p>Then design a gradient on shadergradient.co, copy the link, and ask your agent to put it behind your hero section. Figma and Framer users can use the plugin and the component instead, with no code.</p>
+<p><a class="text-link" href="https://github.com/ruucm/shadergradient">See ShaderGradient on GitHub</a></p>
