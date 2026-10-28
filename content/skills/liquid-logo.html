@@ -1,0 +1,40 @@
+<!--
+{
+  "title": "Liquid Logo — turn a flat logo into liquid metal",
+  "date": "2026-10-28",
+  "modified": "2026-10-28",
+  "description": "Liquid Logo from Paper turns a flat logo into moving liquid metal in the browser. Upload an SVG, tune the effect, and use Paper Shaders to put it on a site.",
+  "summary": "A free web tool from Paper that turns a flat logo into moving liquid metal, built on the Paper Shaders library.",
+  "standfirst": "A logo that looks like shimmering liquid metal is the kind of detail people expect from a design studio. Liquid Logo does it in the browser: you upload a flat logo and it comes back as moving chrome."
+}
+-->
+<p><a class="text-link" href="https://github.com/paper-design/liquid-logo">See Liquid Logo on GitHub</a></p>
+<p>Liquid Logo is a small web app from Paper, the design tool company. It runs on its website, liquid.paper.design, and its code is on GitHub. The README calls it a project “just for fun”.</p>
+<p>It is not an agent skill. It is a tool you use in the browser, and the effect behind it comes from Paper Shaders, a code library that an AI agent can use on your site.</p>
+<p>On 28 October 2026 the repository had about 1,400 stars on GitHub.</p>
+
+<figure class="chart">
+  <img src="/img/skills/liquid-logo.svg" alt="A flat logo shape on the left, an arrow, and the same shape in shiny metal on the right." width="640" height="360">
+  <figcaption>From a flat shape to moving metal.</figcaption>
+</figure>
+
+<h2>How it works</h2>
+<ul>
+  <li>You upload your logo as an SVG or an image. The app turns it into a mask and adds a beveled edge.</li>
+  <li>A shader paints that shape as liquid metal that moves.</li>
+  <li>You can change the background (metal, white, black or any color) and tune dispersion, edge, pattern blur, liquify, speed and pattern scale.</li>
+</ul>
+
+<h2>Tips from the app</h2>
+<p>The logo needs a transparent or white background. Shapes work better than words, and an SVG or a high-resolution image gives the best result.</p>
+
+<h2>What to know first</h2>
+<p>When you upload a logo on the website, the code saves the processed image to online storage to make a share link. Do not upload a logo you cannot show yet.</p>
+<p>The repository uses the PolyForm Shield license. You may use the code, but not to build a product that competes with it, so it is not a classic open-source license. The Paper Shaders library itself is under the Apache 2.0 license and includes a liquid-metal effect, so it is the part to use if you want this on your own site.</p>
+
+<h2>How to use it</h2>
+<p>The simplest way is to open liquid.paper.design, upload your logo and tune it. To run the app yourself, clone the repository:</p>
+<pre><code>git clone https://github.com/paper-design/liquid-logo.git</code></pre>
+<p>To add a liquid-metal logo to your own site, ask your AI agent to use the Paper Shaders package:</p>
+<pre><code>npm install @paper-design/shaders-react</code></pre>
+<p><a class="text-link" href="https://github.com/paper-design/liquid-logo">See Liquid Logo on GitHub</a></p>
