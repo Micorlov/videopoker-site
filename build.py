@@ -33,6 +33,9 @@ STATIC = ROOT / "static"
 OUT = ROOT / "_site"
 
 SITE = "https://michaelorlov.com"
+# Search Console "HTML tag" verification: paste the content value here. Empty emits nothing.
+# See SEARCH_CONSOLE.md.
+GSC_VERIFICATION = ""
 GA_ID = "G-NS1LGN6P3Y"  # GA4 account WEB → property michaelorlov.com → web stream "michaelorlov.com"
 STUDIO = "Orlov Games"
 AUTHOR = "Michael Orlov"
@@ -294,6 +297,8 @@ def page(path, *, title, description, body, group, og_title=None, og_description
         head.append(f'<link rel="canonical" href="{SITE}{path}">')
     if robots:
         head.append(f'<meta name="robots" content="{robots}">')
+    if GSC_VERIFICATION:
+        head.append(f'<meta name="google-site-verification" content="{esc(GSC_VERIFICATION, quote=True)}">')
     og_image = SITE + (og_image or DEFAULT_OG)
     og_title = esc(og_title or title, quote=True)
     og_description = esc(og_description or description, quote=True)
@@ -475,6 +480,9 @@ def build_home(apps, posts, abs_, skills=()):
         f'      <a class="stat" href="{href}"><span class="stat-num">{n}</span><span class="stat-label">{label}</span></a>'
         for href, n, label in stats if n
     )
+    play_list = "\n".join(
+        f'    <li><strong>{esc(a["short_name"])}</strong> {play_button(a, small=True)}</li>' for a in live
+    )
     body = f"""
 <main>
 <div class="hero wrap">
@@ -545,6 +553,10 @@ def build_home(apps, posts, abs_, skills=()):
   </div>
   <p class="section-lede">{len(live)} apps on Google Play. Tap one for screenshots, details and its privacy policy.</p>
   {app_cards(live)}
+  <p class="cta-note play-lede">Install straight from Google Play:</p>
+  <ul class="play-list">
+{play_list}
+  </ul>
 </section>
 {testing_section}
 <section class="wrap band" id="blog">
