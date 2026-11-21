@@ -1,0 +1,56 @@
+<!--
+{
+  "title": "When a 16 is not just a 16",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "BlackjackCoach",
+  "description": "A 10-6 and a 5-4-7 both total 16 against a dealer 10, but the cards behind them differ. How composition shifts hit against stand, and why charts ignore it.",
+  "summary": "The cards in a hard 16 change the hit-or-stand call a little: each small card you hold is gone from the shoe, so a hit busts slightly more often. The shift is small, which is why a chart ignores it.",
+  "standfirst": "A chart gives one answer for hard 16 against a dealer 10, yet the hand can be made in several ways. The cards you hold are no longer in the shoe, and that nudges the odds by a small, real amount."
+}
+-->
+<p>Open a basic strategy chart and find hard 16 against a dealer 10. You get one letter. The chart does not ask whether the 16 is a ten and a six, a nine and a seven, or three small cards that happen to add up. For almost every hand that is the right simplification, and seeing where it bends shows what the chart is built on.</p>
+
+<h2>What composition dependence means</h2>
+<p>Composition dependence is the idea that the best play can depend on which cards make up your total, not only on the total. The reason is plain: cards in your hand are out of the shoe. A hand holding a ten has taken a ten from the cards still to come, and a hand of 5-4-7 has taken three small ones. Those removals change what you are likely to draw, and what the dealer is likely to draw.</p>
+<p>It is a matter of degree. Six decks hold 312 cards, so taking out two or three barely moves any probability. In a single deck the same removal matters far more, which is why composition features in old single-deck advice. At six decks it survives as a thin margin.</p>
+
+<h2>Three ways to make 16</h2>
+<p>Take a dealer 10 showing, dealer standing on soft 17, six decks. A hit busts you on any card worth 6 or more: the 6, 7, 8, 9 and the four ten-value ranks, 192 cards in the full shoe.</p>
+<p>With 10-6, the cards out of the shoe are the dealer's 10, your 10 and your 6. That leaves 189 busting cards among 309 unseen, a bust chance of 61.2%. With 9-7 the removals are a 10, a 9 and a 7, which again leaves 189 in 309, so 61.2%. Now the three-card hand, 5-4-7. It removes the dealer's 10 and your 5, 4 and 7. Of those four removed cards only two, the 10 and the 7, are cards that would have busted the hand, so 190 busting cards remain among 308 unseen: 61.7%. Your 5 and 4 were cards that would have kept you alive, and they are gone.</p>
+<p>The figure plots that one quantity. It is one input to the decision, not the whole answer, and it is arithmetic you can check with a pencil.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="A hit busts slightly more often on a three-card 16 (61.7%) than on 10-6 or 9-7 (61.2%), because 5-4-7 has taken two small cards out of the shoe">
+    <div class="bar-row" title="10-6: 61.2%"><span class="bar-label">10-6</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9919)"></span><span class="bar-val">61.2%</span></span></div>
+    <div class="bar-row" title="9-7: 61.2%"><span class="bar-label">9-7</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9919)"></span><span class="bar-val">61.2%</span></span></div>
+    <div class="bar-row" title="8-8 (split): 61.2%"><span class="bar-label">8-8 (split)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9919)"></span><span class="bar-val">61.2%</span></span></div>
+    <div class="bar-row hl" title="5-4-7: 61.7%"><span class="bar-label">5-4-7</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">61.7%</span></span></div>
+  </div>
+  <figcaption>Chance that a hit busts a 16 against a dealer 10, by how the 16 is made. Six decks, dealer standing on soft 17, counting the dealer's 10 and your own cards as removed. This is one input, not the full expected value. The three-card hand busts about half a point more often, and the gap is the whole story.</figcaption>
+</figure>
+
+<p>Half a point looks like nothing, and on one hand it is nothing. It matters only because hard 16 against a 10 is already a near-tie between two losing plays, as in <a href="/blog/hard-16-against-a-10.html">the post on that hand</a>. When the gap is a few hundredths of a bet, a small shift in the bust chance can lean on it.</p>
+
+<h2>Which way the effect runs</h2>
+<p>The direction is the part to remember. The more small cards in your 16, the worse hitting gets and the better standing looks. A 10-6 leaves the small cards in the shoe, so hitting is at its best. A hand of several small cards has consumed some of them. The ordering from most hit-friendly to least is two-card hands, then three-card hands, then longer ones.</p>
+<p>How big is it? I will not print an expected value for each composition, because the numbers are tiny and published tables differ in the third decimal place with details such as how the dealer's blackjack check is treated. At six decks the two plays stay close for every composition of 16 against a 10, the gap is a few hundredths of a bet or less, and some published tables give a multi-card 16 to standing. Treat the direction as established and the size as small.</p>
+<p>The pair of eights is different in kind. You split it, so the 8-8 bar shows the bust chance of a hand you do not play as a 16. Its removals match 9-7, but the decision changes entirely. If you want to practise the chart rows, <a href="/BlackjackCoach/">Blackjack Coach</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender.</p>
+
+<h2>Why a chart ignores it on purpose</h2>
+<p>There are two reasons. The first is that ignoring composition costs very little: the plays are close calls, so choosing by total alone gives up only a sliver of value. The second is that the chart has to be usable. One entry per total and dealer card can be memorised. A composition-dependent chart needs you to track which cards you hold and how many, for a gain you could not measure at the table, and the extra rules would invite more errors than they remove.</p>
+<p>A chart is a compressed summary of arithmetic like the above, and knowing the arithmetic tells you which entries are fragile. <a href="/blog/stiff-hands-stand-13-to-16.html">Stiff hands from 13 to 16</a> sit on thin margins against low dealer cards, and the plays a count moves are the same close calls, as in <a href="/blog/illustrious-18-index-plays.html">the Illustrious 18</a>. A count shifts the call by changing the whole shoe, which is a far bigger change than your own two or three cards.</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Composition dependence means the cards making a total can change the best play, because those cards have left the shoe.</li>
+  <li>Against a dealer 10 at six decks, a hit busts 61.2% of the time on 10-6 or 9-7 and 61.7% on 5-4-7.</li>
+  <li>More small cards in the hand pushes the call from hitting toward standing; the direction is reliable, the size is small.</li>
+  <li>Two eights are split, not played as a 16.</li>
+  <li>The chart ignores composition because the cost is tiny and the extra rules are hard to use correctly.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

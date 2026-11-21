@@ -1,0 +1,60 @@
+<!--
+{
+  "title": "Drag slicks: soft, wide and wrinkled",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "PinkSlipKings",
+  "description": "A drag slick has no tread, a soft compound and a wrinkling sidewall. Grip is friction times load, so tyre design and weight transfer work as a pair.",
+  "summary": "Grip is roughly the friction coefficient times the load on the tyre. With typical published ranges, a prepared-track slick can transmit about 2.5 times the force of a road tyre at the same load, and weight transfer raises the load it works with.",
+  "standfirst": "A drag slick looks like a tyre designed by someone who has never seen rain, and that is close to the truth. Each odd feature, from the bald tread to the wrinkled wall, raises the friction coefficient or lets the tyre use it."
+}
+-->
+<p>Put a drag slick beside a road tyre and almost nothing matches. The slick is bald, wide and tall in the sidewall, and at the launch its wall visibly crumples. Each difference has a reason, and the reasons feed one formula: the most force a tyre can pass to the road is roughly the friction coefficient μ times the load on it. This post goes through the features one at a time. The figures are typical published ranges, not exact values, and they are not data about any tyre in a game.</p>
+
+<h2>No tread, on purpose</h2>
+<p>Tread grooves exist to clear water. On a wet road a tyre must push the film out of its contact patch or it rides up on it, so a road tyre carries channels and sipes for that job. A dry, prepared strip has no water to clear, so the grooves do nothing useful. They also cost grip: a groove is rubber not touching the road, and a tread block is a small column that squirms under load, wasting force as movement. A smooth face keeps the whole patch in contact and stiff.</p>
+
+<h2>Soft, and hot</h2>
+<p>Rubber grips partly by deforming into the tiny roughness of the surface and partly by molecular adhesion, and a soft compound does both better. It is also a compound that only works properly when warm. That is what <a href="/blog/why-drag-racers-do-a-burnout.html">the burnout</a> is for: it spins the tyres against the surface to heat the rubber to working temperature, and leaves a layer of warm, tacky rubber on the face. Cold, a slick grips poorly; hot, it grips far better. The price of softness is a short life, which suits a run that lasts seconds.</p>
+
+<h2>A tall wall at low pressure</h2>
+<p>A drag slick often runs a very low pressure, far below a road tyre's, with a tall, soft sidewall. Two things follow. The contact patch gets longer, which spreads the load. And the sidewall is no longer a stiff link between wheel and tread: when the engine's torque arrives, the rim turns first and the tread lags behind, so the wall twists. It wrinkles in diagonal folds and winds up like a torsion spring.</p>
+<p>That wind-up is the clever part. On a stiff tyre, a hard hit of torque is a sudden shove, and if it exceeds the available grip the tyre spins. A soft wall turns the shove into a ramp: the wheel moves ahead of the tread while the tread stays planted, and the torque reaches the road as the spring tightens, not as a spike. The tyre absorbs the hit instead of breaking traction. As the car moves, the spring releases and the wrinkles ease out.</p>
+
+<h2>A wide patch</h2>
+<p>In the simplest friction model, contact area cancels out: force depends on μ and load only. Rubber is not that simple. A wide, soft tyre keeps the load per unit of rubber low, which helps the compound stay cool enough to keep its grip. Treat width as a way of letting the soft compound live up to its coefficient, not as a free multiplier.</p>
+<p>Here the other posts join in. <a href="/blog/drag-racing-weight-transfer.html">Weight transfer</a> moves load onto the rear tyres as the car accelerates, so the tyre's grip is not fixed at the static weight: it is μ times a load that grows at the launch. A grippy tyre and a car that loads it well multiply together. The <a href="/PinkSlipKings/">Pink Slip Kings</a> listing mentions upgrading tyres and balancing power against tyre grip, which is the same trade seen from the tuning screen.</p>
+
+<h2>Putting numbers on it</h2>
+<p>Published coefficient figures for tyres vary widely with the test, the compound and the surface, so I use ranges. Typical published ranges run roughly like this: 0.7 to 0.9 for a road tyre, 1.0 to 1.2 for a performance tyre, around 1.5 for a drag radial, and upwards of 2 for a slick on a prepared track. Surface preparation is part of the figure. A slick on an ordinary road would not get near it.</p>
+<p>Now an illustrative sum. Suppose 1,000 kg rests on the driven tyres, which is 1,000 × 9.81 = 9,810 N. The most force they can transmit is μ × 9,810 N, using the midpoint of each range:</p>
+<ul>
+  <li><strong>Road tyre:</strong> 0.8 × 9,810 = 7,848 N.</li>
+  <li><strong>Performance tyre:</strong> 1.1 × 9,810 = 10,791 N.</li>
+  <li><strong>Drag radial:</strong> 1.5 × 9,810 = 14,715 N.</li>
+  <li><strong>Prepared-track slick:</strong> 2.0 × 9,810 = 19,620 N, and since 2 is the bottom of its range, this is a floor.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the illustrative maximum traction force at 1,000 kg on the driven tyres: a prepared-track slick passes 19,620 newtons, against 7,848 newtons for a road tyre">
+    <div class="bar-row hl" title="Prepared-track slick, 2+: 19,620 N"><span class="bar-label">Slick, 2+</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">19,620 N</span></span></div>
+    <div class="bar-row" title="Drag radial, about 1.5: 14,715 N"><span class="bar-label">Drag radial, ~1.5</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">14,715 N</span></span></div>
+    <div class="bar-row" title="Performance tyre, 1.0 to 1.2: 10,791 N"><span class="bar-label">Performance, 1.0-1.2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5500)"></span><span class="bar-val">10,791 N</span></span></div>
+    <div class="bar-row" title="Road tyre, 0.7 to 0.9: 7,848 N"><span class="bar-label">Road, 0.7-0.9</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4000)"></span><span class="bar-val">7,848 N</span></span></div>
+  </div>
+  <figcaption>Illustrative maximum traction force (coefficient times weight) with 1,000 kg on the driven tyres, using the midpoint of each typical published coefficient range, shown in the labels. The figures depend on the surface and are not exact values. The slick passes about 2.5 times the force of the road tyre at the same load.</figcaption>
+</figure>
+
+<p>The ratio is 19,620 ÷ 7,848 = 2.5, so the same weight on a prepared-track slick can transmit about two and a half times the force it could on a road tyre. The ordering from most grip to least is slick, drag radial, performance tyre, road tyre. The order is the dependable part; the gaps are indicative.</p>
+
+<h2>Tyre and transfer together</h2>
+<p>Now add the second half. Transfer raises the load on the driven tyres, and the same extra load is worth more on a better tyre, because it is multiplied by a bigger μ. The order of operations is this: transfer decides how much load the tyre has, the tyre decides how much of it can become forward force, and the soft wall decides whether the engine's torque reaches that limit smoothly or arrives as a spike. That is why <a href="/blog/drag-racing-launch-rpm.html">launch RPM</a> still matters even with the best tyre: too much torque at once can exceed the limit.</p>
+<p>If you want to see the trade in play, <a href="/PinkSlipKings/">Pink Slip Kings</a> lets you adjust launch RPM and upgrade tyres, and test the result in Test &amp; Tune.</p>
+
+<h2>In the game</h2>
+<p>The Play listing says you can upgrade tyres, drivetrain and suspension, adjust launch RPM, and balance power against tyre grip. It does not say how the game models tyre wrinkle, compound or temperature, so read this post as real-world background.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls and detailed tuning of the engine, drivetrain, tyres and suspension, with a dyno, telemetry and race time slips. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

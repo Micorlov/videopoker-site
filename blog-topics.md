@@ -163,31 +163,103 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
+- The 32 ways to hold five cards, and why that is the game
+- What one wrong hold per hundred hands costs
+- Strategy hints: why a suggested hold is worth checking
+- Why Jacks or Better pays nothing on a low pair
+
 ### OmahaPoker
+
+- How many four-card Omaha hands there are, and why it matters
+- A third card of one suit: why it adds nothing in Omaha
+- Pot-Limit or No-Limit: what capping the bet size changes
+- Position in Pot-Limit Omaha: why acting last is worth more
 
 ### Blackjack21
 
+- The odds of being dealt a natural blackjack
+- Why you never hit a hard 17
+- Burn cards and the cut card: what they do to a shoe
+- Vingt-et-un to blackjack: where the game came from
+
 ### BrasslightSlots
+
+- Free spins and retriggers: how a bonus round extends itself
+- Starting with five million coins: what a big chip balance is for
+- Login streaks and daily wheels: how a free slots game paces itself
+- Why a slot counts a win up instead of showing it at once
 
 ### PokerVsDealer
 
+- Bailing out: when recovering half your committed chips is right
+- Two contests from one hand: the dealer and the table pot
+- Forging a card: what paying an ante for a fresh card buys
+- The odds the dealer's five face-up cards make a pair
+
 ### FivesAndThrees
+
+- Targets of 61, 121, 181 and 241: how match length changes play
+- Two ends and no spinner: the shape of a Fives and Threes line
+- Average score per hand: what a good Fives and Threes return looks like
+- The going-out bonus: what finishing a hand is worth
 
 ### BlackjackCoach
 
+- The order to learn the basic strategy chart in
+- Counting down a deck: the drill that proves your count
+- Side counts: what Hi-Lo leaves out
+- What basic strategy is worth against playing by feel
+
 ### HoldemCoach
+
+- Stack depth: why 20 big blinds plays differently from 100
+- Slow playing: when not betting a strong hand pays
+- The check-raise: raising after you have already checked
+- Ranges instead of hands: how to think about what they hold
 
 ### EightBallsPool
 
+- Frozen balls and balls on the cushion: the hardest shots in pool
+- Miscues and masse: what happens when the cue tip slips
+- Cloth, nap and humidity: why a pool table plays differently
+- Overhead or aiming view: how a 3D pool game maps a real stance
+
 ### BigBenBlocks
+
+- The block shapes, and how often each one fits
+- Why a fixed piece sequence makes an Adventure level solvable
+- Streaks and the monthly calendar: how the Daily Challenge keeps score
+- Reading the board: counting the space you have left
 
 ### PinkSlipKings
 
+- Air density: why a car runs quicker on a cold night
+- Drivetrain loss: why the wheels see less power than the dyno
+- Elimination ladders: how a drag racing tournament is run
+- Test and Tune: why a practice run beats a race for learning
+
 ### ValleyRail
+
+- Headway: how many trains a single line can carry
+- Marshalling yards: how a freight train is put together
+- Axle load: what limits how heavy a wagon can be
+- Branch lines and junctions: how a network grows from one route
 
 
 ## Published
 
+- 2026-11-21 — Expected value: how the right hold is chosen — VideoPoker — `video-poker-expected-value-holds`
+- 2026-11-21 — The nuts in Omaha: why someone usually has them — OmahaPoker — `omaha-the-nuts`
+- 2026-11-21 — Beat the Dealer: how basic strategy was worked out — Blackjack21 — `blackjack-beat-the-dealer-history`
+- 2026-11-21 — Why five reels beat three for ways to win — BrasslightSlots — `slot-five-reels-vs-three`
+- 2026-11-21 — Picking a kicker before the dealer draws — PokerVsDealer — `poker-vs-dealer-picking-a-kicker`
+- 2026-11-21 — The double-blank: the hardest tile to place — FivesAndThrees — `fives-and-threes-double-blank`
+- 2026-11-21 — When a 16 is not just a 16 — BlackjackCoach — `blackjack-composition-dependent-16`
+- 2026-11-21 — Fold equity: why a bet can win two ways — HoldemCoach — `holdem-fold-equity`
+- 2026-11-21 — Position play: thinking two shots ahead — EightBallsPool — `pool-position-play`
+- 2026-11-21 — Combos and chains on a 9x9 grid — BigBenBlocks — `block-puzzle-combos-and-chains`
+- 2026-11-21 — Drag slicks: soft, wide and wrinkled — PinkSlipKings — `drag-slicks-tyre-design`
+- 2026-11-21 — Why a railway station is put where it is — ValleyRail — `where-a-railway-station-goes`
 - 2026-10-27 — Holding a lone deuce in Deuces Wild — VideoPoker — `deuces-wild-lone-deuce`
 - 2026-10-27 — Sit and Go payouts: what a 50/30/20 split means for your play — OmahaPoker — `omaha-sit-and-go-50-30-20-payouts`
 - 2026-10-27 — Five-card Charlie: a house rule and what it would be worth — Blackjack21 — `blackjack-five-card-charlie`

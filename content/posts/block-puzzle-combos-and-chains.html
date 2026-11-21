@@ -1,0 +1,86 @@
+<!--
+{
+  "title": "Combos and chains on a 9x9 grid",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "BigBenBlocks",
+  "description": "A combo clears several lines from one placement, a chain clears on consecutive ones. The cell counts on a 9x9 grid show what each one needs.",
+  "summary": "Overlaps mean simultaneous clears free fewer cells than the lines add up to: a row and column clear 17, not 18, and a row, column and box clear 21 or 23 depending on the layout. A combo needs only gap geometry; a chain also needs the next piece.",
+  "standfirst": "A combo is several lines clearing from one placement. A chain is lines clearing on consecutive placements. Both come down to board geometry you can count, and the counts show why a combo is easier to set up than a chain."
+}
+-->
+<p>The two words are often used loosely. In this post a <strong>combo</strong> is several lines clearing from a single placement, and a <strong>chain</strong> is lines clearing on consecutive placements, one after another. I do not know how the app counts either toward its goals, so I stick to what can be checked: cells and geometry on a 9x9 grid where rows, columns and 3x3 boxes all clear.</p>
+
+<h2>Counting the overlaps</h2>
+<p>One row, one column or one box is 9 cells. Two lines cleared together are not always 18, because cells they share are only cleared once. The rule is inclusion-exclusion: add the sizes, then take off the overlaps.</p>
+<ul>
+  <li><strong>Two rows</strong> (or two columns, or two boxes) share nothing: 9 + 9 = 18.</li>
+  <li><strong>A row and a column</strong> cross at exactly one cell: 9 + 9 &minus; 1 = 17.</li>
+  <li><strong>A row and a box</strong> that the row passes through share 3 cells: 9 + 9 &minus; 3 = 15. A column and a box it passes through also share 3, so that is 15 as well.</li>
+</ul>
+<p>If the row misses the box altogether there is no overlap and the answer is 18 again. The <a href="/blog/nine-by-nine-grid-three-lines.html">earlier post on the 9x9 grid</a> has the wider overlap counts.</p>
+
+<h2>Three lines at once</h2>
+<p>Take a row, a column and a box. The answer depends on the arrangement, so here is the case I drew: the row and the column both pass through the box, which means they must cross inside it. The overlaps are then row and column 1, row and box 3, column and box 3, and the crossing cell is in all three lines.</p>
+<p>Inclusion-exclusion adds the three sizes, subtracts the pair overlaps and adds back the cell that was subtracted too often: 9 + 9 + 9 &minus; (1 + 3 + 3) + 1 = 27 &minus; 7 + 1 = <strong>21</strong>. A direct count agrees: the box's 9 cells, plus the 6 of the row outside the box, plus the 6 of the column outside it, is 9 + 6 + 6 = 21.</p>
+<p>Move the column so that it misses the box, crossing the row outside it. Now the pair overlaps are 1, 3 and 0, and no cell is in all three: 27 &minus; (1 + 3 + 0) + 0 = <strong>23</strong>. The direct count is 9 for the box, 6 for the row outside it, and 8 for the column, which loses the one cell it shares with the row: 9 + 6 + 8 = 23.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 254" role="img" aria-label="Column chart of cells cleared at once on a 9x9 grid: a row 9, a box 9, a row and box 15, a row and column 17, two rows 18, row, column and box crossing inside the box 21, and the same three lines with the column outside the box 23. Overlap, not line count, sets the total.">
+    <line class="axis" x1="12" x2="392" y1="200" y2="200"/>
+    <g class="hit"><title>One row: 9 cells</title><path class="fill-base" d="M22,200 V141 Q22,137 26,137 H54 Q58,137 58,141 V200 Z"/></g>
+    <text x="40" y="132" text-anchor="middle">9</text>
+    <text x="40" y="216" text-anchor="middle">Row</text>
+    <g class="hit"><title>One box: 9 cells</title><path class="fill-base" d="M77,200 V141 Q77,137 81,137 H109 Q113,137 113,141 V200 Z"/></g>
+    <text x="95" y="132" text-anchor="middle">9</text>
+    <text x="95" y="216" text-anchor="middle">Box</text>
+    <g class="hit"><title>Row and box: 15 cells</title><path class="fill-base" d="M132,200 V99 Q132,95 136,95 H164 Q168,95 168,99 V200 Z"/></g>
+    <text x="150" y="90" text-anchor="middle">15</text>
+    <text x="150" y="216" text-anchor="middle">Row</text>
+    <text x="150" y="230" text-anchor="middle">+ box</text>
+    <g class="hit"><title>Row and column: 17 cells</title><path class="fill-base" d="M187,200 V85 Q187,81 191,81 H219 Q223,81 223,85 V200 Z"/></g>
+    <text x="205" y="76" text-anchor="middle">17</text>
+    <text x="205" y="216" text-anchor="middle">Row</text>
+    <text x="205" y="230" text-anchor="middle">+ col</text>
+    <g class="hit"><title>Two rows: 18 cells</title><path class="fill-base" d="M242,200 V78 Q242,74 246,74 H274 Q278,74 278,78 V200 Z"/></g>
+    <text x="260" y="69" text-anchor="middle">18</text>
+    <text x="260" y="216" text-anchor="middle">Two</text>
+    <text x="260" y="230" text-anchor="middle">rows</text>
+    <g class="hit"><title>Row, column and box, crossing inside the box: 21 cells</title><path class="fill-base" d="M297,200 V57 Q297,53 301,53 H329 Q333,53 333,57 V200 Z"/></g>
+    <text x="315" y="48" text-anchor="middle">21</text>
+    <text x="315" y="216" text-anchor="middle">Row,col</text>
+    <text x="315" y="230" text-anchor="middle">+ box</text>
+    <text x="315" y="244" text-anchor="middle">col in</text>
+    <g class="hit"><title>Row, column and box, column outside the box: 23 cells</title><path class="fill-accent" d="M352,200 V43 Q352,39 356,39 H384 Q388,39 388,43 V200 Z"/></g>
+    <text class="strong" x="370" y="34" text-anchor="middle">23</text>
+    <text x="370" y="216" text-anchor="middle">Row,col</text>
+    <text x="370" y="230" text-anchor="middle">+ box</text>
+    <text x="370" y="244" text-anchor="middle">col out</text>
+  </svg>
+  <figcaption>Cells cleared at once by each combination of lines on a 9x9 grid, from the sums above ("col in" and "col out" mean the column passes through the box or does not). Two rows clear 18, yet three lines clear 21 when they overlap heavily and 23 when they overlap less.</figcaption>
+</figure>
+
+<p>More lines do not guarantee more cells. A row, column and box crossing inside the box (21) clear only 3 more than two rows (18), because the box is overlapped on two sides. Only the arrangement with the column outside the box reaches 23.</p>
+<p>These are the shapes a combo has to fill. The Adventure levels in <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> set combo goals, so it is worth knowing which gaps one piece can reach before you start building towards them.</p>
+
+<h2>One cell short on two lines</h2>
+<p>A line that is one cell short has 8 of its 9 cells filled. Keep two lines in that state and you are holding two cells open, and what happens next depends on where they are.</p>
+<ul>
+  <li><strong>The same cell.</strong> If a row and a column are both short at their crossing, the one gap serves both. Filling it clears 17 cells. Before the piece lands, 8 + 8 = 16 cells are filled, since the crossing is empty and the two lines share nothing else.</li>
+  <li><strong>Two rows, gaps in the same column.</strong> A piece covering both stacked gaps clears 18 cells, with 16 of them filled beforehand.</li>
+  <li><strong>Gaps that do not touch.</strong> No single piece covers both, so you need two placements. That is a chain, not a combo.</li>
+</ul>
+<p>The buy is 17 or 18 cells from one placement. The cost is that the held-open cells must stay reachable. A piece that fills only one of the two gaps clears one line and leaves the other still short, and a gap that few pieces can reach is a liability the longer you hold it. The posts on <a href="/blog/block-puzzle-double-clears.html">setting up double clears</a> and <a href="/blog/block-puzzle-holes-and-islands.html">holes and islands</a> look at both sides of that trade.</p>
+
+<h2>Why a chain needs more than a combo</h2>
+<p>A combo needs one thing: a single piece whose cells cover every gap. A chain needs that twice, in order, and the first clear changes the board the second depends on.</p>
+<p>Clearing a row empties 9 cells. Each of the 9 columns loses one filled cell, and each of the 3 boxes the row passes through loses 3. So any line that crosses the cleared one ends up further from full than it was. Parallel lines are not affected, since two rows never share a cell. That is why a chain of rows, or of columns, is the easier kind to plan, while a row followed by a column has to refill the crossing cell that the first clear just emptied.</p>
+<p>The second requirement is the pieces. Even with the geometry right, the next piece has to be one that fits the gap you left. In an Adventure level each level has a fixed starting board and piece sequence, so you can work out in advance whether the next piece will fit, and repeat a plan that works. The <a href="/BigBenBlocks/">Adventure levels</a> are where chain planning can be rehearsed rather than hoped for.</p>
+
+<h2>What the counts tell you</h2>
+<p>A combo is a property of the board at the moment of one placement: gaps that one piece can cover, and a cell count you can work out beforehand, 17 for a row and column, 18 for two rows, 21 or 23 for three lines. A chain is a property of a sequence: each clear must leave the next line one piece away. Build for a combo when the gaps line up, and for a chain when the lines run in parallel.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have score, line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
