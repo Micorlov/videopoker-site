@@ -1,0 +1,90 @@
+<!--
+{
+  "title": "Block shapes and how often each one fits",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "BigBenBlocks",
+  "description": "One stray block in the centre of a 9x9 grid removes 1.2% of a single's places but 18.4% of a 3x3 square's. The counts behind that gap, shape by shape.",
+  "summary": "One filled cell in the centre of a 9x9 grid removes 1 of a single's 81 places (1.2%) but 9 of a 3x3 square's 49 (18.4%), because a shape wide in both directions is hit from both. Cleared lines return space in their own shape.",
+  "standfirst": "How easy a block is to place is a countable property of its shape. The share of places one stray block removes runs from 1.2% for a single to 18.4% for a 3x3 square, which is why the big square is the piece that ends games."
+}
+-->
+<p>Whether a block is easy to place is mostly a counting question, and the interesting count is not the one on an empty board but the one after a few cells are filled. The listing for Big Ben Blocks does not say which shapes it deals, so this post uses the standard block-puzzle shapes and nothing about the app's own piece set.</p>
+
+<h2>Places on an empty board</h2>
+<p>A piece whose smallest enclosing rectangle is w columns wide and h rows high can start in (10 &minus; w) x (10 &minus; h) positions on an empty 9x9 grid. A single cell has 9 x 9 = 81. A 3x3 square has 7 x 7 = 49. Everything else sits between: a 2x2 square has 64, and a bent piece uses the rectangle that holds it. The <a href="/blog/block-puzzle-keep-a-3x3-box-empty.html">post on keeping a 3x3 box empty</a> tabulates the footprints and shows which cells cost the most room, so I take those counts as given.</p>
+<p>On an empty board, then, the square has 49 / 81 = 60% as many places as the single. That sounds like a modest handicap. It is not, because the two counts fall at very different speeds.</p>
+
+<h2>What one block in the middle removes</h2>
+<p>Put one filled cell in the centre, row 5 and column 5. A piece w wide covers that column from min(w, 10 &minus; w) different starting columns, and the same rule gives the rows. Multiply the two and you have the number of positions the block destroys. Here are the sums for one orientation of each footprint:</p>
+<ul>
+  <li><strong>1x1:</strong> 1 x 1 = 1 of 81, which is 1.2%.</li>
+  <li><strong>1x2 flat:</strong> 2 x 1 = 2 of 72, 2.8%.</li>
+  <li><strong>1x3 flat:</strong> 3 x 1 = 3 of 63, 4.8%.</li>
+  <li><strong>2x2:</strong> 2 x 2 = 4 of 64, 6.25%.</li>
+  <li><strong>1x4 flat:</strong> 4 x 1 = 4 of 54, 7.4%.</li>
+  <li><strong>2x3, three wide:</strong> 3 x 2 = 6 of 56, 10.7%.</li>
+  <li><strong>1x5 flat:</strong> 5 x 1 = 5 of 45, 11.1%.</li>
+  <li><strong>3x3:</strong> 3 x 3 = 9 of 49, 18.4%.</li>
+</ul>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 232" role="img" aria-label="Column chart of the share of each shape's positions on a 9x9 grid removed by one block in the centre cell: 1x1 1.2%, 1x2 2.8%, 1x3 4.8%, 2x2 6.25%, 1x4 7.4%, 2x3 10.7%, 1x5 11.1%, 3x3 18.4%. The 3x3 square loses the largest share.">
+    <line class="axis" x1="12" x2="392" y1="190" y2="190"/>
+    <g class="hit"><title>1x1 single: one centre block removes 1 of 81, 1.2%</title><path class="fill-base" d="M14.0,190 V185.4 Q14.0,181.4 18.0,181.4 H44.0 Q48.0,181.4 48.0,185.4 V190 Z"/></g>
+    <text x="31.0" y="176.4" text-anchor="middle">1.2%</text>
+    <text x="31.0" y="206" text-anchor="middle">1x1</text>
+    <text x="31.0" y="220" text-anchor="middle">single</text>
+    <g class="hit"><title>1x2 domino: one centre block removes 2 of 72, 2.8%</title><path class="fill-base" d="M61.0,190 V173.8 Q61.0,169.8 65.0,169.8 H91.0 Q95.0,169.8 95.0,173.8 V190 Z"/></g>
+    <text x="78.0" y="164.8" text-anchor="middle">2.8%</text>
+    <text x="78.0" y="206" text-anchor="middle">1x2</text>
+    <text x="78.0" y="220" text-anchor="middle">domino</text>
+    <g class="hit"><title>1x3 bar: one centre block removes 3 of 63, 4.8%</title><path class="fill-base" d="M108.0,190 V159.4 Q108.0,155.4 112.0,155.4 H138.0 Q142.0,155.4 142.0,159.4 V190 Z"/></g>
+    <text x="125.0" y="150.4" text-anchor="middle">4.8%</text>
+    <text x="125.0" y="206" text-anchor="middle">1x3</text>
+    <text x="125.0" y="220" text-anchor="middle">bar</text>
+    <g class="hit"><title>2x2 square: one centre block removes 4 of 64, 6.25%</title><path class="fill-base" d="M155.0,190 V149.0 Q155.0,145.0 159.0,145.0 H185.0 Q189.0,145.0 189.0,149.0 V190 Z"/></g>
+    <text x="172.0" y="140.0" text-anchor="middle">6.25%</text>
+    <text x="172.0" y="206" text-anchor="middle">2x2</text>
+    <text x="172.0" y="220" text-anchor="middle">square</text>
+    <g class="hit"><title>1x4 bar: one centre block removes 4 of 54, 7.4%</title><path class="fill-base" d="M202.0,190 V140.7 Q202.0,136.7 206.0,136.7 H232.0 Q236.0,136.7 236.0,140.7 V190 Z"/></g>
+    <text x="219.0" y="131.7" text-anchor="middle">7.4%</text>
+    <text x="219.0" y="206" text-anchor="middle">1x4</text>
+    <text x="219.0" y="220" text-anchor="middle">bar</text>
+    <g class="hit"><title>2x3 rect: one centre block removes 6 of 56, 10.7%</title><path class="fill-base" d="M249.0,190 V117.0 Q249.0,113.0 253.0,113.0 H279.0 Q283.0,113.0 283.0,117.0 V190 Z"/></g>
+    <text x="266.0" y="108.0" text-anchor="middle">10.7%</text>
+    <text x="266.0" y="206" text-anchor="middle">2x3</text>
+    <text x="266.0" y="220" text-anchor="middle">rect</text>
+    <g class="hit"><title>1x5 bar: one centre block removes 5 of 45, 11.1%</title><path class="fill-base" d="M296.0,190 V114.1 Q296.0,110.1 300.0,110.1 H326.0 Q330.0,110.1 330.0,114.1 V190 Z"/></g>
+    <text x="313.0" y="105.1" text-anchor="middle">11.1%</text>
+    <text x="313.0" y="206" text-anchor="middle">1x5</text>
+    <text x="313.0" y="220" text-anchor="middle">bar</text>
+    <g class="hit"><title>3x3 square: one centre block removes 9 of 49, 18.4%</title><path class="fill-accent" d="M343.0,190 V61.5 Q343.0,57.5 347.0,57.5 H373.0 Q377.0,57.5 377.0,61.5 V190 Z"/></g>
+    <text class="strong" x="360.0" y="52.5" text-anchor="middle">18.4%</text>
+    <text x="360.0" y="206" text-anchor="middle">3x3</text>
+    <text x="360.0" y="220" text-anchor="middle">square</text>
+  </svg>
+  <figcaption>Share of each footprint's places on a 9x9 grid removed by a single block in the centre cell (row 5, column 5), from the counts in the text. The 3x3 square, highlighted, loses 18.4%, about fifteen times the single's 1.2%.</figcaption>
+</figure>
+
+<p>The single loses about one place in eighty. The 3x3 square loses nearly one in five, roughly fifteen times the share (18.4 / 1.2 = 15.3). The pattern is that a footprint wide in both directions is hit from both directions, so its loss is a product of two growing numbers, while a bar is hit only along its length. The 1x5 bar also looks bad at 11.1%, but that is one orientation, and by symmetry the upright bar loses the same 5 of 45. It has 90 placements across both orientations, against the square's 49.</p>
+<p>Each further stray block compounds the loss, and nine blocks in the right cells remove every one of the 49. A domino is different again. It needs two empty cells side by side, so it survives a board with many filled cells, and the single needs one empty cell, which is why it fits until the board is full. The square is the piece that meets the first unplayable board, which is why it ends games.</p>
+
+<h2>Space that is both fillable and clearable</h2>
+<p>A row clears when all nine of its cells are filled. The listing says rows, columns and 3x3 boxes all clear, so packing a row tightly is good in itself. It is also what shrinks your large positions. Rows packed to eight of nine cells are each one cell from clearing, but leave nowhere for a 3x3 square, since no row has more than one open cell.</p>
+<p>The clears give space back in the shape of the line that was cleared. These counts are exact:</p>
+<ul>
+  <li>A cleared row leaves a 1x9 strip: 5 places for a 1x5 bar and none for a 2x2.</li>
+  <li>A cleared 3x3 box leaves a 3x3 hole: exactly one place for the square.</li>
+  <li>Three stacked rows leave a 3x9 area, which has (9 &minus; 3 + 1) x 1 = 7 places for the square.</li>
+</ul>
+<p>So the useful board is one with a clearable line to open and a region wide enough to accept the shape you fear. Two near-complete rows are no use if scattered holes sit between them. The <a href="/blog/block-puzzle-combos-and-chains.html">post on combos and chains</a> counts the cells that several lines clear together, which sets how much room one placement can open.</p>
+<p>In Classic and Adventure the listing says undo, hints, rotate and bomb are available, so <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> is a fair place to test these counts, since an untimed Classic game lets you check each placement before you commit. Daily Challenge and Time Attack keep those aids switched off.</p>
+
+<h2>A working rule</h2>
+<p>Look at the three pieces you hold before placing the first, and plan for the widest footprint among them. If it is a square, keep a 3x3 region free, and park narrow pieces against an edge where they take the fewest positions. A single can go almost anywhere, which is exactly why it is wasteful to spend open space on it early. The number to remember is 18.4%: one stray block in the middle takes that share of a 3x3 square's places, against 1.2% of a single's.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have score, line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

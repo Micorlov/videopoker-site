@@ -1,0 +1,103 @@
+<!--
+{
+  "title": "The odds of being dealt a natural blackjack",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "Blackjack21",
+  "description": "A two-card 21 comes up on 4.827% of single-deck hands, about 1 in 20.7, and drifts down to 4.734% with endless decks. Here is the sum and what it means.",
+  "summary": "A natural is an ace plus a ten-value card: 4.827% of hands from one deck, 4.749% from six, 4.734% in the limit. Each hand is a fresh 1-in-21 chance, so no hand is ever due one.",
+  "standfirst": "The chance of a natural can be worked out on the back of an envelope, and the answer barely changes with the number of decks. What it means for a session is less obvious than the number itself."
+}
+-->
+<p>A natural, or blackjack, is a two-card 21: an ace and any ten-value card, which means a ten, jack, queen or king. It is the one hand that pays more than the bet, and it is rare enough that every player remembers the ones they have had. The probability comes from three counts and a multiplication.</p>
+
+<h2>One deck, from first principles</h2>
+<p>Start with a single 52-card deck. There are 4 aces and 16 ten-value cards (four each of 10, J, Q and K). A natural can arrive in two orders: ace first then a ten, or a ten first then an ace.</p>
+<ul>
+  <li>Ace first: 4/52 for the ace, then 16/51 for a ten from the 51 cards left.</li>
+  <li>Ten first: 16/52, then 4/51 for an ace.</li>
+</ul>
+<p>Both routes multiply the same two numbers, so the total is 2 × (4/52) × (16/51) = 128/2,652. That reduces to 32/663, or 4.827%. Turn it upside down and you get 20.7: one natural in every 20.7 hands, on average.</p>
+<p>The ordering matters. Counting only "ace then ten" gives half the right answer, and it is the usual slip when people do this sum for the first time.</p>
+
+<h2>Adding decks</h2>
+<p>With more decks the counts scale together. A shoe of <em>d</em> decks has 4<em>d</em> aces and 16<em>d</em> ten-value cards among 52<em>d</em>. The formula becomes 2 × (4<em>d</em>/52<em>d</em>) × (16<em>d</em>/(52<em>d</em> − 1)). The first fraction is always 1/13. Only the denominator of the second changes, and that is the whole effect: after you take one card out, the rest of the shoe has changed less when the shoe is bigger.</p>
+<p>With one deck, drawing an ace leaves 51 cards and removes a card that is not a ten, so the chance that the next card is a ten rises a little. With eight decks, 415 cards remain and the same removal hardly registers. Here are the figures, to three decimal places:</p>
+
+<table class="paytable-compare">
+  <caption>Probability of a two-card 21 as the number of decks grows, from 2 × (4d/52d) × (16d/(52d − 1)).</caption>
+  <thead>
+    <tr><th>Decks</th><th>Chance of a natural</th><th>One in</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>4.827%</td><td>20.72</td></tr>
+    <tr><th scope="row">2</th><td>4.780%</td><td>20.92</td></tr>
+    <tr><th scope="row">4</th><td>4.757%</td><td>21.02</td></tr>
+    <tr><th scope="row">6</th><td>4.749%</td><td>21.06</td></tr>
+    <tr><th scope="row">8</th><td>4.745%</td><td>21.07</td></tr>
+    <tr><th scope="row">Endless</th><td>4.734%</td><td>21.13</td></tr>
+  </tbody>
+</table>
+
+<p>The endless-deck row is the limit as <em>d</em> grows, where each card is an independent draw: 2 × (1/13) × (4/13) = 8/169, or 4.734%. The ten-value share of the deck is 4/13, the same fact behind <a href="/blog/blackjack-why-tens-are-a-third-of-the-deck.html">why tens are nearly a third of the deck</a>. Little moves. Going from one deck to six removes 0.078 of a percentage point, and the next two decks remove only 0.004 more.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: the chance of a two-card 21 falls from 4.827% with one deck to 4.745% with eight, levelling off towards the infinite-deck limit of 4.734%. The vertical axis runs from 4.70% to 4.85%.">
+    <line class="grid" x1="46" x2="386" y1="210.0" y2="210.0"/>
+    <text x="40" y="214.0" text-anchor="end">4.70</text>
+    <line class="grid" x1="46" x2="386" y1="153.3" y2="153.3"/>
+    <text x="40" y="157.3" text-anchor="end">4.75</text>
+    <line class="grid" x1="46" x2="386" y1="96.7" y2="96.7"/>
+    <text x="40" y="100.7" text-anchor="end">4.80</text>
+    <line class="grid" x1="46" x2="386" y1="40.0" y2="40.0"/>
+    <text x="40" y="44.0" text-anchor="end">4.85</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46.0" y="226" text-anchor="middle">1</text>
+    <text x="94.6" y="226" text-anchor="middle">2</text>
+    <text x="143.1" y="226" text-anchor="middle">3</text>
+    <text x="191.7" y="226" text-anchor="middle">4</text>
+    <text x="240.3" y="226" text-anchor="middle">5</text>
+    <text x="288.9" y="226" text-anchor="middle">6</text>
+    <text x="337.4" y="226" text-anchor="middle">7</text>
+    <text x="386.0" y="226" text-anchor="middle">8</text>
+    <text x="216" y="244" text-anchor="middle">Number of decks</text>
+    <text x="8" y="125" text-anchor="middle" transform="rotate(-90 8 125)">Chance of a natural, %</text>
+    <line class="ref" x1="46" x2="386" y1="171.8" y2="171.8"/>
+    <text x="384" y="187.8" text-anchor="end">Infinite decks: 4.734%</text>
+    <path class="line hl" d="M46.0,66.6 L47.7,70.2 L49.4,73.6 L51.1,76.8 L52.8,79.7 L54.5,82.5 L56.2,85.1 L57.9,87.6 L59.6,89.9 L61.3,92.2 L63.0,94.2 L64.7,96.2 L66.4,98.1 L68.1,99.9 L69.8,101.6 L71.5,103.3 L73.2,104.8 L74.9,106.3 L76.6,107.7 L78.3,109.1 L80.0,110.4 L81.7,111.6 L83.4,112.8 L85.1,114.0 L86.8,115.1 L88.5,116.2 L90.2,117.2 L91.9,118.2 L93.6,119.2 L95.3,120.1 L97.0,121.0 L98.7,121.8 L100.4,122.7 L102.1,123.5 L103.8,124.2 L105.5,125.0 L107.2,125.7 L108.9,126.4 L110.6,127.1 L112.3,127.8 L114.0,128.4 L115.7,129.1 L117.4,129.7 L119.1,130.3 L120.8,130.8 L122.5,131.4 L124.2,132.0 L125.9,132.5 L127.6,133.0 L129.3,133.5 L131.0,134.0 L132.7,134.5 L134.4,134.9 L136.1,135.4 L137.8,135.8 L139.5,136.3 L141.2,136.7 L142.9,137.1 L144.6,137.5 L146.3,137.9 L148.0,138.3 L149.7,138.7 L151.4,139.0 L153.1,139.4 L154.8,139.7 L156.5,140.1 L158.2,140.4 L159.9,140.8 L161.6,141.1 L163.3,141.4 L165.0,141.7 L166.7,142.0 L168.4,142.3 L170.1,142.6 L171.8,142.9 L173.5,143.2 L175.2,143.4 L176.9,143.7 L178.6,144.0 L180.3,144.2 L182.0,144.5 L183.7,144.7 L185.4,145.0 L187.1,145.2 L188.8,145.5 L190.5,145.7 L192.2,145.9 L193.9,146.1 L195.6,146.4 L197.3,146.6 L199.0,146.8 L200.7,147.0 L202.4,147.2 L204.1,147.4 L205.8,147.6 L207.5,147.8 L209.2,148.0 L210.9,148.2 L212.6,148.4 L214.3,148.6 L216.0,148.7 L217.7,148.9 L219.4,149.1 L221.1,149.3 L222.8,149.4 L224.5,149.6 L226.2,149.8 L227.9,149.9 L229.6,150.1 L231.3,150.3 L233.0,150.4 L234.7,150.6 L236.4,150.7 L238.1,150.9 L239.8,151.0 L241.5,151.2 L243.2,151.3 L244.9,151.4 L246.6,151.6 L248.3,151.7 L250.0,151.9 L251.7,152.0 L253.4,152.1 L255.1,152.3 L256.8,152.4 L258.5,152.5 L260.2,152.6 L261.9,152.8 L263.6,152.9 L265.3,153.0 L267.0,153.1 L268.7,153.2 L270.4,153.4 L272.1,153.5 L273.8,153.6 L275.5,153.7 L277.2,153.8 L278.9,153.9 L280.6,154.0 L282.3,154.1 L284.0,154.2 L285.7,154.3 L287.4,154.4 L289.1,154.5 L290.8,154.6 L292.5,154.7 L294.2,154.8 L295.9,154.9 L297.6,155.0 L299.3,155.1 L301.0,155.2 L302.7,155.3 L304.4,155.4 L306.1,155.5 L307.8,155.6 L309.5,155.7 L311.2,155.8 L312.9,155.8 L314.6,155.9 L316.3,156.0 L318.0,156.1 L319.7,156.2 L321.4,156.3 L323.1,156.3 L324.8,156.4 L326.5,156.5 L328.2,156.6 L329.9,156.7 L331.6,156.7 L333.3,156.8 L335.0,156.9 L336.7,157.0 L338.4,157.0 L340.1,157.1 L341.8,157.2 L343.5,157.3 L345.2,157.3 L346.9,157.4 L348.6,157.5 L350.3,157.5 L352.0,157.6 L353.7,157.7 L355.4,157.7 L357.1,157.8 L358.8,157.9 L360.5,157.9 L362.2,158.0 L363.9,158.1 L365.6,158.1 L367.3,158.2 L369.0,158.3 L370.7,158.3 L372.4,158.4 L374.1,158.4 L375.8,158.5 L377.5,158.6 L379.2,158.6 L380.9,158.7 L382.6,158.7 L384.3,158.8 L386.0,158.8"/>
+    <text class="strong" x="56.0" y="58.6">1 deck: 4.827%</text>
+    <text class="strong" x="382.0" y="146.8" text-anchor="end">8 decks: 4.745%</text>
+    <g class="hit"><title>1 deck: 4.827%</title><circle cx="46.0" cy="66.6" r="10" fill="transparent"/><circle class="dot hl" cx="46.0" cy="66.6" r="4.5"/></g>
+    <g class="hit"><title>2 decks: 4.780%</title><circle cx="94.6" cy="119.7" r="10" fill="transparent"/><circle class="dot" cx="94.6" cy="119.7" r="4.5"/></g>
+    <g class="hit"><title>4 decks: 4.757%</title><circle cx="191.7" cy="145.9" r="10" fill="transparent"/><circle class="dot" cx="191.7" cy="145.9" r="4.5"/></g>
+    <g class="hit"><title>6 decks: 4.749%</title><circle cx="288.9" cy="154.5" r="10" fill="transparent"/><circle class="dot" cx="288.9" cy="154.5" r="4.5"/></g>
+    <g class="hit"><title>8 decks: 4.745%</title><circle cx="386.0" cy="158.8" r="10" fill="transparent"/><circle class="dot hl" cx="386.0" cy="158.8" r="4.5"/></g>
+  </svg>  <figcaption>The chance of a natural against the number of decks, from the formula above. The vertical axis runs only from 4.70% to 4.85% so that the small drop can be read; on a 0-to-100% axis the line would look flat. The curve falls fastest from one deck to two, then flattens towards the dashed infinite-deck limit of 4.734%.</figcaption>
+</figure>
+
+<p>The table in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> deals from a six-deck shoe, so the working figure there is 4.749%, a natural about once every 21 hands.</p>
+
+<h2>Why the payout on it matters so much</h2>
+<p>A natural that the dealer cannot match is paid 3:2, so a 10-chip bet wins 15. In a six-deck game that happens on about 4.53% of hands, after allowing for the dealer's own naturals, as <a href="/blog/blackjack-3-to-2-payout.html">the payout post</a> works through. The extra half-bet on those hands is worth 0.5 × 4.53% = about 2.27% of each initial bet. That is several times the 0.5% or so that the house keeps against a player using basic strategy, which is why so much of the long-run return rides on a hand you receive about one time in 21.</p>
+<p>Pay 6:5 instead and the bonus on a 10-chip natural falls from 5 to 2. The cost is about 1.36 points of house edge, far more than any other common rule change. The rule-by-rule comparison is in <a href="/blog/blackjack-house-edge-rule-by-rule.html">the house edge post</a>.</p>
+
+<h2>When you and the dealer both have one</h2>
+<p>The two hands are not independent, because your ace and ten have left the shoe. In a six-deck shoe the dealer is then left with 23 aces and 95 tens among 310 cards, and the chance of a natural is 2 × (23/310) × (95/309) = 4.56%. Multiply that by your own 4.749% and both of you hold one on about 0.217% of hands, roughly once in 460.</p>
+<p>When that happens the hand is a push: your bet comes back and the bonus is not paid, so the uncontested figure of 4.53% sits below 4.749%.</p>
+
+<h2>Why none is ever due</h2>
+<p>A chance of 1 in 20.7 does not mean one natural every 20.7 hands. Each hand is dealt from a shoe that has been shuffled, or from cards that have no memory of the last hand. The chance of a natural on the next hand is about 4.7% whether the last one was a natural, or whether you have waited 40 hands.</p>
+<p>The stretches without one are longer than most people expect. In a six-deck game, the chance of going 20 hands in a row without a natural is (1 − 0.047489)<sup>20</sup>, or about 38%. For 50 hands it is about 8.8%, and the median wait is about 14 hands: it is close to an even bet whether the first natural arrives before then or after. Two in a row and a dry spell of 40 hands are both ordinary for something that happens one time in 21.</p>
+<p>A cold run is therefore no reason to change a bet, and a natural just dealt is no reason to expect a quiet few hands. Because the chips in the app are free practice chips with no cash value, it is an easy place to see these streaks for yourself without anything riding on them: play a hundred hands and count. You should see about five naturals, and a count of two or eight would not be strange.</p>
+
+<h2>What to take from it</h2>
+<ul>
+  <li>The chance of a natural is 2 × (aces/cards) × (tens/(cards − 1)); with one deck it is 4.827%.</li>
+  <li>More decks lower it only slightly, to 4.749% for six and 4.734% in the limit.</li>
+  <li>A natural's 3:2 pay makes it worth about 2.27% of each bet, which is why the payout matters more than any other rule.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. The probabilities in this post describe blackjack in general rather than the app's sweep pot. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

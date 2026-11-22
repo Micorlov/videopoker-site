@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "How many four-card Omaha hands there are, and why it matters",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "OmahaPoker",
+  "description": "Omaha deals 270,725 different four-card hands against 1,326 in Hold'em, about 204 times as many. Here is the counting, and why shape beats a chart.",
+  "summary": "C(52,4) = 270,725 four-card Omaha starting hands against C(52,2) = 1,326 in Hold'em. That is too many to memorise, so Omaha play runs on hand shape, and each hand is six two-card hands at once.",
+  "standfirst": "Hold'em has 1,326 starting hands and a chart can cover them. Omaha has 270,725, and no chart can. The size of that number explains most of how the two games differ."
+}
+-->
+<p>Deal two cards from a 52-card deck and there are 52 &times; 51 &divide; 2 = <strong>1,326</strong> different hands. Deal four, as Omaha does, and there are 52 &times; 51 &times; 50 &times; 49 &divide; (4 &times; 3 &times; 2 &times; 1) = 6,497,400 &divide; 24 = <strong>270,725</strong>. The order of the cards does not matter, so each count divides out the ways to shuffle the same cards. Every hand is equally likely, and 270,725 &divide; 1,326 is about 204. Omaha has roughly two hundred times as many starting hands as Hold'em.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart on a logarithmic scale: Hold'em has 1,326 starting hands and Omaha has 270,725, about 204 times as many">
+    <div class="bar-row" title="Hold'em: 1,326 starting hands"><span class="bar-label">Hold'em (2 cards)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5748)"></span><span class="bar-val">1,326</span></span></div>
+    <div class="bar-row hl" title="Omaha: 270,725 starting hands"><span class="bar-label">Omaha (4 cards)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">270,725</span></span></div>
+  </div>
+  <figcaption>Distinct starting hands, drawn on a logarithmic scale, so each step of bar length is ten times more hands. The Omaha bar looks less than twice as long as the Hold'em bar, but it stands for about 204 times as many hands.</figcaption>
+</figure>
+
+<p>The log scale is doing something worth noticing: a plain bar chart would need the Hold'em bar to be a sliver you could hardly see. The gap is large, and the next sections show where it comes from.</p>
+
+<h2>Counting the hands by rank pattern</h2>
+<p>You can split the 270,725 by how many cards share a rank. This also checks the total, because the rows must add up exactly.</p>
+
+<table class="paytable-compare">
+  <caption>All four-card hands from a 52-card deck, by rank pattern. The counts add up to 270,725.</caption>
+  <thead>
+    <tr><th>Rank pattern</th><th>How it is counted</th><th>Hands</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Four different ranks</th><td>715 rank sets &times; 4<sup>4</sup> suit choices</td><td>183,040</td></tr>
+    <tr><th scope="row">One pair</th><td>13 &times; 6 &times; 66 &times; 16</td><td>82,368</td></tr>
+    <tr><th scope="row">Two pair</th><td>78 &times; 6 &times; 6</td><td>2,808</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>13 &times; 4 &times; 48</td><td>2,496</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>13</td><td>13</td></tr>
+  </tbody>
+</table>
+
+<p>Some of that needs unpacking. There are 13 &times; 12 &times; 11 &times; 10 &divide; 24 = 715 ways to choose four different ranks from thirteen, and each of the four cards can be any of four suits, giving 256 suit patterns. For one pair, pick the rank (13), pick two of its four suits (6), pick two other different ranks from twelve (66), and give each any suit (16). Two pair is 78 pairs of ranks, with 6 suit choices for each pair.</p>
+
+<p>So about two hands in three have no pair at all, and about three in ten hold exactly one. Pairs, trips and quads together are fewer than a third of the total, which is why a pair in your hand is something you notice and can build on.</p>
+
+<h2>Why a chart cannot cover it</h2>
+<p>In Hold'em the 1,326 hands fall into 169 starting types once suits are ignored: 13 pairs, 78 suited combinations and 78 offsuit ones. A player can hold a whole 169-cell grid in their head, or read it off a page.</p>
+<p>Omaha has no such grid. Treating suits as interchangeable shrinks the 270,725 only so far, because a deck has four suits and relabelling them can change one hand into at most 24 others. 270,725 &divide; 24 is about 11,280, which is the lowest the count could possibly fall. The standard reduced figure, with suits treated as interchangeable, is roughly <strong>16,432</strong> strategically distinct hands. It is higher than the minimum because many hands are unchanged by some relabellings; that is the figure usually quoted, and I have not derived it here. It is about 97 times the Hold'em grid of 169, and still far too many to memorise as a lookup.</p>
+<p>So the useful question in Omaha is not &ldquo;is this exact hand on my list?&rdquo; but &ldquo;what shape is it?&rdquo; <a href="/OmahaPoker/">Omaha Poker</a> gives each starting hand a pre-flop grade, so you learn which four-card hands are worth playing without having to learn them one at a time.</p>
+
+<h2>The shape of a hand</h2>
+<p>Four properties do most of the work, and each one has its own post:</p>
+<ul>
+  <li><strong>Pairs.</strong> A pair is one of the six combinations, not the whole hand. <a href="/blog/omaha-aces-weaker-than-holdem.html">Pocket aces are weaker in Omaha</a> than in Hold'em for this reason.</li>
+  <li><strong>Suits.</strong> Two suits in the hand beat one, and <a href="/blog/omaha-double-suited-hands.html">double-suited hands</a> carry two flush chances.</li>
+  <li><strong>Connectedness.</strong> Cards close together in rank make straights; <a href="/blog/omaha-rundowns.html">rundowns</a> are the standard example.</li>
+  <li><strong>Coordination.</strong> How many of the six two-card combinations are individually worth having. A hand where all four cards work together beats one with a stray card that does nothing.</li>
+</ul>
+<p>None of these is a lookup. Each is a question you ask of any four cards, and it works on a hand you have never seen before.</p>
+
+<h2>One hand is six hands</h2>
+<p>Four cards A, B, C and D contain 4 &times; 3 &divide; 2 = <strong>6</strong> pairs: AB, AC, AD, BC, BD and CD. You must <a href="/blog/omaha-exactly-two-hole-cards.html">use exactly two</a> of them with exactly three board cards. Against a five-card board there are 10 ways to pick three board cards, so each Omaha hand has 6 &times; 10 = 60 five-card hands to choose from. Hold'em has a single pair of hole cards, so it has nothing to choose between.</p>
+<p>That makes one Omaha hand six Hold'em hands playing at the same time, and you take the best of them. It has a direct effect on equity, which is your share of the pot if the hands are played out. In Hold'em each player has one combination, so a strong one can be a big favourite over a weak one. In Omaha every hand has six chances to connect with the board, so the weaker hand is rarely far behind and the best hands do not dominate the rest by much. This is why equities run so much closer together.</p>
+<p>It also means a hand can be strong for a reason that no single pair shows. A hand such as 9-8-7-6 has no big card but six combinations that all make straight draws, and that spread is the strength. The <a href="/OmahaPoker/">Omaha Poker</a> live insight shows your win chance and outs as you play, so you can watch how a hand's shape changes the numbers; it is play-money practice with no real-money stakes.</p>
+
+<h2>What to take from the count</h2>
+<p>Put the figures side by side. Hold'em: 1,326 hands, 169 types, one combination each. Omaha: 270,725 hands, about 16,432 distinct types by the standard count, six combinations each. A chart works when the hand space is small enough to fit on a page, and Omaha's is not.</p>
+<p>So build the habit of describing a hand rather than recalling it: how many pairs, how many suits, how connected, how many of the six combinations are good. Two hands you have never met before can then be compared on those four questions, and that comparison is the skill the 270,725 number demands.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and gives each starting hand a pre-flop grade. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

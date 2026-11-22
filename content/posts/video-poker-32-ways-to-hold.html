@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "The 32 ways to hold five cards, and why that is the game",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "VideoPoker",
+  "description": "Every video poker deal has exactly 32 possible holds. How the 32 breaks down, how many draws each can lead to, and why that makes the game solvable.",
+  "summary": "Each of the five cards is kept or thrown, so there are 2^5 = 32 holds: 1, 5, 10, 10, 5, 1 by cards kept. Draws run from 47 to 1,533,939, so the best hold can be computed.",
+  "standfirst": "Video poker looks like a game of feel, but each deal is a choice from a list of exactly 32 holds. The list is short, every entry can be counted, and the best one is a fact rather than an opinion."
+}
+-->
+<p>After the deal you have five cards and one decision: which to keep. Everything else in video poker follows from that. The number of possible answers is not large and not vague. It is exactly 32, and that fixed count is the reason the game has a correct play at all.</p>
+
+<h2>Where the 32 comes from</h2>
+<p>Each card in your hand gets one of two fates: held or discarded. That is one yes-or-no choice per card, and the choices are independent of each other. Five cards with two options each give 2 × 2 × 2 × 2 × 2 = 2<sup>5</sup> = 32 combinations.</p>
+<p>The count includes the two extremes. One of the 32 is to hold all five cards and draw nothing, which is what you do with a made straight or flush. Another is to discard all five and take a fresh hand, which has its own place in strategy and is covered in the <a href="/blog/video-poker-discard-all-five.html">discard-all-five post</a>.</p>
+
+<h2>The 32 by cards kept</h2>
+<p>Group the holds by how many cards you keep. The number of ways to choose k cards from five is the binomial coefficient, written C(5, k):</p>
+<ul>
+  <li>Keep 5: 1 way (the whole hand).</li>
+  <li>Keep 4: 5 ways (throw any one card).</li>
+  <li>Keep 3: 10 ways (throw any two, and there are 10 pairs among five cards).</li>
+  <li>Keep 2: 10 ways.</li>
+  <li>Keep 1: 5 ways.</li>
+  <li>Keep 0: 1 way.</li>
+</ul>
+<p>The row reads 1, 5, 10, 10, 5, 1, and 1 + 5 + 10 + 10 + 5 + 1 = 32, matching the 2<sup>5</sup> above. It is the fifth row of Pascal&rsquo;s triangle. Keeping two cards and keeping three cards are the same count because every choice of cards to keep is also a choice of cards to throw: choosing 3 to keep is choosing 2 to discard, and choosing 2 to keep is choosing 3 to discard.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 230" role="img" aria-label="Column chart of the 32 possible holds by cards kept: 1 way to keep five, 5 to keep four, 10 to keep three, 10 to keep two, 5 to keep one and 1 to keep none; keeping three or two cards each has 10 holds.">
+    <line class="grid" x1="34" x2="390" y1="180" y2="180"/>
+    <text x="28" y="184" text-anchor="end">0</text>
+    <line class="grid" x1="34" x2="390" y1="120" y2="120"/>
+    <text x="28" y="124" text-anchor="end">5</text>
+    <line class="grid" x1="34" x2="390" y1="60" y2="60"/>
+    <text x="28" y="64" text-anchor="end">10</text>
+    <line class="axis" x1="34" x2="390" y1="180" y2="180"/>
+    <g class="hit"><title>Keep 5: 1 hold</title><path class="fill-base" d="M46,180 V172 Q46,168 50,168 H82 Q86,168 86,172 V180 Z"/></g>
+    <text x="66.0" y="163" text-anchor="middle">1</text>
+    <text x="66.0" y="198" text-anchor="middle">Keep 5</text>
+    <g class="hit"><title>Keep 4: 5 holds</title><path class="fill-base" d="M103,180 V124 Q103,120 107,120 H139 Q143,120 143,124 V180 Z"/></g>
+    <text x="123.0" y="115" text-anchor="middle">5</text>
+    <text x="123.0" y="198" text-anchor="middle">Keep 4</text>
+    <g class="hit"><title>Keep 3: 10 holds</title><path class="fill-accent" d="M160,180 V64 Q160,60 164,60 H196 Q200,60 200,64 V180 Z"/></g>
+    <text class="strong" x="180.0" y="55" text-anchor="middle">10</text>
+    <text x="180.0" y="198" text-anchor="middle">Keep 3</text>
+    <g class="hit"><title>Keep 2: 10 holds</title><path class="fill-accent" d="M217,180 V64 Q217,60 221,60 H253 Q257,60 257,64 V180 Z"/></g>
+    <text class="strong" x="237.0" y="55" text-anchor="middle">10</text>
+    <text x="237.0" y="198" text-anchor="middle">Keep 2</text>
+    <g class="hit"><title>Keep 1: 5 holds</title><path class="fill-base" d="M274,180 V124 Q274,120 278,120 H310 Q314,120 314,124 V180 Z"/></g>
+    <text x="294.0" y="115" text-anchor="middle">5</text>
+    <text x="294.0" y="198" text-anchor="middle">Keep 1</text>
+    <g class="hit"><title>Keep 0: 1 hold</title><path class="fill-base" d="M331,180 V172 Q331,168 335,168 H367 Q371,168 371,172 V180 Z"/></g>
+    <text x="351.0" y="163" text-anchor="middle">1</text>
+    <text x="351.0" y="198" text-anchor="middle">Keep 0</text>
+    <text x="212" y="222" text-anchor="middle">Cards kept from the deal</text>
+  </svg>
+  <figcaption>The 32 possible holds, grouped by how many cards you keep. The row is 1, 5, 10, 10, 5, 1 and sums to 32; keeping three or keeping two cards each has 10 holds, the most of any group.</figcaption>
+</figure>
+
+<h2>Why most of the 32 are never in the running</h2>
+<p>On a real hand, the list shrinks fast. Dealt a pair, you will almost never break it up, and most holds that keep unrelated cards beside it give up draws for nothing. A hand like 5-5-J-9-7 has 32 holds in principle, but the contest in the <a href="/blog/video-poker-expected-value-holds.html">expected value post</a> was between three: the pair, four to a flush, and three to a straight flush. The other 29 are not serious candidates.</p>
+<p>That is a statement about sensible play, not a rule of the game, and the 32 stay on the table for every deal. The skill is not in reading the full list on every hand. It is in knowing which handful of holds belong on the shortlist, and then choosing the best of those.</p>
+
+<p>The <a href="/VideoPoker/">Video Poker app</a> has strategy hints you can turn on, and the listing describes them as a way to learn which cards to hold, so you can compare your own shortlist against the suggestion on each deal.</p>
+
+<h2>How many draws each hold leads to</h2>
+<p>After you choose, the machine fills the empty places from the 47 cards you have not seen (52 minus your five). The number of different draws depends on how many places are empty. If you keep k cards, you draw 5 − k from 47, and the count of possible draws is C(47, 5 − k):</p>
+<ul>
+  <li>Keep 5: 1 outcome, because nothing is drawn.</li>
+  <li>Keep 4: 47 draws.</li>
+  <li>Keep 3: 1,081 draws (47 × 46 ÷ 2).</li>
+  <li>Keep 2: 16,215 draws (47 × 46 × 45 ÷ 6).</li>
+  <li>Keep 1: 178,365 draws.</li>
+  <li>Keep 0: 1,533,939 draws.</li>
+</ul>
+<p>The more you throw away, the more futures you have to average over. Keeping four cards means 47 outcomes you can list by hand; discarding all five means more than a million and a half.</p>
+<p>There is a check that ties both tables together. Multiply each holding count by its draw count and add: 1 × 1 + 5 × 47 + 10 × 1,081 + 10 × 16,215 + 5 × 178,365 + 1 × 1,533,939 = 2,598,960. That is the number of different five-card hands in a 52-card deck, C(52, 5). Every route through the 32 holds and their draws lands on one of those hands, which is exactly what should happen.</p>
+
+<h2>Finite, so solvable</h2>
+<p>Put the two counts together. For one deal there are 32 holds, and each has a known, finite set of equally likely draws. For each draw you can look up what the final hand pays, average over the draws, and get the expected value of that hold. Do that for every hold on the list and you can rank them. The top of the ranking is the correct play for that deal, with no judgement needed. The <a href="/blog/jacks-or-better-strategy.html">strategy post</a> gives the ordering of hold types that this calculation produces for Jacks or Better.</p>
+<p>A computer can therefore solve every deal exactly. The largest single case, 1,533,939 draws for discarding everything, is a small sum, and nothing in it is estimated or simulated.</p>
+<p>Compare this with games where other players hold hidden cards. In Texas hold&rsquo;em your opponents&rsquo; hands are unknown and their choices depend on yours, so the best play depends on guesses about them and no single table of answers exists. In video poker there is no opponent. The unseen cards are just the rest of the deck, dealt at random from a known set, so the whole decision is arithmetic on a fixed list. That is why video poker has an exactly computable correct play, and why practising it is a matter of learning a ranking rather than reading people.</p>
+
+<h2>What this means at the table</h2>
+<p>You cannot sum a million draws in your head, and you do not need to. The shortlist is small and the order of hold types is fixed by sums someone has already done. What you can do is understand why: a hold that keeps few cards has many draws to average over, and one that keeps many leans on what you already have.</p>
+<p>The listing says the game has strategy hints and a full paytable on screen, which together let you test a hold against the numbers. Choose what you would hold, check it against the hint, and when the two disagree, work out which of the 32 you had left off your shortlist.</p>
+
+<div class="post-foot">
+  <p>Jacks or Better is one of four machines in <a href="/VideoPoker/">Video Poker: Jacks or Better</a>. It plays offline, and the chips are free, with no cash value and no real money involved.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

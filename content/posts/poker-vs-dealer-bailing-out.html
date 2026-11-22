@@ -1,0 +1,96 @@
+<!--
+{
+  "title": "Bailing out: when recovering half your committed chips is right",
+  "seo_title": "Bailing out: when recovering half your chips is right",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "PokerVsDealer",
+  "description": "Bailing out returns half of what you committed, so it is right when your chance of winning is below C ÷ (2 × (C + W)): 25% at even money, 12.5% at 3 to 1.",
+  "summary": "Bail when your win chance is below C ÷ (2 × (C + W)), where C is what you have committed and W is what you would win. With 100 committed that is 33.3% for a 50 win, 25% for 100 and 12.5% for 300.",
+  "standfirst": "Poker vs Dealer lets you bail and recover half of your committed chips. Whether that is a good trade comes down to one threshold, and it moves with the size of the prize."
+}
+-->
+<p>In Poker vs Dealer you can walk away from a hand part-way through. Bailing out, in the listing's words, recovers half of your committed chips. It feels like an admission of defeat, and that feeling is the problem: the decision is arithmetic, and the arithmetic gives you a win-probability threshold you can compute before you act.</p>
+
+<h2>What the listing says, and what it leaves out</h2>
+<p>The store listing gives you three choices on a hand: hold, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. That is all it says about bailing. It does not say how many chips a hand commits, how large the prizes are, or what happens to the table pot when you bail. So the sums below use symbols and round example numbers, not the app's own amounts, and they treat the hand as one contest with one prize. Check the in-game rules and payouts for the real figures. The chips are play money with no cash value, so this is a question of playing well, not of winning anything real.</p>
+
+<h2>Setting the two options equal</h2>
+<p>Let <em>C</em> be the chips you have committed. Let <em>W</em> be the chips you would win on top, if you play on and win. Let <em>p</em> be your chance of winning. Bailing returns <em>C</em> ÷ 2, so you are down <em>C</em> ÷ 2 whatever happens next. Playing on has two outcomes: you win <em>W</em> with chance <em>p</em>, or you lose all of <em>C</em> with chance 1 − <em>p</em>.</p>
+<ul>
+  <li><strong>Bail out:</strong> −<em>C</em> ÷ 2.</li>
+  <li><strong>Play on:</strong> <em>p</em> × <em>W</em> − (1 − <em>p</em>) × <em>C</em>.</li>
+</ul>
+<p>The two are equal when <em>p</em> × <em>W</em> − (1 − <em>p</em>) × <em>C</em> = −<em>C</em> ÷ 2. Multiply out the bracket: <em>p</em> × <em>W</em> − <em>C</em> + <em>p</em> × <em>C</em> = −<em>C</em> ÷ 2. Move the plain <em>C</em> across: <em>p</em> × (<em>W</em> + <em>C</em>) = <em>C</em> ÷ 2. Divide through:</p>
+<p><strong>Break-even <em>p</em> = <em>C</em> ÷ (2 × (<em>C</em> + <em>W</em>))</strong>, and you should bail when your chance of winning is below it.</p>
+
+<h2>Three pot sizes, three thresholds</h2>
+<p>Take <em>C</em> = 100 each time and change only the prize.</p>
+<ul>
+  <li><strong><em>W</em> = 50:</strong> 100 ÷ (2 × 150) = 33.3%. A small prize makes playing on less attractive, so you need a third of the time to justify it.</li>
+  <li><strong><em>W</em> = 100 (even money):</strong> 100 ÷ (2 × 200) = 25%.</li>
+  <li><strong><em>W</em> = 300:</strong> 100 ÷ (2 × 400) = 12.5%. A big prize forgives a long shot.</li>
+</ul>
+<p>The even-money case is the one to remember. Playing on is worth 200 × <em>p</em> − 100, which is −100 at 0%, −50 at 25%, 0 at 50%, +50 at 75% and +100 at 100%. Bailing is worth −50 throughout, so the lines cross at 25%. The figure below shows that case.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 234" role="img" aria-label="Line chart: with 100 chips committed and a prize of 100, playing on beats bailing out once your chance of winning is above 25%; below that, bailing out and taking back 50 is worth more.">
+    <line class="grid" x1="56" x2="386" y1="30" y2="30"/>
+    <text x="50" y="34" text-anchor="end">100</text>
+    <line class="grid" x1="56" x2="386" y1="70" y2="70"/>
+    <text x="50" y="74" text-anchor="end">50</text>
+    <line class="grid" x1="56" x2="386" y1="110" y2="110"/>
+    <text x="50" y="114" text-anchor="end">0</text>
+    <line class="grid" x1="56" x2="386" y1="150" y2="150"/>
+    <text x="50" y="154" text-anchor="end">−50</text>
+    <line class="axis" x1="56" x2="386" y1="190" y2="190"/>
+    <text x="50" y="194" text-anchor="end">−100</text>
+    <text x="56" y="208" text-anchor="middle">0%</text>
+    <text x="138.5" y="208" text-anchor="middle">25%</text>
+    <text x="221" y="208" text-anchor="middle">50%</text>
+    <text x="303.5" y="208" text-anchor="middle">75%</text>
+    <text x="386" y="208" text-anchor="middle">100%</text>
+    <text x="221" y="226" text-anchor="middle">Your chance of winning the hand</text>
+    <text x="12" y="110" text-anchor="middle" transform="rotate(-90 12 110)">Worth, in chips</text>
+    <path class="line" d="M56,150 L386,150"/>
+    <path class="line hl" d="M56,190 L386,30"/>
+    <text x="384" y="144" text-anchor="end">Bail out: −50</text>
+    <text class="strong" x="290" y="60" text-anchor="end">Play on</text>
+    <text class="strong" x="386" y="22" text-anchor="end">+100 at 100%</text>
+    <text class="strong" x="146" y="170">Cross at 25%: both −50</text>
+    <text x="229" y="126">0 at 50%</text>
+    <g class="hit"><title>Chance of winning 25%: playing on and bailing out are both worth −50</title><circle cx="138.5" cy="150" r="10" fill="transparent"/><circle class="dot hl" cx="138.5" cy="150" r="4.5"/></g>
+    <g class="hit"><title>Chance of winning 50%: playing on is worth 0</title><circle cx="221" cy="110" r="10" fill="transparent"/><circle class="dot" cx="221" cy="110" r="4.5"/></g>
+    <g class="hit"><title>Chance of winning 100%: playing on is worth +100</title><circle cx="386" cy="30" r="10" fill="transparent"/><circle class="dot" cx="386" cy="30" r="4.5"/></g>
+  </svg>
+  <figcaption>With 100 chips committed and a prize of 100, the value of playing on climbs from −100 to +100 as your chance of winning rises, while bailing out stays at −50. Notice that the lines cross at 25%, not at 50%.</figcaption>
+</figure>
+
+<p>The rule in one sentence: bail out only when your chance of winning is below half your committed chips divided by committed chips plus prize. The dealer in <a href="/PokerVsDealer/">Poker vs Dealer</a> builds a hand one face-up card at a time, so your estimate of <em>p</em> can change as each card arrives.</p>
+
+<h2>Which hands fall below the line</h2>
+<p>Estimating <em>p</em> takes an assumption the listing does not confirm: that the dealer ends with five cards, drawn from the cards you cannot see. On that basis I counted every possible dealer hand, with ties not counted as wins. Against a dealer with nothing yet showing:</p>
+<ul>
+  <li><strong>7-5-4-3-2, the lowest possible hand:</strong> 0%. Bail at any prize.</li>
+  <li><strong>K-9-6-4-2, no pair:</strong> 19.7%. Below 25% and below 33.3%, so bail at even money or less. Above 12.5%, so play on if the prize is 300.</li>
+  <li><strong>A-J-8-5-2, no pair:</strong> 38.2%. Above all three thresholds, so play on.</li>
+  <li><strong>A pair of twos:</strong> 50.0%.</li>
+  <li><strong>A pair of eights:</strong> 70.3%.</li>
+</ul>
+<p>The visible dealer cards change these. If the dealer shows ace, king and queen with two cards to come, K-9-6-4-2 falls to 0%, because the dealer already holds ace high. If the dealer shows a pair of kings, every hand below a pair of kings falls to 0%, and two pair, 4s and 3s, still wins 76.5%. Count what the dealer needs, not what your hand looks like. The same counting underlies <a href="/blog/poker-card-removal.html">card removal</a>: the cards you can see are not available to the dealer.</p>
+
+<h2>The mistake: bailing out of hands that merely look lost</h2>
+<p>The common error is bailing with a low pair. A pair of twos looks poor because it is the lowest pair, but a pair beats every hand with no pair, and the dealer starts with no pair more often than not. It wins half the time against a dealer with nothing showing, and 56.3% against one showing ace, king and queen. Even at 25% that is twice what is needed. Bailing there gives up a hand worth well above −50 to lock in −50.</p>
+<p>The reverse error is less common but real: clinging to a hand because you have already committed chips. The chips are gone either way; the threshold only asks about the chance from here. If you are looking at 0%, as with K-9-6-4-2 under an ace-high dealer, half back is the best available result.</p>
+<p>A short routine. Before you bail:</p>
+<ol class="ranked">
+  <li><strong>Work out the threshold</strong> with <em>C</em> ÷ (2 × (<em>C</em> + <em>W</em>)). It is never above 50%, and for even money it is 25%.</li>
+  <li><strong>Estimate your chance</strong> against what the dealer shows, using what the dealer still needs.</li>
+  <li><strong>Bail only if your chance is below the threshold.</strong> A hand that looks bad but is above it is a play-on.</li>
+</ol>
+<p>For the same trade-off as a payout rather than a refund, <a href="/blog/poker-break-even-odds-3-to-1.html">break-even odds for a 3-to-1 payout</a> converts a prize into a win rate, and <a href="/blog/poker-vs-dealer-picking-a-kicker.html">picking a kicker</a> covers the other choice the dealer round asks of you. Both are decisions you can price before you make them, on <a href="/PokerVsDealer/">Poker vs Dealer</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
