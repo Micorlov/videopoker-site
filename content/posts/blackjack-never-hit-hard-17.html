@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Why you never hit a hard 17",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "Blackjack21",
+  "description": "Hitting a hard 17 busts on nine of the 13 ranks, about 69% of the time. Standing loses to most dealer up-cards, but it always loses less than hitting.",
+  "summary": "Nine of 13 ranks bust a hard 17, and the four that help only reach 18 to 21. Standing is a losing hand against all but a dealer 6, yet hitting is worse against every one.",
+  "standfirst": "A hard 17 is not a strong hand, and basic strategy still never touches it. The reason is a count of thirteen card ranks, and it holds whatever the dealer is showing."
+}
+-->
+<p>Basic strategy has a few rules with no exceptions at all, and &ldquo;stand on a hard 17 or higher&rdquo; is the plainest of them. It is also the one beginners doubt, because 17 feels low. Against a dealer 10 it is low. The point is that the alternative is lower still, and the proof is a short count of cards.</p>
+
+<h2>Thirteen ranks, nine of them bust you</h2>
+<p>A hard 17 is a total of 17 with no ace counted as 11. Any card you add has to bring you to 21 or under, so only a card worth 4 or less can be taken safely. Going through the ranks:</p>
+<ul>
+  <li>Ace: counts as 1, making 18.</li>
+  <li>2: makes 19.</li>
+  <li>3: makes 20.</li>
+  <li>4: makes 21.</li>
+  <li>5, 6, 7, 8, 9, 10, jack, queen, king: make 22 to 27, a bust.</li>
+</ul>
+<p>That is 4 helpful ranks and 9 busting ranks out of 13. Counting each rank as equally likely, the chance of busting is 9 &divide; 13 = <strong>69.2%</strong>, and each of 18, 19, 20 and 21 turns up 7.7% of the time. The real figure is a touch different because ten-value cards are four ranks in one (10, jack, queen, king), but in a shoe the 13-rank count is a close guide and the result is nowhere near a coin toss.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of what one card does to a hard 17: it busts 69.2% of the time and makes 18, 19, 20 or 21 7.7% of the time each">
+    <div class="bar-row hl" title="Bust (5 to king): 69.2%"><span class="bar-label">Bust (5 to king)</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">69.2%</span></span></div>
+    <div class="bar-row" title="Make 18 (ace): 7.7%"><span class="bar-label">Make 18 (ace)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1113)"></span><span class="bar-val">7.7%</span></span></div>
+    <div class="bar-row" title="Make 19 (2): 7.7%"><span class="bar-label">Make 19 (2)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1113)"></span><span class="bar-val">7.7%</span></span></div>
+    <div class="bar-row" title="Make 20 (3): 7.7%"><span class="bar-label">Make 20 (3)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1113)"></span><span class="bar-val">7.7%</span></span></div>
+    <div class="bar-row" title="Make 21 (4): 7.7%"><span class="bar-label">Make 21 (4)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1113)"></span><span class="bar-val">7.7%</span></span></div>
+  </div>
+  <figcaption>What one extra card does to a hard 17, counting each of the 13 ranks as equally likely. Busting is nine of the 13 ranks; every helpful outcome is one rank in 13.</figcaption>
+</figure>
+
+<p>Look at what the good outcomes are worth, too. Even when the card helps, you move from 17 to somewhere between 18 and 21, and none of that is a big prize against a dealer who is already holding something. Meanwhile the bust ends the hand on the spot. You are exchanging a hand that beats every dealer total of 16 or less and ties a dealer 17 for a 69% chance of losing before the dealer plays.</p>
+
+<h2>Stand is a loser, just a smaller one</h2>
+<p>The claim is not that a 17 wins. It usually does not. The dealer in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> stands on 17 and draws to anything lower, so your 17 wins only when the dealer busts, and it ties when the dealer finishes on 17. Against a final 18, 19, 20 or 21 you lose.</p>
+<p>These are the average results per unit bet, worked out for an effectively unlimited deck with the dealer standing on all 17s, and ignoring dealer naturals:</p>
+<table class="paytable-compare">
+  <caption>Hard 17, expected result per unit bet. A negative number is an average loss.</caption>
+  <thead>
+    <tr><th>Dealer shows</th><th>Stand</th><th>Hit</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">2</th><td>&minus;0.15</td><td>&minus;0.54</td></tr>
+    <tr><th scope="row">6</th><td>+0.01</td><td>&minus;0.51</td></tr>
+    <tr><th scope="row">7</th><td>&minus;0.11</td><td>&minus;0.48</td></tr>
+    <tr><th scope="row">10</th><td>&minus;0.46</td><td>&minus;0.61</td></tr>
+  </tbody>
+</table>
+<p>Three things stand out. A dealer 6 is the only up-card where a stood 17 comes out ahead, and only just. Against a 7 the loss is small, because the dealer finishes on exactly 17 more often than on anything else and that is a tie. And against a 10 the hand is a heavy loser however you play it: standing gives up 0.46 of a bet on average, and hitting gives up 0.61.</p>
+<p>The gap is smallest against an 8, 9 or 10, at about 0.12 to 0.15 of a bet. It never closes. That is the distinction that matters: a hard 17 against a 10 is a bad hand played the least bad way, which is different from a hand that wins. If the choice is between two losses, take the smaller one.</p>
+
+<p>The same logic, aimed at a different group of hands, is in <a href="/blog/stiff-hands-stand-13-to-16.html">the post on standing on 13 to 16</a>, where the reasoning rests on the dealer busting. Hard 17 is a separate case. There you are not waiting for the dealer to fall, you are refusing to fall first, and the 69.2% above is the reason. The app&rsquo;s <a href="/Blackjack21/">first three hands are coached</a>, one lesson at a time, if you want the basics of a hand walked through.</p>
+
+<h2>The dealer is bound by the same sum</h2>
+<p>In the app the dealer stands on 17, with no choice involved. The arithmetic on this page shows why that is a sensible rule. A dealer holding a hard 17 has a 69.2% chance of busting if it draws, so the house takes the same view of 17 that basic strategy does: it is not worth the risk. The fixed rule removes any decision from the dealer, so the dealer is bound by the same sum you are.</p>
+<p>It also explains why your 17 ties more often than you might expect. Because the dealer stops the moment it reaches 17, a final 17 happens often, and that is the result your 17 ties.</p>
+
+<h2>Soft 17 is a different hand</h2>
+<p>An ace and a 6 also totals 17, but it is not a hard 17, and the thirteen-rank count does not apply. The ace is counted as 11 and can fall back to 1, so no single card can bust it. Draw a 10 and the hand becomes a hard 17 rather than a loss. That is why soft 17 is a hand you do play: on a six-deck, dealer-stands-on-17 chart, hit it against most up-cards and double it against a 3 to 6 where doubling is allowed. The <a href="/blog/blackjack-soft-and-hard-hands.html">soft and hard hands post</a> covers how the ace changes value mid-hand. Check whether your total contains an ace counted as 11 before applying any rule on this page.</p>
+
+<h2>A rule you can check</h2>
+<p>Add 17 and any rank: from 5 upward you pass 21. Nine ranks bust you, four help, and the four reach only 18 to 21. Run your own count on a different total and you will find the same pattern in reverse: the lower the hand, the fewer ranks bust it, which is why the line between standing and hitting sits where it does. The practice of this, in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a>, is reading your own total as it is spoken and standing on 17 without a second thought.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer, and the best hand sweeps every chip the losers left behind. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

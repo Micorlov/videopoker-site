@@ -1,0 +1,52 @@
+<!--
+{
+  "title": "Drivetrain loss: why the wheels see less than the dyno",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "PinkSlipKings",
+  "description": "A crank figure and a wheel figure measure different things. 400 hp with a 15% loss is 340 at the wheels, and why a flat percentage is only a rule of thumb.",
+  "summary": "Rules of thumb put drivetrain loss near 10-15% for a manual rear-drive car, 15-20% for an automatic and 20-25% for all-wheel drive. 400 crank hp at 15% leaves 340 at the wheels.",
+  "standfirst": "The power figure on a spec sheet is measured at the crankshaft. The figure that accelerates the car is measured at the wheels. The gap between them is real mechanical work, and it is not a fixed percentage."
+}
+-->
+<p>A car advertised at 400 horsepower does not put 400 horsepower on the road. The figure on the spec sheet is taken at the crankshaft. By the time the power has passed through the clutch or torque converter, the gearbox, the driveshaft, the differential and the axles, some of it has gone. What reaches the tyres is lower, and it is the lower figure that moves the car.</p>
+
+<h2>Two dynos, two numbers</h2>
+<p>An engine dyno bolts to the crankshaft and measures what the engine makes on its own. A chassis dyno, also called a rolling road, holds the car with its driven wheels on rollers and measures what arrives there. Same engine, same pull, two readings. The difference is <strong>drivetrain loss</strong>.</p>
+<p>The loss is mechanical work. Gears mesh and bearings turn, and each does a little friction work. Oil is churned by spinning gears. In an automatic, the torque converter shears fluid, and that slip turns power into heat. Differentials and driveshafts add their own friction, and the wheels, tyres and rollers have rotating mass that has to be spun up before anything is left to measure. None of it is a fault. It is the cost of carrying power across a car.</p>
+
+<h2>The arithmetic, both ways</h2>
+<p>Going from crank to wheels, multiply by one minus the loss. With 400 crank horsepower and a 15% loss: 400 &times; 0.85 = 340 at the wheels.</p>
+<p>Going the other way, divide. A chassis dyno reads 340 and you assume 15%: 340 &divide; 0.85 = 400. Do not add 15% to 340. That gives 391, because the 15% was taken from the larger number. Dividing by 0.85 is the same as adding about 17.6%, and the difference matters when you are comparing against someone else&rsquo;s claim.</p>
+
+<p>The loss is commonly given by layout. These are rules of thumb, not measurements of any one car, and published figures vary:</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of rule-of-thumb drivetrain loss by layout: manual rear-wheel drive 10 to 15 percent, automatic 15 to 20 percent, all-wheel drive 20 to 25 percent, rising with each layout.">
+    <div class="bar-row" title="Manual, rear-wheel drive: 10-15%"><span class="bar-label">Manual, rear-wheel drive</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">10&ndash;15%</span></span></div>
+    <div class="bar-row" title="Automatic: 15-20%"><span class="bar-label">Automatic</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8000)"></span><span class="bar-val">15&ndash;20%</span></span></div>
+    <div class="bar-row hl" title="All-wheel drive: 20-25%"><span class="bar-label">All-wheel drive</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">20&ndash;25%</span></span></div>
+  </div>
+  <figcaption>Rule-of-thumb drivetrain loss by layout. Each bar ends at the top of its range; the label gives the whole range. Every extra component in the path costs something, so all-wheel drive loses most.</figcaption>
+</figure>
+
+<p>Each step down the list adds parts to the power path. A manual rear-wheel-drive car has a clutch, a gearbox and one differential. An automatic adds the torque converter. All-wheel drive adds a transfer case or centre differential and a second driveline. If you want to see what a dyno trace shows before you worry about where it was measured, the <a href="/blog/reading-a-dyno-chart.html">dyno chart post</a> covers horsepower and torque curves, and the <a href="/PinkSlipKings/">Pink Slip Kings</a> listing describes a dyno where you compare both on your own car.</p>
+
+<h2>Why a flat percentage is only an approximation</h2>
+<p>A single percentage hides how the loss behaves. Much of it is parasitic: drag from oil, bearings and seals that depends on how fast things spin and hardly at all on how much power is going through. The rest scales with power. A better model is a mostly fixed amount plus a proportional part.</p>
+<p>Take an invented example, not a measurement: a fixed 20 hp plus 5% of crank power. At 200 hp the loss is 20 + 10 = 30 hp, which is 15%. At 400 hp it is 20 + 20 = 40 hp, or 10%. At 800 hp it is 20 + 40 = 60 hp, or 7.5%. The loss in horsepower rises, but the percentage falls.</p>
+<p>That is why quoting 15% for everything is wrong, and also why it is useful. It is a decent first estimate for an ordinary car, and it overstates the loss on a very powerful one. Treat the numbers above as typical, not constant. Gearbox type, oil temperature, tyre pressure and the dyno itself all shift the figure from one car to the next.</p>
+
+<p>For racing, the next question is what wheel power does to a quarter-mile time, and the <a href="/PinkSlipKings/">Pink Slip Kings</a> upgrade list is a way to try that idea: it includes drivetrain parts as well as engine, tyre and suspension upgrades.</p>
+
+<h2>What it means on the strip</h2>
+<p>Elapsed time is set mainly by power against weight, and the power that counts is the power at the wheels. One empirical relation, usually credited to Fox, puts quarter-mile ET at roughly 5.825 times the cube root of weight in pounds divided by wheel horsepower. For a 3,400 lb car on 340 wheel horsepower the ratio is 10, its cube root is about 2.15, and the estimate is about 12.5 seconds. Hale&rsquo;s version uses a larger constant, about 6.3, for crank power. Both are fitted to typical results, not laws of physics, and both can miss by a few tenths. The <a href="/blog/power-to-weight-ratio.html">power-to-weight post</a> sets out the idea in more detail.</p>
+<p>It is not a straight loss, though. A heavier automatic or all-wheel-drive car gives up power at the wheels, but it may take that power back at the start. All-wheel drive puts the driven load on four tyres instead of two, and an automatic can hold the engine in its power band through the launch without a clutch drop. Off the line, traction limits how much power can be used, so a car with less wheel power that grips can beat one with more that spins. That also depends on weight moving onto the rear tyres, which the <a href="/blog/drag-racing-weight-transfer.html">weight transfer post</a> explains. The trade is real, and which side wins depends on the car, the surface and the tyres.</p>
+
+<h2>Compare like with like</h2>
+<p>Two practical rules follow. First, a crank figure and a wheel figure are not the same measurement. A claim of 400 and a reading of 340 are consistent for the same car, not a contradiction. Second, only compare dyno numbers taken on the same kind of dyno. Chassis dynos differ in how they hold the car, how they correct for weather and how they account for their own losses, so two readings from different machines can disagree by several percent for the same car. If you are testing a change, such as a different tyre or a new tune, use the same dyno, the same day if you can, and look at the change rather than the absolute number.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with career races, tournaments and a dyno for comparing horsepower and torque. It plays offline with no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money. Racing for pink slips in a real strip means racing for ownership of the car; in the game it is only a game mode.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

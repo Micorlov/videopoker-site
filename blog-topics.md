@@ -163,79 +163,79 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- What one wrong hold per hundred hands costs
 - Strategy hints: why a suggested hold is worth checking
 - Why Jacks or Better pays nothing on a low pair
 
 ### OmahaPoker
 
-- A third card of one suit: why it adds nothing in Omaha
 - Pot-Limit or No-Limit: what capping the bet size changes
 - Position in Pot-Limit Omaha: why acting last is worth more
 
 ### Blackjack21
 
-- Why you never hit a hard 17
 - Burn cards and the cut card: what they do to a shoe
 - Vingt-et-un to blackjack: where the game came from
 
 ### BrasslightSlots
 
-- Starting with five million coins: what a big chip balance is for
 - Login streaks and daily wheels: how a free slots game paces itself
 - Why a slot counts a win up instead of showing it at once
 
 ### PokerVsDealer
 
-- Two contests from one hand: the dealer and the table pot
 - Forging a card: what paying an ante for a fresh card buys
 - The odds the dealer's five face-up cards make a pair
 
 ### FivesAndThrees
 
-- Two ends and no spinner: the shape of a Fives and Threes line
 - Average score per hand: what a good Fives and Threes return looks like
 - The going-out bonus: what finishing a hand is worth
 
 ### BlackjackCoach
 
-- Counting down a deck: the drill that proves your count
 - Side counts: what Hi-Lo leaves out
 - What basic strategy is worth against playing by feel
 
 ### HoldemCoach
 
-- Slow playing: when not betting a strong hand pays
 - The check-raise: raising after you have already checked
 - Ranges instead of hands: how to think about what they hold
 
 ### EightBallsPool
 
-- Miscues and masse: what happens when the cue tip slips
 - Cloth, nap and humidity: why a pool table plays differently
 - Overhead or aiming view: how a 3D pool game maps a real stance
 
 ### BigBenBlocks
 
-- Why a fixed piece sequence makes an Adventure level solvable
 - Streaks and the monthly calendar: how the Daily Challenge keeps score
 - Reading the board: counting the space you have left
 
 ### PinkSlipKings
 
-- Drivetrain loss: why the wheels see less power than the dyno
 - Elimination ladders: how a drag racing tournament is run
 - Test and Tune: why a practice run beats a race for learning
 
 ### ValleyRail
 
-- Marshalling yards: how a freight train is put together
 - Axle load: what limits how heavy a wagon can be
 - Branch lines and junctions: how a network grows from one route
 
 
 ## Published
 
+- 2026-11-23 — What one wrong hold per hundred hands costs — VideoPoker — `video-poker-cost-of-one-wrong-hold`
+- 2026-11-23 — A third card of one suit adds nothing in Omaha — OmahaPoker — `omaha-third-card-of-a-suit`
+- 2026-11-23 — Why you never hit a hard 17 — Blackjack21 — `blackjack-never-hit-hard-17`
+- 2026-11-23 — Five million coins: what a big starting balance is for — BrasslightSlots — `slot-five-million-coin-start`
+- 2026-11-23 — Two contests from one hand: the dealer and the table pot — PokerVsDealer — `poker-vs-dealer-two-contests`
+- 2026-11-23 — Two ends, no spinner: the shape of a Fives and Threes line — FivesAndThrees — `fives-and-threes-line-shape`
+- 2026-11-23 — Counting down a deck: the drill that proves your count — BlackjackCoach — `blackjack-counting-down-a-deck`
+- 2026-11-23 — Slow playing: when not betting a strong hand pays — HoldemCoach — `holdem-slow-playing`
+- 2026-11-23 — Miscues and massé: when the cue tip slips — EightBallsPool — `pool-miscues-and-masse`
+- 2026-11-23 — Why a fixed piece sequence makes a block puzzle solvable — BigBenBlocks — `block-puzzle-fixed-piece-sequence`
+- 2026-11-23 — Drivetrain loss: why the wheels see less than the dyno — PinkSlipKings — `drag-racing-drivetrain-loss`
+- 2026-11-23 — Marshalling yards: how a freight train is put together — ValleyRail — `railway-marshalling-yards`
 - 2026-11-22 — The 32 ways to hold five cards, and why that is the game — VideoPoker — `video-poker-32-ways-to-hold`
 - 2026-11-22 — How many four-card Omaha hands there are, and why it matters — OmahaPoker — `omaha-how-many-four-card-hands`
 - 2026-11-22 — The odds of being dealt a natural blackjack — Blackjack21 — `blackjack-odds-of-a-natural`

@@ -1,0 +1,79 @@
+<!--
+{
+  "title": "Why a fixed piece sequence makes a block puzzle solvable",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "BigBenBlocks",
+  "description": "With a known piece sequence a level is a finite search: 10 placements and 6 pieces give 1,000,000 leaves at most. A random feed cannot promise any solution.",
+  "summary": "A fixed sequence of n pieces with k placements each gives a search tree of at most k^n leaves, so a designer can prove a solution exists. A random feed offers no such proof, which is the difference between a puzzle and a survival game.",
+  "standfirst": "A level you can be certain is beatable needs a known sequence of pieces. Once the sequence is fixed the level is a finite search with an answer. A random feed trades that certainty for variety."
+}
+-->
+<p>A block puzzle can hand you pieces in two ways. It can draw them at random, or it can follow a list written in advance. The two feel alike for the first few moves and are different kinds of game. One is a problem with an answer. The other is a process you survive for a while. The listing for Big Ben Blocks says only that each Adventure level has &ldquo;a fixed starting board and piece sequence&rdquo;, and it says nothing about how the sequences were chosen or checked. This post is therefore about the general design principle, and each time the app comes up I will say what its listing states.</p>
+
+<h2>What the app states</h2>
+<p>The listing describes ten Adventure levels, from Westminster to Piccadilly, with score, line-clearing and combo goals and obstacles to clear. It says each level has a fixed starting board and piece sequence. It also says Classic and Adventure allow undo, hints, rotate and bomb, while the Daily Challenge and Time Attack switch those aids off. That is all it says about Adventure. It does not say how many pieces a level contains, nor that every level has been proved solvable. Everything below about proofs and counts is arithmetic that applies to any fixed sequence, not a claim about how this app was built. The <a href="/blog/westminster-to-piccadilly-london-places.html">London places behind the levels</a> have their own post.</p>
+
+<h2>A fixed sequence is a finite search</h2>
+<p>Suppose a level opens with a given board and a list of n pieces, in order. At each step you choose one of at most k placements. Some placements clear lines and change the board, but they never add choices beyond the legal ones. The number of complete games is therefore at most k multiplied by itself n times, or k<sup>n</sup>. That is the number of leaves in the search tree, and it is a finite number.</p>
+<p>Take a round figure of k = 10 placements per piece. Each extra piece multiplies the tree by ten:</p>
+<ul>
+  <li>1 piece: 10 leaves.</li>
+  <li>2 pieces: 100.</li>
+  <li>3 pieces: 1,000.</li>
+  <li>4 pieces: 10,000.</li>
+  <li>5 pieces: 100,000.</li>
+  <li>6 pieces: 1,000,000.</li>
+</ul>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 240" role="img" aria-label="Column chart of the most games a fixed piece sequence allows at 10 placements per piece: 10, 100, 1,000, 10,000, 100,000 and 1,000,000 for 1 to 6 pieces. The count is always finite, reaching 1,000,000 at 6 pieces.">
+    <line class="axis" x1="12" x2="392" y1="190" y2="190"/>
+    <g class="hit"><title>1 piece: at most 10 games</title><rect class="fill-base" x="30" y="170" width="40" height="20" rx="3"/></g>
+    <text x="50" y="164" text-anchor="middle">10</text>
+    <text x="50" y="208" text-anchor="middle">1</text>
+    <g class="hit"><title>2 pieces: at most 100 games</title><rect class="fill-base" x="92" y="150" width="40" height="40" rx="3"/></g>
+    <text x="112" y="144" text-anchor="middle">100</text>
+    <text x="112" y="208" text-anchor="middle">2</text>
+    <g class="hit"><title>3 pieces: at most 1,000 games</title><rect class="fill-base" x="154" y="130" width="40" height="60" rx="3"/></g>
+    <text x="174" y="124" text-anchor="middle">1,000</text>
+    <text x="174" y="208" text-anchor="middle">3</text>
+    <g class="hit"><title>4 pieces: at most 10,000 games</title><rect class="fill-base" x="216" y="110" width="40" height="80" rx="3"/></g>
+    <text x="236" y="104" text-anchor="middle">10,000</text>
+    <text x="236" y="208" text-anchor="middle">4</text>
+    <g class="hit"><title>5 pieces: at most 100,000 games</title><rect class="fill-base" x="278" y="90" width="40" height="100" rx="3"/></g>
+    <text x="298" y="84" text-anchor="middle">100,000</text>
+    <text x="298" y="208" text-anchor="middle">5</text>
+    <g class="hit"><title>6 pieces: at most 1,000,000 games, still finite</title><rect class="fill-accent" x="340" y="70" width="40" height="120" rx="3"/></g>
+    <text class="strong" x="360" y="64" text-anchor="middle">1,000,000</text>
+    <text class="strong" x="360" y="208" text-anchor="middle">6</text>
+    <text x="202" y="232" text-anchor="middle">Pieces in the sequence, at 10 placements each</text>
+  </svg>
+  <figcaption>The most complete games a fixed sequence can allow, at 10 placements per piece. Column height is the number of zeros, so each step is a factor of ten. Notice that even the 6-piece column is a finite number, so every game can be checked.</figcaption>
+</figure>
+
+<p>Because the number is finite, a computer can walk the tree and report whether any leaf is a win. If one is, the level is solvable and the designer knows it. On a 9x9 grid, which has 81 cells, no piece can have more than 81 placements, so 81 is a hard ceiling for k. Four pieces then cost at most 81<sup>4</sup> = 43,046,721 leaves. That is large but searchable, and the count of empty-board placements for each shape is worked out in the <a href="/blog/block-puzzle-block-shapes.html">post on block shapes</a>.</p>
+<p>Playing it yourself is the same search at a human scale, and you can try it in <a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a>, where an Adventure level repeats the same pieces every attempt.</p>
+
+<h2>A random feed gives the guarantee up</h2>
+<p>With a random feed the sequence is not known, so there is no tree to search before you start. The larger point is that no guarantee can exist. For Tetris-style stacking there is a classic result: a fixed adversarial sequence, such as alternating S and Z pieces, forces a loss on a well of any finite size. Any finite board is the same in kind, since it has a finite number of states and some run of awkward pieces can fill it faster than lines clear. If a random feed gives such a run any chance at all, however small, then given enough games it will turn up. That is not bad luck on a particular day. It follows from the board being finite.</p>
+<p>So the two designs divide by what they promise:</p>
+<ul>
+  <li><strong>Puzzle:</strong> a problem with a guaranteed solution and a verifiable answer. Fixed sequence, finite search, at least one winning line, and you can prove it.</li>
+  <li><strong>Survival game:</strong> a stochastic process you eventually lose. The score measures how long you lasted, not whether you solved anything.</li>
+</ul>
+<p>Neither is better, but only the puzzle can run out of answers. The listing describes Classic as untimed and Time Attack as a three-minute mode, but it does not say how those modes deal pieces, so I draw no conclusion about them.</p>
+
+<h2>Tuning difficulty by counting branches</h2>
+<p>A designer with a fixed sequence has a second lever beyond solvable or not. Count how many of the leaves are wins. If one leaf in a million wins, the level is a needle in a haystack and most players will fail. If one in a thousand wins, many routes work. That ratio is a measurable difficulty, and the designer can adjust it by moving one starting block or swapping two pieces in the list. With a random feed this measurement does not exist, because the leaves differ on every attempt.</p>
+<p>The listing says Adventure levels have score, line-clearing and combo goals. A goal like that narrows the winning leaves further, since it asks for the right kind of clear, not just any survival. I have no figures for how the app sets its goals; the point is only that a goal is another filter on the same finite tree.</p>
+
+<h2>What follows for the player</h2>
+<p>In a fixed-sequence level, looking ahead is rewarded in a way it cannot be elsewhere. You can see, or learn by playing, what is coming, so a placement can be judged against the pieces after it. A mistake is only recoverable if the remaining sequence still admits a win from the new board. That is the sense in which the skill is planning, not reacting: you are searching a small part of the tree by eye and discarding branches early. If undo is available, as the listing says it is in Adventure, then trying a branch and backing out is the same search done by hand.</p>
+<p>In a random mode you cannot plan what you cannot see. The skill moves to keeping options open: leaving space for the awkward piece, not committing a region early, and keeping the number of legal placements high for whatever arrives.</p>
+<p>The figure to carry away is the one in the chart: at 10 placements and 6 pieces, at most 1,000,000 games. A number that finite is a promise a designer can keep. A random feed cannot make it.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have score, line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
