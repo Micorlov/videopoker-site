@@ -1,0 +1,84 @@
+<!--
+{
+  "title": "Pot-Limit or No-Limit: what the cap changes in Omaha",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "OmahaPoker",
+  "description": "PLO caps every bet at the pot. From a 100-big-blind stack that takes four pot-sized bets to reach all-in, so no one can shove you off a draw.",
+  "summary": "Pot-limit caps each bet at the pot, so the pot triples with every bet and call. From a 6-blind pot with 97 behind it takes four pot bets to go all-in; a no-limit shove can ask a flush draw to fold where a pot bet cannot.",
+  "standfirst": "Omaha is nearly always played pot-limit. The cap is not a quirk: with four hole cards the hands run too close together for an uncapped shove to be anything but blunt."
+}
+-->
+<p>Pot-Limit Omaha is the standard form of the game, and no-limit Omaha is rare. The reason is not tradition. A cap on the bet size changes how many decisions a hand contains, what a draw has to pay, and how much a big stack can bully a small one. This post puts numbers on all three. The arithmetic of a single pot-sized bet is in <a href="/blog/pot-limit-omaha-pot-sized-bet.html">this earlier post</a>; here it is taken as known.</p>
+
+<h2>The cap, street by street</h2>
+<p>Pot-limit means the largest bet is the pot after you have called. Opening the betting, that is the pot as it stands. Facing a bet of B into a pot of P, the largest raise-to is P + 3B. In no-limit the ceiling is your whole stack, every time.</p>
+<p>The effect is that the ceiling moves with the pot rather than with the stacks. A bet that is called always makes the pot three times as big: the pot, plus the bet, plus the call, is P + 2P = 3P. So after n pot-sized bets that are all called, the pot is 3<sup>n</sup> times its starting size, and each player has added P × (3<sup>n</sup> &minus; 1) ÷ 2 to it.</p>
+
+<h2>How many pot bets reach all-in</h2>
+<p>Take a heads-up hand with 100-big-blind stacks. Each player puts 3 big blinds in before the flop, so the pot is 6 and each has 97 behind. Pot-sized bet on every street, each one called:</p>
+<ol class="ranked">
+  <li><strong>Flop:</strong> bet 6, pot becomes 18. Each player has put in 9.</li>
+  <li><strong>Turn:</strong> bet 18, pot becomes 54. Each has put in 27.</li>
+  <li><strong>River:</strong> bet 54, pot becomes 162. Each has put in 81.</li>
+</ol>
+<p>That is every street gone and 19 big blinds still behind. A fourth pot bet would be 162, but only 19 is left to bet, so it would be an all-in for 19 that makes the pot 200. Getting all-in took four pot bets, and a heads-up hand has only three streets after the cards come out. The only ways to get there in time are to raise as well as bet: a pot-sized bet, a pot-sized raise and a pot-sized re-raise on the flop puts 78 of the 97 in at once.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 240" role="img" aria-label="Column chart: a pot of 6 big blinds triples with each pot-sized bet to 18, 54 and 162, and a fourth bet of only 19 each reaches all-in at 200.">
+    <line class="grid" x1="20" x2="390" y1="180" y2="180"/>
+    <line class="axis" x1="20" x2="390" y1="180" y2="180"/>
+    <g class="hit"><title>Start: pot of 6 big blinds</title><rect class="fill-base" x="33" y="175.8" width="48" height="4.2" rx="2"/></g>
+    <text x="57" y="170.8" text-anchor="middle">6</text>
+    <text x="57" y="198" text-anchor="middle">Start</text>
+    <text x="57" y="214" text-anchor="middle">pot</text>
+    <g class="hit"><title>After pot bet 1: pot of 18 big blinds</title><rect class="fill-base" x="107" y="167.4" width="48" height="12.6" rx="2"/></g>
+    <text x="131" y="162.4" text-anchor="middle">18</text>
+    <text x="131" y="198" text-anchor="middle">After</text>
+    <text x="131" y="214" text-anchor="middle">bet 1</text>
+    <g class="hit"><title>After pot bet 2: pot of 54 big blinds</title><rect class="fill-base" x="181" y="142.2" width="48" height="37.8" rx="2"/></g>
+    <text x="205" y="137.2" text-anchor="middle">54</text>
+    <text x="205" y="198" text-anchor="middle">After</text>
+    <text x="205" y="214" text-anchor="middle">bet 2</text>
+    <g class="hit"><title>After pot bet 3: pot of 162 big blinds</title><rect class="fill-base" x="255" y="66.6" width="48" height="113.4" rx="2"/></g>
+    <text x="279" y="61.6" text-anchor="middle">162</text>
+    <text x="279" y="198" text-anchor="middle">After</text>
+    <text x="279" y="214" text-anchor="middle">bet 3</text>
+    <g class="hit"><title>Bet 4: 19 each, all-in, pot of 200 big blinds</title><rect class="fill-accent" x="329" y="40" width="48" height="140" rx="2"/></g>
+    <text class="strong" x="353" y="33" text-anchor="middle">200</text>
+    <text class="strong" x="353" y="198" text-anchor="middle">Bet 4</text>
+    <text class="strong" x="353" y="214" text-anchor="middle">all-in</text>
+  </svg>
+  <figcaption>The pot in big blinds after each called pot-sized bet, from a starting pot of 6 with 97 behind each. It triples three times to 162, and the fourth bet, the one that gets all-in, is only 19 each.</figcaption>
+</figure>
+
+<h2>Stack-to-pot ratio decides how many</h2>
+<p>The stack-to-pot ratio (SPR) is the effective stack divided by the pot when the flop arrives. Because the pot triples, the number of pot-sized bets needed is the smallest n with (3<sup>n</sup> &minus; 1) ÷ 2 at least equal to the SPR. Four round numbers show the pattern:</p>
+<table class="paytable-compare">
+  <thead><tr><th>SPR on the flop</th><th>Example</th><th>Pot bets to be all-in</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>pot 10, stack 10</td><td>1</td></tr>
+    <tr><td>4</td><td>pot 10, stack 40</td><td>2</td></tr>
+    <tr><td>13</td><td>pot 10, stack 130</td><td>3</td></tr>
+    <tr><td>40</td><td>pot 10, stack 400</td><td>4</td></tr>
+  </tbody>
+</table>
+<p>Check the 13 row: bets of 10, 30 and 90 add to 130. Our 6-blind pot has an SPR of 97 ÷ 6 = 16.2, which is just past 13, hence four bets. In no-limit the same hand is one shove at any SPR.</p>
+
+<h2>Nobody can price out a draw in one move</h2>
+<p>A call is judged by the share of the time it has to win: the call divided by the pot after calling. A pot-sized bet always asks for 33.3%, whatever the amounts. A no-limit shove asks for more. With 100 in the pot, a shove of 300 asks the caller to win 300 ÷ (100 + 300 + 300) = 42.9% of the time, and a shove of 500 asks for 45.5%.</p>
+<p>Take a flush draw with nine outs on the flop. It makes its flush by the river 1 &minus; (38 ÷ 47 × 37 ÷ 46) = 35.0% of the time. That is enough to call a pot bet (needs 33.3%) and not enough to call either shove. In no-limit the bettor can choose a price that makes a good draw fold, and in pot-limit the price has a ceiling that the draw can always afford. The <a href="/blog/omaha-wrap-straight-draws.html">wraps</a> in Omaha make this stronger: a 13-out wrap makes its straight by the river 1 &minus; (34 ÷ 47 × 33 ÷ 46) = 48.1% of the time, ignoring the opponent's cards, which clears every price here.</p>
+
+<h2>Why four hole cards need the cap</h2>
+<p>In Hold'em, hands polarise before the flop. Aces against kings is about 81% to 19%, and a pair against two overcards is close to a coin flip. The equity gaps are wide enough that a shove is a sound weapon.</p>
+<p>In Omaha the same player holds six two-card combinations and can use only the best on a given board, so the hands run much closer. The best four-card hand dealt, aces and kings double-suited, is only about two in three against a random hand, where a pair of aces in Hold'em is roughly 85% against one. (For more on this, see why <a href="/blog/omaha-aces-weaker-than-holdem.html">aces are weaker than in Hold'em</a>.) A shove that sets stacks against equities this close buys little for the bettor and costs the caller everything, so an uncapped game would reward whoever had the biggest stack, not the better hand. The pot cap lets the hands play out over the streets, where draws that complete or miss can be told apart.</p>
+<p>You can see the cap at work at the PLO tables in <a href="/OmahaPoker/">Omaha Poker</a>, where the bet shortcuts are 1/2 pot, 3/4 pot, pot and all-in, and the live hand insight shows your win chance and the pot odds on a call.</p>
+
+<div class="callout">
+  <p>The rule in one line: a called pot-sized bet triples the pot, so a stack of S times the pot lasts n bets where (3<sup>n</sup> &minus; 1) ÷ 2 reaches S, and a pot bet never asks the caller for more than 33.3%.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo and 5-Card Omaha against bots set to Easy, Medium or Hard, with pot-size bet shortcuts at 1/2 pot, 3/4 pot, pot and all-in. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

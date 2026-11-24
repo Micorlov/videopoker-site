@@ -163,67 +163,67 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Strategy hints: why a suggested hold is worth checking
 - Why Jacks or Better pays nothing on a low pair
 
 ### OmahaPoker
 
-- Pot-Limit or No-Limit: what capping the bet size changes
 - Position in Pot-Limit Omaha: why acting last is worth more
 
 ### Blackjack21
 
-- Burn cards and the cut card: what they do to a shoe
 - Vingt-et-un to blackjack: where the game came from
 
 ### BrasslightSlots
 
-- Login streaks and daily wheels: how a free slots game paces itself
 - Why a slot counts a win up instead of showing it at once
 
 ### PokerVsDealer
 
-- Forging a card: what paying an ante for a fresh card buys
 - The odds the dealer's five face-up cards make a pair
 
 ### FivesAndThrees
 
-- Average score per hand: what a good Fives and Threes return looks like
 - The going-out bonus: what finishing a hand is worth
 
 ### BlackjackCoach
 
-- Side counts: what Hi-Lo leaves out
 - What basic strategy is worth against playing by feel
 
 ### HoldemCoach
 
-- The check-raise: raising after you have already checked
 - Ranges instead of hands: how to think about what they hold
 
 ### EightBallsPool
 
-- Cloth, nap and humidity: why a pool table plays differently
 - Overhead or aiming view: how a 3D pool game maps a real stance
 
 ### BigBenBlocks
 
-- Streaks and the monthly calendar: how the Daily Challenge keeps score
 - Reading the board: counting the space you have left
 
 ### PinkSlipKings
 
-- Elimination ladders: how a drag racing tournament is run
 - Test and Tune: why a practice run beats a race for learning
 
 ### ValleyRail
 
-- Axle load: what limits how heavy a wagon can be
 - Branch lines and junctions: how a network grows from one route
 
 
 ## Published
 
+- 2026-11-24 — Strategy hints: why a suggested hold is worth checking — VideoPoker — `video-poker-strategy-hints`
+- 2026-11-24 — Pot-Limit or No-Limit: what the cap changes in Omaha — OmahaPoker — `omaha-pot-limit-vs-no-limit`
+- 2026-11-24 — Burn cards and the cut card: what they do to a shoe — Blackjack21 — `blackjack-burn-and-cut-cards`
+- 2026-11-24 — Login streaks and daily wheels: how a free slot paces play — BrasslightSlots — `slot-daily-wheel-and-streaks`
+- 2026-11-24 — Forging a card: is a fresh card worth the ante? — PokerVsDealer — `poker-vs-dealer-forging-a-card`
+- 2026-11-24 — What a good Fives and Threes average score per hand is — FivesAndThrees — `fives-and-threes-average-score-per-hand`
+- 2026-11-24 — Side counts: what Hi-Lo leaves out — BlackjackCoach — `blackjack-side-counts`
+- 2026-11-24 — The check-raise: raising after you have already checked — HoldemCoach — `holdem-check-raise`
+- 2026-11-24 — Cloth, nap and humidity: why a pool table plays differently — EightBallsPool — `pool-cloth-nap-and-humidity`
+- 2026-11-24 — Daily Challenge streaks and the monthly calendar — BigBenBlocks — `block-puzzle-daily-challenge-streaks`
+- 2026-11-24 — Elimination ladders: how a drag racing tournament is run — PinkSlipKings — `drag-racing-elimination-ladders`
+- 2026-11-24 — Axle load: what limits how heavy a wagon can be — ValleyRail — `railway-axle-load`
 - 2026-11-23 — What one wrong hold per hundred hands costs — VideoPoker — `video-poker-cost-of-one-wrong-hold`
 - 2026-11-23 — A third card of one suit adds nothing in Omaha — OmahaPoker — `omaha-third-card-of-a-suit`
 - 2026-11-23 — Why you never hit a hard 17 — Blackjack21 — `blackjack-never-hit-hard-17`

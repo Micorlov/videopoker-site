@@ -1,0 +1,63 @@
+<!--
+{
+  "title": "Forging a card: is a fresh card worth the ante?",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "PokerVsDealer",
+  "description": "Forging buys one fresh card for an ante. A four-flush lands 19.1% of the time, an inside straight 8.5%. It pays only if chance times gain beats the ante.",
+  "summary": "One fresh card completes a four-flush 19.1% of the time (9 in 47), an open-ended straight 17.0% (8 in 47), an inside straight or a two-pair full house 8.5% (4 in 47). Forge only when chance times gain beats the ante.",
+  "standfirst": "In Poker vs Dealer you can pay an ante to swap one card for a fresh one. That is a priced draw, and the price can be checked against the odds before you pay it."
+}
+-->
+<p>Poker vs Dealer gives you three options on a hand: hold, bail, or forge. The store listing describes forging as paying an ante to exchange a card for a fresh one. That is one card drawn for a fee, which is the oldest decision in five-card draw with a price tag attached. The price turns a vague feeling about whether a draw is "worth a go" into a sum: does the chance of improving, multiplied by what the improvement is worth, beat the ante?</p>
+
+<h2>One fresh card: what it buys</h2>
+<p>The listing does not give the size of the ante, so the chances come first, because they do not depend on it. Throw away one card and keep four. You have seen your five cards, so 47 remain unseen, and one of them arrives. Count the cards that finish the hand (the outs) and divide by 47.</p>
+<ul>
+  <li><strong>Four to a flush:</strong> 13 − 4 = 9 cards of the suit remain. 9 ÷ 47 = <strong>19.1%</strong>.</li>
+  <li><strong>Four to an open-ended straight</strong> (for example 6-7-8-9, finished by a 5 or a 10): 4 fives and 4 tens, 8 outs. 8 ÷ 47 = <strong>17.0%</strong>.</li>
+  <li><strong>Four to an inside straight</strong> (for example 6-7-9-10, finished only by an 8): 4 outs. 4 ÷ 47 = <strong>8.5%</strong>.</li>
+  <li><strong>Two pair, exchanging the fifth card:</strong> only the 4 cards of the two ranks you hold complete a full house, so 4 ÷ 47 = <strong>8.5%</strong>.</li>
+</ul>
+<p>Those four lines are the whole menu for a single exchange. Anything that involves keeping a pair and replacing more than one card is a different calculation. The posts on <a href="/blog/odds-of-improving-a-pair-on-the-draw.html">improving a pair on the draw</a> and <a href="/blog/three-of-a-kind-draw-one-or-two.html">drawing one or two to three of a kind</a> cover those, and <a href="/blog/drawing-one-card-to-a-flush.html">drawing one card to a flush</a> goes further into the first line.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance that one fresh card completes each holding: four-flush 19.1 percent, open-ended straight 17.0, inside straight 8.5, two pair to a full house 8.5">
+    <div class="bar-row hl" title="Four to a flush: 19.1%"><span class="bar-label">Four to a flush</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">19.1%</span></span></div>
+    <div class="bar-row" title="Open-ended straight: 17.0%"><span class="bar-label">Open-ended straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8901)"></span><span class="bar-val">17.0%</span></span></div>
+    <div class="bar-row" title="Inside straight: 8.5%"><span class="bar-label">Inside straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4450)"></span><span class="bar-val">8.5%</span></span></div>
+    <div class="bar-row" title="Two pair to a full house: 8.5%"><span class="bar-label">Two pair to full house</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4450)"></span><span class="bar-val">8.5%</span></span></div>
+  </div>
+  <figcaption>Chance that one fresh card from 47 unseen completes each holding. The four-flush is the best of the four, and an inside straight is exactly half as likely as an open-ended one.</figcaption>
+</figure>
+
+<p>The only real surprise is how close the flush and the open-ended straight are. A straight draw with two completing ranks looks bigger than one suit, but 9 outs beat 8. Whether the extra card matters is the pricing question below, and it is the same kind of break-even test as in <a href="/blog/poker-break-even-odds-3-to-1.html">break-even odds for a 3-to-1 payout</a>. You can run these sums on any hand in <a href="/PokerVsDealer/">Poker vs Dealer</a>, where forging is one of the three choices on a hand.</p>
+
+<h2>The break-even sum</h2>
+<p>Let <em>A</em> be the ante, <em>p</em> the chance the fresh card completes your hand, and <em>G</em> the gain in expected winnings if it does, compared with keeping the hand you have. You pay <em>A</em> whether or not the card helps, so the exchange pays for itself when</p>
+<p><strong><em>p</em> × <em>G</em> &gt; <em>A</em></strong>, which is the same as <strong><em>G</em> &gt; <em>A</em> ÷ <em>p</em></strong>.</p>
+<p>Because the listing gives no ante size, take a round number purely for illustration: <em>A</em> = 10. The gain you need is then 10 ÷ <em>p</em>:</p>
+<ul>
+  <li><strong>Four-flush (19.1%):</strong> a gain of about 52 or more.</li>
+  <li><strong>Open-ended straight (17.0%):</strong> about 59.</li>
+  <li><strong>Inside straight or two pair to full house (8.5%):</strong> about 118.</li>
+</ul>
+<p>The long shots have to be worth more than twice as much as the flush draw to justify the same fee. Two pair to a full house and an inside straight share the same 8.5%, so they face the same bar, and each clears it only if the finished hand is worth that much more than the one you hold. In each case the question is what the improvement changes: how much more often you beat the dealer, and how much more a win is worth. The gain is a difference, not the whole value of the finished hand, and a hand that already beats the dealer has little to gain.</p>
+<p>The ante also interacts with bailing out. The listing says bailing recovers half of your committed chips. It does not say whether an ante counts as committed, so check the in-game rules. If it does, a missed forge followed by a bail gives you back half of the ante, and a forge costs only <em>A</em> ÷ 2 more than bailing without it. The bail threshold, covered in <a href="/blog/poker-vs-dealer-bailing-out.html">bailing out</a>, also shifts, because <em>C</em> has grown by <em>A</em>.</p>
+
+<h2>Later forges are better informed</h2>
+<p>The dealer builds a hand one face-up card at a time, so the cards on view change both numbers in the sum. They shrink the unseen pool, and they can kill outs. A four-flush with two dealer cards of your suit showing has 7 outs left among 45 unseen cards: 7 ÷ 45 = 15.6%, down from 19.1%. This assumes the dealer's cards come from the same single 52-card deck, which is standard but not something the listing states. If the dealer's cards are all off-suit, the odds barely move, and the draw is as good as it looked. The same idea underlies <a href="/blog/poker-card-removal.html">card removal</a>.</p>
+<p>They also change <em>G</em>. A draw to a straight is worth little if the dealer's visible cards already put you behind even when it lands, and worth more if it would turn a likely loss into a likely win. An early forge prices the draw against an unknown dealer. A later one prices it against evidence. That does not make waiting free, because the listing does not say how late you may forge, but wherever the choice is open to you, a forge decided after the cards you can see is a decision made with more of the facts.</p>
+
+<h2>A short routine</h2>
+<ol class="ranked">
+  <li><strong>Name the holding exactly.</strong> Four to a flush, open-ended or inside straight, or two pair: each has its own out count.</li>
+  <li><strong>Remove dead outs</strong> that you can see in the dealer's cards, then divide by what is unseen.</li>
+  <li><strong>Check <em>p</em> × <em>G</em> against the ante.</strong> If it falls short, hold, or bail if your chance of winning is below the bail threshold.</li>
+</ol>
+<p>The chips are play money with no cash value, so the aim is to practise pricing a draw before you pay for it. The odds above are standard five-card maths; <a href="/PokerVsDealer/">Poker vs Dealer</a> has its own rules, so check its in-game payouts screen for the real figures.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

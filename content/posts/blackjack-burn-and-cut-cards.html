@@ -1,0 +1,58 @@
+<!--
+{
+  "title": "Burn cards and the cut card: what they do to a shoe",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "Blackjack21",
+  "description": "A burn card costs a basic-strategy player nothing. The cut card sets how deep a six-deck shoe is dealt, 83% with one deck behind it, and nudges the edge.",
+  "summary": "The burn card removes one card at random, so it changes what you can know, not the odds. The cut card decides how much of the shoe is dealt: with a deck behind it, 259 of 312 cards, or 83.0%.",
+  "standfirst": "Two pieces of casino procedure bracket every shoe. One is nearly irrelevant to the maths and gets a lot of attention; the other sets how the shoe is used up and gets almost none."
+}
+-->
+<p>Before the first hand of a fresh shoe, and again at the end of it, the dealer does something that has nothing to do with your cards. At the start, one or more cards are taken off the top and set aside, face down. At the end, a plastic card tells the dealer to stop. Neither changes a rule or a payout, but they do change what the shoe is, so it is worth being exact about what each one does.</p>
+
+<h2>The sequence at the start of a shoe</h2>
+<p>The order is the same in most casinos. The decks are shuffled together, a player cuts the pack, and the dealer loads it into the shoe. A plastic cut card is then inserted at a chosen depth from the back. Last, the dealer burns: the top card, or in some houses a few, is taken out without being shown to the players and placed in the discard tray. Play starts with the card after it.</p>
+<p>The player&rsquo;s cut only moves a block of cards from one end of the pack to the other. The cut card is a different object: a marker that decides when this shoe ends.</p>
+
+<h2>What a burn card does</h2>
+<p>A burn card is a card removed at random. Every card in the shoe was equally likely to land on top, so the burned card is a random sample of the pack, and the cards left behind have the same expected make-up as before. In a six-deck shoe, the chance that the first card you are dealt is a ten-value card is 96/312, or 30.77%, whether or not a card was burned first. Burn a ten and it becomes 95/311, burn anything else and it is 96/311, but averaged over every card that could have been burned it is 30.77% again.</p>
+<p>Because the odds are unchanged on average, a basic-strategy player loses nothing measurable to the burn. The house edge for a flat bettor is the same with or without it. Cards that are dealt but not yours are a different case, covered in the post on <a href="/blog/blackjack-other-players-cards.html">other players&rsquo; cards</a>.</p>
+<p>What the burn does affect is information. It is one card that nobody can see, so it takes away a small amount of certainty about the pack. To anyone tracking the pack carefully, one hidden card is a hole in the record. It also guards against a card that was exposed during the shuffle or the cut. It matters to a counter and to nobody else.</p>
+
+<p>The six-deck shoe is the one thing here the app itself describes. The listing for <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> says the table uses a six-deck shoe, blackjack paying 3:2 and the dealer standing on 17. It says nothing about burn cards or a cut card, so everything below is about casino procedure, not about the app.</p>
+
+<h2>What the cut card does</h2>
+<p>The cut card is the one with consequences. It is placed some distance from the back of the pack, and the shoe is dealt until it appears. The dealer finishes the round in progress and then shuffles. The distance from the cut card to the end sets <strong>penetration</strong>: the share of the shoe that is dealt before the shuffle.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 146" role="img" aria-label="A six-deck shoe of 312 cards with one burn card at the front, 259 cards dealt, the cut card, and 52 cards behind it, giving 83.0 percent penetration">
+    <text x="20" y="20" class="strong">Six decks: 312 cards</text>
+    <text x="326" y="20" text-anchor="end" class="strong">Cut card</text>
+    <rect x="20" y="30" width="8" height="40" rx="2" class="fill-soft"><title>1 burn card, face down</title></rect>
+    <rect x="30" y="30" width="290" height="40" rx="2" class="fill-base"><title>259 cards dealt: 83.0% of 312</title></rect>
+    <rect x="320" y="26" width="6" height="48" rx="1" class="fill-accent"><title>Cut card, 52 cards from the back</title></rect>
+    <rect x="328" y="30" width="58" height="40" rx="2" class="fill-soft"><title>52 cards behind the cut card, not dealt</title></rect>
+    <line x1="30" y1="82" x2="320" y2="82" class="ref"/>
+    <text x="175" y="102" text-anchor="middle" class="strong">259 cards dealt: 83.0%</text>
+    <text x="20" y="132">1 burn card</text>
+    <text x="386" y="132" text-anchor="end">52 not dealt</text>
+  </svg>
+  <figcaption>A six-deck shoe with one burn card and the cut card one deck from the back. The dealt stretch is 259 of 312 cards, 83.0%. The burn card is drawn wider than its true share so it can be seen.</figcaption>
+</figure>
+
+<p>A cut card one deck from the end of a six-deck shoe leaves 260 of 312 cards in play, which is 83.3%. Take one burn card off the front and it is 259, or 83.0%. The round that reaches the cut card is finished, so the true figure is a little higher. A cut card placed two decks from the back gives 208 of 312, or 66.7%, a much shallower shoe. Casinos choose the depth: the deeper they deal, the more hands they get through, and the more a counter can see.</p>
+<p>For a basic-strategy player, penetration alone does not change the expected result of a hand. A pack with 100 cards left is on average no better or worse for you than one with 300. A deeper shoe only gives you more hands between shuffles.</p>
+
+<h2>The cut-card effect</h2>
+<p>There is one subtle cost. A round starts only if the cut card has not yet been reached. How many cards a round uses depends on the cards in it, so how soon the cut card turns up depends on what has been dealt. Shoes that run through a card-rich stretch, where the remaining pack is rich in tens and aces, tend to reach the cut card sooner and are shuffled away early. Those are the stretches that favour the player, and they are cut short.</p>
+<p>The result is a small addition to the house edge for a flat bettor, because the shoe is shuffled before the good cards at the back can be dealt. It is too small to see in any run of sessions, it belongs to how a shoe is used up rather than to any rule, and it shrinks as the cut card moves nearer the back. It is worked out by simulation, so no number is given here.</p>
+
+<h2>Who needs to care</h2>
+<p>For a basic-strategy player the answer is almost nobody. The burn card removes one random card and the expected composition is unchanged. The cut-card effect is tiny. What moves the house edge is in the <a href="/blog/six-deck-shoe-vs-single-deck.html">comparison of six decks with one</a>, and above all the 3:2 payout.</p>
+<p>For a card counter, both matter and penetration matters most. A count is only worth something when it can climb away from zero, and that takes cards to be dealt. The deeper the cut card sits, the more of the shoe is available to read; shallow penetration keeps the pack close to its starting make-up. That is advantage play, and this post is about procedure, so it stops there. The split to remember: the burn is a matter of information, and the cut card sets how many cards ever get dealt.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> seats you with four other players and the dealer, and the best hand sweeps every chip the losers left behind. It deals from a six-deck shoe with blackjack paying 3:2 and the dealer standing on 17, plays offline, and the chips are free every day with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

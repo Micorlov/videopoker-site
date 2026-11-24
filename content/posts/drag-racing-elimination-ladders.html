@@ -1,0 +1,132 @@
+<!--
+{
+  "title": "Elimination ladders: how a drag racing tournament is run",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "PinkSlipKings",
+  "description": "A drag racing ladder turns qualifying times into pairings: 15 races for 16 cars, 31 for 32, and in pro classes a re-ladder after every round.",
+  "summary": "How qualifying sets the ladder, why a field of n cars always takes n-1 races, how byes work, the difference between a fixed bracket and a re-ladder, and why bracket racing rewards consistency.",
+  "standfirst": "A race meeting does not pick its winner on one fast pass. It ranks the field in qualifying, then runs a knockout in which every car must win several races in a row."
+}
+-->
+<p>A drag racing event is two competitions stacked together. First comes qualifying, which ranks the field. Then comes eliminations, a knockout in which two cars race, one goes home and the other moves up the ladder.</p>
+
+<h2>Qualifying sets the order</h2>
+<p>Each entry gets a small number of qualifying passes, and its best elapsed time (ET) counts. Sort the cars from quickest to slowest and you have the qualifying order: number 1 is the quickest ET, number 2 the next, and so on. Only the best run counts. <a href="/blog/reading-a-drag-racing-time-slip.html">The time slip post</a> explains why ET leaves out reaction time, which matters later in this post.</p>
+<p>The field is then cut to a size the ladder can use, usually 16 or 32 cars in the big professional classes.</p>
+
+<h2>The sum behind every ladder</h2>
+<p>Each race eliminates exactly one car, and the event ends when one car is left. So a field of <em>n</em> cars needs exactly <em>n</em> &minus; 1 races, whatever the pairings. When <em>n</em> is a power of two, every round halves the field and the number of rounds is log<sub>2</sub>(<em>n</em>).</p>
+<ul class="ranked">
+  <li><strong>16 cars:</strong> 8 + 4 + 2 + 1 = 15 races, over 4 rounds.</li>
+  <li><strong>32 cars:</strong> 16 + 8 + 4 + 2 + 1 = 31 races, over 5 rounds.</li>
+  <li><strong>12 cars:</strong> 11 races, in 4 rounds, because the bracket still has to be built to 16 places.</li>
+</ul>
+<p>The 12-car case shows byes. When the field is not a power of two, the ladder is built to the next power of two and the empty places go to the top qualifiers. In a 12-car field there are 16 places, so four byes go to numbers 1 to 4, who advance without a round-one opponent (in many events with a single solo pass). Round one is then only four races, 5 v 12, 6 v 11, 7 v 10 and 8 v 9, and 4 + 4 + 2 + 1 still makes 11.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 356" role="img" aria-label="Bracket for a 16-car field: round 1 has 8 races, round 2 has 4, the semi-finals 2 and the final 1, 15 races in all. Number 1 starts against number 16 and makes four runs to win.">
+    <text class="strong" x="50.0" y="16" text-anchor="middle">Round 1</text>
+    <text x="50.0" y="34" text-anchor="middle">8 races</text>
+    <text class="strong" x="150.0" y="16" text-anchor="middle">Round 2</text>
+    <text x="150.0" y="34" text-anchor="middle">4 races</text>
+    <text class="strong" x="250.0" y="16" text-anchor="middle">Semi-finals</text>
+    <text x="250.0" y="34" text-anchor="middle">2 races</text>
+    <text class="strong" x="350.0" y="16" text-anchor="middle">Final</text>
+    <text x="350.0" y="34" text-anchor="middle">1 race</text>
+    <path class="line" fill="none" d="M90 103.0 H100 V86.0 H110"/>
+    <path class="line" fill="none" d="M90 137.0 H100 V154.0 H110"/>
+    <path class="line" fill="none" d="M90 171.0 H100 V154.0 H110"/>
+    <path class="line" fill="none" d="M90 205.0 H100 V222.0 H110"/>
+    <path class="line" fill="none" d="M90 239.0 H100 V222.0 H110"/>
+    <path class="line" fill="none" d="M90 273.0 H100 V290.0 H110"/>
+    <path class="line" fill="none" d="M90 307.0 H100 V290.0 H110"/>
+    <path class="line" fill="none" d="M190 154.0 H200 V120.0 H210"/>
+    <path class="line" fill="none" d="M190 222.0 H200 V256.0 H210"/>
+    <path class="line" fill="none" d="M190 290.0 H200 V256.0 H210"/>
+    <path class="line" fill="none" d="M290 256.0 H300 V188.0 H310"/>
+    <path class="line hl" fill="none" d="M90 69.0 H100 V86.0 H110"/>
+    <path class="line hl" fill="none" d="M190 86.0 H200 V120.0 H210"/>
+    <path class="line hl" fill="none" d="M290 120.0 H300 V188.0 H310"/>
+    <g class="hit"><title>Round 1: seed 1 v 16</title><rect class="fill-accent" x="10" y="56.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="73.0" text-anchor="middle" style="fill:var(--lowest)">1 v 16</text>
+    <g class="hit"><title>Round 1: seed 8 v 9</title><rect class="fill-soft" x="10" y="90.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="107.0" text-anchor="middle" style="">8 v 9</text>
+    <g class="hit"><title>Round 1: seed 4 v 13</title><rect class="fill-soft" x="10" y="124.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="141.0" text-anchor="middle" style="">4 v 13</text>
+    <g class="hit"><title>Round 1: seed 5 v 12</title><rect class="fill-soft" x="10" y="158.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="175.0" text-anchor="middle" style="">5 v 12</text>
+    <g class="hit"><title>Round 1: seed 2 v 15</title><rect class="fill-soft" x="10" y="192.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="209.0" text-anchor="middle" style="">2 v 15</text>
+    <g class="hit"><title>Round 1: seed 7 v 10</title><rect class="fill-soft" x="10" y="226.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="243.0" text-anchor="middle" style="">7 v 10</text>
+    <g class="hit"><title>Round 1: seed 3 v 14</title><rect class="fill-soft" x="10" y="260.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="277.0" text-anchor="middle" style="">3 v 14</text>
+    <g class="hit"><title>Round 1: seed 6 v 11</title><rect class="fill-soft" x="10" y="294.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="50.0" y="311.0" text-anchor="middle" style="">6 v 11</text>
+    <g class="hit"><title>Round 2: winners of the two races feeding in</title><rect class="fill-accent" x="110" y="73.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="150.0" y="90.0" text-anchor="middle" style="fill:var(--lowest)">run 2</text>
+    <g class="hit"><title>Round 2: winners of the two races feeding in</title><rect class="fill-soft" x="110" y="141.0" width="80" height="26" rx="4"/>
+    </g>
+    <g class="hit"><title>Round 2: winners of the two races feeding in</title><rect class="fill-soft" x="110" y="209.0" width="80" height="26" rx="4"/>
+    </g>
+    <g class="hit"><title>Round 2: winners of the two races feeding in</title><rect class="fill-soft" x="110" y="277.0" width="80" height="26" rx="4"/>
+    </g>
+    <g class="hit"><title>Semi-finals: winners of the two races feeding in</title><rect class="fill-accent" x="210" y="107.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="250.0" y="124.0" text-anchor="middle" style="fill:var(--lowest)">run 3</text>
+    <g class="hit"><title>Semi-finals: winners of the two races feeding in</title><rect class="fill-soft" x="210" y="243.0" width="80" height="26" rx="4"/>
+    </g>
+    <g class="hit"><title>Final: winners of the two races feeding in</title><rect class="fill-accent" x="310" y="175.0" width="80" height="26" rx="4"/>
+    </g>
+    <text class="strong" x="350.0" y="192.0" text-anchor="middle" style="fill:var(--lowest)">run 4</text>
+    <text x="200" y="348" text-anchor="middle">Highlighted: number 1 runs in every round, four runs</text>
+  </svg>
+  <figcaption>A 16-car ladder with the standard first-round pairings. Each round halves the field: 8, 4, 2 and 1 races, 15 in total. The highlighted path is number 1, who has to win four times.</figcaption>
+</figure>
+
+<h2>Fixed bracket and re-ladder</h2>
+<p>The 1 v 16 pattern comes from pairing the quickest qualifier with the slowest, the second quickest with the second slowest, and so on: 1 v 16, 2 v 15, 3 v 14 down to 8 v 9. What happens after round one splits the two real formats.</p>
+<p>In a <strong>fixed ladder</strong>, common in sportsman classes, the tree is drawn once. The winner of 1 v 16 always meets the winner of 8 v 9, and the winner of 4 v 13 always meets the winner of 5 v 12. Numbers 1 and 2 sit in opposite halves and can only meet in the final.</p>
+<p>In a <strong>re-ladder</strong>, used in the NHRA professional classes, the survivors are sorted again by qualifying position after every round, and the quickest remaining qualifier races the slowest remaining one. If the seeds all hold, the two methods give the same pairings. They differ after an upset. Say 16 beats 1 and 9 beats 8, and the other six seeds win:</p>
+<table class="paytable-compare">
+  <caption>Round-two pairings after those two upsets, 16-car field.</caption>
+  <thead>
+    <tr><th>Format</th><th>Race 1</th><th>Race 2</th><th>Race 3</th><th>Race 4</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Fixed ladder</th><td>16 v 9</td><td>4 v 5</td><td>2 v 7</td><td>3 v 6</td></tr>
+    <tr><th scope="row">Re-ladder</th><td>2 v 16</td><td>3 v 9</td><td>4 v 7</td><td>5 v 6</td></tr>
+  </tbody>
+</table>
+<p>The re-ladder row comes from sorting the survivors, 2, 3, 4, 5, 6, 7, 9 and 16, and pairing the ends inward. A high qualifier always gets the slowest opponent left.</p>
+
+<p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> lists elimination tournaments and a climb through five car classes, from D class to S class. Its listing does not say how its tournament brackets are paired, so the formats above describe the real sport only.</p>
+
+<h2>Four runs in a day</h2>
+<p>In a 16-car ladder with no byes the winner races in all four rounds. Number 1 gets the slowest opponent in round one but still has to run four times; only a bye saves a run. Four passes in a day means heat, a changing track surface and fatigue.</p>
+<p>That is why consistency across rounds beats one quick time. The chances multiply. If a car had an 80% chance in each of its four races, it would win the event about 41% of the time (0.8<sup>4</sup>). At 90% per race it is about 66%, and at 60% it is 13%. These are illustrative figures, not measurements, but small differences per round compound over four rounds.</p>
+
+<h2>Why qualifying matters less in bracket racing</h2>
+<p>In a heads-up class the cars start together and the first to the finish wins, so the quickest qualifier is the strongest car and its ladder position is a real advantage. In bracket (handicap) racing it works differently. Each driver declares a dial-in, a prediction of their own ET, and the slower dial-in gets a head start equal to the difference. Dial in at 12.00 against an opponent at 11.50 and the 11.50 car leaves 0.50 seconds after you. If both cars run their numbers, they reach the line together.</p>
+<p>So the race is decided by reaction time and by how closely each car hits its dial-in, not by raw speed. Running quicker than the dial-in, a breakout, usually loses the round, even when the car crosses the line first. A bracket ladder is therefore often ranked by how close qualifying runs came to the dial-in rather than by ET, and a car that ran quickest gains little from it. <a href="/blog/drag-racing-classes.html">The classes post</a> covers the two kinds of racing, and <a href="/blog/drag-racing-christmas-tree.html">the Christmas tree post</a> covers the reaction-time side.</p>
+
+<div class="callout">
+  <p>Heads-up: qualify as quickly as you can. Bracket: qualify as repeatably as you can. The ladder rewards whichever the class counts.</p>
+</div>
+
+<p>The same habit applies in <a href="/PinkSlipKings/">Pink Slip Kings</a>, which lists Test &amp; Tune and race time slips: repeat a launch and compare slips to learn what your car runs, not what it managed once.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls. You choose your launch RPM and time your shifts, and the listing includes a dyno, telemetry and race time slips, plus Test &amp; Tune and tuner sandbox modes. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

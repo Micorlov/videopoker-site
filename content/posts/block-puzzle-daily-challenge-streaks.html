@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "Daily Challenge streaks and the monthly calendar",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "BigBenBlocks",
+  "description": "A monthly calendar holds at most 28 to 31 days, so a Daily Challenge streak is capped by the calendar, not by play. Why one board a day plays differently.",
+  "summary": "The Daily Challenge changes at midnight UK time, so a month offers 28 to 31 boards and a streak can only grow one day at a time. With undo and bomb off, the opening placements carry more weight than in Classic.",
+  "standfirst": "A score you can chase all afternoon and a score you get once a day are different kinds of measurement. The Daily Challenge is the second kind, and it rewards a different way of starting."
+}
+-->
+<p>Most block puzzles keep score continuously: play for as long as the board survives, and the number at the end is your high score. The Daily Challenge in Big Ben Blocks is built on a different clock. Its listing says it changes at midnight UK time, that you can reach the crown score, build a streak and follow your progress on the monthly calendar. This post separates what the listing states from what is general reasoning, then uses the calendar's arithmetic to show why a streak is bounded the way it is.</p>
+
+<h2>What the listing says, and what it leaves out</h2>
+<p>From the listing, the Daily Challenge:</p>
+<ul>
+  <li>changes at midnight UK time;</li>
+  <li>has a crown score to reach;</li>
+  <li>supports a streak and a monthly calendar of your progress;</li>
+  <li>keeps undo, hints, rotate and bomb switched off, as Time Attack does.</li>
+</ul>
+<p>The listing does not give the crown score, any streak reward, or what ends a streak, and this post does not guess at them. It also does not say how many attempts a day you get. The reasoning below treats the challenge as a single daily test, which is how a daily puzzle is normally built; if the app allows more tries, the arithmetic about the calendar still holds, but the point about weight on each placement softens.</p>
+
+<h2>Why a daily target is a different measurement</h2>
+<p>In an endless mode, a high score is partly a record of how long you were willing to play. A good player and a patient one can post the same number. It also depends on the pieces you happened to be dealt, which differ from game to game, so two scores are never quite a like-for-like comparison.</p>
+<p>A target score changes the question from &ldquo;how high?&rdquo; to &ldquo;did you get there?&rdquo;. A crown score is a line drawn once for the day, and either you crossed it or you did not. That is a pass-or-fail test, and a pass-or-fail test is only fair if everyone sits the same paper. For a daily puzzle that means the same board and pieces for everyone on a given day. The listing says the challenge changes each day; it does not spell out that the board is shared, so treat that as the design you would expect rather than a stated fact.</p>
+<p>The second ingredient is the aids. Classic and Adventure let you spend coins on undo, hints, rotate and bomb. Those are fine in a relaxed game, but they turn a result into a mix of skill and spending. Switching them off in the Daily Challenge makes the result a cleaner test of placement alone. That is the real difference from Classic: the same board and rules, with the safety net removed. Coins are earned by playing and have no cash value, so this is about fairness of the test, not money. For what each aid does in the modes that have them, see <a href="/blog/block-puzzle-undo-hints-rotate-bomb.html">undo, hints, rotate and bomb</a>.</p>
+
+<p>You can try it in <a href="/BigBenBlocks/">Big Ben Blocks</a>, where the Daily Challenge sits alongside untimed Classic and three-minute Time Attack.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 222" role="img" aria-label="Columns of days per month in 2026: February has 28, April, June, September and November 30, and the other seven months 31, so a month holds at most 28 to 31 daily results.">
+    <rect x="6" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Jan: 31 days</title></rect>
+    <text class="strong" x="19.5" y="22.8" text-anchor="middle">31</text>
+    <text x="19.5" y="210" text-anchor="middle">Jan</text>
+    <rect x="39" y="44.4" width="27" height="145.6" rx="3" class="fill-accent"><title>Feb: 28 days</title></rect>
+    <text class="strong" x="52.5" y="38.4" text-anchor="middle">28</text>
+    <text x="52.5" y="210" text-anchor="middle">Feb</text>
+    <rect x="72" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Mar: 31 days</title></rect>
+    <text class="strong" x="85.5" y="22.8" text-anchor="middle">31</text>
+    <text x="85.5" y="210" text-anchor="middle">Mar</text>
+    <rect x="105" y="34.0" width="27" height="156.0" rx="3" class="fill-base"><title>Apr: 30 days</title></rect>
+    <text class="strong" x="118.5" y="28.0" text-anchor="middle">30</text>
+    <text x="118.5" y="210" text-anchor="middle">Apr</text>
+    <rect x="138" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>May: 31 days</title></rect>
+    <text class="strong" x="151.5" y="22.8" text-anchor="middle">31</text>
+    <text x="151.5" y="210" text-anchor="middle">May</text>
+    <rect x="171" y="34.0" width="27" height="156.0" rx="3" class="fill-base"><title>Jun: 30 days</title></rect>
+    <text class="strong" x="184.5" y="28.0" text-anchor="middle">30</text>
+    <text x="184.5" y="210" text-anchor="middle">Jun</text>
+    <rect x="204" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Jul: 31 days</title></rect>
+    <text class="strong" x="217.5" y="22.8" text-anchor="middle">31</text>
+    <text x="217.5" y="210" text-anchor="middle">Jul</text>
+    <rect x="237" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Aug: 31 days</title></rect>
+    <text class="strong" x="250.5" y="22.8" text-anchor="middle">31</text>
+    <text x="250.5" y="210" text-anchor="middle">Aug</text>
+    <rect x="270" y="34.0" width="27" height="156.0" rx="3" class="fill-base"><title>Sep: 30 days</title></rect>
+    <text class="strong" x="283.5" y="28.0" text-anchor="middle">30</text>
+    <text x="283.5" y="210" text-anchor="middle">Sep</text>
+    <rect x="303" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Oct: 31 days</title></rect>
+    <text class="strong" x="316.5" y="22.8" text-anchor="middle">31</text>
+    <text x="316.5" y="210" text-anchor="middle">Oct</text>
+    <rect x="336" y="34.0" width="27" height="156.0" rx="3" class="fill-base"><title>Nov: 30 days</title></rect>
+    <text class="strong" x="349.5" y="28.0" text-anchor="middle">30</text>
+    <text x="349.5" y="210" text-anchor="middle">Nov</text>
+    <rect x="369" y="28.8" width="27" height="161.2" rx="3" class="fill-base"><title>Dec: 31 days</title></rect>
+    <text class="strong" x="382.5" y="22.8" text-anchor="middle">31</text>
+    <text x="382.5" y="210" text-anchor="middle">Dec</text>
+  </svg>
+  <figcaption>Days in each month of 2026. February is highlighted: it has 28 days, or 29 in a leap year, so it caps a monthly calendar at the fewest daily results.</figcaption>
+</figure>
+
+<h2>The calendar sets the ceiling</h2>
+<p>A day ends at midnight UK time, so a month contains a fixed number of daily boards. Count them: 31 days in January, March, May, July, August, October and December; 30 in April, June, September and November; 28 in February, or 29 in a leap year. A monthly calendar therefore has at most 28 to 31 days to fill, and at most that many crowns, however much you play. Playing ten times in one afternoon adds nothing, because a day's board is only one square.</p>
+<p>The same logic bounds a streak. A streak is a run of consecutive days, so it grows by at most one per day and cannot be sped up. A streak of 30 needs 30 calendar days; no amount of play can compress that. What the listing does not say is how a streak ends, so whether one missed day or something gentler resets it is something to check in the app rather than assume.</p>
+<p>One subtlety is the clock itself. Midnight UK time is 00:00 GMT in winter and 00:00 BST in summer, an hour apart on a clock that does not change, so the moment your day rolls over moves twice a year. The <a href="/blog/uk-midnight-gmt-and-bst.html">post on GMT and BST</a> works through the conversions.</p>
+
+<h2>Where this changes how you play</h2>
+<p>This part is general block-puzzle reasoning, not something the listing states. With no undo and no bomb, a bad early placement cannot be taken back or blasted away. In Classic you can recover from a clumsy opening; in a one-shot test the opening placements set the shape of everything after them, so they deserve the most thought. Three habits from the grid carry more weight:</p>
+<ol class="ranked">
+  <li><strong>Keep a 3x3 box clear.</strong> An empty box is the one place a large piece can always land, and it is the safety net the missing aids no longer provide. See <a href="/blog/block-puzzle-keep-a-3x3-box-empty.html">keeping a 3x3 box empty</a>.</li>
+  <li><strong>Work the edges.</strong> Pieces against a border leave fewer awkward gaps, because one side of each is already closed. See <a href="/blog/block-puzzle-edges-first.html">edges first</a>.</li>
+  <li><strong>Count the lines a cell belongs to.</strong> Every cell sits in one row, one column and one box, so a placement is worth checking against all three, as the <a href="/blog/nine-by-nine-grid-three-lines.html">three-lines post</a> shows.</li>
+</ol>
+<p>None of these is new. What changes is the price of ignoring them. In an untimed Classic game, a mistake costs you some room. In a one-attempt test with the aids off, the same mistake can decide whether you reach the crown, so it is worth taking longer over the first few pieces, when the board is empty and every choice is still open.</p>
+
+<h2>A fair way to read your calendar</h2>
+<p>Because the board is capped at the days in the month and the aids are off, a full calendar means something specific: you reached the target on every day available, unaided. A gap means only that you did not that day. It does not tell you how many times you played, which is exactly why it compares well between players where an endless high score does not. Use it as a record of consistency, and treat any single day as one test you can learn from the next morning.</p>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>
