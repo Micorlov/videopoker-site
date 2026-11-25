@@ -1,0 +1,73 @@
+<!--
+{
+  "title": "Branch lines and junctions: how a network grows",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "ValleyRail",
+  "description": "A fifth station on a network adds 4 journeys; a sixth adds 5. See why railways branch, what each junction costs, and how it eats line capacity.",
+  "summary": "A connected network of n stations offers n(n-1)/2 journeys, so every new station adds more than the last. Each junction that makes it possible costs pointwork, conflicts and speed.",
+  "standfirst": "One line between two towns gives one journey. Branch it and the number of journeys climbs faster than the track does, but every junction on the way charges for it."
+}
+-->
+<p>A railway between two towns offers exactly one journey. Add a third town on a branch and it offers three. The count of possible journeys grows much faster than the length of track, and that gap is the whole case for branching. The cost is paid at the junction, where two routes meet and have to share.</p>
+
+<h2>The count</h2>
+<p>On a connected network of n stations, every pair of stations is one possible point-to-point journey. The number of pairs is n(n&minus;1)&divide;2. Two stations give 2 &times; 1 &divide; 2 = 1 journey. Three give 3. Four give 6, five give 10 and six give 15.</p>
+<p>Look at the steps between those totals. Going from four stations to five adds 4 journeys, because the new station pairs with each of the four existing ones. Going from five to six adds 5. Each new station adds as many journeys as there were stations already, so a network of five gains five from its next station, not one. Track is added a branch at a time; journeys are added a station at a time, and the second grows faster.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 200" role="img" aria-label="Schematic of a trunk line with five stations, A to D on the trunk and E on a branch from the junction at C. The five stations offer 10 journeys.">
+    <line x1="40" y1="120" x2="340" y2="120" class="line"/>
+    <line x1="220" y1="120" x2="330" y2="50" class="line hl"/>
+    <g class="hit"><title>Station A, trunk</title><circle cx="40" cy="120" r="4.5" class="dot"/><circle cx="40" cy="120" r="10" fill="transparent"/></g>
+    <g class="hit"><title>Station B, trunk</title><circle cx="130" cy="120" r="4.5" class="dot"/><circle cx="130" cy="120" r="10" fill="transparent"/></g>
+    <g class="hit"><title>Station C, the junction: trunk and branch meet here</title><circle cx="220" cy="120" r="4.5" class="dot hl"/><circle cx="220" cy="120" r="10" fill="transparent"/></g>
+    <g class="hit"><title>Station D, trunk</title><circle cx="340" cy="120" r="4.5" class="dot"/><circle cx="340" cy="120" r="10" fill="transparent"/></g>
+    <g class="hit"><title>Station E, end of the branch</title><circle cx="330" cy="50" r="4.5" class="dot hl"/><circle cx="330" cy="50" r="10" fill="transparent"/></g>
+    <text x="40" y="146" text-anchor="middle">A</text>
+    <text x="130" y="146" text-anchor="middle">B</text>
+    <text x="220" y="146" text-anchor="middle" class="strong">C junction</text>
+    <text x="340" y="146" text-anchor="middle">D</text>
+    <text x="330" y="34" text-anchor="middle" class="strong">E</text>
+    <text x="40" y="190">5 stations: 10 journeys. E adds 4.</text>
+  </svg>
+  <figcaption>A trunk line A&ndash;D with a branch to E, joined at junction C. The branch adds one station and 4 new journeys, to A, B, C and D, for one stretch of new track.</figcaption>
+</figure>
+
+<h2>What a junction costs</h2>
+<p>Against that arithmetic, every junction has three charges.</p>
+<ul>
+<li><strong>Pointwork.</strong> The points, the machinery that moves them and the signalling that locks them are moving parts. They wear, they fail and they need regular inspection, which a plain stretch of track does not.</li>
+<li><strong>Conflict.</strong> Where a branch joins a trunk on the level, a train turning off can cross the opposite track, and two trains cannot occupy the same place. One has to wait for the other. Building a flyover removes the crossing, but it is a bridge, and that is a large sum for a branch with few trains.</li>
+<li><strong>Speed.</strong> Points are taken at a lower speed than plain track, especially the diverging route. Trains that run through the junction slow down for it, and braking and accelerating again costs time, as <a href="/blog/why-trains-cant-stop-quickly.html">why trains can&rsquo;t stop quickly</a> explains for the braking half.</li>
+</ul>
+
+<h2>Trunk, branch and wye</h2>
+<p>The common shape is a trunk line with branches feeding it. The trunk carries the heavy traffic between the largest places, and each branch brings a smaller town or an industry onto it. The branch can be lightly built because few trains use it.</p>
+<p>To let trains join the trunk in either direction, engineers build a triangular junction, also called a wye. Three lines meet in a triangle with a set of points at each corner, so a train from the trunk can turn onto the branch whichever way it is heading. A wye has a second use: a train that runs round the three sides of the triangle comes out facing the opposite way, so the triangle can turn a locomotive or a whole train without a turntable. It takes land and three sets of points, so it needs the traffic to justify it.</p>
+
+<p>The listing for <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has you drag a track from town to town, build a station beside a town or an industry, and buy a train and choose where it goes. It does not say the game models junctions, so the rest of this post is the real railway.</p>
+
+<h2>Terminus or through station</h2>
+<p>A through station has track continuing at both ends, so a train arrives, unloads and leaves in the direction it was going. The end of a branch is usually a terminus, where the track stops. A train arriving there has its locomotive at the front, which is now the wrong end for the return trip. For a locomotive-hauled train the locomotive must run round: uncouple, move forward onto a parallel loop, run past the train, reverse onto the other end and couple up again. That needs a loop, a crossover and several minutes. Trains with a driving cab at each end, such as multiple units and push-pull sets, simply walk the driver to the other cab, which saves most of that time.</p>
+
+<h2>Change here, or run through?</h2>
+<p>A through service from every branch to every other would need a train for each pair, and most would run nearly empty. The usual answer is a junction station, where passengers change. A train on each branch runs to the junction and meets the trunk service there. Passengers walk across a platform, and each branch needs one small train and a timetable that waits for the connection.</p>
+<p>Changing costs the passenger a few minutes. It buys fewer trains and a simpler timetable, and lets a quiet branch be served at all.</p>
+
+<h2>Where headway goes</h2>
+<p>The junction&rsquo;s worst effect is on capacity. The trunk beyond it is shared by both routes, so the trains of both have to fit into the same headway, the minimum time between one train and the next. <a href="/blog/railway-headway-line-capacity.html">Headway: how many trains a single line can carry</a> sets out how that limit arises from signal spacing and braking.</p>
+<p>Take an example with round numbers. If the shared stretch can pass one train every 10 minutes, it carries 6 trains an hour in total. A branch given 2 of those paths leaves 4 for the trunk. Each train that crosses or merges also blocks the junction while the points are set and it clears, which loses part of the headway on both routes. On single track, two directions and two routes compete for the same pieces of track, and <a href="/blog/single-track-and-passing-loops.html">passing loops</a> are the usual way to keep them moving. How the signals protect the junction is covered in <a href="/blog/how-railway-signals-keep-trains-apart.html">how railway signals keep trains apart</a>.</p>
+
+<h2>What to take from it</h2>
+<ul>
+<li>A connected network of n stations offers n(n&minus;1)&divide;2 journeys: 1, 3, 6, 10 and 15 for two to six stations.</li>
+<li>A new station adds as many journeys as there were stations before it, so the fifth adds 4 and the sixth adds 5.</li>
+<li>A junction costs pointwork to maintain, a conflict between routes and a lower speed through the points.</li>
+<li>A terminus makes a locomotive run round; a junction station makes passengers change instead of running every through service.</li>
+<li>The trunk beyond a junction is shared, so its headway is divided between the routes.</li>
+</ul>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you build a railway between small towns, put a station beside each town or industry and send trains along routes you choose. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

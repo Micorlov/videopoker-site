@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "Overhead or aiming view: how a 3D pool game maps a stance",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "EightBallsPool",
+  "description": "What a low eye view and a plan view each show of a pool shot: foreshortening, true cut angles and the ghost-ball point, and when to use which.",
+  "summary": "A player's eye sits about a foot above the cloth, so a 96 in distance is drawn at roughly an eighth of its crosswise scale. Plan view fixes distances and angles; the aiming view fixes the line and the tip.",
+  "standfirst": "A real player sees the table from a foot above the cloth. A plan view sees it from straight above. Each hides something the other shows, and that is why a pool game offers both."
+}
+-->
+<p>Stand at a pool table and look along the cue. You see the cue ball, the object ball and the pocket stacked up the table in one line, and that is what makes aiming possible. Look down on the same shot from above and the line vanishes, but every distance and angle becomes honest. Neither view is better; they answer different questions.</p>
+
+<h2>What a view from a foot up does</h2>
+<p>Take the eye as roughly 12 in above the cloth, which is about right for a player down on the shot. A point on the table at horizontal distance x from the eye is seen at a depression angle of atan(12 / x). Distances running <em>away</em> from you are squashed by roughly the sine of that angle, while distances running <em>across</em> your view keep close to full scale. The table below uses 12 in as a working figure, not a measured standard.</p>
+
+<table class="paytable-compare">
+  <caption>Foreshortening for an eye 12 in above the cloth. Depth scale is the size of a length running away from you relative to the same length running across.</caption>
+  <thead>
+    <tr><th>Distance from eye</th><th>Depression angle</th><th>Depth scale</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">24 in</th><td>26.6&deg;</td><td>about 0.45</td></tr>
+    <tr><th scope="row">48 in</th><td>14.0&deg;</td><td>about 0.24</td></tr>
+    <tr><th scope="row">96 in</th><td>7.1&deg;</td><td>about 0.12</td></tr>
+  </tbody>
+</table>
+
+<p>At 96 in, close to the length of a 9-foot table, a stretch of cloth along the line of sight is drawn at about an eighth of the scale of the same stretch across it. That is why a long shot looks like a short one: the far end is crammed into a thin band, and a ball a hand&rsquo;s width off the line can still look as if it is sitting on it.</p>
+
+<h2>What the overhead view does</h2>
+<p>From straight above, a flat table is a scaled copy of itself. Lengths are in proportion in every direction, angles are the real angles, and two balls 20 in apart look 20 in apart whether they are near you or far away. Nothing hides behind anything else, so a cluster reads as it lies.</p>
+<p>What you lose is the sight line. There is no &ldquo;along the cue&rdquo; to look down, and you cannot see the height of anything. Where the tip meets the cue ball, high for topspin or low for backspin, is a vertical position, and from above it is invisible. The <a href="/blog/cue-ball-spin-explained.html">cue ball spin post</a> covers why that point matters so much.</p>
+
+<h2>The cut angle in each view</h2>
+<p>A cut angle is the angle between the cue ball&rsquo;s path and the line the object ball must take to the pocket. In plan view it can be read off directly. From behind the cue ball it cannot, because the two lines recede at different rates and foreshortening bends the angle between them. The distortion depends on how far the lines run from your sight line and how far away the object ball is, so a cut that is 30&deg; on the cloth can look like something else from the stance.</p>
+<p>The ghost-ball method makes the cut concrete. The ghost ball is the position of the cue ball at the moment of contact, one ball diameter from the object ball&rsquo;s centre along the line to the pocket. A pool ball is 2.25 in across, so the ghost ball&rsquo;s centre sits 2.25 in behind the object ball&rsquo;s, and the contact point on the object ball is half that, 1.125 in from its centre, on the side facing you.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 230" role="img" aria-label="Plan view of a 30 degree cut: the cue ball travels to a ghost ball 2.25 inches behind the object ball along the line to the pocket, and the angle between the cue ball path and that line is 30 degrees.">
+    <rect x="10" y="10" width="380" height="210" class="fill-soft" stroke="var(--chart-base)" stroke-width="2"/>
+    <g class="hit"><title>Pocket</title><circle cx="350" cy="22" r="15" class="fill-base"/></g>
+    <line x1="251" y1="121" x2="350" y2="22" stroke="var(--chart-base)" stroke-width="2"/>
+    <line x1="86.3" y1="179.6" x2="231.2" y2="140.8" stroke="var(--chart-base)" stroke-width="2"/>
+    <line x1="231.2" y1="140.8" x2="298.8" y2="122.7" class="ref"/>
+    <path d="M273.6 98.4 A60 60 0 0 1 289.2 125.3" fill="none" stroke="var(--chart-accent)" stroke-width="2.5"/>
+    <text x="304" y="106" class="strong">30&deg; cut</text>
+    <g class="hit"><title>Cue ball</title><circle cx="86.3" cy="179.6" r="14" class="fill-soft" stroke="var(--chart-base)" stroke-width="2"/></g>
+    <g class="hit"><title>Ghost ball: the cue ball at contact, 2.25 in behind the object ball</title><circle cx="231.2" cy="140.8" r="14" class="fill-accent" style="fill-opacity:.35" stroke="var(--chart-accent)" stroke-width="2.5"/></g>
+    <g class="hit"><title>Object ball</title><circle cx="251" cy="121" r="14" class="fill-base"/></g>
+    <g class="hit"><title>Contact point, 1.125 in from the object ball centre</title><circle cx="241.1" cy="130.9" r="4.5" class="dot hl"/><circle cx="241.1" cy="130.9" r="10" fill="transparent"/></g>
+    <text x="86" y="212" text-anchor="middle">Cue ball</text>
+    <text x="232" y="176" text-anchor="middle" class="strong">Ghost ball</text>
+    <text x="226" y="104" text-anchor="end">Object ball</text>
+    <text x="328" y="26" text-anchor="end">Pocket</text>
+    <text x="388" y="206" text-anchor="end">Ghost to object centres: 2.25 in</text>
+  </svg>
+  <figcaption>Plan view of one cut shot, drawn schematically. Highlighted: the ghost ball, whose centre sits 2.25 in behind the object ball on the line to the pocket, which sets a 30&deg; cut.</figcaption>
+</figure>
+
+<p>In this view the 30&deg; is simply measured. The sideways gap between the cue ball&rsquo;s line and the object ball&rsquo;s centre is 2.25 in &times; sin 30&deg;, which is 1.125 in, so the cue ball overlaps the object ball by half its width: a half-ball hit. The overlap is 2.25 in &times; (1 &minus; sin of the angle), which gives these overlaps:</p>
+<ul>
+  <li>15&deg; cut: about 74% of the ball&rsquo;s width.</li>
+  <li>30&deg; cut: 50%.</li>
+  <li>45&deg; cut: about 29%.</li>
+  <li>60&deg; cut: about 13%.</li>
+</ul>
+<p>On a plan view you can lay a half-diameter off the object ball&rsquo;s edge and see it. In perspective the ball&rsquo;s centre is 1.125 in above the cloth, you see mostly its top, and the ghost-ball spot is a point you must imagine on cloth you cannot see well. The <a href="/blog/ghost-ball-aiming.html">ghost-ball post</a> covers the method.</p>
+
+<h2>Why the long shot costs most</h2>
+<p>Move the ghost ball&rsquo;s centre sideways by 0.1 in and the object ball leaves about 0.1 / 2.25 radians off line, roughly 2.5&deg;. Over 60 in to the pocket that is about 2.7 in sideways, and the <a href="/blog/pool-pocket-geometry.html">pocket geometry post</a> shows how little a pocket mouth forgives.</p>
+<p>Now put the same 0.1 in at the far end of a long rail shot, 96 in from the eye. Seen from a foot up, it is a tiny shift in a band squeezed to an eighth of its true depth. The low view gives you the line, but it gives you the least precision exactly where a long shot needs it.</p>
+
+<h2>Using both views on one shot</h2>
+<p>The practical rule is to split the job. Choose first, then aim.</p>
+<ol>
+  <li><strong>Plan view to choose.</strong> Read the cut angle, check the object ball is not blocked, decide which pocket, and see where the cue ball will end up. The <a href="/blog/pool-position-play.html">position play post</a> depends on exactly this overview.</li>
+  <li><strong>Aiming view to set.</strong> Once the shot is chosen, get the line along which cue ball, ghost ball and object ball are stacked, and fix where the tip will strike.</li>
+</ol>
+
+<div class="callout">
+  <p>Plan view decides <em>what</em> to play: shot, pocket, angle, position. Aiming view decides <em>how</em> to play it: line and tip.</p>
+</div>
+
+<p>The Play listing for <a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> says you can switch between overhead and aiming views, and lists aim, shot power and cue-ball spin as things you can adjust.</p>
+
+<h2>In the app</h2>
+<p>The listing mentions a clear 3D table and the overhead and aiming views, and nothing more specific. It does not say which controls belong to which view or how the aiming camera is set. The 12 in eye height and the depth scales model a real player&rsquo;s stance, not the game&rsquo;s camera.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> plays 8-ball and 9-ball with overhead and aiming views, practice at your own pace, computer opponents at three difficulty levels, or a local two-player match on one device. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -163,55 +163,55 @@ it came from. An empty list means the next run writes 5 new topics for it.
 
 ### VideoPoker
 
-- Why Jacks or Better pays nothing on a low pair
 
 ### OmahaPoker
 
-- Position in Pot-Limit Omaha: why acting last is worth more
 
 ### Blackjack21
 
-- Vingt-et-un to blackjack: where the game came from
 
 ### BrasslightSlots
 
-- Why a slot counts a win up instead of showing it at once
 
 ### PokerVsDealer
 
-- The odds the dealer's five face-up cards make a pair
 
 ### FivesAndThrees
 
-- The going-out bonus: what finishing a hand is worth
 
 ### BlackjackCoach
 
-- What basic strategy is worth against playing by feel
 
 ### HoldemCoach
 
-- Ranges instead of hands: how to think about what they hold
 
 ### EightBallsPool
 
-- Overhead or aiming view: how a 3D pool game maps a real stance
 
 ### BigBenBlocks
 
-- Reading the board: counting the space you have left
 
 ### PinkSlipKings
 
-- Test and Tune: why a practice run beats a race for learning
 
 ### ValleyRail
 
-- Branch lines and junctions: how a network grows from one route
 
 
 ## Published
 
+- 2026-11-25 — Why Jacks or Better pays nothing on a low pair — VideoPoker — `jacks-or-better-low-pair-pays-nothing`
+- 2026-11-25 — Position in PLO: why acting last is worth more — OmahaPoker — `omaha-position-acting-last`
+- 2026-11-25 — Vingt-et-un to blackjack: where the game came from — Blackjack21 — `blackjack-vingt-et-un-origins`
+- 2026-11-25 — Why a slot counts a win up instead of showing it at once — BrasslightSlots — `slot-win-count-up`
+- 2026-11-25 — How often the dealer's five cards make a pair — PokerVsDealer — `dealer-five-cards-pair-odds`
+- 2026-11-25 — The going-out bonus in Fives and Threes: what finishing is worth — FivesAndThrees — `fives-and-threes-going-out-bonus`
+- 2026-11-25 — What basic strategy is worth against playing by feel — BlackjackCoach — `basic-strategy-vs-playing-by-feel`
+- 2026-11-25 — Ranges, not hands: counting what an opponent holds — HoldemCoach — `holdem-ranges-not-hands`
+- 2026-11-25 — Overhead or aiming view: how a 3D pool game maps a stance — EightBallsPool — `pool-overhead-and-aiming-views`
+- 2026-11-25 — Reading the board: counting the space you have left — BigBenBlocks — `block-puzzle-counting-space-left`
+- 2026-11-25 — Test and Tune: why a practice run beats a race for learning — PinkSlipKings — `test-and-tune-practice-runs`
+- 2026-11-25 — Branch lines and junctions: how a network grows — ValleyRail — `railway-branch-lines-and-junctions`
 - 2026-11-24 — Strategy hints: why a suggested hold is worth checking — VideoPoker — `video-poker-strategy-hints`
 - 2026-11-24 — Pot-Limit or No-Limit: what the cap changes in Omaha — OmahaPoker — `omaha-pot-limit-vs-no-limit`
 - 2026-11-24 — Burn cards and the cut card: what they do to a shoe — Blackjack21 — `blackjack-burn-and-cut-cards`
