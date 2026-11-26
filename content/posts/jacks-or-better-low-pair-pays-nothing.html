@@ -1,0 +1,66 @@
+<!--
+{
+  "title": "Why Jacks or Better pays nothing on a low pair",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "VideoPoker",
+  "description": "A pair of sevens returns your bet and no more. Why the paytable starts at jacks, what a low pair is worth as a draw, and when it is still the right hold.",
+  "summary": "Pairs of tens and below pay nothing in Jacks or Better, yet a low pair is worth 0.82 of a bet as a draw. That beats most straight draws and loses to four to a flush.",
+  "standfirst": "The paytable starts at a pair of jacks, so a pair of sevens scores zero. It is still one of the better holds on the board, and the reason it pays nothing and the reason it is worth keeping are two different questions."
+}
+-->
+<p>In Jacks or Better the lowest paying hand is a pair of jacks. Two tens, two sevens or two deuces finish as a hand that returns nothing. That looks odd next to the way people talk about pairs, and it leads to a common slip: assuming that because a low pair pays nothing, it is worth nothing to hold. Those are separate questions. What a hand pays is fixed by the table. What a hold is worth is the average over every draw that can follow it.</p>
+<p>The figures below are for the full-pay 9/6 table, in coins returned per coin bet, so 0.82 means 82 per cent of a bet comes back on average. They are exact averages over every possible draw.</p>
+
+<h2>Why the floor sits at jacks</h2>
+<p>A machine has to give back a little under its stake over time. Full-pay 9/6 Jacks or Better returns about 99.5% with perfect play, which is the whole budget. Every row of the paytable is a share of that budget, equal to how often the hand lands multiplied by what it pays. A hand that lands often can only pay a little.</p>
+<p>Low pairs land very often. Of the 2,598,960 possible five-card deals, 760,320 contain exactly one pair of twos through tens, which is 29.26%. A pair of jacks through aces appears in 337,920, or 13.00%. There are nine low ranks and four high ones, so low pairs arrive 2.25 times as often as high ones.</p>
+<p>Now suppose a low pair paid 1. Hold a dealt low pair and, as the next section shows, it ends as a plain pair 71.29% of the time. That is 29.26% &times; 71.29%, about 0.21 of a bet per hand from those deals alone. Add it to a 99.5% game and you are near 120%, before counting the low pairs that arrive after the draw. Something else would have to be cut to pay for it, and the natural place to stop is the rank where pairs become rare enough to afford: jacks.</p>
+<p>The <a href="/VideoPoker/">Video Poker app</a> lists Jacks or Better as its classic game and keeps a full paytable for every variant on screen, so you can see for yourself where the first paying row starts.</p>
+
+<h2>What a low pair is worth as a draw</h2>
+<p>Take 7&hearts; 7&spades; K&diams; 9&clubs; 4&hearts; and hold the sevens. You draw three cards from the 47 unseen, so there are 16,215 possible draws.</p>
+<ul>
+  <li><strong>Three of a kind:</strong> 1,854 draws, 11.43%, paying 3 each, total 5,562.</li>
+  <li><strong>Two pair:</strong> 2,592 draws, 15.99%, paying 2 each, total 5,184.</li>
+  <li><strong>Full house:</strong> 165 draws, 1.02%, paying 9 each, total 1,485.</li>
+  <li><strong>Four of a kind:</strong> 45 draws, 0.28%, paying 25 each, total 1,125.</li>
+  <li><strong>Still a low pair:</strong> 11,559 draws, 71.29%, paying nothing.</li>
+</ul>
+<p>The paying totals sum to 13,356, and 13,356 &divide; 16,215 = <strong>0.824</strong>. All of it comes from improvement: the pair itself adds nothing, and roughly 29 draws in 100 lift it to something that pays. The same draw from a pair of jacks has the same 13,356 plus 1 for each of the 11,559 draws that stay a pair, so 24,915 &divide; 16,215 = 1.54. That gap of 0.71 between a low pair and a high pair is the whole cost of the paytable&rsquo;s floor, on this one hand.</p>
+<p>It is a losing hold in the absolute sense, since 0.82 is below 1. Most holds on most deals are, which is why the question is always which alternative is least bad. The <a href="/blog/video-poker-expected-value-holds.html">expected value post</a> shows how that comparison is built.</p>
+
+<h2>Where the pair wins and where it loses</h2>
+<p>Here are the main rivals, each on a hand that also contains the pair of sevens, so the choice is real. Every draw is from 47 unseen cards.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of expected value in coins per coin bet: three to a royal K-J-T suited 1.43 and four to a flush 1.15 beat a low pair at 0.82, which beats four to an open straight 0.68, three to a straight flush 0.62 and suited K-J 0.61">
+    <div class="bar-row" title="Three to a royal, K J T suited: 1.43"><span class="bar-label">Three to royal</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.43</span></span></div>
+    <div class="bar-row" title="Four to a flush: 1.15"><span class="bar-label">Four to flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8018)"></span><span class="bar-val">1.15</span></span></div>
+    <div class="bar-row hl" title="Low pair: 0.82"><span class="bar-label">Low pair</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5748)"></span><span class="bar-val">0.82</span></span></div>
+    <div class="bar-row" title="Four to an open straight: 0.68"><span class="bar-label">Open straight</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4752)"></span><span class="bar-val">0.68</span></span></div>
+    <div class="bar-row" title="Three to a straight flush: 0.62"><span class="bar-label">Three to SF</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4319)"></span><span class="bar-val">0.62</span></span></div>
+    <div class="bar-row" title="Suited K J: 0.61"><span class="bar-label">Suited K, J</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4236)"></span><span class="bar-val">0.61</span></span></div>
+  </div>
+  <figcaption>Average return in coins per coin bet for six holds, each on a hand that also holds a pair of sevens, 9/6 Jacks or Better. Two holds beat the low pair; the other three fall well short of it.</figcaption>
+</figure>
+
+<ul>
+  <li><strong>Three to a royal, K&spades; J&spades; T&spades;: 1.43.</strong> It beats the pair by 0.61. The royal is only one of the ways it pays: the three suited high cards also make pairs of jacks or better, flushes and straights.</li>
+  <li><strong>Four to a flush, 9&spades; 7&spades; 5&spades; 3&spades;: 1.15.</strong> Nine flush cards remain in 47 and a flush pays 6, so 9 &times; 6 &divide; 47 = 1.149. It beats the pair by 0.33. The seven of hearts in this hand is a pair partner you throw away.</li>
+  <li><strong>Four to an open straight, 9-8-7-6: 0.68.</strong> Eight cards complete it in 47 and a straight pays 4, so 32 &divide; 47 = 0.681. The pair wins by 0.14.</li>
+  <li><strong>Three to a straight flush, 9&spades; 8&spades; 7&spades;: 0.62.</strong> It needs two more cards to land in exactly the right places, so it rarely pays and the pair wins by 0.20.</li>
+  <li><strong>Suited K&spades; J&spades;: 0.61.</strong> It pays mostly by pairing a high card, which happens less often than the sevens improving, so the pair wins by 0.22.</li>
+</ul>
+
+<p>The <a href="/blog/jacks-or-better-low-pair-vs-four-flush.html">low pair against four to a flush</a> post goes through that closest and most frequent contest. Four to an inside straight is weaker still: with four cards one rank short, 16 &divide; 47 = 0.34, under half the pair.</p>
+
+<h2>A rule to take away</h2>
+<p>On these hands the order is a three-card royal first, then four to a flush, then the low pair, then the four-card open straight, the three-card straight flush and the two suited high cards. The pair gives way only to a draw with a real shot at the royal or at a flush, and it beats the draws that depend on a straight or on high cards alone.</p>
+<p>The ranking is not fixed, because cards you throw away can change it. A discard that happens to be a card the draw needs removes one of its outs; the <a href="/blog/video-poker-penalty-cards.html">penalty cards post</a> covers that.</p>
+<p>The <a href="/blog/reading-a-video-poker-paytable.html">paytable post</a> explains why a change in the rows below the floor, such as the pay for a flush, can move these figures. If you want to check your own calls against these, the app says strategy hints can be turned on to show which cards to hold. Choose your hold first, then look, and if you kept a pair of low cards and the hint says to keep four suited ones, the table above is the reason.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays offline with free chips that have no cash value, no real money and no ads, so every hand is practice.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

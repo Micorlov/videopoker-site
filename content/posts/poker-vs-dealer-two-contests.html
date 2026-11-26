@@ -1,0 +1,63 @@
+<!--
+{
+  "title": "Two contests from one hand: the dealer and the table pot",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "PokerVsDealer",
+  "description": "A pair of jacks beats a random five-card hand 79.9% of the time but a table of two rivals only about 63.9%. Why the dealer and the pot reward different hands.",
+  "summary": "Beating one random hand takes a modest holding; beating several takes a rare one. A pair of jacks wins 79.9% against one hand and about 63.9%, 51.1% and 40.8% against two, three and four.",
+  "standfirst": "Poker vs Dealer settles one five-card hand twice: against the dealer, and against the table for the pot. The two contests look alike, but the second one asks for a much better hand than the first."
+}
+-->
+<p>The listing for Poker vs Dealer says it in one line: your five cards compete against the house and for the table pot. One hand, two contests. They are easy to treat as the same thing, but beating one opponent and beating several are different tasks, and the gap between them is plain arithmetic.</p>
+
+<h2>What the listing says, and what it leaves out</h2>
+<p>The listing describes a dealer who builds a hand one face-up card at a time, and two computer opponents at the table. It says that winning both contests outright earns a Sweep bonus, and that your choices (hold, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips) shape both contests. That is the full extent of it.</p>
+<p>It does not say how the pot is decided, how many cards the dealer ends with, or which contest the ante and the bail refund belong to. So the sums below use the ordinary reading: the pot goes to the best five-card hand at a table of you and two opponents, and the dealer finishes with a five-card hand. Check the in-game rules and payouts for the real terms. The chips are play money with no cash value, so this is about playing sensibly, nothing more.</p>
+
+<h2>The middle of the pack is a pair</h2>
+<p>There are C(52, 5) = 2,598,960 possible five-card hands. Of those, 1,302,540 contain no pair at all, which is 50.1%. A hand with even the lowest pair therefore sits just above the median hand, and anything better than one pair sits well above it. The counts for the made hands are one pair 1,098,240, two pair 123,552, three of a kind 54,912, straight 10,200, flush 5,108, full house 3,744, four of a kind 624 and straight flush 36, royal flushes included.</p>
+<p>Take a hand with a pair of jacks and three unconnected low cards: J-J-9-6-3, no flush draw to speak of. I counted every five-card hand it could face from the 47 cards you cannot see, 1,533,939 of them. Your hand wins against 1,226,115, ties 27 and loses to 307,797. That is a win rate of <strong>79.9%</strong> against one random hand. This is the dealer contest in its simplest form: a hand a little above the median is a clear favourite, and a pair of jacks is not even an exceptional holding.</p>
+
+<p>The <a href="/PokerVsDealer/">Poker vs Dealer</a> table adds opponents, and that is where the sums change.</p>
+
+<h2>Best of several is a different test</h2>
+<p>To win a pot against two rivals, your hand has to beat both. If the two beatings were independent, the chances would multiply: 79.9% × 79.9% is about 63.9%. They are not quite independent, because every hand is dealt from the same deck, so treat the figures below as close approximations, not exact counts. They show the shape well enough.</p>
+<ul>
+  <li><strong>One rival (the dealer):</strong> 79.9%.</li>
+  <li><strong>Two rivals (this table):</strong> about 63.9%.</li>
+  <li><strong>Three rivals:</strong> about 51.1%.</li>
+  <li><strong>Four rivals:</strong> about 40.8%.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of the chance a pair of jacks beats every rival: 79.9% against one, about 63.9% against two, 51.1% against three and 40.8% against four.">
+    <div class="bar-row" title="1 rival: 79.9%"><span class="bar-label">1 rival</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">79.9%</span></span></div>
+    <div class="bar-row hl" title="2 rivals: ≈63.9%"><span class="bar-label">2 rivals</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7997)"></span><span class="bar-val">≈63.9%</span></span></div>
+    <div class="bar-row" title="3 rivals: ≈51.1%"><span class="bar-label">3 rivals</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6396)"></span><span class="bar-val">≈51.1%</span></span></div>
+    <div class="bar-row" title="4 rivals: ≈40.8%"><span class="bar-label">4 rivals</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5107)"></span><span class="bar-val">≈40.8%</span></span></div>
+  </div>
+  <figcaption>Chance that J-J-9-6-3 beats every rival hand, by number of rivals. One rival is exact; the rest multiply it and are approximate. The two-rival bar is the table in Poker vs Dealer; notice that a hand that wins four times in five head-to-head falls to roughly three in five against two.</figcaption>
+</figure>
+
+<p>The same hand is a strong favourite in the first contest and a much weaker one in the second. With four rivals it is an underdog, more likely to lose than win. Nothing about the hand changed; the standard did.</p>
+
+<h2>Why the standard rises so quickly</h2>
+<p>The best of several random hands is better than a typical single hand, and it gets better with each rival added. With one rival you need to beat a hand that is no pair about half the time. With two, the chance that at least one holds a pair or better is about 1 − 0.501² = 75%. A hand that beats the whole table has to come from further along the frequency list. Two pair or better is 123,552 + 54,912 + 10,200 + 5,108 + 3,744 + 624 + 36 = 198,176 of 2,598,960 hands, which is 7.6%.</p>
+<p>So for the pot you are hoping for something from that rare end, and a pair of jacks only gets there when the others are weak. For the dealer, a pair is plenty. That is the distinction to carry into a hand: <strong>a hand can be worth playing on for one contest and not for the other.</strong> The two prizes ask for different strengths, and a pair of jacks is a good answer to the first and only a decent one to the second.</p>
+
+<h2>Where this bites: forging and bailing</h2>
+<p>Because the listing gives no amounts for the ante or the pot, there is no exact price to put on a forge. The direction is still clear. A forge that turns no pair into a pair moves you from below the median hand to above it, which is a large gain against the dealer. Against a table of three, a lone pair is still only an ordinary hand, so the same forge does less for the pot. The forges that change the pot contest are the ones that aim at two pair or better.</p>
+<p>The same split affects bailing. The listing says bailing recovers half of your committed chips, but not which contest the refund settles. If it ends both, a hand that is a decent dealer favourite and a poor pot candidate can still be a play-on, because the dealer contest alone clears the bar set out in <a href="/blog/poker-vs-dealer-bailing-out.html">the bailing-out post</a>. Check which prize is still live before you decide.</p>
+<p>A short routine for the next hand:</p>
+<ol class="ranked">
+<li><strong>Ask which contest the hand serves.</strong> A pair is a solid dealer hand and a modest pot hand.</li>
+<li><strong>Remember the table has two rivals.</strong> A head-to-head win rate of 79.9% is about 63.9% against both.</li>
+<li><strong>Chase the rare end only for the pot.</strong> Two pair or better is 7.6% of hands, and it is the territory where the pot is won.</li>
+</ol>
+<p>The Sweep bonus needs both contests won outright, so it asks for the pot-strength hand and the dealer win together. For the dealer round on its own, <a href="/blog/poker-vs-dealer-picking-a-kicker.html">picking a kicker</a> covers the other choice you make against the house, and you can try both contests yourself in <a href="/PokerVsDealer/">Poker vs Dealer</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

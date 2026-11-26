@@ -1,0 +1,90 @@
+<!--
+{
+  "title": "Why a railway station is put where it is",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "ValleyRail",
+  "description": "Stations need level, straight ground, and town centres rarely have it. Gradients, curve gaps and walking distance explain why stations sit at the edge.",
+  "summary": "A station wants level, straight track with room to grow, and the cheapest land that offers all three is usually at the edge of the town. That is why so many stations are a walk from the centre, and why some are called Road or Parkway.",
+  "standfirst": "A station is not put where the town is. It is put where the ground is level, the track is straight and there is room to work, and the town centre seldom offers any of the three."
+}
+-->
+<p>If you have ever walked ten minutes from a station to the place the town is named after, the builders did not make a mistake. They were choosing between what passengers want and what a train needs, and the train usually won. The wants are mostly engineering, and each can be checked with a little arithmetic.</p>
+
+<h2>Level ground</h2>
+<p>A platform is built flat. Passengers step across a gap at a fixed height, people use wheelchairs and push trolleys and prams, and a sloping platform makes all of that harder. The track beside it is kept level too, or very nearly, because a train standing on a gradient is harder to hold and harder to start.</p>
+<p>Take a gradient of 1 in 60, an illustrative figure and not a standard. Gravity pulls a standing train down the slope with about 1/60 of its weight, which is 1.7%, or roughly 17 kilograms-force for every tonne. The brakes must hold that, and a train that is under-braked will drift. Starting uphill is worse: the locomotive must lift the whole train and do it from a standstill, where grip is the limit. <a href="/blog/why-railways-follow-rivers.html">Why railways follow rivers</a> shows how little extra weight a steel wheel can pull on a slope. The usual practice is to keep station gradients very slight, and many railways allow steeper slopes only on old platforms they cannot move.</p>
+<p>Level ground is rare in hilly country. A hillside town forces the builder to cut into the slope or build up an embankment, and both cost money. <a href="/blog/railway-tunnel-or-cutting.html">railway tunnel or cutting</a> sets out that choice.</p>
+
+<h2>Straight track</h2>
+<p>A curved platform has two faults. The first is the gap. A railway vehicle is straight and a curved platform edge is not, so the vehicle touches the edge at two points and leaves a space at its middle or its ends. For a chord of length L laid against a circle of radius R, the largest gap is about L&sup2; &divide; 8R. A 20 m vehicle against a curve of 400 m radius gives 400 &divide; 3,200 m, or 125 mm. A gap of that size is wide enough for a foot, which is why railways limit how sharply a platform may curve and why a curved platform carries a warning to mind the gap.</p>
+<p>The second fault is sight. The driver and the guard want to see the whole length of the train alongside the platform, to watch doors close and passengers clear. On a curve the middle of the train hides the end of it. Stations on curves exist, but they need mirrors, cameras or extra staff to make up for it.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 320" role="img" aria-label="Diagram showing the level, straight site at the edge of the town beating the central site, which sits on a curve and a gradient, at the cost of a longer walk.">
+    <g>
+      <title>Town: a block of streets</title>
+      <text class="strong" x="140" y="66">Town</text>
+      <rect x="140" y="75" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="170" y="75" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="200" y="75" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="230" y="75" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="140" y="101" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="170" y="101" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="200" y="101" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="230" y="101" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="140" y="127" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="170" y="127" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="200" y="127" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+      <rect x="230" y="127" width="26" height="20" rx="3" class="fill-base" opacity="0.35"/>
+    </g>
+    <g>
+      <title>River running across the valley floor</title>
+      <path d="M0 292 C80 280 140 304 220 292 S340 280 400 292" class="line" stroke-dasharray="2 5"/>
+      <text x="8" y="314">River</text>
+    </g>
+    <g>
+      <title>Railway line: curved through the town centre, straight beyond the town</title>
+      <path d="M10 235 L80 235 C115 235 130 195 175 195 C220 195 235 235 270 235 L390 235" class="line"/>
+      <text x="10" y="225">Railway</text>
+    </g>
+    <g>
+      <title>Central site: on a curve of 400 m radius and a gradient of 1 in 60, 200 m walk from the centre</title>
+      <rect x="155" y="188" width="40" height="14" rx="3" class="fill-base"/>
+      <line x1="198" y1="149" x2="178" y2="186" class="line" style="stroke-width:1" stroke-dasharray="4 3"/>
+      <text class="strong" x="8" y="100">Centre site</text>
+      <text x="8" y="117">on a curve,</text>
+      <text x="8" y="134">radius 400 m</text>
+      <text x="8" y="151">gradient 1 in 60</text>
+      <text x="204" y="172">walk 200 m</text>
+    </g>
+    <g>
+      <title>Edge site: level, straight, platform 200 m long, 800 m walk from the centre</title>
+      <rect x="300" y="222" width="80" height="10" rx="2" class="fill-accent"/>
+      <line x1="258" y1="140" x2="322" y2="220" class="line hl" style="stroke-width:1.5" stroke-dasharray="4 3"/>
+      <line x1="300" y1="246" x2="380" y2="246" class="line hl" style="stroke-width:1.5"/>
+      <text class="strong" x="296" y="100">Edge site</text>
+      <text x="296" y="117">level, straight</text>
+      <text x="316" y="178">walk 800 m</text>
+      <text x="296" y="266">platform 200 m</text>
+    </g>
+  </svg>
+  <figcaption>A valley in plan with a town, a river and a railway, and two candidate sites. The central site is a short walk but sits on a curve and a gradient; the edge site is level and straight, with room for a 200 m platform, at the price of a longer walk. Distances are illustrative.</figcaption>
+</figure>
+
+<h2>Near the town, but not in it</h2>
+<p>None of this means a station should be far away. A station is only useful if people can reach it, and a walk of 800 m takes roughly ten minutes at an ordinary pace. That is a common rule of thumb for a walk to a station, so the edge site in the diagram stays just inside it.</p>
+<p>The trouble is that old town centres are cramped, hilly and expensive. Streets wind, buildings stand on every plot, and a railway company that wanted a level straight site for a platform 200 m long had to look at the fringe, where land was cheap, flat and empty. A centre site 200 m from the middle of the town on a curve of 400 m radius and a gradient of 1 in 60 is closer, but it has all three faults at once. This is the usual reason a station is a walk from the centre. In <a href="/blog/railway-towns-how-a-station-made-a-village-grow.html">railway towns</a>, the works at Swindon was built on open ground beside the line, below the old town and not inside it.</p>
+<p>Some names record the compromise. &ldquo;Road&rdquo; often means the station stands on the road to the town it serves, not in the town. &ldquo;Parkway&rdquo; marks a station built for car access: Tiverton Parkway replaced Tiverton Junction in 1986 and stands several miles from the town it is named for. The same trade-off shows in <a href="/ValleyRail/">Valley Rail: Train Tycoon</a>, where you build a station beside a town or an industry. The game's description says nothing about gradients or platform geometry, so treat the engineering here as real-world background.</p>
+
+<h2>Room to work</h2>
+<p>A station is also a place where trains pass, wait and load. On a single line, a passing loop or a second platform lets one train stand while another goes by; <a href="/blog/single-track-and-passing-loops.html">single track and passing loops</a> covers how loops work; a loop needs a long stretch of straight, level track, which most central sites lack.</p>
+<p>Goods work wants more space still. Wagons need sidings, and sidings are laid level or nearly so, because a loose wagon on a slope will roll. Yards also need turnouts, which are long, and a straight run to lay them on. A site at the edge of town leaves room to add sidings later.</p>
+<p>The last test is the line either side. A station that forces a sharp curve on the approach limits speed for every train that uses it. One at the foot of a steep descent asks trains to stop on a gradient, and a heavy train needs a long distance to stop; <a href="/blog/why-trains-cant-stop-quickly.html">why trains can&rsquo;t stop quickly</a> covers the sums. Freight is where this bites hardest. Valley Rail has coal, wood, oil, iron ore, steel and goods moving between mines, forests, oil wells, mills and power stations, which on a real railway all want yard space.</p>
+
+<h2>Checking your own station</h2>
+<p>Next time you use a station, look at it. Is the platform level? Is the track straight along its length? Is there a loop, or the trace of old sidings? How long is the walk to the centre? The answers usually show the same pattern: a flat straight site at the edge of the town, chosen by an engineer who knew what a train needs.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you build a railway between small towns, put a station beside each town or industry and send trains along the route. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

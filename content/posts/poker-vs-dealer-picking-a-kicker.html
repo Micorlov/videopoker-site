@@ -1,0 +1,86 @@
+<!--
+{
+  "title": "Picking a kicker before the dealer draws",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "PokerVsDealer",
+  "description": "The dealer's last card is your kicker rank 4 times in 47 (8.51%) if you hold none of it, falling to 3 in 47 (6.38%) with one in your hand.",
+  "summary": "Each card of a rank you hold removes one of the four from the 47 unseen cards. The chance the dealer's final card matches falls from 8.51% with none held to 6.38%, 4.26%, 2.13% and 0% as you hold one to four.",
+  "standfirst": "Poker vs Dealer asks you to name a kicker rank before the dealer starts drawing. How likely a match is depends on the five cards already in your hand, and the sum takes one line."
+}
+-->
+<p>In Poker vs Dealer you choose a kicker rank before the dealer starts drawing. If that rank matches the dealer's final card, and you beat the house, your dealer payout doubles. The match is a matter of chance, but not an even one: the odds depend on which ranks you are holding, and you can work them out before you choose.</p>
+
+<h2>What the listing says about the kicker</h2>
+<p>The store listing is short on this point, so here is all of it. You choose a kicker before the dealer starts drawing. If its rank matches the dealer's final card and you beat the house, you double your dealer payout. The listing does not say what the kicker costs, if anything, and it does not say how often a doubled payout turns up. Two things have to happen for the bonus: the rank has to match, and you have to win. This post deals only with the first of those, the chance of the match.</p>
+<p>One assumption is needed. The sums below treat your cards and the dealer's cards as coming from the same 52-card deck, and treat your five cards as the ones you can see when you choose. The listing does not spell either out, so check the in-game rules and payouts. If the dealer's cards come from a different pack, your own hand removes nothing from the count, and what you hold would not matter. The rest of this post is about the single-deck case, which is the more interesting one. The <a href="/PokerVsDealer/">Poker vs Dealer</a> page has the full listing.</p>
+
+<h2>Counting what is left</h2>
+<p>A deck has 13 ranks and four cards of each. You can see five cards, your own, so 47 are unseen. The dealer's final card is one of those 47, and with a shuffled deck each unseen card is as likely to land in that position as any other. The cards held by the two computer opponents are hidden from you, so they stay in the 47 as far as you can tell.</p>
+<p>So the chance that the dealer's final card is a chosen rank is the number of that rank still unseen, divided by 47. The number still unseen is 4 minus the number you are holding. That is the whole calculation:</p>
+<ul>
+  <li><strong>None held:</strong> 4 ÷ 47 = 8.51%.</li>
+  <li><strong>One held:</strong> 3 ÷ 47 = 6.38%.</li>
+  <li><strong>Two held:</strong> 2 ÷ 47 = 4.26%.</li>
+  <li><strong>Three held:</strong> 1 ÷ 47 = 2.13%.</li>
+  <li><strong>Four held:</strong> 0 ÷ 47 = 0%. All four are in your hand, so none can come.</li>
+</ul>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 220" role="img" aria-label="Column chart: the chance the dealer's final card matches your chosen rank is highest, 8.51%, when you hold none of that rank, and falls with each one you hold to 6.38%, 4.26%, 2.13% and 0%.">
+    <line class="grid" x1="34" x2="390" y1="180.0" y2="180.0"/>
+    <text x="28" y="184.0" text-anchor="end">0%</text>
+    <line class="grid" x1="34" x2="390" y1="150.8" y2="150.8"/>
+    <text x="28" y="154.8" text-anchor="end">2%</text>
+    <line class="grid" x1="34" x2="390" y1="121.6" y2="121.6"/>
+    <text x="28" y="125.6" text-anchor="end">4%</text>
+    <line class="grid" x1="34" x2="390" y1="92.4" y2="92.4"/>
+    <text x="28" y="96.4" text-anchor="end">6%</text>
+    <line class="grid" x1="34" x2="390" y1="63.2" y2="63.2"/>
+    <text x="28" y="67.2" text-anchor="end">8%</text>
+    <line class="grid" x1="34" x2="390" y1="34.0" y2="34.0"/>
+    <text x="28" y="38.0" text-anchor="end">10%</text>
+    <line class="axis" x1="34" x2="390" y1="180" y2="180"/>
+    <g class="hit"><title>None held: 4 in 47, 8.51%</title><path class="fill-accent" d="M49.6,180 V59.8 Q49.6,55.8 53.6,55.8 H85.6 Q89.6,55.8 89.6,59.8 V180 Z"/></g>
+    <text class="strong" x="69.6" y="50.8" text-anchor="middle">8.51%</text>
+    <text x="69.6" y="195" text-anchor="middle">0 held</text>
+    <g class="hit"><title>One held: 3 in 47, 6.38%</title><path class="fill-base" d="M120.8,180 V90.8 Q120.8,86.8 124.8,86.8 H156.8 Q160.8,86.8 160.8,90.8 V180 Z"/></g>
+    <text x="140.8" y="81.8" text-anchor="middle">6.38%</text>
+    <text x="140.8" y="195" text-anchor="middle">1 held</text>
+    <g class="hit"><title>Two held: 2 in 47, 4.26%</title><path class="fill-base" d="M192,180 V121.9 Q192,117.9 196,117.9 H228 Q232,117.9 232,121.9 V180 Z"/></g>
+    <text x="212" y="112.9" text-anchor="middle">4.26%</text>
+    <text x="212" y="195" text-anchor="middle">2 held</text>
+    <g class="hit"><title>Three held: 1 in 47, 2.13%</title><path class="fill-base" d="M263.2,180 V152.9 Q263.2,148.9 267.2,148.9 H299.2 Q303.2,148.9 303.2,152.9 V180 Z"/></g>
+    <text x="283.2" y="143.9" text-anchor="middle">2.13%</text>
+    <text x="283.2" y="195" text-anchor="middle">3 held</text>
+    <g class="hit"><title>Four held: 0 in 47, 0%</title><rect class="fill-base" x="334.4" y="178.5" width="40" height="1.5"/></g>
+    <text x="354.4" y="173" text-anchor="middle">0%</text>
+    <text x="354.4" y="195" text-anchor="middle">4 held</text>
+    <text x="212" y="214" text-anchor="middle">Cards of the chosen rank in your own hand</text>
+  </svg>
+  <figcaption>Chance that the dealer's final card is the rank you pick, by how many cards of that rank you hold, out of 47 unseen cards. Every card of the rank you can see takes the chance down by 1 in 47, and it is highest when you hold none.</figcaption>
+</figure>
+
+<p>Each step removes exactly one card from the top of the fraction, so the five figures fall in even steps of 1 ÷ 47, or 2.13 percentage points. Holding two of a rank gives half the chance of holding none (2 ÷ 4), and holding one takes away a quarter of it (3 ÷ 4 of 8.51% is 6.38%).</p>
+
+<h2>Why none held beats the usual 1 in 13</h2>
+<p>With no cards in view, any rank would be 4 ÷ 52 = 7.69%, or 1 in 13. If you hold five cards and none is of your chosen rank, the figure is higher, 8.51%. That is the card-removal rule at work. The five cards you hold are all other ranks, so the 47 left are a little richer in the rank you want. <a href="/blog/poker-card-removal.html">Card removal: how the cards you can see change your odds</a> sets out the rule for draws, and this is the same arithmetic applied to a single rank.</p>
+<p>You can check the counts against the 47. Say your hand has five different ranks. Each of those ranks has 3 cards unseen, 5 × 3 = 15. The other eight ranks have 4 each, 8 × 4 = 32. And 15 + 32 = 47. If the total comes to 47, the counts are right.</p>
+<p>So for matching alone, you pick a rank that is not in your hand. Any of those ranks is worth 4 ÷ 47 = 8.51%, and they are all equal, since no rank you cannot see is any likelier than another.</p>
+
+<h2>What the sum does not decide</h2>
+<p>Matching is only half of what the kicker needs. The listing says the double applies when you also beat the house, and the ranks you hold are the ones that make your hand strong. A pair of kings in your hand is a reason to be hopeful about winning and a poor choice of kicker rank, at 2 ÷ 47 = 4.26%. A rank you do not hold gives the best chance of a match, and nothing to your hand. The listing gives no figure for how often you win, so this post does not guess one. It gives you the match figure, so you know what you are trading.</p>
+<p>There is also no stated price for the kicker, so there is no break-even test to run on it. If you want that test for a payout that does carry a stake, <a href="/blog/poker-break-even-odds-3-to-1.html">Break-even odds: what a 3-to-1 payout needs you to win</a> shows how to turn a payout into a win rate. The chips in <a href="/PokerVsDealer/">Poker vs Dealer</a> are play money with no cash value, so the question here is only how to make a good decision with the information you have.</p>
+
+<h2>A routine for the choice</h2>
+<ol class="ranked">
+  <li><strong>Count 47.</strong> Five cards are in your hand, so 52 − 5 = 47 are unseen.</li>
+  <li><strong>For each rank, subtract what you hold from 4.</strong> That is the number of cards of the rank still unseen.</li>
+  <li><strong>Divide by 47.</strong> Four unseen gives 8.51%, three gives 6.38%, two gives 4.26%, one gives 2.13% and none gives 0%.</li>
+  <li><strong>Weigh it against your hand.</strong> The match chance is highest for ranks you do not hold, but the bonus also needs you to beat the house.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/PokerVsDealer/">Poker vs Dealer: Offline</a> is a five-card poker game where your hand competes against the dealer and for the table pot. You can hold your hand, pay an ante to forge a card by exchanging it for a fresh one, or bail and recover half of your committed chips. It plays offline with no ads or in-app purchases, and the chips are play money with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pokervsdealer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

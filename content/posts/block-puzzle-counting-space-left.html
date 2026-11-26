@@ -1,0 +1,235 @@
+<!--
+{
+  "title": "Reading the board: counting the space you have left",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "BigBenBlocks",
+  "description": "Free cells are a poor measure of room on a 9x9 block grid. Count placements per piece, the largest clear region and the clear 3x3 boxes instead.",
+  "summary": "Thirty empty cells can be a comfortable board or a lost one. Counting placements for each piece, the largest clear region, clear 3x3 boxes and near-complete lines tells you which.",
+  "standfirst": "Two boards can have exactly the same number of empty cells and nothing else in common. The count that matters is not how many cells are free but how many places the piece in your hand can actually go."
+}
+-->
+<p>Most players glance at a block board and judge it by how full it looks. That is a count of free cells, and on a 9x9 grid it is a poor guide. The grid has 81 cells, and the <a href="/blog/nine-by-nine-grid-three-lines.html">three-lines post</a> covers how they split into 27 clearable groups. Here the question is simpler: of the cells that are left, how many can a piece use?</p>
+<p>The answer depends almost entirely on shape. This post sets out four counts that replace &ldquo;how many are free&rdquo;, shows the arithmetic for placements so you can do it in your head, and ends with a short pre-placement habit.</p>
+
+<h2>Why thirty free cells can mean nothing</h2>
+<p>Take a board with 30 empty cells. If they form one connected block, say the bottom three rows plus a few more, nearly every piece fits somewhere. If they are scattered singly, like the dark squares of a chessboard, then no two empty cells even touch. A piece that needs three cells in a line needs three neighbouring free cells, and on that board there are none. The free-cell count is the same; the usable room is nothing.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 282" role="img" aria-label="Two 9x9 boards with 30 empty cells each. The left board has its empty cells in one region and a 1x3 bar fits 34 ways; the right has them scattered singly and a 1x3 bar fits 0 ways.">
+    <text class="strong" x="12" y="20">Joined up</text>
+    <text class="strong" x="226" y="20">Scattered</text>
+    <rect x="12" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="30" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="48" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="66" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="30" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="48" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="66" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="30" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="48" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="66" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="30" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="48" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="66" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="30" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="48" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="66" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="120" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="30" y="120" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="48" y="120" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="66" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="84" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="102" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="120" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="138" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="156" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="12" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="30" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="48" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="66" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="84" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="102" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="120" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="138" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="156" y="138" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="12" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="30" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="48" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="66" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="84" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="102" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="120" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="138" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="156" y="156" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="12" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="30" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="48" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="66" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="84" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="102" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="120" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="138" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="156" y="174" width="16" height="16" rx="2" class="fill-accent"/>
+    <rect x="226" y="30" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="244" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="30" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="280" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="30" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="316" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="30" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="30" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="226" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="244" y="48" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="262" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="280" y="48" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="298" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="316" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="48" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="370" y="48" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="226" y="66" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="244" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="66" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="280" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="316" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="66" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="352" y="66" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="66" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="226" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="244" y="84" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="262" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="280" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="316" y="84" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="334" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="84" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="370" y="84" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="226" y="102" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="244" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="280" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="102" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="316" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="102" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="352" y="102" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="102" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="226" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="244" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="280" y="120" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="298" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="316" y="120" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="334" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="120" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="370" y="120" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="226" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="244" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="138" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="280" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="138" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="316" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="138" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="352" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="138" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="226" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="244" y="156" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="262" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="280" y="156" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="298" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="316" y="156" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="334" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="156" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="226" y="174" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="244" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="262" y="174" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="280" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="298" y="174" width="16" height="16" rx="2" class="fill-base"/>
+    <rect x="316" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="334" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="352" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <rect x="370" y="174" width="16" height="16" rx="2" class="fill-soft"/>
+    <text class="strong" x="12" y="214">30 empty, 1 region</text>
+    <text x="12" y="232">1x3 bar: 34 places</text>
+    <text x="12" y="250">Clear 3x3 boxes: 3</text>
+    <text class="strong" x="226" y="214">30 empty, 30 regions</text>
+    <text x="226" y="232">1x3 bar: 0 places</text>
+    <text x="226" y="250">Clear 3x3 boxes: 0</text>
+  </svg>
+  <figcaption>Both boards have 30 empty cells. On the left they are joined, and a 1x3 bar fits in 34 places; on the right they are scattered, and it fits in none. Free cells hide that difference.</figcaption>
+</figure>
+
+<p>In the figure, empty cells are the coloured ones and filled cells are pale. The left board is the bottom three rows empty (27 cells) plus three more above them. A 1x3 bar can lie flat in 22 places and stand upright in 12, 34 in all. On the right board, the empty cells are every cell of one chessboard colour, thinned to 30. Each is its own region of size one, so a bar fits in 0 places and so does any piece bigger than a single cell.</p>
+
+<h2>Count one: placements per piece</h2>
+<p>The most useful number is how many positions a piece has right now. On an empty board it follows one rule. A piece whose bounding box is w cells wide and h tall can sit in (10 &minus; w) &times; (10 &minus; h) positions, because its left edge has 10 &minus; w columns to choose from and its top edge 10 &minus; h rows.</p>
+<ul>
+  <li>A 1x3 bar lying flat: 7 &times; 9 = 63 positions. Standing upright it is the same, 63, so 126 if you can use both orientations.</li>
+  <li>A 1x2 domino: 8 &times; 9 = 72 flat, 144 in both orientations.</li>
+  <li>A 2x2 square: 8 &times; 8 = 64.</li>
+  <li>A 3x3 square: 7 &times; 7 = 49.</li>
+  <li>A 1x5 bar: 5 &times; 9 = 45 per orientation.</li>
+</ul>
+<p>Those are ceilings. Every filled cell takes away the placements that would cover it. A single block in the dead centre of an empty board sits under three flat positions of the bar and three upright ones, so 126 falls to 120. Near a corner it costs only 2, which is part of why edge pieces do less harm. The damage is greatest in the middle, where a filled cell blocks the most positions.</p>
+
+<p>A shape with one home is a shape you are about to be forced into, and the <a href="/blog/block-puzzle-block-shapes.html">block shapes post</a> looks at how often each shape fits.</p>
+
+<h2>Count two: the largest clear region</h2>
+<p>A region is a group of empty cells joined edge to edge. Count the biggest one. A piece of n cells needs a region of at least n cells, and a long piece needs the region to be long as well as large. The right-hand board in the figure has 30 empty cells and a largest region of 1. The left has a largest region of 30.</p>
+<p>Region size is also an early warning. When the largest region is shrinking while the free-cell count stays level, the board is fragmenting, and fragmentation is what ends games. The <a href="/blog/block-puzzle-holes-and-islands.html">holes and islands post</a> follows that through. A region of exactly 3 cells in a line takes one bar and nothing larger; the same 3 cells bent into an L take only an L.</p>
+
+<h2>Count three: clear 3x3 boxes</h2>
+<p>The 9x9 grid divides into nine 3x3 boxes. Count how many are entirely empty. The left board has 3 (the three bottom boxes) and the right has 0. A clear box is the one place a 3x3 square, a long bar or an awkward bent piece can land with certainty, because all of the positions inside it are open. It works as a landing area, and the <a href="/blog/block-puzzle-keep-a-3x3-box-empty.html">post on keeping a 3x3 box empty</a> explains why one is worth protecting.</p>
+
+<h2>Count four: lines one or two cells from done</h2>
+<p>Last, count the rows and columns that are missing only one or two cells. These are your clearing chances, the lines a single piece can finish. A board with several of them has a route to freeing space, and a board with none does not, however many cells are free. Check whether the missing cells line up, too: two near-complete rows with gaps in the same two columns can be finished by one upright piece, while gaps that do not line up need two.</p>
+<p>If the count of near-complete lines is zero and the largest clear region is small, the board has no way out except pieces that happen to fit, and that is the moment to stop and count placements before you place anything. You can practise this in the untimed Classic mode of <a href="/BigBenBlocks/">Big Ben Blocks</a>, which has no clock to hurry the count.</p>
+
+<h2>The habit: check the piece against the region</h2>
+<p>Before you drop a piece, run through it in this order.</p>
+<ol class="ranked">
+  <li><strong>Find the largest clear region</strong> and ask whether the piece in your hand, and the ones likely to follow, still fit inside it afterwards.</li>
+  <li><strong>Count the homes</strong> for the shape you are holding, then ask how many the placement you are considering will leave for the others.</li>
+  <li><strong>Keep one 3x3 box clear</strong> as the landing area, and use the other boxes first.</li>
+  <li><strong>Prefer the placement that leaves a near-complete line</strong> over the one that leaves a scatter of singles.</li>
+</ol>
+<div class="callout">
+  <p>Judge a board by the shape of the empty space, not the amount. Thirty joined-up cells are a safe board; thirty single cells are a lost one.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/BigBenBlocks/">Big Ben Blocks: Block Puzzle</a> offers untimed Classic play or a three-minute Time Attack, and the Daily Challenge changes at midnight UK time. The ten Adventure levels have line-clearing and combo goals and a fixed starting board and piece sequence. Blocks carry shape symbols as well as colours. It plays offline with no ads and no in-app purchases, and the coins you earn have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.bigbenblocks.game"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

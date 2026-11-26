@@ -1,0 +1,85 @@
+<!--
+{
+  "title": "Frozen balls and cushion shots: the hardest in pool",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "EightBallsPool",
+  "description": "A ball frozen to the cushion needs ball and rail struck together; a frozen pair goes one way only. Cuts of 30, 45, 60 and 75 degrees pass 75%, 50%, 25%, 7%.",
+  "summary": "A cut passes cos² of the angle to the object ball: 75% at 30 degrees, 50% at 45, 25% at 60 and 7% at 75. Frozen to the rail, a ball needs a thin hit and the cushion at once; a frozen pair has one line.",
+  "standfirst": "Two situations take the margin for error out of a pot: a ball touching the cushion and two balls touching each other. Both come down to one line, and the angle of the cut decides how much room you have."
+}
+-->
+<p>Most pots forgive a small error in aim. Two situations do not: an object ball frozen to the cushion, and two balls frozen to each other. In both, one line fixes where the object ball can go, and the angle of the cut decides how much of your shot reaches it. This post sets out the geometry of each and what you can do about it.</p>
+
+<h2>Why a thin cut loses energy</h2>
+<p>When the cue ball meets an object ball, the push between them acts along the line joining their centres. The cut angle is the angle between the cue ball's path and that line. Only the part of the cue ball's velocity along the line passes to the object ball, which is cos of the angle times the speed. Energy goes with the square of speed, so the share of energy transferred is cos² of the cut angle. Friction and spin are ignored here, and the two balls have the same mass.</p>
+<ul>
+  <li>0 degrees (straight on): 100%.</li>
+  <li>30 degrees: cos² 30° = 0.75, so 75%.</li>
+  <li>45 degrees: cos² 45° = 0.5, so 50%.</li>
+  <li>60 degrees: cos² 60° = 0.25, so 25%.</li>
+  <li>75 degrees: cos² 75° is about 0.067, so about 7%.</li>
+</ul>
+<p>Object-ball speed is cos of the angle times the cue ball's, so it falls more gently: 0.87 at 30 degrees, 0.71 at 45, 0.5 at 60 and 0.26 at 75. Even so, a thin cut sends the object ball off slowly, which matters when it has to travel the length of the table.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: the share of the cue ball's energy passed to the object ball falls from 100% on a straight shot to 75% at a 30 degree cut, 50% at 45 degrees, 25% at 60 degrees and 7% at 75 degrees.">
+    <line class="grid" x1="46" x2="386" y1="210.0" y2="210.0"/>
+    <text x="40" y="214.0" text-anchor="end">0</text>
+    <line class="grid" x1="46" x2="386" y1="165.0" y2="165.0"/>
+    <text x="40" y="169.0" text-anchor="end">25</text>
+    <line class="grid" x1="46" x2="386" y1="120.0" y2="120.0"/>
+    <text x="40" y="124.0" text-anchor="end">50</text>
+    <line class="grid" x1="46" x2="386" y1="75.0" y2="75.0"/>
+    <text x="40" y="79.0" text-anchor="end">75</text>
+    <line class="grid" x1="46" x2="386" y1="30.0" y2="30.0"/>
+    <text x="40" y="34.0" text-anchor="end">100</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46.0" y="226" text-anchor="middle">0°</text>
+    <text x="159.3" y="226" text-anchor="middle">30°</text>
+    <text x="216.0" y="226" text-anchor="middle">45°</text>
+    <text x="272.7" y="226" text-anchor="middle">60°</text>
+    <text x="329.3" y="226" text-anchor="middle">75°</text>
+    <text x="386.0" y="226" text-anchor="middle">90°</text>
+    <text x="216" y="244" text-anchor="middle">Cut angle</text>
+    <text x="8" y="120" text-anchor="middle" transform="rotate(-90 8 120)">Energy transferred, %</text>
+    <path class="line" d="M46.0,30.0 L53.6,30.2 L61.1,30.9 L68.7,32.0 L76.2,33.5 L83.8,35.4 L91.3,37.8 L98.9,40.5 L106.4,43.7 L114.0,47.2 L121.6,51.1 L129.1,55.3 L136.7,59.8 L144.2,64.6 L151.8,69.7 L159.3,75.0 L166.9,80.5 L174.4,86.3 L182.0,92.2 L189.6,98.2 L197.1,104.4 L204.7,110.6 L212.2,116.9 L219.8,123.1 L227.3,129.4 L234.9,135.6 L242.4,141.8 L250.0,147.8 L257.6,153.7 L265.1,159.5 L272.7,165.0 L280.2,170.3 L287.8,175.4 L295.3,180.2 L302.9,184.7 L310.4,188.9 L318.0,192.8 L325.6,196.3 L333.1,199.5 L340.7,202.2 L348.2,204.6 L355.8,206.5 L363.3,208.0 L370.9,209.1 L378.4,209.8 L386.0,210.0"/>
+    <g class="hit"><title>0° cut: 100% of the cue ball's energy reaches the object ball</title><circle cx="46.0" cy="30.0" r="10" fill="transparent"/><circle class="dot" cx="46.0" cy="30.0" r="4.5"/></g>
+    <g class="hit"><title>30° cut: 75% of the cue ball's energy reaches the object ball</title><circle cx="159.3" cy="75.0" r="10" fill="transparent"/><circle class="dot" cx="159.3" cy="75.0" r="4.5"/></g>
+    <g class="hit"><title>45° cut: 50% of the cue ball's energy reaches the object ball</title><circle cx="216.0" cy="120.0" r="10" fill="transparent"/><circle class="dot" cx="216.0" cy="120.0" r="4.5"/></g>
+    <g class="hit"><title>60° cut: 25% of the cue ball's energy reaches the object ball</title><circle cx="272.7" cy="165.0" r="10" fill="transparent"/><circle class="dot" cx="272.7" cy="165.0" r="4.5"/></g>
+    <g class="hit"><title>75° cut: 7% of the cue ball's energy reaches the object ball</title><circle cx="329.3" cy="197.4" r="10" fill="transparent"/><circle class="dot hl" cx="329.3" cy="197.4" r="4.5"/></g>
+    <text class="strong" x="54.0" y="22.0" text-anchor="start">0°: 100%</text>
+    <text class="strong" x="167.3" y="67.0" text-anchor="start">30°: 75%</text>
+    <text class="strong" x="224.0" y="112.0" text-anchor="start">45°: 50%</text>
+    <text class="strong" x="280.7" y="157.0" text-anchor="start">60°: 25%</text>
+    <text class="strong" x="321.3" y="181.0" text-anchor="end">75°: 7%</text>
+  </svg>
+  <figcaption>Share of the cue ball's energy passed to the object ball, by cut angle (cos² of the angle). It halves by 45 degrees and is down to 7% by 75.</figcaption>
+</figure>
+
+<p>Thin cuts also miss more easily. For a cut of angle θ, the cue ball's path passes d × sin θ from the object ball's centre line, where d is the ball's diameter, so the two balls overlap by d × (1 − sin θ). That is half a ball width at 30 degrees, 29% at 45, 13% at 60 and only 3% at 75. A ball diameter in pool is 57 mm, so at 75 degrees the contact patch to aim at is about 2 mm wide. A small error in line is then a large share of the target.</p>
+<p>The Play listing for <a href="/EightBallsPool/">8balls</a> says you can adjust aim, shot power and cue-ball spin, and set your own pace in practice, so you can repeat one thin cut and watch how little room it leaves.</p>
+
+<h2>A ball frozen to the cushion</h2>
+<p>A ball touching the rail with the pocket almost in line with that rail is the extreme case. To send the object ball along the rail, the line of centres at contact must run along the rail too, which means the cue ball has to be touching the cushion as well. The cue ball therefore comes in at a very large cut angle, and by the numbers above the target is a sliver of the ball and the energy handed on is small.</p>
+<p>The error is not symmetric either, and that is the real difficulty:</p>
+<ul>
+  <li><strong>Hit the ball first.</strong> The cue ball strikes the object ball before it reaches the cushion, so the line of centres is angled away from the rail. The object ball is pushed off the rail, out into the table, and misses the pocket.</li>
+  <li><strong>Hit the cushion first.</strong> The cue ball bounces off the rail before it meets the object ball, and the line of centres now points into the cushion. The object ball is pressed into the rail and comes back off it short of the line.</li>
+</ul>
+<p>The standard answer is to aim for the cue ball to touch the object ball and the cushion at the same instant. Contact with the rail keeps the cue ball on the line along the cushion, and the thin contact with the object ball sends it along the rail. Because the target is so small, a smooth stroke helps; extra pace only magnifies a bad line.</p>
+
+<h2>Two balls frozen to each other</h2>
+<p>When two balls touch, their centres sit exactly one diameter apart, and that line is fixed before you play. Hit the first ball and its push goes to the second along that line of centres. The second ball can only leave along that line. Where you strike the cue ball, how hard, and with what spin, change what happens to the first ball and the cue ball, but not the direction of the second.</p>
+<p>The consequence is that a frozen pair has exactly one direction available. Either the line from the pair runs into a pocket, or it does not, and no amount of spin changes that. The decision is made when you read the table, before you chalk the cue.</p>
+<p>There is one small lever: throw. Cutting across the first ball drags it along the contact by friction, and that can shift the departure line of the second by a few degrees. It is small, so use it only to nudge a shot that is already almost on. The <a href="/blog/pool-throw-and-overcut.html">throw and overcut post</a> explains the effect.</p>
+
+<h2>Avoid making them in the first place</h2>
+<p>The best fix is not to be there. Frozen balls usually come from a previous shot: a cue ball or object ball left to roll quietly onto the cushion, or two balls pushed together by a careless break-out. This is a position-play point. When you choose where the cue ball stops, check the cushion and the nearest group of balls as well as the next pot, and prefer a layout where nothing is touching. The <a href="/blog/pool-position-play.html">position-play post</a> sets out how to choose the path that leaves a clear next ball.</p>
+<p>If a frozen ball is unavoidable, see which one is easier to accept. A pair that points at a pocket is a gift, since one line is all you need. A ball on the rail with the pocket along it is the hardest case, and a safety shot is often better than a thin cut.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

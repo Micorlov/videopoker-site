@@ -1,0 +1,90 @@
+<!--
+{
+  "title": "Targets of 61, 121, 181 and 241: how match length changes play",
+  "seo_title": "61, 121, 181 or 241: how match length changes play",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "FivesAndThrees",
+  "description": "A short Fives and Threes match is high variance and a long one rewards the steadier player. Hands to reach each target, and how play changes between 61 and 241.",
+  "summary": "At an illustrative 15 points a hand, 61 takes about 4 hands and 241 about 16. One 30-point hand is 49 per cent of a 61 match but 12 per cent of a 241 match.",
+  "standfirst": "The four match targets are not just different lengths. They set how much one good hand can decide, and with it how loosely or carefully you should play."
+}
+-->
+<p>Fives and Threes is played to a target score, and the Play listing for Fives and Threes Dominoes offers four: 61, 121, 181 or 241 points. They are not interchangeable settings. The target decides how much a single lucky hand is worth against the whole match, and that changes what a sensible player does.</p>
+
+<h2>Why the targets step in sixties</h2>
+<p>The numbers come from the cribbage board, the usual way to keep score at the table. A cribbage track is 60 holes a lap, and the one extra point is the game hole at the end. One lap is 61, two laps is 121, and the same pattern continues to 181 and 241. Cribbage itself is played to 121 on the full board and to 61 on the short game. That Fives and Threes borrowed the board is the usual account, not a dated record, so treat it as convention. The lap arithmetic is in <a href="/blog/fives-and-threes-playing-to-61.html">playing to 61</a>; this post is about what the length does to the contest.</p>
+
+<h2>How many hands each target takes</h2>
+<p>Any figure here needs an assumption about how much a player scores per hand, and the listing gives none. Its Statistics screen tracks average score per hand but states no value. So take 15 points per hand, per player, as a round number for illustration. It is a reasonable typical value I am choosing, not a measured statistic, and every result below scales with it.</p>
+<p>Dividing each target by 15 gives the hands a match lasts:</p>
+<ul>
+  <li>61 &divide; 15 = 4.07, so about 4 hands.</li>
+  <li>121 &divide; 15 = 8.07, so about 8 hands.</li>
+  <li>181 &divide; 15 = 12.07, so about 12 hands.</li>
+  <li>241 &divide; 15 = 16.07, so about 16 hands.</li>
+</ul>
+<p>Each step of 60 adds four hands. Read these as rough lengths only.</p>
+
+<h2>One strong hand against the target</h2>
+<p>Now take a strong hand to be twice the average, 30 points. The share of the target it supplies is 30 divided by the target:</p>
+<ul>
+  <li>At 61, 30 &divide; 61 = 49 per cent. One hand is nearly half the match.</li>
+  <li>At 121, 30 &divide; 121 = 25 per cent, a quarter.</li>
+  <li>At 181, 30 &divide; 181 = 17 per cent.</li>
+  <li>At 241, 30 &divide; 241 = 12 per cent, an eighth.</li>
+</ul>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 230" role="img" aria-label="Column chart: one 30-point hand is 49 per cent of a target of 61, 25 per cent of 121, 17 per cent of 181 and 12 per cent of 241.">
+    <line class="grid" x1="44" x2="390" y1="110" y2="110"/>
+    <text x="38" y="114" text-anchor="end">25%</text>
+    <line class="grid" x1="44" x2="390" y1="50" y2="50"/>
+    <text x="38" y="54" text-anchor="end">50%</text>
+    <line class="axis" x1="44" x2="390" y1="170" y2="170"/>
+    <text x="38" y="174" text-anchor="end">0</text>
+    <g class="hit"><title>Target 61: one 30-point hand is 49% of the match</title><rect class="fill-base" x="63" y="51.9" width="56" height="118.1" rx="3"/></g>
+    <text x="91" y="45.9" text-anchor="middle">49%</text>
+    <text x="91" y="188" text-anchor="middle">61</text>
+    <text x="91" y="204" text-anchor="middle">~4 hands</text>
+    <g class="hit"><title>Target 121: one 30-point hand is 25% of the match</title><rect class="fill-accent" x="149" y="110.5" width="56" height="59.5" rx="3"/></g>
+    <text class="strong" x="177" y="104.5" text-anchor="middle">25%</text>
+    <text class="strong" x="177" y="188" text-anchor="middle">121</text>
+    <text x="177" y="204" text-anchor="middle">~8 hands</text>
+    <g class="hit"><title>Target 181: one 30-point hand is 17% of the match</title><rect class="fill-base" x="235" y="130.2" width="56" height="39.8" rx="3"/></g>
+    <text x="263" y="124.2" text-anchor="middle">17%</text>
+    <text x="263" y="188" text-anchor="middle">181</text>
+    <text x="263" y="204" text-anchor="middle">~12 hands</text>
+    <g class="hit"><title>Target 241: one 30-point hand is 12% of the match</title><rect class="fill-base" x="321" y="140.2" width="56" height="29.8" rx="3"/></g>
+    <text x="349" y="134.2" text-anchor="middle">12%</text>
+    <text x="349" y="188" text-anchor="middle">241</text>
+    <text x="349" y="204" text-anchor="middle">~16 hands</text>
+    <text x="217" y="224" text-anchor="middle">Match target, and hands at an illustrative 15 points each</text>
+  </svg>
+  <figcaption>The share of each target that one 30-point hand supplies, assuming an illustrative 15 points per average hand. The share halves between 61 and 121, then keeps shrinking more slowly; 121, the standard target, is highlighted.</figcaption>
+</figure>
+
+<h2>Variance and the better player's edge</h2>
+<p>A hand's score swings around its average, and those swings are mostly luck: which tiles you drew, who held the doubles. Over several hands the swings partly cancel. In a simple model where hands are independent and alike, the expected total grows in step with the number of hands, but the typical size of the luck grows only with its square root. So the luck as a fraction of the total shrinks as one over the square root of the hands.</p>
+<p>Put numbers on it. A 61 match is about 4 hands and a 241 match about 16, four times as many, so the relative luck at 241 is a half of that at 61 (the square root of 4 is 2). Meanwhile a skill edge is a steady few points a hand, and it adds up in direct proportion to the hands. A player better by, say, 3 points a hand, a figure I am choosing for illustration, leads by about 12 points on average after 4 hands and by about 48 after 16. Against luck that has only doubled in size, the edge shows through far more often.</p>
+<p>That is the whole case for each length. A short match is high variance: the weaker player wins more often than they should, and a good tile run settles it. A long match lets the better player's edge compound. The model is crude, but the direction is dependable.</p>
+
+<p>You can set any of the four targets in <a href="/FivesAndThrees/">Fives and Threes Dominoes</a> before a match against the computer, and the listing says you can also choose the starting hand size.</p>
+
+<h2>What changes in play at 61</h2>
+<p>When one hand can be half the match, the long game hardly exists. Take the scoring chance in front of you. A 15 for 8 points now is worth more than a quiet play that sets up something better later, because there may not be a later.</p>
+
+<h2>What changes at 241</h2>
+<p>With 16 hands to run, no single hand matters much, so the cheap errors cost the most. This is where you can afford to play the board. Blocking, which means leaving ends that score little for your opponent, pays across many turns; the reasoning is in <a href="/blog/fives-and-threes-blocking.html">how blocking works</a>. Keeping count of which tiles are out, as in <a href="/blog/fives-and-threes-counting-tiles.html">counting tiles</a>, builds on itself the same way. You can hold a scoring tile back for a better moment instead of spending it at once, because the moment will come.</p>
+
+<h2>The endgame near the target</h2>
+<p>Close to the line the maths changes again. If you are 6 short and your opponent is 20 short, a play worth 6 wins on the spot, and you may prefer it to a bigger score elsewhere. The reverse also holds: when your opponent is within one good play of the finish, blocking the ends that would give it to them outranks scoring a point or two yourself.</p>
+<p>Some house rules go further and require you to land exactly on the target, or let an overshoot count as a bust. Others let any score at or past the target win, as a peg passing the game hole does on a cribbage board. The Play listing does not say which applies in the app, so this is general advice about house rules, not a description of the app; agree the rule before you start. Under an exact-finish rule, small scoring tiles are worth keeping for the end.</p>
+
+<h2>Choosing a length</h2>
+<p>For a quick game, play to 61. To find out whether a habit such as blocking actually wins games, play 181 or 241, where luck evens out. The standard 121 sits between. Hand size also changes how long a hand lasts; see <a href="/blog/fives-and-threes-hand-size.html">choosing a hand size</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/FivesAndThrees/">Fives and Threes Dominoes</a> lets you play solo against a computer opponent on Casual or Competitive, to a target of 61, 121, 181 or 241 points, with 6, 7, 8 or 9 tiles each and the going-out bonus on or off. There are no adverts or in-app purchases, and the match points are in-game only with no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.fivesandthrees"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

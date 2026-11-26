@@ -1,0 +1,58 @@
+<!--
+{
+  "title": "Slow playing: when not betting a strong hand pays",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "HoldemCoach",
+  "description": "Checking a strong hand trades a bet now for a bet later. On a dry board the free card costs 12.8% of the pot; on a wet one, 48.9%.",
+  "summary": "Slow playing gives up value now and pays in equity. With a set on K-7-2 rainbow, 6 of 47 turn cards hurt (12.8%), so a worse hand must pay a further half-pot bet 25.5% of the time. On 9-8-4 with two hearts it is 23 of 47 and 97.9%.",
+  "standfirst": "Checking a monster looks clever and is usually a mistake. It is a trade with a price you can count: the equity a free card hands to your opponent against the extra bet you hope to collect."
+}
+-->
+<p>Slow playing means checking, or just calling, with a hand strong enough to bet. The idea is to let the opponent catch up a little, or bluff, and collect more later. It feels cunning, and it is the most over-used move in amateur poker. The honest starting point is that betting a strong hand is the default. Checking has to earn its place, and it can be priced.</p>
+
+<h2>What each line gives up</h2>
+<p>Betting now collects from the hands that will call now. Those are the hands you most want to be paid by: a pair, a draw, anything that cannot bear to fold. Checking gives that money up. In exchange you hope to collect more on a later street, from hands that would have folded to a bet, or to induce a bluff.</p>
+<p>The price of the trade is the free card. When you check and your opponent checks behind, a turn card arrives with no bet in front of it, and some of those cards leave you beaten or facing a hand that has caught up. Every turn card that does that costs you a share of the pot. So the test is arithmetic: the cost of the free card on one side, the extra money you expect from the extra street on the other.</p>
+
+<h2>A dry board: top set on K-7-2</h2>
+<p>You hold 7&clubs; 7&diams; and the flop is K&spades; 7&hearts; 2&diams;, three suits, nothing connected. You have a set of sevens. The pot is 100. There are 47 unseen cards.</p>
+<p>Which turn cards can hurt? No turn card makes a straight, because K, 7 and 2 are too far apart. No turn card makes a flush, because there are only two cards of any one suit on the board at most. What is left is the board pairing: the three remaining kings and the three remaining deuces give an opponent holding a king or a deuce a full house or trips with a better kicker. That is 6 cards. Counted as if each one lost you the whole pot, 6 &divide; 47 = 12.8%, or 12.8 chips per 100 in the pot. That is a pessimistic figure, since most opponents hold neither card.</p>
+<p>Now the other side. Suppose you would bet 50 on the flop. Checking gains something only if, on the turn, you can bet 50 and be called by a hand that would not have paid you on the flop. Break-even is the cost divided by the bet: 12.8 &divide; 50 = 25.5%. If a worse hand pays that further bet more than about a quarter of the time, checking comes out ahead. On this board that is a reasonable thing to expect, which is why it is the textbook spot.</p>
+
+<h2>A wet board: the same set on 9-8-4</h2>
+<p>Change the hand to 9&clubs; 9&diams; and the board to 9&hearts; 8&hearts; 4&clubs;. You still have top set, but the board is coordinated. Count the dangerous turn cards again.</p>
+<p>Any of the 11 unseen hearts completes a flush for an opponent holding two hearts. A ten, a seven, a six or a five completes a straight for connected hands such as 6-7 or J-7; the three non-heart cards of each rank add 12 more. The fourth nine would give you quads, so it is safe. That makes 11 + 12 = 23 dangerous cards out of 47, or 48.9% of the pot.</p>
+<p>Again this is an upper bound, because it assumes the opponent holds the hand that each card helps. Even so, the break-even moves from 25.5% to 48.9 &divide; 50 = 97.9%. A worse hand would have to pay your extra bet almost every time, and it is the same hands that would have paid now. The trade fails. Bet.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart: a set on the dry K-7-2 board leaves 6 dangerous turn cards of 47, the two-heart K-7-2 board 16, and the 9-8-4 board 23">
+    <div class="bar-row hl" title="K-7-2 rainbow: 6 cards, 12.8% of the pot"><span class="bar-label">K-7-2 rainbow</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 9em) * 0.2609)"></span><span class="bar-val">6 (12.8%)</span></span></div>
+    <div class="bar-row" title="K-7-2 with two hearts: 16 cards, 34.0% of the pot"><span class="bar-label">K-7-2, two hearts</span><span class="bar-track"><span class="bar" style="width:calc((100% - 9em) * 0.6957)"></span><span class="bar-val">16 (34.0%)</span></span></div>
+    <div class="bar-row" title="9-8-4 with two hearts: 23 cards, 48.9% of the pot"><span class="bar-label">9-8-4, two hearts</span><span class="bar-track"><span class="bar" style="width:calc((100% - 9em) * 1.0000)"></span><span class="bar-val">23 (48.9%)</span></span></div>
+  </div>
+  <figcaption>Dangerous turn cards out of 47 for a flopped set, with the share of the pot each board costs you if you check. The dry board leaves a quarter as many as the connected one.</figcaption>
+</figure>
+
+<h2>Between the two</h2>
+<p>Keep the set of sevens and make the flop K&hearts; 7&hearts; 2&clubs;, two hearts. The 11 unseen hearts now matter, plus the 3 kings and the 2&diams; and 2&spades; (the 2&hearts; is already counted among the hearts). That is 16 cards, 16 &divide; 47 = 34.0%, and break-even is 68.1%. One extra suit on an otherwise identical flop moves the answer from a likely check to a likely bet.</p>
+<p>The <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> lessons &ldquo;Reading the cards&rdquo; and &ldquo;Which hand is in front?&rdquo; are the groundwork here, since counting dangerous cards starts with knowing what a board can make. The app has no lesson on slow playing, so treat the counting above as your own exercise.</p>
+
+<h2>The four conditions</h2>
+<p>Checking a strong hand is only right when all four of these hold, and each links back to the numbers above:</p>
+<ol class="ranked">
+  <li><strong>Almost nothing calls a bet.</strong> If worse hands will call now, betting collects from them, and checking throws that money away.</li>
+  <li><strong>The board is dry.</strong> Few turn cards help anyone, so the free card is cheap. Count them rather than guess.</li>
+  <li><strong>Checking keeps a worse hand in.</strong> The extra street only pays if a hand that would have folded to a bet is still there to call a later one.</li>
+  <li><strong>Your opponent is likely to bet for you.</strong> If a bluff or a thin value bet is probable, a check can win a bet you would never have got.</li>
+</ol>
+<p>Miss one and the trade usually fails. Conditions one and three pull against each other, which is why real slow-play spots are narrow: you need a hand so strong that few hands call, yet an opponent who still holds something that will pay a bet later.</p>
+
+<h2>Where it leaves the default</h2>
+<p>Bet strong hands. Check only when you can name the opponent hands you are trying to keep in, count the turn cards that hurt, and see that the free card costs less than the extra street can plausibly return. On 9-8-4 the cost was close to half the pot; on K-7-2 it was 12.8%.</p>
+<p>The same idea runs through <a href="/blog/holdem-fold-equity.html">fold equity</a>, where a bet can win two ways, and <a href="/blog/holdem-continuation-bets.html">continuation bets</a>, where the preflop raiser keeps betting.</p>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons, one idea at a time, with nothing timed. It can read the cards, the question and the answer aloud using your phone's voice. Practice works offline. It is a training app with no real-money wagering, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

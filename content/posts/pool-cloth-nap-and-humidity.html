@@ -1,0 +1,80 @@
+<!--
+{
+  "title": "Cloth, nap and humidity: why a pool table plays differently",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "EightBallsPool",
+  "description": "Worsted against napped cloth, rolling resistance and what humidity does to wool: why the same pool shot travels further on one table than on another.",
+  "summary": "Halve a cloth's rolling resistance and the same shot rolls twice as far; double it and you need about 41% more speed to cover the same distance. Nap and damp wool change both.",
+  "standfirst": "Two tables of the same size can play very differently. The difference is the cloth: how it is woven, which way its fibres lie, and how much moisture the wool has taken in from the room."
+}
+-->
+<p>A pool table is a flat piece of slate with cloth stretched over it, and the cloth decides how the balls behave once they are moving. Two tables with identical dimensions, like the 9-foot 100 × 50 in surface in the <a href="/blog/pool-table-sizes-compared.html">table sizes post</a>, can need very different shot speeds.</p>
+
+<h2>Worsted and woollen cloth</h2>
+<p>Both types are wool, but they are made differently. <strong>Worsted</strong> cloth is woven from long wool fibres that have been combed straight and spun tightly, then woven and shaved smooth. The result is hard, thin and napless: the surface has no fibres lying in a preferred direction. Most pool cloth sold for tournament tables is worsted or a worsted wool and nylon blend, and it is the fast option.</p>
+<p><strong>Woollen</strong> baize is made from shorter fibres that are carded rather than combed, so they point in many directions. The cloth is brushed after weaving to raise a soft pile. That pile lies one way, which is the <strong>nap</strong>. It is thicker, softer and slower than worsted, and it is what English billiards and snooker tables have traditionally used, with the nap running from the baulk end towards the top cushion.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="A napped table 100 inches long and 50 inches wide with the nap running left to right along its length. A ball rolled with the nap runs slightly further; a ball rolled against the nap slightly less far.">
+    <rect x="20" y="20" width="360" height="180" class="fill-soft" stroke="var(--chart-base)" stroke-width="2"/>
+    <g stroke="var(--chart-base)" stroke-width="1.5" fill="none">
+      <path d="M40 50 H100 M90 44 L100 50 L90 56"/>
+      <path d="M150 50 H210 M200 44 L210 50 L200 56"/>
+      <path d="M260 50 H320 M310 44 L320 50 L310 56"/>
+      <path d="M40 170 H100 M90 164 L100 170 L90 176"/>
+      <path d="M150 170 H210 M200 164 L210 170 L200 176"/>
+      <path d="M260 170 H320 M310 164 L320 170 L310 176"/>
+    </g>
+    <text x="200" y="76" text-anchor="middle">Nap lies this way along the 100 in length</text>
+    <line x1="60" y1="110" x2="340" y2="110" stroke="var(--chart-accent)" stroke-width="3"/>
+    <path d="M326 102 L340 110 L326 118" fill="none" stroke="var(--chart-accent)" stroke-width="3"/>
+    <circle cx="60" cy="110" r="8" fill="var(--chart-accent)"><title>With the nap: runs slightly further</title></circle>
+    <text x="200" y="102" text-anchor="middle" class="strong">With the nap: runs further</text>
+    <line x1="340" y1="140" x2="140" y2="140" stroke="var(--chart-base)" stroke-width="3"/>
+    <path d="M154 132 L140 140 L154 148" fill="none" stroke="var(--chart-base)" stroke-width="3"/>
+    <circle cx="340" cy="140" r="8" fill="var(--chart-base)"><title>Against the nap: runs slightly less far</title></circle>
+    <text x="240" y="132" text-anchor="middle" class="strong">Against the nap: not as far</text>
+    <text x="200" y="228" text-anchor="middle">Napless worsted: the same both ways</text>
+  </svg>
+  <figcaption>A napped surface drawn schematically, with the nap along the 100 in length. Highlighted: the roll with the nap, which travels slightly further than the same roll against it. A napless worsted cloth shows no such difference.</figcaption>
+</figure>
+
+<h2>Why nap changes the roll</h2>
+<p>A rolling ball sinks a little into the cloth and keeps climbing out of the dent it makes. That is rolling resistance, and it is what slows a ball that is not sliding. Fibres leaning in the direction of travel offer less resistance than fibres leaning against it, so a ball rolled with the nap runs slightly further and one rolled against it stops slightly sooner.</p>
+<p>A slow ball rolled across the nap can also drift the way the fibres lie. Snooker players learn this as part of weight and line. On napless pool cloth it is small enough to ignore, which is one reason the games in the <a href="/blog/pool-and-snooker-differences.html">pool and snooker post</a> feel so different.</p>
+
+<h2>Rolling resistance sets the distance</h2>
+<p>The distance a ball rolls follows a simple rule. A rolling ball slows at a steady rate a = μ × g, where μ is the cloth's coefficient of rolling resistance and g is 9.81 m/s². The distance is then d = v² / (2 × μ × g). Published measurements put μ for pool cloth at roughly 0.01, though it varies from cloth to cloth. Take 0.01 as a working number, not a specification:</p>
+<ul>
+  <li>Deceleration is 0.01 × 9.81, about 0.098 m/s².</li>
+  <li>A ball rolling at 1 m/s therefore travels 1 / (2 × 0.098), about 5.1 m, before it stops.</li>
+  <li>The 100 in length of a 9-foot table is 2.54 m. To just reach the far cushion needs v = √(2 × 0.098 × 2.54), about 0.7 m/s.</li>
+</ul>
+<p>The two relationships to remember hold whatever the exact μ. Distance is proportional to 1 / μ, so a cloth with half the resistance sends the same shot twice as far. And the speed needed for a given distance is proportional to √μ, so a cloth with double the resistance needs √2 = 1.41 times the speed, about 41% more, to travel the same distance.</p>
+<p>So the same stroke that leaves the cue ball on the right spot on a slow table sends it long on a fast one. Pace does not transfer exactly between cloths, and the <a href="/blog/pool-position-play.html">position play post</a> assumes you have a working sense of yours.</p>
+
+<h2>What humidity does</h2>
+<p>Wool absorbs water vapour from the air. As the fibres take up moisture they swell, the pile fattens and stiffens, and it lies less evenly. A ball now sinks into a thicker, damper surface, so rolling resistance goes up. The results are a slower table and a ball that is easier to push off line, especially a slow one near the end of its run.</p>
+<p>Cushions respond too. Cushion rubber is covered in the same cloth, and a damp cloth grips and absorbs more of the ball's speed, so the rebound is deader and a bank shot comes back shorter than you expect. Banks, covered in the <a href="/blog/pool-bank-shots.html">bank shot post</a>, then need extra pace.</p>
+<p>Cold air holds less water vapour, so an unheated room is often a damp one. Expect its table to play slower than the same table in a warm, dry room.</p>
+
+<h2>Why snooker tables are heated</h2>
+<p>This is why professional snooker tables carry heating elements under the slate. The slate is kept at about 40 to 45 °C at its surface. That is well above room temperature, and it keeps the cloth dry and the pace consistent from one session to the next, whatever the weather outside. Heating removes humidity as a variable; it is not there to make the table fast.</p>
+
+<h2>Test the table before you play</h2>
+<p>A length-of-table roll is the quickest check:</p>
+<ol>
+  <li>Place the cue ball behind the head string and hit it gently so it rolls the full 100 in to the foot cushion on a 9-foot table (88 in on an 8-footer).</li>
+  <li>Note where it stops after the rebound. The further back it comes, the faster the table.</li>
+  <li>Repeat in the other direction. On a napped table the two rolls can differ.</li>
+</ol>
+<p>Then adjust: firmer on a slow, cold or damp table, softer on a fast one. The change is to speed, not aim, so cut angles carry over unchanged. The <a href="/blog/cue-ball-spin-explained.html">cue ball spin post</a> covers how spin interacts with the cloth.</p>
+
+<h2>In the app</h2>
+<p>The Play listing for <a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> mentions an emerald felt table and lets you adjust aim, shot power and cue-ball spin. It says nothing about cloth type, nap or humidity, so none of this is a claim that the app models them. When you move to a real table, calibrating your pace comes first.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> plays 8-ball and 9-ball with overhead and aiming views, practice at your own pace, computer opponents at three difficulty levels, or a local two-player match on one device. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

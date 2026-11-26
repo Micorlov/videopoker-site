@@ -1,0 +1,68 @@
+<!--
+{
+  "title": "Counting down a deck: the drill that proves your count",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "BlackjackCoach",
+  "description": "Count a full deck with Hi-Lo and you must finish on exactly 0. Hold one card back and the final count is minus that card's tag. A drill that checks itself.",
+  "summary": "A 52-card deck has 20 cards at +1, 20 at −1 and 12 at 0, so a correct Hi-Lo count ends on 0. Hold one card back and the end count is the opposite of its tag.",
+  "standfirst": "Most practice needs someone to mark it. Counting down a deck does not, because a full deck is balanced by construction and the final number is known before you start. Finish anywhere else and you have made a mistake."
+}
+-->
+<p>Hi-Lo is easy to explain and surprisingly easy to get wrong. You add one, subtract one or do nothing for each card, and a single slip, such as a missed card or a sign flipped in your head, stays inside the running total with nothing to flag it. Counting down a deck solves that problem. It is the one drill where the right answer is known in advance, so the exercise checks itself.</p>
+
+<h2>Why a full deck must end on zero</h2>
+<p>Hi-Lo tags every card by rank: 2, 3, 4, 5 and 6 are +1, the 7, 8 and 9 are 0, and the 10, jack, queen, king and ace are &minus;1. A single 52-card deck has four of each rank, which gives:</p>
+<ul>
+  <li>20 cards tagged +1 (five ranks, four suits each).</li>
+  <li>12 cards tagged 0 (the 7s, 8s and 9s).</li>
+  <li>20 cards tagged &minus;1 (the tens, face cards and aces).</li>
+</ul>
+<p>Add the tags up: 20 &minus; 20 + 0 = 0. Counting is a sum, and a sum does not depend on the order you deal in, so every shuffle of the deck finishes on zero. Hi-Lo is called a balanced count for exactly this reason.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of a single deck by Hi-Lo tag: 20 cards at +1, 12 cards at 0 and 20 cards at minus 1, so the two non-zero groups cancel">
+    <div class="bar-row" title="Tag +1 (2 to 6): 20 cards"><span class="bar-label">+1 (2 to 6)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">20 cards</span></span></div>
+    <div class="bar-row" title="Tag 0 (7 to 9): 12 cards"><span class="bar-label">0 (7, 8, 9)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6000)"></span><span class="bar-val">12 cards</span></span></div>
+    <div class="bar-row" title="Tag −1 (10 to ace): 20 cards"><span class="bar-label">&minus;1 (10 to A)</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">20 cards</span></span></div>
+  </div>
+  <figcaption>One 52-card deck by Hi-Lo tag. The two groups of 20 are equal and opposite, and the 12 neutral cards add nothing, so the count of the whole deck is 0.</figcaption>
+</figure>
+
+<p>Here is the same idea on a short run of eight cards: 5, K, 7, 2, A, 9, 4, Q. The tags are +1, &minus;1, 0, +1, &minus;1, 0, +1, &minus;1, and the running count goes 1, 0, 0, 1, 0, 0, 1, 0. It comes back to zero because the three low cards and three high cards cancel and the 7 and 9 do nothing. A whole deck is the same thing at a larger size. The <a href="/blog/hi-lo-running-and-true-count.html">running and true count post</a> covers the tags in more detail.</p>
+
+<p>The <a href="/BlackjackCoach/">Blackjack Coach</a> listing names Hi-Lo card counting among the things you can practise, so the tags above are the ones to learn there. The deck itself is something you handle with a real pack of cards.</p>
+
+<h2>What a wrong answer tells you</h2>
+<p>Deal the deck face up, one card at a time, and keep the running count. If the last card leaves you on anything but 0, you made at least one error, and you know it without a coach, a score sheet or an app to mark you. No other counting exercise is this clean. Counting a shoe part-way has no fixed answer to compare against, and quizzing yourself on individual cards tests the tags but not the habit of carrying a total. The deck is the only exercise with a known finishing number, which makes it a test you can run alone.</p>
+<p>One caution: ending on 0 does not prove you made no mistakes. Two errors can cancel, such as counting one low card as a ten and one ten as a low card. A zero is strong evidence, not proof, but a non-zero finish is a certain sign something went wrong.</p>
+
+<h2>The sharper version: hold one card back</h2>
+<p>Take one card from the deck without looking at it and put it face down. Count the other 51. Since all 52 cards sum to 0, the 51 you saw must sum to the opposite of the missing card's tag:</p>
+<ul>
+  <li>Finish on &minus;1 and the hidden card is a 2 to 6.</li>
+  <li>Finish on +1 and the hidden card is a ten, face card or ace.</li>
+  <li>Finish on 0 and the hidden card is a 7, 8 or 9.</li>
+</ul>
+<p>Turn the card over to check. This tells you more than a plain zero does, because a wrong finish now points to the kind of card you missed. It also shows how a count works in play: the cards you cannot see are always the opposite of the cards you can. That is the idea behind the <a href="/blog/blackjack-deck-penetration.html">deck penetration post</a>, where the unseen part of the shoe is what the count describes.</p>
+
+<p>Ending on the right number is the target, and how fast you got there comes second. The next section is about the order to work in, and the <a href="/BlackjackCoach/">Blackjack Coach</a> page shows how the app frames Hi-Lo practice.</p>
+
+<h2>Accuracy first, then speed</h2>
+<p>A commonly cited benchmark is to count a full deck down in about 25 to 30 seconds with no errors. Treat that as an end point, not a starting one. A count that is fast and wrong is worse than a slow one, because it produces a number you trust, and trusted wrong numbers lead to confident wrong decisions. A slow count that lands on 0 every time is a skill you can speed up. A quick count that sometimes misses is a habit you will have to unlearn.</p>
+<p>The drill makes the order easy to follow, because every run gives you an immediate pass or fail:</p>
+<ol>
+  <li><strong>Reach 0 reliably.</strong> Go as slowly as you need. Move on only when you finish on 0 several runs in a row.</li>
+  <li><strong>Time it.</strong> Keep the pace you can hold without a miss, then shorten it a little at a time towards the 25 to 30 second mark. If a run ends off 0, slow down again.</li>
+  <li><strong>Add distractions.</strong> Run it with music on, or with someone talking. A real table is noisy, and a count that only works in silence is not finished.</li>
+  <li><strong>Count two decks at once.</strong> Shuffle two decks together and deal them out. The total must still be 0, and the cards now cancel in pairs: a ten against a five, an ace against a six, and so on. Pairing cards as you go is a useful way to hold the count, and the zero check works exactly as before.</li>
+</ol>
+<p>Each step changes one thing only, so if the zero goes wrong you know what caused it.</p>
+
+<h2>What the drill does not cover</h2>
+<p>A full-deck count tests the tags and the running total, and nothing else. In a real shoe you never see all the cards, and the count is divided by the decks remaining to give a true count, which is a separate skill. The drill gets the first step right so that the later steps start from a number you can rely on.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> is a training app for learning basic strategy and Hi-Lo counting, with explained practice hands. It has no real-money gambling and no prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

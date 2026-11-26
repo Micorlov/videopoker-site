@@ -1,0 +1,69 @@
+<!--
+{
+  "title": "The order to learn the basic strategy chart in",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "BlackjackCoach",
+  "description": "A basic strategy chart has 280 cells, but they are not equally valuable. Learn it in six blocks, no-chart rules first, then stiff hands, with a test for each.",
+  "summary": "Learn the chart by frequency times cost of error, not left to right: the no-chart rules, then hard 12 to 16, then doubles, soft totals, the rest of the splits and surrender last.",
+  "standfirst": "The chart looks like 280 things to memorise. Most of its value sits in a small part of it, and the order you learn it in decides how quickly your play gets close to correct."
+}
+-->
+<p>A six-deck basic strategy chart is a grid of 280 cells: 28 hand types, each against ten dealer upcards. But the cells are not worth the same. Some hands turn up all the time, some almost never, and a wrong answer on one costs far more than on another. The sensible order is how often a cell comes up multiplied by what a mistake in it costs, which looks nothing like left to right.</p>
+
+<h2>Why the order matters</h2>
+<p>Playing by feel is expensive. In a typical multi-deck game, basic strategy leaves the house about 0.5% ahead, and players who guess commonly give away something like 1.5 to 2 percentage points more than that. The figures move with the rules, so treat them as a range.</p>
+<p>I will not put a cost on individual cells: published tables differ in the third decimal place, and a made-up figure would only look precise. The ordering rests on how common a hand is and how wide the gap is between its right and wrong plays.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="The six learning blocks by number of chart cells: always-and-never rules 60, stiff hands 50, doubling 30, soft totals 80, remaining splits 60, surrender 4">
+    <div class="bar-row hl" title="1. Always/never rules: 60 cells"><span class="bar-label">1 Always/never</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">60</span></span></div>
+    <div class="bar-row" title="2. Stiff hands 12-16: 50 cells"><span class="bar-label">2 Hard 12-16</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">50</span></span></div>
+    <div class="bar-row" title="3. Doubling hard 9-11: 30 cells"><span class="bar-label">3 Doubling</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">30</span></span></div>
+    <div class="bar-row" title="4. Soft totals: 80 cells"><span class="bar-label">4 Soft totals</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">80</span></span></div>
+    <div class="bar-row" title="5. Remaining splits: 60 cells"><span class="bar-label">5 Other splits</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">60</span></span></div>
+    <div class="bar-row" title="6. Surrender: 4 cells"><span class="bar-label">6 Surrender</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0500)"></span><span class="bar-val">4</span></span></div>
+  </div>
+  <figcaption>Chart cells in each learning block, in learning order. This plots cell counts, which are countable, not the value of each block. Block 1 is highlighted as the place to start. Soft totals have the most cells but come fourth, and the four surrender cells sit inside block 2 already.</figcaption>
+</figure>
+
+<p>Each row has ten cells, one per dealer upcard. The rows are hard 5-8, 9 to 16 and 17+ (10 rows), soft 13 to soft 20 (8 rows) and the pairs 2-2 to A-A (10 rows). Blocks 1 to 5 add up to the whole grid: 60, 50, 30, 80 and 60.</p>
+
+<h2>Block 1: the rules that need no chart</h2>
+<p>Start with six rules that hold against every dealer card: always split aces and eights, never split tens or fives, always stand on hard 17 or more, always hit hard 8 or less, and never take insurance. They cover 60 cells with no dealer-dependent exception, and they are the cheapest to learn and the dearest to break. Splitting tens throws away a hand that already wins most of the time, as <a href="/blog/never-split-tens.html">the post on never splitting tens</a> shows. The case for aces and eights is in <a href="/blog/blackjack-always-split-aces-and-eights.html">its own post</a>. Insurance costs the player about 7% of the amount staked on it in a six-deck shoe.</p>
+<p><strong>Test:</strong> name the play for A-A, 8-8, 10-10, 5-5, hard 17 and hard 8 within a couple of seconds each, without looking, plus your answer to insurance.</p>
+
+<h2>Block 2: the stiff hands</h2>
+<p>A stiff hand is a hard 12 to 16, one a single ten would bust. This is the most common decision in the game, and the dealer's upcard flips the answer. Against a 2 to 6 the dealer is likelier to bust, so you stand on 13 to 16 and let them. Against a 7 to ace you hit, because the dealer will probably make a hand. Hard 12 is the exception: it hits against 2 and 3 and stands against 4 to 6. <a href="/blog/stiff-hands-stand-13-to-16.html">The post on stiff hands</a> has the arithmetic.</p>
+<p>My count of two-card opening hands in a six-deck shoe is that hard totals of 12 to 16, with no ace and no pair, make up about 37% of them. Add block 1's cells and blocks 1 and 2 together cover about 70% of opening hands. That counts first two cards only, and hitting makes more hard hands, so the share of all decisions is higher still. A learner who knows only these two blocks, 110 of the 280 cells, already plays most hands as basic strategy does.</p>
+<p><strong>Test:</strong> for 13 to 16, say which dealer cards you stand against (2 to 6) and which you hit against (7 to ace), then give the one different answer for hard 12.</p>
+<p>If you want somewhere to run these rows, <a href="/BlackjackCoach/">Blackjack Coach</a> offers a strategy chart and practice rounds against the dealer, with an explanation and a review of your mistakes.</p>
+
+<h2>Block 3: doubling hard totals</h2>
+<p>Doubling is only 30 cells, but each is worth a lot, because doubling puts twice the bet behind a hand that is a favourite. Double 11 against every upcard except an ace (many charts double that too, depending on the dealer's soft-17 rule), double 10 against a 2 to 9, and double 9 against a 3 to 6. Everywhere else, hit. A missed double forfeits the extra bet's gain on a hand where you are ahead, so a small block outranks larger ones. More detail is in <a href="/blog/blackjack-doubling-9-10-11.html">the post on doubling 9, 10 and 11</a>.</p>
+<p><strong>Test:</strong> say whether you double 11 against a 6, 10 against a 10, 10 against a 9, 9 against a 2 and 9 against a 6. The answers are yes, no, yes, no, yes.</p>
+
+<h2>Block 4: soft totals, soft 18 first</h2>
+<p>Soft hands hold an ace counted as 11, so they cannot bust on one card. There are eight rows and 80 cells, but one row matters most: soft 18, ace and seven. Most players stand on instinct, and it is commonly named as the most misplayed hand in the game. The chart stands against 2, 7 and 8, doubles against 3 to 6 and hits against 9, 10 and ace; <a href="/blog/soft-18-ace-seven-strategy.html">the soft 18 post</a> explains why.</p>
+<p><strong>Test:</strong> recite soft 18 against all ten dealer cards.</p>
+
+<h2>Block 5: the remaining splits</h2>
+<p>With aces, eights, tens and fives done, six pair rows are left, 60 cells: 2-2, 3-3, 4-4, 6-6, 7-7 and 9-9. They are rarer, and the margins are thinner, so a wrong answer costs less. Nines split except against a 7, 10 and ace; sevens against 2 to 7; sixes against 2 to 6; twos and threes against 2 to 7; fours only against a 5 or 6.</p>
+<p><strong>Test:</strong> for each pair, give the range of dealer cards you split against, and check that nines against a 7 stand.</p>
+
+<h2>Block 6: surrender</h2>
+<p>If the game offers late surrender, four cells use it: hard 16 against a 9, 10 or ace, and hard 15 against a 10. You give up half your bet rather than play a hand that loses more than half on average. The app's chart assumes late surrender. Four cells that come up now and then are worth little in total, so they come last, and they already sit inside block 2.</p>
+<p><strong>Test:</strong> name the four surrender cells, and what you do with 16 against a 10 when it is not allowed (hit).</p>
+
+<h2>What to take from it</h2>
+<ol class="ranked">
+  <li>Rank cells by how often a hand appears and how much a mistake costs.</li>
+  <li>Blocks 1 and 2 cover about 70% of opening hands.</li>
+  <li>Doubling is a small block with a high value per cell.</li>
+  <li>Soft 18 first, then the other splits, then surrender.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> teaches a six-deck chart with the dealer standing on soft 17, double after split and late surrender, alongside basic strategy, insurance and Hi-Lo practice. It is a practice app with no real-money gambling or prizes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,67 @@
+<!--
+{
+  "title": "Side counts: what Hi-Lo leaves out",
+  "date": "2026-11-24",
+  "modified": "2026-11-24",
+  "app": "BlackjackCoach",
+  "description": "Hi-Lo tags aces and tens the same, so it cannot see how many aces remain. See what that hides, and why no single count is best at everything.",
+  "summary": "Hi-Lo gives aces and tens the same −1, though they do different jobs. An ace side count repairs part of that for betting, and the trade-off between betting, playing and insurance is the real cost of a simple count.",
+  "standfirst": "Hi-Lo is simple because it throws information away. Two shoes can show the same count while one holds far fewer aces than the other, and that difference is worth knowing about. This is card-counting theory in a practice setting, not advice for real-money play."
+}
+-->
+<p>The <a href="/blog/hi-lo-running-and-true-count.html">Hi-Lo count</a> gives every card one of three values: +1 for 2 to 6, 0 for 7 to 9 and −1 for 10 to ace. Thirteen ranks become three groups, which is what makes the count easy to keep. It also means the count cannot tell some quite different shoes apart. This post covers what is lost and why no count recovers all of it. It is theory about a practice game, not a suggestion to play for money.</p>
+
+<h2>Aces and tens share a tag but not a job</h2>
+<p>In one 52-card deck there are 16 ten-value cards (10, J, Q, K) and 4 aces. Hi-Lo scores all 20 at −1, so removing an ace and removing a ten move the running count identically. Their effects on the game are not the same:</p>
+<ul>
+  <li><strong>Aces</strong> are half of every natural. A natural needs one ace and one ten-value card, and the player's natural is paid 3:2, so the frequency of aces sets how often the bonus arrives.</li>
+  <li><strong>Tens</strong> drive standing, doubling and insurance. Stiff hands break on them, doubles on 10 and 11 want them, and insurance depends on nothing else.</li>
+</ul>
+<p>Here is a case you can check by hand. Take a single deck and remove two cards. In remainder A they were aces; in B they were tens. Either way the running count is −2 and 50 cards remain.</p>
+<table class="paytable-compare">
+  <caption>Two 50-card remainders of one deck, both at a Hi-Lo running count of −2.</caption>
+  <thead>
+    <tr><th></th><th>Aces left</th><th>Tens left</th><th>Chance a two-card hand is a natural</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A: two aces gone</th><td>2</td><td>16</td><td>2.61%</td></tr>
+    <tr><th scope="row">B: two tens gone</th><td>4</td><td>14</td><td class="good">4.57%</td></tr>
+  </tbody>
+</table>
+<p>The natural chance is 2 × aces × tens ÷ (50 × 49). That gives 64 ÷ 2,450 for A and 112 ÷ 2,450 for B. A fresh deck sits at 4.83%, from 2 × 4 × 16 ÷ (52 × 51). B has lost little of the bonus; A has lost nearly half. The tens tell the opposite story: A is 32% tens and B 28%, and insurance needs one in three. One count describes both, and it cannot say which is which.</p>
+
+<h2>The ace side count</h2>
+<p>The standard repair is to keep a second tally beside the running count. Each deck dealt should show 4 aces, and the side count records whether you are ahead or behind that pace. Extra aces gone means an ace-poor shoe and the count is shaded down; fewer gone means an ace-rich shoe and it is shaded up. The adjustment is small, so this is a refinement, not a new system.</p>
+<p>What it buys is better <em>bet sizing</em>: only the player's natural is paid 3:2, so the ace tally predicts the player's edge better than the main count alone. The catch is that it does not help playing decisions. When you choose to double or stand you care about tens and small cards, and the ace shade only blurs that. So the adjusted figure is for sizing a bet and the unadjusted count is for choosing a play.</p>
+<p>Two families follow from that split. <strong>Ace-adjusted</strong> systems keep the −1 on aces and correct with a side count. <strong>Ace-reckoned</strong> systems give the ace no tag in the main count, as Hi-Opt I does, and track aces separately. Either way it is a second number to carry.</p>
+
+<p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> includes Hi-Lo card counting practice and insurance, with an explanation for each play, which covers the base count this post builds on.</p>
+
+<h2>Three yardsticks, and why no count wins all three</h2>
+<p>Counting systems are compared on three measures, each running from 0 to 1:</p>
+<ol class="ranked">
+  <li><strong>Betting correlation:</strong> how closely the count tracks the player's real edge on the next hand.</li>
+  <li><strong>Playing efficiency:</strong> how much of the available gain from changing basic-strategy plays the count captures.</li>
+  <li><strong>Insurance correlation:</strong> how well the count signals when the share of tens is high enough to make insurance worth taking.</li>
+</ol>
+<p>Hi-Lo's commonly quoted figures are 0.97, 0.51 and 0.76. Published tables differ slightly with the rules assumed, but the pattern is stable.</p>
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of Hi-Lo's three efficiency measures: betting correlation 0.97, insurance correlation 0.76, playing efficiency 0.51">
+    <div class="bar-row" title="Betting correlation: 0.97"><span class="bar-label">Betting correlation</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.9700)"></span><span class="bar-val">0.97</span></span></div>
+    <div class="bar-row" title="Insurance correlation: 0.76"><span class="bar-label">Insurance correlation</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7600)"></span><span class="bar-val">0.76</span></span></div>
+    <div class="bar-row hl" title="Playing efficiency: 0.51"><span class="bar-label">Playing efficiency</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.5100)"></span><span class="bar-val">0.51</span></span></div>
+  </div>
+  <figcaption>The commonly quoted Hi-Lo figures on a scale where 1 is a perfect match. Playing efficiency is the lowest of the three, and it is the measure that tens and the middle cards drive.</figcaption>
+</figure>
+<p>No single count maximises all three because each measure wants different tags. Betting depends on the whole shoe, aces included. Playing decisions depend on which ranks swing particular plays, and the ace barely does. Insurance depends only on tens against everything else, so a count tagging only tens would track it best. A count with one tag per rank must compromise, and the ace is the clearest case: tag it −1 and betting improves, tag it 0 and playing improves.</p>
+<p>That trade-off is the real answer to what Hi-Lo leaves out: precision, given up on purpose for a count that is quick to keep and hard to get wrong.</p>
+
+<h2>The zeros are not all neutral</h2>
+<p>Hi-Lo tags 7, 8 and 9 as zero, and the count treats them as irrelevant. They are not neutral for every decision. Counts that carry that information use more tags: Wong Halves scores the 7 at +½ and the 9 at −½, and Zen scores the 7 at +1. Their playing efficiency is higher than Hi-Lo's, and they cost more to keep accurately, the same trade-off again.</p>
+<p>The <a href="/blog/illustrious-18-index-plays.html">Illustrious 18</a> are playing changes, the <a href="/blog/blackjack-true-count-bet-ramp.html">bet ramp</a> is a betting measure and <a href="/blog/blackjack-insurance-explained.html">insurance</a> is a third job.</p>
+<p>The Play listing for <a href="/BlackjackCoach/">Blackjack Coach</a> mentions Hi-Lo practice and does not mention an ace side count, so this post is background theory, not a description of the app.</p>
+
+<div class="post-foot">
+  <p><a href="/BlackjackCoach/">Blackjack Coach: Learn 21</a> lets you choose a play, read the explanation and review your mistakes, either on the strategy chart or in practice rounds against the dealer at your own pace. The chart teaches fixed six-deck rules: the dealer stands on soft 17, with double after split and late surrender. Local training works offline. It is a learning app with no real-money gambling and no prizes, and practice does not guarantee gambling success.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.blackjackcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

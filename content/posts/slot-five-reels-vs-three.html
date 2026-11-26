@@ -1,0 +1,68 @@
+<!--
+{
+  "title": "Why five reels beat three for ways to win",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "BrasslightSlots",
+  "description": "On a three-row slot, ways to win equal 3 to the power of the reels: 27 on three, 243 on five. Each extra reel triples the count.",
+  "summary": "On a three-row ways slot every reel multiplies the count by 3, so five reels give 243 ways against 27 on three. That is enough routes for frequent small wins and a ladder of bigger ones.",
+  "standfirst": "Add one reel to a three-row slot and the number of ways to win does not rise by three. It is multiplied by three. That single fact explains why five reels became the standard layout."
+}
+-->
+<p>A ways-to-win game counts every left-to-right path across the screen, one cell per reel. The earlier posts on <a href="/blog/what-243-ways-to-win-means.html">what 243 ways means</a> and on <a href="/blog/slot-ways-left-to-right.html">why wins read from the left</a> cover how a win is counted. This one is about the reel count itself, and why it matters so much more than it looks.</p>
+
+<h2>Multiply, do not add</h2>
+<p>With three rows, each reel offers three cells, and a path picks exactly one of them. So every reel you add multiplies the number of paths by 3:</p>
+<ol class="ranked">
+  <li><strong>1 reel:</strong> 3 ways.</li>
+  <li><strong>2 reels:</strong> 3 × 3 = 9 ways.</li>
+  <li><strong>3 reels:</strong> 3 × 3 × 3 = 27 ways.</li>
+  <li><strong>4 reels:</strong> 27 × 3 = 81 ways.</li>
+  <li><strong>5 reels:</strong> 81 × 3 = 243 ways.</li>
+  <li><strong>6 reels:</strong> 243 × 3 = 729 ways.</li>
+  <li><strong>7 reels:</strong> 729 × 3 = 2,187 ways.</li>
+</ol>
+<p>Compare that with the screen. Three reels show 3 × 3 = 9 cells and five reels show 5 × 3 = 15, so the screen is only six cells bigger, or about one and two-thirds times the size. The number of ways, though, goes from 27 to 243, which is nine times as many: two extra reels, and two extra factors of 3, since 3 × 3 = 9. Cells grow by addition. Ways grow by repeated multiplication, which is what an exponential is.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart on a logarithmic scale: ways to win triple with every reel, from 3 on one reel to 243 on five and 2,187 on seven, so five reels already give 243">
+    <div class="bar-row" title="1 reel: 3 ways"><span class="bar-label">1 reel</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1429)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="2 reels: 9 ways"><span class="bar-label">2 reels</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2857)"></span><span class="bar-val">9</span></span></div>
+    <div class="bar-row" title="3 reels: 27 ways"><span class="bar-label">3 reels</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4286)"></span><span class="bar-val">27</span></span></div>
+    <div class="bar-row" title="4 reels: 81 ways"><span class="bar-label">4 reels</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5714)"></span><span class="bar-val">81</span></span></div>
+    <div class="bar-row hl" title="5 reels: 243 ways"><span class="bar-label">5 reels</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.7143)"></span><span class="bar-val">243</span></span></div>
+    <div class="bar-row" title="6 reels: 729 ways"><span class="bar-label">6 reels</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8571)"></span><span class="bar-val">729</span></span></div>
+    <div class="bar-row" title="7 reels: 2,187 ways"><span class="bar-label">7 reels</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">2,187</span></span></div>
+  </div>
+  <figcaption>Ways to win on a three-row slot, by number of reels, drawn on a logarithmic scale: each step of bar length is ten times more ways. Notice that the bars rise in equal steps, because every reel multiplies the count by the same 3.</figcaption>
+</figure>
+
+<p>On a log scale, steady multiplication shows up as a staircase of equal steps. Each bar in the chart is the same length longer than the last, and that regularity is the signature of exponential growth. A straight rise on an ordinary scale would show 3, 6, 9, 12, 15 instead.</p>
+
+<h2>What it does to how often you win</h2>
+<p>A run of matching symbols has to reach a minimum length before it pays. On a three-reel game that minimum is the whole screen: a win means a match on reel 1, reel 2 and reel 3, with nothing left over. On a five-reel game a run of three is already a win, and the two reels that follow can add more.</p>
+<p>Here is an illustration with made-up odds, not any real game. Suppose a given symbol shows somewhere on a reel one time in four. The chance of it covering the first three reels is 1/4 × 1/4 × 1/4 = 1/64. On three reels that is the only kind of win available. On five reels, 1/64 is merely the entry ticket. Reaching a fourth reel is 1/4 × 1/64 = 1/256, and a fifth is 1/4 × 1/256 = 1/1024.</p>
+<p>That gives a five-reel game a ladder of three rungs, each about four times rarer than the one below. The common rung can pay a little and the rare rungs can pay a lot, and every one of them is still counted across all 243 paths. A three-reel game has one rung. To make wins land often it has to make its winning symbols common, which pushes every prize down together. Five reels let a designer separate the frequent, small win from the rare, large one. For how a game measures this, see <a href="/blog/slot-hit-frequency.html">hit frequency</a>.</p>
+<p>The same maths is why the ways count matters. With more paths, a single screen has more chances to contain a run, so the three-reel entry ticket on a five-reel game turns up with a count of paths attached to it. <a href="/BrasslightSlots/">Brasslight Slots</a> is built on this layout, with 5 reels, 3 rows and 243 ways to win on every spin.</p>
+
+<h2>Why each win has to be small</h2>
+<p>More ways does not mean a bigger return. What a game gives back overall is set by the pay table together with the symbols on each reel, a subject covered in <a href="/blog/slot-reel-strips-and-stops.html">reel strips and stops</a>. If 243 paths find wins more often than 27 do, the pay for each one has to be lower to keep the overall return where it was.</p>
+<p>So a ways slot on five reels tends to produce many small wins, plenty of them worth less than the bet, and leaves the large amounts to the long runs and the bonus features. This is a design trade, not a flaw: the screen is busier and pays more often, but any single payment is modest.</p>
+
+<h2>Why five became the standard</h2>
+<p>Three reels was the shape of the classic mechanical machine, and it suited the hardware. Video screens removed that limit, and five reels settled in as the sweet spot for three reasons that you can check against the figures above.</p>
+<ol class="ranked">
+  <li><strong>Enough paths.</strong> 243 is a large count, but it is not out of reach. With four reels the figure is 81, which gives fewer routes to a win and a ladder of just two rungs, runs of three and four.</li>
+  <li><strong>A full ladder.</strong> Runs of three, four and five reels give three distinct prize levels, so frequent small wins and rare big ones can sit on the same screen.</li>
+  <li><strong>Diminishing returns beyond.</strong> A sixth reel triples the paths to 729, but on the same one-in-four illustration a six-reel run is 1/4 × 1/1024 = 1/4096. The new top rung is so rare that most players would almost never see it, while the screen gets wider and harder to read at a glance.</li>
+</ol>
+<p>Five reels by three rows gives a screen that fits comfortably in landscape, shows 15 symbols at a glance, and carries enough exponential growth to support a full range of wins. That balance, more than any single rule, is why the layout stuck. You can watch the 243 paths work for yourself in <a href="/BrasslightSlots/">Brasslight Slots</a>.</p>
+
+<div class="callout">
+  <p>The short version: ways to win are 3 raised to the number of reels. Five reels give 3<sup>5</sup> = 243, nine times as many as the 3<sup>3</sup> = 27 of a three-reel slot, and they allow a three-rung ladder of wins.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> has 5 reels, 3 rows and 243 ways to win on every spin. Three balls of yarn open the Yarn Pick bonus, where three hidden prizes are worth up to 25 times your bet, and Turbo and Auto spin are there for faster play. It is a free game for adults, with no ads and nothing to buy: there is no real-money play, and the coins and gems have no cash value and cannot be bought, sold or cashed out.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,74 @@
+<!--
+{
+  "title": "What one wrong hold per hundred hands costs",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "VideoPoker",
+  "description": "One misplayed hand in a hundred costs anywhere from 0.12 to 12 points of Jacks or Better return. Which hand you get wrong matters more than how often.",
+  "summary": "Cost = error rate x average EV lost per error. At one error per 100 hands, a kicker slip costs 0.12 points of return and keeping a flush over four to a royal costs 12.43.",
+  "standfirst": "Saying you misplay one hand in a hundred tells you almost nothing about what it costs. The size of the mistake decides, and the sizes differ by a factor of about a hundred."
+}
+-->
+<p>Played perfectly, full-pay 9/6 Jacks or Better returns about 99.54% in the long run. A good player who is not perfect gives up a few tenths of a percentage point of that. People describe their own play as an error rate, such as &ldquo;I get about one hand in a hundred wrong&rdquo;, but that number alone cannot say how much return is lost. Mistakes come in very different sizes.</p>
+
+<h2>The arithmetic</h2>
+<p>Return lost = how often you err &times; how much expected value each error gives away. Expected value (EV) is measured in bets: the average final payout of a hold, with a bet as the unit. If the correct hold is worth 1.54 bets and the one you chose is worth 1.42, the error costs 0.12 bets.</p>
+<p>One error per 100 hands is 0.01 errors per hand. If each costs L bets, you give up 0.01 &times; L bets per hand, which is L percentage points of return. So at that error rate, the cost in points is simply the size of the error in bets. A 0.12-bet slip costs 0.12 points and a 2.51-bet slip costs 2.51 points, even though both happen exactly once in a hundred hands.</p>
+
+<h2>Five errors, five sizes</h2>
+<p>These figures are exact averages over every possible draw, one example hand each, on the 9/6 table. Another hand of the same type can differ in the second decimal place.</p>
+<ul>
+  <li><strong>A kicker kept with a pair.</strong> J&spades; J&hearts; A&spades; 7&diams; 3&clubs;. Holding the jacks is worth 1.54 bets; adding the ace is worth 1.42. Cost: 0.12.</li>
+  <li><strong>A low pair kept over four to a flush.</strong> 5&spades; 5&diams; K&diams; 9&diams; 3&diams;. Four to the flush is worth 1.21; the pair of fives is worth 0.82. Cost: 0.39.</li>
+  <li><strong>A made straight broken for three to a royal.</strong> T&spades; J&spades; Q&spades; 9&diams; 8&clubs;. The straight is worth 4.00; the three suited broadway cards are worth 1.49. Cost: 2.51.</li>
+  <li><strong>A made flush broken for three to a royal.</strong> A&hearts; K&hearts; Q&hearts; 8&hearts; 3&hearts;. The flush is worth 6.00; the three royal cards are worth 1.34. Cost: 4.66.</li>
+  <li><strong>A made flush kept over four to a royal.</strong> A&hearts; K&hearts; Q&hearts; J&hearts; 3&hearts;. The flush is worth 6.00; discarding the three is worth 18.43. Cost: 12.43.</li>
+</ul>
+<p>The last one is the reverse of the others. Here the mistake is not breaking a made hand. It is the only case where breaking a flush is correct: four to a royal flush is the one draw that beats a flush you already hold. The <a href="/blog/video-poker-expected-value-holds.html">expected value post</a> explains how each of these numbers is built from the draws.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of average expected value lost per error in bets: keeping a flush over four to a royal costs 12.43, about a hundred times a kicker slip at 0.12">
+    <div class="bar-row hl" title="Flush kept over four to a royal: 12.43"><span class="bar-label">Flush kept over four to a royal</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">12.43</span></span></div>
+    <div class="bar-row" title="Flush broken for three to a royal: 4.66"><span class="bar-label">Flush broken for three to a royal</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3749)"></span><span class="bar-val">4.66</span></span></div>
+    <div class="bar-row" title="Straight broken for three to a royal: 2.51"><span class="bar-label">Straight broken for three to a royal</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2019)"></span><span class="bar-val">2.51</span></span></div>
+    <div class="bar-row" title="Low pair kept over four to a flush: 0.39"><span class="bar-label">Low pair kept over four to a flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0314)"></span><span class="bar-val">0.39</span></span></div>
+    <div class="bar-row" title="Kicker kept with a pair: 0.12"><span class="bar-label">Kicker kept with a pair</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0097)"></span><span class="bar-val">0.12</span></span></div>
+  </div>
+  <figcaption>Expected value lost each time the error is made, in bets, on the 9/6 table. The most expensive error costs about 100 times the cheapest.</figcaption>
+</figure>
+
+<h2>One in a hundred, five ways</h2>
+<p>Subtract each error, made once per hundred hands, from the 99.54% baseline:</p>
+<ul>
+  <li>Kicker with a pair: 99.54 &minus; 0.12 = 99.42%.</li>
+  <li>Low pair over four to a flush: 99.54 &minus; 0.39 = 99.15%.</li>
+  <li>Straight broken for three to a royal: 99.54 &minus; 2.51 = 97.03%.</li>
+  <li>Flush broken for three to a royal: 99.54 &minus; 4.66 = 94.88%.</li>
+  <li>Flush kept over four to a royal: 99.54 &minus; 12.43 = 87.11%.</li>
+</ul>
+<p>The same error rate produces returns from 99.42% down to 87.11%. A single flush broken for three to a royal gives away as much as about 39 kicker slips (4.66 &divide; 0.12), so the rate is only half of the picture.</p>
+<p>There is a catch, and it works in the player&rsquo;s favour. The expensive spots are rare. You cannot botch a four-to-a-royal flush once per hundred hands, because you are not dealt one that often. The honest formula has three parts: how often the spot arrives, how often you get it wrong, and what it costs when you do. The cheap errors arrive constantly and the expensive ones seldom, which is why a typical player&rsquo;s losses come out at a few tenths rather than whole points.</p>
+
+<p>The <a href="/VideoPoker/">Video Poker app</a> lists a full paytable on screen for each variant, so you can check which table you are on before comparing it with these figures; they are for 9/6 only.</p>
+
+<h2>Two players, the same leak</h2>
+<p>A player who gives up 0.3 points could be making a kicker-sized slip about two or three times per hundred hands (0.12 &times; 2.5 = 0.30). Another could be losing exactly the same amount by making a 2.51-bet error once in about 840 hands (2.51 &divide; 840 = 0.003 bets per hand, or 0.3 points). Their return is identical. Their habits are not: the first is careless about small things, and the second has one rule wrong that surfaces occasionally.</p>
+<p>This is why a total win rate hides the problem. A hundred-hand sample is too short to show a rare error at all. What separates them is looking at individual decisions.</p>
+
+<h2>Learn the expensive ones first</h2>
+<p>The ranking above gives an order for study that you can check against any strategy table:</p>
+<ol>
+  <li>A made flush, straight or full house is never broken for fewer than four cards to a royal flush.</li>
+  <li>Four to a royal flush beats a made flush and a made straight. Nothing else does.</li>
+  <li>Between a low pair and four to a flush, the flush draw is worth about 0.39 bets more. The <a href="/blog/jacks-or-better-low-pair-vs-four-flush.html">low pair post</a> covers the whole comparison.</li>
+  <li>A kicker beside a pair is the cheapest mistake of the five. Fix it last.</li>
+</ol>
+<p>Priorities should follow cost per occurrence, not how often a mistake is noticed.</p>
+
+<h2>Using hints to find your own leaks</h2>
+<p>The listing says the app has strategy hints you can turn on to learn which cards to hold. A workable method is to choose your hold first, then look at the hint, and tally only the disagreements. If most of them are kickers and marginal draws, you are close to the 99.54% baseline. If any are broken made hands, those are the ones worth a closer look, because they cost the most per occurrence.</p>
+
+<div class="post-foot">
+  <p><a href="/VideoPoker/">Video Poker: Jacks or Better</a> plays offline with free chips that have no cash value, no real money and no ads, so every hand is practice.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

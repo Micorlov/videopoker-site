@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "Why a slot counts a win up instead of showing it at once",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "BrasslightSlots",
+  "description": "A rolling win counter gives a win a duration in proportion to its size. At a fixed rate that line gets absurd, so slots cap it. The arithmetic, worked through.",
+  "summary": "A win that counts up takes time in proportion to its size, so a fixed rate gives 200 seconds for a 1,000-times win. That is why the count is capped, sped up or skippable.",
+  "standfirst": "The ticking total after a big win is not a loading delay. It is a deliberate design choice, and the arithmetic behind it explains why every count-up has to be capped."
+}
+-->
+<p>When a slot pays well, the win figure rarely appears whole. It ticks upward, the coins pour in, the sound climbs, and only then does the balance settle on its new value. The result was fixed the instant the reels stopped, so the counting adds no information about the spin. It is a piece of interface design, and it does three separate jobs. <a href="/BrasslightSlots/">Brasslight Slots</a> lists Big Win and Mega Win celebrations with confetti and counting coins, which is this idea in its most visible form. The listing gives no count rate or timings, so every rate below is a labelled example, not the app&rsquo;s own.</p>
+
+<h2>What the count-up is for</h2>
+<p><strong>It gives a win a duration that follows its size.</strong> A win worth half the bet resolves in a blink; a win worth a hundred bets holds the player&rsquo;s attention for seconds. Screen time becomes a rough measure of size without reading a digit.</p>
+<p><strong>It separates the result of the spin from the update to the balance.</strong> On a 243-ways slot, several ways can pay on the same spin, and the player needs a moment to see which symbols paid. If the balance jumped at once, the eye would go to a changed number and miss the cause.</p>
+<p><strong>It gives the animation and sound somewhere to land.</strong> Celebration effects need a beginning, a rising middle and an end. A counter that finishes provides the end: the sound peaks, the figure stops, the balance settles. The listing has sound effects, music and haptics that can be switched on or off.</p>
+
+<h2>The arithmetic of a fixed rate</h2>
+<p>Take the simplest possible design: the counter climbs at a fixed rate, and we measure wins in multiples of the bet so the maths holds at any stake. Suppose it counts at 5&times; the bet per second. Time is then the win divided by the rate, so it is directly proportional to the size of the win.</p>
+<p>A 5&times; win takes 1 second, a 50&times; win 10 seconds, and a 1,000&times; win 200 seconds, which is three minutes and twenty seconds of watching a number. The table has the rest.</p>
+
+<h2>Why the curve has to be capped</h2>
+<p>Machines handle this in one of three ways, often combined. They switch to a faster rate once the total passes a threshold, they count in coarse steps, or they let the player tap to skip to the final figure. All three leave small wins on the proportional line and bend the line for large ones.</p>
+<p>Work it through with a faster rate past 50&times;. The first 50&times; counts at 5&times; per second and takes 10 seconds. The rest counts at 50&times; per second.</p>
+<table class="paytable-compare">
+  <caption>Count time for a win of each size, as a multiple of the bet. Toy rates: 5&times; per second throughout, or 5&times; per second up to 50&times; and 50&times; per second beyond.</caption>
+  <thead>
+    <tr><th>Win</th><th>Fixed rate</th><th>Faster past 50&times;</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">5&times; bet</th><td>1 s</td><td>1 s</td></tr>
+    <tr><th scope="row">20&times; bet</th><td>4 s</td><td>4 s</td></tr>
+    <tr><th scope="row">50&times; bet</th><td>10 s</td><td>10 s</td></tr>
+    <tr><th scope="row">100&times; bet</th><td>20 s</td><td class="good">11 s</td></tr>
+    <tr><th scope="row">500&times; bet</th><td>100 s</td><td class="good">19 s</td></tr>
+    <tr><th scope="row">1,000&times; bet</th><td>200 s</td><td class="good">29 s</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: at a fixed 5 times the bet per second, count time climbs in a straight line to 200 seconds for a 1,000 times win; with a faster rate past 50 times it flattens to 29 seconds.">
+    <line class="grid" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="40" y="214" text-anchor="end">0 s</text>
+    <line class="grid" x1="46" x2="386" y1="120" y2="120"/>
+    <text x="40" y="124" text-anchor="end">100 s</text>
+    <line class="grid" x1="46" x2="386" y1="30" y2="30"/>
+    <text x="40" y="34" text-anchor="end">200 s</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46" y="226" text-anchor="middle">0&times;</text>
+    <text x="216" y="226" text-anchor="middle">500&times;</text>
+    <text x="398" y="226" text-anchor="end">1,000&times;</text>
+    <text x="216" y="244" text-anchor="middle">Win as a multiple of the bet</text>
+    <text x="4" y="14" text-anchor="start">Count time</text>
+    <line class="ref" x1="63" x2="63" y1="196" y2="172"/>
+    <text x="52" y="166" text-anchor="start">50&times;: 10 s</text>
+    <path class="line" d="M46,210 L386,30"/>
+    <path class="line hl" d="M46,210 L63,201 L80,200.1 L216,192.9 L386,183.9"/>
+    <g class="hit"><title>1,000&times; win, fixed rate: 200 s</title><circle cx="386" cy="30" r="10" fill="transparent"/><circle class="dot" cx="386" cy="30" r="4.5"/></g>
+    <g class="hit"><title>500&times; win, fixed rate: 100 s</title><circle cx="216" cy="120" r="10" fill="transparent"/><circle class="dot" cx="216" cy="120" r="4.5"/></g>
+    <g class="hit"><title>50&times; win, either rate: 10 s</title><circle cx="63" cy="201" r="10" fill="transparent"/><circle class="dot" cx="63" cy="201" r="4.5"/></g>
+    <g class="hit"><title>500&times; win, faster past 50&times;: 19 s</title><circle cx="216" cy="192.9" r="10" fill="transparent"/><circle class="dot hl" cx="216" cy="192.9" r="4.5"/></g>
+    <g class="hit"><title>1,000&times; win, faster past 50&times;: 29 s</title><circle cx="386" cy="183.9" r="10" fill="transparent"/><circle class="dot hl" cx="386" cy="183.9" r="4.5"/></g>
+    <text x="384" y="22" text-anchor="end">Fixed rate: 200 s</text>
+    <text x="208" y="114" text-anchor="end">500&times;: 100 s</text>
+    <text class="strong" x="216" y="184" text-anchor="middle">500&times;: 19 s</text>
+    <text class="strong" x="384" y="172" text-anchor="end">Faster past 50&times;: 29 s</text>
+  </svg>
+  <figcaption>Count time against win size, at the toy rates in the table. The fixed rate is a straight line to 200 seconds; the faster rate past 50&times; flattens to 29 seconds at 1,000&times;. The two lines are identical up to 50&times;.</figcaption>
+</figure>
+
+<p>Both lines agree up to 50&times;, so a modest win is unaffected. Beyond it, the 1,000&times; win drops from 200 seconds to 29, and the 500&times; win from 100 to 19. The curve is still rising, because the faster count still takes longer for a bigger win, but each extra bet of win now costs a fiftieth of a second instead of a fifth.</p>
+<p>A harder cap sets a ceiling on total time instead, say 10 seconds whatever the amount, and raises the rate to fit. Tap-to-skip hands the ceiling to the player.</p>
+
+<h2>Paced to the win, not the balance</h2>
+<p>A count-up shows how much was just won, not how much you now hold, and the two are very different sizes. New players in Brasslight Slots start with 5,000,000 coins, a figure given in the listing. Suppose, as a toy example, a bet of 10,000 coins and a 20&times; win of 200,000, which at 5&times; per second takes 4 seconds. That is 50,000 coins a second. Counting the whole balance from zero to 5,200,000 at the same rate would take 104 seconds. The win is the only thing that just changed, so the win sets the duration, and the balance simply moves by that amount while the count runs.</p>
+<p>The balance also grows over a session, so a rule tied to its size would make the same win last longer for a richer player. Pacing to the win keeps a 20&times; win a 4-second event whatever you hold. The five-million-coin start is covered in <a href="/blog/slot-five-million-coin-start.html">what a big starting balance is for</a>.</p>
+
+<h2>What it does to how a win feels</h2>
+<p>The honest reading is that a win counted up feels larger than the same figure shown at once. The number is identical. What changes is the time you spend with it: seconds of climbing digits and rising sound register as more than a single flash. The count shows no more than the result, but it holds your attention longer, and that produces the feeling of size.</p>
+<p>That is worth knowing as a player. The size of the win is set when the reels stop, as explained in <a href="/blog/rng-picks-each-slot-spin.html">how the RNG picks each spin</a>, and the count-up has no influence on it. A long, loud count means a large multiple of the bet; it does not mean a better spin to come. Equally, most wins are smaller than the bet, as the post on <a href="/blog/slot-hit-frequency.html">hit frequency</a> shows, and those pass almost without ceremony: a win of half the bet takes 0.1 seconds at 5&times; per second.</p>
+
+<div class="callout">
+  <p>Time proportional to amount is the right rule for small wins and an unusable one for large wins. Every count-up is a straight line with a bend in it, and the bend is the design.</p>
+</div>
+
+<h2>Where this fits in a free game</h2>
+<p>Everything here is presentation. The count changes nothing about the odds, the payout or the next spin, much as <a href="/blog/slot-turbo-and-auto-spin.html">Turbo and Auto spin change speed but not outcomes</a>. In Brasslight Slots the coins and gems have no monetary value and cannot be bought, sold or cashed out, so a celebration is feedback in a free game and nothing more.</p>
+
+<div class="post-foot">
+  <p><a href="/BrasslightSlots/">Brasslight Slots: Casino Games</a> is a cat-themed 5-reel slot with 243 ways to win, a Yarn Pick bonus, a daily prize wheel and levelling up. It uses virtual coins only, there is no real money in it, and coins and gems have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.catslots.cat_slot_machine"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,64 @@
+<!--
+{
+  "title": "Position in PLO: why acting last is worth more",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "OmahaPoker",
+  "description": "Acting last in Pot-Limit Omaha means seeing eight opponents act first and setting the price of every draw. Why position counts for more than in Hold'em.",
+  "summary": "On the button you act after all eight opponents, and the pot cap lets you choose whether the pot stays at 12, grows to 36 or reaches 108. Four hole cards and a capped bet make that worth more in PLO than in Hold'em.",
+  "standfirst": "Position is worth more in Pot-Limit Omaha than in Hold'em, and the reasons are structural: hands run close, draws are big, and the last player to act decides how big the pot gets."
+}
+-->
+<p>Every poker player is told that position matters. In Pot-Limit Omaha it matters more, and the reason is not style or habit. Two features of the game, four hole cards and a bet capped by the pot, give the last player to act an advantage that the same seat does not carry in Hold'em. This post counts that advantage, then follows it into opening ranges.</p>
+
+<h2>The order of play at a nine-handed table</h2>
+<p>Seats run clockwise from the button: button, small blind, big blind, then under the gun (UTG), UTG+1, UTG+2, the lojack, the hijack and the cutoff. Before the flop the first to act is UTG, the seat after the big blind, and the big blind acts last. After the flop the order restarts at the small blind, so the two players who closed the betting before the flop now speak first, and the button acts last on the flop, turn and river.</p>
+<p>Count the opponents who have already acted when your turn comes on the flop, assuming all nine are still in. The small blind has seen none. The big blind has seen 1, UTG 2, UTG+1 3, UTG+2 4, the lojack 5, the hijack 6 and the cutoff 7. The button has seen all 8.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of opponents who have acted before you on the flop, from 8 on the button to 0 in the small blind">
+    <div class="bar-row hl" title="Button: 8"><span class="bar-label">Button</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">8</span></span></div>
+    <div class="bar-row" title="Cutoff: 7"><span class="bar-label">Cutoff</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.8750)"></span><span class="bar-val">7</span></span></div>
+    <div class="bar-row" title="Hijack: 6"><span class="bar-label">Hijack</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7500)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="Lojack: 5"><span class="bar-label">Lojack</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6250)"></span><span class="bar-val">5</span></span></div>
+    <div class="bar-row" title="UTG+2: 4"><span class="bar-label">UTG+2</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.5000)"></span><span class="bar-val">4</span></span></div>
+    <div class="bar-row" title="UTG+1: 3"><span class="bar-label">UTG+1</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3750)"></span><span class="bar-val">3</span></span></div>
+    <div class="bar-row" title="UTG: 2"><span class="bar-label">UTG</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2500)"></span><span class="bar-val">2</span></span></div>
+    <div class="bar-row" title="Big blind: 1"><span class="bar-label">Big blind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1250)"></span><span class="bar-val">1</span></span></div>
+    <div class="bar-row" title="Small blind: 0"><span class="bar-label">Small blind</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0000)"></span><span class="bar-val">0</span></span></div>
+  </div>
+  <figcaption>Opponents who have already acted when your turn comes on the flop, nine-handed with everyone still in. The button sees all 8; the small blind sees none.</figcaption>
+</figure>
+
+<p>Some players fold, so the counts shrink in practice. The ordering does not: whoever is left, the button speaks last, on the flop, turn and river alike.</p>
+
+<h2>Why four hole cards raise the value</h2>
+<p>In Hold'em a hand is often decided early: a pair against two overcards, and one bet takes the pot. In Omaha each player holds six two-card combinations and may use only two of them, so the hands run close in equity and few starting hands are clear underdogs. More players see the flop, and when they do, the draws are large. A wrap can have <a href="/blog/omaha-wrap-straight-draws.html">20 outs</a>.</p>
+<p>So more pots reach the turn and river with several live hands. On each of those streets the last player acts with the most information: every bet, check and fold of that street, before committing a chip. Hold'em has the same edge, but fewer pots stay contested late enough for it to compound.</p>
+
+<h2>The cap: the last seat sets the pot</h2>
+<p>The pot-limit cap is the second half of the argument. As the <a href="/blog/omaha-pot-limit-vs-no-limit.html">earlier post on the cap</a> showed, the largest raise-to facing a bet of B into a pot of P is P + 3B. Because the ceiling grows from the pot, the player who acts last decides which ceiling the hand reaches. Take a flop pot of 12 and a first player who bets the pot, 12:</p>
+<ul>
+  <li><strong>Button calls:</strong> the pot is 12 + 12 + 12 = 36, three times the start.</li>
+  <li><strong>Button raises the maximum:</strong> the raise-to is 12 + 3 &times; 12 = 48. If the first player calls the extra 36, the pot is 108, nine times the start.</li>
+  <li><strong>First player checks:</strong> the button can check back, leaving the pot at 12 and seeing a free card.</li>
+</ul>
+<p>The last player therefore chooses between a pot of 12, 36 or 108 on that street, while the first can only choose the opening bet. The first to act cannot close the action; the last always can, by calling. The arithmetic of one pot-sized bet is <a href="/blog/pot-limit-omaha-pot-sized-bet.html">set out here</a>.</p>
+<p>You can try the 1/2 pot, 3/4 pot, pot and all-in bet shortcuts, and read your win chance and the pot odds on a call, at the pot-limit tables in <a href="/OmahaPoker/">Omaha Poker</a>.</p>
+
+<h2>What a draw pays out of position</h2>
+<p>A nine-out flush draw on the flop completes by the river 1 &minus; (38 &divide; 47 &times; 37 &divide; 46) = 35.0% of the time. A pot-sized bet asks for 12 to win 36, so the call needs 12 &divide; (12 + 12 + 12) = 33.3%. That is just affordable on paper.</p>
+<p>The 35.0% assumes you see both cards for the one price. Out of position you do not. If you call on the flop and miss the turn, the opponent can bet again, and with one card to come the draw completes 9 &divide; 46 = 19.6% of the time against a price of 33.3%. A 13-out wrap is 13 &divide; 46 = 28.3%, still short. In position the picture reverses. When the opponent checks to you, you check back and see the river for nothing. When you hit, you can raise to the cap and build the pot to 108 yourself. It is the same draw, but the player who acts last pays less for it and wins more when it arrives.</p>
+
+<h2>The practical consequence for opening ranges</h2>
+<p>The button opens the widest range at the table. Only the two blinds are left to act behind it, and it will have the last word after the flop whichever of them calls. A UTG player has eight opponents still to act and, if called, will usually be out of position to at least one. So the range narrows as you move toward UTG, and a wide button range of connected, suited and <a href="/blog/omaha-double-suited-hands.html">double-suited hands</a> pays where the same hands from UTG do not.</p>
+<p>From the blinds the opposite applies. You close the action before the flop but you act first on every later street, so a hand that needs cheap cards is a poor fit. Call from the blinds with hands that can make the nuts, such as well-connected <a href="/blog/omaha-rundowns.html">rundowns</a>, and fold <a href="/blog/omaha-danglers.html">danglers</a> that you might have called from the button. The pre-flop starting-hand grade in <a href="/OmahaPoker/">Omaha Poker</a> is built to show which four-card hands are worth playing, and it is a sensible baseline to loosen on the button and tighten in the blinds.</p>
+
+<div class="callout">
+  <p>The rule in one line: on the button, eight opponents act before you and you choose whether the pot stays at 12, goes to 36 or to 108; in the small blind none do, and the choice is made for you.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo and 5-Card Omaha against bots set to Easy, Medium or Hard, with a pre-flop starting-hand grade and live hand insight showing your win chance and pot odds. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

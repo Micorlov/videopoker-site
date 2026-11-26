@@ -1,0 +1,54 @@
+<!--
+{
+  "title": "Beat the Dealer: how basic strategy was worked out",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "Blackjack21",
+  "description": "In 1956 four Army engineers found blackjack's best play on desk calculators; Thorp and Braun later used IBM machines. It is worth about five points of edge.",
+  "summary": "Basic strategy was computed, not guessed: four engineers in 1956, then Thorp in 1962 and Braun's simulations. It cuts the house edge to about 0.5%, against 5.5% for copying the dealer.",
+  "standfirst": "Basic strategy looks like a small chart on a card. It took a team with desk calculators, then a mainframe, to produce it, and the gap between it and instinct is about five points of every bet."
+}
+-->
+<p>In 1956 the Journal of the American Statistical Association printed a paper called "The Optimum Strategy in Blackjack". Its authors were Roger Baldwin, Wilbert Cantey, Herbert Maisel and James McDermott, four US Army engineers. It was the first serious attempt to say, for every hand against every dealer up-card, which play loses the least. Their answer is the ancestor of the chart now called basic strategy.</p>
+
+<h2>The question they were answering</h2>
+<p>The question is narrower than "how do I win?". It is: for this exact hand against this exact up-card, which move has the best average result? Each move, whether hit, stand, double down or split, has an expected value in fractions of the bet, and the best play is the one with the highest number.</p>
+<p>Getting that number means working out what the dealer will do. The dealer's play is fixed: draw to 16, stand on 17. From any up-card you can work out the chance of finishing on 17 to 21 or busting, which is the subject of <a href="/blog/blackjack-dealer-bust-rates.html">the dealer's bust rates</a>. Then you compare your options against that spread. Standing on 16 wins only when the dealer busts, while hitting risks a bust of your own but keeps the hand alive. Which is better depends on the up-card, and only an exact sum says by how much.</p>
+
+<h2>Why it needed so much computation</h2>
+<p>One comparison is easy. The trouble is how many there are. Every player total, hard or soft, pair or not, has to be set against each of ten up-cards. Hitting is recursive: after a hit you hold a new hand with its own best move, which depends on the cards that may follow. Doubling and splitting add more branches. The 1956 team did all of it on desk calculators, and simplified part of the problem to keep it finite. Their strategy left the player about 0.6% behind on each bet.</p>
+<p>Nobody could easily check that arithmetic by hand, or rerun it when a rule changed. Both problems eased once someone had a computer.</p>
+
+<h2>Thorp and the IBM</h2>
+<p>Edward Thorp, then at MIT, read the Baldwin paper and saw two things. A computer, in his case an IBM 704, could redo and extend the sums. And the sums treated every draw as if the deck never changed, when a real deck does. As low cards leave, the share of tens rises, which favours the player, so someone tracking what has been dealt can sometimes hold the edge. In 1962 he published this as <em>Beat the Dealer</em>, with a basic strategy for ordinary play and a counting system on top.</p>
+<p>The strategy was only half of its argument, but it was the half any player could use on the first night, and it survives in every blackjack guide. How the rules feed into the number is walked through in <a href="/blog/blackjack-house-edge-rule-by-rule.html">the house edge, rule by rule</a>.</p>
+
+<h2>Braun and the simulations</h2>
+<p>Julian Braun, an IBM programmer, took the next step. He ran large computer simulations, playing out enormous numbers of hands, to test and refine strategies, and his figures were used in the 1966 revised edition of <em>Beat the Dealer</em>. The same method could price a rule, such as <a href="/blog/six-deck-shoe-vs-single-deck.html">six decks against one</a>, rather than guess at it. Modern charts, one for each common rule set, descend from this work.</p>
+
+<p>The table in <a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> uses a six-deck shoe, the dealer standing on 17 and blackjack paying 3:2, and its coached first three hands begin with how a hand is played and how to read the dealer's up-card, which is where this history starts.</p>
+
+<h2>What the answer is worth</h2>
+<p>The figures below assume six decks, the dealer standing on all 17s, blackjack paying 3:2 and doubling after a split. They are long-run averages: the share of each bet the house keeps.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Basic strategy gives the house an edge of about 0.5% of each bet, against 5.5% for mimicking the dealer, 3.9% for never busting and about 2% for typical casual play">
+    <div class="bar-row" title="Mimic the dealer: about 5.5%"><span class="bar-label">Mimic the dealer</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">≈5.5%</span></span></div>
+    <div class="bar-row" title="Never bust: about 3.9%"><span class="bar-label">Never bust</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7091)"></span><span class="bar-val">≈3.9%</span></span></div>
+    <div class="bar-row" title="Typical casual play: about 2%"><span class="bar-label">Casual play</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.3636)"></span><span class="bar-val">≈2%</span></span></div>
+    <div class="bar-row hl" title="Basic strategy: about 0.5%"><span class="bar-label">Basic strategy</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.0909)"></span><span class="bar-val">≈0.5%</span></span></div>
+  </div>
+  <figcaption>House edge as a percentage of each bet under four approaches, six decks, dealer stands on all 17s, 3:2 naturals, doubling after splits. Basic strategy keeps about a tenth of the loss that mimicking the dealer produces.</figcaption>
+</figure>
+
+<p>A player who mimics the dealer, hitting to 16 and standing on 17 with no doubling or splitting, gives up about 5.5% of every bet, because the player acts first and a hand where both would bust is still the player's loss. A player who never busts, standing on every hard 12 or more, does better at about 3.9%, since the dealer busts often and this player collects those wins. But it gives up hands that a correct hit, double or split would win back.</p>
+<p>The casual player has no single figure, since people play differently, but a commonly quoted estimate is around 2%. Treat it as a rough guide, not a measurement. It still means a player who knows most of the plays loses about four times as much as one who knows all of them.</p>
+<p>Basic strategy sits at about 0.5% under these rules: more than five points better than mimicking the dealer, and about 3.4 better than never busting. For scale, the 3:2 natural is worth 1.36 points against a 6:5 payout, as <a href="/blog/blackjack-3-to-2-payout.html">the payout post</a> shows.</p>
+
+<h2>What the history shows</h2>
+<p>The order is checkable: 1956 for the paper, 1962 for <em>Beat the Dealer</em>, 1966 for the revised edition with Braun's work. Each step replaced a guess with a calculation. Basic strategy is a statement about averages over very many hands, not a promise about one, which is why a free practice game is a sensible place to learn it: the chips have no cash value.</p>
+
+<div class="post-foot">
+  <p><a href="/Blackjack21/">Blackjack 21 Big Cards Offline</a> offers hit, stand, double down, split, surrender and insurance, with blackjack paying 3:2, the dealer standing on 17 and a six-deck shoe. The figures in this post describe blackjack in general rather than the app's sweep pot. It plays offline, the chips are free every day, and they have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.blackjack21_v2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

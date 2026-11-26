@@ -1,0 +1,75 @@
+<!--
+{
+  "title": "The nuts in Omaha: why someone usually has them",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "OmahaPoker",
+  "description": "Four hole cards give every Omaha player six two-card hands, so the nuts is usually held. Learn to read a board for it, and why second best costs so much.",
+  "summary": "A Hold'em hand is one two-card combination, an Omaha hand is six, so across a table the best possible hand is held far more often. On Q-J-9-4-2 with three spades, the nuts is the ace-high flush, and a king-high flush is second best.",
+  "standfirst": "The nuts is the best hand the board allows, whether or not anyone holds it. In Hold'em it is often held by nobody. In Omaha the arithmetic of four hole cards makes that the exception."
+}
+-->
+<p>The nuts is the best hand that any two hole cards could make with the board in front of you. It says nothing about what anyone actually holds. In Hold'em each player has a single two-card combination to test against the board, so the nuts often sits in the deck. In Pot-Limit Omaha each player has four hole cards and must use <a href="/blog/omaha-exactly-two-hole-cards.html">exactly two of them</a>, and that changes how often the nuts is out there.</p>
+
+<h2>Six combinations per hand</h2>
+<p>Count the pairs you can pick from your hole cards. Four cards A, B, C and D contain 4 &times; 3 &divide; 2 = <strong>6</strong> pairs: AB, AC, AD, BC, BD and CD. Hold'em has 2 &times; 1 &divide; 2 = <strong>1</strong>. Five hole cards, as in 5-Card Omaha, give 5 &times; 4 &divide; 2 = <strong>10</strong>.</p>
+
+<p>Now seat six players. Hold'em puts 6 &times; 1 = 6 two-card hands up against the board; Omaha puts 6 &times; 6 = 36 up against it.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart: an Omaha player has 6 two-card combinations against 1 in Hold'em, and a six-player table has 36 against 6">
+    <div class="bar-row" title="Hold'em, one player: 1 combination"><span class="bar-label">Hold'em, one player</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.0278)"></span><span class="bar-val">1</span></span></div>
+    <div class="bar-row hl" title="Omaha, one player: 6 combinations"><span class="bar-label">Omaha, one player</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.1667)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row" title="5-Card Omaha, one player: 10 combinations"><span class="bar-label">5-Card Omaha, one player</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.2778)"></span><span class="bar-val">10</span></span></div>
+    <div class="bar-row" title="Hold'em, six players: 6 combinations"><span class="bar-label">Hold'em, six players</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.1667)"></span><span class="bar-val">6</span></span></div>
+    <div class="bar-row hl" title="Omaha, six players: 36 combinations"><span class="bar-label">Omaha, six players</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">36</span></span></div>
+  </div>
+  <figcaption>Two-card combinations that can be tried against the board, for one player and for a table of six. A six-player Omaha table has as many chances to hold the nuts as 36 Hold'em hands.</figcaption>
+</figure>
+
+<p>The 36 overlap, because players share the board and the same ranks, so they are not 36 independent draws. But each one is a separate way to match the board, and the nuts needs only one of them to land. That is the whole reason it is so rarely unclaimed. It also gives a working rule: when you are not holding the nuts, assume somebody is.</p>
+
+<h2>Reading a board for the nuts</h2>
+<p>Work from the top of the ranking and take the first check that passes. Look for straight flush cards first, because a straight flush beats everything below; after that:</p>
+<ol class="ranked">
+  <li><strong>Is the board paired?</strong> Then flushes and straights lose to full houses, and the nuts is a full house or four of a kind. This is why a flush on a paired board is so often not the nuts; <a href="/blog/omaha-paired-boards-nut-flush.html">that post</a> goes through it.</li>
+  <li><strong>Are three cards one suit?</strong> The nuts is a flush, and the ace of that suit, with a second card of the suit, makes the best one.</li>
+  <li><strong>Do three cards sit inside a five-rank span?</strong> Then the nuts is the highest straight they allow.</li>
+  <li><strong>None of these?</strong> The nuts is top set: a pair in your hand matching the highest board card.</li>
+</ol>
+<p>Every hand you check must still obey the exactly-two rule. A flush needs two cards of the suit in your hand, not one.</p>
+
+<h2>A worked board</h2>
+<p>Take the board Q&spades; J&spades; 9&hearts; 4&spades; 2&diams;. It is unpaired, so no full house. Three cards are spades, so a flush is possible, and a flush beats any straight or set. The highest is the ace-high flush: A&spades; plus any other spade. The straight is real too: Q-J-9 is completed by K-T (king-high) or T-8 (queen-high). It is second best.</p>
+<p>Say you hold A&spades; 7&spades; K&hearts; T&diams;. List all six pairs:</p>
+
+<table class="paytable-compare">
+  <caption>The six two-card hands from A&spades; 7&spades; K&hearts; T&diams; on a board of Q&spades; J&spades; 9&hearts; 4&spades; 2&diams;.</caption>
+  <thead>
+    <tr><th>Pair</th><th>Best five cards</th><th>Hand</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A&spades; 7&spades;</th><td>A-Q-J-7-4 of spades</td><td class="good">Nut flush</td></tr>
+    <tr><th scope="row">K&hearts; T&diams;</th><td>K-Q-J-T-9</td><td>King-high straight</td></tr>
+    <tr><th scope="row">A&spades; K&hearts;</th><td>A-K-Q-J-9</td><td>Ace high</td></tr>
+    <tr><th scope="row">A&spades; T&diams;</th><td>A-Q-J-T-9</td><td>Ace high</td></tr>
+    <tr><th scope="row">7&spades; K&hearts;</th><td>K-Q-J-9-7</td><td>King high</td></tr>
+    <tr><th scope="row">7&spades; T&diams;</th><td>Q-J-T-9-7</td><td>Queen high</td></tr>
+  </tbody>
+</table>
+
+<p>One pair out of the six makes the nuts, and a second makes the next best hand. Every pair is a separate attempt, and you take the highest. For A&spades; 7&spades;, the flush needs both spades, so a hand like A&spades; K&hearts; has the ace but not the flush. <a href="/OmahaPoker/">Omaha Poker</a> shows your win chance and your outs grouped by what they make, a handy check against this by-hand count.</p>
+
+<h2>Why second best costs so much</h2>
+<p>On the same board, K&spades; 8&spades; makes K-Q-J-8-4, a king-high flush. It looks strong and it is beaten by any opponent holding A&spades; with another spade. The straight loses to any two spades. In each case the losing hand is a good one, and a good one gets paid off.</p>
+<p>The arithmetic is the one above. Each opponent has six combinations to beat you with, and when you face several, the nuts being out there is the likely case. In Hold'em, second-best hands lose to one specific holding. In Omaha you can be second best to hands that are easy to hold.</p>
+<p>Pot-limit makes it worse. If a bet of the size of the pot is called, the pot becomes three times as big: 1 + 1 + 1 = 3. A second pot-sized bet on the next street takes it to 9. Two streets of that is how a king-high flush becomes the most expensive hand you hold. The <a href="/blog/omaha-second-best-flush.html">second-best flush</a> is the classic case, and holding the ace of the suit yourself, which <a href="/blog/omaha-blockers-nut-card.html">blocks</a> the nuts, is the reverse: it removes the hand you fear from every opponent at once.</p>
+
+<h2>A habit worth building</h2>
+<p>On every flop, and again on every later street, name the nuts before you look at your own hand. Then ask three questions: do I hold it, how many of my six pairs come close, and what beats me if I do not hold it? If the answer to the last question is a hand that needs only one or two specific cards, assume an opponent has it and play the pot accordingly.</p>
+<p>The in-app Help &amp; Rules in Omaha Poker covers hand rankings and the two-cards-from-your-hand rule, so the ranking order here can be checked as you play. The chips and points are virtual, so these are hands to practise with.</p>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

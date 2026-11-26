@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "Stack depth: why 20 big blinds plays differently from 100",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "HoldemCoach",
+  "description": "The same raise and call leaves a stack-to-pot ratio of 12.9 at 100 big blinds and 2.3 at 20. That gap decides which hands gain value and which streets you play.",
+  "summary": "Stack-to-pot ratio is the effective stack divided by the flop pot. With a 3bb raise and one caller it is 12.9 at 100bb and 2.3 at 20bb, so deep stacks reward set-mining hands and short stacks turn the game into push or fold.",
+  "standfirst": "A hand is not worth the same number of big blinds at every stack size. The stack-to-pot ratio shows why, and a short sum shows why a small pair needs a deep stack behind it."
+}
+-->
+<p>The two cards you hold do not have a fixed value. A pair of fives is a comfortable call with 100 big blinds behind and a poor one with 20. The cards are the same; what differs is how much money is left to play for. The practical measure is the <strong>stack-to-pot ratio</strong>, or SPR: the effective stack divided by the pot on the flop. The effective stack is the smaller of the two stacks in the hand.</p>
+
+<h2>The arithmetic for one raise and one call</h2>
+<p>Take a standard spot and state it plainly. A player raises to 3 big blinds (3bb), one player calls, and both blinds fold. The pot on the flop is 3 + 3 + 0.5 + 1 = 7.5bb, counting the small and big blind that were posted. Each of the two players has put 3bb in, so the effective stack on the flop is the starting stack minus 3bb.</p>
+<ul>
+  <li><strong>100bb:</strong> 97 ÷ 7.5 = 12.9. The SPR is about 13.</li>
+  <li><strong>20bb:</strong> 17 ÷ 7.5 = 2.3. The SPR is about 2.</li>
+</ul>
+<p>The assumption (a 3bb raise, one caller, both blinds folded, 7.5bb in the pot) matters: a smaller raise lowers the pot and raises the SPR, and a second caller does the opposite. The figure uses the 7.5bb pot at every depth from 20bb to 150bb, so SPR = (stack − 3) ÷ 7.5 and the line is straight.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: with a 7.5bb flop pot, the stack-to-pot ratio rises in a straight line from 2.3 at a 20bb stack to 12.9 at 100bb and 19.6 at 150bb.">
+    <line class="grid" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="40" y="214" text-anchor="end">0</text>
+    <line class="grid" x1="46" x2="386" y1="165" y2="165"/>
+    <text x="40" y="169" text-anchor="end">5</text>
+    <line class="grid" x1="46" x2="386" y1="120" y2="120"/>
+    <text x="40" y="124" text-anchor="end">10</text>
+    <line class="grid" x1="46" x2="386" y1="75" y2="75"/>
+    <text x="40" y="79" text-anchor="end">15</text>
+    <line class="grid" x1="46" x2="386" y1="30" y2="30"/>
+    <text x="40" y="34" text-anchor="end">20</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46" y="226" text-anchor="middle">20</text>
+    <text x="124.5" y="226" text-anchor="middle">50</text>
+    <text x="255.2" y="226" text-anchor="middle">100</text>
+    <text x="386" y="226" text-anchor="middle">150</text>
+    <text x="216" y="244" text-anchor="middle">Starting stack, big blinds</text>
+    <text x="12" y="120" text-anchor="middle" transform="rotate(-90 12 120)">SPR on the flop</text>
+    <path class="line" d="M46.0,189.6 L72.2,177.6 L98.3,165.6 L124.5,153.6 L150.6,141.6 L176.8,129.6 L202.9,117.6 L229.1,105.6 L255.2,93.6 L281.4,81.6 L307.5,69.6 L333.7,57.6 L359.8,45.6 L386.0,33.6"/>
+    <line class="ref" x1="255.2" x2="255.2" y1="101" y2="210"/>
+    <text x="52" y="205" text-anchor="start">20bb: 2.3</text>
+    <text class="strong" x="262" y="116" text-anchor="start">100bb: 12.9</text>
+    <text x="380" y="94" text-anchor="end">150bb: 19.6</text>
+    <g class="hit"><title>20bb stack: SPR 2.3 (17 ÷ 7.5)</title><circle cx="46" cy="189.6" r="10" fill="transparent"/><circle class="dot" cx="46" cy="189.6" r="4.5"/></g>
+    <g class="hit"><title>100bb stack: SPR 12.9 (97 ÷ 7.5)</title><circle cx="255.2" cy="93.6" r="10" fill="transparent"/><circle class="dot hl" cx="255.2" cy="93.6" r="4.5"/></g>
+    <g class="hit"><title>150bb stack: SPR 19.6 (147 ÷ 7.5)</title><circle cx="386" cy="33.6" r="10" fill="transparent"/><circle class="dot" cx="386" cy="33.6" r="4.5"/></g>
+  </svg>
+  <figcaption>Stack-to-pot ratio on the flop against starting stack, assuming a raise to 3bb, one caller, both blinds folded and a 7.5bb pot: SPR = (stack − 3) ÷ 7.5. The 100bb point, 12.9, is the one the post centres on; 20bb gives 2.3.</figcaption>
+</figure>
+
+<h2>Low SPR: raw equity and a decision on the flop</h2>
+<p>At an SPR of 2.3, one pot-sized bet of 7.5bb is already 44% of the 17bb behind. If it is called, the pot is 22.5bb with only 9.5bb left, less than half the pot, so the turn is all-in whatever anyone prefers. The hand is decided on the flop.</p>
+<p>That changes what a hand is worth. With so little room for later bets, there is nothing to bluff on the river and little to win from a hidden monster. Hands are played for their raw equity, so top pair is effectively the nuts, and a flop that gives you a pair or a strong draw is a reason to put the money in.</p>
+
+<h2>High SPR: three streets of leverage</h2>
+<p>At an SPR of 12.9 the picture is different. Bet the pot on the flop (7.5), then the pot again on the turn (22.5), then the pot on the river (67.5) and the total is 97.5bb, close to the whole 97bb behind. It takes three full-size bets to commit the stack, so each street carries a real decision.</p>
+<p>That depth is what implied odds feed on, the money you win on later streets when a hand improves, as <a href="/blog/holdem-implied-odds.html">the post on implied odds</a> explains. Hands that make rare, very strong holdings, such as suited connectors and small pairs that flop sets, gain value. A hand that makes one pair loses relative value, because one pair rarely wants to put in three bets.</p>
+
+<p>The "Which hands to play" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> asks whether your two cards are worth raising with before anyone has bet, the opening decision that stack depth then changes.</p>
+
+<h2>The set-mining sum</h2>
+<p>A pocket pair flops a set (three of a kind using one of your cards) with the probability that at least one of the two remaining cards of your rank appears among the three flop cards. There are 50 unseen cards, 48 of which are not your rank:</p>
+<p>1 − (48 × 47 × 46) ÷ (50 × 49 × 48) = 1 − 2,162 ÷ 2,450 = 11.8%</p>
+<p>That is about 1 in 8.5, or 7.5 to 1 against. <a href="/blog/holdem-set-mining.html">The post on set mining</a> covers it in detail.</p>
+<p>Now the break-even. Calling 3bb to see a flop, you win nothing on the 88.2% of flops where you miss, and you lose the 3bb. To break even on the 11.8% where you hit, the average win has to cover 7.5 misses: 3bb × (1 − 0.118) ÷ 0.118 = 22.4bb, about 7.5 times the call. This is a lower bound: it ignores the times a set is not paid or loses to a bigger one, which is why the usual rule of thumb is 15 to 20 times the call.</p>
+<ul>
+  <li><strong>100bb:</strong> 97bb behind, so winning 22.4bb is within reach. It is a bit under a quarter of the stack, and three streets of betting can produce it.</li>
+  <li><strong>20bb:</strong> 17bb behind. Even winning the whole stack, every time, yields less than the 22.4bb needed. The call cannot pay.</li>
+</ul>
+
+<p>The "When someone raises" lesson in <a href="/HoldemCoach/">Holdem Coach</a> has you choose to fold, call or raise again against a raise.</p>
+
+<h2>Short stacks: push or fold</h2>
+<p>As the stack falls, the options narrow. At 15bb, a 3bb raise already commits a fifth of your stack, and a call leaves a flop SPR so low that the hand is all-in or folded. Below roughly 15bb, the sensible choices become just two: shove or fold. Open-shoving a wide range becomes correct because fold equity does much of the work, the idea explained in <a href="/blog/holdem-fold-equity.html">the post on fold equity</a>.</p>
+<p>Nash (equilibrium) push-fold charts list which hands to shove from each seat at each short stack depth. Look them up from a reliable source rather than trusting memory; the point here is only that they exist for this region.</p>
+
+<h2>The same two cards, two answers</h2>
+<ol class="ranked">
+  <li><strong>A small pair</strong> such as 5-5 facing a raise: a call at 100bb for the set, a fold or a shove at 20bb, where a set cannot pay enough.</li>
+  <li><strong>Suited connectors</strong> such as 7-6 suited: playable at 100bb for the straights and flushes they make, much weaker at 20bb, where a hidden straight or flush has little stack to win.</li>
+</ol>
+<p>The reverse also holds: a hand that wins by raw equity, such as a strong single pair, is happy to commit at 20bb and wants care at 100bb.</p>
+
+<div class="callout">
+  <p>In one line: SPR = effective stack ÷ flop pot, which is 12.9 at 100bb and 2.3 at 20bb after a 3bb raise and one call; a small pair flops a set 11.8% of the time and needs about 7.5 times its call to break even, which only a deep stack can supply.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons, one idea at a time, and nothing is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

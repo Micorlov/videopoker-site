@@ -1,0 +1,65 @@
+<!--
+{
+  "title": "Expected value: how the right hold is chosen",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "VideoPoker",
+  "description": "A worked Jacks or Better hand: a low pair against four to a flush, with every draw counted. The flush returns 1.213 coins per coin bet, the pair 0.824.",
+  "summary": "Count every possible draw, multiply by the payout and divide by the number of draws. For 5-5-J-9-7 that gives 1.213 for four to a flush and 0.824 for the pair.",
+  "standfirst": "A hold is not a feeling about which cards look strong. It is an average over every draw you could receive, and the highest average wins. Here is one real hand worked through, so you can redo every figure."
+}
+-->
+<p>Most players choose a hold by instinct: a pair feels safe, a four-card flush feels lucky. The correct hold is found another way. You list every possible draw for each candidate hold, look up what each final hand pays, and take the average. That average is the expected value, or EV, and the hold with the highest one is the right play.</p>
+<p>Everything below uses the 9/6 Jacks or Better paytable, per coin bet: a pair of jacks or better pays 1, two pair 2, three of a kind 3, a straight 4, a flush 6, a full house 9, four of a kind 25 and a straight flush 50. The <a href="/blog/reading-a-video-poker-paytable.html">paytable post</a> explains how to read those rows. The royal flush row is left out because none of the holds worked here can reach it.</p>
+
+<h2>Averaging every draw</h2>
+<p>If you keep four cards, one card is drawn from the 47 unseen, so there are 47 equally likely draws. Keep three and you draw two cards: 47 × 46 ÷ 2 = 1,081 draws. Keep two and you draw three: 16,215. The method is the same each time:</p>
+<p>EV = (sum of payout × number of draws that make it) ÷ (total draws)</p>
+<p>The result is in coins returned per coin bet. An EV of 1 means the hold returns the bet on average; below 1 it returns less. No single hand returns the average. The EV describes what the hold does over every draw it could be given.</p>
+
+<h2>The hand</h2>
+<p>You are dealt the 5 of hearts, 5 of spades, jack of hearts, 9 of hearts and 7 of hearts. Three holds compete: the pair of fives, four to a flush (5, J, 9, 7 of hearts), and three to a straight flush (J, 9, 7 of hearts). Nine hearts remain among the 47 unseen cards, since four of the thirteen are in your hand.</p>
+
+<h2>Hold four to a flush</h2>
+<p>This is the shortest sum. Of 47 draws, 9 are hearts and make a flush: 9 × 6 = 54. Three are jacks of another suit, which pair your jack for 1 each: 3 × 1 = 3. Every other card pays nothing. The total is 54 + 3 = 57 over 47 draws.</p>
+<p>57 ÷ 47 = 1.213 coins per coin bet.</p>
+
+<h2>Hold the pair of fives</h2>
+<p>Three cards come from the 47, so there are 16,215 draws, and you can count what each pays:</p>
+<ul>
+  <li>Four of a kind: both other fives with any third card, 45 draws, 25 each = 1,125.</li>
+  <li>Full house: 165 draws, 9 each = 1,485.</li>
+  <li>Three of a kind: 1,854 draws, 3 each = 5,562.</li>
+  <li>Two pair: 2,592 draws, 2 each = 5,184.</li>
+  <li>Everything else, 11,559 draws, pays nothing.</li>
+</ul>
+<p>The four paying rows add to 1,125 + 1,485 + 5,562 + 5,184 = 13,356, and 13,356 ÷ 16,215 = 0.824 coins per coin bet. The pair is made, but a low pair earns only through the draws that improve it, and most do not: 11,559 of 16,215 draws, or 71.3%, return nothing.</p>
+
+<h2>Hold three to a straight flush</h2>
+<p>Keep J, 9, 7 of hearts and draw two from 1,081. Counting the draws: 35 make a flush (6 each, 210), one makes a straight flush with the 10 and 8 of hearts (50), 15 make a straight (60 in all), 9 make three of a kind (27), 27 make two pair (54) and 132 pair the jack (132). That sums to 210 + 50 + 60 + 27 + 54 + 132 = 533, and 533 ÷ 1,081 = 0.493 coins per coin bet.</p>
+<p>The three-card hold is much weaker than it looks. It has a rich top prize, but only one draw in 1,081 reaches it, and 862 draws pay nothing.</p>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Four to a flush returns 1.213 coins per coin bet, well ahead of the pair of fives at 0.824 and three to a straight flush at 0.493">
+    <div class="bar-row hl" title="Four to a flush: 1.213 coins per coin bet"><span class="bar-label">Four to a flush</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">1.213</span></span></div>
+    <div class="bar-row" title="Pair of fives: 0.824 coins per coin bet"><span class="bar-label">Pair of fives</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.6793)"></span><span class="bar-val">0.824</span></span></div>
+    <div class="bar-row" title="Three to a straight flush: 0.493 coins per coin bet"><span class="bar-label">Three to a straight flush</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.4064)"></span><span class="bar-val">0.493</span></span></div>
+  </div>
+  <figcaption>Expected value of each hold for 5-5-J-9-7 with four hearts, in coins returned per coin bet, 9/6 Jacks or Better. The four-card flush is worth 0.389 more than the pair.</figcaption>
+</figure>
+
+<p>The ranking is four to a flush at 1.213, the pair of fives at 0.824 and three to a straight flush at 0.493. The gap between the first two is 1.213 − 0.824 = 0.389 of a coin bet. Even the best hold here returns only a little over the bet on average, and the worst of the three loses about half of it, which is why the choice matters on every deal. The <a href="/blog/jacks-or-better-low-pair-vs-four-flush.html">low pair against four to a flush</a> post looks at the same contest for other hands, and the <a href="/blog/jacks-or-better-strategy.html">strategy post</a> lists the holds in order of value.</p>
+<p>The <a href="/VideoPoker/">Video Poker app</a> has strategy hints you can switch on, which is a quick way to see these rankings at the table without counting.</p>
+
+<h2>Where instinct goes wrong</h2>
+<p>The pair feels better because it is guaranteed to stay a pair, and the flush draw needs a miracle. The sums say otherwise. The flush draw hits 9 times in 47, 19.1% of draws, and a flush pays 6, which is a big multiple of a pair of fives paying nothing on its own. The pair, by contrast, is worth 0 until it improves.</p>
+<p>The same reasoning explains why the jack matters. It adds 3 jacks times 1 to the four-card hold. Swap it for a small off-suit card and that 3 vanishes: the four-card flush would be 54 ÷ 47 = 1.149. The extra 0.064 comes entirely from the jack pairing. The <a href="/blog/video-poker-penalty-cards.html">penalty cards</a> post shows how the cards you throw away alter these counts in the same way.</p>
+
+<h2>Redoing it yourself</h2>
+<p>For a four-card hold you need no software: count the outs, multiply each by its payout, and divide by 47. The result for any hand is a list of holds with a number against each, and the order of those numbers is the strategy.</p>
+<p>Practising is the quickest way to see it. The Play listing for the app says it has Jacks or Better, an offline mode and strategy hints. Deal a few hands with the hints on, and for each one work out the competing holds first.</p>
+
+<div class="post-foot">
+  <p>Jacks or Better is one of four machines in <a href="/VideoPoker/">Video Poker: Jacks or Better</a>. It plays offline, and the chips are free, with no cash value and no real money involved.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.videopoker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

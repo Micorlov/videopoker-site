@@ -1,0 +1,72 @@
+<!--
+{
+  "title": "A third card of one suit adds nothing in Omaha",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "OmahaPoker",
+  "description": "A flush in Omaha uses exactly two of your hole cards, so a third card of the suit is dead and removes a flush out. With two hearts on the flop: 9, 8 and 7 outs.",
+  "summary": "A flush needs exactly two hole cards of a suit, so a third card of that suit never plays and takes a heart from the deck. With two hearts on the flop you have 9, 8 or 7 outs holding two, three or four hearts.",
+  "standfirst": "Three of a suit looks like a stronger flush holding than two. It is not: the flush uses two of your cards, so the third buys no new suit and leaves fewer of that suit to come."
+}
+-->
+<p>In Pot-Limit Omaha a flush is made from exactly two of your four hole cards and exactly three cards from the board, all of one suit. Two cards of a suit in your hand are therefore enough. A third card of the same suit is allowed, but it cannot do anything the first two were not already doing, and it costs you a little. This post counts how much.</p>
+
+<h2>What a flush asks of your hand</h2>
+<p>The rule comes from <a href="/blog/omaha-exactly-two-hole-cards.html">exactly two hole cards play</a>. Hold one heart and the board shows five hearts, and you have no flush: you would be using one hole card and five board cards, and the hand must be two and three. Hold two hearts and the board shows three, and you have a flush.</p>
+<p>Now give yourself a third heart, say A-9-5 of hearts plus the king of spades. The flush still uses two of the three hearts, and it will always be the two highest, here the ace and the nine. The five of hearts is never played. It is not a spare that covers you if the board turns hostile. It is a card that sits in your hand doing nothing for the flush.</p>
+
+<h2>Pairs are not suits</h2>
+<p>It is tempting to count pairs. Three hearts make three heart pairs (A-9, A-5 and 9-5), against one pair in a two-heart hand, so the three-heart hand looks as though it has three times the flush potential. The pairs all share the same suit, and a flush only needs one pair. What matters is the number of different suits you can finish.</p>
+<ul>
+  <li>Double-suited (two cards in each of two suits): 2 suits.</li>
+  <li>Single-suited (two of one suit, two singletons): 1 suit.</li>
+  <li>Three of a suit and one odd card: 1 suit, because the odd card is alone in its own suit.</li>
+  <li>Four of a suit: 1 suit.</li>
+  <li>Rainbow (four different suits): none.</li>
+</ul>
+<p>So three or four of a suit never gains a second flush suit over a single-suited hand. It only changes how you use the cards in the one suit you already had. The extra cards also take up room: a four-flush hand has no second pair of cards that can start a different flush.</p>
+
+<h2>Counting the outs</h2>
+<p>Take the clearest case. You hold hearts and the flop comes with exactly two hearts, so you need one more heart on the turn or river. There are 13 hearts in the deck, and you can see some of them: the two on the flop plus whatever is in your hand.</p>
+<ul>
+  <li>Two hearts in hand: 13 &minus; 4 seen = <strong>9 outs</strong>.</li>
+  <li>Three hearts in hand: 13 &minus; 5 seen = <strong>8 outs</strong>.</li>
+  <li>Four hearts in hand: 13 &minus; 6 seen = <strong>7 outs</strong>.</li>
+</ul>
+
+<figure class="chart">
+  <div class="bars" role="img" aria-label="Bar chart of heart outs on a flop with two hearts: 9 outs holding two hearts, 8 holding three and 7 holding four, so each extra heart in hand removes one out">
+    <div class="bar-row" title="Two hearts in hand: 9 outs"><span class="bar-label">Two hearts in hand</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 1.0000)"></span><span class="bar-val">9 outs</span></span></div>
+    <div class="bar-row hl" title="Three hearts in hand: 8 outs"><span class="bar-label">Three hearts in hand</span><span class="bar-track"><span class="bar hl" style="width:calc((100% - 7.5em) * 0.8889)"></span><span class="bar-val">8 outs</span></span></div>
+    <div class="bar-row" title="Four hearts in hand: 7 outs"><span class="bar-label">Four hearts in hand</span><span class="bar-track"><span class="bar" style="width:calc((100% - 7.5em) * 0.7778)"></span><span class="bar-val">7 outs</span></span></div>
+  </div>
+  <figcaption>Hearts left to complete a flush when the flop has two hearts, by how many hearts you hold. Each heart past the second removes one out.</figcaption>
+</figure>
+
+<p>You have seen seven cards, four in your hand and three on the flop, so 45 are unseen. The chance of missing on both the turn and the river with 9 outs is 36/45 &times; 35/44, about 63.6%, so you complete the flush 36.4% of the time. With 8 outs the miss is 37/45 &times; 36/44, about 67.3%, and you complete 32.7% of the time. With 7 outs the miss is 38/45 &times; 37/44, about 71.0%, and you complete 29.0% of the time.</p>
+<p>The extra heart did not make the draw stronger. It left it 3.7 points worse, and a fourth heart 7.4 points worse. That is the whole cost of the duplicate card, and it is certain, not a matter of style.</p>
+
+<p>The <a href="/OmahaPoker/">Omaha Poker</a> listing says its live hand insight shows your win chance and your outs grouped by what they make, so you can deal a flush draw and check the out count against the figures above.</p>
+
+<h2>Why the second suit is different</h2>
+<p>A double-suited hand holds the same 9 hearts as the single-suited hand on that flop. The extra suit does not take anything away from the hearts, because the cards in it are different cards. What it adds is a second route: if the board later shows three cards of the other suit, you have that flush too. On a flop with two hearts, the third card can supply at most one card of any other suit, so the second suit needs both the turn and the river to help. It is a back-up, but it is a back-up that a third heart cannot be.</p>
+<p>Put the shapes in order of flush potential, with the same ranks and the same board: double-suited, then single-suited, then three of a suit, then four of a suit, and rainbow last with no flush draw at all. The <a href="/blog/omaha-double-suited-hands.html">double-suited post</a> counts the five suit patterns and how often each flops a draw, and finds the same order across every possible board.</p>
+
+<h2>The one thing a third card does</h2>
+<p>A card can matter without being played. If your third heart is the ace, or the king when the ace is out, it blocks a flush your opponents might hold, since nobody else can have that card. This is real, and a hand like A-K-5-2 with three hearts can be worth keeping for it. But the benefit is a small reduction in what your opponents hold. It does nothing for your own flush, and the outs arithmetic is still the one above.</p>
+<p>It also depends on the rank. A third heart that is a seven blocks very little, and then it is simply a duplicate card with a cost. When you are choosing between two hands with the same ranks, the one with the cards spread across two suits is the better shape.</p>
+
+<p>Omaha Poker also grades your four-card hand before the flop, which gives you a quick way to deal a few starting hands and compare how the app rates them.</p>
+
+<h2>At the table</h2>
+<ol class="ranked">
+  <li><strong>Count the suits, not the pairs.</strong> Three hearts is one flush suit, however many pairs it forms.</li>
+  <li><strong>Count your outs from the unseen cards.</strong> Every heart in your hand is one fewer on the board: 9, 8 or 7 with two hearts on the flop.</li>
+  <li><strong>Prefer 2-2 to 2-1-1 to 3-1.</strong> Spreading the suits is worth more than piling them.</li>
+  <li><strong>Treat a third suited card as a blocker, not a draw.</strong> It matters only if it is high.</li>
+</ol>
+
+<div class="post-foot">
+  <p><a href="/OmahaPoker/">Omaha Poker: PLO Offline Game</a> plays Pot-Limit Omaha, Omaha Hi-Lo (8 or better) and 5-Card Omaha tables against bots set to Easy, Medium or Hard, and its full hand history lets you replay any pot street by street. It plays offline. The chips and points are virtual and have no cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.omaha.omaha_poker"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

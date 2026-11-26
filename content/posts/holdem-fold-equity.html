@@ -1,0 +1,117 @@
+<!--
+{
+  "title": "Fold equity: why a bet can win two ways",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "HoldemCoach",
+  "description": "A pure bluff of B into a pot of P breaks even when the opponent folds B ÷ (P + B) of the time: 33.3% at half pot, 50.0% at pot size, 66.7% at twice the pot.",
+  "summary": "A bet wins when the opponent folds or when your hand is best at showdown. A pure bluff of B into a pot of P needs folds B ÷ (P + B) of the time: 33.3% at half pot, 50.0% at pot size, and less when the hand has outs.",
+  "standfirst": "A bet wins in two separate ways: the other player folds, or the hand is shown down and yours is best. Fold equity is the first of those, and the break-even point for it comes from one short division."
+}
+-->
+<p>A bet can win in two separate ways. The opponent folds and you take the pot without a showdown, or the opponent calls and your hand turns out to be the best. <strong>Fold equity</strong> is the first of those: the value a bet earns just from the chance that the other player gives up. It is worth putting a number on, because the number comes from one short division and is the same at every stake.</p>
+
+<h2>The two ways a bet wins</h2>
+<p>When the opponent folds, you win the pot as it stood before you bet, whatever your cards are. When the opponent calls, what matters is how often your hand finishes in front. A pure bluff, a hand with no chance of winning when called, is the cleanest case to study: all of its value is fold equity.</p>
+
+<h2>Working out the break-even</h2>
+<p>Call the pot <em>P</em>, the bet <em>B</em>, and let <em>f</em> be the share of the time the opponent folds. A fold wins you <em>P</em>. A call loses you <em>B</em>, because the hand cannot win. The bluff breaks even when the two sides cancel:</p>
+<p><em>f</em> × <em>P</em> = (1 − <em>f</em>) × <em>B</em></p>
+<p>Multiply out and you get <em>fP</em> = <em>B</em> − <em>fB</em>, so <em>f</em>(<em>P</em> + <em>B</em>) = <em>B</em>, and therefore <em>f</em> = <em>B</em> ÷ (<em>P</em> + <em>B</em>). In words, the bet divided by the pot after the bet.</p>
+<p>Take a pot of 100 and a bet of 50. Then <em>f</em> = 50 ÷ 150 = 33.3%. Check it by running three bluffs: the opponent folds once and calls twice. You win 100 once and lose 50 twice, so the total is zero. If the opponent folds more often than one time in three, the bluff shows a profit; less often, it loses.</p>
+<p>Write the bet as <em>b</em> times the pot and <em>P</em> cancels, leaving <em>f</em> = <em>b</em> ÷ (1 + <em>b</em>). That is why the table below holds at any stake.</p>
+
+<table class="paytable-compare">
+  <caption>Break-even fold frequency for a pure bluff, by bet size as a fraction of the pot before the bet. "Third pot" is exactly 1/3.</caption>
+  <thead>
+    <tr><th>Bet size</th><th>b ÷ (1 + b)</th><th>Opponent must fold</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Quarter pot</th><td>0.25 ÷ 1.25</td><td>20.0%</td></tr>
+    <tr><th scope="row">Third pot</th><td>1/3 ÷ 4/3</td><td>25.0%</td></tr>
+    <tr><th scope="row">Half pot</th><td>0.5 ÷ 1.5</td><td>33.3%</td></tr>
+    <tr><th scope="row">Two-thirds pot</th><td>2/3 ÷ 5/3</td><td>40.0%</td></tr>
+    <tr><th scope="row">Three-quarters pot</th><td>0.75 ÷ 1.75</td><td>42.9%</td></tr>
+    <tr><th scope="row">Pot</th><td>1 ÷ 2</td><td>50.0%</td></tr>
+    <tr><th scope="row">One and a half times the pot</th><td>1.5 ÷ 2.5</td><td>60.0%</td></tr>
+    <tr><th scope="row">Twice the pot</th><td>2 ÷ 3</td><td>66.7%</td></tr>
+  </tbody>
+</table>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 282" role="img" aria-label="Line chart: the fold frequency a pure bluff needs rises from 20% for a quarter-pot bet to 66.7% for a bet of twice the pot, climbing quickly at first and then flattening. A half-pot bluff needs 33.3% and a pot-sized bluff 50%.">
+    <line class="grid" x1="46" x2="386" y1="240.0" y2="240.0"/>
+    <text x="40" y="244.0" text-anchor="end">0%</text>
+    <line class="grid" x1="46" x2="386" y1="180.0" y2="180.0"/>
+    <text x="40" y="184.0" text-anchor="end">20%</text>
+    <line class="grid" x1="46" x2="386" y1="120.0" y2="120.0"/>
+    <text x="40" y="124.0" text-anchor="end">40%</text>
+    <line class="grid" x1="46" x2="386" y1="60.0" y2="60.0"/>
+    <text x="40" y="64.0" text-anchor="end">60%</text>
+    <line class="axis" x1="46" x2="386" y1="240" y2="240"/>
+    <text x="46.0" y="257" text-anchor="middle">0.25×</text>
+    <text x="94.6" y="257" text-anchor="middle">0.5×</text>
+    <text x="191.7" y="257" text-anchor="middle">1×</text>
+    <text x="288.9" y="257" text-anchor="middle">1.5×</text>
+    <text x="386.0" y="257" text-anchor="middle">2×</text>
+    <text x="216" y="275" text-anchor="middle">Bet as a fraction of the pot</text>
+    <text x="12" y="135" text-anchor="middle" transform="rotate(-90 12 135)">Folds needed</text>
+    <path class="line hl" d="M46.0,180.0 L50.9,175.3 L55.7,170.8 L60.6,166.4 L65.4,162.2 L70.3,158.2 L75.1,154.3 L80.0,150.5 L84.9,146.9 L89.7,143.4 L94.6,140.0 L99.4,136.7 L104.3,133.5 L109.1,130.5 L114.0,127.5 L118.9,124.6 L123.7,121.8 L128.6,119.1 L133.4,116.5 L138.3,113.9 L143.1,111.4 L148.0,109.0 L152.9,106.7 L157.7,104.4 L162.6,102.2 L167.4,100.0 L172.3,97.9 L177.1,95.8 L182.0,93.8 L186.9,91.9 L191.7,90.0 L196.6,88.1 L201.4,86.3 L206.3,84.6 L211.1,82.9 L216.0,81.2 L220.9,79.5 L225.7,77.9 L230.6,76.4 L235.4,74.8 L240.3,73.3 L245.1,71.9 L250.0,70.4 L254.9,69.0 L259.7,67.7 L264.6,66.3 L269.4,65.0 L274.3,63.7 L279.1,62.4 L284.0,61.2 L288.9,60.0 L293.7,58.8 L298.6,57.6 L303.4,56.5 L308.3,55.4 L313.1,54.3 L318.0,53.2 L322.9,52.1 L327.7,51.1 L332.6,50.1 L337.4,49.1 L342.3,48.1 L347.1,47.1 L352.0,46.2 L356.9,45.3 L361.7,44.3 L366.6,43.4 L371.4,42.6 L376.3,41.7 L381.1,40.8 L386.0,40.0"/>
+    <line class="ref" x1="46.0" x2="46.0" y1="187.0" y2="194"/>
+    <text class="strong" x="44.0" y="207" text-anchor="start">1/4 pot: 20%</text>
+    <line class="ref" x1="62.2" x2="62.2" y1="172.0" y2="180"/>
+    <text class="strong" x="60.2" y="193" text-anchor="start">1/3 pot: 25%</text>
+    <line class="ref" x1="94.6" x2="94.6" y1="147.0" y2="155"/>
+    <text class="strong" x="92.6" y="168" text-anchor="start">1/2 pot: 33.3%</text>
+    <line class="ref" x1="127.0" x2="127.0" y1="127.0" y2="140"/>
+    <text class="strong" x="125.0" y="153" text-anchor="start">2/3 pot: 40%</text>
+    <line class="ref" x1="143.1" x2="143.1" y1="118.4" y2="125"/>
+    <text class="strong" x="141.1" y="138" text-anchor="start">3/4 pot: 42.9%</text>
+    <text class="strong" x="197.7" y="108" text-anchor="start">Pot: 50%</text>
+    <line class="ref" x1="288.9" x2="288.9" y1="67.0" y2="83"/>
+    <text class="strong" x="288.9" y="96" text-anchor="middle">1.5× pot: 60%</text>
+    <line class="ref" x1="386.0" x2="386.0" y1="47.0" y2="65"/>
+    <text class="strong" x="390.0" y="78" text-anchor="end">2× pot: 66.7%</text>
+    <g class="hit"><title>1/4 pot: fold needed 20.0%</title><circle cx="46.0" cy="180.0" r="10" fill="transparent"/><circle class="dot" cx="46.0" cy="180.0" r="4.5"/></g>
+    <g class="hit"><title>1/3 pot: fold needed 25.0%</title><circle cx="62.2" cy="165.0" r="10" fill="transparent"/><circle class="dot" cx="62.2" cy="165.0" r="4.5"/></g>
+    <g class="hit"><title>1/2 pot: fold needed 33.3%</title><circle cx="94.6" cy="140.0" r="10" fill="transparent"/><circle class="dot hl" cx="94.6" cy="140.0" r="4.5"/></g>
+    <g class="hit"><title>2/3 pot: fold needed 40.0%</title><circle cx="127.0" cy="120.0" r="10" fill="transparent"/><circle class="dot" cx="127.0" cy="120.0" r="4.5"/></g>
+    <g class="hit"><title>3/4 pot: fold needed 42.9%</title><circle cx="143.1" cy="111.4" r="10" fill="transparent"/><circle class="dot" cx="143.1" cy="111.4" r="4.5"/></g>
+    <g class="hit"><title>Pot: fold needed 50.0%</title><circle cx="191.7" cy="90.0" r="10" fill="transparent"/><circle class="dot hl" cx="191.7" cy="90.0" r="4.5"/></g>
+    <g class="hit"><title>1.5× pot: fold needed 60.0%</title><circle cx="288.9" cy="60.0" r="10" fill="transparent"/><circle class="dot" cx="288.9" cy="60.0" r="4.5"/></g>
+    <g class="hit"><title>2× pot: fold needed 66.7%</title><circle cx="386.0" cy="40.0" r="10" fill="transparent"/><circle class="dot hl" cx="386.0" cy="40.0" r="4.5"/></g>
+  </svg>
+  <figcaption>The share of the time a pure bluff must be folded to, by bet size: the bet divided by the pot after the bet. The curve climbs quickly and then flattens, but it keeps rising: a quarter-pot bluff needs 20% folds, a pot-sized bluff 50%, and twice the pot 66.7%.</figcaption>
+</figure>
+<p>A bet of nothing needs 0% folds, because it risks nothing. From there the curve climbs quickly and then flattens: a quarter-pot bluff needs 20%, half pot 33.3%, a pot-sized bluff 50%, and twice the pot 66.7%. It approaches 100% without reaching it.</p>
+
+<h2>Why bigger bluffs need more folds</h2>
+<p>A bigger bet risks more to win the same pot. A quarter-pot bluff into 100 risks 25 to win 100, so it has to work one time in five: 25 ÷ 125 = 20%. A bluff of twice the pot risks 200, so it has to work two times in three: 200 ÷ 300 = 66.7%.</p>
+<p>The opponent faces a bigger price too. As <a href="/blog/holdem-pot-odds.html">the post on pot odds</a> shows, a hand needs 25% equity to call a half-pot bet and 40% against twice the pot, so more hands can fold correctly. Which size suits depends on how likely this opponent is to fold, and the table is the yardstick for that guess.</p>
+
+<h2>When the hand has outs</h2>
+<p>A hand with outs can win when called, which cuts the loss on the calling branch. Let <em>e</em> be the share of the time the hand wins when called. If a 50 bet into 100 is called, a win nets 150 (the pot plus the opponent's call) and a loss costs 50, so the net result is:</p>
+<p><em>e</em> × 150 − (1 − <em>e</em>) × 50</p>
+<p>With <em>e</em> = 20%, that is 30 − 40 = −10. Call that loss <em>L</em>. The sum is the same as before with <em>L</em> in place of <em>B</em>: <em>f</em> = <em>L</em> ÷ (<em>P</em> + <em>L</em>) = 10 ÷ 110 = 9.1%. Check: 9.1% of 100 won and 90.9% of 10 lost both come to about 9.1.</p>
+<p>With <em>e</em> = 10%, the result when called is 15 − 45 = −30, so <em>f</em> = 30 ÷ 130 = 23.1%. At <em>e</em> = 25% the result when called is 37.5 − 37.5 = 0, which is the pot-odds figure for a half-pot bet, and the hand needs no folds at all. Against the pure bluff's 33.3%, every point of equity when called lowers the folds you need.</p>
+<p>One caution: opponents tend to call with their better hands, so equity when called is usually lower than your raw chance. Use the cautious figure. The "Is it worth calling?" lesson in <a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> practises the price-and-hand comparison from the caller's seat, which is the mirror of this sum.</p>
+
+<h2>The other side of minimum defence frequency</h2>
+<p>The break-even fold frequency, <em>B</em> ÷ (<em>P</em> + <em>B</em>), is the same fraction that <a href="/blog/holdem-minimum-defence-frequency.html">the post on minimum defence frequency</a> starts from. There it is the most a caller can afford to fold; here it is the least a bluffer needs. Against a half-pot bet the bluffer needs 33.3% folds and the caller must continue 1 − 33.3% = 66.7% of the time. If the caller folds more than that, bluffs profit; if less, they lose.</p>
+<p>The "When someone raises" lesson in <a href="/HoldemCoach/">Holdem Coach</a> puts you on the receiving end, deciding whether to fold, call, or raise again.</p>
+
+<h2>Where the sum is rough</h2>
+<ol class="ranked">
+  <li><strong>The fold frequency is a guess.</strong> The table says how often you need a fold, not how often you will get one.</li>
+  <li><strong>It stops at one bet.</strong> A later bet, a raise or a new card moves the result of the called branch, so the loss <em>L</em> is an estimate too, as <a href="/blog/holdem-implied-odds.html">implied odds</a> shows.</li>
+  <li><strong>Several opponents.</strong> The bluff works only if everyone folds. Two opponents who each fold half the time give a combined fold of 50% × 50% = 25%, well short of the 33.3% a half-pot bluff needs.</li>
+</ol>
+
+<div class="callout">
+  <p>In one line: a pure bluff needs folds <em>B</em> ÷ (<em>P</em> + <em>B</em>) of the time, from 20% at a quarter pot to 66.7% at twice the pot, and every point of equity when called lowers that figure.</p>
+</div>
+
+<div class="post-foot">
+  <p><a href="/HoldemCoach/">Holdem Coach: Poker Trainer</a> offers short lessons, one idea at a time, and nothing is timed. Practice works offline. It is a training app with no real-money wagering, not a poker solver or a promise of winnings, and nothing you score in it has any cash value.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.holdemcoach.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

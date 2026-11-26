@@ -1,0 +1,61 @@
+<!--
+{
+  "title": "Marshalling yards: how a freight train is put together",
+  "date": "2026-11-23",
+  "modified": "2026-11-23",
+  "app": "ValleyRail",
+  "description": "A marshalling yard sorts mixed wagons into trains. Learn flat shunting versus the hump, and why 20 sidings sort 20 destinations in one pass but 400 in two.",
+  "summary": "A freight train is assembled in a yard, and assembling it is a sorting problem. Sidings set how many destinations one pass can handle, and each pass costs hours, which is why block trains skip the yard.",
+  "standfirst": "A freight train is not loaded so much as assembled. The yard that does it is a sorting machine, and the number of sidings it has decides how much sorting it can do."
+}
+-->
+<p>Wagons do not start out in the order they need to travel. One leaves a quarry, another a steelworks, a third a depot, and each is bound for a different place. A marshalling yard (a classification yard, in American usage) takes that mixed arrival and turns it into trains in which every wagon is going the same way. That is a sorting problem, and the arithmetic of sorting explains most of how freight railways are organised.</p>
+
+<h2>The three areas of a yard</h2>
+<p>A typical yard has three parts, laid out in a line. Incoming trains stop in the <strong>reception</strong> or arrival sidings, where they are inspected and the locomotive comes off. Next comes the <strong>sorting bowl</strong>, also called the classification yard: a set of many parallel sidings, each reserved for one destination or one outgoing train. Finally the <strong>departure</strong> sidings, where the sorted wagons are coupled into a train, checked and given a locomotive and a crew.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 285" role="img" aria-label="Diagram of a hump yard: arrival sidings, a hump, a bowl of 20 sorting sidings and departure sidings. With 20 sidings, one pass sorts 20 destinations and two passes sort 400.">
+    <g class="hit"><title>Arrival sidings: the incoming train waits here</title><rect class="fill-base" x="8" y="132" width="80" height="18"/></g>
+    <text x="48" y="170" text-anchor="middle">Arrival</text>
+    <g class="hit"><title>Hump: wagons are pushed up and released one at a time</title><polygon class="fill-base" points="96,150 123,108 150,150"/></g>
+    <text x="123" y="102" text-anchor="middle">Hump</text>
+    <g class="hit"><title>Sorting bowl: 20 sidings, one destination each</title><rect class="fill-accent" x="160" y="40.0" width="130" height="3"/><rect class="fill-accent" x="160" y="49.5" width="130" height="3"/><rect class="fill-accent" x="160" y="59.0" width="130" height="3"/><rect class="fill-accent" x="160" y="68.5" width="130" height="3"/><rect class="fill-accent" x="160" y="78.0" width="130" height="3"/><rect class="fill-accent" x="160" y="87.5" width="130" height="3"/><rect class="fill-accent" x="160" y="97.0" width="130" height="3"/><rect class="fill-accent" x="160" y="106.5" width="130" height="3"/><rect class="fill-accent" x="160" y="116.0" width="130" height="3"/><rect class="fill-accent" x="160" y="125.5" width="130" height="3"/><rect class="fill-accent" x="160" y="135.0" width="130" height="3"/><rect class="fill-accent" x="160" y="144.5" width="130" height="3"/><rect class="fill-accent" x="160" y="154.0" width="130" height="3"/><rect class="fill-accent" x="160" y="163.5" width="130" height="3"/><rect class="fill-accent" x="160" y="173.0" width="130" height="3"/><rect class="fill-accent" x="160" y="182.5" width="130" height="3"/><rect class="fill-accent" x="160" y="192.0" width="130" height="3"/><rect class="fill-accent" x="160" y="201.5" width="130" height="3"/><rect class="fill-accent" x="160" y="211.0" width="130" height="3"/><rect class="fill-accent" x="160" y="220.5" width="130" height="3"/></g>
+    <text x="225" y="24" text-anchor="middle">Sorting bowl: 20 sidings</text>
+    <g class="hit"><title>Departure sidings: the sorted train is made up here</title><rect class="fill-base" x="312" y="132" width="80" height="18"/></g>
+    <text x="352" y="170" text-anchor="middle">Departure</text>
+    <text x="200" y="256" text-anchor="middle">1 pass: 20 destinations</text>
+    <text x="200" y="274" text-anchor="middle">2 passes: 400 destinations</text>
+  </svg>
+  <figcaption>A hump yard laid out left to right: arrival, hump, sorting bowl, departure. The bowl is the part to notice, because its 20 sidings set the number of destinations: 20 in one pass, 400 in two.</figcaption>
+</figure>
+
+<h2>Two ways to sort</h2>
+<p>The older method is <strong>flat shunting</strong>. A shunting locomotive pushes a cut of wagons along a lead track, then uncouples some of them and sends them into the right siding, and goes back for the next cut. The locomotive does all the moving, so every wagon costs engine time and the yard is limited by how fast one or two engines can work. It is cheap to build and suits small yards.</p>
+<p>The <strong>hump yard</strong> uses gravity instead. The arriving train is pushed slowly up a raised hump. At the crest the wagons are uncoupled, singly or in small groups, and each rolls down the far side through a set of points that has been set to its siding. Without help the wagons would arrive too fast or too slow, so the slopes are fitted with <strong>retarders</strong>, braking devices that grip the wheels and bring each wagon to a safe speed.</p>
+<p>The difference is that a hump routes wagons <em>individually</em>. A flat yard pushes sets of wagons about, and a hump lets each one go its own way after a single push over the crest. That is why a hump sorts far more wagons per hour. The rate depends on the yard, so no single figure applies, but the gap is large enough that big yards usually have a hump. The price is a lot of land, signalling, retarders and staff, so only heavy traffic justifies a hump.</p>
+
+<h2>Sidings decide destinations</h2>
+<p>The number of sidings in the bowl sets how many destinations one pass can handle. Each wagon needs its own siding to join others bound the same way, so s sidings sort into s destinations. A bowl of 20 sidings can therefore sort wagons for 20 destinations in a single pass.</p>
+<p>What if there are 400? Sort in two passes. In the first, group the wagons by the first of two classes, so that each of 20 sidings holds one group. Then run each group through the bowl again, split by the second class. Two passes give 20 &times; 20 = 400 destinations, three would give 8,000, and in general p passes reach s to the power p.</p>
+<p>The result is a network of yards instead of one. A big yard sorts coarsely, to regions. Smaller yards downstream sort the regional trains again, to towns or to customers. The siding count in each decides how many tiers a network needs.</p>
+
+<p>If you have played <a href="/ValleyRail/">Valley Rail: Train Tycoon</a>, you will know the other end of this: its listing has you carry coal, wood, oil, iron ore, steel and goods between mines, forests, oil wells, mills and power stations. It does not describe marshalling yards or shunting, so the game does not appear to model any of this sorting.</p>
+
+<h2>What a pass costs</h2>
+<p>Every pass through a yard costs time. A wagon arrives, waits for its train to be broken up, waits again for the bowl to fill with enough wagons for a train to be worth making, then waits for the departure train to be made up and checked. The sum is commonly several hours in a yard, and a wagon can sit for a day or more, though the figure varies widely from yard to yard and country to country. Two passes double it. Often, most of a wagon&rsquo;s journey time is spent standing in yards, not moving.</p>
+<p>That is why wagonload freight has largely given way to <strong>block trains</strong> and unit trains in many countries. A block train carries wagons all bound for the same destination, loaded at one place and unloaded at another, so it runs straight through and never needs sorting. A coal train from a mine to a power station is the standard case. It only works when one customer or one flow can fill a whole train, which is why it is usually bulk goods: coal, ore, aggregates, containers.</p>
+<p>Wagonload traffic still exists where flows are too small to fill a train, but it is the expensive end of the business, because every wagon pays for its passes through the yards. The rule of thumb is that the heavier the flow, the more sense it makes to bypass the bowl. <a href="/blog/how-freight-chains-work.html">How freight chains work</a> shows what a flow heavy enough for a direct train looks like, and <a href="/blog/railway-headway-line-capacity.html">headway and line capacity</a> shows the limit on the track those trains share.</p>
+
+<h2>What to take from it</h2>
+<ul>
+<li>A yard has three parts: reception, a sorting bowl, and departure.</li>
+<li>Flat shunting moves cuts with a locomotive. A hump uses gravity and retarders to route wagons one at a time, so it sorts far more per hour.</li>
+<li>With s sidings, one pass sorts s destinations and two passes sort s&sup2;. With 20 sidings that is 20, then 400.</li>
+<li>Each pass costs hours, so heavy, single-destination flows run as block trains and skip the yard.</li>
+</ul>
+<p>The same choice appears, in a small way, whenever you lay a line: which flows are heavy enough to run direct from industry to industry, and which are not.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you build a railway between small towns, put a station beside each town or industry and send trains along the route. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>

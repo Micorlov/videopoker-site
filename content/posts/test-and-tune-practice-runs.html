@@ -1,0 +1,93 @@
+<!--
+{
+  "title": "Test and Tune: why a practice run beats a race for learning",
+  "date": "2026-11-25",
+  "modified": "2026-11-25",
+  "app": "PinkSlipKings",
+  "description": "A Test and Tune pass has no opponent and no elimination, so the time slip shows only your car. Change one thing per run and judge the average, not the best.",
+  "summary": "Why a run with no opponent teaches more than a race: the 60-foot share of ET, what a tenth there is worth at the stripe, one change per run, and why the spread of several runs matters more than the best one.",
+  "standfirst": "A race tells you who won. A practice run tells you why. With no opponent in the other lane and no round to lose, every number on the slip is yours to read."
+}
+-->
+<p>A test-and-tune session at a real strip is a pass with no opponent, no ladder and no one watching your light. Racers treat it as the place where the work gets done and racing as the place where it gets tested. The reason is what a race adds to the slip, and none of it helps you learn.</p>
+
+<h2>What a race adds</h2>
+<p>Three things get in the way once there is a second car.</p>
+<ul class="ranked">
+  <li><strong>The other lane changes your launch.</strong> A driver beside another car tends to react to that car instead of the tree, leaving a little early or late. Your reaction time and your 60-foot then reflect the opponent as much as your setup.</li>
+  <li><strong>One mistake ends the session.</strong> A red light or a lost round sends you home, so you may get one pass of data and then none. <a href="/blog/drag-racing-elimination-ladders.html">The ladders post</a> covers how a ladder works.</li>
+  <li><strong>A single pass proves nothing about repeatability.</strong> A run under pressure is one sample. It cannot say whether the car runs that number every time or only once.</li>
+</ul>
+<p>A practice run removes all three. The tree is the only thing you react to, and a bad pass costs nothing.</p>
+
+<h2>The slip is the same either way</h2>
+<p>The time slip does not care whether there was a rival. You get the same lines: reaction time, 60-foot, the incremental times, the eighth and quarter-mile ETs and the trap speeds. <a href="/blog/reading-a-drag-racing-time-slip.html">The time slip post</a> explains each line. The only difference is that, in a race, the result is bundled with a win or a loss, which hides the information. </p>
+<p>For learning, two lines do most of the work.</p>
+<ul class="ranked">
+  <li><strong>The 60-foot time judges the launch alone.</strong> It is the first 60 feet and nothing else. Launch RPM, tyre grip and weight transfer all show up here, and nothing about top-end power does.</li>
+  <li><strong>Trap speed judges power.</strong> It is measured over the last 66 feet, so it reflects what the engine and gearing are doing at the end, and it is far less sensitive to a poor launch. <a href="/blog/drag-racing-60-foot-time.html">The 60-foot post</a> has the launch side in detail.</li>
+</ul>
+
+<h2>Why the first 60 feet carry so much</h2>
+<p>These are typical figures, not exact ones, and they vary from car to car. The first 60 feet is about 4.5% of a 1,320-foot quarter mile, yet it usually takes about 13 to 15% of the elapsed time, because the car is moving slowest there. In the slip post&rsquo;s example, 1.600 seconds of an 11.200 run is 14.3%.</p>
+<p>A gain there is not worth just its own size, because the car crosses every later point that much earlier and arrives at each one slightly sooner. A common rule of thumb is that 0.10 seconds found in the 60-foot is worth roughly 0.15 to 0.20 seconds in the quarter-mile ET, depending on how much power the car has after the launch. At 120 mph a car covers 176 feet a second, so each 0.10 seconds is about 17.6 feet at the stripe.</p>
+<p>Power works differently. A rough rule is that ET changes with the cube root of power-to-weight: 10% more power with the same weight would lift a 120 mph trap speed to about 124 mph and cut an 11.20 ET to about 10.85. Both are estimates.</p>
+
+<p>Both ideas matter when you are choosing what to change. <a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> lists adjustable gear ratios, final drive, boost and launch RPM, and a Test &amp; Tune mode to take a setup to.</p>
+
+<h2>One change per run</h2>
+<p>If you change launch RPM and the final drive together and the car runs 0.12 seconds quicker, you do not know which change did it, or whether one helped and the other hurt. The method is plain:</p>
+<ol class="ranked">
+  <li>Make a baseline run and note every line of the slip.</li>
+  <li>Change one thing.</li>
+  <li>Run again and compare line by line.</li>
+</ol>
+<p>The comparison reads straight off the slip. If the 60-foot improves and the trap speed does not move, the change helped the launch only. If the trap speed rises and the 60-foot stays put, you added power the car could already use. If neither moves, the change did not matter, which is also worth knowing.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 240" role="img" aria-label="Six practice runs of one car range from 11.20 to 11.42 seconds. The best run, 11.20, is 0.10 quicker than the 11.30 average.">
+    <line class="grid" x1="123.3" x2="123.3" y1="30" y2="206"/>
+    <line class="grid" x1="296.7" x2="296.7" y1="30" y2="206"/>
+    <line class="ref" x1="210.0" x2="210.0" y1="30" y2="206"/>
+    <line class="axis" x1="80" x2="340" y1="206" y2="206"/>
+    <text class="strong" x="210.0" y="22" text-anchor="middle">average 11.30</text>
+    <text x="123.3" y="226" text-anchor="middle">11.20</text>
+    <text x="296.7" y="226" text-anchor="middle">11.40</text>
+    <text x="10" y="57">Run 1</text>
+    <g class="hit"><title>Run 1: 11.20 s, the best run</title><circle cx="123.3" cy="52" r="10" fill="transparent"/><circle class="dot hl" cx="123.3" cy="52" r="4.5"/></g>
+    <text class="strong" x="135.3" y="57">11.20 best</text>
+    <text x="10" y="85">Run 2</text>
+    <g class="hit"><title>Run 2: 11.31 s</title><circle cx="218.7" cy="80" r="10" fill="transparent"/><circle class="dot" cx="218.7" cy="80" r="4.5"/></g>
+    <text x="230.7" y="85">11.31</text>
+    <text x="10" y="113">Run 3</text>
+    <g class="hit"><title>Run 3: 11.27 s</title><circle cx="184.0" cy="108" r="10" fill="transparent"/><circle class="dot" cx="184.0" cy="108" r="4.5"/></g>
+    <text x="196.0" y="113">11.27</text>
+    <text x="10" y="141">Run 4</text>
+    <g class="hit"><title>Run 4: 11.42 s</title><circle cx="314.0" cy="136" r="10" fill="transparent"/><circle class="dot" cx="314.0" cy="136" r="4.5"/></g>
+    <text x="326.0" y="141">11.42</text>
+    <text x="10" y="169">Run 5</text>
+    <g class="hit"><title>Run 5: 11.24 s</title><circle cx="158.0" cy="164" r="10" fill="transparent"/><circle class="dot" cx="158.0" cy="164" r="4.5"/></g>
+    <text x="170.0" y="169">11.24</text>
+    <text x="10" y="197">Run 6</text>
+    <g class="hit"><title>Run 6: 11.35 s</title><circle cx="253.3" cy="192" r="10" fill="transparent"/><circle class="dot" cx="253.3" cy="192" r="4.5"/></g>
+    <text x="265.3" y="197">11.35</text>
+  </svg>
+  <figcaption>Six practice runs of one car, in seconds of quarter-mile ET (an illustrative set, not measured). The best run, 11.20, is 0.10 quicker than the 11.30 average and 0.22 quicker than the worst.</figcaption>
+</figure>
+
+<h2>Use the spread, not the best run</h2>
+<p>The figure shows six passes by one unchanged car: 11.20, 11.31, 11.27, 11.42, 11.24 and 11.35, an illustrative set. The best is 11.20, the worst 11.42, a spread of 0.22 seconds, and the average is about 11.30. Quoting 11.20 as what the car runs is wrong by 0.10 seconds, the size of the gain you were hunting for.</p>
+<p>That is the real problem with one run per setup. If the car varies by 0.22 seconds on its own, a change worth 0.03 is invisible in a single pass. Make three to five runs per setting and compare averages and spreads.</p>
+<p>The spread matters for racing too. In a bracket class the dial-in has to be a number you can hit, and running quicker than it, a breakout, usually loses the round. A car with a tight spread lets you dial in with confidence. In a heads-up ladder, what the car does on an ordinary pass is worth more than what it did once.</p>
+
+<div class="callout">
+  <p>Best run: what the car can do on a good day. Average run: what it will do in the next round. A ladder is won on the second number.</p>
+</div>
+
+<h2>What this transfers to in the game</h2>
+<p>The method holds anywhere there is a slip. <a href="/PinkSlipKings/">Pink Slip Kings</a> lists Test &amp; Tune, a tuner sandbox, a dyno and race time slips, along with money races and pink-slip races in which a car is staked. Those races are where a one-off pass costs you something, so find out what your car repeats before entering one. The listing does not describe how Test &amp; Tune works, so read the steps above as a method to bring to it.</p>
+
+<div class="post-foot">
+  <p><a href="/PinkSlipKings/">Pink Slip Kings: Drag Racing</a> is a 3D drag racing game with manual launch and shift controls. You choose your launch RPM and time your shifts, and the listing includes a dyno, telemetry and race time slips, plus Test &amp; Tune and tuner sandbox modes. It plays offline, has no ads and no in-app purchases, and its in-game cash and cars cannot be bought or exchanged for real money.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.micorlov.pinkslipkings"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

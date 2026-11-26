@@ -1,0 +1,115 @@
+<!--
+{
+  "title": "Position play: thinking two shots ahead",
+  "date": "2026-11-21",
+  "modified": "2026-11-21",
+  "app": "EightBallsPool",
+  "description": "Stun, follow and draw send the cue ball along three different lines after one pot. How to pick the one that leaves the next ball, with the angles to check.",
+  "summary": "On one half-ball cut, stun, follow and draw send the cue ball along three different lines, so the spin you choose decides which next ball you can reach. In the worked layout only draw leaves a straight pot.",
+  "standfirst": "A pot is only half of a shot. The other half is where the cue ball stops, and stun, follow and draw send it to three different places from the same hit."
+}
+-->
+<p>Potting a ball is half a shot. The other half is where the cue ball finishes, because that decides whether the next ball is a simple pot, a difficult one or no shot at all. Players who think two shots ahead choose their spin by looking at the next ball first. This post applies the angles from the earlier posts to one layout.</p>
+
+<h2>The tangent line and the stun shot</h2>
+<p>When the cue ball meets an object ball off-centre, the object ball sets off along the line joining the two centres at the moment of contact. Call that the pot line. The tangent line is the line through the contact point at right angles to it. In a stun shot the cue ball has no spin at all when the balls meet, and it leaves along the tangent line. The two balls therefore part at 90 degrees, which is the <a href="/blog/pool-90-degree-rule.html">90-degree rule</a>.</p>
+<p>Strictly, the cue ball's centre travels parallel to the tangent line, one ball radius to its side, and the figure below draws it that way. The rule fails at the extremes: on a straight shot the cue ball stops dead, and on a very thin cut it barely changes direction.</p>
+
+<h2>Follow and the 30-degree rule</h2>
+<p>Follow is topspin, and a cue ball that has travelled a good distance is rolling anyway. It keeps its forward spin through the contact, and the cloth drags its path round, away from the tangent and back towards its original line. For a half-ball hit, which is a 30-degree cut, the maths gives 33.7 degrees from that original line. Across common cuts it stays near 30, as the <a href="/blog/pool-30-degree-rule.html">30-degree rule post</a> sets out.</p>
+<p>The 30 degrees is measured from the cue ball's original line, not from the pot line. On a 30-degree cut that puts the rolling ball about 60 degrees from the pot line, between the original line and the tangent.</p>
+
+<h2>Draw and the far side of the tangent</h2>
+<p>Draw is backspin. The cue ball keeps its backspin through the contact, and the cloth now drags it backwards. A little draw tips the path a few degrees past the tangent line. A lot sends the cue ball back towards where it came from, so the angle from the pot line is more than 90 degrees. No single figure covers it: the angle grows with the backspin and depends on the cut and the speed. The <a href="/blog/cue-ball-spin-explained.html">cue-ball spin post</a> covers how spin is applied. The figure below draws one example, at 150 degrees from the pot line.</p>
+<p>The three paths fan out from one contact: follow in front of the tangent, stun on it, draw behind it.</p>
+
+<h2>One layout, three paths</h2>
+<figure class="chart">
+  <svg viewBox="0 0 400 330" role="img" aria-label="Diagram showing that after one half-ball cut only the draw shot leaves the next ball straight in to the corner pocket, while stun and follow leave a cut of more than 50 degrees.">
+    <rect x="24" y="24" width="352" height="272" fill="none" style="stroke:var(--chart-base)" stroke-width="2"/>
+    <g class="hit"><title>Target pocket for the object ball</title><circle class="fill-base" cx="200" cy="24" r="11"/></g>
+    <g class="hit"><title>Corner pocket for the next ball</title><circle class="fill-base" cx="376" cy="296" r="11"/></g>
+    <circle class="fill-base" cx="24" cy="24" r="11"/>
+    <circle class="fill-base" cx="376" cy="24" r="11"/>
+    <circle class="fill-base" cx="24" cy="296" r="11"/>
+    <circle class="fill-base" cx="200" cy="296" r="11"/>
+    <text x="218" y="20">Target pocket</text>
+    <text x="362" y="320" text-anchor="end">Next pocket</text>
+
+    <g class="hit"><title>Pot line: the object ball travels straight up the table to the target pocket</title>
+      <line x1="200" y1="121" x2="200" y2="37" style="stroke:var(--chart-base)" stroke-width="2"/>
+      <path d="M196.2,44.1 L200,37 L203.8,44.1" fill="none" style="stroke:var(--chart-base)" stroke-width="2"/>
+    </g>
+    <text x="208" y="84">Pot line</text>
+
+    <g class="hit"><title>Tangent line: through the contact point, at 90 degrees to the pot line</title>
+      <line x1="30" y1="139" x2="290" y2="139" style="stroke:var(--chart-base)" stroke-width="1" stroke-dasharray="4 4"/>
+    </g>
+    <text x="34" y="133">Tangent line</text>
+
+    <g class="hit"><title>Cue ball line: the cue ball approaches for a half-ball cut of 30 degrees</title>
+      <line x1="169.5" y1="200.8" x2="195.5" y2="155.8" style="stroke:var(--chart-base)" stroke-width="2"/>
+    </g>
+    <g class="hit"><title>Cue ball at the moment of contact</title><circle cx="200" cy="148" r="9" fill="none" style="stroke:var(--chart-base)" stroke-width="1.5" stroke-dasharray="3 3"/></g>
+
+    <g class="hit"><title>Follow path: a rolling cue ball leaves about 30 degrees off its original line</title>
+      <line x1="207.8" y1="143.5" x2="295.3" y2="93" style="stroke:var(--chart-base)" stroke-width="2"/>
+      <path d="M287.3,93.3 L295.3,93 L291.1,99.8" fill="none" style="stroke:var(--chart-base)" stroke-width="2"/>
+    </g>
+    <text class="strong" x="303" y="90">Follow</text>
+    <text class="strong" x="303" y="104">about 30°</text>
+
+    <g class="hit"><title>Stun path: the cue ball leaves along the tangent, 90 degrees to the pot line</title>
+      <line x1="209" y1="148" x2="310" y2="148" style="stroke:var(--chart-base)" stroke-width="2"/>
+      <path d="M302.9,144.2 L310,148 L302.9,151.8" fill="none" style="stroke:var(--chart-base)" stroke-width="2"/>
+    </g>
+    <text class="strong" x="318" y="145">Stun</text>
+    <text class="strong" x="318" y="159">90°</text>
+
+    <g class="hit"><title>Draw path: backspin pulls the cue ball back past the tangent line, shown at 150 degrees from the pot line</title>
+      <line class="line hl" x1="204.5" y1="155.8" x2="240" y2="217.3"/>
+      <path class="line hl" d="M239.7,209.3 L240,217.3 L233.2,213.1"/>
+    </g>
+    <text class="strong" x="250" y="207">Draw, 150°</text>
+
+    <g class="hit"><title>Shot on the next ball: from the draw position, the cue ball, next ball and corner pocket are in one line</title>
+      <line class="line hl" x1="248" y1="222" x2="365" y2="290.5" stroke-dasharray="6 4"/>
+    </g>
+    <text class="strong" x="262" y="252" text-anchor="end">Straight in</text>
+
+    <g class="hit"><title>Cue ball</title><circle cx="165" cy="209" r="9" fill="none" style="stroke:var(--chart-base)" stroke-width="2"/></g>
+    <text x="151" y="213" text-anchor="end">Cue ball</text>
+    <g class="hit"><title>Object ball, to be potted</title><circle class="fill-base" cx="200" cy="130" r="9"/></g>
+    <text x="188" y="122" text-anchor="end">Object ball</text>
+    <g class="hit"><title>Next ball</title><circle class="fill-base" cx="308" cy="257" r="9"/></g>
+    <text x="294" y="278" text-anchor="end">Next ball</text>
+  </svg>
+  <figcaption>One half-ball cut, three paths. The dashed circle is the cue ball at contact. Only draw brings the cue ball into line with the next ball and its pocket; stun and follow leave it a cut of more than 50 degrees.</figcaption>
+</figure>
+
+<p>The object ball sits in line with the top side pocket, and the cue ball comes in for a half-ball cut of 30 degrees. The next ball lies low on the right, in line with the bottom-right corner pocket.</p>
+<p>Stun sends the cue ball along the tangent, 90 degrees to the pot line. It finishes almost directly above the next ball, and from there the pot into the corner needs a cut of more than 50 degrees. Follow, at about 30 degrees off the original line, finishes higher up the table and leaves a cut of more than 50 degrees too. Draw, drawn at 150 degrees from the pot line, finishes on the line that runs from the next ball to its pocket, so the next pot is straight in. The object ball takes the same route in all three cases. Only the spin differs.</p>
+<p>The stopping points are drawn for clarity, since distance depends on speed, and the cut figures belong to this drawing, not to every table. In <a href="/EightBallsPool/">8balls</a>, the Play listing says you can adjust aim, shot power and cue-ball spin, which covers all three choices.</p>
+
+<h2>Working backwards from the next ball</h2>
+<p>Read the table in reverse. Decide where the cue ball must stand to pot the next ball; the <a href="/blog/ghost-ball-aiming.html">ghost-ball method</a> works for that spot just as it does for the first shot.</p>
+<ol class="ranked">
+  <li><strong>Find the pot line and the tangent line.</strong> The tangent is at 90 degrees to the pot line, through the contact point.</li>
+  <li><strong>Mark where the cue ball needs to stop.</strong> Pick the spot with the clearest line to the next ball and a good angle on its pocket.</li>
+  <li><strong>See which side of the tangent the spot is on.</strong> On the tangent: stun. In front of it, between the tangent and the original line, around 30 degrees from that line: a rolling follow. Behind it: draw.</li>
+  <li><strong>Check the route and the pace.</strong> Spin sets the direction, and speed sets how far the ball goes.</li>
+</ol>
+<p>Often one path lands close and the others do not. When none does, accept a spot that leaves the next ball a gentle cut. The <a href="/EightBallsPool/">8balls</a> Play listing lists adjustable aim, shot power and cue-ball spin, and practice at your own pace, so testing which of the three reaches your spot is a matter of repeating the cut.</p>
+
+<h2>Where the rules of thumb stop working</h2>
+<ul>
+  <li><strong>Near-straight shots.</strong> There is almost no tangent velocity for follow to bend, so a rolling ball keeps going close to its original line.</li>
+  <li><strong>Thin cuts.</strong> The rolling deflection falls to about 10 degrees at a 75-degree cut, well below 30.</li>
+  <li><strong>Short or slow shots.</strong> The cue ball may arrive before it has settled into a roll, and the 30 degrees will be off.</li>
+</ul>
+<p>Treat 90, 30 and the drawn-back angle as starting estimates. A few trial shots at the same cut will show where your table and your stroke put the cue ball.</p>
+
+<div class="post-foot">
+  <p><a href="/EightBallsPool/">8balls: Pool &amp; Billiards</a> lets you adjust your aim, shot power and cue-ball spin, switch between overhead and aiming views, and practise at your own pace. Every match is free, with no ads or in-app purchases.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.eightballs.pool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2a1 1 0 0 0-.6.9v17.8a1 1 0 0 0 .6.9l9.5-9.8zM14.4 12.9l2.9 3L5.4 22.6zM5.4 1.4l11.9 6.7-2.9 3zM18.6 8.9l2.7 1.5a1.2 1.2 0 0 1 0 2.2l-2.7 1.5-3.2-3.1z"/></svg> Get it on Google Play</a></p>
+</div>

@@ -1,0 +1,68 @@
+<!--
+{
+  "title": "Headway: how many trains a single line can carry",
+  "date": "2026-11-22",
+  "modified": "2026-11-22",
+  "app": "ValleyRail",
+  "description": "Headway, the gap between trains on one line, sets capacity: 3600 divided by the seconds. See how braking, block signals and passing loops fix the limit.",
+  "summary": "Capacity in trains per hour is 3600 divided by the headway in seconds. Braking distance, block length and, on a single track, the spacing of passing loops decide how small the headway can be.",
+  "standfirst": "A railway line carries as many trains as its headway allows. The headway comes from braking distance, signalling and, on a single track, from where the trains can pass."
+}
+-->
+<p>Headway is the time between one train and the next on the same line, measured at a fixed point. It is the number that decides how many trains a line can carry, and it is simple to turn into a capacity.</p>
+
+<h2>From headway to capacity</h2>
+<p>There are 3,600 seconds in an hour, so trains per hour is 3600 divided by the headway in seconds. A 3-minute headway is 180 s, which gives 20 trains an hour. A 5-minute headway is 300 s and gives 12. A headway of 90 s gives 40, and a very relaxed 10 minutes, or 600 s, gives 6.</p>
+<p>The curve below plots those four points. Because it is a division, halving the headway doubles the capacity, and the gains are largest where the headway is already short.</p>
+
+<figure class="chart">
+  <svg viewBox="0 0 400 250" role="img" aria-label="Line chart: trains per hour fall as headway grows, from 40 at 90 seconds to 20 at 180 seconds, 12 at 300 seconds and 6 at 600 seconds.">
+    <line class="grid" x1="46" x2="386" y1="210" y2="210"/><text x="40" y="214" text-anchor="end">0</text><line class="grid" x1="46" x2="386" y1="165" y2="165"/><text x="40" y="169" text-anchor="end">10</text><line class="grid" x1="46" x2="386" y1="120" y2="120"/><text x="40" y="124" text-anchor="end">20</text><line class="grid" x1="46" x2="386" y1="75" y2="75"/><text x="40" y="79" text-anchor="end">30</text><line class="grid" x1="46" x2="386" y1="30" y2="30"/><text x="40" y="34" text-anchor="end">40</text>
+    <line class="axis" x1="46" x2="386" y1="210" y2="210"/>
+    <text x="46" y="226" text-anchor="middle">90 s</text><text x="106" y="226" text-anchor="middle">180 s</text><text x="186" y="226" text-anchor="middle">300 s</text><text x="382" y="226" text-anchor="middle">600 s</text>
+    <text x="216" y="244" text-anchor="middle">Headway between trains</text>
+    <text x="12" y="120" text-anchor="middle" transform="rotate(-90 12 120)">Trains per hour</text>
+    <path class="line" d="M46.0,30.0 L50.0,41.2 L54.0,51.2 L58.0,60.0 L62.0,67.9 L66.0,75.0 L70.0,81.4 L74.0,87.3 L78.0,92.6 L82.0,97.5 L86.0,102.0 L90.0,106.2 L94.0,110.0 L98.0,113.6 L102.0,116.9 L106.0,120.0 L110.0,122.9 L114.0,125.6 L118.0,128.2 L122.0,130.6 L126.0,132.9 L130.0,135.0 L134.0,137.0 L138.0,138.9 L142.0,140.8 L146.0,142.5 L150.0,144.1 L154.0,145.7 L158.0,147.2 L162.0,148.6 L166.0,150.0 L170.0,151.3 L174.0,152.6 L178.0,153.8 L182.0,154.9 L186.0,156.0 L190.0,157.1 L194.0,158.1 L198.0,159.1 L202.0,160.0 L206.0,160.9 L210.0,161.8 L214.0,162.6 L218.0,163.4 L222.0,164.2 L226.0,165.0 L230.0,165.7 L234.0,166.5 L238.0,167.1 L242.0,167.8 L246.0,168.5 L250.0,169.1 L254.0,169.7 L258.0,170.3 L262.0,170.9 L266.0,171.4 L270.0,172.0 L274.0,172.5 L278.0,173.0 L282.0,173.5 L286.0,174.0 L290.0,174.5 L294.0,174.9 L298.0,175.4 L302.0,175.8 L306.0,176.2 L310.0,176.7 L314.0,177.1 L318.0,177.5 L322.0,177.9 L326.0,178.2 L330.0,178.6 L334.0,179.0 L338.0,179.3 L342.0,179.7 L346.0,180.0 L350.0,180.3 L354.0,180.7 L358.0,181.0 L362.0,181.3 L366.0,181.6 L370.0,181.9 L374.0,182.2 L378.0,182.4 L382.0,182.7 L386.0,183.0"/>
+    <text x="56" y="26">90 s: 40 an hour</text>
+    <text class="strong" x="114" y="112">180 s: 20 an hour</text>
+    <text x="194" y="146">300 s: 12 an hour</text>
+    <text x="384" y="170" text-anchor="end">600 s: 6 an hour</text>
+    <g class="hit"><title>90 seconds: 40 trains an hour</title><circle cx="46" cy="30" r="10" fill="transparent"/><circle class="dot" cx="46" cy="30" r="4.5"/></g>
+    <g class="hit"><title>180 seconds: 20 trains an hour</title><circle cx="106" cy="120" r="10" fill="transparent"/><circle class="dot hl" cx="106" cy="120" r="4.5"/></g>
+    <g class="hit"><title>300 seconds: 12 trains an hour</title><circle cx="186" cy="156" r="10" fill="transparent"/><circle class="dot" cx="186" cy="156" r="4.5"/></g>
+    <g class="hit"><title>600 seconds: 6 trains an hour</title><circle cx="386" cy="183" r="10" fill="transparent"/><circle class="dot" cx="386" cy="183" r="4.5"/></g>
+  </svg>
+  <figcaption>Trains per hour on one line, 3600 divided by the headway in seconds, from 90 s to 600 s. The curve is steep at the short end: going from 300 s to 180 s adds 8 trains an hour, while going from 600 s to 300 s adds only 6.</figcaption>
+</figure>
+
+<h2>What sets the minimum</h2>
+<p>A following train must always be able to stop short of the one ahead. So the least distance between them is the braking distance, plus the distance covered while the driver or system sights the problem and reacts, plus the length of the train ahead, since the tail must be clear. Divide that distance by the speed and you have a headway in seconds.</p>
+<p>Take illustrative numbers, not any real railway&rsquo;s. At 100 km/h a train covers 27.8 m every second. Braking at a steady 0.5 m/s&sup2; takes v&sup2; &divide; 2a, which is 772 &divide; 1.0, or about 772 m. Add 5 s of reaction, which is 139 m, and a train 200 m long. The total is about 1,111 m, or 40 s at that speed. That is a floor, before stations, doors or any safety margin. <a href="/blog/why-trains-cant-stop-quickly.html">Why trains can&rsquo;t stop quickly</a> explains why the braking term dominates: it grows with the square of the speed.</p>
+
+<h2>Fixed blocks</h2>
+<p>Most railways do not let a driver judge that distance. They divide the line into blocks, and only one train may be in a block at a time. A signal at the entrance stays red while the block is occupied. The minimum headway is then roughly the time to run through one block, plus an overlap of safe track beyond the signal, plus the train&rsquo;s own length.</p>
+<p>Using the same 27.8 m/s, blocks of 4,000 m with a 200 m overlap and a 200 m train give 4,400 m, or about 158 s, so 23 trains an hour. Halve the blocks to 2,000 m and the distance is 2,400 m, about 86 s, which is roughly 42 trains an hour. Capacity is set by block length, and shorter blocks need more signals. That is why the busy approaches to a terminus have blocks of a few hundred metres, while a rural single line may have blocks several miles long. Shortening blocks only helps down to the braking distance, because a train must still be able to stop within the signals it can see.</p>
+
+<h2>Moving block</h2>
+<p>A block quantises the line. A train 10 m behind the block boundary is treated as if it were a whole block behind. Moving-block systems drop that rule. In ETCS Level 3 and in CBTC (communications-based train control), each train reports its position, and the safe separation is computed continuously from the speed and braking ability of the train behind and the tail position of the one ahead. The gap shrinks towards the true braking distance, with no block to round up to.</p>
+<p>That is how metro lines reach headways of 90 s. It is a signalling upgrade and not new track: the same rails carry more trains because less of the line is held empty as a safety margin.</p>
+
+<p>Whatever a line&rsquo;s signalling, a single track has a harder limit, and it is the one that matters if you are laying out a small railway. <a href="/ValleyRail/">Valley Rail: Train Tycoon</a> has you drag track between towns, build stations and buy trains that run the route you choose, so you are making this sort of decision, though the listing does not say that the game models signals or headway.</p>
+
+<h2>Single track and loops</h2>
+<p>On a single track, two trains going in opposite directions cannot pass except at a loop, a short second track beside the main one. Signalling cannot change that. The loop spacing sets the capacity, as <a href="/blog/single-track-and-passing-loops.html">single track and passing loops</a> describes.</p>
+<p>Say a line takes 30 minutes to run end to end, with a loop only at each end. A train sets out, the opposite train waits until it arrives, and the cycle is 60 minutes: one train each way an hour, so 2 in total. Add a loop halfway. Each section now takes 15 minutes, and each section is used by one train at a time, alternating directions, so the cycle falls to 30 minutes. That is 2 trains each way an hour, 4 in total, double the capacity. The same logic suggests that n evenly spaced loops give up to about n+1 times the capacity, though only if the timetable can keep to the pattern.</p>
+<p>A loop is usually far cheaper than doubling the whole line, because it is one short stretch of extra track and not a second one along the entire length. The cost is in the timetable. Every meeting is planned for a particular loop, so a train waits there whether or not another is coming, and a late arrival holds up the train at the other end of the section. A single line is only as punctual as its slowest crossing.</p>
+
+<h2>What to take from it</h2>
+<ul>
+<li>Trains per hour is 3600 divided by the headway in seconds: 180 s gives 20, 300 s gives 12, 90 s gives 40.</li>
+<li>The floor is braking distance, reaction distance and train length, divided by speed.</li>
+<li>Fixed blocks round that up to whole blocks; moving block does not.</li>
+<li>On a single line, loop spacing sets capacity, and one loop at the midpoint roughly doubles it.</li>
+</ul>
+<p>For how a line meets the ground in the first place, see <a href="/blog/where-a-railway-station-goes.html">why a railway station is put where it is</a>.</p>
+
+<div class="post-foot">
+  <p><a href="/ValleyRail/">Valley Rail: Train Tycoon</a> lets you build a railway between small towns, put a station beside each town or industry and send trains along the route. The money each trip earns is in-game only and has no cash value. Valley Rail is in closed testing and not yet publicly available.</p>
+</div>
