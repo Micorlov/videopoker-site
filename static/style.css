@@ -577,3 +577,4 @@ footer a:hover { color: var(--primary); }
 .chart-scroll .paytable-compare { margin: 0; min-width: 560px; }
 .chart-scroll .paytable-compare th, .chart-scroll .paytable-compare td { padding-inline: 0 6px; text-align: center; }
 .chart-scroll .paytable-compare th[scope="row"] { text-align: start; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

@@ -1087,6 +1087,7 @@ def build_guides(guides):
     <h1>Guides</h1>
     <p class="standfirst">Rules, strategy charts and how-to guides for the games we make, written to be useful whether or not you play ours.</p>
   </div>
+  <h2 class="sr-only">All guides</h2>
   {skill_items(guides)}
 </main>
 """,
