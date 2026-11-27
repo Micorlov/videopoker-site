@@ -1,0 +1,103 @@
+<!--
+{
+  "title": "Deuces Wild video poker strategy: a simple chart by number of deuces",
+  "seo_title": "Deuces Wild strategy: what to hold, by number of deuces",
+  "date": "2026-11-27",
+  "description": "A simple Deuces Wild video poker strategy: count your deuces, then keep the first hand on the list. The full-pay paytable, worked examples and common mistakes.",
+  "summary": "In Deuces Wild the first question is always how many 2s you hold. This guide gives a short hold list for zero to four deuces, the full-pay paytable it assumes, and the traps.",
+  "standfirst": "Every 2 is wild, so a pair of jacks pays nothing and three of a kind is the smallest win. That changes what you keep. Count your deuces first, then read down one short list.",
+  "app_name": "Video Poker Offline & Trainer",
+  "package": "com.micorlov.videopoker",
+  "app": "VideoPoker"
+}
+-->
+<p>Deuces Wild is the most popular wild-card video poker game. All four 2s act as any card you need, which makes big hands far more common, so the paytable starts at <strong>three of a kind</strong> and a pair pays nothing. Strategy that works in Jacks or Better will lose money here. The good news: Deuces Wild strategy is easiest to learn if you sort every hand by how many deuces it has.</p>
+
+<h2>The paytable this guide assumes</h2>
+<table class="paytable-compare">
+  <caption>"Full-pay" Deuces Wild, per coin bet. With the royal flush max-coin bonus this game returns just over 100% with perfect play; without it, a little under.</caption>
+  <thead><tr><th>Hand</th><th>Pays</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Natural royal flush (no deuces)</th><td>250 (800 per coin on a max bet in casinos)</td></tr>
+    <tr><th scope="row">Four deuces</th><td>200</td></tr>
+    <tr><th scope="row">Wild royal flush</th><td>25</td></tr>
+    <tr><th scope="row">Five of a kind</th><td>15</td></tr>
+    <tr><th scope="row">Straight flush</th><td>9</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>5</td></tr>
+    <tr><th scope="row">Full house</th><td>3</td></tr>
+    <tr><th scope="row">Flush</th><td>2</td></tr>
+    <tr><th scope="row">Straight</th><td>2</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>1</td></tr>
+  </tbody>
+</table>
+<p>Many machines cut the five of a kind, straight flush or four of a kind pays ("not so ugly" deuces pays 16/10/4/4/3). The order below is still close on those tables, but a few borderline holds move. If you are new to paytables, start with <a href="/blog/reading-a-video-poker-paytable.html">how to read a video poker paytable</a>.</p>
+
+<h2>Step 1: count your deuces</h2>
+<p>Find the list for the number of 2s in your hand and keep the <em>first</em> line your five cards match. Hold the deuces in every case: you never throw a wild card away.</p>
+
+<h3>Four deuces</h3>
+<ul><li>Hold the four deuces. That is 200 per coin already; the fifth card doesn't matter.</li></ul>
+
+<h3>Three deuces</h3>
+<ol>
+  <li>A wild royal flush or five of a kind: keep the whole hand.</li>
+  <li>Otherwise hold just the three deuces and draw two.</li>
+</ol>
+<p>Three deuces plus a pair is five of a kind, so stand. Three deuces plus a 10-J of the same suit is <em>not</em> a royal yet; drop the 10-J and keep the deuces.</p>
+
+<h3>Two deuces</h3>
+<ol>
+  <li>Four of a kind or better: keep it.</li>
+  <li>Four to a royal flush: draw one.</li>
+  <li>Four to a straight flush with two consecutive natural cards, 6-7 or higher (6-7, 7-8 ... up to 9-10): draw one.</li>
+  <li>Otherwise hold only the two deuces.</li>
+</ol>
+<p>A made flush or straight with two deuces is <em>worse</em> than keeping the deuces alone. It pays 2; two deuces drawn to are worth more on average.</p>
+
+<h3>One deuce</h3>
+<ol>
+  <li>A straight flush or better, or four of a kind.</li>
+  <li>Four to a royal flush.</li>
+  <li>Full house.</li>
+  <li>Four to a straight flush with three consecutive natural cards, 5-6-7 or higher.</li>
+  <li>Three of a kind, a straight or a flush.</li>
+  <li>Any other four to a straight flush.</li>
+  <li>Three to a royal flush.</li>
+  <li>Three to a straight flush with two consecutive natural cards, 6-7 or higher.</li>
+  <li>Otherwise hold the deuce alone and draw four.</li>
+</ol>
+
+<h3>No deuces</h3>
+<ol>
+  <li>A natural royal flush.</li>
+  <li>Four to a royal flush.</li>
+  <li>Any paying hand: straight flush, four of a kind, full house, flush, straight, three of a kind.</li>
+  <li>Four to a straight flush.</li>
+  <li>Two pair: keep <em>one</em> pair and draw three.</li>
+  <li>One pair.</li>
+  <li>Three to a royal flush.</li>
+  <li>Four to a flush.</li>
+  <li>Four to an outside straight (open at both ends).</li>
+  <li>Three to a straight flush.</li>
+  <li>Otherwise discard everything and draw five.</li>
+</ol>
+
+<h2>Worked examples</h2>
+<ul>
+  <li><strong>2♣ 2♦ 8♥ 9♥ K♠</strong>: two deuces, and 8-9 is not four to a straight flush. Hold just the deuces.</li>
+  <li><strong>2♠ 5♥ 5♦ 9♣ 9♠</strong>: one deuce with two pair makes a full house. Keep all five.</li>
+  <li><strong>4♥ 4♣ J♣ J♦ 7♠</strong>: no deuces, two pair. Two pair pays nothing here, so keep <em>one</em> pair (either) and draw three.</li>
+  <li><strong>2♥ 10♠ J♠ Q♠ 3♦</strong>: one deuce plus three to a royal is four to a royal. Draw one.</li>
+</ul>
+
+<h2>The mistakes players make most</h2>
+<ul>
+  <li><strong>Keeping a high pair "because it pays"</strong>. It doesn't in Deuces Wild. Any pair is just a pair.</li>
+  <li><strong>Keeping two pair</strong>. Hold one pair: you have the same chance to make trips or better, and fewer dead cards.</li>
+  <li><strong>Settling for a straight or flush with two deuces</strong>. The deuces alone are worth more.</li>
+  <li><strong>Holding a kicker</strong> with deuces. A random high card next to your wild cards only blocks better draws.</li>
+</ul>
+
+<h2>Practise with exact hints</h2>
+<p>A chart gets you very close; exact play is the last fraction of a percent. Our free Android game <strong>Video Poker Offline &amp; Trainer</strong> includes Deuces Wild with the full-pay table above. Turn on hints and the trainer works out the best hold for every deal from the exact odds, tells you after the draw if your hold was right and what a mistake cost, and tracks your strategy accuracy. It plays offline, with free chips and no real money. For the non-wild game, see the <a href="/guides/jacks-or-better-strategy-chart.html">Jacks or Better strategy chart</a>.</p>
+<p>This is strategy for a free practice game. Real-money video poker can still lose over any session, even with perfect play.</p>
