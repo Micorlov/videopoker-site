@@ -1,0 +1,87 @@
+<!--
+{
+  "title": "Drag racing game tuning guide: launch, shifts and gears",
+  "date": "2026-11-27",
+  "description": "A step-by-step tuning guide for drag racing games: launch RPM, shift points, gear ratios, final drive, tire pressure, boost, nitrous and the time slip.",
+  "summary": "Tune a drag car in the right order: launch first, then shifts, gearing, grip and power, using the time slip to tell you what to change next.",
+  "standfirst": "Most of a drag race is won or lost in the first 60 feet. Tune in the order that fixes the biggest losses first, change one thing at a time, and let the time slip tell you what to change next.",
+  "app_name": "Drag Racing Miami: Car Tuning",
+  "package": "com.micorlov.pinkslipkings",
+  "app": "PinkSlipKings"
+}
+-->
+<p>A drag race is a straight line, so every tenth of a second comes from four things: how quickly you react, how well the car puts power down off the line, how cleanly it shifts, and how much power it makes. Tuning screens in drag racing games mirror the real settings racers adjust, and the same logic applies to both. The order below is the order real racers work in, because the early steps fix the biggest losses.</p>
+
+<h2>Step 1: read the time slip first</h2>
+<p>Every pass produces a time slip. It is a diagnosis, not just a score. (<a href="/blog/reading-a-drag-racing-time-slip.html">The whole slip, line by line.</a>)</p>
+<table class="paytable-compare">
+  <caption>What each line of a time slip tells you, and the setting it points at.</caption>
+  <thead>
+    <tr><th>Line</th><th>What it measures</th><th>If it's bad, look at</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Reaction time</th><td>From green light to the car leaving the start</td><td>You, not the car (<a href="/blog/drag-racing-christmas-tree.html">the tree</a>)</td></tr>
+    <tr><th scope="row">60-foot</th><td>Time over the first 60 ft</td><td>Launch RPM, tire pressure, suspension</td></tr>
+    <tr><th scope="row">330 ft / 1/8 mile</th><td>Early acceleration through the gears</td><td>Shift points, first gears</td></tr>
+    <tr><th scope="row">Elapsed time (ET)</th><td>Start to finish</td><td>Everything: the sum of the above</td></tr>
+    <tr><th scope="row">Trap speed</th><td>Speed through the finish</td><td>Power, top gear and final drive</td></tr>
+  </tbody>
+</table>
+<p>A rule of thumb: a car whose trap speed is good but ET is poor is losing time at the start. A car with a good 60-foot and a poor trap speed needs more power or different gearing. The 60-foot time matters more than it looks, because every hundredth lost there carries all the way down the track (<a href="/blog/drag-racing-60-foot-time.html">why</a>).</p>
+
+<h2>Step 2: launch RPM</h2>
+<p>Launch RPM is the engine speed you hold on the line before the green. Too high, and the tires spin and you lose time. Too low, and the engine bogs below its power band. The right number is the highest RPM that doesn't spin the tires, and it goes up as grip goes up.</p>
+<ul>
+  <li>Spinning off the line: drop launch RPM by a few hundred, or improve grip (step 5).</li>
+  <li>Bogging, a slow first second with no wheelspin: raise it.</li>
+  <li>Telemetry with a wheel-slip graph makes this easy: a little slip at launch is fast, a long spike is not.</li>
+</ul>
+<p>More in <a href="/blog/drag-racing-launch-rpm.html">finding your launch RPM</a> and <a href="/blog/why-drag-racers-do-a-burnout.html">why racers do a burnout first</a>.</p>
+
+<h2>Step 3: shift points</h2>
+<p>The intuitive answer is to shift at peak power or at the redline. The correct answer is to shift where the car will have more thrust at the wheels in the next gear than in this one. For most engines that is past peak power, often close to the redline, but it depends on the power curve and the gap between gears. (<a href="/blog/best-shift-point-past-peak-torque.html">Why the best shift point is past peak torque.</a>)</p>
+<p>Use the dyno: find where the curve falls away at the top. If power drops sharply before the redline, shift a little earlier. If it stays flat, use the revs.</p>
+
+<h2>Step 4: gear ratios and final drive</h2>
+<p>Gearing turns engine torque into wheel thrust. A shorter (numerically higher) ratio accelerates harder but runs out of revs sooner.</p>
+<table class="paytable-compare">
+  <caption>Gearing, in order of what to set.</caption>
+  <thead>
+    <tr><th>Setting</th><th>Goal</th><th>Sign it's wrong</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Final drive</th><td>Cross the finish line near the redline in top gear</td><td>Hitting the limiter before the line: too short. Finishing well below peak power: too tall.</td></tr>
+    <tr><th scope="row">First gear</th><td>As short as grip allows</td><td>Wheelspin that launch RPM can't fix: too short</td></tr>
+    <tr><th scope="row">Middle gears</th><td>Even steps, so each shift lands in the power band</td><td>RPM drops far below peak torque after a shift</td></tr>
+  </tbody>
+</table>
+<p>The right final drive depends on the race length: a car geared for the quarter mile is too tall for the eighth. (<a href="/blog/gear-ratios-and-final-drive.html">Gear ratios and final drive</a>, <a href="/blog/eighth-mile-or-quarter-mile.html">eighth mile or quarter mile</a>.)</p>
+
+<h2>Step 5: grip, tires and weight transfer</h2>
+<ul>
+  <li><strong>Tire pressure.</strong> Lower pressure gives a bigger contact patch and more grip off the line; too low makes the car unstable at speed. Lower it in small steps while the 60-foot improves, and stop when it doesn't.</li>
+  <li><strong>Tires.</strong> Drag radials and slicks transform launches, which is why they are usually the first upgrade worth buying (<a href="/blog/drag-slicks-tyre-design.html">how slicks work</a>).</li>
+  <li><strong>Suspension.</strong> On launch, weight shifts to the rear. A rear-wheel-drive car wants that, so a setup that lets the rear squat helps it hook up (<a href="/blog/drag-racing-weight-transfer.html">weight transfer</a>).</li>
+</ul>
+
+<h2>Step 6: power, boost and nitrous</h2>
+<p>Only add power once the car can use the power it has. More boost on a car that already spins its tires makes it slower, not faster.</p>
+<ul>
+  <li><strong>Boost.</strong> Each extra pound of boost adds power, up to the point where the engine or fuel mixture can't take it (<a href="/blog/boost-pressure-what-a-pound-adds.html">what a pound adds</a>, <a href="/blog/turbo-or-supercharger.html">turbo or supercharger</a>).</li>
+  <li><strong>Air/fuel ratio.</strong> Slightly rich is safe and close to best power; too lean costs power and risks the engine.</li>
+  <li><strong>Nitrous.</strong> Fire it once the car is hooked up, after the launch rather than at it, or it just turns into wheelspin.</li>
+  <li><strong>Weight.</strong> Taking weight out helps everywhere (<a href="/blog/power-to-weight-ratio.html">power-to-weight</a>), and remember that the wheels see less than the flywheel figure (<a href="/blog/drag-racing-drivetrain-loss.html">drivetrain loss</a>).</li>
+</ul>
+
+<h2>How to test a tune</h2>
+<ol>
+  <li>Make three passes on the current tune and note the best 60-foot, ET and trap speed.</li>
+  <li>Change one setting only.</li>
+  <li>Make three more passes. Keep the change only if the numbers improve on average.</li>
+  <li>Save the tune under a new slot before you try the next change.</li>
+</ol>
+<p>Changing several things at once makes it impossible to tell which one helped. More on this in <a href="/blog/test-and-tune-practice-runs.html">test and tune practice runs</a>.</p>
+
+<h2>Practise it in Drag Racing Miami</h2>
+<p><a href="/PinkSlipKings/">Drag Racing Miami</a>, our 3D drag racing game for Android, is built around exactly this loop. You set launch RPM and shift manually, with every shift rated Perfect, Good, Early or Late. The tuning screen covers all six gear ratios and the final drive, turbo boost, air/fuel ratio, cam timing, nitrous, tire pressure and suspension weight transfer, with three saved tunes per car. A dyno shows horsepower and torque before and after, and telemetry graphs show RPM, speed, wheel slip and boost for every run. Test &amp; Tune lets you make practice passes, and you can race career events, money races and pink slips offline, climbing from D class to S class (<a href="/blog/drag-racing-classes.html">how classes work</a>).</p>
+<p>Prefer two wheels and dirt? See <a href="/guides/offline-dirt-bike-games-android.html">offline dirt bike games for Android</a>.</p>

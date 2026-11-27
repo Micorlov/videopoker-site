@@ -1,0 +1,103 @@
+<!--
+{
+  "title": "Omaha poker rules and hand rankings (PLO)",
+  "date": "2026-11-27",
+  "description": "How to play Omaha poker: the deal, the betting rounds, the exactly-two-cards rule, hand rankings with Omaha examples, pot-limit bet sizes and Hi-Lo rules.",
+  "summary": "Pot-Limit Omaha from the deal to the showdown: the rule that you use exactly two hole cards, hand rankings with tricky Omaha examples, and how a pot-sized bet is worked out.",
+  "standfirst": "Omaha looks like Texas Hold'em with two extra cards. One rule changes everything: your hand is always exactly two of your four hole cards plus exactly three from the board.",
+  "app_name": "Omaha Poker: PLO Offline Game",
+  "package": "com.omaha.omaha_poker",
+  "app": "OmahaPoker"
+}
+-->
+<p>Omaha is the second most popular form of community-card poker after Texas Hold'em, and almost always played as <strong>Pot-Limit Omaha</strong>, or PLO. If you know Hold'em you already know most of the game. This guide covers what is different, and the hand-reading traps that catch players coming over from Hold'em.</p>
+
+<h2>How a hand of Omaha is played</h2>
+<ol>
+  <li><strong>Blinds.</strong> The two players to the left of the dealer button post a small and a big blind.</li>
+  <li><strong>The deal.</strong> Each player gets four cards face down, their hole cards.</li>
+  <li><strong>Pre-flop betting.</strong> Starting left of the big blind, each player folds, calls or raises.</li>
+  <li><strong>The flop.</strong> Three community cards are dealt face up, then a second betting round starting left of the button.</li>
+  <li><strong>The turn.</strong> A fourth community card, then a third betting round.</li>
+  <li><strong>The river.</strong> A fifth community card, then the last betting round.</li>
+  <li><strong>Showdown.</strong> Remaining players show their cards, and the best five-card hand wins the pot.</li>
+</ol>
+<p>The button moves one seat to the left after every hand, so everyone takes turns acting last, which is a large advantage in Omaha (<a href="/blog/omaha-position-acting-last.html">why position matters</a>).</p>
+
+<h2>The rule: exactly two from your hand, exactly three from the board</h2>
+<p>In Hold'em you may use both, one or none of your hole cards. In Omaha you must use <strong>exactly two</strong> of your four hole cards together with <strong>exactly three</strong> of the five board cards. No more, no fewer. Nearly every misread hand in Omaha comes from forgetting this. (<a href="/blog/omaha-exactly-two-hole-cards.html">More examples of the rule.</a>)</p>
+<table class="paytable-compare">
+  <caption>Reading Omaha hands. The best hand always uses two hole cards and three board cards.</caption>
+  <thead>
+    <tr><th>Board</th><th>Your hand</th><th>Your best hand</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A♥ K♥ 7♥ 4♥ 2♣</td><td>Q♥ J♠ 9♦ 8♣</td><td>Ace high. One heart is not a flush: you need two.</td></tr>
+    <tr><td>10♣ 9♦ 8♥ 2♠ K♣</td><td>Q♦ J♠ 5♥ 5♣</td><td>King-high straight: Q J + K 10 9.</td></tr>
+    <tr><td>9♠ 9♦ 9♣ 5♥ 2♠</td><td>A♠ A♦ K♣ Q♥</td><td>Nines full of aces: A A + 9 9 9.</td></tr>
+    <tr><td>K♠ K♦ K♣ K♥ 3♦</td><td>A♠ Q♦ 7♣ 2♥</td><td>Three kings with A Q. You cannot use all four board kings.</td></tr>
+    <tr><td>K♠ K♦ K♣ K♥ 3♦</td><td>4♣ 4♦ 8♠ 6♥</td><td>Kings full of fours: 4 4 + K K K. This beats the hand above.</td></tr>
+    <tr><td>8♠ 7♠ 6♦ 5♣ 4♥</td><td>A♣ A♦ K♠ Q♠</td><td>Pair of aces. The straight on the board does not play for you.</td></tr>
+  </tbody>
+</table>
+
+<h2>Omaha hand rankings</h2>
+<p>The rankings are the same as every other standard poker game. What changes is how often each hand turns up: with four hole cards, everyone has more combinations, so the winning hand at showdown is usually much stronger than in Hold'em.</p>
+<table class="paytable-compare">
+  <caption>Omaha hand rankings, strongest first.</caption>
+  <thead>
+    <tr><th>#</th><th>Hand</th><th>Example</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>Royal flush</td><td>A♠ K♠ Q♠ J♠ 10♠</td></tr>
+    <tr><th scope="row">2</th><td>Straight flush</td><td>9♥ 8♥ 7♥ 6♥ 5♥</td></tr>
+    <tr><th scope="row">3</th><td>Four of a kind</td><td>Q♣ Q♦ Q♥ Q♠ 4♦</td></tr>
+    <tr><th scope="row">4</th><td>Full house</td><td>J♣ J♦ J♠ 6♥ 6♣</td></tr>
+    <tr><th scope="row">5</th><td>Flush</td><td>A♦ 10♦ 8♦ 5♦ 2♦</td></tr>
+    <tr><th scope="row">6</th><td>Straight</td><td>10♣ 9♦ 8♠ 7♥ 6♣</td></tr>
+    <tr><th scope="row">7</th><td>Three of a kind</td><td>7♠ 7♥ 7♦ K♣ 2♠</td></tr>
+    <tr><th scope="row">8</th><td>Two pair</td><td>A♣ A♥ 9♠ 9♦ 4♣</td></tr>
+    <tr><th scope="row">9</th><td>One pair</td><td>K♥ K♠ J♦ 8♣ 3♥</td></tr>
+    <tr><th scope="row">10</th><td>High card</td><td>A♠ J♦ 9♣ 6♥ 3♦</td></tr>
+  </tbody>
+</table>
+<p>Two practical consequences:</p>
+<ul>
+  <li><strong>Play for the nuts.</strong> The best possible hand on a given board is called the nuts, and in multi-way Omaha pots someone often has it (<a href="/blog/omaha-the-nuts.html">reading the nuts</a>). A second-best flush loses far more often than in Hold'em (<a href="/blog/omaha-second-best-flush.html">why</a>).</li>
+  <li><strong>A paired board means full houses are possible</strong>, and straights and flushes lose value fast (<a href="/blog/omaha-paired-boards-nut-flush.html">paired boards</a>).</li>
+</ul>
+
+<h2>Pot-limit betting: how big can you bet?</h2>
+<p>In Pot-Limit Omaha the most you can bet or raise is the size of the pot. For a raise, the pot is counted <em>after</em> you have called. A quick formula for the largest raise: <strong>three times the last bet, plus whatever was in the pot before it</strong>.</p>
+<table class="paytable-compare">
+  <caption>Largest legal bet or raise, in chips.</caption>
+  <thead>
+    <tr><th>Situation</th><th>Working</th><th>Max</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Pot 100, nobody has bet</td><td>Bet the pot</td><td>Bet 100</td></tr>
+    <tr><td>Pot 100, opponent bets 50</td><td>Call 50 makes 200, raise 200</td><td>Raise to 250</td></tr>
+    <tr><td>Pre-flop, blinds 5/10, first to act</td><td>Call 10 makes 25, raise 25</td><td>Raise to 35</td></tr>
+  </tbody>
+</table>
+<p>The cap stops the all-in shoves of No-Limit, so hands play over several streets. More in <a href="/blog/pot-limit-omaha-pot-sized-bet.html">the pot-sized bet</a> and <a href="/blog/omaha-pot-limit-vs-no-limit.html">pot limit vs no limit</a>.</p>
+
+<h2>Omaha Hi-Lo (Omaha 8 or better)</h2>
+<p>In Hi-Lo the pot is split between the best high hand and the best qualifying low hand.</p>
+<ul>
+  <li>A low hand is five different cards ranked 8 or lower. Aces count low, and straights and flushes don't spoil a low. The best low is A-2-3-4-5.</li>
+  <li>The two-plus-three rule still applies, and you may use different hole cards for your high and your low.</li>
+  <li>A low is only possible when the board shows at least three different cards of 8 or lower. If nobody qualifies, the high hand takes the whole pot.</li>
+</ul>
+<p>Read <a href="/blog/omaha-hi-lo-eight-or-better.html">Omaha Hi-Lo eight or better</a>, then the two traps: <a href="/blog/omaha-hi-lo-counterfeiting.html">counterfeiting</a> and <a href="/blog/omaha-hi-lo-quartering.html">getting quartered</a>.</p>
+
+<h2>Starting hands, in brief</h2>
+<p>There are 270,725 different four-card starting hands (<a href="/blog/omaha-how-many-four-card-hands.html">how that's counted</a>), and they run much closer together than in Hold'em. The strongest share three features:</p>
+<ul>
+  <li><strong>All four cards work together.</strong> A hand like J♠ 10♥ 9♠ 8♥ makes straights many ways (<a href="/blog/omaha-rundowns.html">rundowns</a>). A card that connects to nothing is a <a href="/blog/omaha-danglers.html">dangler</a>.</li>
+  <li><strong>Suits.</strong> Two cards of each of two suits, called double-suited, gives you two flush draws (<a href="/blog/omaha-double-suited-hands.html">double-suited hands</a>). Three of one suit is weaker than it looks (<a href="/blog/omaha-third-card-of-a-suit.html">why</a>).</li>
+  <li><strong>High cards.</strong> Pocket aces are a good start, but <a href="/blog/omaha-aces-weaker-than-holdem.html">much weaker than in Hold'em</a> without support.</li>
+</ul>
+
+<h2>Learn Omaha without risking money</h2>
+<p><a href="/OmahaPoker/">Omaha Poker: PLO Offline</a>, our free Android game, deals Pot-Limit Omaha, Omaha Hi-Lo and <a href="/blog/five-card-omaha.html">5-Card Omaha</a> against AI opponents at Easy, Medium and Hard. While you play it shows your win chance, the pot odds on a call and your outs, and it grades each starting hand, so you can check your reads as you go. There are Sit &amp; Go tournaments paid <a href="/blog/omaha-sit-and-go-50-30-20-payouts.html">50/30/20</a>, cash tables in play-money points, and it all works offline. No real money is involved.</p>

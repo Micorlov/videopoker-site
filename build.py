@@ -23,6 +23,7 @@ import re
 import shutil
 import struct
 import sys
+import urllib.parse
 
 from i18n import locales, memory, segments
 from i18n import pages as l10n
@@ -145,6 +146,37 @@ def load_skills():
     # Same calendar day keeps filename order.
     skills.sort(key=lambda p: p["date"], reverse=True)
     return skills
+
+
+def load_guides():
+    """Evergreen guides: rules and strategy pages that point at one game on Google Play.
+
+    Same front matter as a skill note, plus app_name and package (the game need not
+    be in apps.json) and an optional app slug for a link to its page here.
+    """
+    guides = []
+    folder = CONTENT / "guides"
+    if not folder.is_dir():
+        return guides
+    required = ("title", "date", "description", "standfirst", "app_name", "package")
+    for path in sorted(folder.glob("*.html")):
+        meta, body = read_front(path)
+        missing = [field for field in required if not meta.get(field)]
+        if missing:
+            raise SystemExit(f"{path}: missing {', '.join(missing)}")
+        meta.update(slug=path.stem, body=body, url=f"/guides/{path.stem}.html")
+        meta.setdefault("modified", meta["date"])
+        meta.setdefault("summary", meta["description"])
+        meta.setdefault("seo_title", re.sub("<[^>]+>", "", meta["title"]))
+        meta.setdefault("seo_description", meta["description"])
+        meta["words"] = len(re.sub("<[^>]+>", " ", body).split())
+        store = f"https://play.google.com/store/apps/details?id={meta['package']}"
+        referrer = f"utm_source=michaelorlov.com&utm_medium=guide&utm_campaign={path.stem}"
+        meta["store_url"] = store
+        meta["play_url"] = store + "&referrer=" + urllib.parse.quote(referrer, safe="")
+        guides.append(meta)
+    guides.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
+    return guides
 
 
 def image_size(path):
@@ -429,17 +461,18 @@ def emit(built, memories, wanted):
             # Skill notes stay English until they are translated. A language
             # that does not have /skills/ yet still shows the nav link, pointed
             # at the English page rather than a prefix that was never built.
-            if loc.code not in built.get("/skills/", {}):
-                page_html = page_html.replace(f'href="{loc.prefix}/skills/', 'href="/skills/')
-                page_html = page_html.replace(
-                    f'href="{SITE}{loc.prefix}/skills/', f'href="{SITE}/skills/')
+            for section in ("/skills/", "/guides/"):
+                if loc.code not in built.get(section, {}):
+                    page_html = page_html.replace(f'href="{loc.prefix}{section}', f'href="{section}')
+                    page_html = page_html.replace(
+                        f'href="{SITE}{loc.prefix}{section}', f'href="{SITE}{section}')
             write_file(loc.path(path), page_html.replace(LOCALES_MARKER, active))
 
 
 # ---------------------------------------------------------------- pages
 
 
-def build_home(apps, posts, abs_, skills=()):
+def build_home(apps, posts, abs_, skills=(), guides=()):
     live = [a for a in apps if a["status"] == "live"]
     testing = [a for a in apps if a["status"] == "testing"]
     featured = next(a for a in apps if a["featured"])
@@ -470,7 +503,8 @@ def build_home(apps, posts, abs_, skills=()):
 </section>
 """
     stats = [("#apps", len(live), "Out now"), ("#testing", len(testing), "In testing"),
-             ("/blog/", len(posts), "Blog"), ("/skills/", len(skills), "Skills")]
+             ("/blog/", len(posts), "Blog"), ("/skills/", len(skills), "Skills"),
+             ("/guides/", len(guides), "Guides")]
     tiles = "\n".join(
         f'      <a class="stat" href="{href}"><span class="stat-num">{n}</span><span class="stat-label">{label}</span></a>'
         for href, n, label in stats if n
@@ -1031,6 +1065,119 @@ def build_skill(p, older, newer, skills):
     )
 
 
+def guide_cta(g):
+    app = {"play_url": esc(g["play_url"], quote=True), "slug": g.get("app", g["package"])}
+    page_link = f' · <a href="/{g["app"]}/">About the game</a>' if g.get("app") else ""
+    return f"""<div class="cta-row">
+    {play_button(app, label=f"Get {g['app_name']} on Google Play")}
+    <p class="cta-note">{esc(g['app_name'])} · free on Android{page_link}</p>
+  </div>"""
+
+
+def build_guides(guides):
+    page(
+        "/guides/",
+        title=fit_title("Guides — game rules and strategy"),
+        description="Rules, strategy charts and how-to guides for video poker, blackjack, Omaha poker, "
+                    "dirt bike and drag racing games on Android.",
+        og_title=f"{STUDIO} guides",
+        body=f"""
+<main class="post wrap">
+  <div class="post-head">
+    <h1>Guides</h1>
+    <p class="standfirst">Rules, strategy charts and how-to guides for the games we make, written to be useful whether or not you play ours.</p>
+  </div>
+  {skill_items(guides)}
+</main>
+""",
+        group="Guides",
+        schema=[
+            {"@context": "https://schema.org", "@type": "CollectionPage", "@id": SITE + "/guides/",
+             "name": f"{STUDIO} guides", "url": SITE + "/guides/",
+             "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO},
+             "hasPart": [{"@type": "Article", "headline": re.sub("<[^>]+>", "", g["title"]),
+                          "url": SITE + g["url"]} for g in guides]},
+            breadcrumb(("Home", "/"), ("Guides", None)),
+        ],
+    )
+    for g in guides:
+        build_guide(g, guides)
+
+
+def build_guide(g, guides):
+    plain = re.sub("<[^>]+>", "", g["title"])
+    others = [q for q in guides if q["slug"] != g["slug"]]
+    more = (
+        f"""
+  <aside class="related wrap-inner">
+    <h2>More guides</h2>
+    {skill_items(others, summary=True)}
+  </aside>"""
+        if others else ""
+    )
+    header_app = {"status": "live", "play_url": esc(g["play_url"], quote=True), "slug": g.get("app", g["package"])}
+    page(
+        g["url"],
+        title=fit_title(g["seo_title"]),
+        description=g["seo_description"],
+        og_title=plain,
+        og_type="article",
+        published=g["date"],
+        modified=g["modified"],
+        header_app=header_app,
+        body=f"""
+<main class="post wrap">
+  <div class="post-head">
+    <p class="kicker"><a href="/guides/">Guides</a> · <time datetime="{g['modified']}">Updated {nice_date(g['modified'])}</time></p>
+    <h1>{esc(g['title'])}</h1>
+    <p class="standfirst">{esc(g['standfirst'])}</p>
+  {guide_cta(g)}
+  </div>
+
+  <article class="post-body">
+{g['body'].strip()}
+  </article>
+  <div class="wrap-inner">
+  {guide_cta(g)}
+  </div>
+{more}
+</main>
+""",
+        group="Guides",
+        schema=[
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": plain,
+                "description": g["description"],
+                "datePublished": g["date"],
+                "dateModified": g["modified"],
+                "inLanguage": "en",
+                "wordCount": g["words"],
+                "articleSection": "Guides",
+                "author": {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR},
+                "publisher": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO,
+                              "logo": {"@type": "ImageObject", "url": SITE + "/img/mark-512.png"}},
+                "image": SITE + DEFAULT_OG,
+                "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + g["url"]},
+                "about": {"@id": g["store_url"]},
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "@id": g["store_url"],
+                "name": g["app_name"],
+                "operatingSystem": "Android",
+                "applicationCategory": "GameApplication",
+                "url": g["store_url"],
+                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                "author": {"@type": "Organization", "@id": ORG_ID, "name": STUDIO},
+            },
+            breadcrumb(("Home", "/"), ("Guides", "/guides/"), (plain, None)),
+        ],
+    )
+
+
 def build_legal(apps, abs_):
     for path in sorted((CONTENT / "legal").glob("*.html")):
         meta, body = read_front(path)
@@ -1089,7 +1236,7 @@ def build_404(apps):
     )
 
 
-def build_sitemap(apps, posts, skills, built):
+def build_sitemap(apps, posts, skills, built, guides=()):
     latest = posts[0]["modified"] if posts else None
     def app_mod(a):
         # An app page lists its own posts, so it genuinely changes when one lands.
@@ -1105,6 +1252,9 @@ def build_sitemap(apps, posts, skills, built):
     if skills:
         urls.append(("/skills/", max(s["modified"] for s in skills)))
         urls += [(s["url"], s["modified"]) for s in skills]
+    if guides:
+        urls.append(("/guides/", max(g["modified"] for g in guides)))
+        urls += [(g["url"], g["modified"]) for g in guides]
     # Every language that carries a page is listed under its own URL. The
     # hreflang set that ties them together is on the pages themselves.
     rows = "\n".join(
@@ -1175,15 +1325,17 @@ def collect():
     abs_ = {a["slug"]: a for a in apps}
     posts = load_posts(abs_)
     skills = load_skills()
-    build_home(apps, posts, abs_, skills)
+    guides = load_guides()
+    build_home(apps, posts, abs_, skills, guides)
     for app in apps:
         build_app(app, apps, posts, abs_)
     build_blog(apps, posts, abs_)
     build_skills(skills)
+    build_guides(guides)
     build_legal(apps, abs_)
     build_404(apps)
     redirect("/terms.html", "/VideoPoker/terms.html")
-    return apps, posts, skills, abs_
+    return apps, posts, skills, guides, abs_
 
 
 def main():
@@ -1191,12 +1343,12 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(STATIC, OUT)
-    apps, posts, skills, abs_ = collect()
+    apps, posts, skills, guides, abs_ = collect()
 
     built, memories, wanted = localize_site(requested)
     emit(built, memories, wanted)
     published = sorted({code for page in built.values() for code in page})
-    build_sitemap(apps, posts, skills, built)
+    build_sitemap(apps, posts, skills, built, guides)
     build_feed(posts, abs_, DEFAULT_LOCALE)
     for loc in wanted:
         if loc.code in published:

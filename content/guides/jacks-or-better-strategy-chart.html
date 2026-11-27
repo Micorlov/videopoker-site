@@ -1,0 +1,94 @@
+<!--
+{
+  "title": "Jacks or Better strategy chart (9/6), with examples",
+  "date": "2026-11-27",
+  "description": "The full 9/6 Jacks or Better strategy chart as a hold-priority table, the paytable it assumes, worked examples and the holds players most often get wrong.",
+  "summary": "Sixteen rows, checked top to bottom, play 9/6 Jacks or Better within a fraction of a percent of perfect. With the paytable, examples and the common traps.",
+  "standfirst": "Every Jacks or Better deal has one best hold. This chart finds it: read down the list and keep the first combination your five cards make.",
+  "app_name": "Video Poker: Jacks or Better",
+  "package": "com.micorlov.videopoker",
+  "app": "VideoPoker"
+}
+-->
+<p>Jacks or Better is the base game of video poker: a pair of jacks or better pays, and the rest of the paytable climbs from two pair to the royal flush. Because you can see all five cards and the deck is a fresh 52 each hand, every possible hold has an exact expected value, and one of the 32 ways to hold a hand is always best. A strategy chart is that answer written as a priority list.</p>
+
+<h2>The paytable this chart assumes</h2>
+<p>The chart below is for <strong>9/6 Jacks or Better</strong>, named after what a full house and a flush pay per coin. It returns about 99.54% with perfect play. If a machine pays 8/5 or 7/5 the game is worse, and a few close calls move, but the order below is still a good guide. See <a href="/blog/reading-a-video-poker-paytable.html">how to read a video poker paytable</a> and <a href="/blog/full-pay-machines.html">what a full-pay machine is</a>.</p>
+<table class="paytable-compare">
+  <caption>9/6 Jacks or Better, payout per coin bet. The royal pays 800 per coin only with the maximum five coins.</caption>
+  <thead>
+    <tr><th>Hand</th><th>1 coin</th><th>5 coins</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Royal flush</th><td>250</td><td>4,000</td></tr>
+    <tr><th scope="row">Straight flush</th><td>50</td><td>250</td></tr>
+    <tr><th scope="row">Four of a kind</th><td>25</td><td>125</td></tr>
+    <tr><th scope="row">Full house</th><td>9</td><td>45</td></tr>
+    <tr><th scope="row">Flush</th><td>6</td><td>30</td></tr>
+    <tr><th scope="row">Straight</th><td>4</td><td>20</td></tr>
+    <tr><th scope="row">Three of a kind</th><td>3</td><td>15</td></tr>
+    <tr><th scope="row">Two pair</th><td>2</td><td>10</td></tr>
+    <tr><th scope="row">Jacks or better</th><td>1</td><td>5</td></tr>
+  </tbody>
+</table>
+
+<h2>The Jacks or Better strategy chart</h2>
+<p>Start at row 1 and go down. The first row your hand matches is the hold. &ldquo;High card&rdquo; means J, Q, K or A, the cards that can pair into a paying hand.</p>
+<table class="paytable-compare">
+  <caption>Simple 9/6 Jacks or Better strategy. It gives up less than a tenth of a percent against computer-perfect play.</caption>
+  <thead>
+    <tr><th>#</th><th>Hold</th><th>Example</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>Royal flush, straight flush, four of a kind</td><td>Keep the made hand</td></tr>
+    <tr><th scope="row">2</th><td>4 to a royal flush</td><td>A♥ K♥ Q♥ J♥ + 7♣</td></tr>
+    <tr><th scope="row">3</th><td>Full house, flush, straight, three of a kind</td><td>Trips: keep the three, draw two</td></tr>
+    <tr><th scope="row">4</th><td>4 to a straight flush</td><td>8♠ 7♠ 6♠ 5♠ + K♦</td></tr>
+    <tr><th scope="row">5</th><td>Two pair</td><td>Keep both pairs, draw one</td></tr>
+    <tr><th scope="row">6</th><td>High pair (jacks to aces)</td><td>Q♣ Q♦ + 9♠ 5♥ 2♣</td></tr>
+    <tr><th scope="row">7</th><td>3 to a royal flush</td><td>K♦ Q♦ 10♦ + 6♣ 3♠</td></tr>
+    <tr><th scope="row">8</th><td>4 to a flush</td><td>K♣ 9♣ 6♣ 2♣ + 5♦</td></tr>
+    <tr><th scope="row">9</th><td>Low pair (2s to 10s)</td><td>7♠ 7♥ + A♦ 9♣ 4♠</td></tr>
+    <tr><th scope="row">10</th><td>4 to an outside straight</td><td>9♦ 8♣ 7♠ 6♥ + 2♦</td></tr>
+    <tr><th scope="row">11</th><td>2 suited high cards</td><td>K♠ J♠</td></tr>
+    <tr><th scope="row">12</th><td>3 to a straight flush</td><td>7♥ 6♥ 5♥</td></tr>
+    <tr><th scope="row">13</th><td>2 unsuited high cards (with three or more, keep the lowest two)</td><td>Q♦ J♣</td></tr>
+    <tr><th scope="row">14</th><td>10 with a suited J, Q or K</td><td>J♥ 10♥</td></tr>
+    <tr><th scope="row">15</th><td>1 high card</td><td>A♣</td></tr>
+    <tr><th scope="row">16</th><td>Nothing: discard all five</td><td>9♠ 7♦ 5♣ 3♥ 2♠</td></tr>
+  </tbody>
+</table>
+
+<h2>Worked examples</h2>
+<p>The chart earns its keep on the hands where two holds look reasonable. These are the ones players most often get wrong.</p>
+<ul>
+  <li><strong>K♥ Q♥ J♥ 10♥ 3♥, a made flush.</strong> Row 2 beats row 3: throw the 3♥ and draw to the royal. You give up a sure 6 for a draw that averages more, because it can still finish as a royal, a straight flush, a flush, a straight or a high pair. More in <a href="/blog/four-to-a-royal-breaking-a-flush-or-straight.html">breaking a flush or straight for four to a royal</a>.</li>
+  <li><strong>A♠ K♠ Q♠ J♠ J♦.</strong> A paying pair of jacks, but four to a royal sits higher. Hold the four spades.</li>
+  <li><strong>J♣ J♦ 8♦ 5♦ 2♦.</strong> A high pair (row 6) beats four to a flush (row 8). Keep the jacks.</li>
+  <li><strong>6♣ 6♦ 9♦ Q♦ 2♦.</strong> Four to a flush (row 8) beats a low pair (row 9). Hold the four diamonds. The reasoning is in <a href="/blog/jacks-or-better-low-pair-vs-four-flush.html">low pair or four to a flush</a>.</li>
+  <li><strong>5♠ 5♥ 8♣ 7♦ 6♥.</strong> A low pair (row 9) beats four to an outside straight (row 10): keep the fives.</li>
+  <li><strong>K♥ Q♥ J♥ 4♥ 9♠.</strong> Three to a royal (row 7) beats four to a flush (row 8). Hold K Q J of hearts.</li>
+  <li><strong>A♦ K♣ 10♥ 4♠ 2♣.</strong> Two unsuited high cards are worth holding; a 10 of another suit is not. Hold A K.</li>
+</ul>
+
+<h2>Five rules that cover most of the chart</h2>
+<ol>
+  <li><strong>Never hold a kicker.</strong> Keeping an ace next to a pair only lowers your chance of improving. See <a href="/blog/why-a-kicker-never-helps.html">why a kicker never helps</a>.</li>
+  <li><strong>Two pair: keep both.</strong> Never break two pair to keep the higher one (<a href="/blog/jacks-or-better-holding-two-pair.html">why</a>).</li>
+  <li><strong>A low pair is worth keeping</strong> over almost every draw below four to a flush, even though it <a href="/blog/jacks-or-better-low-pair-pays-nothing.html">pays nothing on its own</a>.</li>
+  <li><strong>Inside straights are not on the chart.</strong> With four to an inside straight and no high cards, the simple strategy throws it away. See <a href="/blog/inside-vs-outside-straight-draws.html">inside vs outside straight draws</a>.</li>
+  <li><strong>Play five coins</strong> when you play for real, because the royal flush bonus only pays in full on the fifth coin (<a href="/blog/video-poker-fifth-coin-royal-bonus.html">the numbers</a>).</li>
+</ol>
+
+<h2>How to practise the chart</h2>
+<p>Reading a chart and playing it at speed are different skills. Results in video poker are far too noisy to tell you whether your holds are right, so the useful practice is the kind that checks each decision. That is why <a href="/blog/why-practise-video-poker-offline.html">free practice teaches more</a> than playing for money.</p>
+<p>Our free <a href="/VideoPoker/">Video Poker</a> app for Android has strategy hints you can turn on: the game shows which cards the chart would hold before you draw, so you can play your hold and see the correct one side by side. It plays offline, with no ads and no real money, and has Jacks or Better, Deuces Wild, Bonus Poker and Double Bonus in single hand, Triple Play and Five Play.</p>
+
+<h2>Other games need other charts</h2>
+<p>This chart is for Jacks or Better only. Wild cards and bigger quad payouts change the order of the rows, sometimes a lot:</p>
+<ul>
+  <li><a href="/blog/deuces-wild-strategy.html">Deuces Wild strategy</a></li>
+  <li><a href="/blog/bonus-poker-and-double-bonus.html">Bonus Poker and Double Bonus</a></li>
+  <li><a href="/blog/video-poker-variants-learning-order.html">Which variant to learn next</a></li>
+</ul>
+<p>This guide is for a free practice game. Video poker played for money has a house edge on almost every machine, even with perfect strategy.</p>

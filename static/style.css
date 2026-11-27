@@ -571,3 +571,9 @@ footer a:hover { color: var(--primary); }
 }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ---------- guides: wide strategy charts scroll sideways on a phone ---------- */
+.chart-scroll { overflow-x: auto; margin: 24px 0; }
+.chart-scroll .paytable-compare { margin: 0; min-width: 560px; }
+.chart-scroll .paytable-compare th, .chart-scroll .paytable-compare td { padding-inline: 0 6px; text-align: center; }
+.chart-scroll .paytable-compare th[scope="row"] { text-align: start; }

@@ -1,0 +1,125 @@
+<!--
+{
+  "title": "Blackjack basic strategy for beginners, with charts",
+  "date": "2026-11-27",
+  "description": "Blackjack basic strategy explained for beginners: hard, soft and pair charts for a six-deck game, what each move means, and the handful of rules to learn first.",
+  "summary": "Three charts, hard totals, soft totals and pairs, for six decks with the dealer standing on soft 17, plus the short rules that cover most hands.",
+  "standfirst": "Basic strategy is the single best play for every hand you can be dealt against every dealer up-card. It fits on three small charts, and most of it follows from a few rules.",
+  "app_name": "Blackjack 21 Big Cards Offline",
+  "package": "com.micorlov.blackjack21_v2",
+  "app": "Blackjack21"
+}
+-->
+<p>In blackjack you see two of your cards and one of the dealer's. Every combination of those has one play, hit, stand, double, split or surrender, that loses the least or wins the most over the long run. Computers worked those plays out decades ago, and the result is called <strong>basic strategy</strong>. Played perfectly it brings the house edge down to around half a percent. Played by feel, the edge is several times that. <a href="/blog/basic-strategy-vs-playing-by-feel.html">Here is where the gap comes from.</a></p>
+
+<h2>The rules these charts assume</h2>
+<p>Basic strategy changes slightly with the table rules. These charts are for the most common modern game:</p>
+<ul>
+  <li>Six decks in a shoe (<a href="/blog/six-deck-shoe-vs-single-deck.html">why the deck count matters</a>)</li>
+  <li>The dealer stands on all 17s, soft 17 included (<a href="/blog/dealer-stands-on-soft-17.html">what soft 17 means</a>)</li>
+  <li>Blackjack pays 3:2 (<a href="/blog/blackjack-3-to-2-payout.html">why 6:5 is worse</a>)</li>
+  <li>You may double on any first two cards, and double after splitting</li>
+  <li>Late surrender is offered (if it isn't, read every <em>Rh</em> as <em>H</em>)</li>
+</ul>
+
+<h2>How to read the charts</h2>
+<p>Find your hand on the left and the dealer's up-card across the top.</p>
+<table class="paytable-compare">
+  <caption>Chart key.</caption>
+  <tbody>
+    <tr><th scope="row">H</th><td>Hit: take another card.</td></tr>
+    <tr><th scope="row">S</th><td>Stand: take no more cards.</td></tr>
+    <tr><th scope="row">D</th><td>Double down if allowed, otherwise hit. You double the bet and get exactly <a href="/blog/blackjack-doubling-down-one-card.html">one more card</a>.</td></tr>
+    <tr><th scope="row">Ds</th><td>Double if allowed, otherwise stand.</td></tr>
+    <tr><th scope="row">P</th><td>Split the pair into two hands.</td></tr>
+    <tr><th scope="row">Rh</th><td>Surrender if allowed (give up half the bet), otherwise hit.</td></tr>
+  </tbody>
+</table>
+<p>Check the charts in this order: can you surrender, should you split, is the hand soft, and only then the hard totals. A pair of 5s is never split, so play it as a hard 10. A <a href="/blog/blackjack-soft-and-hard-hands.html">soft hand</a> is one with an ace that still counts as 11.</p>
+
+<h2>Hard totals</h2>
+<div class="chart-scroll">
+<table class="paytable-compare">
+  <caption>Hard totals: no ace, or an ace that has to count as 1. Dealer up-card across the top.</caption>
+  <thead>
+    <tr><th>You</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>A</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">8 or less</th><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">9</th><td>H</td><td>D</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">10</th><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">11</th><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>H</td></tr>
+    <tr><th scope="row">12</th><td>H</td><td>H</td><td>S</td><td>S</td><td>S</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">13</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">14</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">15</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>H</td><td>H</td><td>H</td><td>Rh</td><td>H</td></tr>
+    <tr><th scope="row">16</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>H</td><td>H</td><td>Rh</td><td>Rh</td><td>Rh</td></tr>
+    <tr><th scope="row">17+</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Soft totals</h2>
+<div class="chart-scroll">
+<table class="paytable-compare">
+  <caption>Soft totals: an ace counting as 11. Dealer up-card across the top.</caption>
+  <thead>
+    <tr><th>You</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>A</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A,2</th><td>H</td><td>H</td><td>H</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,3</th><td>H</td><td>H</td><td>H</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,4</th><td>H</td><td>H</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,5</th><td>H</td><td>H</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,6</th><td>H</td><td>D</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,7</th><td>S</td><td>Ds</td><td>Ds</td><td>Ds</td><td>Ds</td><td>S</td><td>S</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">A,8</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr>
+    <tr><th scope="row">A,9</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Pairs</h2>
+<div class="chart-scroll">
+<table class="paytable-compare">
+  <caption>Pairs, with doubling after a split allowed. Dealer up-card across the top.</caption>
+  <thead>
+    <tr><th>You</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>A</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">A,A</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td></tr>
+    <tr><th scope="row">10,10</th><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr>
+    <tr><th scope="row">9,9</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>S</td><td>P</td><td>P</td><td>S</td><td>S</td></tr>
+    <tr><th scope="row">8,8</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td></tr>
+    <tr><th scope="row">7,7</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">6,6</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">5,5</th><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>D</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">4,4</th><td>H</td><td>H</td><td>H</td><td>P</td><td>P</td><td>H</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">3,3</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+    <tr><th scope="row">2,2</th><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>P</td><td>H</td><td>H</td><td>H</td><td>H</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>The rules to learn first</h2>
+<p>You don't need all 280 cells on day one. These rules cover most hands you will see, roughly in the order they are worth learning. A fuller plan is in <a href="/blog/blackjack-strategy-chart-learning-order.html">the order to learn the chart in</a>.</p>
+<ol>
+  <li><strong>Always split aces and 8s.</strong> Never split 10s or 5s. (<a href="/blog/blackjack-always-split-aces-and-eights.html">Why aces and eights</a>, <a href="/blog/never-split-tens.html">why never tens</a>.)</li>
+  <li><strong>Stand on hard 17 or more.</strong> Always. (<a href="/blog/blackjack-never-hit-hard-17.html">The maths</a>.)</li>
+  <li><strong>With 12 to 16, stand against a dealer 2 to 6 and hit against 7 to ace.</strong> The one exception: hit 12 against a 2 or 3. A dealer showing a small card busts often (<a href="/blog/blackjack-dealer-bust-rates.html">bust rates by up-card</a>), so let them. (<a href="/blog/stiff-hands-stand-13-to-16.html">More on stiff hands</a>.)</li>
+  <li><strong>Double 11 against everything but an ace, 10 against 2 to 9, and 9 against 3 to 6.</strong> (<a href="/blog/blackjack-doubling-9-10-11.html">Doubling 9, 10 and 11</a>.)</li>
+  <li><strong>Never take insurance.</strong> It is a side bet that the dealer has blackjack, and it loses money for a player who isn't counting cards. (<a href="/blog/blackjack-insurance-explained.html">Insurance explained</a>.)</li>
+  <li><strong>Soft 17 or less is never a stand.</strong> Hit or double it. Soft 18 is the tricky one: stand against 2, 7 and 8, double against 3 to 6, hit against 9, 10 and ace. (<a href="/blog/soft-18-ace-seven-strategy.html">Soft 18 in detail</a>.)</li>
+</ol>
+
+<h2>Mistakes beginners make most</h2>
+<ul>
+  <li><strong>Standing on 16 against a 10 to avoid busting.</strong> Hitting loses slightly less (<a href="/blog/hard-16-against-a-10.html">the numbers</a>); surrender, if offered, is better still (<a href="/blog/blackjack-late-surrender.html">late surrender</a>).</li>
+  <li><strong>Playing to the other players' cards.</strong> What others do with their hands doesn't change your odds on average (<a href="/blog/blackjack-other-players-cards.html">why</a>).</li>
+  <li><strong>Assuming the dealer has a 10 in the hole.</strong> A third of the cards are worth ten (<a href="/blog/blackjack-why-tens-are-a-third-of-the-deck.html">here's the count</a>), which is a lot, but it is still not most of them.</li>
+</ul>
+
+<h2>Practise with big, easy-to-read cards</h2>
+<p>Basic strategy sticks once you have played it a few hundred times without looking it up. <a href="/Blackjack21/">Blackjack 21 Big Cards</a>, our free Android game, uses the same rules as these charts: six decks, the dealer stands on 17, blackjack pays 3:2, with double, split, surrender and insurance. The cards and buttons are oversized, the dealing is unhurried, and it plays offline, with no ads and no real money.</p>
+<p>There is one twist: four other players sit at the table, and the best hand sweeps the chips the losers leave behind. Basic strategy is still the right way to play your hand against the dealer, and beating the dealer is what keeps your bet.</p>
+<p>This is strategy for a free practice game. Real-money blackjack has a house edge even with perfect basic strategy.</p>
